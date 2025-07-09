@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
-  const router = useRouter();
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openAccordions, setOpenAccordions] = useState<string[]>([]);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -41,7 +41,7 @@ export default function Dashboard() {
 
   const handleSignOut = () => {
     // Clear any session data here
-    router.push("/login");
+    navigate("/login");
   };
 
   const menuSections = {
