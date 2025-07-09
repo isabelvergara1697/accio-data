@@ -816,6 +816,7 @@ export default function Login() {
                 <button
                   type="button"
                   onClick={handleGoogleSignIn}
+                  className="secondary-button"
                   style={{
                     display: "flex",
                     padding: "10px 16px",
@@ -823,11 +824,6 @@ export default function Login() {
                     alignItems: "center",
                     gap: "12px",
                     alignSelf: "stretch",
-                    borderRadius: "8px",
-                    border: "1px solid #D5D7DA",
-                    background: "#FFF",
-                    boxShadow:
-                      "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                   }}
                 >
