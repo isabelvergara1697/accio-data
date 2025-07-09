@@ -295,7 +295,7 @@ export default function Dashboard() {
                   style={{
                     fontFamily:
                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 700,
+                    fontWeight: 600,
                     fontSize: "14px",
                     color: isActive ? "rgba(39,53,114,1)" : "rgba(65,70,81,1)",
                   }}
@@ -421,7 +421,7 @@ export default function Dashboard() {
                           style={{
                             fontFamily:
                               "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                            fontWeight: 700,
+                            fontWeight: 600,
                             fontSize: "14px",
                             color: "rgba(65,70,81,1)",
                           }}
@@ -913,7 +913,7 @@ export default function Dashboard() {
                       style={{
                         fontFamily:
                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 700,
+                        fontWeight: 600,
                         fontSize: "14px",
                         color: "rgba(255,255,255,1)",
                       }}
@@ -1093,7 +1093,7 @@ export default function Dashboard() {
                           style={{
                             fontFamily:
                               "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                            fontWeight: 700,
+                            fontWeight: 600,
                             fontSize: "14px",
                             color: "rgba(24,29,39,1)",
                           }}
@@ -1246,7 +1246,7 @@ export default function Dashboard() {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     fontSize: "14px",
                                     color: "rgba(65,70,81,1)",
                                   }}
@@ -1326,7 +1326,7 @@ export default function Dashboard() {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     fontSize: "14px",
                                     color: "rgba(37,43,55,1)",
                                   }}
@@ -1377,7 +1377,7 @@ export default function Dashboard() {
                               style={{
                                 fontFamily:
                                   "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                fontWeight: 700,
+                                fontWeight: 600,
                                 fontSize: "12px",
                                 color: "rgba(83,88,98,1)",
                               }}
@@ -1476,7 +1476,7 @@ export default function Dashboard() {
                                     style={{
                                       fontFamily:
                                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                      fontWeight: 700,
+                                      fontWeight: 600,
                                       fontSize: "14px",
                                       color: "rgba(24,29,39,1)",
                                     }}
@@ -1645,7 +1645,7 @@ export default function Dashboard() {
                                     style={{
                                       fontFamily:
                                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                      fontWeight: 700,
+                                      fontWeight: 600,
                                       fontSize: "14px",
                                       color: "rgba(24,29,39,1)",
                                     }}
@@ -1778,7 +1778,7 @@ export default function Dashboard() {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "14px",
                                   color: "rgba(65,70,81,1)",
                                 }}
@@ -1875,7 +1875,7 @@ export default function Dashboard() {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     fontSize: "14px",
                                     color: "rgba(65,70,81,1)",
                                   }}
@@ -1983,7 +1983,7 @@ export default function Dashboard() {
                       style={{
                         fontFamily:
                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 700,
+                        fontWeight: 600,
                         fontSize: "24px",
                         color: "rgba(24,29,39,1)",
                       }}
@@ -2086,7 +2086,7 @@ export default function Dashboard() {
                           style={{
                             fontFamily:
                               "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                            fontWeight: 700,
+                            fontWeight: 600,
                             fontSize: "14px",
                             color: "rgba(65,70,81,1)",
                           }}
@@ -2158,7 +2158,7 @@ export default function Dashboard() {
                           style={{
                             fontFamily:
                               "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                            fontWeight: 700,
+                            fontWeight: 600,
                             fontSize: "14px",
                             color: "rgba(65,70,81,1)",
                           }}
@@ -2250,7 +2250,7 @@ export default function Dashboard() {
                           style={{
                             fontFamily:
                               "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                            fontWeight: 700,
+                            fontWeight: 600,
                             fontSize: "14px",
                             color: "rgba(65,70,81,1)",
                           }}
