@@ -16,7 +16,11 @@ export default function Index() {
   return (
     <div
       className="min-h-screen flex relative"
-      style={{ backgroundColor: "#FAFAFA", alignItems: "flex-start" }}
+      style={{
+        backgroundColor: "#FAFAFA",
+        justifyContent: "flex-end",
+        alignItems: "flex-start",
+      }}
     >
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
@@ -244,7 +248,10 @@ export default function Index() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col" style={{ marginLeft: "296px" }}>
+      <main
+        className="flex-1 flex flex-col"
+        style={{ marginLeft: "296px", borderRadius: "40px 0px 0px 0px" }}
+      >
         {/* Mobile Header Bar */}
         <div className="lg:hidden bg-background border-b border-border px-4 py-3 flex items-center justify-between">
           <button
@@ -392,12 +399,12 @@ export default function Index() {
                   ></div>
                   <div className="flex flex-col">
                     <div
-                      className="text-sm font-semibold"
                       style={{
                         color: "var(--colors-text-text-primary-900, #181D27)",
                         fontFamily:
                           'var(--Font-family-font-family-body, "Public Sans")',
                         fontSize: "var(--Font-size-text-sm, 14px)",
+                        fontStyle: "normal",
                         fontWeight: 600,
                         lineHeight: "var(--Line-height-text-sm, 20px)",
                       }}
@@ -405,7 +412,6 @@ export default function Index() {
                       Alexandra Fitzwilliam
                     </div>
                     <div
-                      className="text-sm"
                       style={{
                         overflow: "hidden",
                         color: "var(--colors-text-text-tertiary-600, #535862)",
@@ -413,6 +419,7 @@ export default function Index() {
                         fontFamily:
                           'var(--Font-family-font-family-body, "Public Sans")',
                         fontSize: "var(--Font-size-text-sm, 14px)",
+                        fontStyle: "normal",
                         fontWeight: 400,
                         lineHeight: "var(--Line-height-text-sm, 20px)",
                       }}
@@ -427,7 +434,10 @@ export default function Index() {
         </header>
 
         {/* Dashboard Content */}
-        <div className="flex-1 p-6" style={{ paddingBottom: "24px" }}>
+        <div
+          className="flex-1"
+          style={{ padding: "32px", paddingBottom: "24px", gap: "32px" }}
+        >
           {/* Page Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-foreground mb-2">
