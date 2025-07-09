@@ -1,15 +1,65 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [email, setEmail] = useState("janedoe@gmail.com");
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
+
+  const validateEmail = (emailValue: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailValue) {
+      return "Please enter your email address.";
+    }
+    if (!emailRegex.test(emailValue)) {
+      return "Please enter a valid email address.";
+    }
+    return "";
+  };
+
+  const validatePassword = (passwordValue: string) => {
+    if (!passwordValue) {
+      return "Please enter your password.";
+    }
+    return "";
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setEmail(value);
+    if (hasAttemptedSubmit) {
+      setEmailError(validateEmail(value));
+    }
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPassword(value);
+    if (hasAttemptedSubmit) {
+      setPasswordError(validatePassword(value));
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempted with:", { email, password, rememberMe });
+    setHasAttemptedSubmit(true);
+
+    const emailErr = validateEmail(email);
+    const passwordErr = validatePassword(password);
+
+    setEmailError(emailErr);
+    setPasswordError(passwordErr);
+
+    if (!emailErr && !passwordErr) {
+      // Valid credentials, redirect to dashboard
+      navigate("/dashboard");
+    }
   };
 
   const handleGoogleSignIn = () => {
@@ -36,6 +86,7 @@ export default function Login() {
         padding: "96px 0px 48px 0px",
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
         gap: "32px",
         background: "linear-gradient(90deg, #F7F8FD 0%, #D9DEF2 100%)",
         position: "relative",
@@ -44,24 +95,23 @@ export default function Login() {
       <div
         style={{
           display: "flex",
-          maxWidth: "1280px",
+          width: "100%",
+          maxWidth: "460px",
           padding: "0px 32px",
           flexDirection: "column",
           alignItems: "center",
           gap: "32px",
-          alignSelf: "stretch",
           position: "relative",
         }}
       >
         <div
           style={{
             display: "flex",
-            maxWidth: "460px",
+            width: "100%",
             padding: "32px 40px",
             flexDirection: "column",
             alignItems: "center",
             gap: "24px",
-            alignSelf: "stretch",
             borderRadius: "16px",
             background: "#FFF",
             boxShadow:
@@ -69,6 +119,7 @@ export default function Login() {
             position: "relative",
           }}
         >
+          {/* Header */}
           <div
             style={{
               display: "flex",
@@ -136,17 +187,7 @@ export default function Login() {
                   position: "relative",
                 }}
               >
-                <span
-                  style={{
-                    fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "30px",
-                    color: "rgba(24,29,39,1)",
-                  }}
-                >
-                  Welcome Back
-                </span>
+                Welcome Back
               </div>
               <div
                 style={{
@@ -161,17 +202,7 @@ export default function Login() {
                   position: "relative",
                 }}
               >
-                <span
-                  style={{
-                    fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 400,
-                    fontSize: "16px",
-                    color: "rgba(83,88,98,1)",
-                  }}
-                >
-                  Welcome back! Please enter your details.
-                </span>
+                Welcome back! Please enter your details.
               </div>
             </div>
           </div>
@@ -240,17 +271,7 @@ export default function Login() {
                         position: "relative",
                       }}
                     >
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "14px",
-                          color: "rgba(65,70,81,1)",
-                        }}
-                      >
-                        Email
-                      </span>
+                      Email
                     </div>
                   </div>
                   <div
@@ -261,7 +282,11 @@ export default function Login() {
                       gap: "8px",
                       alignSelf: "stretch",
                       borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
+                      border: emailError
+                        ? "1px solid #FDA29B"
+                        : focusedField === "email"
+                          ? "2px solid #34479A"
+                          : "1px solid #D5D7DA",
                       background: "#FFF",
                       boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                       position: "relative",
@@ -279,13 +304,15 @@ export default function Login() {
                       <input
                         type="email"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={handleEmailChange}
+                        onFocus={() => setFocusedField("email")}
+                        onBlur={() => setFocusedField(null)}
                         style={{
                           flex: "1 0 0",
                           border: "none",
                           outline: "none",
                           background: "transparent",
-                          color: "#717680",
+                          color: email ? "#181D27" : "#717680",
                           fontFamily: "Public Sans",
                           fontSize: "16px",
                           fontStyle: "normal",
@@ -295,8 +322,46 @@ export default function Login() {
                         placeholder="janedoe@gmail.com"
                       />
                     </div>
+                    {emailError && (
+                      <svg
+                        style={{
+                          width: "24px",
+                          height: "24px",
+                          position: "relative",
+                        }}
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 8V12M12 16H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                          stroke="#F04438"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
                   </div>
                 </div>
+                {emailError && (
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#D92D20",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    {emailError}
+                  </div>
+                )}
               </div>
 
               {/* Password Field */}
@@ -339,17 +404,7 @@ export default function Login() {
                         position: "relative",
                       }}
                     >
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "14px",
-                          color: "rgba(65,70,81,1)",
-                        }}
-                      >
-                        Password
-                      </span>
+                      Password
                     </div>
                   </div>
                   <div
@@ -360,7 +415,11 @@ export default function Login() {
                       gap: "8px",
                       alignSelf: "stretch",
                       borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
+                      border: passwordError
+                        ? "1px solid #FDA29B"
+                        : focusedField === "password"
+                          ? "2px solid #34479A"
+                          : "1px solid #D5D7DA",
                       background: "#FFF",
                       boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                       position: "relative",
@@ -378,13 +437,15 @@ export default function Login() {
                       <input
                         type={showPassword ? "text" : "password"}
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={handlePasswordChange}
+                        onFocus={() => setFocusedField("password")}
+                        onBlur={() => setFocusedField(null)}
                         style={{
                           flex: "1 0 0",
                           border: "none",
                           outline: "none",
                           background: "transparent",
-                          color: "#717680",
+                          color: password ? "#181D27" : "#717680",
                           fontFamily: "Public Sans",
                           fontSize: "16px",
                           fontStyle: "normal",
@@ -408,37 +469,104 @@ export default function Login() {
                         cursor: "pointer",
                         position: "relative",
                       }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#F5F5F5";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
+                      }}
                     >
+                      {showPassword ? (
+                        <svg
+                          style={{
+                            width: "16px",
+                            height: "16px",
+                            position: "relative",
+                          }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.16196 3.39488C7.4329 3.35482 7.7124 3.33333 8.00028 3.33333C11.4036 3.33333 13.6369 6.33656 14.3871 7.52455C14.4779 7.66833 14.5233 7.74023 14.5488 7.85112C14.5678 7.93439 14.5678 8.06578 14.5487 8.14905C14.5233 8.25993 14.4776 8.3323 14.3861 8.47705C14.1862 8.79343 13.8814 9.23807 13.4777 9.7203M4.48288 4.47669C3.0415 5.45447 2.06297 6.81292 1.61407 7.52352C1.52286 7.66791 1.47725 7.74011 1.45183 7.85099C1.43273 7.93426 1.43272 8.06563 1.45181 8.14891C1.47722 8.25979 1.52262 8.33168 1.61342 8.47545C2.36369 9.66344 4.59694 12.6667 8.00028 12.6667C9.37255 12.6667 10.5546 12.1784 11.5259 11.5177M2.00028 2L14.0003 14M6.58606 6.58579C6.22413 6.94772 6.00028 7.44772 6.00028 8C6.00028 9.10457 6.89571 10 8.00028 10C8.55256 10 9.05256 9.77614 9.41449 9.41421"
+                            stroke="#717680"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          style={{
+                            width: "16px",
+                            height: "16px",
+                            position: "relative",
+                          }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M1.61342 8.47537C1.52262 8.33161 1.47723 8.25973 1.45182 8.14886C1.43273 8.06559 1.43273 7.93425 1.45182 7.85097C1.47723 7.74011 1.52262 7.66823 1.61341 7.52447C2.36369 6.33648 4.59693 3.33325 8.00027 3.33325C11.4036 3.33325 13.6369 6.33648 14.3871 7.52447C14.4779 7.66823 14.5233 7.74011 14.5487 7.85097C14.5678 7.93425 14.5678 8.06559 14.5487 8.14886C14.5233 8.25973 14.4779 8.33161 14.3871 8.47537C13.6369 9.66336 11.4036 12.6666 8.00027 12.6666C4.59693 12.6666 2.36369 9.66336 1.61342 8.47537Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M8.00027 9.99992C9.10484 9.99992 10.0003 9.10449 10.0003 7.99992C10.0003 6.89535 9.10484 5.99992 8.00027 5.99992C6.8957 5.99992 6.00027 6.89535 6.00027 7.99992C6.00027 9.10449 6.8957 9.99992 8.00027 9.99992Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </button>
+                    {passwordError && (
                       <svg
                         style={{
-                          width: "16px",
-                          height: "16px",
+                          width: "24px",
+                          height: "24px",
                           position: "relative",
                         }}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M1.61342 8.47537C1.52262 8.33161 1.47723 8.25973 1.45182 8.14886C1.43273 8.06559 1.43273 7.93425 1.45182 7.85097C1.47723 7.74011 1.52262 7.66823 1.61341 7.52447C2.36369 6.33648 4.59693 3.33325 8.00027 3.33325C11.4036 3.33325 13.6369 6.33648 14.3871 7.52447C14.4779 7.66823 14.5233 7.74011 14.5487 7.85097C14.5678 7.93425 14.5678 8.06559 14.5487 8.14886C14.5233 8.25973 14.4779 8.33161 14.3871 8.47537C13.6369 9.66336 11.4036 12.6666 8.00027 12.6666C4.59693 12.6666 2.36369 9.66336 1.61342 8.47537Z"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M8.00027 9.99992C9.10484 9.99992 10.0003 9.10449 10.0003 7.99992C10.0003 6.89535 9.10484 5.99992 8.00027 5.99992C6.8957 5.99992 6.00027 6.89535 6.00027 7.99992C6.00027 9.10449 6.8957 9.99992 8.00027 9.99992Z"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
+                          d="M12 8V12M12 16H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                          stroke="#F04438"
+                          strokeWidth="1.33333"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </button>
+                    )}
                   </div>
                 </div>
+                {passwordError && (
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#D92D20",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    {passwordError}
+                  </div>
+                )}
               </div>
             </form>
 
@@ -474,39 +602,32 @@ export default function Login() {
                       width: "16px",
                       height: "16px",
                       borderRadius: "4px",
-                      border: "1px solid #D5D7DA",
+                      border: rememberMe ? "none" : "1px solid #D5D7DA",
+                      background: rememberMe ? "#344698" : "transparent",
                       position: "relative",
                       cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                     onClick={() => setRememberMe(!rememberMe)}
                   >
                     {rememberMe && (
-                      <div
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          background: "#344698",
-                          borderRadius: "3px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <svg
-                          width="10"
-                          height="8"
-                          viewBox="0 0 10 8"
-                          fill="none"
-                        >
-                          <path
-                            d="M8.5 1L3.5 6L1 3.5"
-                            stroke="white"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
+                        <path
+                          d="M11.6668 3.5L5.25016 9.91667L2.3335 7"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     )}
                   </div>
                 </div>
@@ -531,17 +652,7 @@ export default function Login() {
                       position: "relative",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      Remember for 30 days
-                    </span>
+                    Remember for 30 days
                   </div>
                 </div>
               </div>
@@ -570,17 +681,7 @@ export default function Login() {
                     position: "relative",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "14px",
-                      color: "rgba(39,53,114,1)",
-                    }}
-                  >
-                    Forgot password
-                  </span>
+                  Forgot password
                 </div>
               </button>
             </div>
@@ -636,17 +737,7 @@ export default function Login() {
                       position: "relative",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 700,
-                        fontSize: "16px",
-                        color: "rgba(255,255,255,1)",
-                      }}
-                    >
-                      Sign in
-                    </span>
+                    Sign in
                   </div>
                 </div>
               </button>
@@ -681,17 +772,7 @@ export default function Login() {
                     position: "relative",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      color: "rgba(83,88,98,1)",
-                    }}
-                  >
-                    OR
-                  </span>
+                  OR
                 </div>
                 <div
                   style={{
@@ -781,17 +862,7 @@ export default function Login() {
                       position: "relative",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 700,
-                        fontSize: "16px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      Sign in with Google
-                    </span>
+                    Sign in with Google
                   </div>
                 </button>
               </div>
@@ -819,17 +890,7 @@ export default function Login() {
                   position: "relative",
                 }}
               >
-                <span
-                  style={{
-                    fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 400,
-                    fontSize: "14px",
-                    color: "rgba(83,88,98,1)",
-                  }}
-                >
-                  Don't have an account?
-                </span>
+                Don't have an account?
               </div>
               <button
                 type="button"
@@ -856,17 +917,7 @@ export default function Login() {
                     position: "relative",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "14px",
-                      color: "rgba(39,53,114,1)",
-                    }}
-                  >
-                    Sign up
-                  </span>
+                  Sign up
                 </div>
               </button>
             </div>
