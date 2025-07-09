@@ -129,7 +129,7 @@ export default function ActivateAccount() {
             padding: 32px 16px !important;
           }
         }
-        .name-group {
+                .name-group {
           gap: 20px;
         }
         @media (max-width: 767px) {
@@ -137,6 +137,26 @@ export default function ActivateAccount() {
             flex-direction: column;
             gap: 20px;
           }
+        }
+        .primary-button {
+          border-radius: 8px;
+          border: 2px solid rgba(255, 255, 255, 0.12);
+          background: #344698;
+          box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+          transition: background 0.2s ease;
+        }
+        .primary-button:hover {
+          background: #273572;
+        }
+        .secondary-button {
+          border-radius: 8px;
+          border: 1px solid #D5D7DA;
+          background: #FFF;
+          box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+          transition: background 0.2s ease;
+        }
+        .secondary-button:hover {
+          background: #F5F5F5;
         }
         .link-button:hover {
           color: #1A234C !important;
@@ -719,6 +739,7 @@ export default function ActivateAccount() {
             <button
               type="submit"
               onClick={handleSubmit}
+              className="primary-button"
               style={{
                 display: "flex",
                 padding: "12px 16px",
@@ -726,11 +747,6 @@ export default function ActivateAccount() {
                 alignItems: "center",
                 gap: "6px",
                 alignSelf: "stretch",
-                borderRadius: "8px",
-                border: "2px solid rgba(255, 255, 255, 0.12)",
-                background: "#344698",
-                boxShadow:
-                  "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
               }}
             >
@@ -791,6 +807,7 @@ export default function ActivateAccount() {
             {/* Sign up with Google */}
             <button
               type="button"
+              className="secondary-button"
               style={{
                 display: "flex",
                 padding: "10px 16px",
@@ -798,11 +815,6 @@ export default function ActivateAccount() {
                 alignItems: "center",
                 gap: "12px",
                 alignSelf: "stretch",
-                borderRadius: "8px",
-                border: "1px solid #D5D7DA",
-                background: "#FFF",
-                boxShadow:
-                  "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
               }}
             >
