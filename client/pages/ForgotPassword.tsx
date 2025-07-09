@@ -7,7 +7,6 @@ export default function ForgotPassword() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [emailError, setEmailError] = useState("");
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const validateEmail = (emailValue: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -36,9 +35,8 @@ export default function ForgotPassword() {
     setEmailError(emailErr);
 
     if (!emailErr) {
-      // Valid email, simulate sending reset instructions
-      setIsSubmitted(true);
-      console.log("Reset password instructions sent to:", email);
+      // Valid email, navigate to email sent page
+      navigate(`/email-sent?email=${encodeURIComponent(email)}`);
     }
   };
 
@@ -210,47 +208,28 @@ export default function ForgotPassword() {
               borderRadius: "12px",
             }}
           >
-            {isSubmitted ? (
-              /* Success State */
-              <div
+            <>
+              {/* Form */}
+              <form
+                onSubmit={handleSubmit}
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
-                  gap: "24px",
+                  alignItems: "flex-start",
+                  gap: "20px",
                   alignSelf: "stretch",
                 }}
               >
+                {/* Email Field */}
                 <div
-                  style={{
-                    alignSelf: "stretch",
-                    color: "#181D27",
-                    textAlign: "center",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "16px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "24px",
-                  }}
-                >
-                  Reset instructions have been sent to your email address.
-                </div>
-              </div>
-            ) : (
-              <>
-                {/* Form */}
-                <form
-                  onSubmit={handleSubmit}
                   style={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-start",
-                    gap: "20px",
+                    gap: "6px",
                     alignSelf: "stretch",
                   }}
                 >
-                  {/* Email Field */}
                   <div
                     style={{
                       display: "flex",
@@ -263,109 +242,13 @@ export default function ForgotPassword() {
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: "column",
                         alignItems: "flex-start",
-                        gap: "6px",
-                        alignSelf: "stretch",
+                        gap: "2px",
                       }}
                     >
                       <div
                         style={{
-                          display: "flex",
-                          alignItems: "flex-start",
-                          gap: "2px",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: "#414651",
-                            fontFamily:
-                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 400,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          Email
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          padding: "10px 14px",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
-                          borderRadius: "8px",
-                          border: emailError
-                            ? "1px solid #FDA29B"
-                            : focusedField === "email"
-                              ? "2px solid #34479A"
-                              : "1px solid #D5D7DA",
-                          background: "#FFF",
-                          boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                        }}
-                      >
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "8px",
-                            flex: "1 0 0",
-                          }}
-                        >
-                          <input
-                            type="email"
-                            value={email}
-                            onChange={handleEmailChange}
-                            onFocus={() => setFocusedField("email")}
-                            onBlur={() => setFocusedField(null)}
-                            style={{
-                              flex: "1 0 0",
-                              border: "none",
-                              outline: "none",
-                              background: "transparent",
-                              color: email ? "#181D27" : "#717680",
-                              fontFamily:
-                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                              fontSize: "16px",
-                              fontStyle: "normal",
-                              fontWeight: 400,
-                              lineHeight: "24px",
-                            }}
-                            placeholder="Enter your email"
-                          />
-                        </div>
-                        {emailError && (
-                          <svg
-                            style={{
-                              width: "16px",
-                              height: "16px",
-                              flexShrink: 0,
-                            }}
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M8 5.33325V7.99992M8 10.6666H8.00667M14.6667 7.99992C14.6667 11.6818 11.6819 14.6666 8 14.6666C4.31814 14.6666 1.33333 11.6818 1.33333 7.99992C1.33333 4.31802 4.31814 1.33325 8 1.33325C11.6819 1.33325 14.6667 4.31802 14.6667 7.99992Z"
-                              stroke="#F04438"
-                              strokeWidth="1.33333"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        )}
-                      </div>
-                    </div>
-                    {emailError && (
-                      <div
-                        style={{
-                          alignSelf: "stretch",
-                          color: "#D92D20",
+                          color: "#414651",
                           fontFamily:
                             "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
@@ -374,56 +257,142 @@ export default function ForgotPassword() {
                           lineHeight: "20px",
                         }}
                       >
-                        {emailError}
+                        Email
                       </div>
-                    )}
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "10px 14px",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        borderRadius: "8px",
+                        border: emailError
+                          ? "1px solid #FDA29B"
+                          : focusedField === "email"
+                            ? "2px solid #34479A"
+                            : "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={handleEmailChange}
+                          onFocus={() => setFocusedField("email")}
+                          onBlur={() => setFocusedField(null)}
+                          style={{
+                            flex: "1 0 0",
+                            border: "none",
+                            outline: "none",
+                            background: "transparent",
+                            color: email ? "#181D27" : "#717680",
+                            fontFamily:
+                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                          }}
+                          placeholder="Enter your email"
+                        />
+                      </div>
+                      {emailError && (
+                        <svg
+                          style={{
+                            width: "16px",
+                            height: "16px",
+                            flexShrink: 0,
+                          }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8 5.33325V7.99992M8 10.6666H8.00667M14.6667 7.99992C14.6667 11.6818 11.6819 14.6666 8 14.6666C4.31814 14.6666 1.33333 11.6818 1.33333 7.99992C1.33333 4.31802 4.31814 1.33325 8 1.33325C11.6819 1.33325 14.6667 4.31802 14.6667 7.99992Z"
+                            stroke="#F04438"
+                            strokeWidth="1.33333"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </div>
                   </div>
-                </form>
+                  {emailError && (
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#D92D20",
+                        fontFamily:
+                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      {emailError}
+                    </div>
+                  )}
+                </div>
+              </form>
 
-                {/* Reset Password Button */}
-                <button
-                  type="submit"
-                  onClick={handleSubmit}
+              {/* Reset Password Button */}
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                style={{
+                  display: "flex",
+                  padding: "12px 16px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "6px",
+                  alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border: "2px solid rgba(255, 255, 255, 0.12)",
+                  background: "#344698",
+                  boxShadow:
+                    "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  cursor: "pointer",
+                }}
+              >
+                <div
                   style={{
                     display: "flex",
-                    padding: "12px 16px",
+                    padding: "0px 2px",
                     justifyContent: "center",
                     alignItems: "center",
-                    gap: "6px",
-                    alignSelf: "stretch",
-                    borderRadius: "8px",
-                    border: "2px solid rgba(255, 255, 255, 0.12)",
-                    background: "#344698",
-                    boxShadow:
-                      "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
                   }}
                 >
                   <div
                     style={{
-                      display: "flex",
-                      padding: "0px 2px",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      color: "#FFF",
+                      fontFamily:
+                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 700,
+                      lineHeight: "24px",
                     }}
                   >
-                    <div
-                      style={{
-                        color: "#FFF",
-                        fontFamily:
-                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                        fontSize: "16px",
-                        fontStyle: "normal",
-                        fontWeight: 700,
-                        lineHeight: "24px",
-                      }}
-                    >
-                      Reset password
-                    </div>
+                    Reset password
                   </div>
-                </button>
-              </>
-            )}
+                </div>
+              </button>
+            </>
 
             {/* Back to Login Button */}
             <button
