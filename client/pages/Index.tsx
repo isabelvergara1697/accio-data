@@ -20,6 +20,9 @@ export default function Index() {
         backgroundColor: "#FAFAFA",
         justifyContent: "flex-end",
         alignItems: "flex-start",
+        width: "1440px",
+        height: "1037px",
+        borderRadius: "8px",
       }}
     >
       {/* Mobile Menu Overlay */}
@@ -249,8 +252,14 @@ export default function Index() {
 
       {/* Main Content */}
       <main
-        className="flex-1 flex flex-col"
-        style={{ marginLeft: "296px", borderRadius: "40px 0px 0px 0px" }}
+        className="flex flex-col"
+        style={{
+          flex: "1 0 0",
+          borderRadius: "40px 0px 0px 0px",
+          paddingBottom: "24px",
+          gap: "32px",
+          alignItems: "flex-start",
+        }}
       >
         {/* Mobile Header Bar */}
         <div className="lg:hidden bg-background border-b border-border px-4 py-3 flex items-center justify-between">
@@ -281,15 +290,28 @@ export default function Index() {
         </div>
         {/* Header */}
         <header
-          className="px-8 py-4 hidden lg:flex"
+          className="hidden lg:flex"
           style={{
             background:
               "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
             height: "72px",
-            border: "1px none rgb(233, 234, 235)",
+            padding: "0px 32px",
+            alignItems: "center",
+            gap: "20px",
+            alignSelf: "stretch",
+            flexDirection: "column",
           }}
         >
-          <div className="flex items-center justify-between w-full">
+          <div
+            className="flex items-center justify-between w-full"
+            style={{
+              height: "72px",
+              padding: "0px 32px",
+              alignItems: "center",
+              gap: "20px",
+              alignSelf: "stretch",
+            }}
+          >
             {/* Search */}
             <div className="flex items-center gap-4 flex-1">
               <div className="relative flex-1 max-w-md">
@@ -435,8 +457,13 @@ export default function Index() {
 
         {/* Dashboard Content */}
         <div
-          className="flex-1"
-          style={{ padding: "32px", paddingBottom: "24px", gap: "32px" }}
+          className="flex-1 flex flex-col"
+          style={{
+            padding: "32px",
+            gap: "32px",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+          }}
         >
           {/* Page Header */}
           <div className="mb-8">
