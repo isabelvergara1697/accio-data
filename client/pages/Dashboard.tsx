@@ -515,7 +515,7 @@ export default function Dashboard() {
 
       {/* Sidebar Navigation */}
       <aside
-        className={`transition-all duration-300 lg:translate-x-0 ${
+        className={`transition-all duration-300 lg:translate-x-0 md:hidden ${
           mobileMenuOpen
             ? "translate-x-0"
             : "-translate-x-full lg:translate-x-0"
@@ -693,7 +693,7 @@ export default function Dashboard() {
           paddingBottom: "24px",
           position: "relative",
         }}
-        className="lg:ml-[296px] ml-0"
+        className="lg:ml-[296px] ml-0 lg:pt-0 pt-16"
       >
         {/* Mobile/Tablet Header Bar */}
         <div className="lg:hidden bg-background border-b border-border px-4 py-3 flex items-center justify-between w-full fixed top-0 left-0 right-0 z-30">
