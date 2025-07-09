@@ -534,10 +534,9 @@ export default function Dashboard() {
         }`}
         style={{
           display: "flex",
-          width: mobileMenuOpen ? "100vw" : "296px",
+          width: "296px",
           height: "100vh",
-          padding: mobileMenuOpen ? "0" : "8px 0px 24px 8px",
-          paddingRight: mobileMenuOpen ? "40px" : "0",
+          padding: "8px 0px 24px 8px",
           alignItems: "flex-start",
           flexShrink: 0,
           position: "fixed",
@@ -545,11 +544,6 @@ export default function Dashboard() {
           top: 0,
           zIndex: 50,
         }}
-        className={`lg:w-[296px] ${mobileMenuOpen ? "w-full" : "w-[296px]"} transition-all duration-300 lg:translate-x-0 ${
-          mobileMenuOpen
-            ? "translate-x-0"
-            : "-translate-x-full lg:translate-x-0"
-        }`}
       >
         <div
           style={{
