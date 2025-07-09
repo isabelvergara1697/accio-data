@@ -1817,7 +1817,7 @@ export default function Dashboard() {
                         </button>
                       </div>
 
-                                            {/* Sign Out */}
+                      {/* Sign Out */}
                       <div
                         onClick={handleSignOut}
                         style={{
@@ -1837,60 +1837,58 @@ export default function Dashboard() {
                           e.currentTarget.style.background = "transparent";
                         }}
                       >
-                            <div
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                              position: "relative",
+                            }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10.6667 11.3333L14 8M14 8L10.6667 4.66667M14 8H6M8 11.3333C8 11.9533 8 12.2633 7.93185 12.5176C7.74692 13.2078 7.20782 13.7469 6.51764 13.9319C6.26331 14 5.95332 14 5.33333 14H5C4.06812 14 3.60218 14 3.23463 13.8478C2.74458 13.6448 2.35523 13.2554 2.15224 12.7654C2 12.3978 2 11.9319 2 11V5C2 4.06812 2 3.60218 2.15224 3.23463C2.35523 2.74458 2.74458 2.35523 3.23463 2.15224C3.60218 2 4.06812 2 5 2H5.33333C5.95332 2 6.26331 2 6.51764 2.06815C7.20782 2.25308 7.74692 2.79218 7.93185 3.48236C8 3.7367 8 4.04669 8 4.66667"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.67"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <div
+                            style={{
+                              flex: "1 0 0",
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            <span
                               style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "8px",
-                                flex: "1 0 0",
-                                position: "relative",
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontWeight: 600,
+                                fontSize: "14px",
+                                color: "rgba(65,70,81,1)",
                               }}
                             >
-                              <svg
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  position: "relative",
-                                }}
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M10.6667 11.3333L14 8M14 8L10.6667 4.66667M14 8H6M8 11.3333C8 11.9533 8 12.2633 7.93185 12.5176C7.74692 13.2078 7.20782 13.7469 6.51764 13.9319C6.26331 14 5.95332 14 5.33333 14H5C4.06812 14 3.60218 14 3.23463 13.8478C2.74458 13.6448 2.35523 13.2554 2.15224 12.7654C2 12.3978 2 11.9319 2 11V5C2 4.06812 2 3.60218 2.15224 3.23463C2.35523 2.74458 2.74458 2.35523 3.23463 2.15224C3.60218 2 4.06812 2 5 2H5.33333C5.95332 2 6.26331 2 6.51764 2.06815C7.20782 2.25308 7.74692 2.79218 7.93185 3.48236C8 3.7367 8 4.04669 8 4.66667"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.67"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                              <div
-                                style={{
-                                  flex: "1 0 0",
-                                  color: "#414651",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "20px",
-                                  position: "relative",
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
-                                    fontSize: "14px",
-                                    color: "rgba(65,70,81,1)",
-                                  }}
-                                >
-                                  Sing Out
-                                </span>
-                              </div>
-                            </div>
+                              Sign Out
+                            </span>
                           </div>
                         </div>
                       </div>
