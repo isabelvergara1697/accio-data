@@ -79,6 +79,7 @@ export default function Login() {
 
   return (
     <div
+      className="login-container"
       style={{
         display: "flex",
         width: "100vw",
@@ -89,32 +90,45 @@ export default function Login() {
         background: "linear-gradient(90deg, #F7F8FD 0%, #D9DEF2 100%)",
         fontFamily:
           "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-        // Desktop and tablet: padding top/bottom
-        paddingTop: window.innerWidth >= 768 ? "32px" : "16px",
-        paddingLeft: window.innerWidth >= 768 ? "32px" : "16px",
-        paddingRight: window.innerWidth >= 768 ? "32px" : "16px",
-        paddingBottom: window.innerWidth >= 768 ? "32px" : "16px",
+        padding: "16px",
         justifyContent: "center",
       }}
     >
+      <style>{`
+        @media (min-width: 768px) {
+          .login-container {
+            padding: 32px !important;
+          }
+          .login-form-container {
+            max-width: 744px !important;
+            padding: 32px 40px !important;
+          }
+        }
+        @media (max-width: 767px) {
+          .login-form-container {
+            max-width: 375px !important;
+            padding: 32px 16px !important;
+            flex: 1 0 0 !important;
+          }
+        }
+      `}</style>
+
       <div
         style={{
           display: "flex",
-          // Desktop/tablet: max 744px width, Mobile: full width with constraints
-          maxWidth: window.innerWidth >= 768 ? "744px" : "375px",
+          maxWidth: "744px",
           width: "100%",
           flexDirection: "column",
           alignItems: "center",
           gap: "32px",
-          flex: window.innerWidth < 768 ? "1 0 0" : "none",
         }}
       >
         <div
+          className="login-form-container"
           style={{
             display: "flex",
             width: "100%",
-            // Responsive padding: desktop/tablet vs mobile
-            padding: window.innerWidth >= 768 ? "32px 40px" : "32px 16px",
+            padding: "32px 40px",
             flexDirection: "column",
             alignItems: "center",
             gap: "24px",
@@ -122,7 +136,6 @@ export default function Login() {
             background: "#FFF",
             boxShadow:
               "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-            flex: window.innerWidth < 768 ? "1 0 0" : "none",
           }}
         >
           {/* Header */}
