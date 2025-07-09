@@ -104,12 +104,32 @@ export default function Login() {
             padding: 32px 40px !important;
           }
         }
-        @media (max-width: 767px) {
+                @media (max-width: 767px) {
           .login-form-container {
             max-width: 375px !important;
             padding: 32px 16px !important;
             flex: 1 0 0 !important;
           }
+        }
+        .primary-button {
+          border-radius: 8px;
+          border: 2px solid rgba(255, 255, 255, 0.12);
+          background: #344698;
+          box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+          transition: background 0.2s ease;
+        }
+        .primary-button:hover {
+          background: #273572;
+        }
+        .secondary-button {
+          border-radius: 8px;
+          border: 1px solid #D5D7DA;
+          background: #FFF;
+          box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+          transition: background 0.2s ease;
+        }
+        .secondary-button:hover {
+          background: #F5F5F5;
         }
       `}</style>
 
