@@ -588,6 +588,25 @@ export default function Dashboard() {
               </div>
             </div>
 
+            {/* Notification */}
+            {showNotification && (
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0px 20px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <SuccessNotification
+                  message="Welcome to Accio Data! Your account is now ready to use."
+                  onDismiss={handleNotificationDismiss}
+                />
+              </div>
+            )}
+
             {/* Navigation */}
             <div
               style={{
