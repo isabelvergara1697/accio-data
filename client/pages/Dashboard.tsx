@@ -2411,25 +2411,23 @@ export default function Dashboard() {
                   }}
                 >
                   <div
-                    className="lg:text-2xl md:text-xl text-2xl"
                     style={{
                       alignSelf: "stretch",
                       color: "#181D27",
                       fontFamily: "Public Sans",
-                      fontSize: "24px",
+                      fontSize: "20px",
                       fontStyle: "normal",
                       fontWeight: 600,
-                      lineHeight: "32px",
+                      lineHeight: "30px",
                       position: "relative",
                     }}
                   >
                     <span
-                      className="lg:text-2xl md:text-xl text-2xl"
                       style={{
                         fontFamily:
                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 600,
-                        fontSize: "24px",
+                        fontWeight: 700,
+                        fontSize: "20px",
                         color: "rgba(24,29,39,1)",
                       }}
                     >
