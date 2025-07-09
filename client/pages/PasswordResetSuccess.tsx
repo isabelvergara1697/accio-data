@@ -38,9 +38,19 @@ export default function PasswordResetSuccess() {
           .password-reset-success-container {
             padding: 32px 16px !important;
           }
-          .password-reset-success-form-container {
+                    .password-reset-success-form-container {
             padding: 32px 16px !important;
           }
+        }
+        .primary-button {
+          border-radius: 8px;
+          border: 2px solid rgba(255, 255, 255, 0.12);
+          background: #344698;
+          box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+          transition: background 0.2s ease;
+        }
+        .primary-button:hover {
+          background: #273572;
         }
       `}</style>
 
