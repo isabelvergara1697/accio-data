@@ -48,6 +48,7 @@ export default function ForgotPassword() {
 
   return (
     <div
+      className="forgot-password-container"
       style={{
         display: "flex",
         width: "100vw",
@@ -58,31 +59,46 @@ export default function ForgotPassword() {
         background: "linear-gradient(90deg, #F7F8FD 0%, #D9DEF2 100%)",
         fontFamily:
           "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-        // Desktop: padding top/bottom, mobile: full height
-        paddingTop: window.innerWidth >= 768 ? "96px" : "0px",
-        paddingLeft: window.innerWidth >= 768 ? "32px" : "0px",
-        paddingRight: window.innerWidth >= 768 ? "32px" : "0px",
-        paddingBottom: window.innerWidth >= 768 ? "48px" : "0px",
         justifyContent: "center",
+        padding: "16px",
       }}
     >
+      <style>{`
+        @media (min-width: 768px) {
+          .forgot-password-container {
+            padding: 96px 32px 48px 32px !important;
+          }
+          .forgot-password-form-container {
+            padding: 32px 40px !important;
+          }
+        }
+        @media (max-width: 767px) {
+          .forgot-password-container {
+            padding: 32px 16px !important;
+          }
+          .forgot-password-form-container {
+            padding: 32px 16px !important;
+          }
+        }
+      `}</style>
+
       <div
         style={{
           display: "flex",
-          maxWidth: window.innerWidth >= 768 ? "1280px" : "100%",
+          maxWidth: "1280px",
           width: "100%",
-          padding: window.innerWidth >= 768 ? "0px 32px" : "0px",
           flexDirection: "column",
           alignItems: "center",
           gap: "32px",
         }}
       >
         <div
+          className="forgot-password-form-container"
           style={{
             display: "flex",
             maxWidth: "460px",
             width: "100%",
-            padding: window.innerWidth >= 768 ? "32px 40px" : "32px 16px",
+            padding: "32px 40px",
             flexDirection: "column",
             alignItems: "center",
             gap: "24px",
@@ -90,7 +106,6 @@ export default function ForgotPassword() {
             background: "#FFF",
             boxShadow:
               "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-            margin: window.innerWidth < 768 ? "auto" : "0",
           }}
         >
           {/* Header */}
