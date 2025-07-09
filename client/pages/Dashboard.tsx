@@ -2,6 +2,30 @@ import { useState } from "react";
 
 export default function Dashboard() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openAccordions, setOpenAccordions] = useState<string[]>([]);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [userMenuHovered, setUserMenuHovered] = useState(false);
+
+  const toggleAccordion = (section: string) => {
+    setOpenAccordions((prev) =>
+      prev.includes(section)
+        ? prev.filter((s) => s !== section)
+        : [...prev, section],
+    );
+  };
+
+  const isAccordionOpen = (section: string) => openAccordions.includes(section);
+
+  const getHoverStyles = (item: string) => {
+    if (hoveredItem === item && item !== "dashboard") {
+      return {
+        background: "var(--Colors-Background-bg-primary_hover, #F5F5F5)",
+        borderRadius: "var(--radius-sm, 6px)",
+      };
+    }
+    return {};
+  };
 
   return (
     <div
