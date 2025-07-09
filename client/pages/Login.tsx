@@ -68,8 +68,8 @@ export default function Login() {
   };
 
   const handleSignUp = () => {
-    // Handle sign up navigation
-    console.log("Sign up clicked");
+    // Navigate to sign up page
+    navigate("/signup");
   };
 
   const handleForgotPassword = () => {
