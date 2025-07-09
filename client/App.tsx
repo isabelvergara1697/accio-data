@@ -9,6 +9,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
+import EmailSent from "./pages/EmailSent";
+import SetNewPassword from "./pages/SetNewPassword";
+import PasswordResetSuccess from "./pages/PasswordResetSuccess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +26,12 @@ const App = () => (
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/email-sent" element={<EmailSent />} />
+          <Route path="/set-new-password" element={<SetNewPassword />} />
+          <Route
+            path="/password-reset-success"
+            element={<PasswordResetSuccess />}
+          />
           <Route path="/dashboard" element={<Dashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
