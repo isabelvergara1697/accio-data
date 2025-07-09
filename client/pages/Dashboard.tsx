@@ -510,11 +510,16 @@ export default function Dashboard() {
         <div
           className="fixed inset-0 z-40 lg:hidden"
           style={{
-            opacity: 0.7,
-            background: "var(--Colors-Background-bg-overlay, #0A0D12)",
+            width: "100vw",
+            height: "100vh",
             background:
               "linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0%, #000 100%)",
+            opacity: 0.7,
+            backgroundColor: "#0A0D12",
             backdropFilter: "blur(4px)",
+            position: "fixed",
+            left: 0,
+            top: 0,
           }}
           onClick={() => setMobileMenuOpen(false)}
         ></div>
