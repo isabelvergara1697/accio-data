@@ -2,6 +2,21 @@ import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import SuccessNotification from "../components/SuccessNotification";
 
+// Add styles for button hover states
+const dashboardStyles = `
+  .secondary-button {
+    border-radius: 8px;
+    border: 1px solid #D5D7DA;
+    background: #FFF;
+    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+    transition: background 0.2s ease;
+    cursor: pointer;
+  }
+  .secondary-button:hover {
+    background: #F5F5F5;
+  }
+`;
+
 export default function Dashboard() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
