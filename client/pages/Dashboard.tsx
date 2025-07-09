@@ -1817,46 +1817,26 @@ export default function Dashboard() {
                         </button>
                       </div>
 
-                      {/* Sign Out */}
+                                            {/* Sign Out */}
                       <div
+                        onClick={handleSignOut}
                         style={{
                           display: "flex",
-                          padding: "4px 0px 6px 0px",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          gap: "2px",
+                          padding: "8px 6px",
+                          alignItems: "center",
+                          gap: "12px",
                           alignSelf: "stretch",
+                          borderRadius: "6px",
+                          cursor: "pointer",
                           position: "relative",
                         }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "#F5F5F5";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "transparent";
+                        }}
                       >
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "0px 6px",
-                            alignItems: "center",
-                            alignSelf: "stretch",
-                            position: "relative",
-                          }}
-                        >
-                          <div
-                            onClick={handleSignOut}
-                            style={{
-                              display: "flex",
-                              padding: "8px",
-                              alignItems: "center",
-                              gap: "12px",
-                              flex: "1 0 0",
-                              borderRadius: "6px",
-                              cursor: "pointer",
-                              position: "relative",
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.background = "#F5F5F5";
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.background = "transparent";
-                            }}
-                          >
                             <div
                               style={{
                                 display: "flex",
