@@ -515,7 +515,7 @@ export default function Dashboard() {
 
       {/* Sidebar Navigation */}
       <aside
-        className={`transition-all duration-300 lg:translate-x-0 md:hidden ${
+        className={`transition-all duration-300 lg:translate-x-0 ${
           mobileMenuOpen
             ? "translate-x-0"
             : "-translate-x-full lg:translate-x-0"
