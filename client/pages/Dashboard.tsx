@@ -859,7 +859,6 @@ export default function Dashboard() {
       {/* Main Content */}
       <main
         style={{
-          marginLeft: "296px",
           flex: 1,
           display: "flex",
           flexDirection: "column",
