@@ -30,12 +30,18 @@ export default function Index() {
       <aside
         className={`${
           sidebarCollapsed ? "w-16" : "w-74"
-        } transition-all duration-300 flex flex-col fixed lg:relative z-50 h-auto self-stretch ${
+        } transition-all duration-300 flex flex-col fixed lg:fixed z-50 ${
           mobileMenuOpen
             ? "translate-x-0"
             : "-translate-x-full lg:translate-x-0"
         }`}
-        style={{ width: "296px", padding: "8px 0 24px 8px" }}
+        style={{
+          width: "296px",
+          padding: "8px 0 24px 8px",
+          height: "calc(100vh - 24px)",
+          top: 0,
+          left: 0,
+        }}
       >
         <div
           className="flex-1 flex flex-col justify-between bg-white rounded-xl"
