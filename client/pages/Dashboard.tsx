@@ -1418,12 +1418,13 @@ export default function Dashboard() {
                             style={{
                               display: "flex",
                               padding: "6px 8px",
-                              alignItems: "flex-start",
+                              alignItems: "center",
                               gap: "12px",
                               flex: "1 0 0",
                               borderRadius: "6px",
                               background: "#F5F5F5",
                               position: "relative",
+                              minWidth: 0, // Ensures container can shrink
                             }}
                           >
                             <div
@@ -1433,6 +1434,7 @@ export default function Dashboard() {
                                 gap: "8px",
                                 flex: "1 0 0",
                                 position: "relative",
+                                minWidth: 0, // Ensures flex item can shrink
                               }}
                             >
                               <div
@@ -1449,6 +1451,7 @@ export default function Dashboard() {
                                   background:
                                     "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
                                   position: "relative",
+                                  flexShrink: 0, // Prevent avatar from shrinking
                                 }}
                               >
                                 <div
@@ -1472,11 +1475,12 @@ export default function Dashboard() {
                                   alignItems: "flex-start",
                                   flex: "1 0 0",
                                   position: "relative",
+                                  minWidth: 0, // Ensures text container can shrink
                                 }}
                               >
                                 <div
                                   style={{
-                                    alignSelf: "stretch",
+                                    width: "100%",
                                     color: "#181D27",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
@@ -1503,7 +1507,7 @@ export default function Dashboard() {
                                 </div>
                                 <div
                                   style={{
-                                    alignSelf: "stretch",
+                                    width: "100%",
                                     color: "#535862",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
@@ -1536,6 +1540,7 @@ export default function Dashboard() {
                                 justifyContent: "center",
                                 alignItems: "center",
                                 position: "relative",
+                                flexShrink: 0, // Prevent radio button from shrinking
                               }}
                             >
                               <div
@@ -1582,12 +1587,13 @@ export default function Dashboard() {
                             style={{
                               display: "flex",
                               padding: "6px 8px",
-                              alignItems: "flex-start",
+                              alignItems: "center",
                               gap: "12px",
                               flex: "1 0 0",
                               borderRadius: "6px",
                               cursor: "pointer",
                               position: "relative",
+                              minWidth: 0, // Ensures container can shrink
                             }}
                             onMouseEnter={(e) => {
                               e.currentTarget.style.background = "#F5F5F5";
@@ -1603,6 +1609,7 @@ export default function Dashboard() {
                                 gap: "8px",
                                 flex: "1 0 0",
                                 position: "relative",
+                                minWidth: 0, // Ensures flex item can shrink
                               }}
                             >
                               <div
@@ -1618,6 +1625,7 @@ export default function Dashboard() {
                                   border: "1px solid rgba(0, 0, 0, 0.10)",
                                   background: "#E0E0E0",
                                   position: "relative",
+                                  flexShrink: 0, // Prevent avatar from shrinking
                                 }}
                               >
                                 <div
@@ -1641,11 +1649,12 @@ export default function Dashboard() {
                                   alignItems: "flex-start",
                                   flex: "1 0 0",
                                   position: "relative",
+                                  minWidth: 0, // Ensures text container can shrink
                                 }}
                               >
                                 <div
                                   style={{
-                                    alignSelf: "stretch",
+                                    width: "100%",
                                     color: "#181D27",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
@@ -1672,7 +1681,7 @@ export default function Dashboard() {
                                 </div>
                                 <div
                                   style={{
-                                    alignSelf: "stretch",
+                                    width: "100%",
                                     color: "#535862",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
@@ -1705,6 +1714,7 @@ export default function Dashboard() {
                                 justifyContent: "center",
                                 alignItems: "center",
                                 position: "relative",
+                                flexShrink: 0, // Prevent radio button from shrinking
                               }}
                             >
                               <div
