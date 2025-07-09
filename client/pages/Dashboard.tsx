@@ -2372,7 +2372,6 @@ export default function Dashboard() {
           }}
         >
           <div
-            className="lg:px-8 md:px-6 px-8"
             style={{
               display: "flex",
               padding: "0px 32px",
