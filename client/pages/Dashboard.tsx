@@ -2703,7 +2703,7 @@ export default function Dashboard() {
         <div
           style={{
             display: "flex",
-            padding: "0px 32px",
+            padding: "32px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "24px",
