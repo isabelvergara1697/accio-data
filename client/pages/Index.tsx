@@ -30,7 +30,7 @@ export default function Index() {
       <aside
         className={`${
           sidebarCollapsed ? "w-16" : "w-74"
-        } transition-all duration-300 flex flex-col fixed lg:relative z-50 h-full ${
+        } transition-all duration-300 flex flex-col fixed lg:relative z-50 h-auto self-stretch ${
           mobileMenuOpen
             ? "translate-x-0"
             : "-translate-x-full lg:translate-x-0"
@@ -268,12 +268,12 @@ export default function Index() {
         </div>
         {/* Header */}
         <header
-          className="border-b px-8 py-4 hidden lg:flex"
+          className="px-8 py-4 hidden lg:flex"
           style={{
             background:
               "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
             height: "72px",
-            borderColor: "#E9EAEB",
+            border: "1px none rgb(233, 234, 235)",
           }}
         >
           <div className="flex items-center justify-between w-full">
