@@ -2336,6 +2336,7 @@ export default function Dashboard() {
           }}
         >
           <div
+            className="lg:px-8 md:px-6 px-8"
             style={{
               display: "flex",
               padding: "0px 32px",
@@ -2379,6 +2380,7 @@ export default function Dashboard() {
                   }}
                 >
                   <div
+                    className="lg:text-2xl md:text-xl text-2xl"
                     style={{
                       alignSelf: "stretch",
                       color: "#181D27",
@@ -2391,6 +2393,7 @@ export default function Dashboard() {
                     }}
                   >
                     <span
+                      className="lg:text-2xl md:text-xl text-2xl"
                       style={{
                         fontFamily:
                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
