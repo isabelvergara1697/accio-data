@@ -508,7 +508,14 @@ export default function Dashboard() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          className="fixed inset-0 z-40 lg:hidden"
+          style={{
+            opacity: 0.7,
+            background: "var(--Colors-Background-bg-overlay, #0A0D12)",
+            background:
+              "linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0%, #000 100%)",
+            backdropFilter: "blur(4px)",
+          }}
           onClick={() => setMobileMenuOpen(false)}
         ></div>
       )}
