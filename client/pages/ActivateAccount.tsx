@@ -1,0 +1,911 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+interface PasswordRequirement {
+  id: string;
+  text: string;
+  validator: (password: string) => boolean;
+}
+
+const passwordRequirements: PasswordRequirement[] = [
+  {
+    id: "length",
+    text: "Must be at least 8 characters",
+    validator: (password) => password.length >= 8,
+  },
+  {
+    id: "special",
+    text: "Must contain one special character (e.g. !, @, #, $)",
+    validator: (password) => /[!@#$%^&*(),.?":{}|<>]/.test(password),
+  },
+  {
+    id: "uppercase",
+    text: "Must include at least one uppercase letter",
+    validator: (password) => /[A-Z]/.test(password),
+  },
+  {
+    id: "number",
+    text: "Must include at least one number",
+    validator: (password) => /[0-9]/.test(password),
+  },
+];
+
+export default function ActivateAccount() {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    role: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
+  const [requirementStates, setRequirementStates] = useState<{
+    [key: string]: boolean;
+  }>({});
+
+  // Update requirement states whenever password changes
+  useEffect(() => {
+    const newStates: { [key: string]: boolean } = {};
+    passwordRequirements.forEach((req) => {
+      newStates[req.id] = req.validator(formData.password);
+    });
+    setRequirementStates(newStates);
+  }, [formData.password]);
+
+  const handleInputChange =
+    (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData((prev) => ({
+        ...prev,
+        [field]: e.target.value,
+      }));
+    };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setHasAttemptedSubmit(true);
+
+    // Check if all requirements are met
+    const allRequirementsMet = passwordRequirements.every((req) =>
+      req.validator(formData.password),
+    );
+
+    // Check if all fields are filled
+    const allFieldsFilled = Object.values(formData).every(
+      (value) => value.trim() !== "",
+    );
+
+    if (allRequirementsMet && allFieldsFilled) {
+      // Account activated successfully, redirect to dashboard with notification
+      navigate("/dashboard?activated=true");
+    }
+  };
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
+  const getRequirementIconColor = (requirementId: string) => {
+    if (!formData.password) return "#D5D7DA"; // Gray when no password
+    if (requirementStates[requirementId]) return "#079455"; // Green when met
+    if (hasAttemptedSubmit && !requirementStates[requirementId])
+      return "#F04438"; // Red when failed after submit
+    return "#D5D7DA"; // Gray when not met but not submitted yet
+  };
+
+  return (
+    <div
+      className="activate-account-container"
+      style={{
+        display: "flex",
+        width: "100vw",
+        minHeight: "100vh",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "32px",
+        background: "linear-gradient(90deg, #F7F8FD 0%, #D9DEF2 100%)",
+        fontFamily:
+          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+        justifyContent: "center",
+        padding: "16px",
+      }}
+    >
+      <style>{`
+        @media (min-width: 768px) {
+          .activate-account-container {
+            padding: 96px 32px 48px 32px !important;
+          }
+          .activate-account-form-container {
+            padding: 32px 40px !important;
+          }
+        }
+        @media (max-width: 767px) {
+          .activate-account-container {
+            padding: 32px 16px !important;
+          }
+          .activate-account-form-container {
+            padding: 32px 16px !important;
+          }
+        }
+        .name-group {
+          gap: 20px;
+        }
+        @media (max-width: 767px) {
+          .name-group {
+            flex-direction: column;
+            gap: 20px;
+          }
+        }
+        .link-button:hover {
+          color: #1A234C !important;
+        }
+        .back-link:hover {
+          color: #3E4651 !important;
+        }
+      `}</style>
+
+      <div
+        style={{
+          display: "flex",
+          maxWidth: "1280px",
+          width: "100%",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "32px",
+        }}
+      >
+        <div
+          className="activate-account-form-container"
+          style={{
+            display: "flex",
+            maxWidth: "460px",
+            width: "100%",
+            padding: "32px 40px",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "24px",
+            borderRadius: "16px",
+            background: "#FFF",
+            boxShadow:
+              "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+          }}
+        >
+          {/* Logo */}
+          <div
+            style={{
+              width: "208.5px",
+              height: "48px",
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <svg
+              style={{
+                width: "206px",
+                height: "36px",
+                flexShrink: 0,
+                fill: "#34479A",
+              }}
+              width="206"
+              height="36"
+              viewBox="0 0 206 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M45.2778 29.4444H39.0556L32.1111 9.22222H38.7778L42.1667 21.5L45.5556 9.22222H52.2222L45.2778 29.4444ZM70.1667 18.7778C70.1667 20.2778 69.8889 21.6111 69.3333 22.7778C68.7778 23.9444 67.9444 24.8333 66.8333 25.4444C65.7222 26.0556 64.3889 26.3611 62.8333 26.3611C61.2778 26.3611 59.9444 26.0556 58.8333 25.4444C57.7222 24.8333 56.8889 23.9444 56.3333 22.7778C55.7778 21.6111 55.5 20.2778 55.5 18.7778C55.5 17.2778 55.7778 15.9444 56.3333 14.7778C56.8889 13.6111 57.7222 12.7222 58.8333 12.1111C59.9444 11.5 61.2778 11.1944 62.8333 11.1944C64.3889 11.1944 65.7222 11.5 66.8333 12.1111C67.9444 12.7222 68.7778 13.6111 69.3333 14.7778C69.8889 15.9444 70.1667 17.2778 70.1667 18.7778ZM63.5556 18.7778C63.5556 17.9444 63.3889 17.2778 63.0556 16.7778C62.7222 16.2778 62.3333 15.9444 61.8889 15.7778C61.4444 15.6111 61 15.5278 60.5556 15.5278C60.1111 15.5278 59.6667 15.6111 59.2222 15.7778C58.7778 15.9444 58.3889 16.2778 58.0556 16.7778C57.7222 17.2778 57.5556 17.9444 57.5556 18.7778C57.5556 19.6111 57.7222 20.2778 58.0556 20.7778C58.3889 21.2778 58.7778 21.6111 59.2222 21.7778C59.6667 21.9444 60.1111 22.0278 60.5556 22.0278C61 22.0278 61.4444 21.9444 61.8889 21.7778C62.3333 21.6111 62.7222 21.2778 63.0556 20.7778C63.3889 20.2778 63.5556 19.6111 63.5556 18.7778ZM22.7222 20.7778C22.7222 21.7778 22.4444 22.6111 21.8889 23.2778C21.3333 23.9444 20.5556 24.4444 19.5556 24.7778C18.5556 25.1111 17.3889 25.2778 16.0556 25.2778H8.16667V12.2778H15.3889C16.6111 12.2778 17.6667 12.4444 18.5556 12.7778C19.4444 13.1111 20.1111 13.5833 20.5556 14.1944C21 14.8056 21.2222 15.5 21.2222 16.2778C21.2222 17.1111 20.9444 17.8333 20.3889 18.4444C19.8333 19.0556 19.0556 19.4444 18.0556 19.6111C19.2778 19.7778 20.2222 20.1667 20.8889 20.7778C21.5556 21.3889 21.8889 22.1667 21.8889 23.1111H21.1111C20.7778 23.1111 20.5 22.9444 20.2778 22.6111C20.0556 22.2778 19.9444 21.8889 19.9444 21.4444C19.9444 20.8889 19.7222 20.4444 19.2778 20.1111C18.8333 19.7778 18.1667 19.6111 17.2778 19.6111H12.3889V21.9444H16.2778C17.2778 21.9444 18.0556 22.1111 18.6111 22.4444C19.1667 22.7778 19.4444 23.2778 19.4444 23.9444C19.4444 24.6111 19.1667 25.1111 18.6111 25.4444C18.0556 25.7778 17.2778 25.9444 16.2778 25.9444H8.16667V29.4444H16.6111C18.3889 29.4444 19.8889 29.1944 21.1111 28.6944C22.3333 28.1944 23.2778 27.5 23.9444 26.6111C24.6111 25.7222 24.9444 24.6944 24.9444 23.5278C24.9444 22.3611 24.6111 21.3889 23.9444 20.6111C23.2778 19.8333 22.3333 19.2778 21.1111 18.9444C22.3333 18.6111 23.2778 17.9444 23.9444 17.0556C24.6111 16.1667 24.9444 15.1111 24.9444 13.8889C24.9444 12.3889 24.5 11.1111 23.6111 10.0556C22.7222 9 21.5556 8.22222 20.1111 7.72222C18.6667 7.22222 17.0556 6.97222 15.2778 6.97222H4.88889V29.4444H8.16667V12.2778H15.3889C16.6111 12.2778 17.6667 12.4444 18.5556 12.7778C19.4444 13.1111 20.1111 13.5833 20.5556 14.1944C21 14.8056 21.2222 15.5 21.2222 16.2778C21.2222 17.0556 21 17.7222 20.5556 18.2778C20.1111 18.8333 19.4444 19.2222 18.5556 19.4444C17.6667 19.6667 16.6111 19.7778 15.3889 19.7778H12.3889V12.2778H15.3889C16.6111 12.2778 17.6667 12.4444 18.5556 12.7778C19.4444 13.1111 20.1111 13.5833 20.5556 14.1944C21 14.8056 21.2222 15.5 21.2222 16.2778C21.2222 17.0556 21 17.7222 20.5556 18.2778C20.1111 18.8333 19.4444 19.2222 18.5556 19.4444C17.6667 19.6667 16.6111 19.7778 15.3889 19.7778H4.88889V6.97222H15.2778C17.0556 6.97222 18.6667 7.22222 20.1111 7.72222C21.5556 8.22222 22.7222 9 23.6111 10.0556C24.5 11.1111 24.9444 12.3889 24.9444 13.8889C24.9444 15.1111 24.6111 16.1667 23.9444 17.0556C23.2778 17.9444 22.3333 18.6111 21.1111 18.9444C22.3333 19.2778 23.2778 19.8333 23.9444 20.6111C24.6111 21.3889 24.9444 22.3611 24.9444 23.5278C24.9444 24.6944 24.6111 25.7222 23.9444 26.6111C23.2778 27.5 22.3333 28.1944 21.1111 28.6944C19.8889 29.1944 18.3889 29.4444 16.6111 29.4444H4.88889V6.97222H0V33H4.88889V29.4444H22.7222V20.7778Z"
+                fill="#34479A"
+              />
+            </svg>
+          </div>
+
+          {/* Header */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "24px",
+              alignSelf: "stretch",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "12px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  alignSelf: "stretch",
+                  color: "#181D27",
+                  textAlign: "center",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "30px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "38px",
+                }}
+              >
+                Activate your account
+              </div>
+              <div
+                style={{
+                  alignSelf: "stretch",
+                  color: "#535862",
+                  textAlign: "center",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "24px",
+                }}
+              >
+                You have been invited to join [Company Name] team. Please
+                validate your information
+              </div>
+            </div>
+          </div>
+
+          {/* Form */}
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "20px",
+              alignSelf: "stretch",
+            }}
+          >
+            {/* Name Group */}
+            <div
+              className="name-group"
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+              }}
+            >
+              {/* First Name */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  flex: "1 0 0",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Name
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "10px 14px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border:
+                      focusedField === "firstName"
+                        ? "2px solid #34479A"
+                        : "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <input
+                    type="text"
+                    value={formData.firstName}
+                    onChange={handleInputChange("firstName")}
+                    onFocus={() => setFocusedField("firstName")}
+                    onBlur={() => setFocusedField(null)}
+                    style={{
+                      flex: "1 0 0",
+                      border: "none",
+                      outline: "none",
+                      background: "transparent",
+                      color: formData.firstName ? "#181D27" : "#717680",
+                      fontFamily:
+                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                    }}
+                    placeholder="Jhon"
+                  />
+                </div>
+              </div>
+
+              {/* Last Name */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  flex: "1 0 0",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Last Name
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "10px 14px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border:
+                      focusedField === "lastName"
+                        ? "2px solid #34479A"
+                        : "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <input
+                    type="text"
+                    value={formData.lastName}
+                    onChange={handleInputChange("lastName")}
+                    onFocus={() => setFocusedField("lastName")}
+                    onBlur={() => setFocusedField(null)}
+                    style={{
+                      flex: "1 0 0",
+                      border: "none",
+                      outline: "none",
+                      background: "transparent",
+                      color: formData.lastName ? "#181D27" : "#717680",
+                      fontFamily:
+                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                    }}
+                    placeholder="Doe"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Email */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              >
+                Email
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "10px 14px",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border:
+                    focusedField === "email"
+                      ? "2px solid #34479A"
+                      : "1px solid #D5D7DA",
+                  background: "#FFF",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                }}
+              >
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={handleInputChange("email")}
+                  onFocus={() => setFocusedField("email")}
+                  onBlur={() => setFocusedField(null)}
+                  style={{
+                    flex: "1 0 0",
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
+                    color: formData.email ? "#181D27" : "#717680",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                  }}
+                  placeholder="jhondoe@mail.com"
+                />
+              </div>
+            </div>
+
+            {/* Role */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              >
+                Role
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "10px 14px",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border:
+                    focusedField === "role"
+                      ? "2px solid #34479A"
+                      : "1px solid #D5D7DA",
+                  background: "#FFF",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                }}
+              >
+                <input
+                  type="text"
+                  value={formData.role}
+                  onChange={handleInputChange("role")}
+                  onFocus={() => setFocusedField("role")}
+                  onBlur={() => setFocusedField(null)}
+                  style={{
+                    flex: "1 0 0",
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
+                    color: formData.role ? "#181D27" : "#717680",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                  }}
+                  placeholder="HR Manager"
+                />
+              </div>
+            </div>
+
+            {/* Password */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              >
+                Password
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "10px 14px",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border:
+                    focusedField === "password"
+                      ? "2px solid #34479A"
+                      : "1px solid #D5D7DA",
+                  background: "#FFF",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                }}
+              >
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={formData.password}
+                  onChange={handleInputChange("password")}
+                  onFocus={() => setFocusedField("password")}
+                  onBlur={() => setFocusedField(null)}
+                  style={{
+                    flex: "1 0 0",
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
+                    color: formData.password ? "#181D27" : "#717680",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                  }}
+                  placeholder="Create a password"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  style={{
+                    display: "flex",
+                    padding: "4px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "6px",
+                    border: "none",
+                    background: "transparent",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F5F5F5";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <svg
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                    }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    {showPassword ? (
+                      <path
+                        d="M1.61342 8.47562C1.52262 8.33186 1.47723 8.25998 1.45182 8.14911C1.43273 8.06583 1.43273 7.9345 1.45182 7.85122C1.47723 7.74035 1.52262 7.66847 1.61341 7.52471C2.36369 6.33672 4.59693 3.3335 8.00027 3.3335C11.4036 3.3335 13.6369 6.33672 14.3871 7.52471C14.4779 7.66847 14.5233 7.74035 14.5487 7.85122C14.5678 7.9345 14.5678 8.06583 14.5487 8.14911C14.5233 8.25998 14.4779 8.33186 14.3871 8.47562C13.6369 9.6636 11.4036 12.6668 8.00027 12.6668C4.59693 12.6668 2.36369 9.6636 1.61342 8.47562Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    ) : null}
+                    <path
+                      d="M8.00027 10.0002C9.10484 10.0002 10.0003 9.10473 10.0003 8.00016C10.0003 6.89559 9.10484 6.00016 8.00027 6.00016C6.8957 6.00016 6.00027 6.89559 6.00027 8.00016C6.00027 9.10473 6.8957 10.0002 8.00027 10.0002Z"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Password Requirements */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "12px",
+                alignSelf: "stretch",
+              }}
+            >
+              {passwordRequirements.map((requirement) => (
+                <div
+                  key={requirement.id}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  <svg
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      aspectRatio: "1/1",
+                      fill: getRequirementIconColor(requirement.id),
+                    }}
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10Z"
+                      fill={getRequirementIconColor(requirement.id)}
+                    />
+                    <path
+                      d="M6.25 10L8.75 12.5L13.75 7.5"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#535862",
+                      fontFamily:
+                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    {requirement.text}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </form>
+
+          {/* Actions */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "16px",
+              alignSelf: "stretch",
+            }}
+          >
+            {/* Get Started Button */}
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              style={{
+                display: "flex",
+                padding: "12px 16px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "6px",
+                alignSelf: "stretch",
+                borderRadius: "8px",
+                border: "2px solid rgba(255, 255, 255, 0.12)",
+                background: "#344698",
+                boxShadow:
+                  "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+              }}
+            >
+              <div
+                style={{
+                  color: "#FFF",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "24px",
+                }}
+              >
+                Get started
+              </div>
+            </button>
+
+            {/* OR Divider */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  height: "1px",
+                  flex: "1 0 0",
+                  background: "#E9EAEB",
+                }}
+              ></div>
+              <div
+                style={{
+                  color: "#535862",
+                  textAlign: "center",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              >
+                OR
+              </div>
+              <div
+                style={{
+                  height: "1px",
+                  flex: "1 0 0",
+                  background: "#E9EAEB",
+                }}
+              ></div>
+            </div>
+
+            {/* Sign up with Google */}
+            <button
+              type="button"
+              style={{
+                display: "flex",
+                padding: "10px 16px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "12px",
+                alignSelf: "stretch",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow:
+                  "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+              }}
+            >
+              <svg
+                style={{
+                  width: "24px",
+                  height: "24px",
+                }}
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_507_3175)">
+                  <path
+                    d="M23.7663 12.2763C23.7663 11.4605 23.7001 10.6404 23.559 9.83789H12.2402V14.4589H18.722C18.453 15.9492 17.5888 17.2676 16.3233 18.1054V21.1037H20.1903C22.4611 19.0137 23.7663 15.9272 23.7663 12.2763Z"
+                    fill="#4285F4"
+                  />
+                  <path
+                    d="M12.24 24.0013C15.4764 24.0013 18.2058 22.9387 20.1944 21.1044L16.3274 18.106C15.2516 18.838 13.8626 19.2525 12.2444 19.2525C9.11376 19.2525 6.45934 17.1404 5.50693 14.3008H1.51648V17.3917C3.55359 21.4439 7.70278 24.0013 12.24 24.0013Z"
+                    fill="#34A853"
+                  />
+                  <path
+                    d="M5.50277 14.3007C5.00011 12.8103 5.00011 11.1965 5.50277 9.70618V6.61523H1.51674C-0.185266 10.006 -0.185266 14.0009 1.51674 17.3916L5.50277 14.3007Z"
+                    fill="#FBBC04"
+                  />
+                  <path
+                    d="M12.24 4.74966C13.9508 4.7232 15.6043 5.36697 16.8433 6.54867L20.2694 3.12262C18.1 1.0855 15.2207 -0.034466 12.24 0.000808666C7.70277 0.000808666 3.55359 2.55822 1.51648 6.61481L5.50252 9.70575C6.45052 6.86173 9.10935 4.74966 12.24 4.74966Z"
+                    fill="#EA4335"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_507_3175">
+                    <rect width="24" height="24" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "24px",
+                }}
+              >
+                Sign up with Google
+              </div>
+            </button>
+          </div>
+
+          {/* Footer */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "baseline",
+              gap: "4px",
+              alignSelf: "stretch",
+            }}
+          >
+            <div
+              style={{
+                color: "#535862",
+                fontFamily:
+                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "20px",
+              }}
+            >
+              Already have an account?
+            </div>
+            <button
+              type="button"
+              onClick={handleLoginClick}
+              className="link-button"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+                color: "#273572",
+                fontFamily:
+                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "20px",
+              }}
+            >
+              Log In
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
