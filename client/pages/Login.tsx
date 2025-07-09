@@ -99,8 +99,8 @@ export default function Login() {
           .login-container {
             padding: 32px !important;
           }
-          .login-form-container {
-            max-width: 744px !important;
+                    .login-form-container {
+            max-width: 460px !important;
             padding: 32px 40px !important;
           }
         }
@@ -116,7 +116,7 @@ export default function Login() {
       <div
         style={{
           display: "flex",
-          maxWidth: "744px",
+          maxWidth: "460px",
           width: "100%",
           flexDirection: "column",
           alignItems: "center",
