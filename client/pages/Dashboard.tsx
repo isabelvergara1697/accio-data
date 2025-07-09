@@ -582,33 +582,71 @@ export default function Dashboard() {
               <div
                 style={{
                   display: "flex",
-                  width: "139px",
-                  alignItems: "flex-start",
-                  position: "relative",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  alignSelf: "stretch",
                 }}
               >
                 <div
                   style={{
+                    display: "flex",
                     width: "139px",
-                    height: "32px",
-                    flexShrink: 0,
+                    alignItems: "flex-start",
                     position: "relative",
                   }}
                 >
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/876fe16651091c38ad5eb9e1c4c54f44055b43e1?width=274"
+                  <div
                     style={{
-                      width: "137px",
-                      height: "24px",
+                      width: "139px",
+                      height: "32px",
                       flexShrink: 0,
-                      fill: "#34479A",
-                      position: "absolute",
-                      left: "1px",
-                      top: "4px",
+                      position: "relative",
                     }}
-                    alt="Acio Data Logo"
-                  />
+                  >
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5f38048a89d8ad952ff6b9682276a562665736e?width=274"
+                      style={{
+                        width: "137px",
+                        height: "24px",
+                        flexShrink: 0,
+                        fill: "#34479A",
+                        position: "absolute",
+                        left: "1px",
+                        top: "4px",
+                      }}
+                      alt="Union"
+                    />
+                  </div>
                 </div>
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    display: "flex",
+                    padding: "8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "8px",
+                  }}
+                >
+                  <svg
+                    style={{ width: "24px", height: "24px", opacity: 0.7 }}
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g opacity="0.7">
+                      <path
+                        d="M18 6L6 18M6 6L18 18"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </g>
+                  </svg>
+                </button>
               </div>
             </div>
 
