@@ -4,11 +4,28 @@ import SuccessNotification from "../components/SuccessNotification";
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openAccordions, setOpenAccordions] = useState<string[]>([]);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+
+  // Check for activation success parameter
+  useEffect(() => {
+    const activated = searchParams.get("activated");
+    if (activated === "true") {
+      setShowNotification(true);
+      // Remove the parameter from URL
+      searchParams.delete("activated");
+      setSearchParams(searchParams, { replace: true });
+    }
+  }, [searchParams, setSearchParams]);
+
+  const handleNotificationDismiss = () => {
+    setShowNotification(false);
+  };
 
   const toggleAccordion = (section: string) => {
     setOpenAccordions((prev) =>
