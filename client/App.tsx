@@ -12,6 +12,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
 import SetNewPassword from "./pages/SetNewPassword";
 import PasswordResetSuccess from "./pages/PasswordResetSuccess";
+import ActivateAccount from "./pages/ActivateAccount";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
