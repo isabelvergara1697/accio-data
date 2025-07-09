@@ -198,7 +198,7 @@ export default function Login() {
                     "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "30px",
                   fontStyle: "normal",
-                  fontWeight: 700,
+                  fontWeight: 600,
                   lineHeight: "38px",
                 }}
               >
@@ -673,7 +673,7 @@ export default function Login() {
                       "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
-                    fontWeight: 700,
+                    fontWeight: 600,
                     lineHeight: "20px",
                   }}
                 >
@@ -726,7 +726,7 @@ export default function Login() {
                         "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "16px",
                       fontStyle: "normal",
-                      fontWeight: 700,
+                      fontWeight: 600,
                       lineHeight: "24px",
                     }}
                   >
@@ -845,7 +845,7 @@ export default function Login() {
                         "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "16px",
                       fontStyle: "normal",
-                      fontWeight: 700,
+                      fontWeight: 600,
                       lineHeight: "24px",
                     }}
                   >
@@ -898,7 +898,7 @@ export default function Login() {
                       "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
-                    fontWeight: 700,
+                    fontWeight: 600,
                     lineHeight: "20px",
                   }}
                 >
