@@ -554,10 +554,12 @@ export default function Dashboard() {
             alignItems: "flex-start",
             flex: "1 0 0",
             alignSelf: "stretch",
-            borderRadius: "12px",
-            border: "1px solid #E9EAEB",
+            borderRadius: mobileMenuOpen ? "0" : "12px",
+            border: mobileMenuOpen ? "none" : "1px solid #E9EAEB",
             background: "#FFF",
-            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+            boxShadow: mobileMenuOpen
+              ? "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)"
+              : "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
             position: "relative",
           }}
         >
