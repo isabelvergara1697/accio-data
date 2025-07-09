@@ -665,6 +665,18 @@ export default function Login() {
                   border: "none",
                   cursor: "pointer",
                 }}
+                onMouseEnter={(e) => {
+                  const textElement = e.currentTarget.querySelector("div");
+                  if (textElement) {
+                    textElement.style.color = "#1A234C";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const textElement = e.currentTarget.querySelector("div");
+                  if (textElement) {
+                    textElement.style.color = "#273572";
+                  }
+                }}
               >
                 <div
                   style={{
