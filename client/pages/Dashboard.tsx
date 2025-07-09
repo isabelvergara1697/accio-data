@@ -695,8 +695,8 @@ export default function Dashboard() {
         }}
         className="lg:ml-[296px] ml-0"
       >
-        {/* Mobile Header Bar */}
-        <div className="lg:hidden bg-background border-b border-border px-4 py-3 flex items-center justify-between w-full">
+        {/* Mobile/Tablet Header Bar */}
+        <div className="lg:hidden bg-background border-b border-border px-4 py-3 flex items-center justify-between w-full fixed top-0 left-0 right-0 z-30">
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="p-2 hover:bg-accent rounded-lg transition-colors"
@@ -711,9 +711,206 @@ export default function Dashboard() {
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <div className="w-4 h-4 bg-white rounded-sm"></div>
             </div>
-            <span className="font-semibold text-lg text-foreground">
+            <span className="font-semibold text-lg text-foreground md:hidden">
               Acio Data
             </span>
+          </div>
+
+          {/* Tablet Header Elements */}
+          <div className="hidden md:flex lg:hidden items-center gap-4">
+            {/* Quick Create Button */}
+            <button
+              style={{
+                display: "flex",
+                padding: "8px 12px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                borderRadius: "8px",
+                border: "2px solid rgba(255, 255, 255, 0.12)",
+                background: "#344698",
+                boxShadow:
+                  "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  color: "rgba(255,255,255,1)",
+                }}
+              >
+                Quick Create
+              </span>
+              <svg
+                style={{
+                  width: "16px",
+                  height: "16px",
+                }}
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.99996 6.66663V13.3333M6.66663 9.99996H13.3333M18.3333 9.99996C18.3333 14.6023 14.6023 18.3333 9.99996 18.3333C5.39759 18.3333 1.66663 14.6023 1.66663 9.99996C1.66663 5.39759 5.39759 1.66663 9.99996 1.66663C14.6023 1.66663 18.3333 5.39759 18.3333 9.99996Z"
+                  stroke="#8D9BD8"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {/* Notification Bell */}
+            <button
+              style={{
+                display: "flex",
+                width: "40px",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "6px",
+              }}
+            >
+              <svg
+                style={{
+                  width: "24px",
+                  height: "24px",
+                  flexShrink: 0,
+                }}
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.35419 21C10.0593 21.6224 10.9856 22 12 22C13.0145 22 13.9407 21.6224 14.6458 21M18 8C18 6.4087 17.3679 4.88258 16.2427 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.8826 2.63214 7.75738 3.75736C6.63216 4.88258 6.00002 6.4087 6.00002 8C6.00002 11.0902 5.22049 13.206 4.34968 14.6054C3.61515 15.7859 3.24788 16.3761 3.26134 16.5408C3.27626 16.7231 3.31488 16.7926 3.46179 16.9016C3.59448 17 4.19261 17 5.38887 17H18.6112C19.8074 17 20.4056 17 20.5382 16.9016C20.6852 16.7926 20.7238 16.7231 20.7387 16.5408C20.7522 16.3761 20.3849 15.7859 19.6504 14.6054C18.7795 13.206 18 11.0902 18 8Z"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {/* User Profile Menu */}
+            <div
+              style={{
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "4px",
+                  alignItems: "center",
+                  gap: "8px",
+                  borderRadius: "12px",
+                  cursor: "pointer",
+                  ...getUserMenuStyles(),
+                }}
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+                onMouseEnter={() => setUserMenuHovered(true)}
+                onMouseLeave={() => setUserMenuHovered(false)}
+              >
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    flexShrink: 0,
+                    aspectRatio: "1/1",
+                    borderRadius: "9999px",
+                    border: "1px solid rgba(0, 0, 0, 0.10)",
+                    background:
+                      "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                  }}
+                ></div>
+                <svg
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    transition: "transform 0.2s ease",
+                    transform: userMenuOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  }}
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 7.5L10 12.5L15 7.5"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.67"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              {/* User Menu Dropdown for tablet */}
+              {userMenuOpen && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    right: "0",
+                    marginTop: "8px",
+                    zIndex: 50,
+                  }}
+                  className="md:block lg:hidden"
+                >
+                  {/* Same dropdown content as desktop */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "320px",
+                      padding: "12px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      borderRadius: "12px",
+                      border: "1px solid #E9EAEB",
+                      background: "#FFF",
+                      boxShadow:
+                        "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03)",
+                    }}
+                  >
+                    {/* User menu content - simplified for tablet */}
+                    <div className="p-2">
+                      <div className="text-sm font-medium text-gray-900">
+                        Alexandra Fitzwilliam
+                      </div>
+                      <div className="text-sm text-gray-500">[Role]</div>
+                    </div>
+                    <hr className="w-full" />
+                    <button
+                      onClick={handleSignOut}
+                      className="w-full text-left p-2 text-sm hover:bg-gray-50 rounded-md flex items-center gap-2"
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M10.6667 11.3333L14 8M14 8L10.6667 4.66667M14 8H6M8 11.3333C8 11.9533 8 12.2633 7.93185 12.5176C7.74692 13.2078 7.20782 13.7469 6.51764 13.9319C6.26331 14 5.95332 14 5.33333 14H5C4.06812 14 3.60218 14 3.23463 13.8478C2.74458 13.6448 2.35523 13.2554 2.15224 12.7654C2 12.3978 2 11.9319 2 11V5C2 4.06812 2 3.60218 2.15224 3.23463C2.35523 2.74458 2.74458 2.35523 3.23463 2.15224C3.60218 2 4.06812 2 5 2H5.33333C5.95332 2 6.26331 2 6.51764 2.06815C7.20782 2.25308 7.74692 2.79218 7.93185 3.48236C8 3.7367 8 4.04669 8 4.66667"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.67"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      Sign Out
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
