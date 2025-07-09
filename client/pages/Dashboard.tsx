@@ -660,7 +660,7 @@ export default function Dashboard() {
                 <NavItem
                   section="screening"
                   label="Screening"
-                  badge="8"
+                  badge={!isAccordionOpen("screening") ? "8" : undefined}
                   onClick={() => toggleAccordion("screening")}
                 />
 
