@@ -605,6 +605,128 @@ export default function Dashboard() {
               </div>
             </div>
 
+            {/* Search Bar - Mobile/Tablet Only */}
+            <div
+              className="lg:hidden"
+              style={{
+                display: "flex",
+                padding: "0px 20px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "10px 14px",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border: "1px solid #D5D7DA",
+                  background: "#FFF",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    flex: "1 0 0",
+                    position: "relative",
+                  }}
+                >
+                  <svg
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      position: "relative",
+                    }}
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div
+                    style={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 1,
+                      flex: "1 0 0",
+                      overflow: "hidden",
+                      color: "#717680",
+                      textOverflow: "ellipsis",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontWeight: 400,
+                        fontSize: "14px",
+                        color: "rgba(113,118,128,1)",
+                      }}
+                    >
+                      Search
+                    </span>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "1px 4px",
+                    alignItems: "flex-start",
+                    borderRadius: "4px",
+                    border: "1px solid #E9EAEB",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#717680",
+                      fontFamily: "Public Sans",
+                      fontSize: "12px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "18px",
+                      position: "relative",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontWeight: 400,
+                        fontSize: "12px",
+                        color: "rgba(113,118,128,1)",
+                      }}
+                    >
+                      ⌘K
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Notification */}
             {showNotification && (
               <div
