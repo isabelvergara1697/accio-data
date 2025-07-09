@@ -11,12 +11,27 @@ import {
 
 export default function Index() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className="min-h-screen bg-background flex relative">
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        ></div>
+      )}
+
       {/* Sidebar */}
       <aside
-        className={`${sidebarCollapsed ? "w-16" : "w-64"} transition-all duration-300 bg-sidebar border-r border-sidebar-border flex flex-col`}
+        className={`${
+          sidebarCollapsed ? "w-16" : "w-64"
+        } transition-all duration-300 bg-sidebar border-r border-sidebar-border flex flex-col fixed lg:relative z-50 h-full ${
+          mobileMenuOpen
+            ? "translate-x-0"
+            : "-translate-x-full lg:translate-x-0"
+        }`}
       >
         {/* Logo */}
         <div className="p-6">
@@ -92,9 +107,36 @@ export default function Index() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col">
+      <main className="flex-1 flex flex-col lg:ml-0">
+        {/* Mobile Header Bar */}
+        <div className="lg:hidden bg-background border-b border-border px-4 py-3 flex items-center justify-between">
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="p-2 hover:bg-accent rounded-lg transition-colors"
+          >
+            <div className="w-5 h-5 flex flex-col justify-between">
+              <div className="w-full h-0.5 bg-foreground"></div>
+              <div className="w-full h-0.5 bg-foreground"></div>
+              <div className="w-full h-0.5 bg-foreground"></div>
+            </div>
+          </button>
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+              <div className="w-4 h-4 bg-white rounded-sm"></div>
+            </div>
+            <span className="font-semibold text-lg text-foreground">
+              Acio Data
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <button className="p-2 hover:bg-accent rounded-lg transition-colors">
+              <Bell className="w-5 h-5 text-foreground" />
+            </button>
+            <div className="w-8 h-8 bg-primary rounded-full"></div>
+          </div>
+        </div>
         {/* Header */}
-        <header className="bg-background border-b border-border px-6 py-4">
+        <header className="bg-background border-b border-border px-4 sm:px-6 py-4 hidden lg:block">
           <div className="flex items-center justify-between">
             {/* Search */}
             <div className="flex items-center gap-4">
@@ -103,7 +145,7 @@ export default function Index() {
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="pl-9 pr-12 py-2 w-80 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="pl-9 pr-12 py-2 w-64 xl:w-80 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
                 />
                 <kbd className="absolute right-3 top-1/2 transform -translate-y-1/2 text-xs text-muted-foreground bg-muted px-1.5 py-0.5 rounded">
                   ⌘K
@@ -112,17 +154,17 @@ export default function Index() {
             </div>
 
             {/* Right side */}
-            <div className="flex items-center gap-4">
-              <button className="bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:opacity-90 transition-opacity">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <button className="bg-primary text-primary-foreground px-3 sm:px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:opacity-90 transition-opacity text-sm sm:text-base">
                 <Plus className="w-4 h-4" />
-                Quick Create
+                <span className="hidden sm:inline">Quick Create</span>
               </button>
               <button className="p-2 hover:bg-accent rounded-lg transition-colors">
                 <Bell className="w-5 h-5 text-foreground" />
               </button>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-primary rounded-full"></div>
-                <div className="text-sm">
+                <div className="text-sm hidden md:block">
                   <div className="font-medium">Alexandra Fitzwilliam</div>
                   <div className="text-muted-foreground">[User Role]</div>
                 </div>
@@ -132,7 +174,7 @@ export default function Index() {
         </header>
 
         {/* Dashboard Content */}
-        <div className="flex-1 p-6">
+        <div className="flex-1 p-4 sm:p-6">
           {/* Page Header */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-foreground mb-2">
@@ -144,16 +186,19 @@ export default function Index() {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-4 mt-6">
-              <button className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-6">
+              <button className="px-3 sm:px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity text-sm sm:text-base">
                 Customize
               </button>
-              <button className="px-4 py-2 bg-background border border-input text-foreground rounded-lg font-medium hover:bg-accent transition-colors flex items-center gap-2">
+              <button className="px-3 sm:px-4 py-2 bg-background border border-input text-foreground rounded-lg font-medium hover:bg-accent transition-colors flex items-center gap-2 text-sm sm:text-base">
                 Default
                 <ChevronDown className="w-4 h-4" />
               </button>
-              <div className="text-sm text-muted-foreground bg-muted px-3 py-2 rounded-lg">
-                Jan 10, 2025 – Jan 16, 2025
+              <div className="text-xs sm:text-sm text-muted-foreground bg-muted px-2 sm:px-3 py-2 rounded-lg">
+                <span className="hidden sm:inline">
+                  Jan 10, 2025 – Jan 16, 2025
+                </span>
+                <span className="sm:hidden">Jan 10 – 16, 2025</span>
               </div>
             </div>
           </div>
@@ -161,7 +206,7 @@ export default function Index() {
           {/* Quick Overview */}
           <div className="mb-8">
             <h2 className="text-xl font-semibold mb-4">Quick Overview</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {/* Metric Card 1 */}
               <div className="bg-card border border-border rounded-lg p-6">
                 <div className="flex items-center justify-between mb-2">
@@ -261,7 +306,7 @@ export default function Index() {
           </div>
 
           {/* Widgets Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6">
             {/* Latest Reports Widget */}
             <div className="bg-card border border-border rounded-lg">
               <div className="p-6 border-b border-border">
@@ -272,29 +317,41 @@ export default function Index() {
               </div>
               <div className="p-6">
                 <div className="space-y-4">
-                  <div className="grid grid-cols-4 gap-4 text-sm font-medium text-muted-foreground pb-2 border-b border-border">
+                  <div className="hidden sm:grid grid-cols-4 gap-4 text-sm font-medium text-muted-foreground pb-2 border-b border-border">
                     <span>Order</span>
                     <span>Status</span>
                     <span>Requester</span>
                     <span>Progress</span>
                   </div>
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="grid grid-cols-4 gap-4 text-sm">
-                      <span className="font-medium">
-                        #2024-{String(i).padStart(3, "0")}
-                      </span>
-                      <span className="text-muted-foreground">Pending</span>
-                      <span className="text-muted-foreground">User {i}</span>
-                      <div className="flex items-center gap-2">
-                        <div className="flex-1 bg-muted rounded-full h-2">
-                          <div
-                            className={`bg-primary h-2 rounded-full`}
-                            style={{ width: `${Math.random() * 100}%` }}
-                          ></div>
-                        </div>
-                        <span className="text-xs text-muted-foreground">
-                          {Math.floor(Math.random() * 100)}%
+                    <div
+                      key={i}
+                      className="sm:grid sm:grid-cols-4 gap-4 text-sm space-y-2 sm:space-y-0"
+                    >
+                      <div className="sm:contents">
+                        <span className="font-medium block sm:inline">
+                          #2024-{String(i).padStart(3, "0")}
                         </span>
+                        <span className="text-muted-foreground block sm:inline sm:before:content-[''] before:content-['Status:_'] before:font-medium before:text-foreground">
+                          Pending
+                        </span>
+                        <span className="text-muted-foreground block sm:inline sm:before:content-[''] before:content-['Requester:_'] before:font-medium before:text-foreground">
+                          User {i}
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-medium text-foreground sm:hidden">
+                            Progress:
+                          </span>
+                          <div className="flex-1 bg-muted rounded-full h-2">
+                            <div
+                              className={`bg-primary h-2 rounded-full`}
+                              style={{ width: `${Math.random() * 100}%` }}
+                            ></div>
+                          </div>
+                          <span className="text-xs text-muted-foreground">
+                            {Math.floor(Math.random() * 100)}%
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}
