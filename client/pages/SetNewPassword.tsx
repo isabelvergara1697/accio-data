@@ -727,6 +727,18 @@ export default function SetNewPassword() {
                 border: "none",
                 cursor: "pointer",
               }}
+              onMouseEnter={(e) => {
+                const textElement = e.currentTarget.querySelector("div");
+                if (textElement) {
+                  textElement.style.color = "#3E4651";
+                }
+              }}
+              onMouseLeave={(e) => {
+                const textElement = e.currentTarget.querySelector("div");
+                if (textElement) {
+                  textElement.style.color = "#535862";
+                }
+              }}
             >
               <svg
                 style={{
