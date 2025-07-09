@@ -508,7 +508,7 @@ export default function Dashboard() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden md:hidden"
           onClick={() => setMobileMenuOpen(false)}
         ></div>
       )}
