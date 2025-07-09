@@ -15,7 +15,7 @@ export default function Index() {
 
   return (
     <div
-      className="min-h-screen flex relative"
+      className="flex relative"
       style={{
         backgroundColor: "#FAFAFA",
         justifyContent: "flex-end",
@@ -294,12 +294,9 @@ export default function Index() {
           style={{
             background:
               "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
-            height: "72px",
-            padding: "0px 32px",
-            alignItems: "center",
-            gap: "20px",
-            alignSelf: "stretch",
             flexDirection: "column",
+            alignItems: "center",
+            alignSelf: "stretch",
           }}
         >
           <div
@@ -313,40 +310,105 @@ export default function Index() {
             }}
           >
             {/* Search */}
-            <div className="flex items-center gap-4 flex-1">
-              <div className="relative flex-1 max-w-md">
-                <svg
-                  className="absolute left-3.5 top-1/2 transform -translate-y-1/2 w-6 h-6"
-                  style={{ color: "#A4A7AE" }}
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="pl-11 pr-16 py-2.5 w-full bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
-                  style={{
-                    border: "1px solid #D5D7DA",
-                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                    color: "#717680",
-                  }}
-                />
+            <div className="flex items-center gap-4" style={{ flex: "1 0 0" }}>
+              <div className="relative" style={{ flex: "1 0 0" }}>
                 <div
-                  className="absolute right-3.5 top-1/2 transform -translate-y-1/2 px-2 py-1 rounded text-xs"
-                  style={{ color: "#717680", border: "1px solid #E9EAEB" }}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "6px",
+                    flex: "1 0 0",
+                  }}
                 >
-                  ⌘K
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "6px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "10px 14px",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <div
+                          style={{
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            WebkitLineClamp: 1,
+                            flex: "1 0 0",
+                            overflow: "hidden",
+                            color: "#717680",
+                            textOverflow: "ellipsis",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                          }}
+                        >
+                          Search
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "1px 4px",
+                          alignItems: "flex-start",
+                          borderRadius: "4px",
+                          border: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          ⌘K
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
