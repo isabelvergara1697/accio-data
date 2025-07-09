@@ -665,7 +665,7 @@ export default function Dashboard() {
               <div
                 style={{
                   display: "flex",
-                  padding: "10px 14px",
+                  padding: "6px 8px",
                   alignItems: "center",
                   gap: "8px",
                   alignSelf: "stretch",
@@ -687,18 +687,18 @@ export default function Dashboard() {
                 >
                   <svg
                     style={{
-                      width: "20px",
-                      height: "20px",
+                      width: "16px",
+                      height: "16px",
                       position: "relative",
                     }}
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
+                      d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
                       stroke="#A4A7AE"
                       strokeWidth="1.66667"
                       strokeLinecap="round"
@@ -707,17 +707,19 @@ export default function Dashboard() {
                   </svg>
                   <div
                     style={{
-                      display: "-webkit-box",
-                      WebkitBoxOrient: "vertical",
-                      WebkitLineClamp: 1,
+                      display: "flex",
+                      height: "20px",
+                      flexDirection: "column",
+                      justifyContent: "center",
                       flex: "1 0 0",
                       overflow: "hidden",
                       color: "#717680",
                       textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontStyle: "normal",
-                      fontWeight: 400,
+                      fontWeight: 500,
                       lineHeight: "20px",
                       position: "relative",
                     }}
