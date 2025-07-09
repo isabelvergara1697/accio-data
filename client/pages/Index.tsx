@@ -15,8 +15,8 @@ export default function Index() {
 
   return (
     <div
-      className="flex relative"
       style={{
+        display: "flex",
         width: "1440px",
         justifyContent: "flex-end",
         alignItems: "flex-start",
@@ -37,7 +37,7 @@ export default function Index() {
       )}
 
       {/* Sidebar */}
-      <aside
+      <div
         className={`${
           sidebarCollapsed ? "w-16" : "w-74"
         } transition-all duration-300 flex flex-col fixed lg:fixed z-50 ${
@@ -56,7 +56,6 @@ export default function Index() {
         }}
       >
         <div
-          className="flex-1 flex flex-col justify-between bg-white rounded-xl"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -68,6 +67,7 @@ export default function Index() {
             border: "1px solid #E9EAEB",
             background: "#FFF",
             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+            position: "relative",
           }}
         >
           <div
@@ -79,6 +79,7 @@ export default function Index() {
               gap: "20px",
               flex: "1 0 0",
               alignSelf: "stretch",
+              position: "relative",
             }}
           >
             {/* Logo Header */}
@@ -90,6 +91,7 @@ export default function Index() {
                 alignItems: "flex-start",
                 gap: "20px",
                 alignSelf: "stretch",
+                position: "relative",
               }}
             >
               <div
@@ -97,12 +99,19 @@ export default function Index() {
                   display: "flex",
                   width: "139px",
                   alignItems: "flex-start",
+                  position: "relative",
                 }}
               >
-                <div style={{ width: "139px", height: "32px", flexShrink: 0 }}>
+                <div
+                  style={{
+                    width: "139px",
+                    height: "32px",
+                    flexShrink: 0,
+                    position: "relative",
+                  }}
+                >
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/876fe16651091c38ad5eb9e1c4c54f44055b43e1?width=274"
-                    alt="Acio Data Logo"
                     style={{
                       width: "137px",
                       height: "24px",
@@ -112,6 +121,7 @@ export default function Index() {
                       left: "1px",
                       top: "4px",
                     }}
+                    alt="Union"
                   />
                 </div>
               </div>
@@ -124,6 +134,7 @@ export default function Index() {
                 flexDirection: "column",
                 alignItems: "flex-start",
                 alignSelf: "stretch",
+                position: "relative",
               }}
             >
               <div
@@ -133,6 +144,7 @@ export default function Index() {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   alignSelf: "stretch",
+                  position: "relative",
                 }}
               >
                 {/* Dashboard */}
@@ -142,6 +154,7 @@ export default function Index() {
                     flexDirection: "column",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
+                    position: "relative",
                   }}
                 >
                   <div
@@ -150,6 +163,7 @@ export default function Index() {
                       padding: "2px 0px",
                       alignItems: "center",
                       alignSelf: "stretch",
+                      position: "relative",
                     }}
                   >
                     <div
@@ -161,6 +175,7 @@ export default function Index() {
                         flex: "1 0 0",
                         borderRadius: "6px",
                         background: "#ECEEF9",
+                        position: "relative",
                       }}
                     >
                       <div
@@ -169,9 +184,16 @@ export default function Index() {
                           alignItems: "center",
                           gap: "8px",
                           flex: "1 0 0",
+                          position: "relative",
                         }}
                       >
                         <svg
+                          style={{
+                            width: "20.933px",
+                            height: "20.933px",
+                            aspectRatio: "20.93/20.93",
+                            position: "relative",
+                          }}
                           width="21"
                           height="21"
                           viewBox="0 0 21 21"
@@ -194,9 +216,20 @@ export default function Index() {
                             fontStyle: "normal",
                             fontWeight: 600,
                             lineHeight: "20px",
+                            position: "relative",
                           }}
                         >
-                          Dashboard
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 700,
+                              fontSize: "14px",
+                              color: "rgba(39,53,114,1)",
+                            }}
+                          >
+                            Dashboard
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -210,6 +243,7 @@ export default function Index() {
                     flexDirection: "column",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
+                    position: "relative",
                   }}
                 >
                   <div
@@ -218,6 +252,7 @@ export default function Index() {
                       padding: "2px 0px",
                       alignItems: "center",
                       alignSelf: "stretch",
+                      position: "relative",
                     }}
                   >
                     <div
@@ -229,6 +264,7 @@ export default function Index() {
                         flex: "1 0 0",
                         borderRadius: "6px",
                         background: "#FFF",
+                        position: "relative",
                       }}
                     >
                       <div
@@ -237,9 +273,15 @@ export default function Index() {
                           alignItems: "center",
                           gap: "8px",
                           flex: "1 0 0",
+                          position: "relative",
                         }}
                       >
                         <svg
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "relative",
+                          }}
                           width="20"
                           height="21"
                           viewBox="0 0 20 21"
@@ -269,12 +311,28 @@ export default function Index() {
                             fontStyle: "normal",
                             fontWeight: 600,
                             lineHeight: "20px",
+                            position: "relative",
                           }}
                         >
-                          Tools
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 700,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Tools
+                          </span>
                         </div>
                       </div>
                       <svg
+                        style={{
+                          width: "24px",
+                          height: "24px",
+                          position: "relative",
+                        }}
                         width="24"
                         height="25"
                         viewBox="0 0 24 25"
@@ -300,6 +358,7 @@ export default function Index() {
                     flexDirection: "column",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
+                    position: "relative",
                   }}
                 >
                   <div
@@ -308,6 +367,7 @@ export default function Index() {
                       padding: "2px 0px",
                       alignItems: "center",
                       alignSelf: "stretch",
+                      position: "relative",
                     }}
                   >
                     <div
@@ -319,6 +379,7 @@ export default function Index() {
                         flex: "1 0 0",
                         borderRadius: "6px",
                         background: "#FFF",
+                        position: "relative",
                       }}
                     >
                       <div
@@ -327,9 +388,15 @@ export default function Index() {
                           alignItems: "center",
                           gap: "8px",
                           flex: "1 0 0",
+                          position: "relative",
                         }}
                       >
                         <svg
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "relative",
+                          }}
                           width="20"
                           height="21"
                           viewBox="0 0 20 21"
@@ -352,9 +419,20 @@ export default function Index() {
                             fontStyle: "normal",
                             fontWeight: 600,
                             lineHeight: "20px",
+                            position: "relative",
                           }}
                         >
-                          Screening
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 700,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Screening
+                          </span>
                         </div>
                       </div>
                       <div
@@ -365,6 +443,7 @@ export default function Index() {
                           borderRadius: "9999px",
                           border: "1px solid #E9EAEB",
                           background: "#FAFAFA",
+                          position: "relative",
                         }}
                       >
                         <div
@@ -376,12 +455,28 @@ export default function Index() {
                             fontStyle: "normal",
                             fontWeight: 500,
                             lineHeight: "18px",
+                            position: "relative",
                           }}
                         >
-                          8
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 400,
+                              fontSize: "12px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            8
+                          </span>
                         </div>
                       </div>
                       <svg
+                        style={{
+                          width: "24px",
+                          height: "24px",
+                          position: "relative",
+                        }}
                         width="24"
                         height="25"
                         viewBox="0 0 24 25"
@@ -407,6 +502,7 @@ export default function Index() {
                     flexDirection: "column",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
+                    position: "relative",
                   }}
                 >
                   <div
@@ -415,6 +511,7 @@ export default function Index() {
                       padding: "2px 0px",
                       alignItems: "center",
                       alignSelf: "stretch",
+                      position: "relative",
                     }}
                   >
                     <div
@@ -426,6 +523,7 @@ export default function Index() {
                         flex: "1 0 0",
                         borderRadius: "6px",
                         background: "#FFF",
+                        position: "relative",
                       }}
                     >
                       <div
@@ -434,9 +532,15 @@ export default function Index() {
                           alignItems: "center",
                           gap: "8px",
                           flex: "1 0 0",
+                          position: "relative",
                         }}
                       >
                         <svg
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "relative",
+                          }}
                           width="20"
                           height="21"
                           viewBox="0 0 20 21"
@@ -459,12 +563,28 @@ export default function Index() {
                             fontStyle: "normal",
                             fontWeight: 600,
                             lineHeight: "20px",
+                            position: "relative",
                           }}
                         >
-                          Reporting
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 700,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Reporting
+                          </span>
                         </div>
                       </div>
                       <svg
+                        style={{
+                          width: "24px",
+                          height: "24px",
+                          position: "relative",
+                        }}
                         width="24"
                         height="25"
                         viewBox="0 0 24 25"
@@ -490,6 +610,7 @@ export default function Index() {
                     flexDirection: "column",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
+                    position: "relative",
                   }}
                 >
                   <div
@@ -498,6 +619,7 @@ export default function Index() {
                       padding: "2px 0px",
                       alignItems: "center",
                       alignSelf: "stretch",
+                      position: "relative",
                     }}
                   >
                     <div
@@ -509,6 +631,7 @@ export default function Index() {
                         flex: "1 0 0",
                         borderRadius: "6px",
                         background: "#FFF",
+                        position: "relative",
                       }}
                     >
                       <div
@@ -517,9 +640,15 @@ export default function Index() {
                           alignItems: "center",
                           gap: "8px",
                           flex: "1 0 0",
+                          position: "relative",
                         }}
                       >
                         <svg
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "relative",
+                          }}
                           width="20"
                           height="21"
                           viewBox="0 0 20 21"
@@ -542,12 +671,28 @@ export default function Index() {
                             fontStyle: "normal",
                             fontWeight: 600,
                             lineHeight: "20px",
+                            position: "relative",
                           }}
                         >
-                          Support & Resources
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 700,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Support & Resources
+                          </span>
                         </div>
                       </div>
                       <svg
+                        style={{
+                          width: "24px",
+                          height: "24px",
+                          position: "relative",
+                        }}
                         width="24"
                         height="25"
                         viewBox="0 0 24 25"
@@ -569,10 +714,10 @@ export default function Index() {
             </div>
           </div>
         </div>
-      </aside>
+      </div>
 
       {/* Main Content */}
-      <main
+      <div
         style={{
           display: "flex",
           paddingBottom: "24px",
@@ -580,6 +725,7 @@ export default function Index() {
           alignItems: "flex-start",
           gap: "32px",
           borderRadius: "40px 0px 0px 0px",
+          position: "relative",
         }}
       >
         {/* Mobile Header Bar */}
@@ -611,7 +757,7 @@ export default function Index() {
         </div>
 
         {/* Header Navigation */}
-        <header
+        <div
           style={{
             display: "flex",
             flexDirection: "column",
@@ -619,8 +765,8 @@ export default function Index() {
             alignSelf: "stretch",
             background:
               "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
+            position: "relative",
           }}
-          className="hidden lg:flex"
         >
           <div
             style={{
@@ -630,6 +776,7 @@ export default function Index() {
               alignItems: "center",
               gap: "20px",
               alignSelf: "stretch",
+              position: "relative",
             }}
           >
             {/* Search Section */}
@@ -639,6 +786,7 @@ export default function Index() {
                 alignItems: "center",
                 gap: "16px",
                 flex: "1 0 0",
+                position: "relative",
               }}
             >
               <div
@@ -648,6 +796,7 @@ export default function Index() {
                   alignItems: "flex-start",
                   gap: "6px",
                   flex: "1 0 0",
+                  position: "relative",
                 }}
               >
                 <div
@@ -657,6 +806,7 @@ export default function Index() {
                     alignItems: "flex-start",
                     gap: "6px",
                     alignSelf: "stretch",
+                    position: "relative",
                   }}
                 >
                   <div
@@ -670,6 +820,7 @@ export default function Index() {
                       border: "1px solid #D5D7DA",
                       background: "#FFF",
                       boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                      position: "relative",
                     }}
                   >
                     <div
@@ -678,9 +829,15 @@ export default function Index() {
                         alignItems: "center",
                         gap: "8px",
                         flex: "1 0 0",
+                        position: "relative",
                       }}
                     >
                       <svg
+                        style={{
+                          width: "24px",
+                          height: "24px",
+                          position: "relative",
+                        }}
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
@@ -709,9 +866,20 @@ export default function Index() {
                           fontStyle: "normal",
                           fontWeight: 400,
                           lineHeight: "24px",
+                          position: "relative",
                         }}
                       >
-                        Search
+                        <span
+                          style={{
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontWeight: 400,
+                            fontSize: "16px",
+                            color: "rgba(113,118,128,1)",
+                          }}
+                        >
+                          Search
+                        </span>
                       </div>
                     </div>
                     <div
@@ -721,6 +889,7 @@ export default function Index() {
                         alignItems: "flex-start",
                         borderRadius: "4px",
                         border: "1px solid #E9EAEB",
+                        position: "relative",
                       }}
                     >
                       <div
@@ -731,9 +900,20 @@ export default function Index() {
                           fontStyle: "normal",
                           fontWeight: 500,
                           lineHeight: "18px",
+                          position: "relative",
                         }}
                       >
-                        ⌘K
+                        <span
+                          style={{
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontWeight: 400,
+                            fontSize: "12px",
+                            color: "rgba(113,118,128,1)",
+                          }}
+                        >
+                          ⌘K
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -742,7 +922,13 @@ export default function Index() {
             </div>
 
             {/* Quick Create Button */}
-            <div style={{ display: "flex", alignItems: "flex-start" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                position: "relative",
+              }}
+            >
               <div
                 style={{
                   display: "flex",
@@ -755,6 +941,7 @@ export default function Index() {
                   background: "#344698",
                   boxShadow:
                     "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  position: "relative",
                 }}
               >
                 <div
@@ -763,6 +950,7 @@ export default function Index() {
                     padding: "0px 2px",
                     justifyContent: "center",
                     alignItems: "center",
+                    position: "relative",
                   }}
                 >
                   <div
@@ -773,25 +961,48 @@ export default function Index() {
                       fontStyle: "normal",
                       fontWeight: 600,
                       lineHeight: "20px",
+                      position: "relative",
                     }}
                   >
-                    Quick Create
+                    <span
+                      style={{
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontWeight: 700,
+                        fontSize: "14px",
+                        color: "rgba(255,255,255,1)",
+                      }}
+                    >
+                      Quick Create
+                    </span>
                   </div>
                 </div>
                 <svg
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    position: "relative",
+                  }}
                   width="20"
                   height="20"
                   viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M9.99996 6.66663V13.3333M6.66663 9.99996H13.3333M18.3333 9.99996C18.3333 14.6023 14.6023 18.3333 9.99996 18.3333C5.39759 18.3333 1.66663 14.6023 1.66663 9.99996C1.66663 5.39759 5.39759 1.66663 9.99996 1.66663C14.6023 1.66663 18.3333 5.39759 18.3333 9.99996Z"
-                    stroke="#8D9BD8"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                  <g clipPath="url(#clip0_500_6793)">
+                    <path
+                      d="M9.99996 6.66663V13.3333M6.66663 9.99996H13.3333M18.3333 9.99996C18.3333 14.6023 14.6023 18.3333 9.99996 18.3333C5.39759 18.3333 1.66663 14.6023 1.66663 9.99996C1.66663 5.39759 5.39759 1.66663 9.99996 1.66663C14.6023 1.66663 18.3333 5.39759 18.3333 9.99996Z"
+                      stroke="#8D9BD8"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_500_6793">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
                 </svg>
               </div>
             </div>
@@ -806,20 +1017,34 @@ export default function Index() {
                 justifyContent: "center",
                 alignItems: "center",
                 alignSelf: "stretch",
+                position: "relative",
               }}
             >
               <div
-                style={{ width: "1px", height: "40px", background: "#E9EAEB" }}
+                style={{
+                  width: "1px",
+                  height: "40px",
+                  background: "#E9EAEB",
+                  position: "relative",
+                }}
               ></div>
             </div>
 
             {/* User Section */}
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                position: "relative",
+              }}
+            >
               <div
                 style={{
                   display: "flex",
                   alignItems: "flex-start",
                   gap: "2px",
+                  position: "relative",
                 }}
               >
                 <div
@@ -830,9 +1055,16 @@ export default function Index() {
                     justifyContent: "center",
                     alignItems: "center",
                     borderRadius: "6px",
+                    position: "relative",
                   }}
                 >
                   <svg
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      flexShrink: 0,
+                      position: "relative",
+                    }}
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -856,6 +1088,7 @@ export default function Index() {
                   alignItems: "center",
                   gap: "16px",
                   borderRadius: "12px",
+                  position: "relative",
                 }}
               >
                 <div
@@ -864,6 +1097,7 @@ export default function Index() {
                     width: "200px",
                     alignItems: "center",
                     gap: "8px",
+                    position: "relative",
                   }}
                 >
                   <div
@@ -876,6 +1110,7 @@ export default function Index() {
                       border: "1px solid rgba(0, 0, 0, 0.10)",
                       background:
                         "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                      position: "relative",
                     }}
                   ></div>
                   <div
@@ -883,42 +1118,66 @@ export default function Index() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
+                      position: "relative",
                     }}
                   >
                     <div
                       style={{
-                        color: "var(--colors-text-text-primary-900, #181D27)",
-                        fontFamily:
-                          'var(--Font-family-font-family-body, "Public Sans")',
-                        fontSize: "var(--Font-size-text-sm, 14px)",
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
                         fontStyle: "normal",
                         fontWeight: 600,
-                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                        lineHeight: "20px",
+                        position: "relative",
                       }}
                     >
-                      Alexandra Fitzwilliam
+                      <span
+                        style={{
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 700,
+                          fontSize: "14px",
+                          color: "rgba(24,29,39,1)",
+                        }}
+                      >
+                        Alexandra Fitzwilliam
+                      </span>
                     </div>
                     <div
                       style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 1,
                         overflow: "hidden",
-                        color: "var(--colors-text-text-tertiary-600, #535862)",
+                        color: "#535862",
                         textOverflow: "ellipsis",
-                        fontFamily:
-                          'var(--Font-family-font-family-body, "Public Sans")',
-                        fontSize: "var(--Font-size-text-sm, 14px)",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
                         fontStyle: "normal",
                         fontWeight: 400,
-                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                        lineHeight: "20px",
+                        position: "relative",
                       }}
                     >
-                      [User Role]
+                      <span
+                        style={{
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 400,
+                          fontSize: "14px",
+                          color: "rgba(83,88,98,1)",
+                        }}
+                      >
+                        [User Role]
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </header>
+        </div>
 
         {/* Dashboard Content - Placeholder for now */}
         <div
@@ -940,7 +1199,7 @@ export default function Index() {
           </h1>
           <p>This is where the dashboard content would go...</p>
         </div>
-      </main>
+      </div>
 
       {/* Online Status Dot */}
       <svg
