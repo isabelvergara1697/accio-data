@@ -1067,33 +1067,36 @@ export default function Dashboard() {
               </button>
             </div>
 
-            {/* Divider */}
-            <div
-              style={{
-                display: "flex",
-                width: "16px",
-                padding: "16px 8px",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                alignSelf: "stretch",
-              }}
-            >
+                        {/* Divider - Hide on mobile */}
+            {!isMobile && (
               <div
                 style={{
-                  width: "1px",
-                  height: "24px",
-                  background: "#E9EAEB",
+                  display: "flex",
+                  width: "16px",
+                  padding: "16px 8px",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  alignSelf: "stretch",
                 }}
-              ></div>
-            </div>
+              >
+                <div
+                  style={{
+                    width: "1px",
+                    height: "24px",
+                    background: "#E9EAEB",
+                  }}
+                ></div>
+              </div>
+            )}
 
-            {/* User Profile Menu */}
-            <div
-              style={{
-                position: "relative",
-              }}
-            >
+            {/* User Profile Menu - Hide on mobile */}
+            {!isMobile && (
+              <div
+                style={{
+                  position: "relative",
+                }}
+              >
               <div
                 style={{
                   display: "flex",
