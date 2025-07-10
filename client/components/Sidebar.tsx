@@ -417,7 +417,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           color:
                             currentPage === "document-library" &&
                             item === "Document Library"
-                              ? "#344698"
+                              ? "#273572"
                               : "var(--colors-text-text-secondary-700, #414651)",
                           fontFamily:
                             "var(--Font-family-font-family-body, 'Public Sans')",
