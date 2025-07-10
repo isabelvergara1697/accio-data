@@ -884,7 +884,10 @@ export default function Dashboard() {
           paddingBottom: "24px",
           position: "relative",
         }}
-        className="lg:ml-[296px] ml-0 lg:pt-0 pt-16"
+        style={{
+          marginLeft: isDesktop ? "296px" : "0",
+          paddingTop: isDesktop ? "0" : "64px",
+        }}
       >
         {/* Mobile/Tablet Header Bar */}
         <div
