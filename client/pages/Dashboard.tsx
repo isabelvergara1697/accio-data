@@ -575,10 +575,12 @@ export default function Dashboard() {
             alignItems: "flex-start",
             flex: "1 0 0",
             alignSelf: "stretch",
-            borderRadius: "12px",
-            border: "1px solid #E9EAEB",
+            borderRadius: isDesktop ? "12px" : "0px",
+            border: isDesktop ? "1px solid #E9EAEB" : "none",
             background: "#FFF",
-            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+            boxShadow: isDesktop
+              ? "0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
+              : "none",
             position: "relative",
           }}
         >
