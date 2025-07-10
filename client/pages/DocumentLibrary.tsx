@@ -380,6 +380,10 @@ export default function DocumentLibrary() {
     return {};
   };
 
+  const handleSignOut = () => {
+    navigate("/login");
+  };
+
   const isAccordionOpen = (section: string) => openAccordions.includes(section);
 
   const NavItem = ({
