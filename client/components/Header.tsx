@@ -9,6 +9,7 @@ interface HeaderProps {
   setUserMenuHovered: (hovered: boolean) => void;
   handleSignOut: () => void;
   getUserMenuStyles: () => object;
+  showMobileUserMenu?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
