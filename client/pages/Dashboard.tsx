@@ -2566,6 +2566,728 @@ export default function Dashboard() {
         </div>
       </aside>
 
+      {/* Desktop Top Navigation Bar */}
+      {isDesktop && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: "296px",
+            right: 0,
+            height: "72px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "16px 32px",
+            background: "#FFF",
+            borderBottom: "1px solid #E9EAEB",
+            zIndex: 20,
+          }}
+        >
+          {/* Search Bar */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              flex: "1 0 0",
+              maxWidth: "480px",
+              borderRadius: "8px",
+              border: "1px solid #D5D7DA",
+              background: "#FFF",
+              padding: "8px 12px",
+              boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+            }}
+          >
+            <svg
+              style={{
+                width: "20px",
+                height: "20px",
+                flexShrink: 0,
+              }}
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.5 17.5L14.5834 14.5833M16.6667 9.58333C16.6667 13.4954 13.4954 16.6667 9.58333 16.6667C5.67132 16.6667 2.5 13.4954 2.5 9.58333C2.5 5.67132 5.67132 2.5 9.58333 2.5C13.4954 2.5 16.6667 5.67132 16.6667 9.58333Z"
+                stroke="#A4A7AE"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search"
+              style={{
+                flex: "1 0 0",
+                border: "none",
+                outline: "none",
+                background: "transparent",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: 400,
+                color: "#717680",
+                lineHeight: "20px",
+              }}
+            />
+            <div
+              style={{
+                display: "flex",
+                padding: "2px 6px",
+                alignItems: "center",
+                borderRadius: "4px",
+                border: "1px solid #E9EAEB",
+                background: "#FAFAFA",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  color: "#717680",
+                }}
+              >
+                ⌘K
+              </span>
+            </div>
+          </div>
+
+          {/* Right Side - Quick Create, Notifications, User Menu */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
+            }}
+          >
+            {/* Quick Create Button */}
+            <button
+              className="quick-create-button"
+              style={{
+                display: "flex",
+                padding: "12px 16px",
+                alignItems: "center",
+                gap: "8px",
+                borderRadius: "8px",
+                border: "2px solid rgba(255, 255, 255, 0.12)",
+                background: "#344698",
+                boxShadow:
+                  "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Public Sans",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  color: "#FFF",
+                }}
+              >
+                Quick Create
+              </span>
+              <svg
+                style={{ width: "20px", height: "20px" }}
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_508_136928)">
+                  <path
+                    d="M10.0001 6.6665V13.3332M6.66675 9.99984H13.3334M18.3334 9.99984C18.3334 14.6022 14.6025 18.3332 10.0001 18.3332C5.39771 18.3332 1.66675 14.6022 1.66675 9.99984C1.66675 5.39746 5.39771 1.6665 10.0001 1.6665C14.6025 1.6665 18.3334 5.39746 18.3334 9.99984Z"
+                    stroke="#8D9BD8"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_508_136928">
+                    <rect width="20" height="20" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+
+            {/* Notifications */}
+            <button
+              style={{
+                display: "flex",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "6px",
+                background: "transparent",
+                border: "none",
+                cursor: "pointer",
+              }}
+            >
+              <svg
+                style={{ width: "24px", height: "24px" }}
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.35419 21C10.0593 21.6224 10.9856 22 12 22C13.0145 22 13.9407 21.6224 14.6458 21M18 8C18 6.4087 17.3679 4.88258 16.2427 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.8826 2.63214 7.75738 3.75736C6.63216 4.88258 6.00002 6.4087 6.00002 8C6.00002 11.0902 5.22049 13.206 4.34968 14.6054C3.61515 15.7859 3.24788 16.3761 3.26134 16.5408C3.27626 16.7231 3.31488 16.7926 3.46179 16.9016C3.59448 17 4.19261 17 5.38887 17H18.6112C19.8074 17 20.4056 17 20.5382 16.9016C20.6852 16.7926 20.7238 16.7231 20.7387 16.5408C20.7522 16.3761 20.3849 15.7859 19.6504 14.6054C18.7795 13.206 18 11.0902 18 8Z"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {/* Divider */}
+            <div
+              style={{
+                width: "1px",
+                height: "24px",
+                background: "#E9EAEB",
+              }}
+            />
+
+            {/* User Menu */}
+            <div
+              style={{
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "8px",
+                  alignItems: "center",
+                  gap: "16px",
+                  borderRadius: "12px",
+                  cursor: "pointer",
+                  ...getUserMenuStyles(),
+                }}
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+                onMouseEnter={() => setUserMenuHovered(true)}
+                onMouseLeave={() => setUserMenuHovered(false)}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      flexShrink: 0,
+                      aspectRatio: "1/1",
+                      borderRadius: "9999px",
+                      border: "1px solid rgba(0, 0, 0, 0.10)",
+                      background:
+                        "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                    }}
+                  ></div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Alexandra Fitzwilliam
+                    </div>
+                    <div
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      [User Role]
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* User Menu Dropdown for Desktop */}
+              {userMenuOpen && (
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    position: "absolute",
+                    top: "calc(100% + 4px)",
+                    right: 0,
+                    width: "216px",
+                    borderRadius: "12px",
+                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                    background: "#FAFAFA",
+                    boxShadow:
+                      "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                    zIndex: 9999,
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      alignSelf: "stretch",
+                      borderRadius: "12px 12px 16px 16px",
+                      border: "1px solid #E9EAEB",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Main Menu Items */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "6px 0px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "2px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Account Item */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0px 6px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            alignItems: "center",
+                            gap: "12px",
+                            flex: "1 0 0",
+                            borderRadius: "6px",
+                            cursor: "pointer",
+                            position: "relative",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "#F5F5F5";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "transparent";
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                position: "relative",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M13.3333 14C13.3333 13.0696 13.3333 12.6044 13.2185 12.2259C12.96 11.3736 12.293 10.7067 11.4408 10.4482C11.0622 10.3333 10.597 10.3333 9.66665 10.3333H6.33333C5.40295 10.3333 4.93776 10.3333 4.55923 10.4482C3.70696 10.7067 3.04002 11.3736 2.78148 12.2259C2.66666 12.6044 2.66666 13.0696 2.66666 14M11 5C11 6.65685 9.65684 8 7.99999 8C6.34314 8 4.99999 6.65685 4.99999 5C4.99999 3.34315 6.34314 2 7.99999 2C9.65684 2 11 3.34315 11 5Z"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.67"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <div
+                              style={{
+                                flex: "1 0 0",
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              Account
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Company Item */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0px 6px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            alignItems: "center",
+                            gap: "12px",
+                            flex: "1 0 0",
+                            borderRadius: "6px",
+                            background: "#F5F5F5",
+                            cursor: "pointer",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                position: "relative",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M8.66668 7.33333H11.8667C12.6134 7.33333 12.9868 7.33333 13.272 7.47866C13.5229 7.60649 13.7269 7.81046 13.8547 8.06135C14 8.34656 14 8.71993 14 9.46667V14M8.66668 14V4.13333C8.66668 3.3866 8.66668 3.01323 8.52135 2.72801C8.39352 2.47713 8.18955 2.27316 7.93866 2.14532C7.65345 2 7.28008 2 6.53334 2H4.13334C3.38661 2 3.01324 2 2.72802 2.14532C2.47714 2.27316 2.27317 2.47713 2.14533 2.72801C2.00001 3.01323 2.00001 3.3866 2.00001 4.13333V14M14.6667 14H1.33334M4.33334 4.66667H6.33334M4.33334 7.33333H6.33334M4.33334 10H6.33334"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.67"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <div
+                              style={{
+                                flex: "1 0 0",
+                                color: "#252B37",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              Company
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Switch Account Section */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "6px 0px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "2px",
+                        alignSelf: "stretch",
+                        borderTop: "1px solid #E9EAEB",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "6px 12px 4px 12px",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            flex: "1 0 0",
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                            position: "relative",
+                          }}
+                        >
+                          Switch account
+                        </div>
+                      </div>
+
+                      {/* Current User Account */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0px 6px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "6px 8px",
+                            alignItems: "center",
+                            gap: "12px",
+                            flex: "1 0 0",
+                            borderRadius: "6px",
+                            background: "#F5F5F5",
+                            position: "relative",
+                            minWidth: 0,
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              flex: "1 0 0",
+                              position: "relative",
+                              minWidth: 0,
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "40px",
+                                height: "40px",
+                                padding: "30px 0px 0px 30px",
+                                justifyContent: "flex-end",
+                                alignItems: "center",
+                                aspectRatio: "1/1",
+                                borderRadius: "9999px",
+                                border: "1px solid rgba(0, 0, 0, 0.10)",
+                                background:
+                                  "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                                position: "relative",
+                                flexShrink: 0,
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "10px",
+                                  height: "10px",
+                                  flexShrink: 0,
+                                  borderRadius: "9999px",
+                                  border: "1.5px solid #FFF",
+                                  background: "#17B26A",
+                                  position: "absolute",
+                                  left: "30px",
+                                  top: "30px",
+                                }}
+                              ></div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                                position: "relative",
+                                minWidth: 0,
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "100%",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                  whiteSpace: "nowrap",
+                                  position: "relative",
+                                }}
+                              >
+                                Alexandra Fitzwilliam
+                              </div>
+                              <div
+                                style={{
+                                  width: "100%",
+                                  color: "#535862",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                  whiteSpace: "nowrap",
+                                  position: "relative",
+                                }}
+                              >
+                                [Role]
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                position: "relative",
+                              }}
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.5 3.33366L13.3333 10.0003L7.5 16.667"
+                                stroke="#717680"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Sign Out Section */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "6px 0px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "2px",
+                          alignSelf: "stretch",
+                          borderTop: "1px solid #E9EAEB",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0px 6px",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "8px",
+                              alignItems: "center",
+                              gap: "12px",
+                              flex: "1 0 0",
+                              borderRadius: "6px",
+                              cursor: "pointer",
+                              position: "relative",
+                            }}
+                            onClick={handleSignOut}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "#F5F5F5";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "transparent";
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                position: "relative",
+                              }}
+                            >
+                              <svg
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  position: "relative",
+                                }}
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M10.6667 11.3333L13.3333 8.00033L10.6667 4.66699M13.3333 8.00033L6.00001 8.00033M6.00001 14.0003C4.89544 14.0003 3.00001 13.4005 3.00001 3.00033C3.00001 2.59699 4.89544 2.00033 6.00001 2.00033"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.67"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                              <div
+                                style={{
+                                  flex: "1 0 0",
+                                  color: "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                Sign out
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Content */}
       <main
         style={{
@@ -2577,7 +3299,7 @@ export default function Dashboard() {
           paddingBottom: "24px",
           position: "relative",
           marginLeft: isDesktop ? "296px" : "0",
-          paddingTop: isDesktop ? "0px" : "96px",
+          paddingTop: isDesktop ? "72px" : "96px",
         }}
       >
         {/* Mobile/Tablet Header Bar */}
