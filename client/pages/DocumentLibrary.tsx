@@ -157,7 +157,7 @@ const documentLibraryStyles = `
     background: #F5F5F5 !important;
   }
 
-          /* Dropdown styles */
+            /* Dropdown styles */
   .dropdown-container {
     position: relative;
   }
@@ -165,13 +165,13 @@ const documentLibraryStyles = `
     position: absolute;
     top: 100%;
     left: 0;
-    right: 0;
     z-index: 50;
     background: #FFF;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 8px;
     box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04);
     margin-top: 4px;
+    min-width: 169px;
   }
   .dropdown-item {
     display: flex;
@@ -199,6 +199,18 @@ const documentLibraryStyles = `
     padding: 4px 0;
     display: flex;
     flex-direction: column;
+  }
+
+  /* Fixed button widths and text truncation */
+  .filter-button {
+    min-width: 120px !important;
+    max-width: 120px !important;
+  }
+  .filter-button-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 80px;
   }
 
         /* Responsive layout utilities */
