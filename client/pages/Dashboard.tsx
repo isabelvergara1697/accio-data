@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import SuccessNotification from "../components/SuccessNotification";
+import { UserMenuDropdown } from "../components/UserMenuDropdown";
 
 // Add styles for button hover states and metric card hovers
 const dashboardStyles = `
