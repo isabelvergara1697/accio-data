@@ -4066,7 +4066,7 @@ export default function Dashboard() {
                   : isDesktop
                     ? "repeat(4, 1fr)"
                     : "repeat(2, 1fr)",
-                gap: isMobile ? "16px" : "20px",
+                gap: isMobile ? "16px" : "24px",
                 alignSelf: "stretch",
                 position: "relative",
               }}
