@@ -158,7 +158,7 @@ const documentLibraryStyles = `
   }
 
         /* Responsive layout utilities */
-  @media (max-width: 767px) {
+    @media (max-width: 767px) {
     .mobile-stack {
       flex-direction: column !important;
       align-items: stretch !important;
@@ -179,6 +179,28 @@ const documentLibraryStyles = `
     }
     .mobile-search {
       width: 100% !important;
+    }
+    .mobile-button {
+      width: 100% !important;
+      align-self: stretch !important;
+      justify-content: flex-start !important;
+      align-items: center !important;
+    }
+    .mobile-button-content {
+      width: 100% !important;
+    }
+    .mobile-button-text {
+      width: 100% !important;
+    }
+    .mobile-document-grid {
+      padding: 16px 0 !important;
+    }
+    .mobile-file-name {
+      -webkit-line-clamp: 2 !important;
+      display: -webkit-box !important;
+      -webkit-box-orient: vertical !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
     }
   }
 
