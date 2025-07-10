@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import SuccessNotification from "../components/SuccessNotification";
 
-// Add styles for button hover states
+// Add styles for button hover states and metric card hovers
 const dashboardStyles = `
   .secondary-button {
     border-radius: 8px;
@@ -19,8 +19,38 @@ const dashboardStyles = `
     transition: all 0.2s ease;
     cursor: pointer;
   }
-      .quick-create-button:hover {
+  .quick-create-button:hover {
     background: #2A3A82 !important;
+  }
+  .metric-card {
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .metric-card:hover {
+    box-shadow: 0px 4px 8px 0px rgba(10, 13, 18, 0.08), 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+    transform: translateY(-1px);
+  }
+  .status-badge {
+    display: inline-flex;
+    padding: 2px 8px;
+    align-items: center;
+    border-radius: 16px;
+    font-family: 'Public Sans';
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  .status-completed { background: #ECFDF3; color: #027A48; }
+  .status-unordered { background: #F4F3FF; color: #6941C6; }
+  .status-archived { background: #F2F4F7; color: #475467; }
+  .status-pending { background: #FEF0C7; color: #DC6803; }
+  .status-updated { background: #EFF8FF; color: #175CD3; }
+  .status-reviewed { background: #FDF2FA; color: #C11574; }
+  .widget-row {
+    transition: background-color 0.2s ease;
+  }
+  .widget-row:hover {
+    background-color: #F8F9FA;
   }
 `;
 
@@ -36,6 +66,7 @@ export default function Dashboard() {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
@@ -4048,9 +4079,10 @@ export default function Dashboard() {
               style={{
                 color: "#181D27",
                 fontFamily: "Public Sans",
-                fontSize: "20px",
-                fontWeight: 600,
-                lineHeight: "30px",
+                fontSize: "24px",
+                fontWeight: 700,
+                lineHeight: "32px",
+                letterSpacing: "-0.02em",
                 position: "relative",
               }}
             >
