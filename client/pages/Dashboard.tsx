@@ -4105,6 +4105,7 @@ export default function Dashboard() {
             >
               {/* Metric Card 1 - Total Screenings */}
               <div
+                className="metric-card"
                 style={{
                   display: "flex",
                   padding: "16px 12px 12px 16px",
@@ -4118,6 +4119,8 @@ export default function Dashboard() {
                   boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   position: "relative",
                 }}
+                onMouseEnter={() => setHoveredCard("total-screenings")}
+                onMouseLeave={() => setHoveredCard(null)}
               >
                 <div
                   style={{
@@ -4161,13 +4164,18 @@ export default function Dashboard() {
                       }}
                     >
                       <div
+                        className="metric-number"
                         style={{
-                          color: "#181D27",
+                          color:
+                            hoveredCard === "total-screenings"
+                              ? "#1E40AF"
+                              : "#181D27",
                           fontFamily: "Public Sans",
                           fontSize: "30px",
                           fontWeight: 500,
                           lineHeight: "38px",
                           position: "relative",
+                          transition: "color 0.2s ease",
                         }}
                       >
                         347
@@ -4290,8 +4298,8 @@ export default function Dashboard() {
                         width: "18px",
                         height: "19px",
                         position: "absolute",
-                        right: "20px",
-                        top: "12px",
+                        right: "20%",
+                        top: "21%",
                       }}
                     >
                       <div
@@ -4299,11 +4307,13 @@ export default function Dashboard() {
                           width: "19px",
                           height: "19px",
                           borderRadius: "200px",
-                          border: "2px solid #344698",
+                          border: `2px solid ${hoveredCard === "total-screenings" ? "#1E40AF" : "#344698"}`,
                           opacity: 0.2,
                           position: "absolute",
-                          left: "9px",
-                          top: "-7px",
+                          left: "50%",
+                          top: "50%",
+                          transform: "translate(-50%, -50%)",
+                          transition: "border-color 0.2s ease",
                         }}
                       />
                       <div
@@ -4311,11 +4321,13 @@ export default function Dashboard() {
                           width: "11px",
                           height: "11px",
                           borderRadius: "200px",
-                          border: "2px solid #344698",
+                          border: `2px solid ${hoveredCard === "total-screenings" ? "#1E40AF" : "#344698"}`,
                           background: "#FFF",
                           position: "absolute",
-                          left: "13px",
-                          top: "-3px",
+                          left: "50%",
+                          top: "50%",
+                          transform: "translate(-50%, -50%)",
+                          transition: "border-color 0.2s ease",
                         }}
                       />
                     </div>
