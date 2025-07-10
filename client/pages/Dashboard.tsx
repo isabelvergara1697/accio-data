@@ -3155,10 +3155,10 @@ export default function Dashboard() {
                     className="lg:text-2xl lg:leading-8 text-xl leading-[30px]"
                     style={{
                       alignSelf: "stretch",
-                      color: "#181D27",
+                      color: "var(--colors-text-text-primary-900, #181D27)",
                       fontFamily: "Public Sans",
                       fontStyle: "normal",
-                      fontWeight: 700,
+                      fontWeight: 600,
                       position: "relative",
                     }}
                   >
@@ -3166,8 +3166,8 @@ export default function Dashboard() {
                       style={{
                         fontFamily:
                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 700,
-                        color: "rgba(24,29,39,1)",
+                        fontWeight: 600,
+                        color: "var(--colors-text-text-primary-900, #181D27)",
                       }}
                     >
                       Dashboard
