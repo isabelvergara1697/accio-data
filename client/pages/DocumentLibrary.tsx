@@ -157,15 +157,27 @@ const documentLibraryStyles = `
     background: #F5F5F5 !important;
   }
 
-    /* Responsive layout utilities */
+        /* Responsive layout utilities */
   @media (max-width: 767px) {
     .mobile-stack {
       flex-direction: column !important;
       align-items: stretch !important;
+      gap: 16px !important;
+    }
+    .mobile-title-section {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 2px !important;
+      width: 100% !important;
     }
     .mobile-buttons {
       justify-content: space-between !important;
       gap: 12px !important;
+      width: 100% !important;
+    }
+    .mobile-search {
+      width: 100% !important;
     }
   }
 
