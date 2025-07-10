@@ -3,7 +3,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import SuccessNotification from "../components/SuccessNotification";
 import { UserMenuDropdown } from "../components/UserMenuDropdown";
 import { Header } from "../components/Header";
-import { MobileHeader } from "../components/MobileHeader";
 
 // Add styles for button hover states and metric card hovers
 const dashboardStyles = `
@@ -2634,19 +2633,59 @@ export default function Dashboard() {
           marginLeft: isDesktop ? "296px" : "0",
           paddingTop: isDesktop ? "120px" : "96px",
         }}
+      >
+        {/* Mobile/Tablet Header Bar */}
+        <div
+          className="w-full fixed top-0 left-0 right-0 z-30"
+          style={{
+            display: isDesktop ? "none" : "flex",
+            height: "64px",
+            padding: "12px 8px 12px 16px",
+            justifyContent: "space-between",
+            alignItems: "center",
+            background: "#FFF",
+            borderBottom: "1px solid #E9EAEB",
+          }}
+        >
+          {/* Logo */}
+          <div
+            style={{
+              display: "flex",
+              width: "139px",
+              alignItems: "flex-start",
+            }}
+          >
+            <div
+              style={{
+                width: "139px",
+                height: "32px",
+                flexShrink: 0,
+                position: "relative",
+              }}
             >
-        <MobileHeader
-          isDesktop={isDesktop}
-          isMobile={isMobile}
-          setMobileMenuOpen={setMobileMenuOpen}
-          userMenuOpen={userMenuOpen}
-          setUserMenuOpen={setUserMenuOpen}
-          userMenuHovered={userMenuHovered}
-          setUserMenuHovered={setUserMenuHovered}
-          handleSignOut={handleSignOut}
-          getUserMenuStyles={getUserMenuStyles}
-          showMobileUserMenu={showMobileUserMenu}
-        />
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/876fe16651091c38ad5eb9e1c4c54f44055b43e1?width=274"
+                style={{
+                  width: "137px",
+                  height: "24px",
+                  flexShrink: 0,
+                  position: "absolute",
+                  left: "1px",
+                  top: "4px",
+                }}
+                alt="Union"
+              />
+            </div>
+          </div>
+
+          {/* Content */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: isMobile ? "8px" : "12px",
+            }}
+          >
             {/* Quick Create Button */}
             <div style={{ display: "flex", alignItems: "flex-start" }}>
               <button
