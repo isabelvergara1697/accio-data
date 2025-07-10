@@ -845,16 +845,17 @@ export default function Dashboard() {
               </div>
             )}
 
-            {/* Navigation */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
+                        {/* Navigation - Hide on mobile when user menu is active */}
+            {!(isMobile && showMobileUserMenu) && (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
               <div
                 style={{
                   display: "flex",
