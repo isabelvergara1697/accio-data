@@ -852,14 +852,15 @@ export default function DocumentLibrary() {
 
                   {/* Search Section - Desktop/Mobile Layout */}
                   <div
+                    className={isMobile ? "mobile-search" : ""}
                     style={{
                       display: "flex",
-                      minWidth: "200px",
-                      maxWidth: "320px",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "320px",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       gap: "6px",
-                      flex: "1 0 0",
+                      flex: isMobile ? "none" : "1 0 0",
                     }}
                   >
                     <div
