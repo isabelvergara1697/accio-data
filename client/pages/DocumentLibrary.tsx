@@ -201,10 +201,15 @@ const documentLibraryStyles = `
     flex-direction: column;
   }
 
-  /* Fixed button widths and text truncation */
+    /* Fixed button widths and text truncation */
   .filter-button {
     min-width: 120px !important;
     max-width: 120px !important;
+    justify-content: flex-start !important;
+  }
+  .filter-button > div {
+    justify-content: flex-start !important;
+    width: 100% !important;
   }
   .filter-button-text {
     overflow: hidden;
