@@ -182,6 +182,10 @@ export default function DocumentLibrary() {
     );
   };
 
+  const handleSignOut = () => {
+    navigate("/login");
+  };
+
   const FileIcon = () => (
     <div className="relative w-10 h-10">
       <svg
