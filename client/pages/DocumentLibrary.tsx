@@ -174,11 +174,12 @@ const documentLibraryStyles = `
     min-width: 169px;
   }
 
-  @media (max-width: 767px) {
+    @media (max-width: 767px) {
     .dropdown-menu {
-      min-width: 343px;
+      width: 100%;
+      min-width: 100%;
       right: 0;
-      left: auto;
+      left: 0;
     }
   }
   .dropdown-item {
