@@ -254,7 +254,9 @@ export default function DocumentLibrary() {
         />
       </svg>
       <div className="absolute left-1 top-4 w-6 h-4 bg-red-600 rounded-sm flex items-center justify-center">
-        <span className="text-white text-xs font-bold">PDF</span>
+        <span className="text-white font-bold" style={{ fontSize: "8px" }}>
+          PDF
+        </span>
       </div>
     </div>
   );
