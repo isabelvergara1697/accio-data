@@ -5393,12 +5393,7 @@ export default function Dashboard() {
                           style={{
                             width: `${report.progress}%`,
                             height: "100%",
-                            background:
-                              report.progress === 100
-                                ? "#17B26A"
-                                : report.progress >= 75
-                                  ? "#F79009"
-                                  : "#344698",
+                            background: "#344698",
                             borderRadius: "3px",
                             transition: "width 0.3s ease",
                           }}
