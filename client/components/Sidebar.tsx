@@ -269,7 +269,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <div
                 style={{
                   color: isActive
-                    ? "#344698"
+                    ? "#273572"
                     : "var(--colors-text-text-secondary-700, #414651)",
                   fontFamily:
                     "var(--Font-family-font-family-body, 'Public Sans')",
