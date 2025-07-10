@@ -1171,12 +1171,13 @@ export default function Dashboard() {
         {/* Desktop Header Navigation - Only show on desktop lg and up */}
         <div
           style={{
+            display: "none",
             flexDirection: "column",
             alignItems: "center",
             alignSelf: "stretch",
             position: "relative",
           }}
-          className="hidden lg:flex"
+          className="lg:flex"
         >
           <div
             style={{
