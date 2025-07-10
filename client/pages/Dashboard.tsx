@@ -4443,7 +4443,7 @@ export default function Dashboard() {
                           >
                             <path
                               d="M8.00033 3.33366V12.667M8.00033 12.667L12.667 8.00033M8.00033 12.667L3.33366 8.00033"
-                              stroke="#1E40AF"
+                              stroke="#D92D20"
                               strokeWidth="1.5"
                               strokeLinecap="round"
                               strokeLinejoin="round"
