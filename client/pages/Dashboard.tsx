@@ -4092,15 +4092,24 @@ export default function Dashboard() {
             {/* Metric Cards Grid */}
             <div
               style={{
-                display: "flex",
+                                display: "flex",
                 gap: "20px",
                 alignSelf: "stretch",
                 position: "relative",
               }}
             >
-              {/* Metric Card 1 - Total Screenings */}
-              <div
-                className="metric-card"
+                              <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    lineHeight: "normal",
+                    width: "25%",
+                    marginLeft: "0px",
+                  }}
+                >
+                  {/* Metric Card 1 - Total Screenings */}
+                  <div
+                    className="metric-card"
                 style={{
                   display: "flex",
                   padding: "16px 12px 12px 16px",
