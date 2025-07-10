@@ -1161,6 +1161,7 @@ export default function Dashboard() {
               {/* User Menu Dropdown */}
               {userMenuOpen && (
                 <div
+                  onClick={(e) => e.stopPropagation()}
                   style={{
                     position: "absolute",
                     top: "calc(100% + 4px)",
