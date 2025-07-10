@@ -826,7 +826,7 @@ export default function DocumentLibrary() {
                       </svg>
                     </div>
                     <div
-                      className="secondary-button"
+                      className={`secondary-button ${isMobile ? "mobile-button" : ""}`}
                       style={{
                         display: "flex",
                         minHeight: "32px",
@@ -843,6 +843,7 @@ export default function DocumentLibrary() {
                       }}
                     >
                       <div
+                        className={isMobile ? "mobile-button-content" : ""}
                         style={{
                           display: "flex",
                           padding: "0px 2px",
@@ -851,6 +852,7 @@ export default function DocumentLibrary() {
                         }}
                       >
                         <div
+                          className={isMobile ? "mobile-button-text" : ""}
                           style={{
                             color: "#414651",
                             fontFamily: "'Public Sans'",
