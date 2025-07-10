@@ -431,14 +431,22 @@ export default function DocumentLibrary() {
               {/* Title and Subtitle Section */}
               <div
                 className={
-                  !isDesktop && !isMobile ? "tablet-title-section" : ""
+                  isMobile
+                    ? "mobile-title-section"
+                    : !isDesktop && !isMobile
+                      ? "tablet-title-section"
+                      : ""
                 }
                 style={{
                   display: "flex",
                   minWidth: isDesktop ? "320px" : "100%",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: !isDesktop && !isMobile ? "2px" : "4px",
+                  gap: isMobile
+                    ? "2px"
+                    : !isDesktop && !isMobile
+                      ? "2px"
+                      : "4px",
                   flex: isDesktop ? "1 0 0" : "none",
                 }}
               >
