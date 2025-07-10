@@ -1077,8 +1077,8 @@ export default function DocumentLibrary() {
                       <div
                         style={{
                           padding: isMobile
-                            ? "0px 16px 0px 16px"
-                            : "20px 24px 20px 24px",
+                            ? "0px 16px 16px 16px"
+                            : "4px 24px 24px 24px",
                           display: "flex",
                           flexDirection: "column",
                           alignItems: "flex-start",
