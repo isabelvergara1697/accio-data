@@ -1178,11 +1178,9 @@ export default function DocumentLibrary() {
                           boxShadow:
                             "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                           flex: isMobile ? "1 0 0" : "unset",
+                          width: isMobile ? "100%" : "auto",
                           minWidth: isMobile ? "auto" : "120px",
-                          maxWidth: isMobile ? "auto" : "120px",
-                          "@media (max-width: 640px)": {
-                            width: "100%",
-                          },
+                          maxWidth: isMobile ? "none" : "120px",
                         }}
                         onClick={toggleFileTypeDropdown}
                       >
