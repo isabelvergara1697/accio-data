@@ -1161,7 +1161,7 @@ export default function Dashboard() {
                     </div>
                   </div>
                 ) : (
-                  /* Mobile User Menu */
+                  /* Mobile User Menu - Replace entire content */
                   <div
                     style={{
                       display: "flex",
@@ -1193,6 +1193,13 @@ export default function Dashboard() {
                           position: "relative",
                         }}
                         onClick={() => setShowMobileUserMenu(false)}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "#F5F5F5";
+                          e.currentTarget.style.borderRadius = "6px";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "transparent";
+                        }}
                       >
                         <svg
                           style={{
@@ -1224,6 +1231,7 @@ export default function Dashboard() {
                             fontWeight: 600,
                             lineHeight: "20px",
                             position: "relative",
+                            marginLeft: "8px",
                           }}
                         >
                           <span
