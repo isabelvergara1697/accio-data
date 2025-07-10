@@ -191,7 +191,10 @@ const documentLibraryStyles = `
       justify-content: flex-start !important;
       align-items: center !important;
     }
-    .mobile-button-text {
+        .mobile-button-text {
+      width: 100% !important;
+    }
+    .mobile-button-text-specific {
       width: 100% !important;
     }
                 .mobile-document-grid {
