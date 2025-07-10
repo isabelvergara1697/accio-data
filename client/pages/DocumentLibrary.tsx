@@ -261,6 +261,7 @@ export default function DocumentLibrary() {
           setUserMenuHovered={setUserMenuHovered}
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
+          showMobileUserMenu={false}
         />
 
         {/* Main Content Area */}
