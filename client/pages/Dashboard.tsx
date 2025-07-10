@@ -3505,10 +3505,11 @@ export default function Dashboard() {
                       display: "flex",
                       minHeight: "32px",
                       padding: "6px 8px",
-                      justifyContent: "center",
+                      justifyContent: isMobile ? "flex-start" : "center",
                       alignItems: "center",
                       gap: "4px",
                       flex: isMobile ? "1 0 0" : "none",
+                      alignSelf: isMobile ? "stretch" : "auto",
                       position: "relative",
                     }}
                   >
