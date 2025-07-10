@@ -958,7 +958,13 @@ export default function Dashboard() {
           </div>
 
           {/* Content */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: isMobile ? "8px" : "12px",
+            }}
+          >
             {/* Quick Create Button */}
             <div style={{ display: "flex", alignItems: "flex-start" }}>
               <button
@@ -968,7 +974,7 @@ export default function Dashboard() {
                   padding: "12px",
                   justifyContent: "center",
                   alignItems: "center",
-                  gap: "4px",
+                  gap: isMobile ? "0px" : "4px",
                   borderRadius: "8px",
                   border: "2px solid rgba(255, 255, 255, 0.12)",
                   background: "#344698",
@@ -976,26 +982,28 @@ export default function Dashboard() {
                     "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "0px 2px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <span
+                {!isMobile && (
+                  <div
                     style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "14px",
-                      color: "rgba(255,255,255,1)",
+                      display: "flex",
+                      padding: "0px 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
                   >
-                    Quick Create
-                  </span>
-                </div>
+                    <span
+                      style={{
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontWeight: 700,
+                        fontSize: "14px",
+                        color: "rgba(255,255,255,1)",
+                      }}
+                    >
+                      Quick Create
+                    </span>
+                  </div>
+                )}
                 <svg
                   style={{ width: "20px", height: "20px" }}
                   width="20"
