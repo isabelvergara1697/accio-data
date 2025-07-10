@@ -1456,7 +1456,6 @@ export default function DocumentLibrary() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      gap: "20px",
                       alignSelf: "stretch",
                       background: "#FFF",
                     }}
