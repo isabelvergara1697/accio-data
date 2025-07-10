@@ -4071,14 +4071,15 @@ export default function Dashboard() {
                 position: "relative",
               }}
             >
-              {/* Metric Card 1 */}
+              {/* Metric Card 1 - Total Screenings */}
               <div
                 style={{
                   display: "flex",
+                  padding: "16px 12px 12px 16px",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "24px",
-                  padding: "24px",
+                  gap: "12px",
+                  flex: "1 0 0",
                   borderRadius: "12px",
                   border: "1px solid #E9EAEB",
                   background: "#FFF",
