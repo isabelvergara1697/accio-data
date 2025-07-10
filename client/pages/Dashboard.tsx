@@ -845,7 +845,7 @@ export default function Dashboard() {
               </div>
             )}
 
-                        {/* Navigation - Hide on mobile when user menu is active */}
+            {/* Navigation - Hide on mobile when user menu is active */}
             {!(isMobile && showMobileUserMenu) && (
               <div
                 style={{
@@ -856,49 +856,50 @@ export default function Dashboard() {
                   position: "relative",
                 }}
               >
-              <div
-                style={{
-                  display: "flex",
-                  padding: "0px 16px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  alignSelf: "stretch",
-                  position: "relative",
-                }}
-              >
-                <NavItem
-                  section="dashboard"
-                  label="Dashboard"
-                  isActive={true}
-                  hasChevron={false}
-                />
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "0px 16px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <NavItem
+                    section="dashboard"
+                    label="Dashboard"
+                    isActive={true}
+                    hasChevron={false}
+                  />
 
-                <NavItem
-                  section="tools"
-                  label="Tools"
-                  onClick={() => toggleAccordion("tools")}
-                />
+                  <NavItem
+                    section="tools"
+                    label="Tools"
+                    onClick={() => toggleAccordion("tools")}
+                  />
 
-                <NavItem
-                  section="screening"
-                  label="Screening"
-                  badge={!isAccordionOpen("screening") ? "8" : undefined}
-                  onClick={() => toggleAccordion("screening")}
-                />
+                  <NavItem
+                    section="screening"
+                    label="Screening"
+                    badge={!isAccordionOpen("screening") ? "8" : undefined}
+                    onClick={() => toggleAccordion("screening")}
+                  />
 
-                <NavItem
-                  section="reporting"
-                  label="Reporting"
-                  onClick={() => toggleAccordion("reporting")}
-                />
+                  <NavItem
+                    section="reporting"
+                    label="Reporting"
+                    onClick={() => toggleAccordion("reporting")}
+                  />
 
-                <NavItem
-                  section="support"
-                  label="Support & Resources"
-                  onClick={() => toggleAccordion("support")}
-                />
+                  <NavItem
+                    section="support"
+                    label="Support & Resources"
+                    onClick={() => toggleAccordion("support")}
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Mobile User Profile Section - Only show on mobile */}
             {isMobile && (
