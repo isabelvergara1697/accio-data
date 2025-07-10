@@ -2822,9 +2822,11 @@ export default function Dashboard() {
                 <div
                   style={{
                     display: "flex",
-                    width: "200px",
+                    minWidth: "120px",
+                    maxWidth: "200px",
                     alignItems: "center",
                     gap: "8px",
+                    flexShrink: 1,
                   }}
                 >
                   <div
@@ -2844,6 +2846,8 @@ export default function Dashboard() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "flex-start",
+                      minWidth: 0,
+                      flex: 1,
                     }}
                   >
                     <div
@@ -2853,13 +2857,17 @@ export default function Dashboard() {
                         fontSize: "14px",
                         fontWeight: 600,
                         lineHeight: "20px",
+                        width: "100%",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       <span
                         style={{
                           fontFamily:
                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 700,
+                          fontWeight: 600,
                           fontSize: "14px",
                           color: "rgba(24,29,39,1)",
                         }}
@@ -2869,16 +2877,15 @@ export default function Dashboard() {
                     </div>
                     <div
                       style={{
-                        display: "-webkit-box",
-                        WebkitBoxOrient: "vertical",
-                        WebkitLineClamp: 1,
-                        overflow: "hidden",
                         color: "#535862",
                         textOverflow: "ellipsis",
                         fontFamily: "Public Sans",
                         fontSize: "14px",
                         fontWeight: 400,
                         lineHeight: "20px",
+                        width: "100%",
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
                       }}
                     >
                       <span
