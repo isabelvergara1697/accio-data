@@ -157,17 +157,18 @@ export default function DocumentLibrary() {
   // Close user menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (userMenuOpen) {
+      const target = event.target as Element;
+      if (userMenuOpen && !target.closest("[data-user-menu]")) {
         setUserMenuOpen(false);
       }
     };
 
     if (userMenuOpen) {
-      document.addEventListener("click", handleClickOutside);
+      document.addEventListener("click", handleClickOutside, true);
     }
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside, true);
     };
   }, [userMenuOpen]);
 
@@ -1026,6 +1027,7 @@ export default function DocumentLibrary() {
                 style={{
                   position: "relative",
                 }}
+                data-user-menu
               >
                 <div
                   style={{
@@ -1037,7 +1039,10 @@ export default function DocumentLibrary() {
                     cursor: "pointer",
                     ...getUserMenuStyles(),
                   }}
-                  onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setUserMenuOpen(!userMenuOpen);
+                  }}
                   onMouseEnter={() => setUserMenuHovered(true)}
                   onMouseLeave={() => setUserMenuHovered(false)}
                 >
@@ -1101,14 +1106,14 @@ export default function DocumentLibrary() {
                 style={{
                   position: "absolute",
                   top: "calc(100% + 8px)",
-                  right: 0,
-                  minWidth: "200px",
+                  right: "32px",
+                  minWidth: "240px",
                   borderRadius: "12px",
                   border: "1px solid #E9EAEB",
                   background: "#FFF",
                   boxShadow:
                     "0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 12px 16px -4px rgba(10, 13, 18, 0.08)",
-                  zIndex: 50,
+                  zIndex: 1000,
                 }}
               >
                 <div style={{ padding: "6px" }}>
