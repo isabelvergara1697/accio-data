@@ -2524,7 +2524,7 @@ export default function Dashboard() {
                       <div
                         style={{
                           display: "flex",
-                          minHeight: "32px",
+                          minHeight: "36px",
                           padding: "6px 8px",
                           justifyContent: "center",
                           alignItems: "center",
@@ -3579,7 +3579,7 @@ export default function Dashboard() {
                     className="secondary-button"
                     style={{
                       display: "flex",
-                      minHeight: "32px",
+                      minHeight: "36px",
                       padding: "6px 8px",
                       justifyContent: isMobile ? "flex-start" : "center",
                       alignItems: "center",
@@ -3649,7 +3649,7 @@ export default function Dashboard() {
                     className="secondary-button"
                     style={{
                       display: "flex",
-                      minHeight: "32px",
+                      minHeight: "36px",
                       padding: "6px 8px",
                       justifyContent: isMobile ? "flex-start" : "center",
                       alignItems: "center",
@@ -3741,7 +3741,7 @@ export default function Dashboard() {
                     className="secondary-button"
                     style={{
                       display: "flex",
-                      minHeight: "32px",
+                      minHeight: "36px",
                       padding: "6px 8px",
                       justifyContent: isMobile ? "flex-start" : "center",
                       alignItems: "center",
