@@ -291,10 +291,10 @@ const documentLibraryStyles = `
     .mobile-search {
       width: 100% !important;
     }
-    .mobile-button {
+        .mobile-button {
       width: 100% !important;
       align-self: stretch !important;
-      justify-content: flex-start !important;
+      justify-content: space-between !important;
       align-items: center !important;
     }
                 .mobile-button-content {
