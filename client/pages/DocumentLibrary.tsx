@@ -550,6 +550,54 @@ export default function DocumentLibrary() {
     setFilteredSections(filtered);
   };
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    setIsSearchActive(query.length > 0);
+
+    if (query.length > 0) {
+      performSearch(query);
+    } else {
+      setSearchResults(documentSections);
+    }
+  };
+
+  const performSearch = (query: string) => {
+    const lowercaseQuery = query.toLowerCase();
+    const filtered = documentSections
+      .map((section) => {
+        const matchingDocuments = section.documents.filter(
+          (doc) =>
+            doc.name.toLowerCase().includes(lowercaseQuery) ||
+            section.title.toLowerCase().includes(lowercaseQuery),
+        );
+
+        if (
+          matchingDocuments.length > 0 ||
+          section.title.toLowerCase().includes(lowercaseQuery)
+        ) {
+          return {
+            ...section,
+            documents:
+              matchingDocuments.length > 0
+                ? matchingDocuments
+                : section.documents,
+            count: matchingDocuments.length,
+          };
+        }
+        return null;
+      })
+      .filter((section) => section !== null);
+
+    setSearchResults(filtered);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery("");
+    setIsSearchActive(false);
+    setSearchResults(documentSections);
+  };
+
   const toggleSortDropdown = () => {
     setSortDropdownOpen(!sortDropdownOpen);
     setFileTypeDropdownOpen(false);
