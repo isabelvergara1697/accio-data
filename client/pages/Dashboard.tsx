@@ -2634,8 +2634,8 @@ export default function Dashboard() {
           marginLeft: isDesktop ? "296px" : "0",
           paddingTop: isDesktop ? "120px" : "96px",
         }}
-      >
-                <MobileHeader
+            >
+        <MobileHeader
           isDesktop={isDesktop}
           isMobile={isMobile}
           setMobileMenuOpen={setMobileMenuOpen}
@@ -2646,7 +2646,7 @@ export default function Dashboard() {
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
           showMobileUserMenu={showMobileUserMenu}
-                />
+        />
             {/* Quick Create Button */}
             <div style={{ display: "flex", alignItems: "flex-start" }}>
               <button
