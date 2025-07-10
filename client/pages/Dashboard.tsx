@@ -2617,6 +2617,7 @@ export default function Dashboard() {
         setUserMenuHovered={setUserMenuHovered}
         handleSignOut={handleSignOut}
         getUserMenuStyles={getUserMenuStyles}
+        showMobileUserMenu={showMobileUserMenu}
       />
 
       {/* Main Content */}
