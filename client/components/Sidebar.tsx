@@ -1496,7 +1496,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 ></div>
               </div>
 
-              {!showMobileUserMenu ? (
+              {true ? (
                 /* Main Sidebar Menu with User Profile */
                 <div
                   style={{
