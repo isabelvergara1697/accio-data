@@ -35,7 +35,6 @@ export const Header: React.FC<HeaderProps> = ({
         justifyContent: "space-between",
         padding: "20px 32px",
         zIndex: 20,
-        background: "#FFF",
       }}
     >
       {/* Search Bar */}
