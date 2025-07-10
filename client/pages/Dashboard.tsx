@@ -5050,8 +5050,8 @@ export default function Dashboard() {
               gap: "16px",
               alignSelf: "stretch",
               position: "relative",
-            }}
-                    >
+                        }}
+          >
             {/* Widget Container - Half width on desktop */}
             <div
               style={{
