@@ -112,7 +112,7 @@ const documentSections = [
   },
 ];
 
-// Add styles for button hover states
+// Add styles for button hover states, document container borders, and responsive layouts
 const documentLibraryStyles = `
   .secondary-button {
     border-radius: 8px;
@@ -131,6 +131,54 @@ const documentLibraryStyles = `
   }
   .quick-create-button:hover {
     background: #2A3A82 !important;
+  }
+  .search-input {
+    transition: background 0.2s ease;
+  }
+  .search-input:hover {
+    background: #F5F5F5;
+  }
+  .document-card {
+    transition: background-color 0.2s ease;
+  }
+  .document-card:hover {
+    background: #F5F5F5 !important;
+  }
+  .action-button {
+    transition: background 0.2s ease;
+  }
+  .action-button:hover {
+    background: #F5F5F5;
+  }
+  .section-header-button {
+    transition: background 0.2s ease;
+  }
+  .section-header-button:hover {
+    background: #F5F5F5;
+  }
+
+  /* Responsive layout utilities */
+  @media (max-width: 767px) {
+    .mobile-stack {
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+    .mobile-buttons {
+      justify-content: space-between !important;
+      gap: 12px !important;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .tablet-layout {
+      flex-direction: column !important;
+      gap: 16px !important;
+    }
+    .tablet-buttons {
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      gap: 12px !important;
+    }
   }
 `;
 
