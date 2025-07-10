@@ -1021,6 +1021,7 @@ export default function DocumentLibrary() {
                                 </svg>
                               </button>
                               <button
+                                className="action-button"
                                 style={{
                                   display: "flex",
                                   padding: "6px",
