@@ -291,11 +291,14 @@ const documentLibraryStyles = `
     .mobile-search {
       width: 100% !important;
     }
-        .mobile-button {
+                .mobile-button {
       width: 100% !important;
+      min-width: 100% !important;
+      max-width: 100% !important;
       align-self: stretch !important;
       justify-content: space-between !important;
       align-items: center !important;
+      flex: 1 1 auto !important;
     }
                 .mobile-button-content {
       width: 100% !important;
