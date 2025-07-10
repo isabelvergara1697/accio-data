@@ -266,7 +266,7 @@ export default function DocumentLibrary() {
       {/* Main Content */}
       <div
         style={{
-          marginLeft: "296px",
+          marginLeft: isDesktop ? "296px" : "0",
           flex: "1 0 0",
           display: "flex",
           flexDirection: "column",
