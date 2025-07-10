@@ -1239,7 +1239,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             justifyContent: "center",
                             alignItems: "center",
                             borderRadius: "9999px",
-                            background: "#344698",
+                            background: "#273572",
                             position: "relative",
                           }}
                         >
@@ -2204,7 +2204,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 justifyContent: "center",
                                 alignItems: "center",
                                 borderRadius: "9999px",
-                                background: "#344698",
+                                background: "#273572",
                                 position: "relative",
                               }}
                             >
