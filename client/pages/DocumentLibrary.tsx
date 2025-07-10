@@ -181,7 +181,7 @@ const documentLibraryStyles = `
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) and (max-width: 1023px) {
     .tablet-layout {
       flex-direction: column !important;
       gap: 20px !important;
@@ -210,6 +210,10 @@ const documentLibraryStyles = `
     .tablet-search {
       flex: 1 !important;
       max-width: 320px !important;
+    }
+    .tablet-document-grid {
+      grid-template-columns: repeat(2, 308px) !important;
+      justify-content: space-between !important;
     }
   }
 `;
