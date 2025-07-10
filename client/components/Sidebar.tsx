@@ -591,18 +591,111 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 />
               </div>
             </div>
-          </div>
+                    </div>
 
-          {/* Navigation */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
+          {/* Mobile User Menu Page - Show when active on mobile */}
+          {isMobile && showMobileUserMenu && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+                flex: "1 0 0",
+                position: "relative",
+              }}
+            >
+              {/* Back Button */}
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0px 16px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    width: "123px",
+                    height: "36px",
+                    padding: "0px 6px",
+                    alignItems: "center",
+                    cursor: "pointer",
+                    position: "relative",
+                  }}
+                  onClick={() => setShowMobileUserMenu?.(false)}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F5F5F5";
+                    e.currentTarget.style.borderRadius = "6px";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <svg
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      flexShrink: 0,
+                      position: "relative",
+                    }}
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.5 15L7.5 10L12.5 5"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      position: "relative",
+                      marginLeft: "8px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontWeight: 600,
+                        fontSize: "14px",
+                        color: "rgba(83,88,98,1)",
+                      }}
+                    >
+                      Back
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Navigation - Hide on mobile when user menu is active */}
+          {!(isMobile && showMobileUserMenu) && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
             <div
               style={{
                 display: "flex",
