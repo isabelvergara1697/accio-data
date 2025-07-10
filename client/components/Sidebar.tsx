@@ -75,7 +75,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         >
           <path
             d="M6.97756 13.0829V14.8273M10.4663 9.59414V14.8273M13.9551 6.10536V14.8273M6.80312 18.3161H14.1296C15.595 18.3161 16.3277 18.3161 16.8874 18.0309C17.3798 17.7801 17.7801 17.3798 18.0309 16.8874C18.3161 16.3277 18.3161 15.595 18.3161 14.1296V6.80312C18.3161 5.33769 18.3161 4.60498 18.0309 4.04526C17.7801 3.55292 17.3798 3.15263 16.8874 2.90177C16.3277 2.61658 15.595 2.61658 14.1296 2.61658H6.80312C5.33769 2.61658 4.60498 2.61658 4.04526 2.90177C3.55292 3.15263 3.15263 3.55292 2.90177 4.04526C2.61658 4.60498 2.61658 5.33769 2.61658 6.80312V14.1296C2.61658 15.595 2.61658 16.3277 2.90177 16.8874C3.15263 17.3798 3.55292 17.7801 4.04526 18.0309C4.60498 18.3161 5.33769 18.3161 6.80312 18.3161Z"
-            stroke={isActive ? "#273572" : "#A4A7AE"}
+            stroke={isActive ? "#344698" : "#A4A7AE"}
             strokeWidth="1.67"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -269,7 +269,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <div
                 style={{
                   color: isActive
-                    ? "#273572"
+                    ? "#344698"
                     : "var(--colors-text-text-secondary-700, #414651)",
                   fontFamily:
                     "var(--Font-family-font-family-body, 'Public Sans')",
@@ -286,7 +286,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 600,
                     fontSize: "14px",
-                    color: isActive ? "#273572" : "rgba(65,70,81,1)",
+                    color: isActive ? "#344698" : "rgba(65,70,81,1)",
                   }}
                 >
                   {label}
@@ -415,7 +415,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           color:
                             currentPage === "document-library" &&
                             item === "Document Library"
-                              ? "#273572"
+                              ? "#344698"
                               : "var(--colors-text-text-secondary-700, #414651)",
                           fontFamily:
                             "var(--Font-family-font-family-body, 'Public Sans')",
@@ -435,7 +435,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             color:
                               currentPage === "document-library" &&
                               item === "Document Library"
-                                ? "#273572"
+                                ? "#344698"
                                 : "rgba(65,70,81,1)",
                           }}
                         >
@@ -1239,7 +1239,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             justifyContent: "center",
                             alignItems: "center",
                             borderRadius: "9999px",
-                            background: "#273572",
+                            background: "#344698",
                             position: "relative",
                           }}
                         >
@@ -1731,7 +1731,656 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     </div>
                   </div>
                 </div>
-                            )}
+              ) : (
+                /* Mobile User Menu */
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  {/* Back Button */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0px 16px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      alignSelf: "stretch",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "123px",
+                        height: "36px",
+                        padding: "0px 6px",
+                        alignItems: "center",
+                        cursor: "pointer",
+                        position: "relative",
+                      }}
+                      onClick={() => setShowMobileUserMenu?.(false)}
+                    >
+                      <svg
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          flexShrink: 0,
+                          position: "relative",
+                        }}
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12.5 15L7.5 10L12.5 5"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          position: "relative",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontWeight: 600,
+                            fontSize: "14px",
+                            color: "rgba(83,88,98,1)",
+                          }}
+                        >
+                          Back
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Menu Items */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "6px 0px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "2px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Account Item */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0px 6px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            alignItems: "center",
+                            gap: "12px",
+                            flex: "1 0 0",
+                            borderRadius: "6px",
+                            cursor: "pointer",
+                            position: "relative",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "#F5F5F5";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "transparent";
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                position: "relative",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M13.3327 14C13.3327 13.0696 13.3327 12.6044 13.2179 12.2259C12.9593 11.3736 12.2924 10.7067 11.4401 10.4482C11.0616 10.3333 10.5964 10.3333 9.66601 10.3333H6.33268C5.40231 10.3333 4.93712 10.3333 4.55859 10.4482C3.70632 10.7067 3.03938 11.3736 2.78084 12.2259C2.66602 12.6044 2.66602 13.0696 2.66602 14M10.9993 5C10.9993 6.65685 9.6562 8 7.99935 8C6.34249 8 4.99935 6.65685 4.99935 5C4.99935 3.34315 6.34249 2 7.99935 2C9.6562 2 10.9993 3.34315 10.9993 5Z"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.67"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <div
+                              style={{
+                                flex: "1 0 0",
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 600,
+                                  fontSize: "14px",
+                                  color: "rgba(65,70,81,1)",
+                                }}
+                              >
+                                Account
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Company Item */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0px 6px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            alignItems: "center",
+                            gap: "12px",
+                            flex: "1 0 0",
+                            borderRadius: "6px",
+                            cursor: "pointer",
+                            position: "relative",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "#F5F5F5";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "transparent";
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                position: "relative",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M8.66732 7.33333H11.8673C12.6141 7.33333 12.9874 7.33333 13.2726 7.47866C13.5235 7.60649 13.7275 7.81046 13.8553 8.06135C14.0007 8.34656 14.0007 8.71993 14.0007 9.46667V14M8.66732 14V4.13333C8.66732 3.3866 8.66732 3.01323 8.52199 2.72801C8.39416 2.47713 8.19019 2.27316 7.93931 2.14532C7.65409 2 7.28072 2 6.53398 2H4.13398C3.38725 2 3.01388 2 2.72866 2.14532C2.47778 2.27316 2.27381 2.47713 2.14598 2.72801C2.00065 3.01323 2.00065 3.3866 2.00065 4.13333V14M14.6673 14H1.33398M4.33398 4.66667H6.33398M4.33398 7.33333H6.33398M4.33398 10H6.33398"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.67"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <div
+                              style={{
+                                flex: "1 0 0",
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 600,
+                                  fontSize: "14px",
+                                  color: "rgba(65,70,81,1)",
+                                }}
+                              >
+                                Company
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "4px 0px",
+                        alignItems: "center",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "1px",
+                          background: "#E9EAEB",
+                        }}
+                      ></div>
+                    </div>
+
+                    {/* Switch Account Section */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "6px 0px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "2px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "6px 12px 4px 12px",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            flex: "1 0 0",
+                            color: "#535862",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                            position: "relative",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 600,
+                              fontSize: "12px",
+                              color: "rgba(83,88,98,1)",
+                            }}
+                          >
+                            Switch account
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Current User Account */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0px 6px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "6px 8px",
+                            alignItems: "flex-start",
+                            gap: "12px",
+                            flex: "1 0 0",
+                            borderRadius: "6px",
+                            background: "#F5F5F5",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "40px",
+                                height: "40px",
+                                padding: "30px 0px 0px 30px",
+                                justifyContent: "flex-end",
+                                alignItems: "center",
+                                aspectRatio: "1/1",
+                                borderRadius: "9999px",
+                                border: "1px solid rgba(0, 0, 0, 0.10)",
+                                background:
+                                  "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                                position: "relative",
+                                flexShrink: 0,
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "10px",
+                                  height: "10px",
+                                  flexShrink: 0,
+                                  borderRadius: "9999px",
+                                  border: "1.5px solid #FFF",
+                                  background: "#17B26A",
+                                  position: "absolute",
+                                  left: "30px",
+                                  top: "30px",
+                                }}
+                              ></div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  overflow: "hidden",
+                                  color: "#181D27",
+                                  textOverflow: "ellipsis",
+                                  whiteSpace: "nowrap",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: "14px",
+                                    color: "rgba(24,29,39,1)",
+                                  }}
+                                >
+                                  Alexandra Fitzwilliam
+                                </span>
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  overflow: "hidden",
+                                  color: "#535862",
+                                  textOverflow: "ellipsis",
+                                  whiteSpace: "nowrap",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: "rgba(83,88,98,1)",
+                                  }}
+                                >
+                                  [Role]
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "16px",
+                                height: "16px",
+                                padding: "5px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                background: "#344698",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "6px",
+                                  height: "6px",
+                                  flexShrink: 0,
+                                  borderRadius: "9999px",
+                                  background: "#FFF",
+                                  position: "absolute",
+                                  left: "5px",
+                                  top: "5px",
+                                }}
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Alternative User Account */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0px 6px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "6px 8px",
+                            alignItems: "flex-start",
+                            gap: "12px",
+                            flex: "1 0 0",
+                            borderRadius: "6px",
+                            cursor: "pointer",
+                            position: "relative",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "#F5F5F5";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "transparent";
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "40px",
+                                height: "40px",
+                                padding: "30px 0px 0px 30px",
+                                justifyContent: "flex-end",
+                                alignItems: "center",
+                                aspectRatio: "1/1",
+                                borderRadius: "9999px",
+                                border: "1px solid rgba(0, 0, 0, 0.10)",
+                                background: "#E0E0E0",
+                                position: "relative",
+                                flexShrink: 0,
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "10px",
+                                  height: "10px",
+                                  flexShrink: 0,
+                                  borderRadius: "9999px",
+                                  border: "1.5px solid #FFF",
+                                  background: "#17B26A",
+                                  position: "absolute",
+                                  left: "30px",
+                                  top: "30px",
+                                }}
+                              ></div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  overflow: "hidden",
+                                  color: "#181D27",
+                                  textOverflow: "ellipsis",
+                                  whiteSpace: "nowrap",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: "14px",
+                                    color: "rgba(24,29,39,1)",
+                                  }}
+                                >
+                                  Sienna Hewitt
+                                </span>
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  overflow: "hidden",
+                                  color: "#535862",
+                                  textOverflow: "ellipsis",
+                                  whiteSpace: "nowrap",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: "rgba(83,88,98,1)",
+                                  }}
+                                >
+                                  [Role]
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "9999px",
+                                border: "1px solid #D5D7DA",
+                                position: "relative",
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </>
           )}
         </div>
