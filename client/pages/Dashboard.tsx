@@ -4077,8 +4077,8 @@ export default function Dashboard() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "16px",
-                  padding: "20px",
+                  gap: "24px",
+                  padding: "24px",
                   borderRadius: "12px",
                   border: "1px solid #E9EAEB",
                   background: "#FFF",
@@ -4106,7 +4106,7 @@ export default function Dashboard() {
                       position: "relative",
                     }}
                   >
-                    [Metric]
+                    Total Screenings
                   </div>
                   <div
                     style={{
@@ -4129,9 +4129,9 @@ export default function Dashboard() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M6 2.5V6L8.5 8.5"
+                        d="M3 6L5 8L9 4"
                         stroke="#17B26A"
-                        strokeWidth="1"
+                        strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
@@ -4141,7 +4141,7 @@ export default function Dashboard() {
                         color: "#17B26A",
                         fontFamily: "Public Sans",
                         fontSize: "12px",
-                        fontWeight: 500,
+                        fontWeight: 600,
                         lineHeight: "18px",
                       }}
                     >
@@ -4156,7 +4156,7 @@ export default function Dashboard() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-start",
-                    gap: "12px",
+                    gap: "16px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
@@ -4166,9 +4166,9 @@ export default function Dashboard() {
                     style={{
                       color: "#181D27",
                       fontFamily: "Public Sans",
-                      fontSize: "32px",
+                      fontSize: "36px",
                       fontWeight: 700,
-                      lineHeight: "40px",
+                      lineHeight: "44px",
                       position: "relative",
                     }}
                   >
@@ -4179,27 +4179,27 @@ export default function Dashboard() {
                   <div
                     style={{
                       display: "flex",
-                      height: "40px",
+                      height: "52px",
                       alignItems: "flex-end",
-                      gap: "2px",
+                      gap: "1px",
                       alignSelf: "stretch",
                       position: "relative",
                       background:
-                        "linear-gradient(180deg, rgba(52, 70, 152, 0.1) 0%, rgba(52, 70, 152, 0.05) 100%)",
-                      borderRadius: "4px",
+                        "linear-gradient(180deg, rgba(52, 70, 152, 0.08) 0%, rgba(52, 70, 152, 0.02) 100%)",
+                      borderRadius: "6px",
                       padding: "8px",
                     }}
                   >
                     {/* Chart bars */}
-                    {[8, 12, 16, 14, 18, 22, 20, 24, 28, 25, 30, 32].map(
+                    {[8, 12, 16, 14, 18, 22, 20, 24, 28, 25, 30, 36].map(
                       (height, index) => (
                         <div
                           key={index}
                           style={{
-                            width: "4px",
+                            width: "3px",
                             height: `${height}px`,
                             background: "#344698",
-                            borderRadius: "1px",
+                            borderRadius: "2px",
                             flex: "1 0 0",
                           }}
                         />
@@ -4211,10 +4211,12 @@ export default function Dashboard() {
                         position: "absolute",
                         right: "12px",
                         top: "4px",
-                        width: "6px",
-                        height: "6px",
+                        width: "8px",
+                        height: "8px",
                         borderRadius: "50%",
                         background: "#344698",
+                        border: "2px solid #FFF",
+                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.1)",
                       }}
                     />
                   </div>
