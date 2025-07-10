@@ -4077,12 +4077,12 @@ export default function Dashboard() {
             {/* Section Title */}
             <div
               style={{
-                color: "rgba(65, 70, 81, 1)",
+                color: "#181D27",
                 fontFamily: "Public Sans",
-                fontSize: "16px",
-                fontWeight: 600,
+                fontSize: "24px",
+                fontWeight: 700,
                 lineHeight: "32px",
-                letterSpacing: "-0.48px",
+                letterSpacing: "-0.02em",
                 position: "relative",
               }}
             >
@@ -4092,24 +4092,20 @@ export default function Dashboard() {
             {/* Metric Cards Grid */}
             <div
               style={{
-                                display: "flex",
-                gap: "20px",
+                display: "grid",
+                gridTemplateColumns: isMobile
+                  ? "1fr"
+                  : isDesktop
+                    ? "repeat(4, 1fr)"
+                    : "repeat(2, 1fr)",
+                gap: isMobile ? "16px" : "24px",
                 alignSelf: "stretch",
                 position: "relative",
               }}
             >
-                              <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    lineHeight: "normal",
-                    width: "25%",
-                    marginLeft: "0px",
-                  }}
-                >
-                  {/* Metric Card 1 - Total Screenings */}
-                  <div
-                    className="metric-card"
+              {/* Metric Card 1 - Total Screenings */}
+              <div
+                className="metric-card"
                 style={{
                   display: "flex",
                   padding: "16px 12px 12px 16px",
