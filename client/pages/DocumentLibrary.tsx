@@ -663,7 +663,9 @@ export default function DocumentLibrary() {
                     <div
                       style={{
                         display: "flex",
-                        padding: "20px 24px 0px 24px",
+                        padding: isMobile
+                          ? "0px 16px 0px 16px"
+                          : "20px 24px 0px 24px",
                         alignItems: "flex-start",
                         gap: "16px",
                         alignSelf: "stretch",
@@ -810,7 +812,7 @@ export default function DocumentLibrary() {
                           display: "grid",
                           gridTemplateColumns: isDesktop ? "1fr 1fr" : "1fr",
                           gap: "16px",
-                          padding: "20px 24px",
+                          padding: isMobile ? "0px 16px" : "20px 24px",
                           alignSelf: "stretch",
                         }}
                       >
@@ -995,7 +997,9 @@ export default function DocumentLibrary() {
                       // Closed state with equal 20px top and bottom padding
                       <div
                         style={{
-                          padding: "20px 24px 20px 24px",
+                          padding: isMobile
+                            ? "0px 16px 0px 16px"
+                            : "20px 24px 20px 24px",
                           display: "flex",
                           flexDirection: "column",
                           alignItems: "flex-start",
