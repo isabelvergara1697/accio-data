@@ -4048,9 +4048,9 @@ export default function Dashboard() {
               style={{
                 color: "#181D27",
                 fontFamily: "Public Sans",
-                fontSize: "18px",
+                fontSize: "20px",
                 fontWeight: 600,
-                lineHeight: "28px",
+                lineHeight: "30px",
                 position: "relative",
               }}
             >
