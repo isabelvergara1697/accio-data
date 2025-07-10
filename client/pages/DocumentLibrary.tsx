@@ -1136,12 +1136,23 @@ export default function DocumentLibrary() {
                     {/* Document Content */}
                     {openAccordions.includes(section.id) ? (
                       <div
+                        className={
+                          !isDesktop && !isMobile ? "tablet-document-grid" : ""
+                        }
                         style={{
                           display: "grid",
-                          gridTemplateColumns: isDesktop ? "1fr 1fr" : "1fr",
+                          gridTemplateColumns: isDesktop
+                            ? "1fr 1fr"
+                            : !isMobile
+                              ? "repeat(2, 308px)"
+                              : "1fr",
                           gap: "16px",
                           padding: isMobile ? "0px 16px" : "20px 24px",
                           alignSelf: "stretch",
+                          justifyContent:
+                            !isDesktop && !isMobile
+                              ? "space-between"
+                              : "initial",
                         }}
                       >
                         {section.documents.map((doc) => (
