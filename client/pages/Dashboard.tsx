@@ -33,6 +33,17 @@ export default function Dashboard() {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+
+  // Handle window resize for responsive behavior
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Check for activation success parameter
   useEffect(() => {
@@ -666,7 +677,7 @@ export default function Dashboard() {
             {/* Search Bar - Mobile/Tablet Only */}
             <div
               style={{
-                display: window.innerWidth >= 1024 ? "none" : "flex",
+                display: isDesktop ? "none" : "flex",
                 padding: "0px 20px",
                 flexDirection: "column",
                 alignItems: "flex-start",
@@ -1170,7 +1181,7 @@ export default function Dashboard() {
         {/* Desktop Header Navigation - Only show on desktop lg and up */}
         <div
           style={{
-            display: window.innerWidth >= 1024 ? "flex" : "none",
+            display: isDesktop ? "flex" : "none",
             flexDirection: "column",
             alignItems: "center",
             alignSelf: "stretch",
