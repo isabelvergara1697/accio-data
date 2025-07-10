@@ -634,8 +634,7 @@ export default function DocumentLibrary() {
                         {section.documents.map((doc) => (
                           <div
                             key={doc.id}
-                            className="flex items-center gap-1 p-4 border border-[#E9EAEB] bg-white rounded-xl hover:bg-[#F5F5F5] transition-colors cursor-pointer"
-                            style={{ width: "508px", height: "92px" }}
+                            className="flex items-center gap-1 p-4 border border-[#E9EAEB] bg-white rounded-xl hover:bg-[#F5F5F5] transition-colors cursor-pointer h-[92px]"
                           >
                             <div className="flex items-start gap-3 flex-1">
                               <FileIcon />
