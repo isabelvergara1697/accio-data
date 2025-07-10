@@ -437,7 +437,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             color:
                               currentPage === "document-library" &&
                               item === "Document Library"
-                                ? "#344698"
+                                ? "#273572"
                                 : "rgba(65,70,81,1)",
                           }}
                         >
