@@ -665,9 +665,8 @@ export default function Dashboard() {
 
             {/* Search Bar - Mobile/Tablet Only */}
             <div
-              className="lg:hidden"
               style={{
-                display: "flex",
+                display: window.innerWidth >= 1024 ? "none" : "flex",
                 padding: "0px 20px",
                 flexDirection: "column",
                 alignItems: "flex-start",
@@ -1171,13 +1170,12 @@ export default function Dashboard() {
         {/* Desktop Header Navigation - Only show on desktop lg and up */}
         <div
           style={{
-            display: "none",
+            display: window.innerWidth >= 1024 ? "flex" : "none",
             flexDirection: "column",
             alignItems: "center",
             alignSelf: "stretch",
             position: "relative",
           }}
-          className="lg:flex"
         >
           <div
             style={{
