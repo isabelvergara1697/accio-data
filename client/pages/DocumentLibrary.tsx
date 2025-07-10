@@ -169,23 +169,35 @@ const documentLibraryStyles = `
     }
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) and (max-width: 1023px) {
     .tablet-layout {
       flex-direction: column !important;
       gap: 20px !important;
+      align-items: flex-start !important;
     }
     .tablet-title-section {
       display: flex !important;
       flex-direction: column !important;
       align-items: flex-start !important;
-      gap: 4px !important;
-      margin-bottom: 4px !important;
+      gap: 2px !important;
+      width: 100% !important;
     }
-    .tablet-buttons {
+    .tablet-buttons-container {
+      display: flex !important;
       flex-direction: row !important;
-      justify-content: flex-start !important;
+      align-items: center !important;
       gap: 12px !important;
-      flex-wrap: wrap !important;
+      width: 100% !important;
+    }
+    .tablet-filter-buttons {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 12px !important;
+    }
+    .tablet-search {
+      flex: 1 !important;
+      max-width: 320px !important;
     }
   }
 `;
@@ -377,7 +389,7 @@ export default function DocumentLibrary() {
             gap: isMobile ? "16px" : "32px",
           }}
         >
-          {/* Page Header */}
+                    {/* Page Header */}
           <div
             style={{
               display: "flex",
@@ -401,7 +413,7 @@ export default function DocumentLibrary() {
                 alignContent: "flex-end",
                 gap: isMobile ? "16px" : isDesktop ? "20px 16px" : "20px",
                 alignSelf: "stretch",
-                flexWrap: isMobile ? "nowrap" : "wrap",
+                flexWrap: isMobile ? "nowrap" : isDesktop ? "wrap" : "nowrap",
               }}
             >
               <div
@@ -413,7 +425,7 @@ export default function DocumentLibrary() {
                   minWidth: isDesktop ? "320px" : "100%",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "4px",
+                  gap: !isDesktop && !isMobile ? "2px" : "4px",
                   flex: isDesktop ? "1 0 0" : "none",
                 }}
               >
@@ -464,24 +476,10 @@ export default function DocumentLibrary() {
                     screenings, compliance, and account setup.
                   </span>
                 </div>
-              </div>
-              <div
-                className={
-                  isMobile
-                    ? "mobile-buttons"
-                    : !isDesktop
-                      ? "tablet-buttons"
-                      : ""
-                }
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  justifyContent: isMobile ? "space-between" : "flex-start",
-                  flex: isMobile ? "1 0 0" : "none",
-                  width: !isDesktop && !isMobile ? "100%" : "auto",
-                }}
-              >
+                            </div>
+              {!isDesktop && !isMobile ? (
+                <div className="tablet-buttons-container">
+                  <div className="tablet-filter-buttons">
                 <div
                   className="secondary-button"
                   style={{
@@ -611,19 +609,8 @@ export default function DocumentLibrary() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  minWidth: "200px",
-                  maxWidth: "320px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "6px",
-                  flex: "1 0 0",
-                }}
-              >
+                                  </div>
+                  <div className="tablet-search">
                 <div
                   className="search-input"
                   style={{
@@ -693,10 +680,164 @@ export default function DocumentLibrary() {
                       </span>
                     </div>
                   </div>
+                                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
+              ) : (
+                <div
+                  className={
+                    isMobile ? "mobile-buttons" : ""
+                  }
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    justifyContent: isMobile ? "space-between" : "flex-start",
+                    flex: isMobile ? "1 0 0" : "none",
+                  }}
+                >
+                  <div
+                    className="secondary-button"
+                    style={{
+                      display: "flex",
+                      minHeight: "32px",
+                      padding: "6px 8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "4px",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow:
+                        "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                      flex: isMobile ? "1 0 0" : "unset",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "0px 2px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontWeight: 600,
+                            fontSize: "14px",
+                            color: "rgba(65,70,81,1)",
+                          }}
+                        >
+                          Most Recent
+                        </span>
+                      </div>
+                    </div>
+                    <svg
+                      style={{ width: "16px", height: "16px" }}
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    className="secondary-button"
+                    style={{
+                      display: "flex",
+                      minHeight: "32px",
+                      padding: "6px 8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "4px",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow:
+                        "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                      flex: isMobile ? "1 0 0" : "unset",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "0px 2px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontWeight: 600,
+                            fontSize: "14px",
+                            color: "rgba(65,70,81,1)",
+                          }}
+                        >
+                          All Files
+                        </span>
+                      </div>
+                    </div>
+                    <svg
+                      style={{ width: "16px", height: "16px" }}
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              )}
+              <div
+                style={{
+                  display: "flex",
+                  minWidth: "200px",
+                  maxWidth: "320px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  flex: "1 0 0",
+                }}
+              >
 
           {/* Document Sections */}
           <div
