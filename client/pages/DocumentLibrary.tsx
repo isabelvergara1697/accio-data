@@ -208,41 +208,6 @@ export default function DocumentLibrary() {
     </div>
   );
 
-  const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
-    <svg
-      style={{
-        width: "24px",
-        height: "24px",
-        position: "relative",
-        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-        transition: "transform 0.2s ease",
-      }}
-      width="24"
-      height="25"
-      viewBox="0 0 24 25"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M6 9.93274L12 15.9327L18 9.93274"
-        stroke="#A4A7AE"
-        strokeWidth="1.67"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-
-  const getHoverStyles = (item: string) => {
-    if (hoveredItem === item && item !== "dashboard") {
-      return {
-        background: "var(--Colors-Background-bg-primary_hover, #F5F5F5)",
-        borderRadius: "var(--radius-sm, 6px)",
-      };
-    }
-    return {};
-  };
-
   const getUserMenuStyles = () => {
     if (userMenuHovered || userMenuOpen) {
       return {
@@ -256,8 +221,6 @@ export default function DocumentLibrary() {
   const handleSignOut = () => {
     navigate("/login");
   };
-
-  const isAccordionOpen = (section: string) => openAccordions.includes(section);
 
   const NavItem = ({
     section,
