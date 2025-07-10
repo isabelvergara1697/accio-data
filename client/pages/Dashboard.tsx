@@ -4235,7 +4235,7 @@ export default function Dashboard() {
                     </div>
                   </div>
                   {/* Wavy Chart */}
-                  <div
+                                    <div
                     style={{
                       height: "56px",
                       width: "100%",
@@ -4443,7 +4443,7 @@ export default function Dashboard() {
                           >
                             <path
                               d="M8.00033 3.33366V12.667M8.00033 12.667L12.667 8.00033M8.00033 12.667L3.33366 8.00033"
-                              stroke="#D92D20"
+                                                            stroke="#D92D20"
                               strokeWidth="1.5"
                               strokeLinecap="round"
                               strokeLinejoin="round"
@@ -4451,7 +4451,7 @@ export default function Dashboard() {
                           </svg>
                           <div
                             style={{
-                              color: "#D92D20",
+                                                            color: "#D92D20",
                               textAlign: "center",
                               fontFamily: "Public Sans",
                               fontSize: "14px",
@@ -4467,7 +4467,7 @@ export default function Dashboard() {
                     </div>
                   </div>
                   {/* Wavy Chart - Declining */}
-                  <div
+                                    <div
                     style={{
                       height: "56px",
                       width: "100%",
@@ -4697,7 +4697,7 @@ export default function Dashboard() {
                     </div>
                   </div>
                   {/* Wavy Chart - Moderate Growth */}
-                  <div
+                                    <div
                     style={{
                       height: "56px",
                       width: "100%",
@@ -4927,7 +4927,7 @@ export default function Dashboard() {
                     </div>
                   </div>
                   {/* Wavy Chart - Strong Growth */}
-                  <div
+                                    <div
                     style={{
                       height: "56px",
                       width: "100%",
@@ -5041,7 +5041,7 @@ export default function Dashboard() {
             position: "relative",
           }}
         >
-          <div
+                    <div
             style={{
               display: "flex",
               padding: isMobile ? "0px 16px" : "0px 32px",
@@ -5052,6 +5052,17 @@ export default function Dashboard() {
               position: "relative",
             }}
           >
+            {/* Widget Container - Half width on desktop */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                width: isMobile ? "100%" : isDesktop ? "50%" : "100%",
+                position: "relative",
+              }}
+            >
             {/* Widget Header */}
             <div
               style={{
