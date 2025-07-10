@@ -318,6 +318,7 @@ export default function DocumentLibrary() {
   const [fileTypeDropdownOpen, setFileTypeDropdownOpen] = useState(false);
   const [selectedSortOption, setSelectedSortOption] = useState("Most Recent");
   const [selectedFileType, setSelectedFileType] = useState("All Files");
+  const [filteredSections, setFilteredSections] = useState(documentSections);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
