@@ -36,6 +36,7 @@ const App = () => (
             element={<PasswordResetSuccess />}
           />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/document-library" element={<DocumentLibrary />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
