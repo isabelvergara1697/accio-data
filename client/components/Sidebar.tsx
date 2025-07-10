@@ -34,7 +34,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [openAccordions, setOpenAccordions] = useState<string[]>([]);
+  const [openAccordions, setOpenAccordions] = useState<string[]>(
+    currentPage === "document-library" ? ["support"] : [],
+  );
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const menuSections = {
