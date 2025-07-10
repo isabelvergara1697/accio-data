@@ -742,6 +742,88 @@ export const Sidebar: React.FC<SidebarProps> = ({
               </div>
             </div>
           )}
+
+          {/* Mobile User Profile Section */}
+          {!isDesktop && !showMobileUserMenu && (
+            <div
+              style={{
+                display: "flex",
+                padding: "16px 16px 24px 16px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "12px",
+                alignSelf: "stretch",
+                borderTop: "1px solid #E9EAEB",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "8px",
+                  alignItems: "center",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  borderRadius: "12px",
+                  cursor: "pointer",
+                  position: "relative",
+                  ...(getUserMenuStyles?.() || {}),
+                }}
+                onClick={() => setShowMobileUserMenu?.(true)}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      flexShrink: 0,
+                      aspectRatio: "1/1",
+                      borderRadius: "9999px",
+                      border: "1px solid rgba(0, 0, 0, 0.10)",
+                      background:
+                        "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                    }}
+                  ></div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Alexandra Fitzwilliam
+                    </div>
+                    <div
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      [User Role]
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </aside>
