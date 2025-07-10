@@ -4451,7 +4451,7 @@ export default function Dashboard() {
                           </svg>
                           <div
                             style={{
-                              color: "#1E40AF",
+                              color: "#D92D20",
                               textAlign: "center",
                               fontFamily: "Public Sans",
                               fontSize: "14px",
