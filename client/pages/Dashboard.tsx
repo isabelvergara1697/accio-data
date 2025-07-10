@@ -4270,8 +4270,8 @@ export default function Dashboard() {
                           border: "2px solid #344698",
                           opacity: 0.2,
                           position: "absolute",
-                          left: "-1px",
-                          top: "0px",
+                          left: "9px",
+                          top: "-7px",
                         }}
                       />
                       <div
@@ -4282,8 +4282,8 @@ export default function Dashboard() {
                           border: "2px solid #344698",
                           background: "#FFF",
                           position: "absolute",
-                          left: "3px",
-                          top: "4px",
+                          left: "13px",
+                          top: "-3px",
                         }}
                       />
                     </div>
