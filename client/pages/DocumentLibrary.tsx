@@ -1233,10 +1233,11 @@ export default function DocumentLibrary() {
                                 }}
                               >
                                 <div
+                                  className={isMobile ? "mobile-file-name" : ""}
                                   style={{
                                     display: "-webkit-box",
                                     WebkitBoxOrient: "vertical",
-                                    WebkitLineClamp: 1,
+                                    WebkitLineClamp: isMobile ? 2 : 1,
                                     alignSelf: "stretch",
                                     overflow: "hidden",
                                     color: "#414651",
