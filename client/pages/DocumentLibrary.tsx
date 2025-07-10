@@ -846,8 +846,6 @@ export default function DocumentLibrary() {
               alignItems: "center",
               justifyContent: "space-between",
               padding: "20px 32px",
-              background: "#FFF",
-              borderBottom: "1px solid #E9EAEB",
               zIndex: 20,
             }}
           >
