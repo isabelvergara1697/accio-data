@@ -781,7 +781,7 @@ export default function DocumentLibrary() {
                           display: "flex",
                           minHeight: "32px",
                           padding: "6px 8px",
-                          justifyContent: "center",
+                          justifyContent: "flex-start",
                           alignItems: "center",
                           gap: "4px",
                           borderRadius: "8px",
