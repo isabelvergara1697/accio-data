@@ -2466,6 +2466,98 @@ export default function Dashboard() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Add Account Button */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "2px 8px 8px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          minHeight: "32px",
+                          padding: "6px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          flex: "1 0 0",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                          position: "relative",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "#F5F5F5";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "#FFF";
+                        }}
+                      >
+                        <svg
+                          style={{
+                            width: "24px",
+                            height: "24px",
+                            position: "relative",
+                          }}
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 5V19M5 12H19"
+                            stroke="#344698"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0px 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontWeight: 600,
+                                fontSize: "14px",
+                                color: "rgba(65,70,81,1)",
+                              }}
+                            >
+                              Add account
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 )}
               </>
