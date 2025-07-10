@@ -1866,7 +1866,7 @@ export default function Dashboard() {
                   /* Mobile User Menu */
                   <div
                     style={{
-                      display: "flex",
+                      display: "none",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
