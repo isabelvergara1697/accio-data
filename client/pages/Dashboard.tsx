@@ -906,7 +906,7 @@ export default function Dashboard() {
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "32px",
+          gap: isMobile ? "16px" : "32px",
           paddingBottom: "24px",
           position: "relative",
           marginLeft: isDesktop ? "296px" : "0",
