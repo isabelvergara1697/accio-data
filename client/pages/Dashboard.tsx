@@ -4337,6 +4337,7 @@ export default function Dashboard() {
 
               {/* Metric Card 2 - Pending Reviews */}
               <div
+                className="metric-card"
                 style={{
                   display: "flex",
                   padding: "16px 12px 12px 16px",
@@ -4350,6 +4351,8 @@ export default function Dashboard() {
                   boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   position: "relative",
                 }}
+                onMouseEnter={() => setHoveredCard("pending")}
+                onMouseLeave={() => setHoveredCard(null)}
               >
                 <div
                   style={{
@@ -4393,13 +4396,16 @@ export default function Dashboard() {
                       }}
                     >
                       <div
+                        className="metric-number"
                         style={{
-                          color: "#181D27",
+                          color:
+                            hoveredCard === "pending" ? "#1E40AF" : "#181D27",
                           fontFamily: "Public Sans",
                           fontSize: "30px",
                           fontWeight: 500,
                           lineHeight: "38px",
                           position: "relative",
+                          transition: "color 0.2s ease",
                         }}
                       >
                         482
@@ -4435,7 +4441,7 @@ export default function Dashboard() {
                           >
                             <path
                               d="M8.00033 3.33366V12.667M8.00033 12.667L12.667 8.00033M8.00033 12.667L3.33366 8.00033"
-                              stroke="#F04438"
+                              stroke="#1E40AF"
                               strokeWidth="1.5"
                               strokeLinecap="round"
                               strokeLinejoin="round"
@@ -4443,7 +4449,7 @@ export default function Dashboard() {
                           </svg>
                           <div
                             style={{
-                              color: "#F04438",
+                              color: "#1E40AF",
                               textAlign: "center",
                               fontFamily: "Public Sans",
                               fontSize: "14px",
@@ -4491,7 +4497,7 @@ export default function Dashboard() {
                         <path
                           opacity="0.1"
                           d="M0 0C16.7342 1.51637 17.7705 37.8191 34.3333 42C47.9914 45.4477 54.9074 25.8771 68.6667 28C83.5906 30.3026 88.3664 50.6959 103 56H0V0Z"
-                          fill="#F04438"
+                          fill="#344698"
                         />
                       </svg>
                     </div>
@@ -4510,7 +4516,7 @@ export default function Dashboard() {
                     >
                       <path
                         d="M104 1C99.7083 2.33333 92.667 8.48833 84.6875 18.5C72.7321 33.5 60.317 27.5 56.6384 24.5C52.9598 21.5 46.5223 13.5 38.2455 14.5C29.9687 15.5 21.692 25 15.7143 40.5C9.73657 56 5.59821 56.5 1 57"
-                        stroke="#F04438"
+                        stroke="#344698"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
