@@ -2702,7 +2702,7 @@ export default function Dashboard() {
               display: "flex",
               alignItems: "center",
               gap: "16px",
-              marginLeft: "32px",
+              flexShrink: 0,
             }}
           >
             {/* Quick Create Button */}
