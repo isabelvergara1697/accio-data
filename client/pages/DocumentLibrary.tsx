@@ -1043,7 +1043,6 @@ export default function DocumentLibrary() {
                       justifyContent: isMobile ? "flex-start" : "flex-start",
                       flex: isMobile ? "1 0 0" : "none",
                       width: isMobile ? "100%" : "auto",
-                      border: isMobile ? "2px solid red" : "none", // DEBUG: Remove this later
                     }}
                   >
                     <div
