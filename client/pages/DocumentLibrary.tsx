@@ -373,11 +373,11 @@ export default function DocumentLibrary() {
         {/* Main Content Area */}
         <div
           style={{
-            marginTop: isDesktop ? "80px" : "0px",
-            padding: "32px",
+            marginTop: isDesktop ? "80px" : "64px",
+            padding: isMobile ? "16px" : "32px",
             display: "flex",
             flexDirection: "column",
-            gap: "32px",
+            gap: isMobile ? "16px" : "32px",
           }}
         >
           {/* Page Header */}
