@@ -4092,13 +4092,8 @@ export default function Dashboard() {
             {/* Metric Cards Grid */}
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: isMobile
-                  ? "1fr"
-                  : isDesktop
-                    ? "repeat(4, 1fr)"
-                    : "repeat(2, 1fr)",
-                gap: isMobile ? "16px" : "24px",
+                display: "flex",
+                gap: "20px",
                 alignSelf: "stretch",
                 position: "relative",
               }}
