@@ -261,6 +261,15 @@ export default function DocumentLibrary() {
         isMobile={isMobile}
         mobileMenuOpen={mobileMenuOpen}
         currentPage="document-library"
+        showMobileUserMenu={showMobileUserMenu}
+        setShowMobileUserMenu={setShowMobileUserMenu}
+        setMobileMenuOpen={setMobileMenuOpen}
+        userMenuOpen={userMenuOpen}
+        setUserMenuOpen={setUserMenuOpen}
+        userMenuHovered={userMenuHovered}
+        setUserMenuHovered={setUserMenuHovered}
+        handleSignOut={handleSignOut}
+        getUserMenuStyles={getUserMenuStyles}
       />
 
       {/* Main Content */}
