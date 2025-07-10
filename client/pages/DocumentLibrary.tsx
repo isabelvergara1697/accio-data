@@ -1024,12 +1024,15 @@ export default function DocumentLibrary() {
                       className="search-input"
                       style={{
                         display: "flex",
+                        minHeight: "36px",
                         padding: "6px 8px",
                         alignItems: "center",
                         gap: "8px",
                         alignSelf: "stretch",
                         borderRadius: "8px",
-                        border: "1px solid #D5D7DA",
+                        border: isSearchActive
+                          ? "2px solid #34479A"
+                          : "1px solid #D5D7DA",
                         background: "#FFF",
                         boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                       }}
@@ -1058,37 +1061,57 @@ export default function DocumentLibrary() {
                             strokeLinejoin="round"
                           />
                         </svg>
-                        <div
+                        <input
+                          type="text"
+                          value={searchQuery}
+                          onChange={handleSearchChange}
+                          placeholder="Find documents or categories"
                           style={{
-                            display: "flex",
-                            height: "20px",
-                            flexDirection: "column",
-                            justifyContent: "center",
+                            border: "none",
+                            outline: "none",
+                            background: "transparent",
                             flex: "1 0 0",
-                            overflow: "hidden",
-                            color: "#717680",
-                            textOverflow: "ellipsis",
-                            whiteSpace: "nowrap",
+                            height: "20px",
+                            color: "#181D27",
                             fontFamily: "'Public Sans'",
                             fontSize: "14px",
                             fontStyle: "normal",
-                            fontWeight: 500,
+                            fontWeight: 400,
                             lineHeight: "20px",
                           }}
-                        >
-                          <span
-                            style={{
-                              fontFamily:
-                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                              fontWeight: 400,
-                              fontSize: "14px",
-                              color: "rgba(113,118,128,1)",
-                            }}
-                          >
-                            Find documents or categories
-                          </span>
-                        </div>
+                        />
                       </div>
+                      {isSearchActive && (
+                        <button
+                          onClick={clearSearch}
+                          style={{
+                            border: "none",
+                            background: "transparent",
+                            cursor: "pointer",
+                            padding: "2px",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <svg
+                            style={{ width: "16px", height: "16px" }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12 4L4 12M4 4L12 12"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
