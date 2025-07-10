@@ -226,7 +226,7 @@ const documentLibraryStyles = `
     max-width: 80px;
   }
 
-  /* Override all button alignments */
+    /* Override all button alignments */
   .secondary-button.filter-button {
     justify-content: flex-start !important;
   }
@@ -244,6 +244,28 @@ const documentLibraryStyles = `
   .dropdown-container[data-filetype-dropdown] .secondary-button > div {
     justify-content: flex-start !important;
     width: 100% !important;
+  }
+
+  /* Strong overrides for all filter buttons */
+  [data-sort-dropdown] .filter-button,
+  [data-filetype-dropdown] .filter-button {
+    justify-content: flex-start !important;
+  }
+  [data-sort-dropdown] .filter-button > div,
+  [data-filetype-dropdown] .filter-button > div {
+    justify-content: flex-start !important;
+    width: 100% !important;
+  }
+
+  /* Tablet specific button alignment */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .tablet-filter-buttons .secondary-button {
+      justify-content: flex-start !important;
+    }
+    .tablet-filter-buttons .secondary-button > div {
+      justify-content: flex-start !important;
+      width: 100% !important;
+    }
   }
 
         /* Responsive layout utilities */
