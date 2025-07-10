@@ -657,12 +657,12 @@ export default function DocumentLibrary() {
                   </div>
                 </div>
               ),
-            )}
+                        )}
           </div>
         )}
       </div>
     );
-  };
+  });
 
   const toggleSidebarAccordion = (section: string) => {
     setOpenAccordions((prev) =>
