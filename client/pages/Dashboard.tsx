@@ -366,7 +366,7 @@ export default function Dashboard() {
                 position: "relative",
               }}
             >
-              <NavIcon section={section} isOpen={isOpen} />
+              <NavIcon section={section} isOpen={isOpen} isActive={isActive} />
               <div
                 style={{
                   color: isActive
