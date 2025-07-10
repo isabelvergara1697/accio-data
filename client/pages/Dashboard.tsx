@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import SuccessNotification from "../components/SuccessNotification";
 import { UserMenuDropdown } from "../components/UserMenuDropdown";
