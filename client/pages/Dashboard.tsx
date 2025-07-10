@@ -2619,7 +2619,7 @@ export default function Dashboard() {
         handleSignOut={handleSignOut}
         getUserMenuStyles={getUserMenuStyles}
         showMobileUserMenu={showMobileUserMenu}
-      />
+            />
 
       <MobileHeader
         isDesktop={isDesktop}
@@ -2648,8 +2648,8 @@ export default function Dashboard() {
           paddingTop: isDesktop ? "120px" : "96px",
         }}
       >
-        {/* Mobile/Tablet Header Bar */}
-        <div
+                {/* Mobile/Tablet Header Bar - Using MobileHeader component now */}
+        {/* <div
           className="w-full fixed top-0 left-0 right-0 z-30"
           style={{
             display: isDesktop ? "none" : "flex",
