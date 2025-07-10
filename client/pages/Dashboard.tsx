@@ -4234,7 +4234,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                  {/* Wavy Chart */}
+                                    {/* Wavy Chart */}
                   <div
                     style={{
                       height: "56px",
@@ -4429,7 +4429,7 @@ export default function Dashboard() {
                             position: "relative",
                           }}
                         >
-                          <svg
+                                                    <svg
                             style={{
                               width: "14px",
                               height: "14px",
@@ -4466,7 +4466,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                  {/* Wavy Chart - Declining */}
+                                    {/* Wavy Chart - Declining */}
                   <div
                     style={{
                       height: "56px",
@@ -4696,7 +4696,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                  {/* Wavy Chart - Moderate Growth */}
+                                    {/* Wavy Chart - Moderate Growth */}
                   <div
                     style={{
                       height: "56px",
@@ -4926,7 +4926,7 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                  {/* Wavy Chart - Strong Growth */}
+                                    {/* Wavy Chart - Strong Growth */}
                   <div
                     style={{
                       height: "56px",
@@ -5030,7 +5030,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Latest Reports Widget */}
+                {/* Latest Reports Widget */}
         <div
           style={{
             display: "flex",
@@ -5052,6 +5052,17 @@ export default function Dashboard() {
               position: "relative",
             }}
           >
+            {/* Widget Container - Half width on desktop */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                width: isMobile ? "100%" : isDesktop ? "50%" : "100%",
+                position: "relative",
+              }}
+            >
             {/* Widget Header */}
             <div
               style={{
