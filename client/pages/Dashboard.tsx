@@ -1583,8 +1583,7 @@ export default function Dashboard() {
                   ></div>
                 </div>
 
-                {!showMobileUserMenu ? (
-                  /* Main Sidebar Menu with User Profile */
+                                {/* Main Sidebar Menu with User Profile */}
                   <div
                     style={{
                       display: "flex",
