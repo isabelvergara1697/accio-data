@@ -562,8 +562,7 @@ export default function Dashboard() {
           </div>
         )}
             </div>
-        );
-  };
+                );
 
   return (
     <div
