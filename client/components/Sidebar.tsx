@@ -1735,7 +1735,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 /* Mobile User Menu */
                 <div
                   style={{
-                    display: "flex",
+                    display: "none",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
