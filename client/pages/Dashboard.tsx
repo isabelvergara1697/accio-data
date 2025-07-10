@@ -4930,6 +4930,8 @@ export default function Dashboard() {
                   <div
                     style={{
                       height: "56px",
+                      width: "100%",
+                      minWidth: 0,
                       flex: "1 0 0",
                       position: "relative",
                     }}
