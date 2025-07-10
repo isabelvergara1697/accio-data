@@ -315,8 +315,10 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </div>
 
-          {/* User Menu Dropdown */}
-          <UserMenuDropdown isOpen={userMenuOpen} onSignOut={handleSignOut} />
+          {/* User Menu Dropdown - Hide when mobile user menu is active */}
+          {!showMobileUserMenu && (
+            <UserMenuDropdown isOpen={userMenuOpen} onSignOut={handleSignOut} />
+          )}
         </div>
       </div>
     </div>
