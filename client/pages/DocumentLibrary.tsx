@@ -455,10 +455,10 @@ export default function DocumentLibrary() {
                     alignSelf: "stretch",
                     color: "#181D27",
                     fontFamily: "'Public Sans'",
-                    fontSize: "24px",
+                    fontSize: "20px",
                     fontStyle: "normal",
                     fontWeight: 600,
-                    lineHeight: "32px",
+                    lineHeight: "28px",
                   }}
                 >
                   <span
@@ -466,7 +466,7 @@ export default function DocumentLibrary() {
                       fontFamily:
                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontWeight: 600,
-                      fontSize: "24px",
+                      fontSize: "20px",
                       color: "rgba(24,29,39,1)",
                     }}
                   >
