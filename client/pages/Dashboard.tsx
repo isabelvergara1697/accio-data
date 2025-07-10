@@ -560,7 +560,7 @@ export default function Dashboard() {
               ),
             )}
           </div>
-                )}
+        )}
       </div>
     );
   };
@@ -4238,8 +4238,6 @@ export default function Dashboard() {
                   <div
                     style={{
                       height: "56px",
-                      width: "100%",
-                      minWidth: 0,
                       flex: "1 0 0",
                       position: "relative",
                     }}
@@ -4443,7 +4441,7 @@ export default function Dashboard() {
                           >
                             <path
                               d="M8.00033 3.33366V12.667M8.00033 12.667L12.667 8.00033M8.00033 12.667L3.33366 8.00033"
-                              stroke="#D92D20"
+                              stroke="#1E40AF"
                               strokeWidth="1.5"
                               strokeLinecap="round"
                               strokeLinejoin="round"
@@ -4451,7 +4449,7 @@ export default function Dashboard() {
                           </svg>
                           <div
                             style={{
-                              color: "#D92D20",
+                              color: "#1E40AF",
                               textAlign: "center",
                               fontFamily: "Public Sans",
                               fontSize: "14px",
@@ -4470,8 +4468,6 @@ export default function Dashboard() {
                   <div
                     style={{
                       height: "56px",
-                      width: "100%",
-                      minWidth: 0,
                       flex: "1 0 0",
                       position: "relative",
                     }}
@@ -4700,8 +4696,6 @@ export default function Dashboard() {
                   <div
                     style={{
                       height: "56px",
-                      width: "100%",
-                      minWidth: 0,
                       flex: "1 0 0",
                       position: "relative",
                     }}
@@ -4930,8 +4924,6 @@ export default function Dashboard() {
                   <div
                     style={{
                       height: "56px",
-                      width: "100%",
-                      minWidth: 0,
                       flex: "1 0 0",
                       position: "relative",
                     }}
@@ -5050,19 +5042,8 @@ export default function Dashboard() {
               gap: "16px",
               alignSelf: "stretch",
               position: "relative",
-                        }}
+            }}
           >
-            {/* Widget Container - Half width on desktop */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "16px",
-                width: isMobile ? "100%" : isDesktop ? "50%" : "100%",
-                position: "relative",
-              }}
-            >
             {/* Widget Header */}
             <div
               style={{
@@ -5412,7 +5393,12 @@ export default function Dashboard() {
                           style={{
                             width: `${report.progress}%`,
                             height: "100%",
-                            background: "#344698",
+                            background:
+                              report.progress === 100
+                                ? "#17B26A"
+                                : report.progress >= 75
+                                  ? "#F79009"
+                                  : "#344698",
                             borderRadius: "3px",
                             transition: "width 0.3s ease",
                           }}
