@@ -674,7 +674,7 @@ export default function DocumentLibrary() {
                   <div className="tablet-filter-buttons">
                     <div className="dropdown-container" data-sort-dropdown>
                       <div
-                        className="secondary-button"
+                        className="secondary-button filter-button"
                         style={{
                           display: "flex",
                           minHeight: "32px",
@@ -687,6 +687,8 @@ export default function DocumentLibrary() {
                           background: "#FFF",
                           boxShadow:
                             "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                          minWidth: "120px",
+                          maxWidth: "120px",
                         }}
                         onClick={toggleSortDropdown}
                       >
