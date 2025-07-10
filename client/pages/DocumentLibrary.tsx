@@ -758,7 +758,7 @@ export default function DocumentLibrary() {
                         className="secondary-button filter-button"
                         style={{
                           display: "flex",
-                          minHeight: "32px",
+                          minHeight: "36px",
                           padding: "6px 8px",
                           justifyContent: "flex-start",
                           alignItems: "center",
@@ -861,7 +861,7 @@ export default function DocumentLibrary() {
                         className="secondary-button filter-button"
                         style={{
                           display: "flex",
-                          minHeight: "32px",
+                          minHeight: "36px",
                           padding: "6px 8px",
                           justifyContent: "flex-start",
                           alignItems: "center",
@@ -1068,7 +1068,7 @@ export default function DocumentLibrary() {
                         className={`secondary-button ${isMobile ? "mobile-button" : "filter-button"}`}
                         style={{
                           display: "flex",
-                          minHeight: "32px",
+                          minHeight: "36px",
                           padding: "6px 8px",
                           justifyContent: isMobile
                             ? "space-between"
@@ -1187,7 +1187,7 @@ export default function DocumentLibrary() {
                         className={`secondary-button ${isMobile ? "mobile-button" : "filter-button"}`}
                         style={{
                           display: "flex",
-                          minHeight: "32px",
+                          minHeight: "36px",
                           padding: "6px 8px",
                           justifyContent: isMobile
                             ? "space-between"
