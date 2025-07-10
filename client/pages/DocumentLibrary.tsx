@@ -607,6 +607,7 @@ export default function DocumentLibrary() {
                 }}
               >
                 <div
+                  className="search-input"
                   style={{
                     display: "flex",
                     padding: "6px 8px",
