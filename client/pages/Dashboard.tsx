@@ -1714,6 +1714,7 @@ export default function Dashboard() {
             alignItems: "center",
             alignSelf: "stretch",
             position: "relative",
+            marginTop: isDesktop ? "8px" : "0",
           }}
         >
           <div
