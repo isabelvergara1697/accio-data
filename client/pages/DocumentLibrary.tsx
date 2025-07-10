@@ -23,6 +23,20 @@ import {
   Plus,
 } from "lucide-react";
 
+// Add styles for button hover states and file card hovers
+const documentLibraryStyles = `
+  .quick-create-button:hover {
+    background: #2A3A82 !important;
+  }
+  .file-card {
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+  .file-card:hover {
+    background-color: #F5F5F5 !important;
+  }
+`;
+
 // Document data structure based on Figma design
 const documentSections = [
   {
