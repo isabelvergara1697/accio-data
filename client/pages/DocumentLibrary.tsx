@@ -248,9 +248,8 @@ export default function DocumentLibrary() {
           </Badge>
         )}
         {hasDropdown && <ChevronDown className="w-6 h-6 text-[#A4A7AE]" />}
-      </div>
+            </div>
     </div>
-  );
 
     return (
     <>
