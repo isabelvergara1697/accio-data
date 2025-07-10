@@ -419,11 +419,51 @@ export default function DocumentLibrary() {
   const handleSortOptionSelect = (option: string) => {
     setSelectedSortOption(option);
     setSortDropdownOpen(false);
+    applyFilters(option, selectedFileType);
   };
 
   const handleFileTypeSelect = (type: string) => {
     setSelectedFileType(type);
     setFileTypeDropdownOpen(false);
+    applyFilters(selectedSortOption, type);
+  };
+
+  const applyFilters = (sortOption: string, fileType: string) => {
+    let filtered = [...documentSections];
+
+    // Apply file type filter
+    if (fileType !== "All Files") {
+      filtered = filtered
+        .map((section) => ({
+          ...section,
+          documents: section.documents.filter((doc) => {
+            if (fileType === "PDF") return doc.type === "PDF";
+            if (fileType === "Videos") return doc.type === "Video";
+            if (fileType === "Docs") return doc.type === "Doc";
+            if (fileType === "PPT") return doc.type === "PPT";
+            return true;
+          }),
+        }))
+        .filter((section) => section.documents.length > 0);
+    }
+
+    // Apply sorting
+    filtered = filtered.map((section) => ({
+      ...section,
+      documents: [...section.documents].sort((a, b) => {
+        if (sortOption === "A-Z") {
+          return a.name.localeCompare(b.name);
+        }
+        if (sortOption === "Most Viewed") {
+          // Simulate most viewed by reversing the order
+          return b.name.localeCompare(a.name);
+        }
+        // Most Recent - use original order but reverse it slightly for demo
+        return Math.random() - 0.5;
+      }),
+    }));
+
+    setFilteredSections(filtered);
   };
 
   const toggleSortDropdown = () => {
