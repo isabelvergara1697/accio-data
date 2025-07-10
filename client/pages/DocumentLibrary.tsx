@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { TopBar } from "../components/TopBar";
 
 // Document data structure based on Figma design
 const documentSections = [
@@ -115,6 +116,20 @@ export default function DocumentLibrary() {
     "motor-vehicle",
   ]);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  // Handle window resize for responsive behavior
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsDesktop(width >= 1024);
+      setIsMobile(width < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleAccordion = (accordionId: string) => {
     setOpenAccordions((prev) =>
@@ -150,18 +165,42 @@ export default function DocumentLibrary() {
     </div>
   );
 
-  const NavIcon = ({ section }: { section: string }) => {
+  const menuSections = {
+    tools: [
+      "Online Ordering",
+      "Quickscreen",
+      "I-9 Order",
+      "Batch Orders",
+      "Court Orders",
+    ],
+    screening: [
+      "Invites & Orders",
+      "Auto-Screening",
+      "Adverse Letters",
+      "Bulk Report Export",
+    ],
+    reporting: ["CSV Reports", "Turn Around Time Reports", "Billing Reports"],
+    support: ["Document Library", "Resources"],
+  };
+
+  const NavIcon = ({
+    section,
+    isOpen,
+  }: {
+    section: string;
+    isOpen: boolean;
+  }) => {
     const icons = {
       dashboard: (
         <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
+          width="21"
+          height="21"
+          viewBox="0 0 21 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M6.66667 12.5V14.1667M10 9.16667V14.1667M13.3333 5.83333V14.1667M6.5 17.5H13.5C14.9001 17.5 15.6002 17.5 16.135 17.2275C16.6054 16.9878 16.9878 16.6054 17.2275 16.135C17.5 15.6002 17.5 14.9001 17.5 13.5V6.5C17.5 5.09987 17.5 4.3998 17.2275 3.86502C16.9878 3.39462 16.6054 3.01217 16.135 2.77248C15.6002 2.5 14.9001 2.5 13.5 2.5H6.5C5.09987 2.5 4.3998 2.5 3.86502 2.77248C3.39462 3.01217 3.01217 3.39462 2.77248 3.86502C2.5 4.3998 2.5 5.09987 2.5 6.5V13.5C2.5 14.9001 2.5 15.6002 2.77248 16.135C3.01217 16.6054 3.39462 16.9878 3.86502 17.2275C4.3998 17.5 5.09987 17.5 6.5 17.5Z"
+            d="M6.97756 13.0829V14.8273M10.4663 9.59414V14.8273M13.9551 6.10536V14.8273M6.80312 18.3161H14.1296C15.595 18.3161 16.3277 18.3161 16.8874 18.0309C17.3798 17.7801 17.7801 17.3798 18.0309 16.8874C18.3161 16.3277 18.3161 15.595 18.3161 14.1296V6.80312C18.3161 5.33769 18.3161 4.60498 18.0309 4.04526C17.7801 3.55292 17.3798 3.15263 16.8874 2.90177C16.3277 2.61658 15.595 2.61658 14.1296 2.61658H6.80312C5.33769 2.61658 4.60498 2.61658 4.04526 2.90177C3.55292 3.15263 3.15263 3.55292 2.90177 4.04526C2.61658 4.60498 2.61658 5.33769 2.61658 6.80312V14.1296C2.61658 15.595 2.61658 16.3277 2.90177 16.8874C3.15263 17.3798 3.55292 17.7801 4.04526 18.0309C4.60498 18.3161 5.33769 18.3161 6.80312 18.3161Z"
             stroke="#A4A7AE"
             strokeWidth="1.67"
             strokeLinecap="round"
@@ -172,20 +211,20 @@ export default function DocumentLibrary() {
       tools: (
         <svg
           width="20"
-          height="20"
-          viewBox="0 0 20 20"
+          height="21"
+          viewBox="0 0 20 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M14.8333 8.33333C15.7668 8.33333 16.2335 8.33333 16.59 8.15168C16.9036 7.99189 17.1586 7.73692 17.3183 7.42332C17.5 7.0668 17.5 6.60009 17.5 5.66667V5.16667C17.5 4.23325 17.5 3.76654 17.3183 3.41002C17.1586 3.09641 16.9036 2.84145 16.59 2.68166C16.2335 2.5 15.7668 2.5 14.8333 2.5L5.16667 2.5C4.23325 2.5 3.76654 2.5 3.41002 2.68166C3.09641 2.84144 2.84144 3.09641 2.68166 3.41002C2.5 3.76654 2.5 4.23325 2.5 5.16667L2.5 5.66667C2.5 6.60009 2.5 7.0668 2.68166 7.42332C2.84144 7.73692 3.09641 7.99189 3.41002 8.15168C3.76654 8.33333 4.23325 8.33333 5.16667 8.33333L14.8333 8.33333Z"
+            d="M14.8333 9.26607C15.7668 9.26607 16.2335 9.26607 16.59 9.08442C16.9036 8.92463 17.1586 8.66966 17.3183 8.35606C17.5 7.99954 17.5 7.53283 17.5 6.59941V6.09941C17.5 5.16599 17.5 4.69928 17.3183 4.34276C17.1586 4.02915 16.9036 3.77418 16.59 3.6144C16.2335 3.43274 15.7668 3.43274 14.8333 3.43274L5.16667 3.43274C4.23325 3.43274 3.76654 3.43274 3.41002 3.61439C3.09641 3.77418 2.84144 4.02915 2.68166 4.34275C2.5 4.69927 2.5 5.16598 2.5 6.09941L2.5 6.59941C2.5 7.53283 2.5 7.99954 2.68166 8.35606C2.84144 8.66966 3.09641 8.92463 3.41002 9.08442C3.76654 9.26607 4.23325 9.26607 5.16667 9.26607L14.8333 9.26607Z"
             stroke="#A4A7AE"
             strokeWidth="1.67"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
-            d="M14.8333 17.5C15.7668 17.5 16.2335 17.5 16.59 17.3183C16.9036 17.1586 17.1586 16.9036 17.3183 16.59C17.5 16.2335 17.5 15.7668 17.5 14.8333V14.3333C17.5 13.3999 17.5 12.9332 17.3183 12.5767C17.1586 12.2631 16.9036 12.0081 16.59 11.8483C16.2335 11.6667 15.7668 11.6667 14.8333 11.6667L5.16667 11.6667C4.23325 11.6667 3.76654 11.6667 3.41002 11.8483C3.09641 12.0081 2.84144 12.2631 2.68166 12.5767C2.5 12.9332 2.5 13.3999 2.5 14.3333L2.5 14.8333C2.5 15.7668 2.5 16.2335 2.68166 16.59C2.84144 16.9036 3.09641 17.1586 3.41002 17.3183C3.76654 17.5 4.23325 17.5 5.16667 17.5H14.8333Z"
+            d="M14.8333 18.4327C15.7668 18.4327 16.2335 18.4327 16.59 18.2511C16.9036 18.0913 17.1586 17.8363 17.3183 17.5227C17.5 17.1662 17.5 16.6995 17.5 15.7661V15.2661C17.5 14.3327 17.5 13.8659 17.3183 13.5094C17.1586 13.1958 16.9036 12.9409 16.59 12.7811C16.2335 12.5994 15.7668 12.5994 14.8333 12.5994L5.16667 12.5994C4.23325 12.5994 3.76654 12.5994 3.41002 12.7811C3.09641 12.9408 2.84144 13.1958 2.68166 13.5094C2.5 13.8659 2.5 14.3327 2.5 15.2661L2.5 15.7661C2.5 16.6995 2.5 17.1662 2.68166 17.5227C2.84144 17.8363 3.09641 18.0913 3.41002 18.2511C3.76654 18.4327 4.23325 18.4327 5.16667 18.4327H14.8333Z"
             stroke="#A4A7AE"
             strokeWidth="1.67"
             strokeLinecap="round"
@@ -196,13 +235,13 @@ export default function DocumentLibrary() {
       screening: (
         <svg
           width="20"
-          height="20"
-          viewBox="0 0 20 20"
+          height="21"
+          viewBox="0 0 20 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M2.5 7.5L17.5 7.5M7.5 2.5L7.5 17.5M6.5 2.5H13.5C14.9001 2.5 15.6002 2.5 16.135 2.77248C16.6054 3.01217 16.9878 3.39462 17.2275 3.86502C17.5 4.3998 17.5 5.09987 17.5 6.5V13.5C17.5 14.9001 17.5 15.6002 17.2275 16.135C16.9878 16.6054 16.6054 16.9878 16.135 17.2275C15.6002 17.5 14.9001 17.5 13.5 17.5H6.5C5.09987 17.5 4.3998 17.5 3.86502 17.2275C3.39462 16.9878 3.01217 16.6054 2.77248 16.135C2.5 15.6002 2.5 14.9001 2.5 13.5V6.5C2.5 5.09987 2.5 4.3998 2.77248 3.86502C3.01217 3.39462 3.39462 3.01217 3.86502 2.77248C4.3998 2.5 5.09987 2.5 6.5 2.5Z"
+            d="M2.5 8.43274L17.5 8.43274M7.5 3.43274L7.5 18.4327M6.5 3.43274H13.5C14.9001 3.43274 15.6002 3.43274 16.135 3.70522C16.6054 3.94491 16.9878 4.32736 17.2275 4.79776C17.5 5.33254 17.5 6.03261 17.5 7.43274V14.4327C17.5 15.8329 17.5 16.5329 17.2275 17.0677C16.9878 17.5381 16.6054 17.9206 16.135 18.1603C15.6002 18.4327 14.9001 18.4327 13.5 18.4327H6.5C5.09987 18.4327 4.3998 18.4327 3.86502 18.1603C3.39462 17.9206 3.01217 17.5381 2.77248 17.0677C2.5 16.5329 2.5 15.8329 2.5 14.4327V7.43274C2.5 6.03261 2.5 5.33254 2.77248 4.79776C3.01217 4.32736 3.39462 3.94491 3.86502 3.70522C4.3998 3.43274 5.09987 3.43274 6.5 3.43274Z"
             stroke="#A4A7AE"
             strokeWidth="1.67"
             strokeLinecap="round"
@@ -213,13 +252,13 @@ export default function DocumentLibrary() {
       reporting: (
         <svg
           width="20"
-          height="20"
-          viewBox="0 0 20 20"
+          height="21"
+          viewBox="0 0 20 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M10.8337 5.83333L9.90404 3.9741C9.6365 3.439 9.50271 3.17144 9.30313 2.97597C9.12664 2.80311 8.91393 2.67164 8.68039 2.59109C8.4163 2.5 8.11716 2.5 7.5189 2.5H4.33366C3.40024 2.5 2.93353 2.5 2.57701 2.68166C2.2634 2.84144 2.00844 3.09641 1.84865 3.41002C1.66699 3.76654 1.66699 4.23325 1.66699 5.16667V5.83333M1.66699 5.83333H14.3337C15.7338 5.83333 16.4339 5.83333 16.9686 6.10582C17.439 6.3455 17.8215 6.72795 18.0612 7.19836C18.3337 7.73314 18.3337 8.4332 18.3337 9.83333V13.5C18.3337 14.9001 18.3337 15.6002 18.0612 16.135C17.8215 16.6054 17.439 16.9878 16.9686 17.2275C16.4339 17.5 15.7338 17.5 14.3337 17.5H5.66699C4.26686 17.5 3.5668 17.5 3.03202 17.2275C2.56161 16.9878 2.17916 16.6054 1.93948 16.135C1.66699 15.6002 1.66699 14.9001 1.66699 13.5V5.83333Z"
+            d="M10.8334 6.76607L9.90374 4.90684C9.63619 4.37174 9.50241 4.10418 9.30283 3.90871C9.12634 3.73585 8.91362 3.60438 8.68008 3.52383C8.41599 3.43274 8.11686 3.43274 7.5186 3.43274H4.33335C3.39993 3.43274 2.93322 3.43274 2.5767 3.6144C2.2631 3.77418 2.00813 4.02915 1.84834 4.34276C1.66669 4.69927 1.66669 5.16599 1.66669 6.09941V6.76607M1.66669 6.76607H14.3334C15.7335 6.76607 16.4336 6.76607 16.9683 7.03856C17.4387 7.27824 17.8212 7.66069 18.0609 8.1311C18.3334 8.66588 18.3334 9.36594 18.3334 10.7661V14.4327C18.3334 15.8329 18.3334 16.5329 18.0609 17.0677C17.8212 17.5381 17.4387 17.9206 16.9683 18.1603C16.4336 18.4327 15.7335 18.4327 14.3334 18.4327H5.66669C4.26656 18.4327 3.56649 18.4327 3.03171 18.1603C2.56131 17.9206 2.17885 17.5381 1.93917 17.0677C1.66669 16.5329 1.66669 15.8329 1.66669 14.4327V6.76607Z"
             stroke="#A4A7AE"
             strokeWidth="1.67"
             strokeLinecap="round"
@@ -230,13 +269,13 @@ export default function DocumentLibrary() {
       support: (
         <svg
           width="20"
-          height="20"
-          viewBox="0 0 20 20"
+          height="21"
+          viewBox="0 0 20 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M10 11.6667V8.75M10 5.83333H10.0083M8.25 16L9.46667 17.6222C9.6476 17.8635 9.73807 17.9841 9.84897 18.0272C9.94611 18.065 10.0539 18.065 10.151 18.0272C10.2619 17.9841 10.3524 17.8635 10.5333 17.6222L11.75 16C11.9943 15.6743 12.1164 15.5114 12.2654 15.3871C12.4641 15.2213 12.6986 15.104 12.9504 15.0446C13.1393 15 13.3429 15 13.75 15C14.9149 15 15.4973 15 15.9567 14.8097C16.5693 14.556 17.056 14.0693 17.3097 13.4567C17.5 12.9973 17.5 12.4149 17.5 11.25V6.5C17.5 5.09987 17.5 4.3998 17.2275 3.86502C16.9878 3.39462 16.6054 3.01217 16.135 2.77248C15.6002 2.5 14.9001 2.5 13.5 2.5H6.5C5.09987 2.5 4.3998 2.5 3.86502 2.77248C3.39462 3.01217 3.01217 3.39462 2.77248 3.86502C2.5 4.3998 2.5 5.09987 2.5 6.5V11.25C2.5 12.4149 2.5 12.9973 2.6903 13.4567C2.94404 14.0693 3.43072 14.556 4.04329 14.8097C4.50272 15 5.08515 15 6.25 15C6.65715 15 6.86072 15 7.04959 15.0446C7.30141 15.104 7.53593 15.2213 7.73458 15.3871C7.88357 15.5114 8.00571 15.6743 8.25 16Z"
+            d="M10 12.5994V9.68274M10 6.76607H10.0083M8.25 16.9327L9.46667 18.555C9.6476 18.7962 9.73807 18.9168 9.84897 18.96C9.94611 18.9977 10.0539 18.9977 10.151 18.96C10.2619 18.9168 10.3524 18.7962 10.5333 18.555L11.75 16.9327C11.9943 16.607 12.1164 16.4442 12.2654 16.3198C12.4641 16.154 12.6986 16.0368 12.9504 15.9773C13.1393 15.9327 13.3429 15.9327 13.75 15.9327C14.9149 15.9327 15.4973 15.9327 15.9567 15.7424C16.5693 15.4887 17.056 15.002 17.3097 14.3894C17.5 13.93 17.5 13.3476 17.5 12.1827V7.43274C17.5 6.03261 17.5 5.33254 17.2275 4.79776C16.9878 4.32736 16.6054 3.94491 16.135 3.70522C15.6002 3.43274 14.9001 3.43274 13.5 3.43274H6.5C5.09987 3.43274 4.3998 3.43274 3.86502 3.70522C3.39462 3.94491 3.01217 4.32736 2.77248 4.79776C2.5 5.33254 2.5 6.03261 2.5 7.43274V12.1827C2.5 13.3476 2.5 13.93 2.6903 14.3894C2.94404 15.002 3.43072 15.4887 4.04329 15.7424C4.50272 15.9327 5.08515 15.9327 6.25 15.9327C6.65715 15.9327 6.86072 15.9327 7.04959 15.9773C7.30141 16.0368 7.53593 16.154 7.73458 16.3198C7.88357 16.4442 8.00571 16.607 8.25 16.9327Z"
             stroke="#A4A7AE"
             strokeWidth="1.67"
             strokeLinecap="round"
@@ -245,413 +284,1137 @@ export default function DocumentLibrary() {
         </svg>
       ),
     };
-    return icons[section.toLowerCase() as keyof typeof icons] || null;
+
+    return (
+      <div style={{ width: "20px", height: "20px", position: "relative" }}>
+        {icons[section as keyof typeof icons]}
+      </div>
+    );
+  };
+
+  const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
+    <svg
+      style={{
+        width: "24px",
+        height: "24px",
+        position: "relative",
+        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+        transition: "transform 0.2s ease",
+      }}
+      width="24"
+      height="25"
+      viewBox="0 0 24 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 9.93274L12 15.9327L18 9.93274"
+        stroke="#A4A7AE"
+        strokeWidth="1.67"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
+  const getHoverStyles = (item: string) => {
+    if (hoveredItem === item && item !== "dashboard") {
+      return {
+        background: "var(--Colors-Background-bg-primary_hover, #F5F5F5)",
+        borderRadius: "var(--radius-sm, 6px)",
+      };
+    }
+    return {};
+  };
+
+  const isAccordionOpen = (section: string) => openAccordions.includes(section);
+
+  const NavItem = ({
+    section,
+    label,
+    isActive = false,
+    hasChevron = true,
+    badge,
+    onClick,
+  }: {
+    section: string;
+    label: string;
+    isActive?: boolean;
+    hasChevron?: boolean;
+    badge?: string;
+    onClick?: () => void;
+  }) => {
+    const isOpen = isAccordionOpen(section);
+
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          alignSelf: "stretch",
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            padding: "2px 0px",
+            alignItems: "center",
+            alignSelf: "stretch",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              padding: "8px 12px",
+              alignItems: "center",
+              gap: "12px",
+              flex: "1 0 0",
+              borderRadius: "6px",
+              background: isActive ? "#ECEEF9" : "#FFF",
+              position: "relative",
+              cursor: hasChevron ? "pointer" : "default",
+              ...(!isActive ? getHoverStyles(section) : {}),
+            }}
+            onClick={onClick}
+            onMouseEnter={() => !isActive && setHoveredItem(section)}
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                flex: "1 0 0",
+                position: "relative",
+              }}
+            >
+              <NavIcon section={section} isOpen={isOpen} />
+              <div
+                style={{
+                  color: isActive
+                    ? "#273572"
+                    : "var(--colors-text-text-secondary-700, #414651)",
+                  fontFamily:
+                    "var(--Font-family-font-family-body, 'Public Sans')",
+                  fontSize: "var(--Font-size-text-sm, 14px)",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 600,
+                    fontSize: "14px",
+                    color: isActive
+                      ? "var(--colors-text-text-primary-900, #181D27)"
+                      : "rgba(65,70,81,1)",
+                  }}
+                >
+                  {label}
+                </span>
+              </div>
+            </div>
+
+            {badge && (
+              <div
+                style={{
+                  display: "flex",
+                  padding: "2px 8px",
+                  alignItems: "center",
+                  borderRadius: "9999px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FAFAFA",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    textAlign: "center",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "18px",
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "12px",
+                      color: "rgba(65,70,81,1)",
+                    }}
+                  >
+                    {badge}
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {hasChevron && <ChevronIcon isOpen={isOpen} />}
+          </div>
+        </div>
+
+        {/* Sub-menu */}
+        {hasChevron && isOpen && (
+          <div
+            style={{
+              display: "flex",
+              paddingBottom: "4px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              alignSelf: "stretch",
+              position: "relative",
+              marginTop: "4px",
+            }}
+          >
+            {menuSections[section as keyof typeof menuSections]?.map(
+              (item, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: "flex",
+                    padding: "2px 0px",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "8px 12px 8px 40px",
+                      alignItems: "center",
+                      gap: "12px",
+                      flex: "1 0 0",
+                      borderRadius: "6px",
+                      background:
+                        item === "Document Library" ? "#ECEEF9" : "#FFF",
+                      position: "relative",
+                      cursor: "pointer",
+                      ...getHoverStyles(
+                        `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
+                      ),
+                    }}
+                    onMouseEnter={() =>
+                      item !== "Document Library" &&
+                      setHoveredItem(
+                        `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
+                      )
+                    }
+                    onMouseLeave={() => setHoveredItem(null)}
+                    onClick={() => {
+                      if (section === "support" && item === "Resources") {
+                        navigate("/dashboard");
+                      }
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        flex: "1 0 0",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color:
+                            item === "Document Library"
+                              ? "#273572"
+                              : "var(--colors-text-text-secondary-700, #414651)",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                          position: "relative",
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontWeight: 600,
+                            fontSize: "14px",
+                            color:
+                              item === "Document Library"
+                                ? "var(--colors-text-text-primary-900, #181D27)"
+                                : "rgba(65,70,81,1)",
+                          }}
+                        >
+                          {item}
+                        </span>
+                      </div>
+                      {item === "Invites & Orders" && (
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "2px 8px",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            border: "1px solid #E9EAEB",
+                            background: "#FAFAFA",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#414651",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "18px",
+                              position: "relative",
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontWeight: 400,
+                                fontSize: "12px",
+                                color: "rgba(65,70,81,1)",
+                              }}
+                            >
+                              8
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ),
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const toggleSidebarAccordion = (section: string) => {
+    setOpenAccordions((prev) =>
+      prev.includes(section)
+        ? prev.filter((s) => s !== section)
+        : [...prev, section],
+    );
   };
 
   return (
-    <div className="flex w-full min-h-screen bg-[#FAFAFA]">
-      {/* Sidebar */}
-      <div className="w-[296px] h-screen p-2 pl-2 pt-2 pb-6 flex-shrink-0">
-        <div className="h-full bg-white rounded-xl border border-[#E9EAEB] shadow-sm flex flex-col justify-between">
-          <div className="flex-1 pt-5 flex flex-col gap-5">
-            {/* Logo */}
-            <div className="px-5">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5f38048a89d8ad952ff6b9682276a562665736e?width=274"
-                alt="Accio Data"
-                className="h-6"
-              />
+    <div
+      style={{
+        display: "flex",
+        width: "100%",
+        minHeight: "100vh",
+        background: "#FAFAFA",
+        position: "relative",
+      }}
+    >
+      {/* Sidebar Navigation - Exact copy from Dashboard */}
+      <aside
+        style={{
+          display: "flex",
+          width: "296px",
+          height: "100vh",
+          padding: "8px 0px 24px 8px",
+          alignItems: "flex-start",
+          flexShrink: 0,
+          position: "fixed",
+          left: 0,
+          top: 0,
+          zIndex: 50,
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            flex: "1 0 0",
+            alignSelf: "stretch",
+            borderRadius: "12px",
+            border: "1px solid #E9EAEB",
+            background: "#FFF",
+            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              paddingTop: "16px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "20px",
+              flex: "1 0 0",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            {/* Logo Header */}
+            <div
+              style={{
+                display: "flex",
+                padding: "0px 20px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "20px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  width: "139px",
+                  alignItems: "flex-start",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "139px",
+                    height: "32px",
+                    flexShrink: 0,
+                    position: "relative",
+                  }}
+                >
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5f38048a89d8ad952ff6b9682276a562665736e?width=274"
+                    style={{
+                      width: "137px",
+                      height: "24px",
+                      flexShrink: 0,
+                      fill: "#34479A",
+                      position: "absolute",
+                      left: "1px",
+                      top: "4px",
+                    }}
+                    alt="Union"
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Navigation */}
-            <div className="px-4 space-y-1">
-              {/* Dashboard */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
               <div
-                className="flex items-center gap-3 p-2 px-3 rounded-lg cursor-pointer hover:bg-gray-50"
-                onClick={() => navigate("/dashboard")}
+                style={{
+                  display: "flex",
+                  padding: "0px 16px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
               >
-                <NavIcon section="dashboard" />
-                <span className="text-sm font-semibold text-[#414651]">
-                  Dashboard
-                </span>
-              </div>
+                <NavItem
+                  section="dashboard"
+                  label="Dashboard"
+                  isActive={false}
+                  hasChevron={false}
+                  onClick={() => navigate("/dashboard")}
+                />
 
-              {/* Tools */}
-              <div className="flex items-center justify-between p-2 px-3 rounded-lg cursor-pointer hover:bg-gray-50">
-                <div className="flex items-center gap-3">
-                  <NavIcon section="tools" />
-                  <span className="text-sm font-semibold text-[#414651]">
-                    Tools
-                  </span>
-                </div>
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.67"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+                <NavItem
+                  section="tools"
+                  label="Tools"
+                  onClick={() => toggleSidebarAccordion("tools")}
+                />
 
-              {/* Screening */}
-              <div className="flex items-center justify-between p-2 px-3 rounded-lg cursor-pointer hover:bg-gray-50">
-                <div className="flex items-center gap-3">
-                  <NavIcon section="screening" />
-                  <span className="text-sm font-semibold text-[#414651]">
-                    Screening
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="bg-[#FAFAFA] border border-[#E9EAEB] rounded-full px-2 py-0.5">
-                    <span className="text-xs text-[#414651] font-medium">
-                      8
-                    </span>
-                  </div>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M6 9L12 15L18 9"
-                      stroke="#A4A7AE"
-                      strokeWidth="1.67"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </div>
+                <NavItem
+                  section="screening"
+                  label="Screening"
+                  badge={!isAccordionOpen("screening") ? "8" : undefined}
+                  onClick={() => toggleSidebarAccordion("screening")}
+                />
 
-              {/* Reporting */}
-              <div className="flex items-center justify-between p-2 px-3 rounded-lg cursor-pointer hover:bg-gray-50">
-                <div className="flex items-center gap-3">
-                  <NavIcon section="reporting" />
-                  <span className="text-sm font-semibold text-[#414651]">
-                    Reporting
-                  </span>
-                </div>
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.67"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+                <NavItem
+                  section="reporting"
+                  label="Reporting"
+                  onClick={() => toggleSidebarAccordion("reporting")}
+                />
 
-              {/* Support & Resources - Expanded */}
-              <div className="space-y-1">
-                <div className="flex items-center justify-between p-2 px-3 rounded-lg cursor-pointer hover:bg-gray-50">
-                  <div className="flex items-center gap-3">
-                    <NavIcon section="support" />
-                    <span className="text-sm font-semibold text-[#414651]">
-                      Support & Resources
-                    </span>
-                  </div>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18 15L12 9L6 15"
-                      stroke="#A4A7AE"
-                      strokeWidth="1.67"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <div className="ml-8 space-y-1 pb-1">
-                  <div className="p-2 pl-4 rounded-lg bg-[#ECEEF9] cursor-pointer">
-                    <span className="text-sm font-semibold text-[#273572]">
-                      Document Library
-                    </span>
-                  </div>
-                  <div
-                    className="p-2 pl-4 rounded-lg cursor-pointer hover:bg-gray-50"
-                    onClick={() => navigate("/dashboard")}
-                  >
-                    <span className="text-sm font-semibold text-[#414651]">
-                      Resources
-                    </span>
-                  </div>
-                </div>
+                <NavItem
+                  section="support"
+                  label="Support & Resources"
+                  isActive={true}
+                  onClick={() => toggleSidebarAccordion("support")}
+                />
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col border-radius-[40px_0_0_0]">
-        {/* Header Navigation */}
+      <div
+        style={{
+          marginLeft: "296px",
+          flex: "1 0 0",
+          display: "flex",
+          flexDirection: "column",
+          background: "#FAFAFA",
+          position: "relative",
+        }}
+      >
+        {/* Top Bar */}
+        <TopBar isDesktop={isDesktop} />
+
+        {/* Main Content Area */}
         <div
-          className="flex flex-col items-center"
           style={{
-            background:
-              "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
+            marginTop: isDesktop ? "80px" : "0px",
+            padding: "32px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "32px",
           }}
         >
-          <div className="flex items-center gap-5 h-[72px] px-8 w-full">
-            {/* Search Bar */}
-            <div className="flex items-center gap-2 flex-1 max-w-md px-3.5 py-2.5 border border-[#D5D7DA] rounded-lg bg-white shadow-sm">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+          {/* Page Header */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "16px",
+              alignSelf: "stretch",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-end",
+                alignContent: "flex-end",
+                gap: "20px 16px",
+                alignSelf: "stretch",
+                flexWrap: "wrap",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  minWidth: "320px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "4px",
+                  flex: "1 0 0",
+                }}
               >
-                <path
-                  d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
-                  stroke="#A4A7AE"
-                  strokeWidth="1.66667"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <input
-                type="text"
-                placeholder="Search"
-                className="flex-1 border-none outline-none bg-transparent text-[#717680] text-base"
-              />
-              <div className="px-1 py-0.5 border border-[#E9EAEB] rounded bg-white">
-                <span className="text-xs text-[#717680] font-medium">⌘K</span>
-              </div>
-            </div>
-
-            {/* Quick Create Button */}
-            <button className="flex items-center gap-1 px-3 py-3 bg-[#344698] hover:bg-[#2A3A82] text-white rounded-lg border-2 border-white/12 shadow-sm transition-colors">
-              <span className="text-sm font-semibold px-0.5">Quick Create</span>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.0003 6.66699V13.3337M6.66699 10.0003H13.3337M18.3337 10.0003C18.3337 14.6027 14.6027 18.3337 10.0003 18.3337C5.39795 18.3337 1.66699 14.6027 1.66699 10.0003C1.66699 5.39795 5.39795 1.66699 10.0003 1.66699C14.6027 1.66699 18.3337 5.39795 18.3337 10.0003Z"
-                  stroke="#8D9BD8"
-                  strokeWidth="1.66667"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-
-            <div className="flex items-center gap-3 ml-8">
-              {/* Divider */}
-              <div className="w-4 h-10 flex items-center justify-center">
-                <div className="w-px h-10 bg-[#E9EAEB]"></div>
-              </div>
-
-              {/* Notifications */}
-              <button className="p-2 rounded-md">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  style={{
+                    alignSelf: "stretch",
+                    color: "#181D27",
+                    fontFamily: "'Public Sans'",
+                    fontSize: "24px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "32px",
+                  }}
                 >
-                  <path
-                    d="M9.35395 21C10.0591 21.6224 10.9853 22 11.9998 22C13.0142 22 13.9405 21.6224 14.6456 21M17.9998 8C17.9998 6.4087 17.3676 4.88258 16.2424 3.75736C15.1172 2.63214 13.5911 2 11.9998 2C10.4085 2 8.88235 2.63214 7.75713 3.75736C6.63192 4.88258 5.99977 6.4087 5.99977 8C5.99977 11.0902 5.22024 13.206 4.34944 14.6054C3.6149 15.7859 3.24763 16.3761 3.2611 16.5408C3.27601 16.7231 3.31463 16.7926 3.46155 16.9016C3.59423 17 4.19237 17 5.38863 17H18.6109C19.8072 17 20.4053 17 20.538 16.9016C20.6849 16.7926 20.7235 16.7231 20.7384 16.5408C20.7519 16.3761 20.3846 15.7859 19.6501 14.6054C18.7793 13.206 17.9998 11.0902 17.9998 8Z"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-
-              {/* User Menu */}
-              <div className="flex items-center gap-2 p-2 rounded-xl">
-                <div className="w-10 h-10 rounded-full border border-black/10 bg-gray-300"></div>
-                <div className="text-left">
-                  <div className="text-sm font-semibold text-[#181D27]">
-                    Alexandra Fitzwilliam
-                  </div>
-                  <div className="text-sm text-[#535862]">[User Role]</div>
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 700,
+                      fontSize: "24px",
+                      color: "rgba(24,29,39,1)",
+                    }}
+                  >
+                    Document Library
+                  </span>
+                </div>
+                <div
+                  style={{
+                    alignSelf: "stretch",
+                    color: "#535862",
+                    fontFamily: "'Public Sans'",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "16px",
+                      color: "rgba(83,88,98,1)",
+                    }}
+                  >
+                    Browse and download key forms and documents needed for
+                    screenings, compliance, and account setup.
+                  </span>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Page Content Container */}
-        <div className="px-8 space-y-5">
-          {/* Page Header */}
-          <div className="flex items-end justify-between flex-wrap gap-4">
-            <div className="min-w-80 flex-1">
-              <h1 className="text-2xl font-semibold text-[#181D27] leading-8">
-                Document Library
-              </h1>
-              <p className="text-base text-[#535862] mt-1">
-                Browse and download key forms and documents needed for
-                screenings, compliance, and account setup.
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <button className="flex items-center gap-1 px-2 py-1.5 min-h-8 border border-[#D5D7DA] bg-white rounded-lg shadow-sm">
-                <span className="text-sm font-semibold text-[#414651] px-0.5">
-                  Most Recent
-                </span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4 6L8 10L12 6"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              <button className="flex items-center gap-1 px-2 py-1.5 min-h-8 border border-[#D5D7DA] bg-white rounded-lg shadow-sm">
-                <span className="text-sm font-semibold text-[#414651] px-0.5">
-                  All Files
-                </span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4 6L8 10L12 6"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div className="flex items-center gap-2 min-w-48 max-w-80 flex-1 px-2 py-1.5 border border-[#D5D7DA] bg-white rounded-lg shadow-sm">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                }}
               >
-                <path
-                  d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
-                  stroke="#A4A7AE"
-                  strokeWidth="1.66667"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <input
-                type="text"
-                placeholder="Guide"
-                className="flex-1 text-sm font-medium text-[#717680] border-none outline-none bg-transparent h-5"
-              />
+                <div
+                  style={{
+                    display: "flex",
+                    minHeight: "32px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow:
+                      "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0px 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 700,
+                          fontSize: "14px",
+                          color: "rgba(65,70,81,1)",
+                        }}
+                      >
+                        Most Recent
+                      </span>
+                    </div>
+                  </div>
+                  <svg
+                    style={{ width: "16px", height: "16px" }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 6L8 10L12 6"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    minHeight: "32px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow:
+                      "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0px 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 700,
+                          fontSize: "14px",
+                          color: "rgba(65,70,81,1)",
+                        }}
+                      >
+                        All Files
+                      </span>
+                    </div>
+                  </div>
+                  <svg
+                    style={{ width: "16px", height: "16px" }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 6L8 10L12 6"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  minWidth: "200px",
+                  maxWidth: "320px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  flex: "1 0 0",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "6px 8px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      flex: "1 0 0",
+                    }}
+                  >
+                    <svg
+                      style={{ width: "16px", height: "16px" }}
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "20px",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        flex: "1 0 0",
+                        overflow: "hidden",
+                        color: "#717680",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 400,
+                          fontSize: "14px",
+                          color: "rgba(113,118,128,1)",
+                        }}
+                      >
+                        Guide
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Document Sections */}
-          <div className="flex flex-col items-center gap-6 w-full">
-            <div className="px-8 flex flex-col gap-6 w-full">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "24px",
+              alignSelf: "stretch",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "24px",
+                alignSelf: "stretch",
+              }}
+            >
               {documentSections.map((section) => (
                 <div
                   key={section.id}
-                  className="flex flex-col border border-[#E9EAEB] bg-white rounded-xl shadow-sm"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
                 >
                   {/* Section Header */}
-                  <div className="flex justify-between items-start gap-4 p-5 pb-0">
-                    <div className="flex items-start gap-1 flex-1">
-                      <div className="flex flex-col justify-center items-start gap-0.5 flex-1">
-                        <div className="flex items-center gap-2 w-full">
-                          <h2 className="text-lg font-semibold text-[#181D27]">
-                            {section.title}
-                          </h2>
-                          <div className="bg-[#FAFAFA] border border-[#E9EAEB] rounded-full px-2 py-0.5">
-                            <span className="text-xs text-[#414651] font-medium">
-                              {section.count}
-                            </span>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 24px 0px 24px",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "18px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "28px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "18px",
+                                  color: "rgba(24,29,39,1)",
+                                }}
+                              >
+                                {section.title}
+                              </span>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                border: "1px solid #E9EAEB",
+                                background: "#FAFAFA",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#414651",
+                                  textAlign: "center",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "12px",
+                                    color: "rgba(65,70,81,1)",
+                                  }}
+                                >
+                                  {section.count}
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <button
-                      className="p-2 border border-[#D5D7DA] bg-white rounded-lg shadow-sm"
-                      onClick={() => toggleAccordion(section.id)}
-                    >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className={`transition-transform ${openAccordions.includes(section.id) ? "rotate-180" : ""}`}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
                       >
-                        <path
-                          d="M4 6L8 10L12 6"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                        <button
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => toggleAccordion(section.id)}
+                        >
+                          <svg
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                              transform: openAccordions.includes(section.id)
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
+                              transition: "transform 0.2s ease",
+                            }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
 
-                  {/* Document Content */}
-                  {openAccordions.includes(section.id) && (
-                    <div className="p-5 pt-5">
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {/* Document Content */}
+                    {openAccordions.includes(section.id) ? (
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "20px 24px",
+                          alignItems: "flex-start",
+                          alignContent: "flex-start",
+                          gap: "16px 16px",
+                          alignSelf: "stretch",
+                          flexWrap: "wrap",
+                        }}
+                      >
                         {section.documents.map((doc) => (
                           <div
                             key={doc.id}
-                            className="flex items-center gap-1 p-4 border border-[#E9EAEB] bg-white rounded-xl hover:bg-[#F5F5F5] transition-colors cursor-pointer h-[92px]"
+                            style={{
+                              display: "flex",
+                              height: "92px",
+                              padding: "16px",
+                              alignItems: "center",
+                              gap: "4px",
+                              flex: "1 0 0",
+                              minWidth: "300px",
+                              borderRadius: "12px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              cursor: "pointer",
+                              transition: "background-color 0.2s ease",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "#F5F5F5";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "#FFF";
+                            }}
                           >
-                            <div className="flex items-start gap-3 flex-1">
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "12px",
+                                flex: "1 0 0",
+                              }}
+                            >
                               <FileIcon />
-                              <div className="flex flex-col items-start gap-0.5 flex-1">
-                                <div className="text-sm font-medium text-[#414651] w-full overflow-hidden text-ellipsis line-clamp-1">
-                                  {doc.name}
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <span className="text-xs text-[#535862]">
-                                    {doc.size}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "2px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 1,
+                                    alignSelf: "stretch",
+                                    overflow: "hidden",
+                                    color: "#414651",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    {doc.name}
                                   </span>
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#535862",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 400,
+                                      lineHeight: "18px",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 400,
+                                        fontSize: "12px",
+                                        color: "rgba(83,88,98,1)",
+                                      }}
+                                    >
+                                      {doc.size}
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                            <div className="flex items-center gap-1">
-                              <button className="p-1.5 rounded-md">
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <button
+                                style={{
+                                  display: "flex",
+                                  padding: "6px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "6px",
+                                  background: "transparent",
+                                  border: "none",
+                                  cursor: "pointer",
+                                }}
+                              >
                                 <svg
+                                  style={{ width: "24px", height: "24px" }}
                                   width="24"
                                   height="24"
                                   viewBox="0 0 24 24"
@@ -674,8 +1437,20 @@ export default function DocumentLibrary() {
                                   />
                                 </svg>
                               </button>
-                              <button className="p-1.5 rounded-md">
+                              <button
+                                style={{
+                                  display: "flex",
+                                  padding: "6px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "6px",
+                                  background: "transparent",
+                                  border: "none",
+                                  cursor: "pointer",
+                                }}
+                              >
                                 <svg
+                                  style={{ width: "24px", height: "24px" }}
                                   width="24"
                                   height="24"
                                   viewBox="0 0 24 24"
@@ -695,8 +1470,21 @@ export default function DocumentLibrary() {
                           </div>
                         ))}
                       </div>
-                    </div>
-                  )}
+                    ) : (
+                      // Closed state with 20px bottom padding
+                      <div
+                        style={{
+                          height: "20px",
+                          padding: "20px 24px",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                        }}
+                      ></div>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
