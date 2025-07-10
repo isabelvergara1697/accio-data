@@ -3045,8 +3045,9 @@ export default function Dashboard() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "stretch" : "center",
+                    gap: isMobile ? "16px" : "12px",
                     position: "relative",
                   }}
                 >
