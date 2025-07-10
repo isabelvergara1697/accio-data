@@ -888,9 +888,9 @@ export default function Dashboard() {
       >
         {/* Mobile/Tablet Header Bar */}
         <div
-          className="lg:hidden w-full fixed top-0 left-0 right-0 z-30"
+          className="w-full fixed top-0 left-0 right-0 z-30"
           style={{
-            display: "flex",
+            display: isDesktop ? "none" : "flex",
             height: "64px",
             padding: "12px 8px 12px 16px",
             justifyContent: "space-between",
@@ -1149,9 +1149,8 @@ export default function Dashboard() {
             {/* Hamburger Menu - Only on tablet/mobile */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden"
               style={{
-                display: "flex",
+                display: isDesktop ? "none" : "flex",
                 padding: "8px",
                 justifyContent: "center",
                 alignItems: "center",
