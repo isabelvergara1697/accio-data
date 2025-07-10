@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { TopBar } from "../components/TopBar";
 
 // Document data structure based on Figma design
 const documentSections = [
@@ -108,6 +107,28 @@ const documentSections = [
     ],
   },
 ];
+
+// Add styles for button hover states
+const documentLibraryStyles = `
+  .secondary-button {
+    border-radius: 8px;
+    border: 1px solid #D5D7DA;
+    background: #FFF;
+    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+    transition: background 0.2s ease;
+    cursor: pointer;
+  }
+  .secondary-button:hover {
+    background: #F5F5F5;
+  }
+  .quick-create-button {
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .quick-create-button:hover {
+    background: #2A3A82 !important;
+  }
+`;
 
 export default function DocumentLibrary() {
   const navigate = useNavigate();
@@ -625,6 +646,7 @@ export default function DocumentLibrary() {
         position: "relative",
       }}
     >
+      <style dangerouslySetInnerHTML={{ __html: documentLibraryStyles }} />
       {/* Sidebar Navigation - Exact copy from Dashboard */}
       <aside
         style={{
@@ -782,8 +804,301 @@ export default function DocumentLibrary() {
           position: "relative",
         }}
       >
-        {/* Top Bar */}
-        <TopBar isDesktop={isDesktop} />
+        {/* Top Bar - Exact copy from Dashboard */}
+        <div
+          style={{
+            display: isDesktop ? "flex" : "none",
+            width: "100%",
+            height: "80px",
+            padding: "20px 32px",
+            justifyContent: "space-between",
+            alignItems: "center",
+            borderBottom: "1px solid #E9EAEB",
+            background: "#FFF",
+            position: "fixed",
+            top: 0,
+            left: "296px",
+            right: 0,
+            zIndex: 40,
+          }}
+        >
+          {/* Left side - Search */}
+          <div
+            style={{
+              display: "flex",
+              width: "320px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                padding: "6px 8px",
+                alignItems: "center",
+                gap: "8px",
+                alignSelf: "stretch",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  flex: "1 0 0",
+                  position: "relative",
+                }}
+              >
+                <svg
+                  style={{
+                    width: "16px",
+                    height: "16px",
+                    position: "relative",
+                  }}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <div
+                  style={{
+                    display: "flex",
+                    height: "20px",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    flex: "1 0 0",
+                    overflow: "hidden",
+                    color: "#717680",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "14px",
+                      color: "rgba(113,118,128,1)",
+                    }}
+                  >
+                    Search
+                  </span>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "1px 4px",
+                  alignItems: "flex-start",
+                  borderRadius: "4px",
+                  border: "1px solid #E9EAEB",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#717680",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "18px",
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "12px",
+                      color: "rgba(113,118,128,1)",
+                    }}
+                  >
+                    ⌘K
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right side - Quick Create, Notifications, User */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
+              position: "relative",
+            }}
+          >
+            {/* Quick Create Button */}
+            <button
+              className="quick-create-button"
+              style={{
+                display: "flex",
+                height: "40px",
+                padding: "10px 16px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "8px",
+                borderRadius: "8px",
+                background: "#344698",
+                border: "none",
+                position: "relative",
+              }}
+            >
+              <svg
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  position: "relative",
+                }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 3.33331V12.6666M3.33333 7.99998H12.6667"
+                  stroke="#FFF"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <div
+                style={{
+                  color: "#FFF",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 600,
+                    fontSize: "14px",
+                    color: "rgba(255,255,255,1)",
+                  }}
+                >
+                  Quick Create
+                </span>
+              </div>
+            </button>
+
+            {/* Notifications */}
+            <div
+              style={{
+                display: "flex",
+                width: "40px",
+                height: "40px",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow:
+                  "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                position: "relative",
+              }}
+            >
+              <svg
+                style={{
+                  width: "24px",
+                  height: "24px",
+                  position: "relative",
+                }}
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.35419 21C10.0593 21.6224 10.9856 22 12 22C13.0145 22 13.9407 21.6224 14.6458 21M18 8C18 6.4087 17.3679 4.88258 16.2427 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.8826 2.63214 7.75738 3.75736C6.63216 4.88258 6.00002 6.4087 6.00002 8C6.00002 11.0902 5.22049 13.206 4.34968 14.6054C3.61515 15.7859 3.24788 16.3761 3.26134 16.5408C3.27626 16.7231 3.31488 16.7926 3.46179 16.9016C3.59448 17 4.19261 17 5.38887 17H18.6112C19.8074 17 20.4056 17 20.5382 16.9016C20.6852 16.7926 20.7238 16.7231 20.7387 16.5408C20.7522 16.3761 20.3849 15.7859 19.6504 14.6054C18.7795 13.206 18 11.0902 18 8Z"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            {/* User Menu */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  flexShrink: 0,
+                  aspectRatio: "1/1",
+                  borderRadius: "9999px",
+                  border: "1px solid rgba(0, 0, 0, 0.10)",
+                  background:
+                    "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                  position: "relative",
+                }}
+              ></div>
+              <svg
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  position: "relative",
+                }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
 
         {/* Main Content Area */}
         <div
@@ -881,6 +1196,7 @@ export default function DocumentLibrary() {
                 }}
               >
                 <div
+                  className="secondary-button"
                   style={{
                     display: "flex",
                     minHeight: "32px",
@@ -944,6 +1260,7 @@ export default function DocumentLibrary() {
                   </svg>
                 </div>
                 <div
+                  className="secondary-button"
                   style={{
                     display: "flex",
                     minHeight: "32px",
@@ -1471,15 +1788,13 @@ export default function DocumentLibrary() {
                         ))}
                       </div>
                     ) : (
-                      // Closed state with 20px bottom padding
+                      // Closed state with equal 20px top and bottom padding
                       <div
                         style={{
-                          height: "20px",
-                          padding: "20px 24px",
+                          padding: "20px 24px 20px 24px",
                           display: "flex",
                           flexDirection: "column",
                           alignItems: "flex-start",
-                          gap: "16px",
                           alignSelf: "stretch",
                         }}
                       ></div>
