@@ -4077,39 +4077,32 @@ export default function Dashboard() {
             {/* Section Title */}
             <div
               style={{
-                                color: "rgba(65, 70, 81, 1)",
+                color: "#181D27",
                 fontFamily: "Public Sans",
-                fontSize: "16px",
-                fontWeight: 600,
+                fontSize: "24px",
+                fontWeight: 700,
                 lineHeight: "32px",
-                letterSpacing: "-0.48px",
+                letterSpacing: "-0.02em",
                 position: "relative",
               }}
             >
               Quick Overview
             </div>
 
-                        {/* Metric Cards Grid */}
+            {/* Metric Cards Grid */}
             <div
               style={{
-                display: "flex",
-                flexDirection: "column",
+                display: "grid",
+                gridTemplateColumns: isMobile
+                  ? "1fr"
+                  : isDesktop
+                    ? "repeat(4, 1fr)"
+                    : "repeat(2, 1fr)",
+                gap: isMobile ? "16px" : "24px",
                 alignSelf: "stretch",
-                gap: "24px",
                 position: "relative",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  gap: "20px",
-                  "@media (max-width: 991px)": {
-                    flexDirection: "column",
-                    alignItems: "stretch",
-                    gap: "0px",
-                  },
-                }}
-              >
               {/* Metric Card 1 - Total Screenings */}
               <div
                 className="metric-card"
