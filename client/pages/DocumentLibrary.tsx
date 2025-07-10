@@ -1037,10 +1037,12 @@ export default function DocumentLibrary() {
                     className={isMobile ? "mobile-buttons" : ""}
                     style={{
                       display: "flex",
-                      alignItems: "center",
+                      flexDirection: isMobile ? "column" : "row",
+                      alignItems: isMobile ? "stretch" : "center",
                       gap: "12px",
-                      justifyContent: isMobile ? "space-between" : "flex-start",
+                      justifyContent: isMobile ? "flex-start" : "flex-start",
                       flex: isMobile ? "1 0 0" : "none",
+                      width: isMobile ? "100%" : "auto",
                       border: isMobile ? "2px solid red" : "none", // DEBUG: Remove this later
                     }}
                   >
