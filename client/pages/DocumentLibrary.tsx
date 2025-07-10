@@ -1193,7 +1193,7 @@ export default function DocumentLibrary() {
                               ? "repeat(2, 308px)"
                               : "1fr",
                           gap: "16px",
-                          padding: isMobile ? "16px 0" : "20px 24px",
+                          padding: isMobile ? "0px 16px" : "20px 24px",
                           alignSelf: "stretch",
                           justifyContent:
                             !isDesktop && !isMobile
