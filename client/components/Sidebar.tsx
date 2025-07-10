@@ -58,9 +58,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const NavIcon = ({
     section,
     isOpen,
+    isActive = false,
   }: {
     section: string;
     isOpen: boolean;
+    isActive?: boolean;
   }) => {
     const icons = {
       dashboard: (
