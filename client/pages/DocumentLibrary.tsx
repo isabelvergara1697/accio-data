@@ -1006,7 +1006,11 @@ export default function DocumentLibrary() {
                           }}
                         >
                           <div
-                            className={isMobile ? "mobile-button-text" : ""}
+                            className={
+                              isMobile
+                                ? "mobile-button-text"
+                                : "filter-button-text"
+                            }
                             style={{
                               color: "#414651",
                               fontFamily: "'Public Sans'",
@@ -1014,6 +1018,10 @@ export default function DocumentLibrary() {
                               fontStyle: "normal",
                               fontWeight: 600,
                               lineHeight: "20px",
+                              overflow: isMobile ? "visible" : "hidden",
+                              textOverflow: isMobile ? "unset" : "ellipsis",
+                              whiteSpace: isMobile ? "normal" : "nowrap",
+                              maxWidth: isMobile ? "auto" : "80px",
                             }}
                           >
                             <span
