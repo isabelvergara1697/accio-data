@@ -1089,7 +1089,7 @@ export default function DocumentLibrary() {
                       style={{ flex: isMobile ? "1 0 0" : "auto" }}
                     >
                       <div
-                        className={`secondary-button ${isMobile ? "mobile-button" : ""}`}
+                        className={`secondary-button ${isMobile ? "mobile-button" : "filter-button"}`}
                         style={{
                           display: "flex",
                           minHeight: "32px",
@@ -1103,6 +1103,8 @@ export default function DocumentLibrary() {
                           boxShadow:
                             "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                           flex: isMobile ? "1 0 0" : "unset",
+                          minWidth: isMobile ? "auto" : "120px",
+                          maxWidth: isMobile ? "auto" : "120px",
                         }}
                         onClick={toggleFileTypeDropdown}
                       >
