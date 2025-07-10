@@ -13,9 +13,19 @@ const documentSections = [
     count: 9,
     isOpen: true,
     documents: [
-      { id: "1", name: "Quick Start Guide", size: "200 KB", type: "PDF" },
+      {
+        id: "1",
+        name: "Quick Start                             Find documents or categories",
+        size: "200 KB",
+        type: "PDF",
+      },
       { id: "2", name: "Web Demo", size: "200 KB", type: "PDF" },
-      { id: "3", name: "User Guide", size: "200 KB", type: "PDF" },
+      {
+        id: "3",
+        name: "User                             Find documents or categories",
+        size: "200 KB",
+        type: "PDF",
+      },
       { id: "4", name: "Consumer FCR Rights", size: "200 KB", type: "PDF" },
       { id: "5", name: "WA Add On", size: "200 KB", type: "PDF" },
       { id: "6", name: "Article 23", size: "200 KB", type: "PDF" },
@@ -91,7 +101,7 @@ const documentSections = [
       },
       {
         id: "18",
-        name: "Security Clearance Guidelines",
+        name: "Security Clearance                             Find documents or categorieslines",
         size: "200 KB",
         type: "PDF",
       },
@@ -104,7 +114,7 @@ const documentSections = [
       },
       {
         id: "21",
-        name: "Compliance Assessment Guide",
+        name: "Compliance Assessment                             Find documents or categories",
         size: "200 KB",
         type: "PDF",
       },
@@ -1024,7 +1034,7 @@ export default function DocumentLibrary() {
                               color: "rgba(113,118,128,1)",
                             }}
                           >
-                            Guide
+                            Find documents or categories
                           </span>
                         </div>
                       </div>
@@ -1372,7 +1382,7 @@ export default function DocumentLibrary() {
                               color: "rgba(113,118,128,1)",
                             }}
                           >
-                            Guide
+                            Find documents or categories
                           </span>
                         </div>
                       </div>
