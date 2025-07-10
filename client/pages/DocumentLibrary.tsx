@@ -828,6 +828,7 @@ export default function DocumentLibrary() {
                         }}
                       >
                         <button
+                          className="section-header-button"
                           style={{
                             display: "flex",
                             padding: "8px",
