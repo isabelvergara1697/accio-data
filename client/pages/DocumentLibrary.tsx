@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserMenuDropdown } from "../components/UserMenuDropdown";
 import { Header } from "../components/Header";
+import { Sidebar } from "../components/Sidebar";
 
 // Document data structure based on Figma design
 const documentSections = [
@@ -683,151 +684,13 @@ export default function DocumentLibrary() {
       }}
     >
       <style dangerouslySetInnerHTML={{ __html: documentLibraryStyles }} />
-      {/* Sidebar Navigation - Exact copy from Dashboard */}
-      <aside
-        style={{
-          display: "flex",
-          width: "296px",
-          height: "100vh",
-          padding: "8px 0px 24px 8px",
-          alignItems: "flex-start",
-          flexShrink: 0,
-          position: "fixed",
-          left: 0,
-          top: 0,
-          zIndex: 50,
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            flex: "1 0 0",
-            alignSelf: "stretch",
-            borderRadius: "12px",
-            border: "1px solid #E9EAEB",
-            background: "#FFF",
-            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-            position: "relative",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              paddingTop: "16px",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "20px",
-              flex: "1 0 0",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
-            {/* Logo Header */}
-            <div
-              style={{
-                display: "flex",
-                padding: "0px 20px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "20px",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  width: "139px",
-                  alignItems: "flex-start",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    width: "139px",
-                    height: "32px",
-                    flexShrink: 0,
-                    position: "relative",
-                  }}
-                >
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5f38048a89d8ad952ff6b9682276a562665736e?width=274"
-                    style={{
-                      width: "137px",
-                      height: "24px",
-                      flexShrink: 0,
-                      fill: "#34479A",
-                      position: "absolute",
-                      left: "1px",
-                      top: "4px",
-                    }}
-                    alt="Union"
-                  />
-                </div>
-              </div>
-            </div>
 
-            {/* Navigation */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  padding: "0px 16px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  alignSelf: "stretch",
-                  position: "relative",
-                }}
-              >
-                <NavItem
-                  section="dashboard"
-                  label="Dashboard"
-                  isActive={false}
-                  hasChevron={false}
-                  onClick={() => navigate("/dashboard")}
-                />
-
-                <NavItem
-                  section="tools"
-                  label="Tools"
-                  onClick={() => toggleSidebarAccordion("tools")}
-                />
-
-                <NavItem
-                  section="screening"
-                  label="Screening"
-                  badge={!isAccordionOpen("screening") ? "8" : undefined}
-                  onClick={() => toggleSidebarAccordion("screening")}
-                />
-
-                <NavItem
-                  section="reporting"
-                  label="Reporting"
-                  onClick={() => toggleSidebarAccordion("reporting")}
-                />
-
-                <NavItem
-                  section="support"
-                  label="Support & Resources"
-                  isActive={true}
-                  onClick={() => toggleSidebarAccordion("support")}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </aside>
+      <Sidebar
+        isDesktop={isDesktop}
+        isMobile={isMobile}
+        mobileMenuOpen={false}
+        currentPage="document-library"
+      />
 
       {/* Main Content */}
       <div
