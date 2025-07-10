@@ -2629,13 +2629,13 @@ export default function Dashboard() {
               display: "flex",
               alignItems: "center",
               gap: "8px",
-              flex: "1 0 0",
-              maxWidth: "400px",
+              flex: "1",
               borderRadius: "8px",
               border: "1px solid #D5D7DA",
               background: "#FFF",
               padding: "10px 12px",
               boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+              marginRight: "16px",
             }}
           >
             <svg
