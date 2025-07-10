@@ -1466,7 +1466,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <NavItem
                   section="support"
                   label="Support & Resources"
-                  isActive={currentPage === "document-library"}
                   onClick={() => toggleSidebarAccordion("support")}
                 />
               </div>
