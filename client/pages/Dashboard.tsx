@@ -2975,11 +2975,12 @@ export default function Dashboard() {
               <div
                 style={{
                   display: "flex",
-                  alignItems: "flex-end",
+                  flexDirection: isMobile ? "column" : "row",
+                  alignItems: isMobile ? "flex-start" : "flex-end",
                   alignContent: "flex-end",
-                  gap: "20px 16px",
+                  gap: isMobile ? "16px" : "20px 16px",
                   alignSelf: "stretch",
-                  flexWrap: "wrap",
+                  flexWrap: isMobile ? "nowrap" : "wrap",
                   position: "relative",
                 }}
               >
