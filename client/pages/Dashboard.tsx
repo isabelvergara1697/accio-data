@@ -4993,11 +4993,12 @@ export default function Dashboard() {
                           width: "19px",
                           height: "19px",
                           borderRadius: "200px",
-                          border: "2px solid #344698",
+                          border: `2px solid ${hoveredCard === "active" ? "#1E40AF" : "#344698"}`,
                           opacity: 0.2,
                           position: "absolute",
                           left: "-1px",
                           top: "0px",
+                          transition: "border-color 0.2s ease",
                         }}
                       />
                       <div
@@ -5005,11 +5006,12 @@ export default function Dashboard() {
                           width: "11px",
                           height: "11px",
                           borderRadius: "200px",
-                          border: "2px solid #344698",
+                          border: `2px solid ${hoveredCard === "active" ? "#1E40AF" : "#344698"}`,
                           background: "#FFF",
                           position: "absolute",
                           left: "3px",
                           top: "4px",
+                          transition: "border-color 0.2s ease",
                         }}
                       />
                     </div>
