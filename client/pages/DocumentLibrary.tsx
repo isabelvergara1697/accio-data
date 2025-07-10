@@ -1182,6 +1182,9 @@ export default function DocumentLibrary() {
                           flex: isMobile ? "1 0 0" : "unset",
                           minWidth: isMobile ? "auto" : "120px",
                           maxWidth: isMobile ? "auto" : "120px",
+                          "@media (max-width: 640px)": {
+                            width: "100%",
+                          },
                         }}
                         onClick={toggleFileTypeDropdown}
                       >
