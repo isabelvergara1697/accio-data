@@ -845,81 +845,85 @@ export default function Dashboard() {
               </div>
             )}
 
-            {/* Navigation */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
+            {/* Navigation - Hide on mobile when user menu is active */}
+            {!(isMobile && showMobileUserMenu) && (
               <div
                 style={{
                   display: "flex",
-                  padding: "0px 16px",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   alignSelf: "stretch",
                   position: "relative",
                 }}
               >
-                <NavItem
-                  section="dashboard"
-                  label="Dashboard"
-                  isActive={true}
-                  hasChevron={false}
-                />
-
-                <NavItem
-                  section="tools"
-                  label="Tools"
-                  onClick={() => toggleAccordion("tools")}
-                />
-
-                <NavItem
-                  section="screening"
-                  label="Screening"
-                  badge={!isAccordionOpen("screening") ? "8" : undefined}
-                  onClick={() => toggleAccordion("screening")}
-                />
-
-                <NavItem
-                  section="reporting"
-                  label="Reporting"
-                  onClick={() => toggleAccordion("reporting")}
-                />
-
-                <NavItem
-                  section="support"
-                  label="Support & Resources"
-                  onClick={() => toggleAccordion("support")}
-                />
-              </div>
-            </div>
-
-            {/* Mobile User Profile Section - Only show on mobile */}
-            {isMobile && (
-              <>
-                {/* Divider */}
                 <div
                   style={{
                     display: "flex",
-                    padding: "4px 0px",
-                    alignItems: "center",
+                    padding: "0px 16px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
                 >
+                  <NavItem
+                    section="dashboard"
+                    label="Dashboard"
+                    isActive={true}
+                    hasChevron={false}
+                  />
+
+                  <NavItem
+                    section="tools"
+                    label="Tools"
+                    onClick={() => toggleAccordion("tools")}
+                  />
+
+                  <NavItem
+                    section="screening"
+                    label="Screening"
+                    badge={!isAccordionOpen("screening") ? "8" : undefined}
+                    onClick={() => toggleAccordion("screening")}
+                  />
+
+                  <NavItem
+                    section="reporting"
+                    label="Reporting"
+                    onClick={() => toggleAccordion("reporting")}
+                  />
+
+                  <NavItem
+                    section="support"
+                    label="Support & Resources"
+                    onClick={() => toggleAccordion("support")}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Mobile User Profile Section - Only show on mobile */}
+            {isMobile && (
+              <>
+                {/* Divider - Only show when NOT in user menu */}
+                {!showMobileUserMenu && (
                   <div
                     style={{
-                      width: "100%",
-                      height: "1px",
-                      background: "#E9EAEB",
+                      display: "flex",
+                      padding: "4px 0px",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                      position: "relative",
                     }}
-                  ></div>
-                </div>
+                  >
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "1px",
+                        background: "#E9EAEB",
+                      }}
+                    ></div>
+                  </div>
+                )}
 
                 {!showMobileUserMenu ? (
                   /* Main Sidebar Menu with User Profile */
