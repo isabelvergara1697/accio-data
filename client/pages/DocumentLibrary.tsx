@@ -1313,7 +1313,7 @@ export default function DocumentLibrary() {
                 alignSelf: "stretch",
               }}
             >
-              {documentSections.map((section) => (
+              {filteredSections.map((section) => (
                 <div
                   key={section.id}
                   style={{
