@@ -122,8 +122,8 @@ const documentLibraryStyles = `
     transition: background 0.2s ease;
     cursor: pointer;
   }
-  .secondary-button:hover {
-    background: #F5F5F5;
+    .secondary-button:hover {
+    background: #F5F5F5 !important;
   }
   .quick-create-button {
     transition: all 0.2s ease;
@@ -136,7 +136,7 @@ const documentLibraryStyles = `
     transition: background 0.2s ease;
   }
   .search-input:hover {
-    background: #F5F5F5;
+    background: #F5F5F5 !important;
   }
   .document-card {
     transition: background-color 0.2s ease;
@@ -148,13 +148,13 @@ const documentLibraryStyles = `
     transition: background 0.2s ease;
   }
   .action-button:hover {
-    background: #F5F5F5;
+    background: #F5F5F5 !important;
   }
   .section-header-button {
     transition: background 0.2s ease;
   }
   .section-header-button:hover {
-    background: #F5F5F5;
+    background: #F5F5F5 !important;
   }
 
   /* Responsive layout utilities */
