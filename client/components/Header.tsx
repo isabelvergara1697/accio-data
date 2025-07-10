@@ -20,6 +20,7 @@ export const Header: React.FC<HeaderProps> = ({
   setUserMenuHovered,
   handleSignOut,
   getUserMenuStyles,
+  showMobileUserMenu = false,
 }) => {
   if (!isDesktop) return null;
 
