@@ -308,12 +308,24 @@ const documentLibraryStyles = `
                 .mobile-document-grid {
       padding: 20px 16px !important;
     }
-    .mobile-file-name {
+        .mobile-file-name {
       -webkit-line-clamp: 2 !important;
       display: -webkit-box !important;
       -webkit-box-orient: vertical !important;
       overflow: hidden !important;
       text-overflow: ellipsis !important;
+    }
+
+    /* Additional mobile button alignment overrides */
+    .dropdown-container .mobile-button {
+      justify-content: space-between !important;
+    }
+    .dropdown-container .mobile-button > div {
+      justify-content: flex-start !important;
+      width: 100% !important;
+    }
+    .mobile-button-content {
+      justify-content: flex-start !important;
     }
   }
 
