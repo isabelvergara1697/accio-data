@@ -1124,7 +1124,9 @@ export default function DocumentLibrary() {
                           display: "flex",
                           minHeight: "32px",
                           padding: "6px 8px",
-                          justifyContent: "flex-start",
+                          justifyContent: isMobile
+                            ? "space-between"
+                            : "flex-start",
                           alignItems: "center",
                           gap: "4px",
                           borderRadius: "8px",
@@ -1143,8 +1145,9 @@ export default function DocumentLibrary() {
                           style={{
                             display: "flex",
                             padding: "0px 2px",
-                            justifyContent: "center",
+                            justifyContent: "flex-start",
                             alignItems: "center",
+                            width: "100%",
                           }}
                         >
                           <div
