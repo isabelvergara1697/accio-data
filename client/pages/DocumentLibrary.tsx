@@ -201,7 +201,7 @@ const documentLibraryStyles = `
     flex-direction: column;
   }
 
-    /* Fixed button widths and text truncation */
+      /* Fixed button widths and text truncation */
   .filter-button {
     min-width: 120px !important;
     max-width: 120px !important;
@@ -216,6 +216,26 @@ const documentLibraryStyles = `
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 80px;
+  }
+
+  /* Override all button alignments */
+  .secondary-button.filter-button {
+    justify-content: flex-start !important;
+  }
+  .secondary-button.filter-button > div {
+    justify-content: flex-start !important;
+    width: 100% !important;
+  }
+
+  /* Desktop/mobile button overrides */
+  .dropdown-container[data-sort-dropdown] .secondary-button,
+  .dropdown-container[data-filetype-dropdown] .secondary-button {
+    justify-content: flex-start !important;
+  }
+  .dropdown-container[data-sort-dropdown] .secondary-button > div,
+  .dropdown-container[data-filetype-dropdown] .secondary-button > div {
+    justify-content: flex-start !important;
+    width: 100% !important;
   }
 
         /* Responsive layout utilities */
