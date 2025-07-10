@@ -1561,8 +1561,8 @@ export default function Dashboard() {
               </div>
             )}
 
-            {/* Mobile User Profile Section - Only show on mobile */}
-            {isMobile && (
+            {/* Mobile User Profile Section - Only show on mobile when user menu is NOT active */}
+            {isMobile && !showMobileUserMenu && (
               <>
                 {/* Divider */}
                 <div
