@@ -4091,7 +4091,7 @@ export default function Dashboard() {
                   style={{
                     display: "flex",
                     alignItems: "flex-end",
-                    gap: "24px",
+                    gap: "16px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
@@ -4311,7 +4311,7 @@ export default function Dashboard() {
                   style={{
                     display: "flex",
                     alignItems: "flex-end",
-                    gap: "24px",
+                    gap: "16px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
@@ -4531,7 +4531,7 @@ export default function Dashboard() {
                   style={{
                     display: "flex",
                     alignItems: "flex-end",
-                    gap: "24px",
+                    gap: "16px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
@@ -4557,7 +4557,7 @@ export default function Dashboard() {
                         position: "relative",
                       }}
                     >
-                      Completed Reports
+                      Completed
                     </div>
                     <div
                       style={{
@@ -4751,7 +4751,7 @@ export default function Dashboard() {
                   style={{
                     display: "flex",
                     alignItems: "flex-end",
-                    gap: "24px",
+                    gap: "16px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
