@@ -286,6 +286,90 @@ export default function DocumentLibrary() {
           showMobileUserMenu={showMobileUserMenu}
         />
 
+        {/* Mobile/Tablet Header Bar */}
+        <div
+          className="w-full fixed top-0 left-0 right-0 z-30"
+          style={{
+            display: isDesktop ? "none" : "flex",
+            height: "64px",
+            padding: "12px 8px 12px 16px",
+            justifyContent: "space-between",
+            alignItems: "center",
+            background: "#FFF",
+            borderBottom: "1px solid #E9EAEB",
+          }}
+        >
+          {/* Logo */}
+          <div
+            style={{
+              display: "flex",
+              width: "139px",
+              alignItems: "flex-start",
+            }}
+          >
+            <div
+              style={{
+                width: "139px",
+                height: "32px",
+                flexShrink: 0,
+                position: "relative",
+              }}
+            >
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/876fe16651091c38ad5eb9e1c4c54f44055b43e1?width=274"
+                style={{
+                  width: "137px",
+                  height: "24px",
+                  flexShrink: 0,
+                  fill: "#34479A",
+                  position: "absolute",
+                  left: "1px",
+                  top: "4px",
+                }}
+                alt="Union"
+              />
+            </div>
+          </div>
+
+          {/* Right Side Actions */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+            }}
+          >
+            {/* Hamburger Menu - Only on tablet/mobile */}
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              style={{
+                display: isDesktop ? "none" : "flex",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "8px",
+              }}
+            >
+              <svg
+                style={{ width: "24px", height: "24px" }}
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 12H15M3 6H21M3 18H21"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
         {/* Main Content Area */}
         <div
           style={{
