@@ -3,7 +3,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import SuccessNotification from "../components/SuccessNotification";
 import { UserMenuDropdown } from "../components/UserMenuDropdown";
 import { Header } from "../components/Header";
-import { MobileHeader } from "../components/MobileHeader";
 
 // Add styles for button hover states and metric card hovers
 const dashboardStyles = `
@@ -2619,19 +2618,6 @@ export default function Dashboard() {
         handleSignOut={handleSignOut}
         getUserMenuStyles={getUserMenuStyles}
         showMobileUserMenu={showMobileUserMenu}
-            />
-
-      <MobileHeader
-        isDesktop={isDesktop}
-        isMobile={isMobile}
-        setMobileMenuOpen={setMobileMenuOpen}
-        userMenuOpen={userMenuOpen}
-        setUserMenuOpen={setUserMenuOpen}
-        userMenuHovered={userMenuHovered}
-        setUserMenuHovered={setUserMenuHovered}
-        handleSignOut={handleSignOut}
-        getUserMenuStyles={getUserMenuStyles}
-        showMobileUserMenu={showMobileUserMenu}
       />
 
       {/* Main Content */}
@@ -2648,8 +2634,8 @@ export default function Dashboard() {
           paddingTop: isDesktop ? "120px" : "96px",
         }}
       >
-                {/* Mobile/Tablet Header Bar - Using MobileHeader component now */}
-        {/* <div
+        {/* Mobile/Tablet Header Bar */}
+        <div
           className="w-full fixed top-0 left-0 right-0 z-30"
           style={{
             display: isDesktop ? "none" : "flex",
