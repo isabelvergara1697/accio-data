@@ -2646,46 +2646,7 @@ export default function Dashboard() {
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
           showMobileUserMenu={showMobileUserMenu}
-        />
-          {/* Logo */}
-          <div
-            style={{
-              display: "flex",
-              width: "139px",
-              alignItems: "flex-start",
-            }}
-          >
-            <div
-              style={{
-                width: "139px",
-                height: "32px",
-                flexShrink: 0,
-                position: "relative",
-              }}
-            >
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/876fe16651091c38ad5eb9e1c4c54f44055b43e1?width=274"
-                style={{
-                  width: "137px",
-                  height: "24px",
-                  flexShrink: 0,
-                  position: "absolute",
-                  left: "1px",
-                  top: "4px",
-                }}
-                alt="Union"
-              />
-            </div>
-          </div>
-
-          {/* Content */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: isMobile ? "8px" : "12px",
-            }}
-          >
+                />
             {/* Quick Create Button */}
             <div style={{ display: "flex", alignItems: "flex-start" }}>
               <button
