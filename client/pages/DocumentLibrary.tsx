@@ -169,7 +169,7 @@ const documentLibraryStyles = `
     }
   }
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     .tablet-layout {
       flex-direction: column !important;
       gap: 20px !important;
@@ -389,7 +389,7 @@ export default function DocumentLibrary() {
             gap: isMobile ? "16px" : "32px",
           }}
         >
-                    {/* Page Header */}
+          {/* Page Header */}
           <div
             style={{
               display: "flex",
@@ -416,6 +416,7 @@ export default function DocumentLibrary() {
                 flexWrap: isMobile ? "nowrap" : isDesktop ? "wrap" : "nowrap",
               }}
             >
+              {/* Title and Subtitle Section */}
               <div
                 className={
                   !isDesktop && !isMobile ? "tablet-title-section" : ""
@@ -476,368 +477,446 @@ export default function DocumentLibrary() {
                     screenings, compliance, and account setup.
                   </span>
                 </div>
-                            </div>
+              </div>
+
+              {/* Buttons and Search Section - Tablet Layout */}
               {!isDesktop && !isMobile ? (
                 <div className="tablet-buttons-container">
                   <div className="tablet-filter-buttons">
-                <div
-                  className="secondary-button"
-                  style={{
-                    display: "flex",
-                    minHeight: "32px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: "1px solid #D5D7DA",
-                    background: "#FFF",
-                    boxShadow:
-                      "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                    flex: isMobile ? "1 0 0" : "unset",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "0px 2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
                     <div
+                      className="secondary-button"
                       style={{
-                        color: "#414651",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        lineHeight: "20px",
+                        display: "flex",
+                        minHeight: "32px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                       }}
                     >
-                      <span
+                      <div
                         style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 600,
-                          fontSize: "14px",
-                          color: "rgba(65,70,81,1)",
+                          display: "flex",
+                          padding: "0px 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
                         }}
                       >
-                        Most Recent
-                      </span>
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 600,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Most Recent
+                          </span>
+                        </div>
+                      </div>
+                      <svg
+                        style={{ width: "16px", height: "16px" }}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 6L8 10L12 6"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </div>
-                  </div>
-                  <svg
-                    style={{ width: "16px", height: "16px" }}
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 6L8 10L12 6"
-                      stroke="#A4A7AE"
-                      strokeWidth="1.66667"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <div
-                  className="secondary-button"
-                  style={{
-                    display: "flex",
-                    minHeight: "32px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: "1px solid #D5D7DA",
-                    background: "#FFF",
-                    boxShadow:
-                      "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                    flex: isMobile ? "1 0 0" : "unset",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "0px 2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
                     <div
+                      className="secondary-button"
                       style={{
-                        color: "#414651",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        lineHeight: "20px",
+                        display: "flex",
+                        minHeight: "32px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                       }}
                     >
-                      <span
+                      <div
                         style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 600,
-                          fontSize: "14px",
-                          color: "rgba(65,70,81,1)",
+                          display: "flex",
+                          padding: "0px 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
                         }}
                       >
-                        All Files
-                      </span>
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 600,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            All Files
+                          </span>
+                        </div>
+                      </div>
+                      <svg
+                        style={{ width: "16px", height: "16px" }}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 6L8 10L12 6"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </div>
                   </div>
-                  <svg
-                    style={{ width: "16px", height: "16px" }}
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 6L8 10L12 6"
-                      stroke="#A4A7AE"
-                      strokeWidth="1.66667"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                                  </div>
                   <div className="tablet-search">
-                <div
-                  className="search-input"
-                  style={{
-                    display: "flex",
-                    padding: "6px 8px",
-                    alignItems: "center",
-                    gap: "8px",
-                    alignSelf: "stretch",
-                    borderRadius: "8px",
-                    border: "1px solid #D5D7DA",
-                    background: "#FFF",
-                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                  }}
-                >
+                    <div
+                      className="search-input"
+                      style={{
+                        display: "flex",
+                        padding: "6px 8px",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <svg
+                          style={{ width: "16px", height: "16px" }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "20px",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            flex: "1 0 0",
+                            overflow: "hidden",
+                            color: "#717680",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 400,
+                              fontSize: "14px",
+                              color: "rgba(113,118,128,1)",
+                            }}
+                          >
+                            Guide
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {/* Buttons Section - Desktop/Mobile Layout */}
                   <div
+                    className={isMobile ? "mobile-buttons" : ""}
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "8px",
+                      gap: "12px",
+                      justifyContent: isMobile ? "space-between" : "flex-start",
+                      flex: isMobile ? "1 0 0" : "none",
+                    }}
+                  >
+                    <div
+                      className="secondary-button"
+                      style={{
+                        display: "flex",
+                        minHeight: "32px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                        flex: isMobile ? "1 0 0" : "unset",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0px 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 600,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Most Recent
+                          </span>
+                        </div>
+                      </div>
+                      <svg
+                        style={{ width: "16px", height: "16px" }}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 6L8 10L12 6"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      className="secondary-button"
+                      style={{
+                        display: "flex",
+                        minHeight: "32px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                        flex: isMobile ? "1 0 0" : "unset",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0px 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 600,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            All Files
+                          </span>
+                        </div>
+                      </div>
+                      <svg
+                        style={{ width: "16px", height: "16px" }}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 6L8 10L12 6"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Search Section - Desktop/Mobile Layout */}
+                  <div
+                    style={{
+                      display: "flex",
+                      minWidth: "200px",
+                      maxWidth: "320px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "6px",
                       flex: "1 0 0",
                     }}
                   >
-                    <svg
-                      style={{ width: "16px", height: "16px" }}
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
                     <div
+                      className="search-input"
                       style={{
                         display: "flex",
-                        height: "20px",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        flex: "1 0 0",
-                        overflow: "hidden",
-                        color: "#717680",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "20px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "14px",
-                          color: "rgba(113,118,128,1)",
-                        }}
-                      >
-                        Guide
-                      </span>
-                    </div>
-                  </div>
-                                  </div>
-                </div>
-              ) : (
-                <div
-                  className={
-                    isMobile ? "mobile-buttons" : ""
-                  }
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    justifyContent: isMobile ? "space-between" : "flex-start",
-                    flex: isMobile ? "1 0 0" : "none",
-                  }}
-                >
-                  <div
-                    className="secondary-button"
-                    style={{
-                      display: "flex",
-                      minHeight: "32px",
-                      padding: "6px 8px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow:
-                        "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                      flex: isMobile ? "1 0 0" : "unset",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        padding: "0px 2px",
-                        justifyContent: "center",
+                        padding: "6px 8px",
                         alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                       }}
                     >
                       <div
                         style={{
-                          color: "#414651",
-                          fontFamily: "'Public Sans'",
-                          fontSize: "14px",
-                          fontStyle: "normal",
-                          fontWeight: 600,
-                          lineHeight: "20px",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          flex: "1 0 0",
                         }}
                       >
-                        <span
+                        <svg
+                          style={{ width: "16px", height: "16px" }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <div
                           style={{
-                            fontFamily:
-                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                            fontWeight: 600,
+                            display: "flex",
+                            height: "20px",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            flex: "1 0 0",
+                            overflow: "hidden",
+                            color: "#717680",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                            fontFamily: "'Public Sans'",
                             fontSize: "14px",
-                            color: "rgba(65,70,81,1)",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "20px",
                           }}
                         >
-                          Most Recent
-                        </span>
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 400,
+                              fontSize: "14px",
+                              color: "rgba(113,118,128,1)",
+                            }}
+                          >
+                            Guide
+                          </span>
+                        </div>
                       </div>
                     </div>
-                    <svg
-                      style={{ width: "16px", height: "16px" }}
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 6L8 10L12 6"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
                   </div>
-                  <div
-                    className="secondary-button"
-                    style={{
-                      display: "flex",
-                      minHeight: "32px",
-                      padding: "6px 8px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow:
-                        "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                      flex: isMobile ? "1 0 0" : "unset",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        padding: "0px 2px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "'Public Sans'",
-                          fontSize: "14px",
-                          fontStyle: "normal",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontFamily:
-                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                            fontWeight: 600,
-                            fontSize: "14px",
-                            color: "rgba(65,70,81,1)",
-                          }}
-                        >
-                          All Files
-                        </span>
-                      </div>
-                    </div>
-                    <svg
-                      style={{ width: "16px", height: "16px" }}
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 6L8 10L12 6"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
+                </>
               )}
-              <div
-                style={{
-                  display: "flex",
-                  minWidth: "200px",
-                  maxWidth: "320px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "6px",
-                  flex: "1 0 0",
-                }}
-              >
+            </div>
+          </div>
 
           {/* Document Sections */}
           <div
