@@ -5041,7 +5041,7 @@ export default function Dashboard() {
             position: "relative",
           }}
         >
-          <div
+                    <div
             style={{
               display: "flex",
               padding: isMobile ? "0px 16px" : "0px 32px",
@@ -5052,6 +5052,17 @@ export default function Dashboard() {
               position: "relative",
             }}
           >
+            {/* Widget Container - Half width on desktop */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                width: isMobile ? "100%" : isDesktop ? "50%" : "100%",
+                position: "relative",
+              }}
+            >
             {/* Widget Header */}
             <div
               style={{
