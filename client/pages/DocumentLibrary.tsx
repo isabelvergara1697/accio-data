@@ -798,8 +798,9 @@ export default function DocumentLibrary() {
                           style={{
                             display: "flex",
                             padding: "0px 2px",
-                            justifyContent: "center",
+                            justifyContent: "flex-start",
                             alignItems: "center",
+                            width: "100%",
                           }}
                         >
                           <div
