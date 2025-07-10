@@ -157,6 +157,50 @@ const documentLibraryStyles = `
     background: #F5F5F5 !important;
   }
 
+          /* Dropdown styles */
+  .dropdown-container {
+    position: relative;
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: #FFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04);
+    margin-top: 4px;
+  }
+  .dropdown-item {
+    display: flex;
+    padding: 8px 10px;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    border-radius: 6px;
+    margin: 1px 6px;
+    font-family: 'Public Sans';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #414651;
+  }
+  .dropdown-item:hover {
+    background: #E9EAEB;
+    color: #252B37;
+  }
+  .dropdown-item.selected {
+    background: #E9EAEB;
+    color: #252B37;
+  }
+  .dropdown-menu-container {
+    padding: 4px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
         /* Responsive layout utilities */
     @media (max-width: 767px) {
     .mobile-stack {
@@ -270,6 +314,10 @@ export default function DocumentLibrary() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
+  const [fileTypeDropdownOpen, setFileTypeDropdownOpen] = useState(false);
+  const [selectedSortOption, setSelectedSortOption] = useState("Most Recent");
+  const [selectedFileType, setSelectedFileType] = useState("All Files");
 
   // Handle window resize for responsive behavior
   useEffect(() => {
@@ -283,23 +331,27 @@ export default function DocumentLibrary() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Close user menu when clicking outside
+  // Close user menu and dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
       if (userMenuOpen && !target.closest("[data-user-menu]")) {
         setUserMenuOpen(false);
       }
+      if (sortDropdownOpen && !target.closest("[data-sort-dropdown]")) {
+        setSortDropdownOpen(false);
+      }
+      if (fileTypeDropdownOpen && !target.closest("[data-filetype-dropdown]")) {
+        setFileTypeDropdownOpen(false);
+      }
     };
 
-    if (userMenuOpen) {
-      document.addEventListener("click", handleClickOutside, true);
-    }
+    document.addEventListener("click", handleClickOutside, true);
 
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
     };
-  }, [userMenuOpen]);
+  }, [userMenuOpen, sortDropdownOpen, fileTypeDropdownOpen]);
 
   const toggleAccordion = (accordionId: string) => {
     setOpenAccordions((prev) =>
@@ -349,6 +401,26 @@ export default function DocumentLibrary() {
 
   const handleSignOut = () => {
     navigate("/login");
+  };
+
+  const handleSortOptionSelect = (option: string) => {
+    setSelectedSortOption(option);
+    setSortDropdownOpen(false);
+  };
+
+  const handleFileTypeSelect = (type: string) => {
+    setSelectedFileType(type);
+    setFileTypeDropdownOpen(false);
+  };
+
+  const toggleSortDropdown = () => {
+    setSortDropdownOpen(!sortDropdownOpen);
+    setFileTypeDropdownOpen(false);
+  };
+
+  const toggleFileTypeDropdown = () => {
+    setFileTypeDropdownOpen(!fileTypeDropdownOpen);
+    setSortDropdownOpen(false);
   };
 
   return (
@@ -547,133 +619,203 @@ export default function DocumentLibrary() {
               {!isDesktop && !isMobile ? (
                 <div className="tablet-buttons-container">
                   <div className="tablet-filter-buttons">
-                    <div
-                      className="secondary-button"
-                      style={{
-                        display: "flex",
-                        minHeight: "32px",
-                        padding: "6px 8px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "4px",
-                        borderRadius: "8px",
-                        border: "1px solid #D5D7DA",
-                        background: "#FFF",
-                        boxShadow:
-                          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                      }}
-                    >
+                    <div className="dropdown-container" data-sort-dropdown>
                       <div
+                        className="secondary-button"
                         style={{
                           display: "flex",
-                          padding: "0px 2px",
+                          minHeight: "32px",
+                          padding: "6px 8px",
                           justifyContent: "center",
                           alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                         }}
+                        onClick={toggleSortDropdown}
                       >
                         <div
                           style={{
-                            color: "#414651",
-                            fontFamily: "'Public Sans'",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            lineHeight: "20px",
+                            display: "flex",
+                            padding: "0px 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
                           }}
                         >
-                          <span
+                          <div
                             style={{
-                              fontFamily:
-                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                              fontWeight: 600,
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
                               fontSize: "14px",
-                              color: "rgba(65,70,81,1)",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
                             }}
                           >
-                            Most Recent
-                          </span>
+                            <span
+                              style={{
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontWeight: 600,
+                                fontSize: "14px",
+                                color: "rgba(65,70,81,1)",
+                              }}
+                            >
+                              {selectedSortOption}
+                            </span>
+                          </div>
                         </div>
+                        <svg
+                          style={{ width: "16px", height: "16px" }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 6L8 10L12 6"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </div>
-                      <svg
-                        style={{ width: "16px", height: "16px" }}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 6L8 10L12 6"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                      {sortDropdownOpen && (
+                        <div className="dropdown-menu">
+                          <div className="dropdown-menu-container">
+                            <div
+                              className={`dropdown-item ${selectedSortOption === "A-Z" ? "selected" : ""}`}
+                              onClick={() => handleSortOptionSelect("A-Z")}
+                            >
+                              A-Z
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedSortOption === "Most Recent" ? "selected" : ""}`}
+                              onClick={() =>
+                                handleSortOptionSelect("Most Recent")
+                              }
+                            >
+                              Most Recent
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedSortOption === "Most Viewed" ? "selected" : ""}`}
+                              onClick={() =>
+                                handleSortOptionSelect("Most Viewed")
+                              }
+                            >
+                              Most Viewed
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    <div
-                      className="secondary-button"
-                      style={{
-                        display: "flex",
-                        minHeight: "32px",
-                        padding: "6px 8px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "4px",
-                        borderRadius: "8px",
-                        border: "1px solid #D5D7DA",
-                        background: "#FFF",
-                        boxShadow:
-                          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                      }}
-                    >
+                    <div className="dropdown-container" data-filetype-dropdown>
                       <div
+                        className="secondary-button"
                         style={{
                           display: "flex",
-                          padding: "0px 2px",
+                          minHeight: "32px",
+                          padding: "6px 8px",
                           justifyContent: "center",
                           alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                         }}
+                        onClick={toggleFileTypeDropdown}
                       >
                         <div
                           style={{
-                            color: "#414651",
-                            fontFamily: "'Public Sans'",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            lineHeight: "20px",
+                            display: "flex",
+                            padding: "0px 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
                           }}
                         >
-                          <span
+                          <div
                             style={{
-                              fontFamily:
-                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                              fontWeight: 600,
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
                               fontSize: "14px",
-                              color: "rgba(65,70,81,1)",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
                             }}
                           >
-                            All Files
-                          </span>
+                            <span
+                              style={{
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontWeight: 600,
+                                fontSize: "14px",
+                                color: "rgba(65,70,81,1)",
+                              }}
+                            >
+                              {selectedFileType}
+                            </span>
+                          </div>
                         </div>
+                        <svg
+                          style={{ width: "16px", height: "16px" }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 6L8 10L12 6"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </div>
-                      <svg
-                        style={{ width: "16px", height: "16px" }}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 6L8 10L12 6"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                      {fileTypeDropdownOpen && (
+                        <div className="dropdown-menu">
+                          <div className="dropdown-menu-container">
+                            <div
+                              className={`dropdown-item ${selectedFileType === "All Files" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("All Files")}
+                            >
+                              All Files
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedFileType === "PDF" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("PDF")}
+                            >
+                              PDF
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedFileType === "Videos" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("Videos")}
+                            >
+                              Videos
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedFileType === "Docs" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("Docs")}
+                            >
+                              Docs
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedFileType === "PPT" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("PPT")}
+                            >
+                              PPT
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="tablet-search">
@@ -763,138 +905,216 @@ export default function DocumentLibrary() {
                     }}
                   >
                     <div
-                      className={`secondary-button ${isMobile ? "mobile-button" : ""}`}
-                      style={{
-                        display: "flex",
-                        minHeight: "32px",
-                        padding: "6px 8px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "4px",
-                        borderRadius: "8px",
-                        border: "1px solid #D5D7DA",
-                        background: "#FFF",
-                        boxShadow:
-                          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                        flex: isMobile ? "1 0 0" : "unset",
-                      }}
+                      className="dropdown-container"
+                      data-sort-dropdown
+                      style={{ flex: isMobile ? "1 0 0" : "auto" }}
                     >
                       <div
-                        className={isMobile ? "mobile-button-content" : ""}
+                        className={`secondary-button ${isMobile ? "mobile-button" : ""}`}
                         style={{
                           display: "flex",
-                          padding: "0px 2px",
+                          minHeight: "32px",
+                          padding: "6px 8px",
                           justifyContent: "center",
                           alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                          flex: isMobile ? "1 0 0" : "unset",
                         }}
+                        onClick={toggleSortDropdown}
                       >
                         <div
-                          className={isMobile ? "mobile-button-text" : ""}
+                          className={isMobile ? "mobile-button-content" : ""}
                           style={{
-                            color: "#414651",
-                            fontFamily: "'Public Sans'",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            lineHeight: "20px",
+                            display: "flex",
+                            padding: "0px 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
                           }}
                         >
-                          <span
+                          <div
+                            className={isMobile ? "mobile-button-text" : ""}
                             style={{
-                              fontFamily:
-                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                              fontWeight: 600,
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
                               fontSize: "14px",
-                              color: "rgba(65,70,81,1)",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
                             }}
                           >
-                            Most Recent
-                          </span>
+                            <span
+                              style={{
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontWeight: 600,
+                                fontSize: "14px",
+                                color: "rgba(65,70,81,1)",
+                              }}
+                            >
+                              {selectedSortOption}
+                            </span>
+                          </div>
                         </div>
+                        <svg
+                          style={{ width: "16px", height: "16px" }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 6L8 10L12 6"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </div>
-                      <svg
-                        style={{ width: "16px", height: "16px" }}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 6L8 10L12 6"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                      {sortDropdownOpen && (
+                        <div className="dropdown-menu">
+                          <div className="dropdown-menu-container">
+                            <div
+                              className={`dropdown-item ${selectedSortOption === "A-Z" ? "selected" : ""}`}
+                              onClick={() => handleSortOptionSelect("A-Z")}
+                            >
+                              A-Z
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedSortOption === "Most Recent" ? "selected" : ""}`}
+                              onClick={() =>
+                                handleSortOptionSelect("Most Recent")
+                              }
+                            >
+                              Most Recent
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedSortOption === "Most Viewed" ? "selected" : ""}`}
+                              onClick={() =>
+                                handleSortOptionSelect("Most Viewed")
+                              }
+                            >
+                              Most Viewed
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                     <div
-                      className={`secondary-button ${isMobile ? "mobile-button" : ""}`}
-                      style={{
-                        display: "flex",
-                        minHeight: "32px",
-                        padding: "6px 8px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "4px",
-                        borderRadius: "8px",
-                        border: "1px solid #D5D7DA",
-                        background: "#FFF",
-                        boxShadow:
-                          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                        flex: isMobile ? "1 0 0" : "unset",
-                      }}
+                      className="dropdown-container"
+                      data-filetype-dropdown
+                      style={{ flex: isMobile ? "1 0 0" : "auto" }}
                     >
                       <div
-                        className={isMobile ? "mobile-button-content" : ""}
+                        className={`secondary-button ${isMobile ? "mobile-button" : ""}`}
                         style={{
                           display: "flex",
-                          padding: "0px 2px",
+                          minHeight: "32px",
+                          padding: "6px 8px",
                           justifyContent: "center",
                           alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                          flex: isMobile ? "1 0 0" : "unset",
                         }}
+                        onClick={toggleFileTypeDropdown}
                       >
                         <div
-                          className={isMobile ? "mobile-button-text" : ""}
+                          className={isMobile ? "mobile-button-content" : ""}
                           style={{
-                            color: "#414651",
-                            fontFamily: "'Public Sans'",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            lineHeight: "20px",
+                            display: "flex",
+                            padding: "0px 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
                           }}
                         >
-                          <span
+                          <div
+                            className={isMobile ? "mobile-button-text" : ""}
                             style={{
-                              fontFamily:
-                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                              fontWeight: 600,
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
                               fontSize: "14px",
-                              color: "rgba(65,70,81,1)",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
                             }}
                           >
-                            All Files
-                          </span>
+                            <span
+                              style={{
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontWeight: 600,
+                                fontSize: "14px",
+                                color: "rgba(65,70,81,1)",
+                              }}
+                            >
+                              {selectedFileType}
+                            </span>
+                          </div>
                         </div>
+                        <svg
+                          style={{ width: "16px", height: "16px" }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 6L8 10L12 6"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </div>
-                      <svg
-                        style={{ width: "16px", height: "16px" }}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 6L8 10L12 6"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                      {fileTypeDropdownOpen && (
+                        <div className="dropdown-menu">
+                          <div className="dropdown-menu-container">
+                            <div
+                              className={`dropdown-item ${selectedFileType === "All Files" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("All Files")}
+                            >
+                              All Files
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedFileType === "PDF" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("PDF")}
+                            >
+                              PDF
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedFileType === "Videos" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("Videos")}
+                            >
+                              Videos
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedFileType === "Docs" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("Docs")}
+                            >
+                              Docs
+                            </div>
+                            <div
+                              className={`dropdown-item ${selectedFileType === "PPT" ? "selected" : ""}`}
+                              onClick={() => handleFileTypeSelect("PPT")}
+                            >
+                              PPT
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
 
