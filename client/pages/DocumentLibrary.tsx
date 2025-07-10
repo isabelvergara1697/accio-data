@@ -252,8 +252,16 @@ export default function DocumentLibrary() {
     </div>
   );
 
-  return (
-    <div className="flex w-full min-h-screen bg-[#FAFAFA]">
+    return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: documentLibraryStyles }} />
+      <div
+        className="flex w-full min-h-screen bg-[#FAFAFA]"
+        style={{
+          marginLeft: isDesktop ? "296px" : "0",
+          paddingTop: isDesktop ? "80px" : "0",
+        }}
+      >
       {/* Sidebar */}
       <div
         className={`${isMobile ? (mobileMenuOpen ? "w-72" : "w-0 overflow-hidden") : "w-[296px]"} transition-all duration-300 flex-shrink-0`}
