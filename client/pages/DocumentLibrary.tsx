@@ -15,14 +15,14 @@ const documentSections = [
     documents: [
       {
         id: "1",
-        name: "Quick Start                             Find documents or categories",
+        name: "Quick Start Guide",
         size: "200 KB",
         type: "PDF",
       },
       { id: "2", name: "Web Demo", size: "200 KB", type: "PDF" },
       {
         id: "3",
-        name: "User                             Find documents or categories",
+        name: "User Manual",
         size: "200 KB",
         type: "PDF",
       },
@@ -101,7 +101,7 @@ const documentSections = [
       },
       {
         id: "18",
-        name: "Security Clearance                             Find documents or categorieslines",
+        name: "Security Clearance Guidelines",
         size: "200 KB",
         type: "PDF",
       },
@@ -114,7 +114,7 @@ const documentSections = [
       },
       {
         id: "21",
-        name: "Compliance Assessment                             Find documents or categories",
+        name: "Compliance Assessment Guide",
         size: "200 KB",
         type: "PDF",
       },
