@@ -5015,6 +5015,408 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+
+        {/* Latest Reports Widget */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "20px",
+            alignSelf: "stretch",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              padding: isMobile ? "0px 16px" : "0px 32px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "16px",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            {/* Widget Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "24px",
+                  fontWeight: 700,
+                  lineHeight: "32px",
+                  letterSpacing: "-0.02em",
+                  position: "relative",
+                }}
+              >
+                Latest Reports
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  position: "relative",
+                }}
+              >
+                <button
+                  className="secondary-button"
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "4px",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                  }}
+                >
+                  See All
+                </button>
+                <button
+                  style={{
+                    display: "flex",
+                    padding: "8px",
+                    alignItems: "center",
+                    borderRadius: "6px",
+                    border: "none",
+                    background: "transparent",
+                    cursor: "pointer",
+                  }}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 5.83337V10.8334M10 15.8334H10.0083M18.3333 10.0001C18.3333 14.6025 14.6024 18.3334 10 18.3334C5.39763 18.3334 1.66667 14.6025 1.66667 10.0001C1.66667 5.39771 5.39763 1.66675 10 1.66675C14.6024 1.66675 18.3333 5.39771 18.3333 10.0001Z"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Widget Table */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
+                background: "#FFF",
+                boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                overflow: "hidden",
+                position: "relative",
+              }}
+            >
+              {/* Table Header - Hidden on mobile */}
+              <div
+                style={{
+                  display: isMobile ? "none" : "grid",
+                  gridTemplateColumns: "2fr 1fr 1.5fr 1fr",
+                  gap: "16px",
+                  padding: "12px 16px",
+                  alignSelf: "stretch",
+                  background: "#F8F9FA",
+                  borderBottom: "1px solid #E9EAEB",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    lineHeight: "18px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  Order
+                </div>
+                <div
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    lineHeight: "18px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  Status
+                </div>
+                <div
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    lineHeight: "18px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  Requester
+                </div>
+                <div
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    lineHeight: "18px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                  }}
+                >
+                  Progress
+                </div>
+              </div>
+
+              {/* Table Rows */}
+              {[
+                {
+                  id: "ORD-2024-001",
+                  name: "Background Check - John Smith",
+                  status: "Completed",
+                  statusType: "completed",
+                  requester: "Sarah Wilson",
+                  progress: 100,
+                },
+                {
+                  id: "ORD-2024-002",
+                  name: "Drug Test - Emily Johnson",
+                  status: "Pending",
+                  statusType: "pending",
+                  requester: "Mike Chen",
+                  progress: 75,
+                },
+                {
+                  id: "ORD-2024-003",
+                  name: "Reference Check - David Brown",
+                  status: "Updated",
+                  statusType: "updated",
+                  requester: "Lisa Parker",
+                  progress: 60,
+                },
+                {
+                  id: "ORD-2024-004",
+                  name: "Credit Report - Anna Davis",
+                  status: "Reviewed",
+                  statusType: "reviewed",
+                  requester: "Tom Anderson",
+                  progress: 90,
+                },
+                {
+                  id: "ORD-2024-005",
+                  name: "Employment Verification - Mark Lee",
+                  status: "Archived",
+                  statusType: "archived",
+                  requester: "Jessica White",
+                  progress: 100,
+                },
+              ].map((report, index) => (
+                <div
+                  key={report.id}
+                  className="widget-row"
+                  style={{
+                    display: isMobile ? "flex" : "grid",
+                    gridTemplateColumns: isMobile
+                      ? "none"
+                      : "2fr 1fr 1.5fr 1fr",
+                    flexDirection: isMobile ? "column" : "row",
+                    gap: isMobile ? "8px" : "16px",
+                    padding: "16px",
+                    alignSelf: "stretch",
+                    borderBottom: index < 4 ? "1px solid #F2F4F7" : "none",
+                    position: "relative",
+                  }}
+                >
+                  {/* Order Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "2px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      {report.name}
+                    </div>
+                    <div
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      {report.id}
+                    </div>
+                  </div>
+
+                  {/* Status Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: isMobile ? "flex-start" : "center",
+                      position: "relative",
+                    }}
+                  >
+                    {isMobile && (
+                      <span
+                        style={{
+                          color: "#535862",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          marginRight: "8px",
+                        }}
+                      >
+                        Status:
+                      </span>
+                    )}
+                    <span
+                      className={`status-badge status-${report.statusType}`}
+                    >
+                      {report.status}
+                    </span>
+                  </div>
+
+                  {/* Requester Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: isMobile ? "flex-start" : "center",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    {isMobile && (
+                      <span
+                        style={{
+                          color: "#535862",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          marginRight: "8px",
+                        }}
+                      >
+                        Requester:
+                      </span>
+                    )}
+                    {report.requester}
+                  </div>
+
+                  {/* Progress Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: isMobile ? "row" : "column",
+                      alignItems: isMobile ? "center" : "flex-start",
+                      gap: isMobile ? "8px" : "4px",
+                      position: "relative",
+                    }}
+                  >
+                    {isMobile && (
+                      <span
+                        style={{
+                          color: "#535862",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                        }}
+                      >
+                        Progress:
+                      </span>
+                    )}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        width: "100%",
+                      }}
+                    >
+                      <div
+                        style={{
+                          flex: "1 0 0",
+                          height: "6px",
+                          borderRadius: "3px",
+                          background: "#E9EAEB",
+                          position: "relative",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: `${report.progress}%`,
+                            height: "100%",
+                            background:
+                              report.progress === 100
+                                ? "#17B26A"
+                                : report.progress >= 75
+                                  ? "#F79009"
+                                  : "#344698",
+                            borderRadius: "3px",
+                            transition: "width 0.3s ease",
+                          }}
+                        />
+                      </div>
+                      <span
+                        style={{
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "12px",
+                          fontWeight: 500,
+                          lineHeight: "18px",
+                          minWidth: "32px",
+                        }}
+                      >
+                        {report.progress}%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );
