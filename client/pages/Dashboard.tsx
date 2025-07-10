@@ -387,9 +387,7 @@ export default function Dashboard() {
                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 600,
                     fontSize: "14px",
-                    color: isActive
-                      ? "var(--colors-text-text-primary-900, #181D27)"
-                      : "rgba(65,70,81,1)",
+                    color: isActive ? "#273572" : "rgba(65,70,81,1)",
                   }}
                 >
                   {label}
