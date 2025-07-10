@@ -1041,6 +1041,7 @@ export default function DocumentLibrary() {
                       gap: "12px",
                       justifyContent: isMobile ? "space-between" : "flex-start",
                       flex: isMobile ? "1 0 0" : "none",
+                      border: isMobile ? "2px solid red" : "none", // DEBUG: Remove this later
                     }}
                   >
                     <div
