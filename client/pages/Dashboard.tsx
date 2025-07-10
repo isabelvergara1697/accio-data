@@ -552,9 +552,13 @@ export default function Dashboard() {
         }`}
         style={{
           display: "flex",
-          width: "296px",
+          width: isDesktop ? "296px" : mobileMenuOpen ? "75%" : "296px",
           height: "100vh",
-          padding: "8px 0px 24px 8px",
+          padding: isDesktop
+            ? "8px 0px 24px 8px"
+            : mobileMenuOpen
+              ? "0px"
+              : "8px 0px 24px 8px",
           alignItems: "flex-start",
           flexShrink: 0,
           position: "fixed",
