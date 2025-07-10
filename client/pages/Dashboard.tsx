@@ -481,6 +481,14 @@ export default function Dashboard() {
                       )
                     }
                     onMouseLeave={() => setHoveredItem(null)}
+                    onClick={() => {
+                      if (
+                        section === "support" &&
+                        item === "Document Library"
+                      ) {
+                        navigate("/document-library");
+                      }
+                    }}
                   >
                     <div
                       style={{
