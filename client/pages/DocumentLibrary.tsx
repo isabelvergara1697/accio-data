@@ -171,8 +171,9 @@ const documentLibraryStyles = `
       gap: 2px !important;
       width: 100% !important;
     }
-    .mobile-buttons {
-      justify-content: space-between !important;
+        .mobile-buttons {
+      flex-direction: column !important;
+      justify-content: flex-start !important;
       gap: 12px !important;
       width: 100% !important;
     }
