@@ -4234,12 +4234,10 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                                    {/* Wavy Chart */}
+                  {/* Wavy Chart */}
                   <div
                     style={{
                       height: "56px",
-                      width: "100%",
-                      minWidth: 0,
                       flex: "1 0 0",
                       position: "relative",
                     }}
@@ -4429,7 +4427,7 @@ export default function Dashboard() {
                             position: "relative",
                           }}
                         >
-                                                    <svg
+                          <svg
                             style={{
                               width: "14px",
                               height: "14px",
@@ -4443,7 +4441,7 @@ export default function Dashboard() {
                           >
                             <path
                               d="M8.00033 3.33366V12.667M8.00033 12.667L12.667 8.00033M8.00033 12.667L3.33366 8.00033"
-                              stroke="#D92D20"
+                              stroke="#1E40AF"
                               strokeWidth="1.5"
                               strokeLinecap="round"
                               strokeLinejoin="round"
@@ -4451,7 +4449,7 @@ export default function Dashboard() {
                           </svg>
                           <div
                             style={{
-                              color: "#D92D20",
+                              color: "#1E40AF",
                               textAlign: "center",
                               fontFamily: "Public Sans",
                               fontSize: "14px",
@@ -4466,12 +4464,10 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                                    {/* Wavy Chart - Declining */}
+                  {/* Wavy Chart - Declining */}
                   <div
                     style={{
                       height: "56px",
-                      width: "100%",
-                      minWidth: 0,
                       flex: "1 0 0",
                       position: "relative",
                     }}
@@ -4696,12 +4692,10 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                                    {/* Wavy Chart - Moderate Growth */}
+                  {/* Wavy Chart - Moderate Growth */}
                   <div
                     style={{
                       height: "56px",
-                      width: "100%",
-                      minWidth: 0,
                       flex: "1 0 0",
                       position: "relative",
                     }}
@@ -4926,12 +4920,10 @@ export default function Dashboard() {
                       </div>
                     </div>
                   </div>
-                                    {/* Wavy Chart - Strong Growth */}
+                  {/* Wavy Chart - Strong Growth */}
                   <div
                     style={{
                       height: "56px",
-                      width: "100%",
-                      minWidth: 0,
                       flex: "1 0 0",
                       position: "relative",
                     }}
@@ -5030,7 +5022,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-                                {/* Latest Reports Widget */}
+        {/* Latest Reports Widget */}
         <div
           style={{
             display: "flex",
@@ -5052,17 +5044,6 @@ export default function Dashboard() {
               position: "relative",
             }}
           >
-            {/* Widget Container - Half width on desktop */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "16px",
-                width: isMobile ? "100%" : isDesktop ? "50%" : "100%",
-                position: "relative",
-              }}
-            >
             {/* Widget Header */}
             <div
               style={{
