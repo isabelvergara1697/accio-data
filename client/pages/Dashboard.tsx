@@ -985,12 +985,12 @@ export default function Dashboard() {
                         >
                           <svg
                             style={{
-                              width: "16px",
-                              height: "16px",
+                              width: "14px",
+                              height: "14px",
                               position: "relative",
                             }}
-                            width="16"
-                            height="16"
+                            width="14"
+                            height="14"
                             viewBox="0 0 16 16"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -1070,12 +1070,12 @@ export default function Dashboard() {
                         >
                           <svg
                             style={{
-                              width: "16px",
-                              height: "16px",
+                              width: "14px",
+                              height: "14px",
                               position: "relative",
                             }}
-                            width="16"
-                            height="16"
+                            width="14"
+                            height="14"
                             viewBox="0 0 16 16"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -4010,7 +4010,7 @@ export default function Dashboard() {
                             color: "rgba(65,70,81,1)",
                           }}
                         >
-                          Jan 10, 2025 �� Jan 16, 2025
+                          Jan 10, 2025 – Jan 16, 2025
                         </span>
                       </div>
                     </div>
@@ -4159,12 +4159,12 @@ export default function Dashboard() {
                         >
                           <svg
                             style={{
-                              width: "16px",
-                              height: "16px",
+                              width: "14px",
+                              height: "14px",
                               position: "relative",
                             }}
-                            width="16"
-                            height="16"
+                            width="14"
+                            height="14"
                             viewBox="0 0 16 16"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -4379,12 +4379,12 @@ export default function Dashboard() {
                         >
                           <svg
                             style={{
-                              width: "16px",
-                              height: "16px",
+                              width: "14px",
+                              height: "14px",
                               position: "relative",
                             }}
-                            width="16"
-                            height="16"
+                            width="14"
+                            height="14"
                             viewBox="0 0 16 16"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -4599,12 +4599,12 @@ export default function Dashboard() {
                         >
                           <svg
                             style={{
-                              width: "16px",
-                              height: "16px",
+                              width: "14px",
+                              height: "14px",
                               position: "relative",
                             }}
-                            width="16"
-                            height="16"
+                            width="14"
+                            height="14"
                             viewBox="0 0 16 16"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -4819,12 +4819,12 @@ export default function Dashboard() {
                         >
                           <svg
                             style={{
-                              width: "16px",
-                              height: "16px",
+                              width: "14px",
+                              height: "14px",
                               position: "relative",
                             }}
-                            width="16"
-                            height="16"
+                            width="14"
+                            height="14"
                             viewBox="0 0 16 16"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
