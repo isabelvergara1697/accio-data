@@ -889,10 +889,8 @@ export default function Dashboard() {
           gap: "32px",
           paddingBottom: "24px",
           position: "relative",
-        }}
-        style={{
           marginLeft: isDesktop ? "296px" : "0",
-          paddingTop: isDesktop ? "0" : "64px",
+          paddingTop: isDesktop ? "32px" : "96px",
         }}
       >
         {/* Mobile/Tablet Header Bar */}
