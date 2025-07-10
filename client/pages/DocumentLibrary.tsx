@@ -984,6 +984,7 @@ export default function DocumentLibrary() {
                               }}
                             >
                               <button
+                                className="action-button"
                                 style={{
                                   display: "flex",
                                   padding: "6px",
