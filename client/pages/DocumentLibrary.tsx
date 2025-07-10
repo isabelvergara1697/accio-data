@@ -884,6 +884,7 @@ export default function DocumentLibrary() {
                         {section.documents.map((doc) => (
                           <div
                             key={doc.id}
+                            className="document-card"
                             style={{
                               display: "flex",
                               height: "92px",
@@ -894,13 +895,6 @@ export default function DocumentLibrary() {
                               border: "1px solid #E9EAEB",
                               background: "#FFF",
                               cursor: "pointer",
-                              transition: "background-color 0.2s ease",
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.background = "#F5F5F5";
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.background = "#FFF";
                             }}
                           >
                             <div
