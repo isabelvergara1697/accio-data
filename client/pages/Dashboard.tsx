@@ -2574,13 +2574,11 @@ export default function Dashboard() {
             top: 0,
             left: "296px",
             right: 0,
-            height: "72px",
+            height: "80px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "16px 32px",
-            background: "#FFF",
-            borderBottom: "1px solid #E9EAEB",
+            padding: "20px 32px",
             zIndex: 20,
           }}
         >
@@ -2591,11 +2589,11 @@ export default function Dashboard() {
               alignItems: "center",
               gap: "8px",
               flex: "1 0 0",
-              maxWidth: "480px",
+              maxWidth: "400px",
               borderRadius: "8px",
               border: "1px solid #D5D7DA",
               background: "#FFF",
-              padding: "8px 12px",
+              padding: "10px 12px",
               boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
             }}
           >
@@ -2663,6 +2661,7 @@ export default function Dashboard() {
               display: "flex",
               alignItems: "center",
               gap: "16px",
+              marginLeft: "32px",
             }}
           >
             {/* Quick Create Button */}
@@ -3299,7 +3298,7 @@ export default function Dashboard() {
           paddingBottom: "24px",
           position: "relative",
           marginLeft: isDesktop ? "296px" : "0",
-          paddingTop: isDesktop ? "72px" : "96px",
+          paddingTop: isDesktop ? "120px" : "96px",
         }}
       >
         {/* Mobile/Tablet Header Bar */}
