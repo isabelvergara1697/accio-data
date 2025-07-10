@@ -1168,7 +1168,10 @@ export default function DocumentLibrary() {
                     <div
                       className="dropdown-container"
                       data-filetype-dropdown
-                      style={{ flex: isMobile ? "1 0 0" : "auto" }}
+                      style={{
+                        flex: isMobile ? "none" : "auto",
+                        width: isMobile ? "100%" : "auto",
+                      }}
                     >
                       <div
                         className={`secondary-button ${isMobile ? "mobile-button" : "filter-button"}`}
