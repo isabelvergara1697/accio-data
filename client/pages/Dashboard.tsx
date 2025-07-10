@@ -4077,7 +4077,7 @@ export default function Dashboard() {
             {/* Section Title */}
             <div
               style={{
-                color: "rgba(65, 70, 81, 1)",
+                                color: "rgba(65, 70, 81, 1)",
                 fontFamily: "Public Sans",
                 fontSize: "16px",
                 fontWeight: 600,
@@ -4089,20 +4089,27 @@ export default function Dashboard() {
               Quick Overview
             </div>
 
-            {/* Metric Cards Grid */}
+                        {/* Metric Cards Grid */}
             <div
               style={{
-                display: "grid",
-                gridTemplateColumns: isMobile
-                  ? "1fr"
-                  : isDesktop
-                    ? "repeat(4, 1fr)"
-                    : "repeat(2, 1fr)",
-                gap: isMobile ? "16px" : "24px",
+                display: "flex",
+                flexDirection: "column",
                 alignSelf: "stretch",
+                gap: "24px",
                 position: "relative",
               }}
             >
+              <div
+                style={{
+                  display: "flex",
+                  gap: "20px",
+                  "@media (max-width: 991px)": {
+                    flexDirection: "column",
+                    alignItems: "stretch",
+                    gap: "0px",
+                  },
+                }}
+              >
               {/* Metric Card 1 - Total Screenings */}
               <div
                 className="metric-card"
