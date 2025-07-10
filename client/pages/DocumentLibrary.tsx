@@ -840,8 +840,15 @@ export default function DocumentLibrary() {
           position: "relative",
         }}
       >
-        {/* Desktop Top Navigation Bar - Exact copy from Dashboard */}
-        {isDesktop && (
+                {/* Desktop Top Navigation Bar */}
+        <Header
+          isDesktop={isDesktop}
+          userMenuOpen={userMenuOpen}
+          setUserMenuOpen={setUserMenuOpen}
+          userMenuHovered={userMenuHovered}
+          setUserMenuHovered={setUserMenuHovered}
+          handleSignOut={handleSignOut}
+        />
           <div
             style={{
               position: "fixed",
