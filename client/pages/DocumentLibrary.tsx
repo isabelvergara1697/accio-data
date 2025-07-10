@@ -294,53 +294,58 @@ export default function DocumentLibrary() {
         </div>
       </div>
 
+      {/* TopBar component for desktop */}
+      <TopBar isDesktop={isDesktop} />
+
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
-        {/* Header */}
-        <div className="bg-gradient-to-b from-[#FAFAFA] to-transparent">
-          <div className="flex items-center justify-between h-18 px-8 py-4">
-            <div className="flex items-center gap-4 flex-1">
-              {/* Search */}
-              <div className="relative flex-1 max-w-md">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-[#A4A7AE]" />
-                <Input
-                  placeholder="Search"
-                  className="pl-12 pr-16 h-12 bg-white border-[#D5D7DA] shadow-sm"
-                />
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white border border-[#E9EAEB] rounded px-2 py-1">
-                  <span className="text-xs text-[#717680]">⌘K</span>
+        {/* Mobile/Tablet Header (only shown on non-desktop) */}
+        {!isDesktop && (
+          <div className="bg-gradient-to-b from-[#FAFAFA] to-transparent">
+            <div className="flex items-center justify-between h-18 px-8 py-4">
+              <div className="flex items-center gap-4 flex-1">
+                {/* Search */}
+                <div className="relative flex-1 max-w-md">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-[#A4A7AE]" />
+                  <Input
+                    placeholder="Search"
+                    className="pl-12 pr-16 h-12 bg-white border-[#D5D7DA] shadow-sm"
+                  />
+                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white border border-[#E9EAEB] rounded px-2 py-1">
+                    <span className="text-xs text-[#717680]">⌘K</span>
+                  </div>
                 </div>
+
+                {/* Quick Create Button */}
+                <Button className="bg-[#344698] hover:bg-[#2A3A82] text-white px-3 py-3 h-12 shadow-sm border-2 border-white/10">
+                  <span className="px-1">Quick Create</span>
+                  <Plus className="w-5 h-5" />
+                </Button>
               </div>
 
-              {/* Quick Create Button */}
-              <Button className="bg-[#344698] hover:bg-[#2A3A82] text-white px-3 py-3 h-12 shadow-sm border-2 border-white/10">
-                <span className="px-1">Quick Create</span>
-                <Plus className="w-5 h-5" />
-              </Button>
-            </div>
+              <div className="flex items-center gap-3">
+                {/* Divider */}
+                <div className="w-px h-10 bg-[#E9EAEB]"></div>
 
-            <div className="flex items-center gap-3">
-              {/* Divider */}
-              <div className="w-px h-10 bg-[#E9EAEB]"></div>
+                {/* Notifications */}
+                <Button variant="ghost" size="icon" className="w-10 h-10">
+                  <Bell className="w-6 h-6 text-[#A4A7AE]" />
+                </Button>
 
-              {/* Notifications */}
-              <Button variant="ghost" size="icon" className="w-10 h-10">
-                <Bell className="w-6 h-6 text-[#A4A7AE]" />
-              </Button>
-
-              {/* User Menu */}
-              <div className="flex items-center gap-2 p-2 rounded-xl">
-                <div className="w-10 h-10 rounded-full bg-gray-300"></div>
-                <div className="text-left">
-                  <div className="text-sm font-semibold text-[#181D27]">
-                    Alexandra Fitzwilliam
+                {/* User Menu */}
+                <div className="flex items-center gap-2 p-2 rounded-xl">
+                  <div className="w-10 h-10 rounded-full bg-gray-300"></div>
+                  <div className="text-left">
+                    <div className="text-sm font-semibold text-[#181D27]">
+                      Alexandra Fitzwilliam
+                    </div>
+                    <div className="text-sm text-[#535862]">[User Role]</div>
                   </div>
-                  <div className="text-sm text-[#535862]">[User Role]</div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Page Content */}
         <div className="flex-1 px-8">
