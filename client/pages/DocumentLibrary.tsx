@@ -761,7 +761,7 @@ export default function DocumentLibrary() {
                     }}
                   >
                     <div
-                      className="secondary-button"
+                      className={`secondary-button ${isMobile ? "mobile-button" : ""}`}
                       style={{
                         display: "flex",
                         minHeight: "32px",
