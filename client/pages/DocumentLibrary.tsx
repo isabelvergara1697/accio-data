@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserMenuDropdown } from "../components/UserMenuDropdown";
-import { Header } from "../components/Header";
 
 // Document data structure based on Figma design
 const documentSections = [
@@ -180,10 +179,6 @@ export default function DocumentLibrary() {
         ? prev.filter((id) => id !== accordionId)
         : [...prev, accordionId],
     );
-  };
-
-  const handleSignOut = () => {
-    navigate("/login");
   };
 
   const FileIcon = () => (
@@ -657,10 +652,10 @@ export default function DocumentLibrary() {
                   </div>
                 </div>
               ),
-                        )}
+            )}
           </div>
-                )}
-            </div>
+        )}
+      </div>
     );
   };
 
@@ -840,15 +835,9 @@ export default function DocumentLibrary() {
           position: "relative",
         }}
       >
-                {/* Desktop Top Navigation Bar */}
-        <Header
-          isDesktop={isDesktop}
-          userMenuOpen={userMenuOpen}
-          setUserMenuOpen={setUserMenuOpen}
-          userMenuHovered={userMenuHovered}
-          setUserMenuHovered={setUserMenuHovered}
-          handleSignOut={handleSignOut}
-                />
+        {/* Desktop Top Navigation Bar - Exact copy from Dashboard */}
+        {isDesktop && (
+          <div
             style={{
               position: "fixed",
               top: 0,
@@ -1175,7 +1164,7 @@ export default function DocumentLibrary() {
                     style={{
                       fontFamily:
                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       fontSize: "24px",
                       color: "rgba(24,29,39,1)",
                     }}
@@ -1253,7 +1242,7 @@ export default function DocumentLibrary() {
                         style={{
                           fontFamily:
                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 600,
+                          fontWeight: 700,
                           fontSize: "14px",
                           color: "rgba(65,70,81,1)",
                         }}
@@ -1317,7 +1306,7 @@ export default function DocumentLibrary() {
                         style={{
                           fontFamily:
                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 600,
+                          fontWeight: 700,
                           fontSize: "14px",
                           color: "rgba(65,70,81,1)",
                         }}
@@ -1520,7 +1509,7 @@ export default function DocumentLibrary() {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 600,
+                                  fontWeight: 700,
                                   fontSize: "18px",
                                   color: "rgba(24,29,39,1)",
                                 }}

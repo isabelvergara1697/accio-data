@@ -154,14 +154,9 @@ export const UserMenuDropdown: React.FC<UserMenuDropdownProps> = ({
                 gap: "12px",
                 flex: "1 0 0",
                 borderRadius: "6px",
+                background: "#F5F5F5",
                 cursor: "pointer",
                 position: "relative",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#F5F5F5";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
               }}
             >
               <div
