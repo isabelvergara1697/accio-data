@@ -6,6 +6,15 @@ interface SidebarProps {
   isMobile: boolean;
   mobileMenuOpen: boolean;
   currentPage?: string;
+  showMobileUserMenu?: boolean;
+  setShowMobileUserMenu?: (show: boolean) => void;
+  setMobileMenuOpen?: (open: boolean) => void;
+  userMenuOpen?: boolean;
+  setUserMenuOpen?: (open: boolean) => void;
+  userMenuHovered?: boolean;
+  setUserMenuHovered?: (hovered: boolean) => void;
+  handleSignOut?: () => void;
+  getUserMenuStyles?: () => object;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
