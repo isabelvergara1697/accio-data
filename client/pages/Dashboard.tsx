@@ -19,10 +19,8 @@ const dashboardStyles = `
     transition: all 0.2s ease;
     cursor: pointer;
   }
-    .quick-create-button:hover {
+      .quick-create-button:hover {
     background: #2A3A82 !important;
-    transform: translateY(-1px);
-    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -3px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 2px 4px 0px rgba(10, 13, 18, 0.15) !important;
   }
 `;
 
@@ -1176,8 +1174,6 @@ export default function Dashboard() {
             flexDirection: "column",
             alignItems: "center",
             alignSelf: "stretch",
-            background:
-              "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
             position: "relative",
           }}
           className="hidden lg:flex"
