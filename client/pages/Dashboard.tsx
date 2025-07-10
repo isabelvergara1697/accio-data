@@ -35,6 +35,7 @@ export default function Dashboard() {
   const [showNotification, setShowNotification] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
