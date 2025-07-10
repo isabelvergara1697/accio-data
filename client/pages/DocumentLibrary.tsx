@@ -1095,8 +1095,6 @@ export default function DocumentLibrary() {
               </div>
             </div>
 
-                        </div>
-
             {/* User Menu Dropdown */}
             {userMenuOpen && (
               <div
@@ -1760,7 +1758,7 @@ export default function DocumentLibrary() {
                     {/* Document Content */}
                     {openAccordions.includes(section.id) ? (
                       <div
-                                                style={{
+                        style={{
                           display: "grid",
                           gridTemplateColumns: isDesktop ? "1fr 1fr" : "1fr",
                           gap: "16px",
@@ -1771,7 +1769,7 @@ export default function DocumentLibrary() {
                         {section.documents.map((doc) => (
                           <div
                             key={doc.id}
-                                                        style={{
+                            style={{
                               display: "flex",
                               height: "92px",
                               padding: "16px",
