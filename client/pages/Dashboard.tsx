@@ -4010,7 +4010,7 @@ export default function Dashboard() {
                             color: "rgba(65,70,81,1)",
                           }}
                         >
-                          Jan 10, 2025 – Jan 16, 2025
+                          Jan 10, 2025 �� Jan 16, 2025
                         </span>
                       </div>
                     </div>
@@ -4337,7 +4337,7 @@ export default function Dashboard() {
                         position: "relative",
                       }}
                     >
-                      Pending Reviews
+                      Pending
                     </div>
                     <div
                       style={{
@@ -4777,7 +4777,7 @@ export default function Dashboard() {
                         position: "relative",
                       }}
                     >
-                      Active Orders
+                      Active
                     </div>
                     <div
                       style={{
