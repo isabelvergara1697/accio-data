@@ -4087,151 +4087,219 @@ export default function Dashboard() {
                   position: "relative",
                 }}
               >
-                {/* Card Header */}
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
+                    alignItems: "flex-end",
+                    gap: "24px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
                 >
                   <div
                     style={{
-                      color: "#535862",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Total Screenings
-                  </div>
-                  <div
-                    style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "4px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                      flex: "1 0 0",
                       position: "relative",
                     }}
                   >
-                    <svg
+                    <div
                       style={{
-                        width: "12px",
-                        height: "12px",
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
                         position: "relative",
                       }}
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
+                    >
+                      Total Screenings
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-end",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "30px",
+                          fontWeight: 500,
+                          lineHeight: "38px",
+                          position: "relative",
+                        }}
+                      >
+                        347
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "2px",
+                            position: "relative",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                              position: "relative",
+                            }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7.99967 12.6668V3.3335M7.99967 3.3335L3.33301 8.00016M7.99967 3.3335L12.6663 8.00016"
+                              stroke="#17B26A"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <div
+                            style={{
+                              color: "#079455",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            100%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Wavy Chart */}
+                  <div
+                    style={{
+                      height: "56px",
+                      flex: "1 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Background */}
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "56px",
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                      }}
+                    >
+                      <svg
+                        style={{
+                          width: "100%",
+                          height: "56px",
+                          position: "absolute",
+                          left: 0,
+                          top: 0,
+                        }}
+                        viewBox="0 0 103 56"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          opacity="0.1"
+                          d="M103 0C86.2658 1.51637 85.2295 37.8191 68.6667 42C55.0086 45.4477 48.0926 25.8771 34.3333 28C19.4094 30.3026 14.6336 50.6959 0 56H103V0Z"
+                          fill="#344698"
+                        />
+                      </svg>
+                    </div>
+                    {/* Wavy Line */}
+                    <svg
+                      style={{
+                        width: "100%",
+                        height: "56px",
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                      }}
+                      viewBox="0 0 105 58"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M3 6L5 8L9 4"
-                        stroke="#17B26A"
-                        strokeWidth="1.5"
+                        d="M1 57C5.29167 55.6667 12.333 49.5117 20.3125 39.5C32.2679 24.5 44.683 30.5 48.3616 33.5C52.0402 36.5 58.4777 44.5 66.7545 43.5C75.0313 42.5 83.308 33 89.2857 17.5C95.2634 2 99.4018 1.5 104 1"
+                        stroke="#344698"
+                        strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span
-                      style={{
-                        color: "#17B26A",
-                        fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        lineHeight: "18px",
-                      }}
-                    >
-                      +12%
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "16px",
-                    alignSelf: "stretch",
-                    position: "relative",
-                  }}
-                >
-                  {/* Main Number */}
-                  <div
-                    style={{
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "36px",
-                      fontWeight: 700,
-                      lineHeight: "44px",
-                      position: "relative",
-                    }}
-                  >
-                    347
-                  </div>
-
-                  {/* Mini Chart */}
-                  <div
-                    style={{
-                      display: "flex",
-                      height: "52px",
-                      alignItems: "flex-end",
-                      gap: "1px",
-                      alignSelf: "stretch",
-                      position: "relative",
-                      background:
-                        "linear-gradient(180deg, rgba(52, 70, 152, 0.08) 0%, rgba(52, 70, 152, 0.02) 100%)",
-                      borderRadius: "6px",
-                      padding: "8px",
-                    }}
-                  >
-                    {/* Chart bars */}
-                    {[8, 12, 16, 14, 18, 22, 20, 24, 28, 25, 30, 36].map(
-                      (height, index) => (
-                        <div
-                          key={index}
-                          style={{
-                            width: "3px",
-                            height: `${height}px`,
-                            background: "#344698",
-                            borderRadius: "2px",
-                            flex: "1 0 0",
-                          }}
-                        />
-                      ),
-                    )}
-                    {/* Chart marker dot */}
+                    {/* Marker */}
                     <div
                       style={{
+                        width: "18px",
+                        height: "19px",
                         position: "absolute",
-                        right: "12px",
-                        top: "4px",
-                        width: "8px",
-                        height: "8px",
-                        borderRadius: "50%",
-                        background: "#344698",
-                        border: "2px solid #FFF",
-                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.1)",
+                        right: "20px",
+                        top: "12px",
                       }}
-                    />
+                    >
+                      <div
+                        style={{
+                          width: "19px",
+                          height: "19px",
+                          borderRadius: "200px",
+                          border: "2px solid #344698",
+                          opacity: 0.2,
+                          position: "absolute",
+                          left: "-1px",
+                          top: "0px",
+                        }}
+                      />
+                      <div
+                        style={{
+                          width: "11px",
+                          height: "11px",
+                          borderRadius: "200px",
+                          border: "2px solid #344698",
+                          background: "#FFF",
+                          position: "absolute",
+                          left: "3px",
+                          top: "4px",
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Metric Card 2 */}
+              {/* Metric Card 2 - Pending Reviews */}
               <div
                 style={{
                   display: "flex",
+                  padding: "16px 12px 12px 16px",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "24px",
-                  padding: "24px",
+                  gap: "12px",
+                  flex: "1 0 0",
                   borderRadius: "12px",
                   border: "1px solid #E9EAEB",
                   background: "#FFF",
@@ -4239,151 +4307,219 @@ export default function Dashboard() {
                   position: "relative",
                 }}
               >
-                {/* Card Header */}
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
+                    alignItems: "flex-end",
+                    gap: "24px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
                 >
                   <div
                     style={{
-                      color: "#535862",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Pending Reviews
-                  </div>
-                  <div
-                    style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "4px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                      flex: "1 0 0",
                       position: "relative",
                     }}
                   >
-                    <svg
+                    <div
                       style={{
-                        width: "12px",
-                        height: "12px",
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
                         position: "relative",
                       }}
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
+                    >
+                      Pending Reviews
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-end",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "30px",
+                          fontWeight: 500,
+                          lineHeight: "38px",
+                          position: "relative",
+                        }}
+                      >
+                        482
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "2px",
+                            position: "relative",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                              position: "relative",
+                            }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.00033 3.33366V12.667M8.00033 12.667L12.667 8.00033M8.00033 12.667L3.33366 8.00033"
+                              stroke="#F04438"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <div
+                            style={{
+                              color: "#F04438",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            8%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Wavy Chart - Declining */}
+                  <div
+                    style={{
+                      height: "56px",
+                      flex: "1 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Background */}
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "56px",
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                      }}
+                    >
+                      <svg
+                        style={{
+                          width: "100%",
+                          height: "56px",
+                          position: "absolute",
+                          left: 0,
+                          top: 0,
+                        }}
+                        viewBox="0 0 103 56"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          opacity="0.1"
+                          d="M0 0C16.7342 1.51637 17.7705 37.8191 34.3333 42C47.9914 45.4477 54.9074 25.8771 68.6667 28C83.5906 30.3026 88.3664 50.6959 103 56H0V0Z"
+                          fill="#F04438"
+                        />
+                      </svg>
+                    </div>
+                    {/* Wavy Line */}
+                    <svg
+                      style={{
+                        width: "100%",
+                        height: "56px",
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                      }}
+                      viewBox="0 0 105 58"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M9 4L5 8L3 6"
+                        d="M104 1C99.7083 2.33333 92.667 8.48833 84.6875 18.5C72.7321 33.5 60.317 27.5 56.6384 24.5C52.9598 21.5 46.5223 13.5 38.2455 14.5C29.9687 15.5 21.692 25 15.7143 40.5C9.73657 56 5.59821 56.5 1 57"
                         stroke="#F04438"
-                        strokeWidth="1.5"
+                        strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span
-                      style={{
-                        color: "#F04438",
-                        fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        lineHeight: "18px",
-                      }}
-                    >
-                      -8%
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "16px",
-                    alignSelf: "stretch",
-                    position: "relative",
-                  }}
-                >
-                  {/* Main Number */}
-                  <div
-                    style={{
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "36px",
-                      fontWeight: 700,
-                      lineHeight: "44px",
-                      position: "relative",
-                    }}
-                  >
-                    482
-                  </div>
-
-                  {/* Mini Chart */}
-                  <div
-                    style={{
-                      display: "flex",
-                      height: "52px",
-                      alignItems: "flex-end",
-                      gap: "1px",
-                      alignSelf: "stretch",
-                      position: "relative",
-                      background:
-                        "linear-gradient(180deg, rgba(240, 68, 56, 0.08) 0%, rgba(240, 68, 56, 0.02) 100%)",
-                      borderRadius: "6px",
-                      padding: "8px",
-                    }}
-                  >
-                    {/* Chart bars */}
-                    {[36, 34, 28, 32, 26, 22, 24, 20, 16, 18, 14, 10].map(
-                      (height, index) => (
-                        <div
-                          key={index}
-                          style={{
-                            width: "3px",
-                            height: `${height}px`,
-                            background: "#F04438",
-                            borderRadius: "2px",
-                            flex: "1 0 0",
-                          }}
-                        />
-                      ),
-                    )}
-                    {/* Chart marker dot */}
+                    {/* Marker */}
                     <div
                       style={{
+                        width: "18px",
+                        height: "19px",
                         position: "absolute",
-                        right: "12px",
-                        top: "30px",
-                        width: "8px",
-                        height: "8px",
-                        borderRadius: "50%",
-                        background: "#F04438",
-                        border: "2px solid #FFF",
-                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.1)",
+                        right: "20px",
+                        top: "32px",
                       }}
-                    />
+                    >
+                      <div
+                        style={{
+                          width: "19px",
+                          height: "19px",
+                          borderRadius: "200px",
+                          border: "2px solid #F04438",
+                          opacity: 0.2,
+                          position: "absolute",
+                          left: "-1px",
+                          top: "0px",
+                        }}
+                      />
+                      <div
+                        style={{
+                          width: "11px",
+                          height: "11px",
+                          borderRadius: "200px",
+                          border: "2px solid #F04438",
+                          background: "#FFF",
+                          position: "absolute",
+                          left: "3px",
+                          top: "4px",
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Metric Card 3 */}
+              {/* Metric Card 3 - Completed Reports */}
               <div
                 style={{
                   display: "flex",
+                  padding: "16px 12px 12px 16px",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "24px",
-                  padding: "24px",
+                  gap: "12px",
+                  flex: "1 0 0",
                   borderRadius: "12px",
                   border: "1px solid #E9EAEB",
                   background: "#FFF",
@@ -4391,151 +4527,219 @@ export default function Dashboard() {
                   position: "relative",
                 }}
               >
-                {/* Card Header */}
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
+                    alignItems: "flex-end",
+                    gap: "24px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
                 >
                   <div
                     style={{
-                      color: "#535862",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Completed Reports
-                  </div>
-                  <div
-                    style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "4px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                      flex: "1 0 0",
                       position: "relative",
                     }}
                   >
-                    <svg
+                    <div
                       style={{
-                        width: "12px",
-                        height: "12px",
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
                         position: "relative",
                       }}
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
+                    >
+                      Completed Reports
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-end",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "30px",
+                          fontWeight: 500,
+                          lineHeight: "38px",
+                          position: "relative",
+                        }}
+                      >
+                        391
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "2px",
+                            position: "relative",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                              position: "relative",
+                            }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7.99967 12.6668V3.3335M7.99967 3.3335L3.33301 8.00016M7.99967 3.3335L12.6663 8.00016"
+                              stroke="#17B26A"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <div
+                            style={{
+                              color: "#079455",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            25%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Wavy Chart - Moderate Growth */}
+                  <div
+                    style={{
+                      height: "56px",
+                      flex: "1 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Background */}
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "56px",
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                      }}
+                    >
+                      <svg
+                        style={{
+                          width: "100%",
+                          height: "56px",
+                          position: "absolute",
+                          left: 0,
+                          top: 0,
+                        }}
+                        viewBox="0 0 103 56"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          opacity="0.1"
+                          d="M103 15C89.5 17 85.5 45 68.6667 48C55.0086 50.8 48.0926 35 34.3333 38C19.4094 41.5 14.6336 56 0 56H103V15Z"
+                          fill="#344698"
+                        />
+                      </svg>
+                    </div>
+                    {/* Wavy Line */}
+                    <svg
+                      style={{
+                        width: "100%",
+                        height: "56px",
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                      }}
+                      viewBox="0 0 105 58"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M3 6L5 8L9 4"
-                        stroke="#17B26A"
-                        strokeWidth="1.5"
+                        d="M1 56C8 54 15 48 25 45C40 40 50 38 60 42C70 46 80 35 90 25C95 20 100 18 104 15"
+                        stroke="#344698"
+                        strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span
-                      style={{
-                        color: "#17B26A",
-                        fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        lineHeight: "18px",
-                      }}
-                    >
-                      +5%
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "16px",
-                    alignSelf: "stretch",
-                    position: "relative",
-                  }}
-                >
-                  {/* Main Number */}
-                  <div
-                    style={{
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "36px",
-                      fontWeight: 700,
-                      lineHeight: "44px",
-                      position: "relative",
-                    }}
-                  >
-                    391
-                  </div>
-
-                  {/* Mini Chart */}
-                  <div
-                    style={{
-                      display: "flex",
-                      height: "52px",
-                      alignItems: "flex-end",
-                      gap: "1px",
-                      alignSelf: "stretch",
-                      position: "relative",
-                      background:
-                        "linear-gradient(180deg, rgba(52, 70, 152, 0.08) 0%, rgba(52, 70, 152, 0.02) 100%)",
-                      borderRadius: "6px",
-                      padding: "8px",
-                    }}
-                  >
-                    {/* Chart bars */}
-                    {[10, 14, 18, 16, 20, 24, 22, 26, 30, 27, 32, 35].map(
-                      (height, index) => (
-                        <div
-                          key={index}
-                          style={{
-                            width: "3px",
-                            height: `${height}px`,
-                            background: "#344698",
-                            borderRadius: "2px",
-                            flex: "1 0 0",
-                          }}
-                        />
-                      ),
-                    )}
-                    {/* Chart marker dot */}
+                    {/* Marker */}
                     <div
                       style={{
+                        width: "18px",
+                        height: "19px",
                         position: "absolute",
-                        right: "12px",
-                        top: "1px",
-                        width: "8px",
-                        height: "8px",
-                        borderRadius: "50%",
-                        background: "#344698",
-                        border: "2px solid #FFF",
-                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.1)",
+                        right: "20px",
+                        top: "20px",
                       }}
-                    />
+                    >
+                      <div
+                        style={{
+                          width: "19px",
+                          height: "19px",
+                          borderRadius: "200px",
+                          border: "2px solid #344698",
+                          opacity: 0.2,
+                          position: "absolute",
+                          left: "-1px",
+                          top: "0px",
+                        }}
+                      />
+                      <div
+                        style={{
+                          width: "11px",
+                          height: "11px",
+                          borderRadius: "200px",
+                          border: "2px solid #344698",
+                          background: "#FFF",
+                          position: "absolute",
+                          left: "3px",
+                          top: "4px",
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Metric Card 4 */}
+              {/* Metric Card 4 - Active Orders */}
               <div
                 style={{
                   display: "flex",
+                  padding: "16px 12px 12px 16px",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "24px",
-                  padding: "24px",
+                  gap: "12px",
+                  flex: "1 0 0",
                   borderRadius: "12px",
                   border: "1px solid #E9EAEB",
                   background: "#FFF",
@@ -4543,139 +4747,206 @@ export default function Dashboard() {
                   position: "relative",
                 }}
               >
-                {/* Card Header */}
                 <div
                   style={{
                     display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
+                    alignItems: "flex-end",
+                    gap: "24px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
                 >
                   <div
                     style={{
-                      color: "#535862",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Active Orders
-                  </div>
-                  <div
-                    style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "4px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                      flex: "1 0 0",
                       position: "relative",
                     }}
                   >
-                    <svg
+                    <div
                       style={{
-                        width: "12px",
-                        height: "12px",
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
                         position: "relative",
                       }}
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
+                    >
+                      Active Orders
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-end",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "30px",
+                          fontWeight: 500,
+                          lineHeight: "38px",
+                          position: "relative",
+                        }}
+                      >
+                        156
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "2px",
+                            position: "relative",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                              position: "relative",
+                            }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7.99967 12.6668V3.3335M7.99967 3.3335L3.33301 8.00016M7.99967 3.3335L12.6663 8.00016"
+                              stroke="#17B26A"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <div
+                            style={{
+                              color: "#079455",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            67%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Wavy Chart - Strong Growth */}
+                  <div
+                    style={{
+                      height: "56px",
+                      flex: "1 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Background */}
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "56px",
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                      }}
+                    >
+                      <svg
+                        style={{
+                          width: "100%",
+                          height: "56px",
+                          position: "absolute",
+                          left: 0,
+                          top: 0,
+                        }}
+                        viewBox="0 0 103 56"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          opacity="0.1"
+                          d="M103 10C90 12 85 30 70 25C55 20 45 35 30 30C15 25 8 45 0 50V56H103V10Z"
+                          fill="#344698"
+                        />
+                      </svg>
+                    </div>
+                    {/* Wavy Line */}
+                    <svg
+                      style={{
+                        width: "100%",
+                        height: "56px",
+                        position: "absolute",
+                        left: 0,
+                        top: 0,
+                      }}
+                      viewBox="0 0 105 58"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M3 6L5 8L9 4"
-                        stroke="#17B26A"
-                        strokeWidth="1.5"
+                        d="M1 50C8 45 15 25 30 30C45 35 55 20 70 25C85 30 90 12 104 10"
+                        stroke="#344698"
+                        strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span
-                      style={{
-                        color: "#17B26A",
-                        fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        lineHeight: "18px",
-                      }}
-                    >
-                      +23%
-                    </span>
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "16px",
-                    alignSelf: "stretch",
-                    position: "relative",
-                  }}
-                >
-                  {/* Main Number */}
-                  <div
-                    style={{
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "36px",
-                      fontWeight: 700,
-                      lineHeight: "44px",
-                      position: "relative",
-                    }}
-                  >
-                    482
-                  </div>
-
-                  {/* Mini Chart */}
-                  <div
-                    style={{
-                      display: "flex",
-                      height: "52px",
-                      alignItems: "flex-end",
-                      gap: "1px",
-                      alignSelf: "stretch",
-                      position: "relative",
-                      background:
-                        "linear-gradient(180deg, rgba(52, 70, 152, 0.08) 0%, rgba(52, 70, 152, 0.02) 100%)",
-                      borderRadius: "6px",
-                      padding: "8px",
-                    }}
-                  >
-                    {/* Chart bars */}
-                    {[6, 10, 14, 12, 16, 20, 18, 22, 26, 23, 28, 32].map(
-                      (height, index) => (
-                        <div
-                          key={index}
-                          style={{
-                            width: "3px",
-                            height: `${height}px`,
-                            background: "#344698",
-                            borderRadius: "2px",
-                            flex: "1 0 0",
-                          }}
-                        />
-                      ),
-                    )}
-                    {/* Chart marker dot */}
+                    {/* Marker */}
                     <div
                       style={{
+                        width: "18px",
+                        height: "19px",
                         position: "absolute",
-                        right: "12px",
-                        top: "4px",
-                        width: "8px",
-                        height: "8px",
-                        borderRadius: "50%",
-                        background: "#344698",
-                        border: "2px solid #FFF",
-                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.1)",
+                        right: "20px",
+                        top: "8px",
                       }}
-                    />
+                    >
+                      <div
+                        style={{
+                          width: "19px",
+                          height: "19px",
+                          borderRadius: "200px",
+                          border: "2px solid #344698",
+                          opacity: 0.2,
+                          position: "absolute",
+                          left: "-1px",
+                          top: "0px",
+                        }}
+                      />
+                      <div
+                        style={{
+                          width: "11px",
+                          height: "11px",
+                          borderRadius: "200px",
+                          border: "2px solid #344698",
+                          background: "#FFF",
+                          position: "absolute",
+                          left: "3px",
+                          top: "4px",
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
