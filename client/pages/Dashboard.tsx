@@ -907,7 +907,7 @@ export default function Dashboard() {
           paddingBottom: "24px",
           position: "relative",
           marginLeft: isDesktop ? "296px" : "0",
-          paddingTop: isDesktop ? "32px" : "96px",
+          paddingTop: isDesktop ? "0px" : "96px",
         }}
       >
         {/* Mobile/Tablet Header Bar */}
