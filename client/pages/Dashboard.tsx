@@ -15,6 +15,15 @@ const dashboardStyles = `
   .secondary-button:hover {
     background: #F5F5F5;
   }
+  .quick-create-button {
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .quick-create-button:hover {
+    background: #2A3A82 !important;
+    transform: translateY(-1px);
+    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -3px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 2px 4px 0px rgba(10, 13, 18, 0.15) !important;
+  }
 `;
 
 export default function Dashboard() {
@@ -556,8 +565,7 @@ export default function Dashboard() {
             borderRadius: "12px",
             border: "1px solid #E9EAEB",
             background: "#FFF",
-            boxShadow:
-              "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
             position: "relative",
           }}
         >
@@ -626,6 +634,7 @@ export default function Dashboard() {
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
+                  className="lg:hidden"
                   style={{
                     display: "flex",
                     padding: "8px",
@@ -918,6 +927,7 @@ export default function Dashboard() {
             {/* Quick Create Button */}
             <div style={{ display: "flex", alignItems: "flex-start" }}>
               <button
+                className="quick-create-button"
                 style={{
                   display: "flex",
                   padding: "12px",
@@ -1128,9 +1138,10 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Hamburger Menu */}
+            {/* Hamburger Menu - Only on tablet/mobile */}
             <button
               onClick={() => setMobileMenuOpen(true)}
+              className="lg:hidden"
               style={{
                 display: "flex",
                 padding: "8px",
@@ -1332,7 +1343,8 @@ export default function Dashboard() {
                 position: "relative",
               }}
             >
-              <div
+              <button
+                className="quick-create-button"
                 style={{
                   display: "flex",
                   padding: "12px",
@@ -1407,7 +1419,7 @@ export default function Dashboard() {
                     </clipPath>
                   </defs>
                 </svg>
-              </div>
+              </button>
             </div>
 
             {/* Divider */}
