@@ -22,6 +22,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
   isMobile,
   mobileMenuOpen,
   currentPage = "dashboard",
+  showMobileUserMenu = false,
+  setShowMobileUserMenu,
+  setMobileMenuOpen,
+  userMenuOpen = false,
+  setUserMenuOpen,
+  userMenuHovered = false,
+  setUserMenuHovered,
+  handleSignOut,
+  getUserMenuStyles,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
