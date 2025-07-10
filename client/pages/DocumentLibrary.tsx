@@ -746,8 +746,8 @@ export default function DocumentLibrary() {
                       style={{
                         display: "flex",
                         padding: isMobile
-                          ? "0px 16px 0px 16px"
-                          : "20px 24px 0px 24px",
+                          ? "16px 16px 0px 16px"
+                          : "24px 24px 4px 24px",
                         alignItems: "flex-start",
                         gap: "16px",
                         alignSelf: "stretch",
