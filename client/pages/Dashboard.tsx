@@ -5030,7 +5030,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Latest Reports Widget */}
+                {/* Latest Reports Widget */}
         <div
           style={{
             display: "flex",
@@ -5052,6 +5052,17 @@ export default function Dashboard() {
               position: "relative",
             }}
           >
+            {/* Widget Container - Half width on desktop */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                width: isMobile ? "100%" : isDesktop ? "50%" : "100%",
+                position: "relative",
+              }}
+            >
             {/* Widget Header */}
             <div
               style={{
