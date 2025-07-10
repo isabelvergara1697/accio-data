@@ -380,13 +380,14 @@ export default function DocumentLibrary() {
             }}
           >
             <div
+              className={isMobile ? "mobile-stack" : "tablet-layout"}
               style={{
                 display: "flex",
-                alignItems: "flex-end",
+                alignItems: isMobile ? "stretch" : "flex-end",
                 alignContent: "flex-end",
-                gap: "20px 16px",
+                gap: isMobile ? "16px" : "20px 16px",
                 alignSelf: "stretch",
-                flexWrap: "wrap",
+                flexWrap: isMobile ? "nowrap" : "wrap",
               }}
             >
               <div
