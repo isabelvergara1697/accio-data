@@ -67,14 +67,66 @@ const documentSections = [
     title: "Special Search Specific Forms",
     count: 24,
     isOpen: false,
-    documents: [],
+    documents: [
+      {
+        id: "12",
+        name: "FBI Identity History Check",
+        size: "200 KB",
+        type: "PDF",
+      },
+      {
+        id: "13",
+        name: "OPM Security Investigation",
+        size: "200 KB",
+        type: "PDF",
+      },
+      {
+        id: "14",
+        name: "Treasury Security Check",
+        size: "200 KB",
+        type: "PDF",
+      },
+      { id: "15", name: "DOJ Fingerprint Card", size: "200 KB", type: "PDF" },
+      {
+        id: "16",
+        name: "ICE E-Verify Authorization",
+        size: "200 KB",
+        type: "PDF",
+      },
+    ],
   },
   {
     id: "security-manuals",
     title: "Security Manuals",
     count: 5,
     isOpen: false,
-    documents: [],
+    documents: [
+      {
+        id: "17",
+        name: "Background Check Protocol",
+        size: "200 KB",
+        type: "PDF",
+      },
+      {
+        id: "18",
+        name: "Security Clearance Guidelines",
+        size: "200 KB",
+        type: "PDF",
+      },
+      { id: "19", name: "Data Protection Manual", size: "200 KB", type: "PDF" },
+      {
+        id: "20",
+        name: "Identity Verification Standards",
+        size: "200 KB",
+        type: "PDF",
+      },
+      {
+        id: "21",
+        name: "Compliance Assessment Guide",
+        size: "200 KB",
+        type: "PDF",
+      },
+    ],
   },
 ];
 
