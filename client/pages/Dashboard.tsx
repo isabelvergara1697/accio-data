@@ -4478,6 +4478,660 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+
+        {/* Quick Overview Section */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "20px",
+            alignSelf: "stretch",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              padding: isMobile ? "0px 16px" : "0px 32px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "16px",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            {/* Section Title */}
+            <div
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "18px",
+                fontWeight: 600,
+                lineHeight: "28px",
+                position: "relative",
+              }}
+            >
+              Quick Overview
+            </div>
+
+            {/* Metric Cards Grid */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: isMobile
+                  ? "1fr"
+                  : isDesktop
+                    ? "repeat(4, 1fr)"
+                    : "repeat(2, 1fr)",
+                gap: isMobile ? "16px" : "20px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              {/* Metric Card 1 */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  padding: "20px",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  position: "relative",
+                }}
+              >
+                {/* Card Header */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    [Metric]
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "4px",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      style={{
+                        width: "12px",
+                        height: "12px",
+                        position: "relative",
+                      }}
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 2.5V6L8.5 8.5"
+                        stroke="#17B26A"
+                        strokeWidth="1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span
+                      style={{
+                        color: "#17B26A",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      +12%
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  {/* Main Number */}
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "32px",
+                      fontWeight: 700,
+                      lineHeight: "40px",
+                      position: "relative",
+                    }}
+                  >
+                    347
+                  </div>
+
+                  {/* Mini Chart */}
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "40px",
+                      alignItems: "flex-end",
+                      gap: "2px",
+                      alignSelf: "stretch",
+                      position: "relative",
+                      background:
+                        "linear-gradient(180deg, rgba(52, 70, 152, 0.1) 0%, rgba(52, 70, 152, 0.05) 100%)",
+                      borderRadius: "4px",
+                      padding: "8px",
+                    }}
+                  >
+                    {/* Chart bars */}
+                    {[8, 12, 16, 14, 18, 22, 20, 24, 28, 25, 30, 32].map(
+                      (height, index) => (
+                        <div
+                          key={index}
+                          style={{
+                            width: "4px",
+                            height: `${height}px`,
+                            background: "#344698",
+                            borderRadius: "1px",
+                            flex: "1 0 0",
+                          }}
+                        />
+                      ),
+                    )}
+                    {/* Chart marker dot */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "12px",
+                        top: "4px",
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        background: "#344698",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Metric Card 2 */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  padding: "20px",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  position: "relative",
+                }}
+              >
+                {/* Card Header */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    [Metric]
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "4px",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      style={{
+                        width: "12px",
+                        height: "12px",
+                        position: "relative",
+                        transform: "rotate(180deg)",
+                      }}
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 2.5V6L8.5 8.5"
+                        stroke="#F04438"
+                        strokeWidth="1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span
+                      style={{
+                        color: "#F04438",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      -8%
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  {/* Main Number */}
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "32px",
+                      fontWeight: 700,
+                      lineHeight: "40px",
+                      position: "relative",
+                    }}
+                  >
+                    482
+                  </div>
+
+                  {/* Mini Chart */}
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "40px",
+                      alignItems: "flex-end",
+                      gap: "2px",
+                      alignSelf: "stretch",
+                      position: "relative",
+                      background:
+                        "linear-gradient(180deg, rgba(240, 68, 56, 0.1) 0%, rgba(240, 68, 56, 0.05) 100%)",
+                      borderRadius: "4px",
+                      padding: "8px",
+                    }}
+                  >
+                    {/* Chart bars */}
+                    {[32, 30, 25, 28, 24, 20, 22, 18, 14, 16, 12, 8].map(
+                      (height, index) => (
+                        <div
+                          key={index}
+                          style={{
+                            width: "4px",
+                            height: `${height}px`,
+                            background: "#F04438",
+                            borderRadius: "1px",
+                            flex: "1 0 0",
+                          }}
+                        />
+                      ),
+                    )}
+                    {/* Chart marker dot */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "12px",
+                        top: "28px",
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        background: "#F04438",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Metric Card 3 */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  padding: "20px",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  position: "relative",
+                }}
+              >
+                {/* Card Header */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    [Metric]
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "4px",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      style={{
+                        width: "12px",
+                        height: "12px",
+                        position: "relative",
+                      }}
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 2.5V6L8.5 8.5"
+                        stroke="#17B26A"
+                        strokeWidth="1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span
+                      style={{
+                        color: "#17B26A",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      +5%
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  {/* Main Number */}
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "32px",
+                      fontWeight: 700,
+                      lineHeight: "40px",
+                      position: "relative",
+                    }}
+                  >
+                    391
+                  </div>
+
+                  {/* Mini Chart */}
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "40px",
+                      alignItems: "flex-end",
+                      gap: "2px",
+                      alignSelf: "stretch",
+                      position: "relative",
+                      background:
+                        "linear-gradient(180deg, rgba(52, 70, 152, 0.1) 0%, rgba(52, 70, 152, 0.05) 100%)",
+                      borderRadius: "4px",
+                      padding: "8px",
+                    }}
+                  >
+                    {/* Chart bars */}
+                    {[10, 14, 18, 16, 20, 24, 22, 26, 30, 27, 32, 35].map(
+                      (height, index) => (
+                        <div
+                          key={index}
+                          style={{
+                            width: "4px",
+                            height: `${height}px`,
+                            background: "#344698",
+                            borderRadius: "1px",
+                            flex: "1 0 0",
+                          }}
+                        />
+                      ),
+                    )}
+                    {/* Chart marker dot */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "12px",
+                        top: "1px",
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        background: "#344698",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Metric Card 4 */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  padding: "20px",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  position: "relative",
+                }}
+              >
+                {/* Card Header */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    [Metric]
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "4px",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      style={{
+                        width: "12px",
+                        height: "12px",
+                        position: "relative",
+                      }}
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6 2.5V6L8.5 8.5"
+                        stroke="#17B26A"
+                        strokeWidth="1"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span
+                      style={{
+                        color: "#17B26A",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      +23%
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  {/* Main Number */}
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "32px",
+                      fontWeight: 700,
+                      lineHeight: "40px",
+                      position: "relative",
+                    }}
+                  >
+                    482
+                  </div>
+
+                  {/* Mini Chart */}
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "40px",
+                      alignItems: "flex-end",
+                      gap: "2px",
+                      alignSelf: "stretch",
+                      position: "relative",
+                      background:
+                        "linear-gradient(180deg, rgba(52, 70, 152, 0.1) 0%, rgba(52, 70, 152, 0.05) 100%)",
+                      borderRadius: "4px",
+                      padding: "8px",
+                    }}
+                  >
+                    {/* Chart bars */}
+                    {[6, 10, 14, 12, 16, 20, 18, 22, 26, 23, 28, 30].map(
+                      (height, index) => (
+                        <div
+                          key={index}
+                          style={{
+                            width: "4px",
+                            height: `${height}px`,
+                            background: "#344698",
+                            borderRadius: "1px",
+                            flex: "1 0 0",
+                          }}
+                        />
+                      ),
+                    )}
+                    {/* Chart marker dot */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "12px",
+                        top: "6px",
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        background: "#344698",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );
