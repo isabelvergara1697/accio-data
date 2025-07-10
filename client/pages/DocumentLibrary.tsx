@@ -194,8 +194,8 @@ const documentLibraryStyles = `
     .mobile-button-text {
       width: 100% !important;
     }
-        .mobile-document-grid {
-      padding: 0 16px !important;
+                .mobile-document-grid {
+      padding: 20px 16px !important;
     }
     .mobile-file-name {
       -webkit-line-clamp: 2 !important;
