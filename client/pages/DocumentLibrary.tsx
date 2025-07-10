@@ -412,6 +412,9 @@ export default function DocumentLibrary() {
   const [selectedSortOption, setSelectedSortOption] = useState("Most Recent");
   const [selectedFileType, setSelectedFileType] = useState("All Files");
   const [filteredSections, setFilteredSections] = useState(documentSections);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchResults, setSearchResults] = useState(documentSections);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
