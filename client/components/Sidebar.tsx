@@ -34,9 +34,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [openAccordions, setOpenAccordions] = useState<string[]>(
-    currentPage === "document-library" ? ["support"] : [],
-  );
+  const [openAccordions, setOpenAccordions] = useState<string[]>([]);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const menuSections = {
@@ -1498,7 +1496,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 ></div>
               </div>
 
-                            {!showMobileUserMenu && (
+              {!showMobileUserMenu ? (
                 /* Main Sidebar Menu with User Profile */
                 <div
                   style={{
