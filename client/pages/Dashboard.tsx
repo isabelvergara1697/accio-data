@@ -651,7 +651,7 @@ export default function Dashboard() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="lg:hidden"
                   style={{
-                    display: "flex",
+                    display: isDesktop ? "none" : "flex",
                     padding: "8px",
                     justifyContent: "center",
                     alignItems: "center",
