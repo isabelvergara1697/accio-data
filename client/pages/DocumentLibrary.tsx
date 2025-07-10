@@ -207,13 +207,28 @@ const documentLibraryStyles = `
       align-items: center !important;
       gap: 12px !important;
     }
-    .tablet-search {
+        .tablet-search {
       flex: 1 !important;
       max-width: 320px !important;
     }
     .tablet-document-grid {
       grid-template-columns: repeat(2, 308px) !important;
       justify-content: space-between !important;
+    }
+  }
+
+  /* Additional fluid responsive refinements */
+  @media (min-width: 1024px) {
+    .desktop-document-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 16px !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .mobile-document-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
     }
   }
 `;
