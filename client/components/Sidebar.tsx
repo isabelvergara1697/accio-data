@@ -1239,7 +1239,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             justifyContent: "center",
                             alignItems: "center",
                             borderRadius: "9999px",
-                            background: "#273572",
+                            background: "#344698",
                             position: "relative",
                           }}
                         >
@@ -1496,7 +1496,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 ></div>
               </div>
 
-                            {(
+              {true ? (
                 /* Main Sidebar Menu with User Profile */
                 <div
                   style={{
@@ -2204,7 +2204,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                 justifyContent: "center",
                                 alignItems: "center",
                                 borderRadius: "9999px",
-                                background: "#273572",
+                                background: "#344698",
                                 position: "relative",
                               }}
                             >
