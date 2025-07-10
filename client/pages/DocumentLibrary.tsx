@@ -848,8 +848,7 @@ export default function DocumentLibrary() {
           userMenuHovered={userMenuHovered}
           setUserMenuHovered={setUserMenuHovered}
           handleSignOut={handleSignOut}
-        />
-          <div
+                />
             style={{
               position: "fixed",
               top: 0,
