@@ -1,6 +1,23 @@
 import React, { useState } from "react";
 import { UserMenuDropdown } from "./UserMenuDropdown";
 
+// Add styles for header components
+const headerStyles = `
+  .quick-create-button {
+    transition: all 0.2s ease;
+  }
+  .quick-create-button:hover {
+    background: #2A3A82 !important;
+  }
+`;
+
+// Inject styles
+if (typeof document !== "undefined") {
+  const style = document.createElement("style");
+  style.textContent = headerStyles;
+  document.head.appendChild(style);
+}
+
 interface HeaderProps {
   isDesktop: boolean;
   userMenuOpen: boolean;
