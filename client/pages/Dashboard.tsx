@@ -2635,19 +2635,18 @@ export default function Dashboard() {
           paddingTop: isDesktop ? "120px" : "96px",
         }}
       >
-        {/* Mobile/Tablet Header Bar */}
-        <div
-          className="w-full fixed top-0 left-0 right-0 z-30"
-          style={{
-            display: isDesktop ? "none" : "flex",
-            height: "64px",
-            padding: "12px 8px 12px 16px",
-            justifyContent: "space-between",
-            alignItems: "center",
-            background: "#FFF",
-            borderBottom: "1px solid #E9EAEB",
-          }}
-        >
+                <MobileHeader
+          isDesktop={isDesktop}
+          isMobile={isMobile}
+          setMobileMenuOpen={setMobileMenuOpen}
+          userMenuOpen={userMenuOpen}
+          setUserMenuOpen={setUserMenuOpen}
+          userMenuHovered={userMenuHovered}
+          setUserMenuHovered={setUserMenuHovered}
+          handleSignOut={handleSignOut}
+          getUserMenuStyles={getUserMenuStyles}
+          showMobileUserMenu={showMobileUserMenu}
+        />
           {/* Logo */}
           <div
             style={{
