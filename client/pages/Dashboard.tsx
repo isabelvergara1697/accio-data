@@ -1159,7 +1159,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Header Navigation */}
+        {/* Desktop Header Navigation */}
         <div
           style={{
             display: "flex",
@@ -2415,14 +2415,13 @@ export default function Dashboard() {
                   }}
                 >
                   <div
+                    className="lg:text-2xl lg:leading-8 text-xl leading-[30px]"
                     style={{
                       alignSelf: "stretch",
                       color: "#181D27",
                       fontFamily: "Public Sans",
-                      fontSize: "20px",
                       fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "30px",
+                      fontWeight: 700,
                       position: "relative",
                     }}
                   >
@@ -2431,7 +2430,6 @@ export default function Dashboard() {
                         fontFamily:
                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         fontWeight: 700,
-                        fontSize: "20px",
                         color: "rgba(24,29,39,1)",
                       }}
                     >
