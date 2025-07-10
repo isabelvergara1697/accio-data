@@ -591,7 +591,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 />
               </div>
             </div>
-                    </div>
+          </div>
 
           {/* Mobile User Menu Page - Show when active on mobile */}
           {isMobile && showMobileUserMenu && (
@@ -696,51 +696,52 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 position: "relative",
               }}
             >
-            <div
-              style={{
-                display: "flex",
-                padding: "0px 16px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
-              <NavItem
-                section="dashboard"
-                label="Dashboard"
-                isActive={currentPage === "dashboard"}
-                hasChevron={false}
-                onClick={() => navigate("/dashboard")}
-              />
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0px 16px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <NavItem
+                  section="dashboard"
+                  label="Dashboard"
+                  isActive={currentPage === "dashboard"}
+                  hasChevron={false}
+                  onClick={() => navigate("/dashboard")}
+                />
 
-              <NavItem
-                section="tools"
-                label="Tools"
-                onClick={() => toggleSidebarAccordion("tools")}
-              />
+                <NavItem
+                  section="tools"
+                  label="Tools"
+                  onClick={() => toggleSidebarAccordion("tools")}
+                />
 
-              <NavItem
-                section="screening"
-                label="Screening"
-                badge={!isAccordionOpen("screening") ? "8" : undefined}
-                onClick={() => toggleSidebarAccordion("screening")}
-              />
+                <NavItem
+                  section="screening"
+                  label="Screening"
+                  badge={!isAccordionOpen("screening") ? "8" : undefined}
+                  onClick={() => toggleSidebarAccordion("screening")}
+                />
 
-              <NavItem
-                section="reporting"
-                label="Reporting"
-                onClick={() => toggleSidebarAccordion("reporting")}
-              />
+                <NavItem
+                  section="reporting"
+                  label="Reporting"
+                  onClick={() => toggleSidebarAccordion("reporting")}
+                />
 
-              <NavItem
-                section="support"
-                label="Support & Resources"
-                isActive={currentPage === "document-library"}
-                onClick={() => toggleSidebarAccordion("support")}
-              />
+                <NavItem
+                  section="support"
+                  label="Support & Resources"
+                  isActive={currentPage === "document-library"}
+                  onClick={() => toggleSidebarAccordion("support")}
+                />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </aside>
