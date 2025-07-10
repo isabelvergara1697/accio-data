@@ -560,9 +560,10 @@ export default function Dashboard() {
               ),
             )}
           </div>
-        )}
-            </div>
-                );
+                )}
+      </div>
+    );
+  };
 
   return (
     <div
