@@ -161,7 +161,7 @@ const documentLibraryStyles = `
   .dropdown-container {
     position: relative;
   }
-  .dropdown-menu {
+    .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
@@ -172,6 +172,14 @@ const documentLibraryStyles = `
     box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04);
     margin-top: 4px;
     min-width: 169px;
+  }
+
+  @media (max-width: 767px) {
+    .dropdown-menu {
+      min-width: 343px;
+      right: 0;
+      left: auto;
+    }
   }
   .dropdown-item {
     display: flex;
