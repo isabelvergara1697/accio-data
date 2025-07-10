@@ -701,6 +701,7 @@ export default function DocumentLibrary() {
                           }}
                         >
                           <div
+                            className="filter-button-text"
                             style={{
                               color: "#414651",
                               fontFamily: "'Public Sans'",
@@ -708,6 +709,10 @@ export default function DocumentLibrary() {
                               fontStyle: "normal",
                               fontWeight: 600,
                               lineHeight: "20px",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              whiteSpace: "nowrap",
+                              maxWidth: "80px",
                             }}
                           >
                             <span
