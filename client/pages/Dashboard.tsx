@@ -4077,12 +4077,12 @@ export default function Dashboard() {
             {/* Section Title */}
             <div
               style={{
-                color: "#181D27",
+                color: "rgba(65, 70, 81, 1)",
                 fontFamily: "Public Sans",
-                fontSize: "24px",
-                fontWeight: 700,
+                fontSize: "16px",
+                fontWeight: 600,
                 lineHeight: "32px",
-                letterSpacing: "-0.02em",
+                letterSpacing: "-0.48px",
                 position: "relative",
               }}
             >
