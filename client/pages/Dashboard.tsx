@@ -83,17 +83,18 @@ export default function Dashboard() {
   // Close user menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (userMenuOpen) {
+      const target = event.target as Element;
+      if (userMenuOpen && !target.closest("[data-user-menu]")) {
         setUserMenuOpen(false);
       }
     };
 
     if (userMenuOpen) {
-      document.addEventListener("click", handleClickOutside);
+      document.addEventListener("click", handleClickOutside, true);
     }
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside, true);
     };
   }, [userMenuOpen]);
 
@@ -2798,6 +2799,7 @@ export default function Dashboard() {
               style={{
                 position: "relative",
               }}
+              data-user-menu
             >
               <div
                 style={{
@@ -2809,7 +2811,10 @@ export default function Dashboard() {
                   cursor: "pointer",
                   ...getUserMenuStyles(),
                 }}
-                onClick={() => setUserMenuOpen(!userMenuOpen)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setUserMenuOpen(!userMenuOpen);
+                }}
                 onMouseEnter={() => setUserMenuHovered(true)}
                 onMouseLeave={() => setUserMenuHovered(false)}
               >
