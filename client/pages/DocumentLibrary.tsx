@@ -239,7 +239,7 @@ export default function DocumentLibrary() {
       <Sidebar
         isDesktop={isDesktop}
         isMobile={isMobile}
-        mobileMenuOpen={false}
+        mobileMenuOpen={mobileMenuOpen}
         currentPage="document-library"
       />
 
