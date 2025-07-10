@@ -4563,6 +4563,7 @@ export default function Dashboard() {
 
               {/* Metric Card 3 - Completed Reports */}
               <div
+                className="metric-card"
                 style={{
                   display: "flex",
                   padding: "16px 12px 12px 16px",
@@ -4576,6 +4577,8 @@ export default function Dashboard() {
                   boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   position: "relative",
                 }}
+                onMouseEnter={() => setHoveredCard("completed")}
+                onMouseLeave={() => setHoveredCard(null)}
               >
                 <div
                   style={{
@@ -4619,13 +4622,16 @@ export default function Dashboard() {
                       }}
                     >
                       <div
+                        className="metric-number"
                         style={{
-                          color: "#181D27",
+                          color:
+                            hoveredCard === "completed" ? "#1E40AF" : "#181D27",
                           fontFamily: "Public Sans",
                           fontSize: "30px",
                           fontWeight: 500,
                           lineHeight: "38px",
                           position: "relative",
+                          transition: "color 0.2s ease",
                         }}
                       >
                         391
@@ -4783,6 +4789,7 @@ export default function Dashboard() {
 
               {/* Metric Card 4 - Active Orders */}
               <div
+                className="metric-card"
                 style={{
                   display: "flex",
                   padding: "16px 12px 12px 16px",
@@ -4796,6 +4803,8 @@ export default function Dashboard() {
                   boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   position: "relative",
                 }}
+                onMouseEnter={() => setHoveredCard("active")}
+                onMouseLeave={() => setHoveredCard(null)}
               >
                 <div
                   style={{
@@ -4839,13 +4848,16 @@ export default function Dashboard() {
                       }}
                     >
                       <div
+                        className="metric-number"
                         style={{
-                          color: "#181D27",
+                          color:
+                            hoveredCard === "active" ? "#1E40AF" : "#181D27",
                           fontFamily: "Public Sans",
                           fontSize: "30px",
                           fontWeight: 500,
                           lineHeight: "38px",
                           position: "relative",
+                          transition: "color 0.2s ease",
                         }}
                       >
                         156
