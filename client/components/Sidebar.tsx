@@ -591,6 +591,38 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 />
               </div>
             </div>
+
+            {/* Close Button for Mobile */}
+            <button
+              onClick={() => setMobileMenuOpen?.(false)}
+              className="lg:hidden"
+              style={{
+                display: isDesktop ? "none" : "flex",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "8px",
+              }}
+            >
+              <svg
+                style={{ width: "24px", height: "24px", opacity: 0.7 }}
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g opacity="0.7">
+                  <path
+                    d="M18 6L6 18M6 6L18 18"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </g>
+              </svg>
+            </button>
           </div>
 
           {/* Mobile User Menu Page - Show when active on mobile */}
