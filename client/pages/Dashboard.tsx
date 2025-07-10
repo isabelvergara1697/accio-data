@@ -895,6 +895,161 @@ export default function Dashboard() {
                 />
               </div>
             </div>
+
+            {/* Mobile User Profile Section - Only show on mobile */}
+            {isMobile && (
+              <>
+                {/* Divider */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "4px 0px",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "1px",
+                      background: "#E9EAEB",
+                    }}
+                  ></div>
+                </div>
+
+                {/* Mobile User Profile */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "0px 16px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "8px",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                      borderRadius: "12px",
+                      cursor: "pointer",
+                      position: "relative",
+                    }}
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "200px",
+                        alignItems: "center",
+                        gap: "8px",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          flexShrink: 0,
+                          aspectRatio: "1/1",
+                          borderRadius: "9999px",
+                          border: "1px solid rgba(0, 0, 0, 0.10)",
+                          background:
+                            "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                          position: "relative",
+                        }}
+                      ></div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 700,
+                              fontSize: "14px",
+                              color: "rgba(24,29,39,1)",
+                            }}
+                          >
+                            Alexandra Fitzwilliam
+                          </span>
+                        </div>
+                        <div
+                          style={{
+                            display: "-webkit-box",
+                            WebkitBoxOrient: "vertical",
+                            WebkitLineClamp: 1,
+                            overflow: "hidden",
+                            color: "#535862",
+                            textOverflow: "ellipsis",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 400,
+                              fontSize: "14px",
+                              color: "rgba(83,88,98,1)",
+                            }}
+                          >
+                            [User Role]
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <svg
+                      style={{
+                        width: "24px",
+                        height: "24px",
+                        position: "relative",
+                      }}
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9 18L15 12L9 6"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.67"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </aside>
