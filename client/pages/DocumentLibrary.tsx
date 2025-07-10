@@ -449,10 +449,19 @@ export default function DocumentLibrary() {
                 </div>
               </div>
               <div
+                className={
+                  isMobile
+                    ? "mobile-buttons"
+                    : !isDesktop
+                      ? "tablet-buttons"
+                      : ""
+                }
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "12px",
+                  gap: isMobile ? "12px" : "12px",
+                  justifyContent: isMobile ? "space-between" : "flex-start",
+                  flex: isMobile ? "1 0 0" : "unset",
                 }}
               >
                 <div
