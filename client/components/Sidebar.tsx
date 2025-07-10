@@ -265,7 +265,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 position: "relative",
               }}
             >
-              <NavIcon section={section} isOpen={isOpen} />
+              <NavIcon section={section} isOpen={isOpen} isActive={isActive} />
               <div
                 style={{
                   color: isActive
