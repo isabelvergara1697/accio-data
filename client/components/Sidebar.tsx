@@ -77,7 +77,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         >
           <path
             d="M6.97756 13.0829V14.8273M10.4663 9.59414V14.8273M13.9551 6.10536V14.8273M6.80312 18.3161H14.1296C15.595 18.3161 16.3277 18.3161 16.8874 18.0309C17.3798 17.7801 17.7801 17.3798 18.0309 16.8874C18.3161 16.3277 18.3161 15.595 18.3161 14.1296V6.80312C18.3161 5.33769 18.3161 4.60498 18.0309 4.04526C17.7801 3.55292 17.3798 3.15263 16.8874 2.90177C16.3277 2.61658 15.595 2.61658 14.1296 2.61658H6.80312C5.33769 2.61658 4.60498 2.61658 4.04526 2.90177C3.55292 3.15263 3.15263 3.55292 2.90177 4.04526C2.61658 4.60498 2.61658 5.33769 2.61658 6.80312V14.1296C2.61658 15.595 2.61658 16.3277 2.90177 16.8874C3.15263 17.3798 3.55292 17.7801 4.04526 18.0309C4.60498 18.3161 5.33769 18.3161 6.80312 18.3161Z"
-            stroke={isActive ? "#273572" : "#A4A7AE"}
+            stroke={isActive ? "#344698" : "#A4A7AE"}
             strokeWidth="1.67"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -271,7 +271,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <div
                 style={{
                   color: isActive
-                    ? "#273572"
+                    ? "#344698"
                     : "var(--colors-text-text-secondary-700, #414651)",
                   fontFamily:
                     "var(--Font-family-font-family-body, 'Public Sans')",
@@ -288,7 +288,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 600,
                     fontSize: "14px",
-                    color: isActive ? "#273572" : "rgba(65,70,81,1)",
+                    color: isActive ? "#344698" : "rgba(65,70,81,1)",
                   }}
                 >
                   {label}
@@ -417,7 +417,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           color:
                             currentPage === "document-library" &&
                             item === "Document Library"
-                              ? "#273572"
+                              ? "#344698"
                               : "var(--colors-text-text-secondary-700, #414651)",
                           fontFamily:
                             "var(--Font-family-font-family-body, 'Public Sans')",
@@ -437,7 +437,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             color:
                               currentPage === "document-library" &&
                               item === "Document Library"
-                                ? "#273572"
+                                ? "#344698"
                                 : "rgba(65,70,81,1)",
                           }}
                         >
@@ -1498,7 +1498,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 ></div>
               </div>
 
-                            {(
+              {true ? (
                 /* Main Sidebar Menu with User Profile */
                 <div
                   style={{
