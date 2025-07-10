@@ -711,6 +711,7 @@ export default function DocumentLibrary() {
                     border: "1px solid #E9EAEB",
                     background: "#FFF",
                     boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                    overflow: "hidden",
                   }}
                 >
                   {/* Section Header */}
