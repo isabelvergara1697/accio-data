@@ -157,7 +157,7 @@ const documentLibraryStyles = `
     background: #F5F5F5 !important;
   }
 
-  /* Responsive layout utilities */
+    /* Responsive layout utilities */
   @media (max-width: 767px) {
     .mobile-stack {
       flex-direction: column !important;
@@ -172,12 +172,20 @@ const documentLibraryStyles = `
   @media (min-width: 768px) and (max-width: 1023px) {
     .tablet-layout {
       flex-direction: column !important;
-      gap: 16px !important;
+      gap: 20px !important;
+    }
+    .tablet-title-section {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 4px !important;
+      margin-bottom: 4px !important;
     }
     .tablet-buttons {
       flex-direction: row !important;
       justify-content: flex-start !important;
       gap: 12px !important;
+      flex-wrap: wrap !important;
     }
   }
 `;
@@ -380,24 +388,33 @@ export default function DocumentLibrary() {
             }}
           >
             <div
-              className={isMobile ? "mobile-stack" : "tablet-layout"}
+              className={
+                isMobile ? "mobile-stack" : isDesktop ? "" : "tablet-layout"
+              }
               style={{
                 display: "flex",
-                alignItems: isMobile ? "stretch" : "flex-end",
+                alignItems: isMobile
+                  ? "stretch"
+                  : isDesktop
+                    ? "flex-end"
+                    : "flex-start",
                 alignContent: "flex-end",
-                gap: isMobile ? "16px" : "20px 16px",
+                gap: isMobile ? "16px" : isDesktop ? "20px 16px" : "20px",
                 alignSelf: "stretch",
                 flexWrap: isMobile ? "nowrap" : "wrap",
               }}
             >
               <div
+                className={
+                  !isDesktop && !isMobile ? "tablet-title-section" : ""
+                }
                 style={{
                   display: "flex",
-                  minWidth: "320px",
+                  minWidth: isDesktop ? "320px" : "100%",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "4px",
-                  flex: "1 0 0",
+                  flex: isDesktop ? "1 0 0" : "none",
                 }}
               >
                 <div
@@ -459,9 +476,10 @@ export default function DocumentLibrary() {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: isMobile ? "12px" : "12px",
+                  gap: "12px",
                   justifyContent: isMobile ? "space-between" : "flex-start",
-                  flex: isMobile ? "1 0 0" : "unset",
+                  flex: isMobile ? "1 0 0" : "none",
+                  width: !isDesktop && !isMobile ? "100%" : "auto",
                 }}
               >
                 <div
