@@ -325,39 +325,37 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           </div>
         )}
 
-        {/* Hamburger Menu - Only on mobile */}
-        {isMobile && (
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            style={{
-              display: "flex",
-              padding: "8px",
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: "8px",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
+        {/* Hamburger Menu - On mobile and tablet */}
+        <button
+          onClick={() => setMobileMenuOpen(true)}
+          style={{
+            display: "flex",
+            padding: "8px",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "8px",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          <svg
+            style={{ width: "24px", height: "24px" }}
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              style={{ width: "24px", height: "24px" }}
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 12H15M3 6H21M3 18H21"
-                stroke="#A4A7AE"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        )}
+            <path
+              d="M3 12H15M3 6H21M3 18H21"
+              stroke="#A4A7AE"
+              strokeWidth="1.66667"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );
