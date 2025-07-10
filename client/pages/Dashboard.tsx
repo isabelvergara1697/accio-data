@@ -1159,10 +1159,9 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Desktop Header Navigation - Only show on desktop */}
+        {/* Desktop Header Navigation - Only show on desktop lg and up */}
         <div
           style={{
-            display: "flex",
             flexDirection: "column",
             alignItems: "center",
             alignSelf: "stretch",
