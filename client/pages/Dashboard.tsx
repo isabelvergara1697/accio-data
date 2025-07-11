@@ -163,6 +163,7 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <main
+        className="dashboard-main"
         style={{
           flex: 1,
           display: "flex",
@@ -170,7 +171,6 @@ export default function Dashboard() {
           alignItems: "flex-start",
           gap: "32px",
           paddingTop: isDesktop ? "120px" : "64px",
-          paddingLeft: isDesktop ? "320px" : "20px",
           paddingRight: "20px",
           paddingBottom: "20px",
         }}
