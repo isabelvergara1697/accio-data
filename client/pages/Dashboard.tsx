@@ -488,12 +488,12 @@ export default function Dashboard() {
           style={{
             marginTop: isDesktop
               ? showNotification
-                ? "140px"
+                ? "124px"
                 : "80px"
               : "64px",
             paddingBottom: isMobile
               ? showNotification
-                ? "160px"
+                ? "140px"
                 : "80px"
               : "32px",
             display: "flex",
