@@ -1634,7 +1634,7 @@ export default function Resources() {
                     isMobile={isMobile}
                   />
                 ) : (
-                  (isSearchActive ? searchResults : getCurrentTabData()).map(
+                  (isSearchActive ? searchResults : getFilteredTabData()).map(
                     (section) => (
                       <ResourceSection
                         key={section.id}
