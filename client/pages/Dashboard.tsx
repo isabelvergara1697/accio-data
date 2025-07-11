@@ -207,7 +207,6 @@ export default function Dashboard() {
 
         {/* Main Content Area */}
         <div
-          className={isMobile ? "mobile-content-area" : ""}
           style={{
             marginTop: isDesktop ? "80px" : "64px",
             padding: isMobile ? "0" : "32px",
