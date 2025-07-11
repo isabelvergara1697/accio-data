@@ -34,18 +34,30 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
     const checkTruncation = () => {
       if (descriptionRef.current && resource.description) {
         const element = descriptionRef.current;
-        const isOverflowing = element.scrollHeight > element.clientHeight;
+        // Check if text is truncated by comparing scroll dimensions
+        const isOverflowing =
+          element.scrollHeight > element.clientHeight ||
+          element.scrollWidth > element.clientWidth;
         setIsDescriptionTruncated(isOverflowing);
+      } else {
+        setIsDescriptionTruncated(false);
       }
     };
 
-    checkTruncation();
-    window.addEventListener("resize", checkTruncation);
+    // Use a small delay to ensure the element is rendered
+    const timeoutId = setTimeout(checkTruncation, 10);
+
+    const handleResize = () => {
+      setTimeout(checkTruncation, 10);
+    };
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", checkTruncation);
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [resource.description]);
+  }, [resource.description, variant]);
   const VideoThumbnail = () => (
     <div
       style={{
