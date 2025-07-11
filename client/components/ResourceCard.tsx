@@ -8,6 +8,7 @@ interface ResourceItem {
   type: "video" | "document";
   description?: string;
   thumbnail?: string;
+  documentType?: "pdf" | "pptx" | "docx";
 }
 
 interface ResourceCardProps {
