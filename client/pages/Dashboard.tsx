@@ -132,7 +132,14 @@ export default function Dashboard() {
       <main
         style={{
           flex: 1,
-          padding: isDesktop ? "120px 20px 20px" : "64px 20px 20px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "32px",
+          paddingTop: isDesktop ? "120px" : "64px",
+          paddingLeft: isDesktop ? "320px" : "20px",
+          paddingRight: "20px",
+          paddingBottom: "20px",
         }}
       >
         {/* Success Notification */}
