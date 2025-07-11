@@ -8,6 +8,33 @@ import { SearchInput } from "../components/SearchInput";
 import { HorizontalTabs } from "../components/HorizontalTabs";
 import { ResourceSection } from "../components/ResourceSection";
 
+// Type definitions for search results
+interface ResourceItem {
+  id: string;
+  name: string;
+  size?: string;
+  type: "video" | "document";
+  description?: string;
+  thumbnail?: string;
+  date?: string;
+  documentType?: string;
+}
+
+interface ResourceSectionData {
+  id: string;
+  title: string;
+  subtitle?: string;
+  count: number;
+  isOpen: boolean;
+  gridVariant?: "compact" | "expanded";
+  resources: ResourceItem[];
+}
+
+interface SearchResultSection extends ResourceSectionData {
+  tabId?: string;
+  tabLabel?: string;
+}
+
 // Tab configuration
 const tabs = [
   { id: "onboarding", label: "Onboarding", current: true },
@@ -888,7 +915,7 @@ export default function Resources() {
   const [selectedFileType, setSelectedFileType] = useState("All Files");
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<SearchResultSection[]>([]);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
@@ -1013,7 +1040,7 @@ export default function Resources() {
       "my-documents": myDocumentsData,
     };
 
-    const searchResults = [];
+    const searchResults: SearchResultSection[] = [];
 
     // Search across all tabs
     Object.entries(allTabData).forEach(([tabId, tabData]) => {
