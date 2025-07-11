@@ -514,8 +514,9 @@ export default function ActivateAccount() {
                     gap: "8px",
                     alignSelf: "stretch",
                     borderRadius: "8px",
-                    border:
-                      focusedField === "lastName"
+                    border: fieldErrors.lastName
+                      ? "1px solid #FDA29B"
+                      : focusedField === "lastName"
                         ? "2px solid #34479A"
                         : "1px solid #D5D7DA",
                     background: "#FFF",
