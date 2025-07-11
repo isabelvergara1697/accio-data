@@ -24,9 +24,10 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
       <style
         dangerouslySetInnerHTML={{
           __html: `
-            .tabs-container {
+                        .tabs-container {
               display: flex;
               padding: 4px;
+              ${isMobile ? "padding-right: 20px;" : ""}
               align-items: center;
               gap: 4px;
               align-self: stretch;
