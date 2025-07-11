@@ -416,6 +416,18 @@ const myDocumentsData = [
         size: "200 KB",
         type: "document" as const,
       },
+      {
+        id: "pvm-5",
+        name: "E-Verify Users Manuals",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "pvm-6",
+        name: "Taleo Business Edition Integration",
+        size: "200 KB",
+        type: "document" as const,
+      },
     ],
   },
   {
