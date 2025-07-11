@@ -1144,6 +1144,35 @@ export default function Resources() {
                 alignSelf: "stretch",
               }}
             >
+              {/* Show descriptive text for Accio University tab */}
+              {currentTab === "accio-university" && (
+                <div
+                  style={{
+                    alignSelf: "stretch",
+                    color: "#535862",
+                    fontFamily: "'Public Sans'",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "16px",
+                      color: "rgba(83,88,98,1)",
+                    }}
+                  >
+                    Accio University is a webinar held on the second Wednesday
+                    of each month. Geared toward owners and managers, Accio U
+                    looks at more advanced topics.
+                  </span>
+                </div>
+              )}
+
               {getCurrentTabData().map((section) => (
                 <ResourceSection
                   key={section.id}
