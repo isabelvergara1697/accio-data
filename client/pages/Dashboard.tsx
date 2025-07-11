@@ -12,14 +12,18 @@ const dashboardStyles = `
     body {
       overflow-x: hidden;
       overflow-y: auto;
+      position: relative;
     }
 
     /* Mobile content scrolling */
     .mobile-container {
       -webkit-overflow-scrolling: touch !important;
       overflow-x: hidden !important;
+      overflow-y: auto !important;
       min-height: auto !important;
       height: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
     }
 
     /* Fix content areas that might have height issues */
@@ -27,6 +31,7 @@ const dashboardStyles = `
       -webkit-overflow-scrolling: touch !important;
       min-height: auto !important;
       height: auto !important;
+      overflow-y: auto !important;
       padding-bottom: 80px !important;
     }
 
@@ -35,13 +40,15 @@ const dashboardStyles = `
       body {
         -webkit-overflow-scrolling: touch !important;
       }
+
+      .mobile-container {
+        -webkit-overflow-scrolling: touch !important;
+      }
     }
 
-    /* Ensure viewport units work correctly on mobile */
-    @supports (height: 100dvh) {
-      .mobile-container {
-        min-height: 100dvh !important;
-      }
+    /* Ensure initial scroll position */
+    .mobile-container {
+      scroll-behavior: auto !important;
     }
   }
 `;
