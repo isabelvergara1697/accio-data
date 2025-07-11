@@ -580,7 +580,7 @@ export default function Dashboard() {
         )}
       </div>
     );
-    };
+  };
 
   return (
     <div
