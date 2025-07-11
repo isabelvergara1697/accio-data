@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface ResourceItem {
   id: string;
@@ -22,6 +27,25 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
   isMobile,
   variant = "compact",
 }) => {
+  const descriptionRef = useRef<HTMLDivElement>(null);
+  const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
+
+  useEffect(() => {
+    const checkTruncation = () => {
+      if (descriptionRef.current && resource.description) {
+        const element = descriptionRef.current;
+        const isOverflowing = element.scrollHeight > element.clientHeight;
+        setIsDescriptionTruncated(isOverflowing);
+      }
+    };
+
+    checkTruncation();
+    window.addEventListener("resize", checkTruncation);
+
+    return () => {
+      window.removeEventListener("resize", checkTruncation);
+    };
+  }, [resource.description]);
   const VideoThumbnail = () => (
     <div
       style={{
@@ -269,34 +293,91 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
                 alignSelf: "stretch",
               }}
             >
-              <div
-                style={{
-                  display: "-webkit-box",
-                  WebkitBoxOrient: "vertical",
-                  WebkitLineClamp: 1,
-                  alignSelf: "stretch",
-                  overflow: "hidden",
-                  color: "#535862",
-                  textOverflow: "ellipsis",
-                  fontFamily: "'Public Sans'",
-                  fontSize: "12px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "18px",
-                }}
-              >
-                <span
+              {isDescriptionTruncated ? (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div
+                      ref={descriptionRef}
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 1,
+                        alignSelf: "stretch",
+                        overflow: "hidden",
+                        color: "#535862",
+                        textOverflow: "ellipsis",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        cursor: "help",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 400,
+                          fontSize: "12px",
+                          color: "rgba(83,88,98,1)",
+                        }}
+                      >
+                        {resource.description}
+                      </span>
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side="top"
+                    className="max-w-xs z-50"
+                    style={{
+                      background: "#0A0D12",
+                      color: "#FFF",
+                      border: "none",
+                      borderRadius: "8px",
+                      padding: "8px 12px",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      lineHeight: "18px",
+                      fontFamily: "'Public Sans'",
+                      boxShadow:
+                        "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                    }}
+                  >
+                    {resource.description}
+                  </TooltipContent>
+                </Tooltip>
+              ) : (
+                <div
+                  ref={descriptionRef}
                   style={{
-                    fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 400,
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical",
+                    WebkitLineClamp: 1,
+                    alignSelf: "stretch",
+                    overflow: "hidden",
+                    color: "#535862",
+                    textOverflow: "ellipsis",
+                    fontFamily: "'Public Sans'",
                     fontSize: "12px",
-                    color: "rgba(83,88,98,1)",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "18px",
                   }}
                 >
-                  {resource.description}
-                </span>
-              </div>
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "12px",
+                      color: "rgba(83,88,98,1)",
+                    }}
+                  >
+                    {resource.description}
+                  </span>
+                </div>
+              )}
             </div>
           )}
           {resource.size && resource.type === "document" && (
