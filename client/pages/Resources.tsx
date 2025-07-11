@@ -472,7 +472,8 @@ const myDocumentsData = [
       {
         id: "tpxi-5",
         name: "Electronic I9 demo",
-        description: "How to handle AKAs (also known as).",
+        description:
+          "Comprehensive demonstration of the Electronic I9 verification process, including document scanning, identity verification, and compliance with federal employment eligibility requirements.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
@@ -488,14 +489,16 @@ const myDocumentsData = [
       {
         id: "vss-1",
         name: "Electronic I9 demo",
-        description: "How to handle AKAs (also known as).",
+        description:
+          "Advanced Electronic I9 verification system demonstration covering automated document processing, real-time identity verification, and integration with HR management systems.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
       {
         id: "vss-2",
         name: "Electronic I9 demo",
-        description: "How to handle AKAs (also known as).",
+        description:
+          "Complete Electronic I9 workflow demonstration including step-by-step employee onboarding, document verification protocols, and compliance reporting features.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
