@@ -26,6 +26,7 @@ interface ResourceSectionProps {
   onToggle: (sectionId: string) => void;
   isMobile: boolean;
   isDesktop: boolean;
+  isTablet?: boolean;
 }
 
 export const ResourceSection: React.FC<ResourceSectionProps> = ({
@@ -34,6 +35,7 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
   onToggle,
   isMobile,
   isDesktop,
+  isTablet = false,
 }) => {
   return (
     <div
@@ -234,9 +236,10 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
         {/* Resource Content */}
         {isOpen ? (
           <div
+            className="document-grid"
             style={{
               display: "grid",
-              gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
               gap: "16px",
               padding: isMobile ? "20px 16px" : "20px 24px",
               alignSelf: "stretch",
