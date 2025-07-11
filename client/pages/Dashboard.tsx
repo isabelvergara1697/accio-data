@@ -98,6 +98,7 @@ export default function Dashboard() {
         position: "relative",
       }}
     >
+      <style dangerouslySetInnerHTML={{ __html: dashboardStyles }} />
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
