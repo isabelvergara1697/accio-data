@@ -823,10 +823,12 @@ const resourcesStyles = `
       overflow-y: auto;
     }
 
-    /* Mobile content scrolling */
+        /* Mobile content scrolling */
     .mobile-container {
       -webkit-overflow-scrolling: touch !important;
       scroll-behavior: smooth !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
     }
 
     /* Fix content areas that might have height issues */
@@ -835,6 +837,7 @@ const resourcesStyles = `
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
       min-height: 0 !important;
+      padding-bottom: 40px !important;
     }
 
     /* Ensure viewport units work correctly on mobile */
