@@ -793,7 +793,7 @@ const resourcesStyles = `
     }
   }
 
-  /* Document grid responsive refinements */
+    /* Document grid responsive refinements */
   .tablet-document-grid,
   .desktop-document-grid {
     grid-template-columns: 1fr 1fr !important;
@@ -804,6 +804,27 @@ const resourcesStyles = `
     .mobile-document-grid {
       grid-template-columns: 1fr !important;
       gap: 16px !important;
+    }
+
+    /* Mobile tab scrolling improvements */
+    .scrollable-tabs {
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      -webkit-overflow-scrolling: touch !important;
+      scroll-behavior: smooth !important;
+      touch-action: pan-x !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
+    .scrollable-tabs::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    /* Ensure tabs don't wrap and stay in single row */
+    .scrollable-tabs {
+      flex-wrap: nowrap !important;
+      white-space: nowrap !important;
     }
   }
 `;
