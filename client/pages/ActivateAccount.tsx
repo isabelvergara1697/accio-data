@@ -109,10 +109,7 @@ export default function ActivateAccount() {
         fontFamily:
           "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
         justifyContent: "flex-start",
-        paddingTop: "24px",
-        paddingBottom: "40px",
-        overflow: "auto",
-        overflowX: "hidden",
+        padding: "24px 16px 60px 16px",
         boxSizing: "border-box",
       }}
     >
@@ -125,31 +122,29 @@ export default function ActivateAccount() {
           }
         }
 
-        @media (max-width: 767px) {
-          body {
+                @media (max-width: 767px) {
+          html, body {
             overflow-x: hidden !important;
-            overflow-y: auto !important;
             -webkit-overflow-scrolling: touch !important;
+            height: auto !important;
+            min-height: 100% !important;
           }
 
           .activate-account-container {
-            width: 100% !important;
-            min-height: 100vh !important;
-            min-height: 100dvh !important;
-            overflow-y: auto !important;
-            overflow-x: hidden !important;
-            -webkit-overflow-scrolling: touch !important;
-            padding: 20px 16px 40px 16px !important;
+            min-height: auto !important;
+            max-height: none !important;
+            height: auto !important;
+            padding: 20px 16px 80px 16px !important;
+            overflow: visible !important;
             justify-content: flex-start !important;
             gap: 20px !important;
-            box-sizing: border-box !important;
           }
 
           .activate-account-form-container {
-            max-width: 100% !important;
             width: 100% !important;
-            padding: 20px 16px !important;
-            box-sizing: border-box !important;
+            max-width: 100% !important;
+            padding: 24px 16px !important;
+            margin-bottom: 20px !important;
           }
         }
 
