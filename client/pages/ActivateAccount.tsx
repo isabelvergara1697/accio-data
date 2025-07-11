@@ -99,17 +99,32 @@ export default function ActivateAccount() {
     e.preventDefault();
     setHasAttemptedSubmit(true);
 
+    // Validate all fields
+    const newFieldErrors: { [key: string]: string } = {};
+    Object.keys(formData).forEach((field) => {
+      const error = validateField(
+        field,
+        formData[field as keyof typeof formData],
+      );
+      if (error) {
+        newFieldErrors[field] = error;
+      }
+    });
+
+    setFieldErrors(newFieldErrors);
+
     // Check if all requirements are met
     const allRequirementsMet = passwordRequirements.every((req) =>
       req.validator(formData.password),
     );
 
-    // Check if all fields are filled
+    // Check if all fields are filled and have no errors
+    const hasFieldErrors = Object.keys(newFieldErrors).length > 0;
     const allFieldsFilled = Object.values(formData).every(
       (value) => value.trim() !== "",
     );
 
-    if (allRequirementsMet && allFieldsFilled) {
+    if (allRequirementsMet && allFieldsFilled && !hasFieldErrors) {
       // Account activated successfully, redirect to dashboard with notification
       navigate("/dashboard?activated=true");
     }
