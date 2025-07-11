@@ -7,6 +7,7 @@ import { FilterDropdown } from "../components/FilterDropdown";
 import { SearchInput } from "../components/SearchInput";
 import { HorizontalTabs } from "../components/HorizontalTabs";
 import { ResourceSection } from "../components/ResourceSection";
+import { SearchEmptyState } from "../components/SearchEmptyState";
 
 // Type definitions for search results
 interface ResourceItem {
