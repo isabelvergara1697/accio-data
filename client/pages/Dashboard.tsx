@@ -14,6 +14,7 @@ export default function Dashboard() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
+  const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
