@@ -917,6 +917,7 @@ export default function Resources() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResultSection[]>([]);
+  const [filteredData, setFilteredData] = useState<ResourceSectionData[]>([]);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
