@@ -687,7 +687,14 @@ const resourcesStyles = `
   }
 
   /* Responsive layout utilities */
-  @media (max-width: 767px) {
+    @media (max-width: 767px) {
+    /* Fix mobile container overflow */
+    .mobile-container {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+      box-sizing: border-box !important;
+    }
     .mobile-stack {
       flex-direction: column !important;
       align-items: stretch !important;
