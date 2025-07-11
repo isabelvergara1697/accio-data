@@ -35,6 +35,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
   const [openAccordions, setOpenAccordions] = useState<string[]>([]);
+
+  // Keep accordions open for related pages
+  useEffect(() => {
+    const currentPath = location.pathname;
+    if (currentPath === "/document-library" || currentPath === "/resources") {
+      if (!openAccordions.includes("support")) {
+        setOpenAccordions((prev) => [...prev, "support"]);
+      }
+    }
+  }, [location.pathname, openAccordions]);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const menuSections = {
