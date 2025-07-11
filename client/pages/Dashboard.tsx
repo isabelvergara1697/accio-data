@@ -133,8 +133,21 @@ export default function Dashboard() {
         getUserMenuStyles={getUserMenuStyles}
       />
 
-      {/* Header */}
-      {isDesktop ? (
+            {/* Main Content */}
+      <div
+        className={isMobile ? "mobile-container" : ""}
+        style={{
+          marginLeft: isDesktop ? "296px" : "0",
+          flex: "1 1 auto",
+          display: "flex",
+          flexDirection: "column",
+          background: "#FAFAFA",
+          position: "relative",
+          minHeight: "auto",
+          height: "auto",
+        }}
+      >
+        {/* Desktop Top Navigation Bar */}
         <Header
           isDesktop={isDesktop}
           userMenuOpen={userMenuOpen}
@@ -143,8 +156,9 @@ export default function Dashboard() {
           setUserMenuHovered={setUserMenuHovered}
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
+          showMobileUserMenu={showMobileUserMenu}
         />
-      ) : (
+
         <MobileHeader
           isDesktop={isDesktop}
           isMobile={isMobile}
@@ -155,22 +169,21 @@ export default function Dashboard() {
           setUserMenuHovered={setUserMenuHovered}
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
+          showMobileUserMenu={showMobileUserMenu}
         />
-      )}
 
-      {/* Main Content */}
-      <main
-        className="dashboard-main"
-        style={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "32px",
-          paddingTop: isDesktop ? "120px" : "64px",
-          paddingRight: "20px",
-          paddingBottom: "20px",
-        }}
+        {/* Main Content Area */}
+        <main
+          className="dashboard-main"
+          style={{
+            marginTop: isDesktop ? "80px" : "64px",
+            padding: isMobile ? "16px 16px 80px 16px" : "32px",
+            display: "flex",
+            flexDirection: "column",
+            gap: isMobile ? "16px" : "32px",
+            minHeight: "auto",
+            height: "auto",
+          }}
       >
         {/* Success Notification */}
         {showNotification && (
