@@ -410,11 +410,12 @@ const documentLibraryStyles = `
       }
     }
 
-        /* Mobile scrolling improvements */
+                /* Mobile scrolling improvements */
     body {
       overflow-x: hidden;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      position: relative;
     }
 
         /* Fix mobile container scrolling */
@@ -422,17 +423,20 @@ const documentLibraryStyles = `
       width: 100% !important;
       max-width: 100% !important;
       overflow-x: hidden !important;
+      overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
       min-height: auto !important;
       height: auto !important;
+      scroll-behavior: auto !important;
     }
 
         /* Ensure content areas scroll properly */
     .mobile-content-area {
       -webkit-overflow-scrolling: touch !important;
+      overflow-y: auto !important;
       min-height: auto !important;
       height: auto !important;
-            padding-bottom: 80px !important;
+      padding-bottom: 80px !important;
     }
   }
 `;
