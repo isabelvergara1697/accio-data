@@ -240,16 +240,21 @@ export default function ActivateAccount() {
           }}
         >
           {/* Logo */}
-          <div
+                    <div
             style={{
-              width: "208.5px",
-              height: "48px",
-              position: "relative",
               display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              width: "139px",
+              alignItems: "flex-start",
             }}
           >
+            <div
+              style={{
+                width: "139px",
+                height: "32px",
+                flexShrink: 0,
+                position: "relative",
+              }}
+            >
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/a0f83d57ac8b2445c428a179d465e0002d79ee07?width=274"
               style={{
