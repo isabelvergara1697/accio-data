@@ -10,9 +10,9 @@ import { ResourceSection } from "../components/ResourceSection";
 
 // Tab configuration
 const tabs = [
-  { id: "onboarding", label: "Onboarding" },
+  { id: "onboarding", label: "Onboarding", current: true },
   { id: "accio-university", label: "Accio University" },
-  { id: "my-documents", label: "My Documents", current: true },
+  { id: "my-documents", label: "My Documents" },
   { id: "category1", label: "[Category]" },
   { id: "category2", label: "[Category]" },
   { id: "category3", label: "[Category]" },
