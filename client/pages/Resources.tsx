@@ -1362,7 +1362,6 @@ export default function Resources() {
                   onToggle={toggleAccordion}
                   isMobile={isMobile}
                   isDesktop={isDesktop}
-                  isTablet={isTablet}
                 />
               ))}
             </div>
