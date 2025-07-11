@@ -44,6 +44,16 @@ export default function Dashboard() {
     navigate("/login");
   };
 
+  const getUserMenuStyles = () => {
+    if (userMenuHovered || userMenuOpen) {
+      return {
+        border: "1px solid #E9EAEB",
+        background: "#F5F5F5",
+      };
+    }
+    return {};
+  };
+
   return (
     <div
       style={{
