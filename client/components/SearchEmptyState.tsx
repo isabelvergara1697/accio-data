@@ -68,11 +68,13 @@ export const SearchEmptyState: React.FC<SearchEmptyStateProps> = ({
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
           gap: "24px",
-          flex: "1 0 0",
           position: "relative",
           zIndex: 2,
           maxWidth: "400px",
+          width: "100%",
+          textAlign: "center",
         }}
       >
         {/* Content section */}
