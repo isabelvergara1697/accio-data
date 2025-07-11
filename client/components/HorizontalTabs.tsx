@@ -11,7 +11,6 @@ interface HorizontalTabsProps {
   onTabChange: (tabId: string) => void;
   currentTab: string;
   isMobile?: boolean;
-  isTablet?: boolean;
 }
 
 export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
@@ -19,9 +18,8 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
   onTabChange,
   currentTab,
   isMobile = false,
-  isTablet = false,
 }) => {
-  const isScrollable = isMobile || isTablet;
+  const isScrollable = isMobile;
   return (
     <div
       style={{
@@ -70,7 +68,7 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
             cursor: "pointer",
             transition: "all 0.2s ease",
             flexShrink: 0,
-            minWidth: isScrollable ? "auto" : "fit-content",
+            minWidth: isMobile ? "auto" : "fit-content",
             whiteSpace: "nowrap",
           }}
           onMouseEnter={(e) => {
