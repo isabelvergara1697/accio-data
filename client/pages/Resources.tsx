@@ -1450,12 +1450,13 @@ export default function Resources() {
                 </div>
                 <div
                   style={{
-                    color: "#535862",
-                    fontFamily: "'Public Sans'",
-                    fontSize: "14px",
+                    color: "var(--colors-text-text-tertiary-600, #535862)",
+                    fontFamily:
+                      "var(--Font-family-font-family-body, 'Public Sans')",
+                    fontSize: "var(--Font-size-text-md, 16px)",
                     fontStyle: "normal",
                     fontWeight: 400,
-                    lineHeight: "20px",
+                    lineHeight: "var(--Line-height-text-md, 24px)",
                     gap: "4px",
                     display: "flex",
                     flexDirection: "column",
@@ -1466,8 +1467,8 @@ export default function Resources() {
                       fontFamily:
                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontWeight: 400,
-                      fontSize: "14px",
-                      color: "rgba(83,88,98,1)",
+                      fontSize: "16px",
+                      color: "#535862",
                     }}
                   >
                     {searchResults.reduce(
