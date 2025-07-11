@@ -917,6 +917,8 @@ export default function Resources() {
         return onboardingData;
       case "accio-university":
         return accioUniversityData;
+      case "my-documents":
+        return myDocumentsData;
       default:
         return placeholderData;
     }
