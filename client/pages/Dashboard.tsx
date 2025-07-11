@@ -357,7 +357,11 @@ export default function Dashboard() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: isDesktop ? "repeat(3, 1fr)" : "1fr",
+                gridTemplateColumns: isDesktop
+                  ? "repeat(3, 1fr)"
+                  : isMobile
+                    ? "1fr"
+                    : "repeat(2, 1fr)",
                 gap: "12px",
               }}
             >
