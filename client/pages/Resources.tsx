@@ -1454,6 +1454,9 @@ export default function Resources() {
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "20px",
+                    gap: "4px",
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 >
                   <span
