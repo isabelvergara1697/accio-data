@@ -114,4 +114,43 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Global mobile scrolling improvements */
+  @media (max-width: 767px) {
+    html,
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    /* Fix mobile viewport height issues */
+    .mobile-container {
+      min-height: 100vh;
+      min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    }
+
+    /* Ensure content areas can scroll */
+    .mobile-scrollable {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+
+    /* Fix flexbox children that might prevent scrolling */
+    .mobile-flex-fix {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+    }
+  }
+
+  /* Support for dynamic viewport height */
+  @supports (height: 100dvh) {
+    .mobile-container {
+      min-height: 100dvh !important;
+    }
+  }
 }
