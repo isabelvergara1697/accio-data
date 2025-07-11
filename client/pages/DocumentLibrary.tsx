@@ -417,27 +417,22 @@ const documentLibraryStyles = `
       -webkit-overflow-scrolling: touch;
     }
 
-    /* Fix mobile container scrolling */
+        /* Fix mobile container scrolling */
     .mobile-container {
       width: 100% !important;
       max-width: 100% !important;
       overflow-x: hidden !important;
-      overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
-      scroll-behavior: smooth !important;
-      min-height: 100vh !important;
-      min-height: 100dvh !important;
-      display: flex !important;
-      flex-direction: column !important;
+      min-height: auto !important;
+      height: auto !important;
     }
 
-    /* Ensure content areas scroll properly */
+        /* Ensure content areas scroll properly */
     .mobile-content-area {
-      flex: 1 1 auto !important;
-      overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
-      min-height: 0 !important;
-      padding-bottom: 40px !important;
+      min-height: auto !important;
+      height: auto !important;
+      padding-bottom: 60px !important;
     }
   }
 `;
