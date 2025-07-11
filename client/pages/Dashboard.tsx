@@ -102,7 +102,7 @@ export default function Dashboard() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && !isDesktop && (
         <div
-          className="fixed inset-0 z-40"
+          className="fixed inset-0 z-50"
           style={{
             width: "100vw",
             height: "100vh",
