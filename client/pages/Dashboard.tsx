@@ -3,8 +3,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import SuccessNotification from "../components/SuccessNotification";
 import { UserMenuDropdown } from "../components/UserMenuDropdown";
 import { Header } from "../components/Header";
-import { Sidebar } from "../components/Sidebar";
-import { MobileHeader } from "../components/MobileHeader";
 
 // Add styles for button hover states and metric card hovers
 const dashboardStyles = `
@@ -610,21 +608,15 @@ export default function Dashboard() {
         ></div>
       )}
 
-      <Sidebar
-        isDesktop={isDesktop}
-        isMobile={isMobile}
-        mobileMenuOpen={mobileMenuOpen}
-        currentPage="dashboard"
-        showMobileUserMenu={showMobileUserMenu}
-        setShowMobileUserMenu={setShowMobileUserMenu}
-        setMobileMenuOpen={setMobileMenuOpen}
-        userMenuOpen={userMenuOpen}
-        setUserMenuOpen={setUserMenuOpen}
-        userMenuHovered={userMenuHovered}
-        setUserMenuHovered={setUserMenuHovered}
-        handleSignOut={handleSignOut}
-        getUserMenuStyles={getUserMenuStyles}
-                  />
+      {/* Sidebar Navigation */}
+      <aside
+        className={`transition-all duration-300 lg:translate-x-0 ${
+          mobileMenuOpen
+            ? "translate-x-0"
+            : "-translate-x-full lg:translate-x-0"
+        }`}
+        style={{
+          display: "flex",
           width: isDesktop ? "296px" : mobileMenuOpen ? "75%" : "296px",
           height: "100vh",
           padding: isDesktop
