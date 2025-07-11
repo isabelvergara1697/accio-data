@@ -459,6 +459,7 @@ export const DocumentLibraryLayout: React.FC<DocumentLibraryLayoutProps> = ({
             alignItems: "flex-start",
             gap: "24px",
             alignSelf: "stretch",
+            padding: isMobile ? "0 16px" : "0",
           }}
         >
           {(isSearchActive ? searchResults : filteredSections).map(
