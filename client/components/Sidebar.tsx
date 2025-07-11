@@ -405,9 +405,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     onMouseLeave={() => setHoveredItem(null)}
                     onClick={() => {
                       if (section === "support") {
-                        if (item === "Resources") {
-                          navigate("/dashboard");
-                        } else if (item === "Document Library") {
+                        if (item === "Document Library") {
                           navigate("/document-library");
                         } else if (item === "Resources") {
                           navigate("/resources");
