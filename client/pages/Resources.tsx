@@ -11,8 +11,8 @@ import { ResourceSection } from "../components/ResourceSection";
 // Tab configuration
 const tabs = [
   { id: "onboarding", label: "Onboarding" },
-  { id: "accio-university", label: "Accio University", current: true },
-  { id: "my-documents", label: "My Documents" },
+  { id: "accio-university", label: "Accio University" },
+  { id: "my-documents", label: "My Documents", current: true },
   { id: "category1", label: "[Category]" },
   { id: "category2", label: "[Category]" },
   { id: "category3", label: "[Category]" },
