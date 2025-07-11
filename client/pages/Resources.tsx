@@ -823,32 +823,26 @@ const resourcesStyles = `
       overflow-y: auto;
     }
 
-        /* Mobile content scrolling */
+                /* Mobile content scrolling */
     .mobile-container {
       -webkit-overflow-scrolling: touch !important;
-      scroll-behavior: smooth !important;
-      overflow-y: auto !important;
       overflow-x: hidden !important;
+      min-height: auto !important;
+      height: auto !important;
     }
 
     /* Fix content areas that might have height issues */
     .mobile-content-area {
-      flex: 1 1 auto !important;
-      overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
-      min-height: 0 !important;
-      padding-bottom: 40px !important;
+      min-height: auto !important;
+      height: auto !important;
+      padding-bottom: 80px !important;
         }
 
-    /* iPhone Safari specific viewport fixes */
+        /* iPhone Safari specific viewport fixes */
     @supports (-webkit-touch-callout: none) {
-      .mobile-container {
-        min-height: 100vh !important;
-        min-height: 100dvh !important;
-      }
       body {
-        min-height: 100vh !important;
-        min-height: 100dvh !important;
+        -webkit-overflow-scrolling: touch !important;
       }
     }
 
