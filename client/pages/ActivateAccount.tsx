@@ -821,8 +821,9 @@ export default function ActivateAccount() {
                   gap: "8px",
                   alignSelf: "stretch",
                   borderRadius: "8px",
-                  border:
-                    focusedField === "password"
+                  border: fieldErrors.password
+                    ? "1px solid #FDA29B"
+                    : focusedField === "password"
                       ? "2px solid #34479A"
                       : "1px solid #D5D7DA",
                   background: "#FFF",
