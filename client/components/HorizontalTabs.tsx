@@ -19,7 +19,6 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
   currentTab,
   isMobile = false,
 }) => {
-  const isScrollable = isMobile;
   return (
     <div
       style={{
@@ -31,10 +30,13 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
         borderRadius: "10px",
         border: "1px solid #E9EAEB",
         background: "#FFF",
-        overflowX: isScrollable ? "auto" : "visible",
+        overflowX: isMobile ? "auto" : "visible",
+        overflowY: "hidden",
         WebkitOverflowScrolling: "touch",
         scrollbarWidth: "none", // Firefox
         msOverflowStyle: "none", // IE/Edge
+        touchAction: isMobile ? "pan-x" : "auto",
+        scrollBehavior: "smooth",
       }}
       className="scrollable-tabs"
     >
@@ -43,6 +45,10 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
           __html: `
         .scrollable-tabs::-webkit-scrollbar {
           display: none; /* Safari and Chrome */
+        }
+        .scrollable-tabs {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
         }
         `,
         }}
@@ -68,7 +74,7 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
             cursor: "pointer",
             transition: "all 0.2s ease",
             flexShrink: 0,
-            minWidth: isMobile ? "auto" : "fit-content",
+            minWidth: isMobile ? "fit-content" : "fit-content",
             whiteSpace: "nowrap",
           }}
           onMouseEnter={(e) => {
