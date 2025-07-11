@@ -199,12 +199,13 @@ export default function Dashboard() {
           showMobileUserMenu={showMobileUserMenu}
         />
 
-        {/* Main Content Area */}
-        <main
-          className="dashboard-main"
+                {/* Main Content Area */}
+        <div
+          className={isMobile ? "mobile-content-area" : ""}
           style={{
             marginTop: isDesktop ? "80px" : "64px",
-            padding: isMobile ? "16px 16px 80px 16px" : "32px",
+            padding: isMobile ? "16px" : "32px",
+            paddingBottom: isMobile ? "80px" : "32px",
             display: "flex",
             flexDirection: "column",
             gap: isMobile ? "16px" : "32px",
@@ -222,7 +223,7 @@ export default function Dashboard() {
             </div>
           )}
 
-          {/* Dashboard Content */}
+                    {/* Dashboard Content */}
           <div
             style={{
               display: "flex",
