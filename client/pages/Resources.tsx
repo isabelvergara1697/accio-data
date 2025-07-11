@@ -780,7 +780,7 @@ const resourcesStyles = `
       flex: 1 !important;
       max-width: 320px !important;
     }
-    .tablet-document-grid {
+        .tablet-document-grid {
       grid-template-columns: repeat(2, 308px) !important;
       justify-content: space-between !important;
     }
