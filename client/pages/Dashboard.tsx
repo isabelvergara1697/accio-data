@@ -826,6 +826,25 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      {/* Success Notification - Fixed positioning */}
+      {showNotification && (
+        <AlertNotification
+          title="Account Activated Successfully"
+          description="Manage your account and update your personal details in settings."
+          variant="success"
+          position={getNotificationPosition()}
+          onDismiss={handleNotificationDismiss}
+          primaryAction={{
+            label: "Update Account",
+            onClick: handleUpdateAccount,
+          }}
+          secondaryAction={{
+            label: "Dismiss",
+            onClick: handleNotificationDismiss,
+          }}
+        />
+      )}
     </div>
   );
 }
