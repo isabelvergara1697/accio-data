@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import SuccessNotification from "../components/SuccessNotification";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import { Sidebar } from "../components/Sidebar";
 
 export default function Dashboard() {
   const navigate = useNavigate();
