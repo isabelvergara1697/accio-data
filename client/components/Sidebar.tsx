@@ -515,28 +515,46 @@ export const Sidebar: React.FC<SidebarProps> = ({
     );
   };
 
-  return (
-    <aside
-      className={`transition-all duration-300 lg:translate-x-0 ${
-        mobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-      }`}
-      style={{
-        display: "flex",
-        width: isDesktop ? "296px" : mobileMenuOpen ? "75%" : "296px",
-        height: "100vh",
-        padding: isDesktop
-          ? "8px 0px 24px 8px"
-          : mobileMenuOpen
-            ? "0px"
-            : "8px 0px 24px 8px",
-        alignItems: "flex-start",
-        flexShrink: 0,
-        position: "fixed",
-        left: 0,
-        top: 0,
-        zIndex: 50,
-      }}
-    >
+    return (
+    <>
+      {/* Background Overlay - Only on Mobile/Tablet when sidebar is open */}
+      {!isDesktop && mobileMenuOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(10, 13, 18, 0.7)",
+            backdropFilter: "blur(8px)",
+            zIndex: 40,
+          }}
+          onClick={() => setMobileMenuOpen?.(false)}
+        />
+      )}
+
+      <aside
+        className={`transition-all duration-300 lg:translate-x-0 ${
+          mobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        }`}
+        style={{
+          display: "flex",
+          width: isDesktop ? "296px" : mobileMenuOpen ? isMobile ? "335px" : "704px" : "296px",
+          height: "100vh",
+          padding: isDesktop
+            ? "8px 0px 24px 8px"
+            : mobileMenuOpen
+              ? "0px"
+              : "8px 0px 24px 8px",
+          alignItems: "flex-start",
+          flexShrink: 0,
+          position: "fixed",
+          left: 0,
+          top: 0,
+          zIndex: 50,
+        }}
+      >
       <div
         style={{
           display: "flex",
