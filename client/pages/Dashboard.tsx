@@ -17,7 +17,9 @@ export default function Dashboard() {
   // Handle window resize for responsive behavior
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1024);
+      const width = window.innerWidth;
+      setIsDesktop(width >= 1024);
+      setIsMobile(width < 768);
     };
 
     window.addEventListener("resize", handleResize);
