@@ -1530,22 +1530,31 @@ export default function Resources() {
                   </div>
                 )}
 
-                {(isSearchActive ? searchResults : getCurrentTabData()).map(
-                  (section) => (
-                    <ResourceSection
-                      key={section.id}
-                      section={section}
-                      isOpen={openAccordions.includes(section.id)}
-                      onToggle={toggleAccordion}
-                      isMobile={isMobile}
-                      isDesktop={isDesktop}
-                      showTabLabel={
-                        isSearchActive && section.tabLabel
-                          ? section.tabLabel
-                          : undefined
-                      }
-                    />
-                  ),
+                {/* Show empty state when searching with no results */}
+                {isSearchActive && searchResults.length === 0 ? (
+                  <SearchEmptyState
+                    searchQuery={searchQuery}
+                    onClearSearch={clearSearch}
+                    isMobile={isMobile}
+                  />
+                ) : (
+                  (isSearchActive ? searchResults : getCurrentTabData()).map(
+                    (section) => (
+                      <ResourceSection
+                        key={section.id}
+                        section={section}
+                        isOpen={openAccordions.includes(section.id)}
+                        onToggle={toggleAccordion}
+                        isMobile={isMobile}
+                        isDesktop={isDesktop}
+                        showTabLabel={
+                          isSearchActive && section.tabLabel
+                            ? section.tabLabel
+                            : undefined
+                        }
+                      />
+                    ),
+                  )
                 )}
               </div>
             </div>
