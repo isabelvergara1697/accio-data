@@ -688,12 +688,17 @@ const resourcesStyles = `
 
   /* Responsive layout utilities */
     @media (max-width: 767px) {
-    /* Fix mobile container overflow */
+        /* Fix mobile container overflow and scrolling */
     .mobile-container {
-      width: 100vw !important;
-      max-width: 100vw !important;
+      width: 100% !important;
+      max-width: 100% !important;
       overflow-x: hidden !important;
+      overflow-y: auto !important;
       box-sizing: border-box !important;
+      min-height: 100vh !important;
+      min-height: 100dvh !important; /* Dynamic viewport height for mobile */
+      display: flex !important;
+      flex-direction: column !important;
     }
     .mobile-stack {
       flex-direction: column !important;
@@ -1021,11 +1026,13 @@ export default function Resources() {
         className={isMobile ? "mobile-container" : ""}
         style={{
           marginLeft: isDesktop ? "296px" : "0",
-          flex: "1 0 0",
+          flex: "1 1 auto",
           display: "flex",
           flexDirection: "column",
           background: "#FAFAFA",
           position: "relative",
+          minHeight: isMobile ? "100vh" : "auto",
+          minHeight: isMobile ? "100dvh" : "auto", // Dynamic viewport height
         }}
       >
         {/* Desktop Top Navigation Bar */}
@@ -1061,6 +1068,9 @@ export default function Resources() {
             display: "flex",
             flexDirection: "column",
             gap: isMobile ? "0" : "32px",
+            flex: "1 1 auto",
+            minHeight: 0, // Allow flex child to shrink
+            overflowY: isMobile ? "auto" : "visible",
           }}
         >
           {/* Page Header */}
