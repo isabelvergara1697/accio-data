@@ -672,42 +672,62 @@ export default function ActivateAccount() {
                   boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 }}
               >
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange("email")}
-                  onFocus={() => setFocusedField("email")}
-                  onBlur={() => setFocusedField(null)}
+                <div
                   style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
                     flex: "1 0 0",
-                    border: "none",
-                    outline: "none",
-                    background: "transparent",
-                    color: formData.email ? "#181D27" : "#717680",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "16px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "24px",
                   }}
-                  placeholder="jhondoe@mail.com"
-                />
+                >
+                  <div
+                    style={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 1,
+                      flex: "1 0 0",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    <input
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange("email")}
+                      onFocus={() => setFocusedField("email")}
+                      onBlur={() => setFocusedField(null)}
+                      style={{
+                        width: "100%",
+                        border: "none",
+                        outline: "none",
+                        background: "transparent",
+                        color: formData.email ? "#181D27" : "#717680",
+                        fontFamily:
+                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "16px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                      }}
+                      placeholder="jhondoe@mail.com"
+                    />
+                  </div>
+                </div>
                 {fieldErrors.email && (
                   <svg
                     style={{
-                      width: "16px",
-                      height: "16px",
-                      flexShrink: 0,
+                      width: "24px",
+                      height: "24px",
+                      position: "relative",
                     }}
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M8 5.33325V7.99992M8 10.6666H8.00667M14.6667 7.99992C14.6667 11.6818 11.6819 14.6666 8 14.6666C4.31814 14.6666 1.33333 11.6818 1.33333 7.99992C1.33333 4.31802 4.31814 1.33325 8 1.33325C11.6819 1.33325 14.6667 4.31802 14.6667 7.99992Z"
+                      d="M12 8V12M12 16H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
                       stroke="#F04438"
                       strokeWidth="1.33333"
                       strokeLinecap="round"
