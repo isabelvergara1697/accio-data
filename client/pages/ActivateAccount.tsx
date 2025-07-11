@@ -194,10 +194,14 @@ export default function ActivateAccount() {
             flex-direction: row;
             gap: 20px;
           }
-          .name-group > div {
+                    .name-group > div {
             flex: 1;
             max-width: calc(50% - 10px);
             min-width: 0;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
           }
         }
 
