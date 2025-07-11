@@ -366,6 +366,7 @@ export default function ActivateAccount() {
                         : "1px solid #D5D7DA",
                     background: "#FFF",
                     boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                    width: "100%",
                   }}
                 >
                   <input
