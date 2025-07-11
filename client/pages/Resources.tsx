@@ -3,122 +3,194 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import { MobileHeader } from "../components/MobileHeader";
-import { DocumentLibraryLayout } from "../components/DocumentLibraryLayout";
+import { FilterDropdown } from "../components/FilterDropdown";
+import { SearchInput } from "../components/SearchInput";
+import { HorizontalTabs } from "../components/HorizontalTabs";
+import { ResourceSection } from "../components/ResourceSection";
 
-// Document data structure - same as Document Library
-const resourceSections = [
+// Tab configuration
+const tabs = [
+  { id: "onboarding", label: "Onboarding", current: true },
+  { id: "accio-power", label: "Accio Power" },
+  { id: "training", label: "Training" },
+  { id: "category1", label: "[Category]" },
+  { id: "category2", label: "[Category]" },
+  { id: "category3", label: "[Category]" },
+  { id: "category4", label: "[Category]" },
+  { id: "category5", label: "[Category]" },
+];
+
+// Resource data for onboarding tab
+const onboardingData = [
   {
-    id: "general",
-    title: "General Documents",
-    count: 9,
+    id: "training-videos",
+    title: "Training Videos",
+    subtitle: "Learn to Speak Accio",
+    count: 3,
     isOpen: true,
-    documents: [
+    gridVariant: "compact" as const,
+    resources: [
       {
         id: "1",
-        name: "Quick Start Guide",
-        size: "200 KB",
-        type: "PDF",
+        name: "The Players",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
       },
-      { id: "2", name: "Web Demo", size: "200 KB", type: "PDF" },
+      {
+        id: "2",
+        name: "Pricebooks & Packages",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
       {
         id: "3",
-        name: "User Manual",
-        size: "200 KB",
-        type: "PDF",
+        name: "Customizations",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
       },
-      { id: "4", name: "Consumer FCR Rights", size: "200 KB", type: "PDF" },
-      { id: "5", name: "WA Add On", size: "200 KB", type: "PDF" },
-      { id: "6", name: "Article 23", size: "200 KB", type: "PDF" },
-      { id: "7", name: "PSP Consent", size: "200 KB", type: "PDF" },
-      { id: "8", name: "Applicant Release Form", size: "200 KB", type: "PDF" },
+    ],
+  },
+  {
+    id: "basic",
+    title: "Basic",
+    count: 6,
+    isOpen: true,
+    gridVariant: "expanded" as const,
+    resources: [
+      {
+        id: "4",
+        name: "Adding accounts",
+        description: "How to create and add new accounts to the system.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "5",
+        name: "Working with pricebooks",
+        description: "How to create and edit pricebooks and packages.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "6",
+        name: "Vendor dispatch table",
+        description:
+          "How to use the vendor dispatch table to automatically assign searches to vendors or queues.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "7",
+        name: "Adding court fees",
+        description:
+          "How to add search-based, jurisdictional court fees to the system.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "8",
+        name: "Adding integrated data vendors",
+        description:
+          "How to set up a vendor that is already integrated with Accio.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
       {
         id: "9",
-        name: "CBSV User Agreement - Social Security",
-        size: "200 KB",
-        type: "PDF",
+        name: "Work queues",
+        description:
+          "How to set up a manual queue in the system to handle work.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
       },
-    ],
-  },
-  {
-    id: "motor-vehicle",
-    title: "Motor Vehicle Forms",
-    count: 2,
-    isOpen: true,
-    documents: [
       {
         id: "10",
-        name: "Release of Information Form - 29 CRF Drug and Alcohol Test",
+        name: "Instaclear Manual",
         size: "200 KB",
-        type: "PDF",
+        type: "document" as const,
       },
-      { id: "11", name: "Georgia MVR Form", size: "200 KB", type: "PDF" },
+      {
+        id: "11",
+        name: "Applicant School Check",
+        size: "200 KB",
+        type: "document" as const,
+      },
     ],
   },
   {
-    id: "special-search",
-    title: "Special Search Specific Forms",
-    count: 24,
-    isOpen: false,
-    documents: [
+    id: "advanced",
+    title: "Advanced",
+    count: 2,
+    isOpen: true,
+    gridVariant: "expanded" as const,
+    resources: [
       {
         id: "12",
-        name: "FBI Identity History Check",
-        size: "200 KB",
-        type: "PDF",
+        name: "Working with aliases",
+        description: "How to handle AKAs (also known as).",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
       },
       {
         id: "13",
-        name: "OPM Security Investigation",
-        size: "200 KB",
-        type: "PDF",
-      },
-      {
-        id: "14",
-        name: "Treasury Security Check",
-        size: "200 KB",
-        type: "PDF",
-      },
-      { id: "15", name: "DOJ Fingerprint Card", size: "200 KB", type: "PDF" },
-      {
-        id: "16",
-        name: "ICE E-Verify Authorization",
-        size: "200 KB",
-        type: "PDF",
+        name: "Address & criminal functionality",
+        description:
+          "Breakdown of the AddCrim system and how to set up the system to automatically add criminal searches based on jurisdictions found in an address trace.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
       },
     ],
   },
   {
-    id: "security-manuals",
-    title: "Security Manuals",
-    count: 5,
-    isOpen: false,
-    documents: [
+    id: "miscellaneous-setup",
+    title: "Miscellaneous Setup",
+    count: 6,
+    isOpen: true,
+    gridVariant: "expanded" as const,
+    resources: [
+      {
+        id: "14",
+        name: "Custom Products",
+        description: "How to add custom products.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "15",
+        name: "Setting up an international product",
+        description:
+          "How to create new products and instructions for reviewing vendors.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "16",
+        name: "Disputes",
+        description: "How to use our module for invoicing.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
       {
         id: "17",
-        name: "Background Check Protocol",
-        size: "200 KB",
-        type: "PDF",
-      },
-      {
-        id: "18",
-        name: "Security Clearance Guidelines",
-        size: "200 KB",
-        type: "PDF",
-      },
-      { id: "19", name: "Data Protection Manual", size: "200 KB", type: "PDF" },
-      {
-        id: "20",
-        name: "Identity Verification Standards",
-        size: "200 KB",
-        type: "PDF",
-      },
-      {
-        id: "21",
-        name: "Compliance Assessment Guide",
-        size: "200 KB",
-        type: "PDF",
+        name: "Importing into QuickBooks Online",
+        description: "How to use our module for invoicing.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
       },
     ],
+  },
+];
+
+// Placeholder data for other tabs
+const placeholderData = [
+  {
+    id: "placeholder",
+    title: "Coming Soon",
+    subtitle: "Content for this section is being prepared.",
+    count: 0,
+    isOpen: true,
+    gridVariant: "expanded" as const,
+    resources: [],
   },
 ];
 
@@ -413,6 +485,23 @@ export default function Resources() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
 
+  // Tab and content state
+  const [currentTab, setCurrentTab] = useState("onboarding");
+  const [openAccordions, setOpenAccordions] = useState<string[]>([
+    "training-videos",
+    "basic",
+    "advanced",
+    "miscellaneous-setup",
+  ]);
+
+  // Filter and search state
+  const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
+  const [fileTypeDropdownOpen, setFileTypeDropdownOpen] = useState(false);
+  const [selectedSortOption, setSelectedSortOption] = useState("Most Recent");
+  const [selectedFileType, setSelectedFileType] = useState("All Files");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchActive, setIsSearchActive] = useState(false);
+
   // Handle window resize for responsive behavior
   useEffect(() => {
     const handleResize = () => {
@@ -441,6 +530,24 @@ export default function Resources() {
     };
   }, [userMenuOpen]);
 
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (sortDropdownOpen && !target.closest("[data-sort-dropdown]")) {
+        setSortDropdownOpen(false);
+      }
+      if (fileTypeDropdownOpen && !target.closest("[data-filetype-dropdown]")) {
+        setFileTypeDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, [sortDropdownOpen, fileTypeDropdownOpen]);
+
   const getUserMenuStyles = () => {
     if (userMenuHovered || userMenuOpen) {
       return {
@@ -453,6 +560,61 @@ export default function Resources() {
 
   const handleSignOut = () => {
     navigate("/login");
+  };
+
+  const handleTabChange = (tabId: string) => {
+    setCurrentTab(tabId);
+  };
+
+  const toggleAccordion = (accordionId: string) => {
+    setOpenAccordions((prev) =>
+      prev.includes(accordionId)
+        ? prev.filter((id) => id !== accordionId)
+        : [...prev, accordionId],
+    );
+  };
+
+  const handleSortOptionSelect = (option: string) => {
+    setSelectedSortOption(option);
+    setSortDropdownOpen(false);
+  };
+
+  const handleFileTypeSelect = (type: string) => {
+    setSelectedFileType(type);
+    setFileTypeDropdownOpen(false);
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    setIsSearchActive(query.length > 0);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery("");
+    setIsSearchActive(false);
+  };
+
+  const toggleSortDropdown = () => {
+    setSortDropdownOpen(!sortDropdownOpen);
+    setFileTypeDropdownOpen(false);
+  };
+
+  const toggleFileTypeDropdown = () => {
+    setFileTypeDropdownOpen(!fileTypeDropdownOpen);
+    setSortDropdownOpen(false);
+  };
+
+  const sortOptions = ["A-Z", "Most Recent", "Most Viewed"];
+  const fileTypeOptions = ["All Files", "PDF", "Videos", "Docs", "PPT"];
+
+  const getCurrentTabData = () => {
+    switch (currentTab) {
+      case "onboarding":
+        return onboardingData;
+      default:
+        return placeholderData;
+    }
   };
 
   return (
@@ -549,14 +711,298 @@ export default function Resources() {
             gap: isMobile ? "16px" : "32px",
           }}
         >
-          <DocumentLibraryLayout
-            title="Resources"
-            subtitle="Find system manuals, revision history, training videos, and webinar archives—everything you need to understand and get the most out of Accio Data, all in one place."
-            documentSections={resourceSections}
-            isMobile={isMobile}
-            isDesktop={isDesktop}
-            searchPlaceholder="Find resources or categories"
-          />
+          {/* Page Header */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "16px",
+              alignSelf: "stretch",
+            }}
+          >
+            <div
+              className={
+                isMobile ? "mobile-stack" : isDesktop ? "" : "tablet-layout"
+              }
+              style={{
+                display: "flex",
+                alignItems: isMobile
+                  ? "stretch"
+                  : isDesktop
+                    ? "flex-end"
+                    : "flex-start",
+                alignContent: "flex-end",
+                gap: isMobile ? "16px" : isDesktop ? "20px 16px" : "20px",
+                alignSelf: "stretch",
+                flexWrap: isMobile ? "nowrap" : isDesktop ? "wrap" : "nowrap",
+              }}
+            >
+              {/* Title and Subtitle Section */}
+              <div
+                className={
+                  isMobile
+                    ? "mobile-title-section"
+                    : !isDesktop && !isMobile
+                      ? "tablet-title-section"
+                      : ""
+                }
+                style={{
+                  display: "flex",
+                  minWidth: isDesktop ? "320px" : "100%",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: isMobile
+                    ? "2px"
+                    : !isDesktop && !isMobile
+                      ? "2px"
+                      : "4px",
+                  flex: isDesktop ? "1 0 0" : "none",
+                }}
+              >
+                <div
+                  style={{
+                    alignSelf: "stretch",
+                    color: "#181D27",
+                    fontFamily: "'Public Sans'",
+                    fontSize: "24px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "32px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 600,
+                      fontSize: "24px",
+                      color: "rgba(24,29,39,1)",
+                    }}
+                  >
+                    Resources
+                  </span>
+                </div>
+                <div
+                  style={{
+                    alignSelf: "stretch",
+                    color: "#535862",
+                    fontFamily: "'Public Sans'",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "16px",
+                      color: "rgba(83,88,98,1)",
+                    }}
+                  >
+                    Find system manuals, revision history, training videos, and
+                    webinar archives—everything you need to understand and get
+                    the most out of Accio Data, all in one place.
+                  </span>
+                </div>
+              </div>
+
+              {/* Buttons and Search Section - Tablet Layout */}
+              {!isDesktop && !isMobile ? (
+                <div className="tablet-buttons-container">
+                  <div className="tablet-filter-buttons">
+                    <FilterDropdown
+                      isOpen={sortDropdownOpen}
+                      onToggle={toggleSortDropdown}
+                      selectedValue={selectedSortOption}
+                      options={sortOptions}
+                      onSelect={handleSortOptionSelect}
+                      isMobile={isMobile}
+                      dataAttribute="sort-dropdown"
+                    />
+                    <FilterDropdown
+                      isOpen={fileTypeDropdownOpen}
+                      onToggle={toggleFileTypeDropdown}
+                      selectedValue={selectedFileType}
+                      options={fileTypeOptions}
+                      onSelect={handleFileTypeSelect}
+                      isMobile={isMobile}
+                      dataAttribute="filetype-dropdown"
+                    />
+                  </div>
+                  <div className="tablet-search">
+                    <SearchInput
+                      searchQuery={searchQuery}
+                      onSearchChange={handleSearchChange}
+                      onClearSearch={clearSearch}
+                      isSearchActive={isSearchActive}
+                      isMobile={isMobile}
+                      placeholder="Find documents or videos"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {/* Buttons Section - Desktop/Mobile Layout */}
+                  <div
+                    className={isMobile ? "mobile-buttons" : ""}
+                    style={{
+                      display: "flex",
+                      flexDirection: isMobile ? "column" : "row",
+                      alignItems: isMobile ? "stretch" : "center",
+                      gap: "12px",
+                      justifyContent: isMobile ? "flex-start" : "flex-start",
+                      flex: isMobile ? "1 0 0" : "none",
+                      width: isMobile ? "100%" : "auto",
+                    }}
+                  >
+                    <FilterDropdown
+                      isOpen={sortDropdownOpen}
+                      onToggle={toggleSortDropdown}
+                      selectedValue={selectedSortOption}
+                      options={sortOptions}
+                      onSelect={handleSortOptionSelect}
+                      isMobile={isMobile}
+                      dataAttribute="sort-dropdown"
+                    />
+                    <FilterDropdown
+                      isOpen={fileTypeDropdownOpen}
+                      onToggle={toggleFileTypeDropdown}
+                      selectedValue={selectedFileType}
+                      options={fileTypeOptions}
+                      onSelect={handleFileTypeSelect}
+                      isMobile={isMobile}
+                      dataAttribute="filetype-dropdown"
+                    />
+                  </div>
+
+                  {/* Search Section - Desktop/Mobile Layout */}
+                  <div
+                    className={isMobile ? "mobile-search" : ""}
+                    style={{
+                      display: "flex",
+                      minWidth: isMobile ? "100%" : "200px",
+                      maxWidth: isMobile ? "100%" : "320px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "6px",
+                      flex: isMobile ? "none" : "1 0 0",
+                    }}
+                  >
+                    <SearchInput
+                      searchQuery={searchQuery}
+                      onSearchChange={handleSearchChange}
+                      onClearSearch={clearSearch}
+                      isSearchActive={isSearchActive}
+                      isMobile={isMobile}
+                      placeholder="Find documents or videos"
+                    />
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Horizontal Tabs */}
+            <HorizontalTabs
+              tabs={tabs}
+              onTabChange={handleTabChange}
+              currentTab={currentTab}
+              isMobile={isMobile}
+            />
+          </div>
+
+          {/* Search Results Header */}
+          {isSearchActive && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                alignSelf: "stretch",
+                padding: isMobile ? "0px 16px" : "0px",
+              }}
+            >
+              <div
+                style={{
+                  color: "#181D27",
+                  fontFamily: "'Public Sans'",
+                  fontSize: "18px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "28px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 600,
+                    fontSize: "18px",
+                    color: "rgba(24,29,39,1)",
+                  }}
+                >
+                  Search results
+                </span>
+              </div>
+              <div
+                style={{
+                  color: "#535862",
+                  fontFamily: "'Public Sans'",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    color: "rgba(83,88,98,1)",
+                  }}
+                >
+                  0 Results
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Resource Sections */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "24px",
+              alignSelf: "stretch",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "24px",
+                alignSelf: "stretch",
+              }}
+            >
+              {getCurrentTabData().map((section) => (
+                <ResourceSection
+                  key={section.id}
+                  section={section}
+                  isOpen={openAccordions.includes(section.id)}
+                  onToggle={toggleAccordion}
+                  isMobile={isMobile}
+                  isDesktop={isDesktop}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
