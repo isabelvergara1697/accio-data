@@ -100,16 +100,21 @@ export default function ActivateAccount() {
       className="activate-account-container"
       style={{
         display: "flex",
-        width: "100vw",
+        width: "100%",
         minHeight: "100vh",
+        minHeight: "100dvh",
         flexDirection: "column",
         alignItems: "center",
         gap: "32px",
         background: "linear-gradient(90deg, #F7F8FD 0%, #D9DEF2 100%)",
         fontFamily:
           "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-        justifyContent: "center",
+        justifyContent: "flex-start",
+        paddingTop: "24px",
+        paddingBottom: "40px",
         padding: "16px",
+        overflow: "auto",
+        boxSizing: "border-box",
       }}
     >
       <style>{`
@@ -121,12 +126,29 @@ export default function ActivateAccount() {
             padding: 32px 40px !important;
           }
         }
-        @media (max-width: 767px) {
+                @media (max-width: 767px) {
           .activate-account-container {
-            padding: 32px 16px !important;
+            width: 100% !important;
+            min-height: 100vh !important;
+            min-height: 100dvh !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            padding: 16px !important;
+            padding-top: 20px !important;
+            padding-bottom: 40px !important;
+            justify-content: flex-start !important;
+            gap: 20px !important;
           }
           .activate-account-form-container {
-            padding: 32px 16px !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 20px 16px !important;
+            box-sizing: border-box !important;
+          }
+          body {
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
           }
         }
                 .name-group {
