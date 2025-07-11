@@ -1287,7 +1287,7 @@ export default function Resources() {
                       onClearSearch={clearSearch}
                       isSearchActive={isSearchActive}
                       isMobile={isMobile}
-                      placeholder="Find documents or videos"
+                      placeholder="Search all resources..."
                     />
                   </div>
                 </div>
@@ -1345,7 +1345,7 @@ export default function Resources() {
                       onClearSearch={clearSearch}
                       isSearchActive={isSearchActive}
                       isMobile={isMobile}
-                      placeholder="Find documents or videos"
+                      placeholder="Search all resources..."
                     />
                   </div>
                 </>
