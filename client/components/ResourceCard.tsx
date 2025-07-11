@@ -93,33 +93,68 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
     </div>
   );
 
-  const DocumentIcon = () => (
-    <div className="relative w-10 h-10">
-      <svg
-        className="w-8 h-10 absolute left-2 top-0"
-        viewBox="0 0 32 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4 0.75H20C20.1212 0.75 20.2375 0.798089 20.3232 0.883789L31.1162 11.6768C31.2019 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4C0.750001 2.20507 2.20508 0.75 4 0.75Z"
-          stroke="#D5D7DA"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5"
-          stroke="#D5D7DA"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      </svg>
-      <div className="absolute left-1 top-4 w-6 h-4 bg-red-600 rounded-sm flex items-center justify-center">
-        <span className="text-white font-bold" style={{ fontSize: "8px" }}>
-          PDF
-        </span>
+  const DocumentIcon = () => {
+    const getDocumentInfo = () => {
+      const docType = resource.documentType || "pdf";
+      switch (docType) {
+        case "pptx":
+          return {
+            label: "PPTX",
+            bgColor: "#E62E05", // Orange
+            width: "33px",
+          };
+        case "docx":
+          return {
+            label: "DOCX",
+            bgColor: "#155EEF", // Blue
+            width: "36px",
+          };
+        default:
+          return {
+            label: "PDF",
+            bgColor: "#D92D20", // Red
+            width: "26px",
+          };
+      }
+    };
+
+    const docInfo = getDocumentInfo();
+
+    return (
+      <div className="relative w-10 h-10">
+        <svg
+          className="w-8 h-10 absolute left-2 top-0"
+          viewBox="0 0 32 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 0.75H20C20.1212 0.75 20.2375 0.798089 20.3232 0.883789L31.1162 11.6768C31.2019 11.7625 31.25 11.8788 31.25 12V36C31.25 37.7949 29.7949 39.25 28 39.25H4C2.20507 39.25 0.75 37.7949 0.75 36V4C0.750001 2.20507 2.20508 0.75 4 0.75Z"
+            stroke="#D5D7DA"
+            strokeWidth="1.5"
+          />
+          <path
+            d="M20 0.5V8C20 10.2091 21.7909 12 24 12H31.5"
+            stroke="#D5D7DA"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+        <div
+          className="absolute left-1 top-4 h-4 rounded-sm flex items-center justify-center"
+          style={{
+            backgroundColor: docInfo.bgColor,
+            width: docInfo.width,
+            padding: "2px 3px",
+          }}
+        >
+          <span className="text-white font-bold" style={{ fontSize: "10px" }}>
+            {docInfo.label}
+          </span>
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div
