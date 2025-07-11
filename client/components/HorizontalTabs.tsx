@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 interface Tab {
   id: string;
@@ -11,6 +11,7 @@ interface HorizontalTabsProps {
   onTabChange: (tabId: string) => void;
   currentTab: string;
   isMobile?: boolean;
+  isTablet?: boolean;
 }
 
 export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
@@ -18,29 +19,100 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
   onTabChange,
   currentTab,
   isMobile = false,
+  isTablet = false,
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isScrollable, setIsScrollable] = useState(false);
+
+  // Check if content needs scrolling
+  useEffect(() => {
+    const checkScrollable = () => {
+      if (containerRef.current) {
+        const { scrollWidth, clientWidth } = containerRef.current;
+        setIsScrollable(scrollWidth > clientWidth);
+      }
+    };
+
+    checkScrollable();
+    window.addEventListener("resize", checkScrollable);
+    return () => window.removeEventListener("resize", checkScrollable);
+  }, [tabs]);
+
+  // Drag functionality
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!isScrollable || (!isMobile && !isTablet && window.innerWidth > 1023))
+      return;
+
+    setIsDragging(true);
+    setStartX(e.pageX - (containerRef.current?.offsetLeft || 0));
+    setScrollLeft(containerRef.current?.scrollLeft || 0);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !containerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - (containerRef.current.offsetLeft || 0);
+    const walk = (x - startX) * 2;
+    containerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const shouldEnableScroll = isMobile || isTablet || window.innerWidth <= 1023;
   return (
     <>
       <style
         dangerouslySetInnerHTML={{
           __html: `
-                        .tabs-container {
+                                    .tabs-container {
               display: flex;
               padding: 4px;
-              ${isMobile ? "padding-right: 20px;" : ""}
               align-items: center;
               gap: 4px;
               align-self: stretch;
               border-radius: 10px;
               border: 1px solid #E9EAEB;
               background: #FFF;
-              overflow-x: ${isMobile ? "auto" : "visible"};
               overflow-y: hidden;
               -webkit-overflow-scrolling: touch;
               scrollbar-width: none;
               -ms-overflow-style: none;
-              ${isMobile ? "touch-action: pan-x;" : ""}
-              ${isMobile ? "scroll-behavior: smooth;" : ""}
+              scroll-behavior: smooth;
+              user-select: none;
+            }
+
+            .tabs-container.scrollable {
+              overflow-x: auto;
+              padding-right: 20px;
+              touch-action: pan-x;
+              cursor: grab;
+            }
+
+            .tabs-container.scrollable.dragging {
+              cursor: grabbing;
+            }
+
+            /* Enable scrolling on tablet and mobile viewports */
+            @media (max-width: 1023px) {
+              .tabs-container {
+                overflow-x: auto;
+                padding-right: 20px;
+                touch-action: pan-x;
+                cursor: grab;
+              }
+
+              .tabs-container.dragging {
+                cursor: grabbing;
+              }
             }
 
             .tabs-container::-webkit-scrollbar {
@@ -67,7 +139,14 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
           `,
         }}
       />
-      <div className="tabs-container">
+      <div
+        ref={containerRef}
+        className={`tabs-container ${shouldEnableScroll && isScrollable ? "scrollable" : ""} ${isDragging ? "dragging" : ""}`}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
         {tabs.map((tab) => (
           <button
             key={tab.id}
