@@ -1024,7 +1024,7 @@ export default function Resources() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && !isDesktop && (
         <div
-          className="fixed inset-0 z-50"
+          className="fixed inset-0 z-[9998]"
           style={{
             width: "100vw",
             height: "100vh",
