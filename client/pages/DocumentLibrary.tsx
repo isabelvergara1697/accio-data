@@ -402,7 +402,7 @@ const documentLibraryStyles = `
       gap: 16px !important;
     }
 
-    /* Mobile scrolling improvements */
+        /* Mobile scrolling improvements */
     body {
       overflow-x: hidden;
       overflow-y: auto;
@@ -419,6 +419,8 @@ const documentLibraryStyles = `
       scroll-behavior: smooth !important;
       min-height: 100vh !important;
       min-height: 100dvh !important;
+      display: flex !important;
+      flex-direction: column !important;
     }
 
     /* Ensure content areas scroll properly */
@@ -427,6 +429,7 @@ const documentLibraryStyles = `
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
       min-height: 0 !important;
+      padding-bottom: 40px !important;
     }
   }
 `;
