@@ -410,33 +410,40 @@ const documentLibraryStyles = `
       }
     }
 
-                /* Mobile scrolling improvements */
+                        /* Mobile scrolling improvements */
     body {
       overflow-x: hidden;
       overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      position: relative;
     }
 
         /* Fix mobile container scrolling */
     .mobile-container {
-      width: 100% !important;
-      max-width: 100% !important;
-      overflow-x: hidden !important;
-      overflow-y: auto !important;
       -webkit-overflow-scrolling: touch !important;
+      overflow-x: hidden !important;
       min-height: auto !important;
       height: auto !important;
-      scroll-behavior: auto !important;
     }
 
         /* Ensure content areas scroll properly */
     .mobile-content-area {
       -webkit-overflow-scrolling: touch !important;
-      overflow-y: auto !important;
       min-height: auto !important;
       height: auto !important;
       padding-bottom: 80px !important;
+    }
+
+        /* iPhone Safari specific viewport fixes */
+    @supports (-webkit-touch-callout: none) {
+      body {
+        -webkit-overflow-scrolling: touch !important;
+      }
+    }
+
+        /* Ensure viewport units work correctly on mobile */
+    @supports (height: 100dvh) {
+      .mobile-container {
+        min-height: 100dvh !important;
+      }
     }
   }
 `;
