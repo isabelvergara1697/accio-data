@@ -486,8 +486,16 @@ export default function Dashboard() {
         {/* Main Content Area */}
         <div
           style={{
-            marginTop: isDesktop ? "80px" : "64px",
-            paddingBottom: isMobile ? "80px" : "32px",
+            marginTop: isDesktop
+              ? showNotification
+                ? "140px"
+                : "80px"
+              : "64px",
+            paddingBottom: isMobile
+              ? showNotification
+                ? "160px"
+                : "80px"
+              : "32px",
             display: "flex",
             flexDirection: "column",
             gap: "32px",
@@ -833,38 +841,8 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Success Notification - Desktop: at top, Mobile/Tablet: fixed bottom */}
-      {showNotification && isDesktop && (
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: "296px",
-            right: 0,
-            zIndex: 1000,
-          }}
-        >
-          <AlertNotification
-            title="Account Activated Successfully"
-            description="Manage your account and update your personal details in settings."
-            variant="success"
-            position={getNotificationPosition()}
-            breakpoint={getNotificationBreakpoint()}
-            onDismiss={handleNotificationDismiss}
-            primaryAction={{
-              label: "Update Account",
-              onClick: handleUpdateAccount,
-            }}
-            secondaryAction={{
-              label: "Dismiss",
-              onClick: handleNotificationDismiss,
-            }}
-          />
-        </div>
-      )}
-
-      {/* Mobile/Tablet Notification - Fixed bottom */}
-      {showNotification && !isDesktop && (
+      {/* Success Notification - Fixed positioning handled by component */}
+      {showNotification && (
         <AlertNotification
           title="Account Activated Successfully"
           description="Manage your account and update your personal details in settings."
