@@ -60,33 +60,12 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
     </svg>
   );
 
-  const getGridTemplate = () => {
+    const getGridTemplate = () => {
     if (isMobile) {
       return "1fr";
     }
-
-    if (section.gridVariant === "compact") {
-      // 2x2 grid for compact video layout
-      return "repeat(2, 1fr)";
-    }
-
-    // Single column for expanded layout
+    // All sections use 2-column grid like DocumentSection
     return "1fr 1fr";
-  };
-
-  const getGridHeight = () => {
-    if (
-      section.gridVariant === "compact" &&
-      section.resources[0]?.type === "video"
-    ) {
-      return section.resources.length <= 2 ? "256px" : "auto";
-    }
-
-    if (section.gridVariant === "expanded") {
-      return "auto";
-    }
-
-    return "auto";
   };
 
   return (
@@ -102,22 +81,20 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
         boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
       }}
     >
-      {/* Card Header */}
+            {/* Section Header */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "20px",
           alignSelf: "stretch",
           background: "#FFF",
-          borderRadius: "12px 12px 0px 0px",
         }}
       >
         <div
           style={{
             display: "flex",
-            padding: "20px 24px 0px 24px",
+            padding: isMobile ? "16px 16px 0px 16px" : "24px 24px 4px 24px",
             alignItems: "flex-start",
             gap: "16px",
             alignSelf: "stretch",
@@ -267,29 +244,39 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
         </div>
       </div>
 
-      {/* Content */}
-      {isOpen && (
-        <div
-          style={{
-            display: "grid",
-            height: getGridHeight(),
-            padding: "20px 24px",
-            rowGap: "16px",
-            columnGap: "16px",
-            alignSelf: "stretch",
-            gridTemplateColumns: getGridTemplate(),
-          }}
-        >
-          {section.resources.map((resource) => (
-            <ResourceCard
-              key={resource.id}
-              resource={resource}
-              isMobile={isMobile}
-              variant={section.gridVariant || "compact"}
-            />
-          ))}
-        </div>
-      )}
+              {/* Resource Content */}
+        {isOpen ? (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: getGridTemplate(),
+              gap: "16px",
+              padding: isMobile ? "20px 16px" : "20px 24px",
+              alignSelf: "stretch",
+            }}
+          >
+            {section.resources.map((resource) => (
+              <ResourceCard
+                key={resource.id}
+                resource={resource}
+                isMobile={isMobile}
+                variant={section.gridVariant || "expanded"}
+              />
+            ))}
+          </div>
+        ) : (
+          // Closed state with equal padding
+          <div
+            style={{
+              padding: isMobile ? "0px 16px 16px 16px" : "4px 24px 24px 24px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              alignSelf: "stretch",
+            }}
+          ></div>
+        )}
+      </div>
     </div>
   );
 };
