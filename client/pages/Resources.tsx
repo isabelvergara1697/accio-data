@@ -360,7 +360,8 @@ const myDocumentsData = [
         id: "asm-3",
         name: "Receiving Account Information",
         size: "200 KB",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        description:
+          "This comprehensive manual provides detailed information about receiving and processing account information through various channels, including automated imports, manual entry procedures, and data validation protocols for ensuring data integrity.",
         type: "document" as const,
       },
       {
