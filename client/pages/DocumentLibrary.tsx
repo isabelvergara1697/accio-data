@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserMenuDropdown } from "../components/UserMenuDropdown";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import { MobileHeader } from "../components/MobileHeader";
+import { DocumentLibraryLayout } from "../components/DocumentLibraryLayout";
 
 // Document data structure based on Figma design
 const documentSections = [
