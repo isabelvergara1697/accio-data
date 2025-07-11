@@ -35,39 +35,6 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
   isMobile,
   isDesktop,
 }) => {
-  const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
-    <svg
-      style={{
-        width: "16px",
-        height: "16px",
-        position: "relative",
-        transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
-        transition: "transform 0.2s ease",
-      }}
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M12 10L8 6L4 10"
-        stroke="#A4A7AE"
-        strokeWidth="1.66667"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-
-    const getGridTemplate = () => {
-    if (isMobile) {
-      return "1fr";
-    }
-    // All sections use 2-column grid like DocumentSection
-    return "1fr 1fr";
-  };
-
   return (
     <div
       style={{
@@ -79,9 +46,10 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
         border: "1px solid #E9EAEB",
         background: "#FFF",
         boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+        overflow: "hidden",
       }}
     >
-            {/* Section Header */}
+      {/* Section Header */}
       <div
         style={{
           display: "flex",
@@ -224,7 +192,6 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
           >
             <button
               className="section-header-button"
-              onClick={() => onToggle(section.id)}
               style={{
                 display: "flex",
                 padding: "8px",
@@ -237,19 +204,39 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
               }}
+              onClick={() => onToggle(section.id)}
             >
-              <ChevronIcon isOpen={isOpen} />
+              <svg
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.2s ease",
+                }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
           </div>
         </div>
-      </div>
 
-              {/* Resource Content */}
+        {/* Resource Content */}
         {isOpen ? (
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: getGridTemplate(),
+              gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
               gap: "16px",
               padding: isMobile ? "20px 16px" : "20px 24px",
               alignSelf: "stretch",
