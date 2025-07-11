@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import SuccessNotification from "../components/SuccessNotification";
+import AlertNotification from "../components/ui/alert-notification";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
@@ -165,6 +165,16 @@ export default function Dashboard() {
 
   const handleNotificationDismiss = () => {
     setShowNotification(false);
+  };
+
+  const handleUpdateAccount = () => {
+    // Navigate to account settings or profile page
+    console.log("Navigate to account settings");
+  };
+
+  const getNotificationPosition = () => {
+    // Desktop: top, Tablet and Mobile: bottom
+    return isDesktop ? "top" : "bottom";
   };
 
   const handleSignOut = () => {
@@ -479,18 +489,6 @@ export default function Dashboard() {
             height: "auto",
           }}
         >
-          {/* Success Notification */}
-          {showNotification && (
-            <div
-              style={{ margin: isMobile ? "0 16px 0 16px" : "0 32px 0 32px" }}
-            >
-              <SuccessNotification
-                message="Welcome to Accio Data! Your account is now ready to use."
-                onDismiss={handleNotificationDismiss}
-              />
-            </div>
-          )}
-
           {/* Header Section */}
           <div
             style={{
