@@ -407,6 +407,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           navigate("/dashboard");
                         } else if (item === "Document Library") {
                           navigate("/document-library");
+                        } else if (item === "Resources") {
+                          navigate("/resources");
                         }
                       }
                     }}
