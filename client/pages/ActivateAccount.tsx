@@ -571,24 +571,23 @@ export default function ActivateAccount() {
                     </svg>
                   )}
                 </div>
-                <div className="name-field-error-space">
-                  {fieldErrors.lastName && (
-                    <div
-                      style={{
-                        alignSelf: "stretch",
-                        color: "#D92D20",
-                        fontFamily:
-                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "20px",
-                      }}
-                    >
-                      {fieldErrors.lastName}
-                    </div>
-                  )}
-                </div>
+                {fieldErrors.lastName && (
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#D92D20",
+                      fontFamily:
+                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      marginTop: "6px",
+                    }}
+                  >
+                    {fieldErrors.lastName}
+                  </div>
+                )}
               </div>
             </div>
 
