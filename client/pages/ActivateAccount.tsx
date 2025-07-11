@@ -45,6 +45,9 @@ export default function ActivateAccount() {
   const [requirementStates, setRequirementStates] = useState<{
     [key: string]: boolean;
   }>({});
+  const [fieldErrors, setFieldErrors] = useState<{
+    [key: string]: string;
+  }>({});
 
   // Update requirement states whenever password changes
   useEffect(() => {
