@@ -65,7 +65,15 @@ export default function Dashboard() {
     >
       {/* Header */}
       {isDesktop ? (
-        <Header handleSignOut={handleSignOut} />
+        <Header
+          isDesktop={isDesktop}
+          userMenuOpen={userMenuOpen}
+          setUserMenuOpen={setUserMenuOpen}
+          userMenuHovered={userMenuHovered}
+          setUserMenuHovered={setUserMenuHovered}
+          handleSignOut={handleSignOut}
+          getUserMenuStyles={getUserMenuStyles}
+        />
       ) : (
         <MobileHeader
           isDesktop={isDesktop}
