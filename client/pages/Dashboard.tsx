@@ -2651,7 +2651,7 @@ export default function Dashboard() {
           paddingBottom: "24px",
           position: "relative",
           marginLeft: isDesktop ? "296px" : "0",
-          paddingTop: isDesktop ? "120px" : "80px",
+          paddingTop: isDesktop ? "120px" : "64px",
         }}
       >
         {/* Mobile/Tablet Header Bar */}
