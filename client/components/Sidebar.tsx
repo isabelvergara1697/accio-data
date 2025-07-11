@@ -515,26 +515,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     );
   };
 
-  return (
-    <>
-      {/* Background Overlay - Only on Mobile/Tablet when sidebar is open */}
-      {!isDesktop && mobileMenuOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            background: "rgba(10, 13, 18, 0.7)",
-            backdropFilter: "blur(8px)",
-            zIndex: 40,
-          }}
-          onClick={() => setMobileMenuOpen?.(false)}
-        />
-      )}
-
-      <aside
+    return (
+    <aside
         className={`transition-all duration-300 lg:translate-x-0 ${
           mobileMenuOpen
             ? "translate-x-0"
