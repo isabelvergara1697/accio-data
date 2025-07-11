@@ -102,7 +102,6 @@ export default function ActivateAccount() {
         display: "flex",
         width: "100%",
         minHeight: "100vh",
-        minHeight: "100dvh",
         flexDirection: "column",
         alignItems: "center",
         gap: "32px",
@@ -112,43 +111,54 @@ export default function ActivateAccount() {
         justifyContent: "flex-start",
         paddingTop: "24px",
         paddingBottom: "40px",
-        padding: "16px",
         overflow: "auto",
+        overflowX: "hidden",
         boxSizing: "border-box",
       }}
     >
       <style>{`
-        @media (min-width: 768px) {
+        /* iPhone Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
           .activate-account-container {
-            padding: 96px 32px 48px 32px !important;
-          }
-          .activate-account-form-container {
-            padding: 32px 40px !important;
+            min-height: 100vh !important;
+            min-height: 100dvh !important;
           }
         }
-                @media (max-width: 767px) {
+
+        @media (max-width: 767px) {
+          body {
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+          }
+
           .activate-account-container {
             width: 100% !important;
             min-height: 100vh !important;
             min-height: 100dvh !important;
             overflow-y: auto !important;
+            overflow-x: hidden !important;
             -webkit-overflow-scrolling: touch !important;
-            padding: 16px !important;
-            padding-top: 20px !important;
-            padding-bottom: 40px !important;
+            padding: 20px 16px 40px 16px !important;
             justify-content: flex-start !important;
             gap: 20px !important;
+            box-sizing: border-box !important;
           }
+
           .activate-account-form-container {
             max-width: 100% !important;
             width: 100% !important;
             padding: 20px 16px !important;
             box-sizing: border-box !important;
           }
-          body {
-            overflow-x: hidden !important;
-            overflow-y: auto !important;
-            -webkit-overflow-scrolling: touch !important;
+        }
+
+        @media (min-width: 768px) {
+          .activate-account-container {
+            padding: 96px 32px 48px 32px !important;
+          }
+          .activate-account-form-container {
+            padding: 32px 40px !important;
           }
         }
                 .name-group {
