@@ -229,6 +229,7 @@ export default function Dashboard() {
               flexDirection: "column",
               gap: isMobile ? "16px" : "32px",
               width: "100%",
+              padding: isMobile ? "16px" : "0",
             }}
           >
             <h1
