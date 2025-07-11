@@ -396,10 +396,37 @@ const documentLibraryStyles = `
     gap: 16px !important;
   }
 
-  @media (max-width: 767px) {
+    @media (max-width: 767px) {
     .mobile-document-grid {
       grid-template-columns: 1fr !important;
       gap: 16px !important;
+    }
+
+    /* Mobile scrolling improvements */
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Fix mobile container scrolling */
+    .mobile-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      scroll-behavior: smooth !important;
+      min-height: 100vh !important;
+      min-height: 100dvh !important;
+    }
+
+    /* Ensure content areas scroll properly */
+    .mobile-content-area {
+      flex: 1 1 auto !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      min-height: 0 !important;
     }
   }
 `;
