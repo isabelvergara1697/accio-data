@@ -1427,21 +1427,22 @@ export default function Resources() {
               >
                 <div
                   style={{
-                    color: "#181D27",
-                    fontFamily: "'Public Sans'",
-                    fontSize: "18px",
+                    color: "var(--colors-text-text-tertiary-600, #535862)",
+                    fontFamily:
+                      "var(--Font-family-font-family-body, 'Public Sans')",
+                    fontSize: "var(--Font-size-text-md, 16px)",
                     fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "28px",
+                    fontWeight: 400,
+                    lineHeight: "var(--Line-height-text-md, 24px)",
                   }}
                 >
                   <span
                     style={{
                       fontFamily:
                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 600,
-                      fontSize: "18px",
-                      color: "rgba(24,29,39,1)",
+                      fontWeight: 400,
+                      fontSize: "16px",
+                      color: "#535862",
                     }}
                   >
                     Search results
