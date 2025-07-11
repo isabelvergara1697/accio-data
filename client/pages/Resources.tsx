@@ -993,6 +993,25 @@ export default function Resources() {
 
   const handleTabChange = (tabId: string) => {
     setCurrentTab(tabId);
+    // Apply current filters to new tab data
+    const newTabData = (() => {
+      switch (tabId) {
+        case "onboarding":
+          return onboardingData;
+        case "accio-university":
+          return accioUniversityData;
+        case "my-documents":
+          return myDocumentsData;
+        default:
+          return placeholderData;
+      }
+    })();
+    const filtered = applySortingAndFiltering(
+      newTabData,
+      selectedSortOption,
+      selectedFileType,
+    );
+    setFilteredData(filtered);
   };
 
   const toggleAccordion = (accordionId: string) => {
