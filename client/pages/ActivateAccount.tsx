@@ -130,10 +130,14 @@ export default function ActivateAccount() {
           align-self: stretch;
         }
 
-        @media (max-width: 1023px) {
+                @media (max-width: 1023px) {
           .name-group {
             flex-direction: column;
             gap: 20px;
+          }
+          .name-group > div {
+            width: 100% !important;
+            flex: 1 1 100% !important;
           }
         }
 
