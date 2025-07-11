@@ -124,7 +124,6 @@ export default function SetNewPassword() {
         display: "flex",
         width: "100%",
         minHeight: "100vh",
-        minHeight: "100dvh",
         flexDirection: "column",
         alignItems: "center",
         gap: "32px",
@@ -134,50 +133,53 @@ export default function SetNewPassword() {
         justifyContent: "flex-start",
         paddingTop: "32px",
         paddingBottom: "32px",
-        padding: "16px",
         overflow: "auto",
+        overflowX: "hidden",
         boxSizing: "border-box",
       }}
     >
       <style>{`
+        /* iPhone Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+          .set-new-password-container {
+            min-height: 100vh !important;
+            min-height: 100dvh !important;
+          }
+        }
+
         @media (max-width: 767px) {
+          body {
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+          }
+
           .set-new-password-container {
             width: 100% !important;
             min-height: 100vh !important;
             min-height: 100dvh !important;
             overflow-y: auto !important;
+            overflow-x: hidden !important;
             -webkit-overflow-scrolling: touch !important;
-            padding: 16px !important;
-            padding-top: 24px !important;
-            padding-bottom: 40px !important;
+            padding: 24px 16px 40px 16px !important;
             justify-content: flex-start !important;
+            box-sizing: border-box !important;
           }
+
           .set-new-password-form-container {
             max-width: 100% !important;
             width: 100% !important;
             padding: 24px 16px !important;
             box-sizing: border-box !important;
           }
-          body {
-            overflow-x: hidden !important;
-            overflow-y: auto !important;
-            -webkit-overflow-scrolling: touch !important;
-          }
         }
+
         @media (min-width: 768px) {
           .set-new-password-container {
             padding: 96px 32px 48px 32px !important;
           }
           .set-new-password-form-container {
             padding: 32px 40px !important;
-          }
-        }
-        @media (max-width: 767px) {
-          .set-new-password-container {
-            padding: 32px 16px !important;
-          }
-                    .set-new-password-form-container {
-            padding: 32px 16px !important;
           }
         }
         .primary-button {
