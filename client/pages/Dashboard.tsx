@@ -5,16 +5,43 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
 
-// Add styles for mobile responsiveness
+// Add styles for mobile responsiveness and scroll behavior
 const dashboardStyles = `
   @media (max-width: 767px) {
-    .dashboard-main {
-      padding-left: 20px !important;
+    /* Ensure proper mobile scrolling behavior */
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
     }
-  }
-  @media (min-width: 1024px) {
-    .dashboard-main {
-      padding-left: 320px !important;
+
+    /* Mobile content scrolling */
+    .mobile-container {
+      -webkit-overflow-scrolling: touch !important;
+      overflow-x: hidden !important;
+      min-height: auto !important;
+      height: auto !important;
+    }
+
+    /* Fix content areas that might have height issues */
+    .mobile-content-area {
+      -webkit-overflow-scrolling: touch !important;
+      min-height: auto !important;
+      height: auto !important;
+      padding-bottom: 80px !important;
+    }
+
+    /* iPhone Safari specific viewport fixes */
+    @supports (-webkit-touch-callout: none) {
+      body {
+        -webkit-overflow-scrolling: touch !important;
+      }
+    }
+
+    /* Ensure viewport units work correctly on mobile */
+    @supports (height: 100dvh) {
+      .mobile-container {
+        min-height: 100dvh !important;
+      }
     }
   }
 `;
