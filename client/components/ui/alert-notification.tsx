@@ -155,29 +155,27 @@ export default function AlertNotification({
         opacity: isVisible ? 1 : 0,
         transform: `translateY(${isVisible ? "0" : "-100%"})`,
         transition: "all 0.3s ease-in-out",
+        width: "100%",
       };
     }
 
     // Tablet and Mobile: fixed positioning
-    const baseStyles = {
+    return {
       position: "fixed" as const,
       left: 0,
       right: 0,
+      bottom: 0,
       zIndex: 1000,
       display: "flex",
       flexDirection: "column" as const,
       alignItems: "flex-start" as const,
       borderRadius: "0px",
+      borderTop: "1px solid #D5D7DA",
       background: "#FFF",
       opacity: isVisible ? 1 : 0,
       transform: `translateY(${isVisible ? "0" : "100%"})`,
       transition: "all 0.3s ease-in-out",
-    };
-
-    return {
-      ...baseStyles,
-      bottom: 0,
-      borderTop: "1px solid #D5D7DA",
+      width: "100%",
     };
   };
 
