@@ -1276,6 +1276,8 @@ export default function Resources() {
               alignSelf: "stretch",
               padding: isMobile ? "0 16px" : "0",
               marginTop: isMobile ? "0" : "-16px",
+              width: "100%",
+              overflow: isMobile ? "hidden" : "visible",
             }}
           >
             <HorizontalTabs
