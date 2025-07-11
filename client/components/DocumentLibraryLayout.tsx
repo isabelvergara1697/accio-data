@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FilterDropdown } from "./FilterDropdown";
 import { SearchInput } from "./SearchInput";
 import { DocumentSection } from "./DocumentSection";
+import { SearchEmptyState } from "./SearchEmptyState";
 
 interface Document {
   id: string;
