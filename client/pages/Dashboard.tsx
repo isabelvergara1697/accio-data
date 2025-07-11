@@ -177,6 +177,12 @@ export default function Dashboard() {
     return isDesktop ? "top" : "bottom";
   };
 
+  const getNotificationBreakpoint = () => {
+    if (isDesktop) return "desktop";
+    if (isMobile) return "mobile";
+    return "tablet";
+  };
+
   const handleSignOut = () => {
     navigate("/login");
   };
@@ -827,13 +833,44 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Success Notification - Fixed positioning */}
-      {showNotification && (
+      {/* Success Notification - Desktop: at top, Mobile/Tablet: fixed bottom */}
+      {showNotification && isDesktop && (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: "296px",
+            right: 0,
+            zIndex: 1000,
+          }}
+        >
+          <AlertNotification
+            title="Account Activated Successfully"
+            description="Manage your account and update your personal details in settings."
+            variant="success"
+            position={getNotificationPosition()}
+            breakpoint={getNotificationBreakpoint()}
+            onDismiss={handleNotificationDismiss}
+            primaryAction={{
+              label: "Update Account",
+              onClick: handleUpdateAccount,
+            }}
+            secondaryAction={{
+              label: "Dismiss",
+              onClick: handleNotificationDismiss,
+            }}
+          />
+        </div>
+      )}
+
+      {/* Mobile/Tablet Notification - Fixed bottom */}
+      {showNotification && !isDesktop && (
         <AlertNotification
           title="Account Activated Successfully"
           description="Manage your account and update your personal details in settings."
           variant="success"
           position={getNotificationPosition()}
+          breakpoint={getNotificationBreakpoint()}
           onDismiss={handleNotificationDismiss}
           primaryAction={{
             label: "Update Account",
