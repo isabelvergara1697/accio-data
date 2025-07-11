@@ -401,6 +401,7 @@ export default function ActivateAccount() {
                   alignItems: "flex-start",
                   gap: "6px",
                   flex: "1 0 0",
+                  width: "100%",
                 }}
               >
                 <div
