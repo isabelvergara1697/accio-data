@@ -203,11 +203,11 @@ export default function Dashboard() {
           className={isMobile ? "mobile-content-area" : ""}
           style={{
             marginTop: isDesktop ? "80px" : "64px",
-            padding: isMobile ? "16px" : "32px",
+            padding: isMobile ? "0" : "32px",
             paddingBottom: isMobile ? "80px" : "32px",
             display: "flex",
             flexDirection: "column",
-            gap: isMobile ? "16px" : "32px",
+            gap: isMobile ? "0" : "32px",
             minHeight: "auto",
             height: "auto",
           }}
