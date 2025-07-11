@@ -40,11 +40,15 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
       }}
       className="scrollable-tabs"
     >
-      <style jsx>{`
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         .scrollable-tabs::-webkit-scrollbar {
           display: none; /* Safari and Chrome */
         }
-      `}</style>
+        `,
+        }}
+      />
       {tabs.map((tab) => (
         <button
           key={tab.id}
