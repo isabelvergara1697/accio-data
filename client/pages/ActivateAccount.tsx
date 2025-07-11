@@ -647,7 +647,45 @@ export default function ActivateAccount() {
                   }}
                   placeholder="jhondoe@mail.com"
                 />
+                {fieldErrors.email && (
+                  <svg
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                      flexShrink: 0,
+                    }}
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 5.33325V7.99992M8 10.6666H8.00667M14.6667 7.99992C14.6667 11.6818 11.6819 14.6666 8 14.6666C4.31814 14.6666 1.33333 11.6818 1.33333 7.99992C1.33333 4.31802 4.31814 1.33325 8 1.33325C11.6819 1.33325 14.6667 4.31802 14.6667 7.99992Z"
+                      stroke="#F04438"
+                      strokeWidth="1.33333"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
               </div>
+              {fieldErrors.email && (
+                <div
+                  style={{
+                    alignSelf: "stretch",
+                    color: "#D92D20",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                  }}
+                >
+                  {fieldErrors.email}
+                </div>
+              )}
             </div>
 
             {/* Role */}
