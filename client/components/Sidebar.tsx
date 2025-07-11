@@ -381,8 +381,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       flex: "1 0 0",
                       borderRadius: "6px",
                       background:
-                        currentPage === "document-library" &&
-                        item === "Document Library"
+                        (currentPage === "document-library" &&
+                          item === "Document Library") ||
+                        (currentPage === "resources" && item === "Resources")
                           ? "#ECEEF9"
                           : "#FFF",
                       position: "relative",
@@ -393,8 +394,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     }}
                     onMouseEnter={() =>
                       !(
-                        currentPage === "document-library" &&
-                        item === "Document Library"
+                        (currentPage === "document-library" &&
+                          item === "Document Library") ||
+                        (currentPage === "resources" && item === "Resources")
                       ) &&
                       setHoveredItem(
                         `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
@@ -425,8 +427,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       <div
                         style={{
                           color:
-                            currentPage === "document-library" &&
-                            item === "Document Library"
+                            (currentPage === "document-library" &&
+                              item === "Document Library") ||
+                            (currentPage === "resources" &&
+                              item === "Resources")
                               ? "#273572"
                               : "var(--colors-text-text-secondary-700, #414651)",
                           fontFamily:
@@ -445,8 +449,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             fontWeight: 600,
                             fontSize: "14px",
                             color:
-                              currentPage === "document-library" &&
-                              item === "Document Library"
+                              (currentPage === "document-library" &&
+                                item === "Document Library") ||
+                              (currentPage === "resources" &&
+                                item === "Resources")
                                 ? "#273572"
                                 : "rgba(65,70,81,1)",
                           }}
