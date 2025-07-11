@@ -5,6 +5,7 @@ export interface AlertNotificationProps {
   description: string;
   variant?: "success" | "error" | "warning" | "info";
   position?: "top" | "bottom";
+  breakpoint?: "desktop" | "tablet" | "mobile";
   onDismiss: () => void;
   primaryAction?: {
     label: string;
@@ -23,6 +24,7 @@ export default function AlertNotification({
   description,
   variant = "success",
   position = "top",
+  breakpoint = "desktop",
   onDismiss,
   primaryAction,
   secondaryAction,
@@ -140,6 +142,23 @@ export default function AlertNotification({
   };
 
   const getPositionStyles = () => {
+    // Desktop: no fixed positioning, just normal flow
+    if (breakpoint === "desktop") {
+      return {
+        display: "flex",
+        flexDirection: "column" as const,
+        alignItems: "center" as const,
+        alignSelf: "stretch" as const,
+        borderRadius: "0px",
+        borderBottom: "1px solid #D5D7DA",
+        background: "#FFF",
+        opacity: isVisible ? 1 : 0,
+        transform: `translateY(${isVisible ? "0" : "-100%"})`,
+        transition: "all 0.3s ease-in-out",
+      };
+    }
+
+    // Tablet and Mobile: fixed positioning
     const baseStyles = {
       position: "fixed" as const,
       left: 0,
@@ -147,27 +166,19 @@ export default function AlertNotification({
       zIndex: 1000,
       display: "flex",
       flexDirection: "column" as const,
-      alignItems: "center" as const,
+      alignItems: "flex-start" as const,
       borderRadius: "0px",
       background: "#FFF",
       opacity: isVisible ? 1 : 0,
-      transform: `translateY(${isVisible ? "0" : position === "top" ? "-100%" : "100%"})`,
+      transform: `translateY(${isVisible ? "0" : "100%"})`,
       transition: "all 0.3s ease-in-out",
     };
 
-    if (position === "top") {
-      return {
-        ...baseStyles,
-        top: 0,
-        borderBottom: "1px solid #D5D7DA",
-      };
-    } else {
-      return {
-        ...baseStyles,
-        bottom: 0,
-        borderTop: "1px solid #D5D7DA",
-      };
-    }
+    return {
+      ...baseStyles,
+      bottom: 0,
+      borderTop: "1px solid #D5D7DA",
+    };
   };
 
   return (
@@ -175,57 +186,34 @@ export default function AlertNotification({
       <div
         style={{
           display: "flex",
-          maxWidth: "1280px",
-          padding: "12px 32px",
-          alignItems: "center",
+          maxWidth: breakpoint === "desktop" ? "1280px" : "100%",
+          padding:
+            breakpoint === "desktop"
+              ? "12px 32px"
+              : breakpoint === "tablet"
+                ? "16px 32px"
+                : "16px 16px",
+          alignItems: breakpoint === "desktop" ? "center" : "flex-start",
           alignSelf: "stretch",
           width: "100%",
           boxSizing: "border-box",
+          ...(breakpoint !== "desktop"
+            ? { flexDirection: "column", gap: "16px" }
+            : {}),
         }}
       >
-        {/* Mobile responsive adjustments */}
-        <style>{`
-          @media (max-width: 767px) {
-            .alert-container {
-              padding: 16px 16px !important;
-              flex-direction: column !important;
-              align-items: flex-start !important;
-              gap: 16px !important;
-            }
-            .alert-content {
-              align-self: stretch !important;
-            }
-            .alert-buttons {
-              align-items: flex-start !important;
-              gap: 12px !important;
-            }
-          }
-          @media (min-width: 768px) and (max-width: 1023px) {
-            .alert-container {
-              padding: 16px 32px !important;
-              flex-direction: column !important;
-              align-items: flex-start !important;
-              gap: 16px !important;
-            }
-            .alert-content {
-              align-self: stretch !important;
-            }
-          }
-        `}</style>
-
         <div
-          className="alert-container"
           style={{
             display: "flex",
-            alignItems: "center",
-            gap: "12px",
+            alignItems: breakpoint === "desktop" ? "center" : "flex-start",
+            gap: breakpoint === "desktop" ? "12px" : "16px",
             flex: "1 0 0",
             position: "relative",
+            alignSelf: "stretch",
           }}
         >
           {/* Content */}
           <div
-            className="alert-content"
             style={{
               display: "flex",
               alignItems: "center",
@@ -298,7 +286,6 @@ export default function AlertNotification({
             {/* Action buttons */}
             {(primaryAction || secondaryAction) && (
               <div
-                className="alert-buttons"
                 style={{
                   display: "flex",
                   alignItems: "flex-start",
