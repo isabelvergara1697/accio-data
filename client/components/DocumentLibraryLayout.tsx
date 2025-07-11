@@ -188,7 +188,6 @@ export const DocumentLibraryLayout: React.FC<DocumentLibraryLayoutProps> = ({
         display: "flex",
         flexDirection: "column",
         gap: isMobile ? "16px" : "32px",
-        padding: isMobile ? "16px" : "0",
       }}
     >
       {/* Page Header */}
