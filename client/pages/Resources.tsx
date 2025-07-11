@@ -838,6 +838,18 @@ const resourcesStyles = `
       -webkit-overflow-scrolling: touch !important;
       min-height: 0 !important;
       padding-bottom: 40px !important;
+        }
+
+    /* iPhone Safari specific viewport fixes */
+    @supports (-webkit-touch-callout: none) {
+      .mobile-container {
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+      }
+      body {
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+      }
     }
 
     /* Ensure viewport units work correctly on mobile */
