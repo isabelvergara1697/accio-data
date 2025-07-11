@@ -2626,6 +2626,19 @@ export default function Dashboard() {
         showMobileUserMenu={showMobileUserMenu}
       />
 
+      <MobileHeader
+        isDesktop={isDesktop}
+        isMobile={isMobile}
+        setMobileMenuOpen={setMobileMenuOpen}
+        userMenuOpen={userMenuOpen}
+        setUserMenuOpen={setUserMenuOpen}
+        userMenuHovered={userMenuHovered}
+        setUserMenuHovered={setUserMenuHovered}
+        handleSignOut={handleSignOut}
+        getUserMenuStyles={getUserMenuStyles}
+        showMobileUserMenu={showMobileUserMenu}
+      />
+
       {/* Main Content */}
       <main
         style={{
