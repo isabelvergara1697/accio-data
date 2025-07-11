@@ -142,13 +142,17 @@ export default function AlertNotification({
   };
 
   const getPositionStyles = () => {
-    // Desktop: no fixed positioning, just normal flow
+    // Desktop: positioned at very top of app, fixed positioning
     if (breakpoint === "desktop") {
       return {
+        position: "fixed" as const,
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
         display: "flex",
         flexDirection: "column" as const,
         alignItems: "center" as const,
-        alignSelf: "stretch" as const,
         borderRadius: "0px",
         borderBottom: "1px solid #D5D7DA",
         background: "#FFF",
@@ -159,7 +163,7 @@ export default function AlertNotification({
       };
     }
 
-    // Tablet and Mobile: fixed positioning
+    // Tablet and Mobile: fixed positioning at bottom
     return {
       position: "fixed" as const,
       left: 0,
@@ -179,75 +183,256 @@ export default function AlertNotification({
     };
   };
 
+  // Desktop layout: horizontal with all elements in one row
+  if (breakpoint === "desktop") {
+    return (
+      <div style={getPositionStyles()}>
+        <div
+          style={{
+            display: "flex",
+            maxWidth: "1280px",
+            padding: "12px 32px",
+            alignItems: "center",
+            alignSelf: "stretch",
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        >
+          {/* Content section */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+              flex: "1 0 0",
+              position: "relative",
+            }}
+          >
+            {/* Icon + Text content */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                flex: "1 0 0",
+                position: "relative",
+              }}
+            >
+              {/* Featured icon */}
+              <div
+                style={{
+                  display: "flex",
+                  width: "32px",
+                  height: "32px",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "9999px",
+                  background: variantStyles.iconBackground,
+                  flexShrink: 0,
+                }}
+              >
+                {renderIcon()}
+              </div>
+
+              {/* Text content */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  alignContent: "flex-start",
+                  gap: "2px 6px",
+                  flex: "1 0 0",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    lineHeight: "20px",
+                  }}
+                >
+                  {title}
+                </div>
+                <div
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: "400",
+                    lineHeight: "20px",
+                  }}
+                >
+                  {description}
+                </div>
+              </div>
+            </div>
+
+            {/* Actions section */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              {/* Action buttons */}
+              {(primaryAction || secondaryAction) && (
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                  }}
+                >
+                  {secondaryAction && (
+                    <button
+                      onClick={secondaryAction.onClick}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        border: "none",
+                        background: "transparent",
+                        cursor: "pointer",
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        lineHeight: "20px",
+                      }}
+                    >
+                      {secondaryAction.label}
+                    </button>
+                  )}
+                  {primaryAction && (
+                    <button
+                      onClick={primaryAction.onClick}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        border: "none",
+                        background: "transparent",
+                        cursor: "pointer",
+                        color: "#273572",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        lineHeight: "20px",
+                      }}
+                    >
+                      {primaryAction.label}
+                    </button>
+                  )}
+                </div>
+              )}
+
+              {/* Close button */}
+              <button
+                onClick={handleDismiss}
+                style={{
+                  display: "flex",
+                  padding: "4px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "6px",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.3332 4.66699L4.6665 11.3337M4.6665 4.66699L11.3332 11.3337"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Mobile/Tablet layout: vertical stacking as per Figma
   return (
     <div style={getPositionStyles()}>
       <div
         style={{
           display: "flex",
-          maxWidth: breakpoint === "desktop" ? "1280px" : "100%",
-          padding:
-            breakpoint === "desktop"
-              ? "12px 32px"
-              : breakpoint === "tablet"
-                ? "16px 32px"
-                : "16px 16px",
-          alignItems: breakpoint === "desktop" ? "center" : "flex-start",
+          padding: breakpoint === "tablet" ? "16px 32px" : "16px 16px",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "16px",
           alignSelf: "stretch",
           width: "100%",
           boxSizing: "border-box",
-          ...(breakpoint !== "desktop"
-            ? { flexDirection: "column", gap: "16px" }
-            : {}),
         }}
       >
+        {/* Content section */}
         <div
           style={{
             display: "flex",
-            alignItems: breakpoint === "desktop" ? "center" : "flex-start",
-            gap: breakpoint === "desktop" ? "12px" : "16px",
-            flex: "1 0 0",
-            position: "relative",
+            alignItems: "flex-start",
+            gap: "16px",
             alignSelf: "stretch",
+            position: "relative",
           }}
         >
-          {/* Content */}
+          {/* Main content area */}
           <div
             style={{
               display: "flex",
-              alignItems: "center",
-              gap: "6px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "2px",
               flex: "1 0 0",
-              position: "relative",
             }}
           >
-            {/* Featured icon */}
+            {/* Title and icon row */}
             <div
               style={{
                 display: "flex",
-                width: "32px",
-                height: "32px",
-                padding: "8px",
-                justifyContent: "center",
+                paddingRight: "32px",
                 alignItems: "center",
-                borderRadius: "9999px",
-                background: variantStyles.iconBackground,
-                flexShrink: 0,
+                gap: "8px",
+                alignSelf: "stretch",
               }}
             >
-              {renderIcon()}
-            </div>
+              {/* Featured icon */}
+              <div
+                style={{
+                  display: "flex",
+                  width: "32px",
+                  height: "32px",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "9999px",
+                  background: variantStyles.iconBackground,
+                  flexShrink: 0,
+                }}
+              >
+                {renderIcon()}
+              </div>
 
-            {/* Text content */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                alignContent: "flex-start",
-                gap: "2px 6px",
-                flex: "1 0 0",
-                flexWrap: "wrap",
-              }}
-            >
+              {/* Title */}
               <div
                 style={{
                   color: "#414651",
@@ -255,118 +440,113 @@ export default function AlertNotification({
                   fontSize: "14px",
                   fontWeight: "600",
                   lineHeight: "20px",
+                  flex: "1 0 0",
                 }}
               >
                 {title}
               </div>
-              <div
-                style={{
-                  color: "#535862",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: "400",
-                  lineHeight: "20px",
-                }}
-              >
-                {description}
-              </div>
+            </div>
+
+            {/* Supporting text */}
+            <div
+              style={{
+                alignSelf: "stretch",
+                color: "#535862",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: "400",
+                lineHeight: "20px",
+              }}
+            >
+              {description}
             </div>
           </div>
 
-          {/* Actions */}
+          {/* Close button */}
+          <button
+            onClick={handleDismiss}
+            style={{
+              display: "flex",
+              padding: "4px",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "6px",
+              border: "none",
+              background: "transparent",
+              cursor: "pointer",
+            }}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.3332 4.66699L4.6665 11.3337M4.6665 4.66699L11.3332 11.3337"
+                stroke="#A4A7AE"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Action buttons row */}
+        {(primaryAction || secondaryAction) && (
           <div
             style={{
               display: "flex",
-              alignItems: "center",
-              gap: "8px",
+              alignItems: "flex-start",
+              gap: "12px",
             }}
           >
-            {/* Action buttons */}
-            {(primaryAction || secondaryAction) && (
-              <div
+            {secondaryAction && (
+              <button
+                onClick={secondaryAction.onClick}
                 style={{
                   display: "flex",
-                  alignItems: "flex-start",
-                  gap: "12px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "4px",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  color: "#535862",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  lineHeight: "20px",
                 }}
               >
-                {secondaryAction && (
-                  <button
-                    onClick={secondaryAction.onClick}
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      border: "none",
-                      background: "transparent",
-                      cursor: "pointer",
-                      color: "#535862",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      lineHeight: "20px",
-                    }}
-                  >
-                    {secondaryAction.label}
-                  </button>
-                )}
-                {primaryAction && (
-                  <button
-                    onClick={primaryAction.onClick}
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      border: "none",
-                      background: "transparent",
-                      cursor: "pointer",
-                      color: "#273572",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      lineHeight: "20px",
-                    }}
-                  >
-                    {primaryAction.label}
-                  </button>
-                )}
-              </div>
+                {secondaryAction.label}
+              </button>
             )}
-
-            {/* Close button */}
-            <button
-              onClick={handleDismiss}
-              style={{
-                display: "flex",
-                padding: "4px",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: "6px",
-                border: "none",
-                background: "transparent",
-                cursor: "pointer",
-              }}
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            {primaryAction && (
+              <button
+                onClick={primaryAction.onClick}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "4px",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  color: "#273572",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  lineHeight: "20px",
+                }}
               >
-                <path
-                  d="M11.3332 4.66699L4.6665 11.3337M4.6665 4.66699L11.3332 11.3337"
-                  stroke="#A4A7AE"
-                  strokeWidth="1.66667"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+                {primaryAction.label}
+              </button>
+            )}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
