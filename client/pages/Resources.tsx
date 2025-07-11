@@ -57,23 +57,25 @@ const onboardingData = [
     isOpen: true,
     gridVariant: "expanded" as const,
     resources: [
-            {
+      {
         id: "4",
         name: "Adding accounts",
-        description: "This comprehensive guide walks you through the step-by-step process of creating and adding new accounts to the system, including all the necessary forms, verification steps, and best practices for account management.",
+        description:
+          "This comprehensive guide walks you through the step-by-step process of creating and adding new accounts to the system, including all the necessary forms, verification steps, and best practices for account management.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
-            {
+      {
         id: "5",
         name: "Working with pricebooks",
-        description: "Learn how to create, configure, and edit comprehensive pricebooks and packages, including advanced pricing strategies, bulk editing features, and integration with external billing systems.",
+        description:
+          "Learn how to create, configure, and edit comprehensive pricebooks and packages, including advanced pricing strategies, bulk editing features, and integration with external billing systems.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
       {
         id: "6",
-                name: "Vendor dispatch table",
+        name: "Vendor dispatch table",
         description:
           "A detailed tutorial covering how to effectively use the vendor dispatch table to automatically assign searches to appropriate vendors or queues, including configuration of rules, priority settings, and troubleshooting common dispatch issues.",
         type: "video" as const,
@@ -81,15 +83,15 @@ const onboardingData = [
       },
       {
         id: "7",
-                name: "Adding court fees",
-                description:
+        name: "Adding court fees",
+        description:
           "Complete instructions for adding and managing search-based, jurisdictional court fees to the system, including fee calculation rules, geographic mappings, and automated fee updates.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
       {
         id: "8",
-                name: "Adding integrated data vendors",
+        name: "Adding integrated data vendors",
         description:
           "Step-by-step guide for setting up and configuring a vendor that is already integrated with the Accio platform, including API configuration, data mapping, and testing procedures.",
         type: "video" as const,
@@ -97,7 +99,7 @@ const onboardingData = [
       },
       {
         id: "9",
-                name: "Work queues",
+        name: "Work queues",
         description:
           "Comprehensive tutorial on setting up and managing manual work queues in the system, including queue prioritization, assignment rules, and workflow optimization strategies.",
         type: "video" as const,
@@ -125,15 +127,16 @@ const onboardingData = [
     gridVariant: "expanded" as const,
     resources: [
       {
-                id: "12",
+        id: "12",
         name: "Working with aliases",
-        description: "Detailed explanation of how to properly handle AKAs (also known as) entries, including duplicate detection, name variations, and maintaining data integrity across multiple identity records.",
+        description:
+          "Detailed explanation of how to properly handle AKAs (also known as) entries, including duplicate detection, name variations, and maintaining data integrity across multiple identity records.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
       {
         id: "13",
-                name: "Address & criminal functionality",
+        name: "Address & criminal functionality",
         description:
           "Comprehensive breakdown of the AddCrim system functionality and detailed instructions on how to configure the system to automatically add criminal background searches based on jurisdictions discovered during address trace operations.",
         type: "video" as const,
@@ -150,16 +153,17 @@ const onboardingData = [
     resources: [
       {
         id: "14",
-                name: "Custom Products",
-        description: "Complete guide to adding and configuring custom products in the system, including product definitions, pricing models, and integration with existing service offerings.",
+        name: "Custom Products",
+        description:
+          "Complete guide to adding and configuring custom products in the system, including product definitions, pricing models, and integration with existing service offerings.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
       {
         id: "15",
-                name: "Setting up an international product",
+        name: "Setting up an international product",
         description:
-          "Detailed instructions for creating new products from scratch and comprehensive guidelines for reviewing and evaluating vendor capabilities, pricing, and service quality."
+          "Detailed instructions for creating new products from scratch and comprehensive guidelines for reviewing and evaluating vendor capabilities, pricing, and service quality.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
