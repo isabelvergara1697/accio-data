@@ -246,7 +246,7 @@ const documentLibraryStyles = `
     width: 100% !important;
   }
 
-  /* Desktop/mobile button overrides */
+    /* Desktop/mobile button overrides */
   .dropdown-container[data-sort-dropdown] .secondary-button,
   .dropdown-container[data-filetype-dropdown] .secondary-button {
     justify-content: flex-start !important;
@@ -255,6 +255,16 @@ const documentLibraryStyles = `
   .dropdown-container[data-filetype-dropdown] .secondary-button > div {
     justify-content: flex-start !important;
     width: 100% !important;
+  }
+
+  /* Document card responsive styling */
+  .document-card {
+    width: 100%;
+  }
+  @media (max-width: 767px) {
+    .document-card {
+      width: 100% !important;
+    }
   }
 
   /* Strong overrides for all filter buttons */
@@ -379,12 +389,11 @@ const documentLibraryStyles = `
     }
   }
 
-  /* Additional fluid responsive refinements */
-  @media (min-width: 1024px) {
-    .desktop-document-grid {
-      grid-template-columns: 1fr 1fr !important;
-      gap: 16px !important;
-    }
+    /* Document grid responsive refinements */
+  .tablet-document-grid,
+  .desktop-document-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
   }
 
   @media (max-width: 767px) {
