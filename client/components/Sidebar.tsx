@@ -522,13 +522,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       }`}
       style={{
         display: "flex",
-        width: isDesktop
-          ? "296px"
-          : mobileMenuOpen
-            ? isMobile
-              ? "335px"
-              : "704px"
-            : "296px",
+        width: isDesktop ? "296px" : mobileMenuOpen ? "75vw" : "296px",
         height: "100vh",
         padding: isDesktop
           ? "8px 0px 24px 8px"
