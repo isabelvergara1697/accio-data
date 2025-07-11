@@ -241,15 +241,9 @@ export default function ActivateAccount() {
             flex-direction: column;
             gap: 20px;
           }
-          .name-group > div {
+                    .name-group > div {
             min-height: auto !important;
           }
-        }
-
-        /* Reserve space for error messages to maintain alignment */
-        .name-field-error-space {
-          min-height: 20px;
-          margin-top: 6px;
         }
         .primary-button {
           border-radius: 8px;
