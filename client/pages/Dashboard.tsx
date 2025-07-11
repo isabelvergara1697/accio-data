@@ -199,7 +199,7 @@ export default function Dashboard() {
           showMobileUserMenu={showMobileUserMenu}
         />
 
-                {/* Main Content Area */}
+        {/* Main Content Area */}
         <div
           className={isMobile ? "mobile-content-area" : ""}
           style={{
@@ -223,7 +223,7 @@ export default function Dashboard() {
             </div>
           )}
 
-                    {/* Dashboard Content */}
+          {/* Dashboard Content */}
           <div
             style={{
               display: "flex",
@@ -450,7 +450,7 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
-        </main>
+        </div>
       </div>
     </div>
   );
