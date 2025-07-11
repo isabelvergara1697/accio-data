@@ -1181,6 +1181,10 @@ export default function Resources() {
     }
   };
 
+  const getFilteredTabData = () => {
+    return filteredData.length > 0 ? filteredData : getCurrentTabData();
+  };
+
   return (
     <div
       style={{
