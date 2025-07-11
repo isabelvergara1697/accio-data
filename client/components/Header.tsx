@@ -46,12 +46,12 @@ export const Header: React.FC<HeaderProps> = ({
           alignItems: "center",
           gap: "8px",
           flex: "1 0 0",
-          maxWidth: "400px",
           borderRadius: "8px",
           border: "1px solid #D5D7DA",
           background: "#FFF",
           padding: "10px 12px",
           boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+          marginRight: "16px",
         }}
       >
         <svg
@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({
           display: "flex",
           alignItems: "center",
           gap: "16px",
-          marginLeft: "32px",
+          flexShrink: 0,
         }}
       >
         {/* Quick Create Button */}
@@ -136,6 +136,8 @@ export const Header: React.FC<HeaderProps> = ({
               "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
             transition: "all 0.2s ease",
             cursor: "pointer",
+            flexShrink: 0,
+            minWidth: "fit-content",
           }}
         >
           <span
@@ -240,9 +242,11 @@ export const Header: React.FC<HeaderProps> = ({
             <div
               style={{
                 display: "flex",
-                width: "200px",
+                minWidth: "120px",
+                maxWidth: "180px",
                 alignItems: "center",
                 gap: "8px",
+                overflow: "hidden",
               }}
             >
               <div
@@ -271,6 +275,9 @@ export const Header: React.FC<HeaderProps> = ({
                     fontSize: "14px",
                     fontWeight: 600,
                     lineHeight: "20px",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   <span
