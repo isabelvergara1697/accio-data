@@ -28,7 +28,7 @@ const onboardingData = [
     subtitle: "Learn to Speak Accio",
     count: 3,
     isOpen: true,
-    gridVariant: "compact" as const,
+    gridVariant: "expanded" as const,
     resources: [
       {
         id: "1",
