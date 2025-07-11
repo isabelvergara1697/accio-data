@@ -335,14 +335,7 @@ export default function ActivateAccount() {
             }}
           >
             {/* Name Group */}
-            <div
-              className="name-group"
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                alignSelf: "stretch",
-              }}
-            >
+            <div className="name-group">
               {/* First Name */}
               <div
                 style={{
