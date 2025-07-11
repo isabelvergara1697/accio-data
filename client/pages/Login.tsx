@@ -82,8 +82,9 @@ export default function Login() {
       className="login-container"
       style={{
         display: "flex",
-        width: "100vw",
+        width: "100%",
         minHeight: "100vh",
+        minHeight: "100dvh", // Dynamic viewport height for mobile
         flexDirection: "column",
         alignItems: "center",
         gap: "32px",
@@ -91,7 +92,11 @@ export default function Login() {
         fontFamily:
           "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
         padding: "16px",
-        justifyContent: "center",
+        justifyContent: "flex-start",
+        paddingTop: "32px",
+        paddingBottom: "32px",
+        overflow: "auto",
+        boxSizing: "border-box",
       }}
     >
       <style>{`
@@ -104,11 +109,30 @@ export default function Login() {
             padding: 32px 40px !important;
           }
         }
-                @media (max-width: 767px) {
+                        @media (max-width: 767px) {
+          .login-container {
+            width: 100% !important;
+            min-height: 100vh !important;
+            min-height: 100dvh !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            padding: 16px !important;
+            padding-top: 24px !important;
+            padding-bottom: 40px !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+          }
           .login-form-container {
-            max-width: 375px !important;
-            padding: 32px 16px !important;
-            flex: 1 0 0 !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            padding: 24px 16px !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+          }
+          body {
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
           }
         }
         .primary-button {
