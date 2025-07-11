@@ -1095,9 +1095,10 @@ export default function Resources() {
             display: "flex",
             flexDirection: "column",
             gap: isMobile ? "0" : "32px",
-            flex: "1 1 auto",
-            minHeight: 0, // Allow flex child to shrink
+            flex: isMobile ? "1 1 auto" : "none",
+            minHeight: isMobile ? "0" : "auto",
             overflowY: isMobile ? "auto" : "visible",
+            paddingBottom: isMobile ? "40px" : "32px",
           }}
         >
           {/* Page Header */}
@@ -1322,6 +1323,9 @@ export default function Resources() {
               flexDirection: "column",
               gap: isMobile ? "16px" : "32px",
               padding: isMobile ? "16px" : "0",
+              paddingBottom: isMobile ? "40px" : "0",
+              flex: isMobile ? "1 1 auto" : "none",
+              minHeight: isMobile ? "0" : "auto",
             }}
           >
             {/* Search Results Header */}
