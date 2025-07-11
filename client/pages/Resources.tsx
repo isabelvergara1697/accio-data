@@ -888,6 +888,7 @@ export default function Resources() {
   const [selectedFileType, setSelectedFileType] = useState("All Files");
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
@@ -976,11 +977,18 @@ export default function Resources() {
     const query = e.target.value;
     setSearchQuery(query);
     setIsSearchActive(query.length > 0);
+
+    if (query.length > 0) {
+      performSearch(query);
+    } else {
+      setSearchResults([]);
+    }
   };
 
   const clearSearch = () => {
     setSearchQuery("");
     setIsSearchActive(false);
+    setSearchResults([]);
   };
 
   const toggleSortDropdown = () => {
@@ -995,6 +1003,50 @@ export default function Resources() {
 
   const sortOptions = ["A-Z", "Most Recent", "Most Viewed"];
   const fileTypeOptions = ["All Files", "PDF", "Videos", "Docs", "PPT"];
+
+  // Cross-tab search function
+  const performSearch = (query: string) => {
+    const lowercaseQuery = query.toLowerCase();
+    const allTabData = {
+      onboarding: onboardingData,
+      "accio-university": accioUniversityData,
+      "my-documents": myDocumentsData,
+    };
+
+    const searchResults = [];
+
+    // Search across all tabs
+    Object.entries(allTabData).forEach(([tabId, tabData]) => {
+      tabData.forEach((section) => {
+        const matchingResources = section.resources.filter(
+          (resource) =>
+            resource.name.toLowerCase().includes(lowercaseQuery) ||
+            (resource.description &&
+              resource.description.toLowerCase().includes(lowercaseQuery)) ||
+            section.title.toLowerCase().includes(lowercaseQuery),
+        );
+
+        if (
+          matchingResources.length > 0 ||
+          section.title.toLowerCase().includes(lowercaseQuery)
+        ) {
+          searchResults.push({
+            ...section,
+            id: `${tabId}-${section.id}`, // Ensure unique IDs across tabs
+            tabId: tabId,
+            tabLabel: tabs.find((tab) => tab.id === tabId)?.label || tabId,
+            resources:
+              matchingResources.length > 0
+                ? matchingResources
+                : section.resources,
+            count: matchingResources.length || section.resources.length,
+          });
+        }
+      });
+    });
+
+    setSearchResults(searchResults);
+  };
 
   const getCurrentTabData = () => {
     switch (currentTab) {
@@ -1301,23 +1353,25 @@ export default function Resources() {
             </div>
           </div>
 
-          {/* Horizontal Tabs Container - Mobile Scroll */}
-          <div
-            style={{
-              alignSelf: "stretch",
-              padding: isMobile ? "0 16px" : "0",
-              marginTop: isMobile ? "0" : "-16px",
-              width: "100%",
-            }}
-          >
-            <HorizontalTabs
-              tabs={tabs}
-              onTabChange={handleTabChange}
-              currentTab={currentTab}
-              isMobile={isMobile}
-              isTablet={isTablet}
-            />
-          </div>
+          {/* Horizontal Tabs Container - Hidden when searching */}
+          {!isSearchActive && (
+            <div
+              style={{
+                alignSelf: "stretch",
+                padding: isMobile ? "0 16px" : "0",
+                marginTop: isMobile ? "0" : "-16px",
+                width: "100%",
+              }}
+            >
+              <HorizontalTabs
+                tabs={tabs}
+                onTabChange={handleTabChange}
+                currentTab={currentTab}
+                isMobile={isMobile}
+                isTablet={isTablet}
+              />
+            </div>
+          )}
 
           {/* Content Container */}
           <div
@@ -1384,7 +1438,11 @@ export default function Resources() {
                       color: "rgba(83,88,98,1)",
                     }}
                   >
-                    0 Results
+                    {searchResults.reduce(
+                      (total, section) => total + section.resources.length,
+                      0,
+                    )}{" "}
+                    Results
                   </span>
                 </div>
               </div>
@@ -1438,16 +1496,23 @@ export default function Resources() {
                   </div>
                 )}
 
-                {getCurrentTabData().map((section) => (
-                  <ResourceSection
-                    key={section.id}
-                    section={section}
-                    isOpen={openAccordions.includes(section.id)}
-                    onToggle={toggleAccordion}
-                    isMobile={isMobile}
-                    isDesktop={isDesktop}
-                  />
-                ))}
+                {(isSearchActive ? searchResults : getCurrentTabData()).map(
+                  (section) => (
+                    <ResourceSection
+                      key={section.id}
+                      section={section}
+                      isOpen={openAccordions.includes(section.id)}
+                      onToggle={toggleAccordion}
+                      isMobile={isMobile}
+                      isDesktop={isDesktop}
+                      showTabLabel={
+                        isSearchActive && section.tabLabel
+                          ? section.tabLabel
+                          : undefined
+                      }
+                    />
+                  ),
+                )}
               </div>
             </div>
           </div>
