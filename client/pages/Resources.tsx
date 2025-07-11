@@ -1033,6 +1033,70 @@ export default function Resources() {
   const sortOptions = ["A-Z", "Most Recent", "Most Viewed"];
   const fileTypeOptions = ["All Files", "PDF", "Videos", "Docs", "PPT"];
 
+  // Apply sorting and filtering to current tab data
+  const applySortingAndFiltering = (
+    data: ResourceSectionData[],
+    sortOption: string,
+    fileType: string,
+  ): ResourceSectionData[] => {
+    let processed = [...data];
+
+    // Apply file type filtering
+    if (fileType !== "All Files") {
+      processed = processed.map((section) => ({
+        ...section,
+        resources: section.resources.filter((resource) => {
+          if (fileType === "PDF") return resource.type === "document";
+          if (fileType === "Videos") return resource.type === "video";
+          if (fileType === "Docs") return resource.type === "document";
+          if (fileType === "PPT") return resource.type === "document";
+          return true;
+        }),
+        count: section.resources.filter((resource) => {
+          if (fileType === "PDF") return resource.type === "document";
+          if (fileType === "Videos") return resource.type === "video";
+          if (fileType === "Docs") return resource.type === "document";
+          if (fileType === "PPT") return resource.type === "document";
+          return true;
+        }).length,
+      }));
+    }
+
+    // Apply sorting within each section
+    processed = processed.map((section) => {
+      const sortedResources = [...section.resources];
+
+      switch (sortOption) {
+        case "A-Z":
+          sortedResources.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case "Most Recent":
+          // Sort by date if available, otherwise maintain original order
+          sortedResources.sort((a, b) => {
+            if (a.date && b.date) {
+              return new Date(b.date).getTime() - new Date(a.date).getTime();
+            }
+            // For resources without dates, maintain original order
+            return 0;
+          });
+          break;
+        case "Most Viewed":
+          // Simulate view counts - in a real app this would come from analytics
+          sortedResources.sort(() => Math.random() - 0.5);
+          break;
+        default:
+          break;
+      }
+
+      return {
+        ...section,
+        resources: sortedResources,
+      };
+    });
+
+    return processed;
+  };
+
   // Cross-tab search function
   const performSearch = (query: string) => {
     const lowercaseQuery = query.toLowerCase();
