@@ -1755,18 +1755,10 @@ export default function DocumentLibrary() {
                           }
                           style={{
                             display: "grid",
-                            gridTemplateColumns: isDesktop
-                              ? "1fr 1fr"
-                              : !isMobile
-                                ? "repeat(2, 308px)"
-                                : "1fr",
+                            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
                             gap: "16px",
                             padding: isMobile ? "20px 16px" : "20px 24px",
                             alignSelf: "stretch",
-                            justifyContent:
-                              !isDesktop && !isMobile
-                                ? "space-between"
-                                : "initial",
                           }}
                         >
                           {section.documents.map((doc) => (
@@ -1783,6 +1775,7 @@ export default function DocumentLibrary() {
                                 border: "1px solid #E9EAEB",
                                 background: "#FFF",
                                 cursor: "pointer",
+                                width: isMobile ? "100%" : "auto",
                               }}
                             >
                               <div
