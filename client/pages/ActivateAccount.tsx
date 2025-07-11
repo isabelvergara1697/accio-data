@@ -169,12 +169,12 @@ export default function ActivateAccount() {
           }
         }
 
-        /* Name fields responsive layout */
+                /* Name fields responsive layout */
                 .name-group {
           display: flex;
           flex-direction: row;
           gap: 20px;
-          align-items: flex-start;
+          align-items: stretch;
           align-self: stretch;
         }
 
