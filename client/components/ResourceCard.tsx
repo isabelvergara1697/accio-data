@@ -136,10 +136,6 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
         width: isMobile ? "100%" : "100%",
         flexDirection:
           variant === "compact" && resource.type === "video" ? "column" : "row",
-        alignItems:
-          variant === "compact" && resource.type === "video"
-            ? "flex-start"
-            : "center",
       }}
     >
       <div
