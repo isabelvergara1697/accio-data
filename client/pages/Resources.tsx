@@ -57,23 +57,25 @@ const onboardingData = [
     isOpen: true,
     gridVariant: "expanded" as const,
     resources: [
-            {
+      {
         id: "4",
         name: "Adding accounts",
-        description: "This comprehensive guide walks you through the step-by-step process of creating and adding new accounts to the system, including all the necessary forms, verification steps, and best practices for account management.",
+        description:
+          "This comprehensive guide walks you through the step-by-step process of creating and adding new accounts to the system, including all the necessary forms, verification steps, and best practices for account management.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
-            {
+      {
         id: "5",
         name: "Working with pricebooks",
-        description: "Learn how to create, configure, and edit comprehensive pricebooks and packages, including advanced pricing strategies, bulk editing features, and integration with external billing systems.",
+        description:
+          "Learn how to create, configure, and edit comprehensive pricebooks and packages, including advanced pricing strategies, bulk editing features, and integration with external billing systems.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
       {
         id: "6",
-                name: "Vendor dispatch table",
+        name: "Vendor dispatch table",
         description:
           "A detailed tutorial covering how to effectively use the vendor dispatch table to automatically assign searches to appropriate vendors or queues, including configuration of rules, priority settings, and troubleshooting common dispatch issues.",
         type: "video" as const,
@@ -81,9 +83,9 @@ const onboardingData = [
       },
       {
         id: "7",
-                name: "Adding court fees",
+        name: "Adding court fees",
         description:
-          "Complete instructions for adding and managing search-based, jurisdictional court fees to the system, including fee calculation rules, geographic mappings, and automated fee updates."
+          "Complete instructions for adding and managing search-based, jurisdictional court fees to the system, including fee calculation rules, geographic mappings, and automated fee updates.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
