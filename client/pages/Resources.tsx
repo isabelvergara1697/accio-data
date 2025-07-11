@@ -811,10 +811,37 @@ const resourcesStyles = `
       gap: 16px !important;
     }
 
-            /* Mobile tab scrolling - simplified */
+                /* Mobile tab scrolling - simplified */
     .tabs-container {
       width: 100% !important;
       max-width: 100% !important;
+    }
+
+    /* Ensure proper mobile scrolling behavior */
+    body {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* Mobile content scrolling */
+    .mobile-container {
+      -webkit-overflow-scrolling: touch !important;
+      scroll-behavior: smooth !important;
+    }
+
+    /* Fix content areas that might have height issues */
+    .mobile-content-area {
+      flex: 1 1 auto !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      min-height: 0 !important;
+    }
+
+    /* Ensure viewport units work correctly on mobile */
+    @supports (height: 100dvh) {
+      .mobile-container {
+        min-height: 100dvh !important;
+      }
     }
   }
 `;
