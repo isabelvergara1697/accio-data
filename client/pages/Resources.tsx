@@ -1022,17 +1022,14 @@ export default function Resources() {
       <style dangerouslySetInnerHTML={{ __html: resourcesStyles }} />
 
       {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
+      {mobileMenuOpen && !isDesktop && (
         <div
-          className="fixed inset-0 z-40 lg:hidden"
+          className="fixed inset-0 z-40"
           style={{
             width: "100vw",
             height: "100vh",
-            background:
-              "linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0%, #000 100%)",
-            opacity: 0.7,
-            backgroundColor: "#0A0D12",
-            backdropFilter: "blur(4px)",
+            background: "rgba(10, 13, 18, 0.7)",
+            backdropFilter: "blur(8px)",
             position: "fixed",
             left: 0,
             top: 0,
