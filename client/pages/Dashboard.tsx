@@ -624,14 +624,7 @@ export default function Dashboard() {
         setUserMenuHovered={setUserMenuHovered}
         handleSignOut={handleSignOut}
         getUserMenuStyles={getUserMenuStyles}
-      />
-      <aside
-        className={`transition-all duration-300 lg:translate-x-0 ${
-          mobileMenuOpen
-            ? "translate-x-0"
-            : "-translate-x-full lg:translate-x-0"
-        }`}
-        style={{
+            />
           display: "flex",
           width: isDesktop ? "296px" : mobileMenuOpen ? "75%" : "296px",
           height: "100vh",
