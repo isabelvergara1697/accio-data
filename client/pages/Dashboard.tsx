@@ -171,7 +171,13 @@ export default function Dashboard() {
         )}
 
         {/* Dashboard Content */}
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            width: "100%",
+          }}
+        >
           <h1
             style={{
               fontSize: "32px",
