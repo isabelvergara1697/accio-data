@@ -490,6 +490,11 @@ export default function Dashboard() {
                         item === "Document Library"
                       ) {
                         navigate("/document-library");
+                      } else if (
+                        section === "support" &&
+                        item === "Resources"
+                      ) {
+                        navigate("/resources");
                       }
                     }}
                   >
