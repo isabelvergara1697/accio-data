@@ -537,27 +537,36 @@ export default function ActivateAccount() {
                     boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  <input
-                    type="text"
-                    value={formData.lastName}
-                    onChange={handleInputChange("lastName")}
-                    onFocus={() => setFocusedField("lastName")}
-                    onBlur={() => setFocusedField(null)}
+                  <div
                     style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
                       flex: "1 0 0",
-                      border: "none",
-                      outline: "none",
-                      background: "transparent",
-                      color: formData.lastName ? "#181D27" : "#717680",
-                      fontFamily:
-                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                      fontSize: "16px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "24px",
                     }}
-                    placeholder="Doe"
-                  />
+                  >
+                    <input
+                      type="text"
+                      value={formData.lastName}
+                      onChange={handleInputChange("lastName")}
+                      onFocus={() => setFocusedField("lastName")}
+                      onBlur={() => setFocusedField(null)}
+                      style={{
+                        flex: "1 0 0",
+                        border: "none",
+                        outline: "none",
+                        background: "transparent",
+                        color: formData.lastName ? "#181D27" : "#717680",
+                        fontFamily:
+                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "16px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                      }}
+                      placeholder="Doe"
+                    />
+                  </div>
                   {fieldErrors.lastName && (
                     <svg
                       style={{
