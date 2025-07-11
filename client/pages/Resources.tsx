@@ -806,7 +806,7 @@ export default function Resources() {
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
 
   // Tab and content state
-  const [currentTab, setCurrentTab] = useState("my-documents");
+  const [currentTab, setCurrentTab] = useState("onboarding");
   const [openAccordions, setOpenAccordions] = useState<string[]>([
     "training-videos",
     "basic",
