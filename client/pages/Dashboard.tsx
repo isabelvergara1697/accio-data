@@ -210,7 +210,9 @@ export default function Dashboard() {
               display: "grid",
               gridTemplateColumns: isDesktop
                 ? "repeat(4, 1fr)"
-                : "repeat(2, 1fr)",
+                : isMobile
+                  ? "1fr"
+                  : "repeat(2, 1fr)",
               gap: "20px",
               marginBottom: "32px",
             }}
