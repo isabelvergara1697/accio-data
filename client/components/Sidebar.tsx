@@ -550,7 +550,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
           background: "#FFF",
           boxShadow: isDesktop
             ? "0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
-            : "none",
+            : mobileMenuOpen
+              ? "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)"
+              : "none",
           position: "relative",
         }}
       >
