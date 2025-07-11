@@ -1273,6 +1273,7 @@ export default function Resources() {
               onTabChange={handleTabChange}
               currentTab={currentTab}
               isMobile={isMobile}
+              isTablet={isTablet}
             />
           </div>
 
