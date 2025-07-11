@@ -1093,6 +1093,7 @@ export default function Resources() {
       style={{
         display: "flex",
         width: "100%",
+        minHeight: "100vh",
         background: "#FAFAFA",
         position: "relative",
       }}
