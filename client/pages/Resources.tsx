@@ -1316,6 +1316,7 @@ export default function Resources() {
 
           {/* Content Container */}
           <div
+            className={isMobile ? "mobile-content-area" : ""}
             style={{
               display: "flex",
               flexDirection: "column",
