@@ -1643,9 +1643,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         strokeLinejoin="round"
                       />
                     </svg>
-                  </div>
+                                    </div>
                 </div>
-                            )}
+              )}
             </>
           )}
         </div>
