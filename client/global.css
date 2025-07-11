@@ -123,6 +123,26 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       scroll-behavior: smooth;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* iPhone Safari specific fixes */
+    body {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh; /* Dynamic viewport height for Safari iOS */
+    }
+
+    /* Fix for iPhone keyboard viewport issues */
+    @supports (-webkit-touch-callout: none) {
+      .login-container,
+      .forgot-password-container,
+      .set-new-password-container,
+      .email-sent-container,
+      .password-reset-success-container {
+        min-height: -webkit-fill-available;
+      }
     }
 
     /* Fix mobile viewport height issues */
