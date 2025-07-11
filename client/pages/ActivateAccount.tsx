@@ -142,14 +142,15 @@ export default function ActivateAccount() {
           }
         }
 
-        @media (min-width: 1024px) {
+                @media (min-width: 1024px) {
           .name-group {
             flex-direction: row;
             gap: 20px;
           }
           .name-group > div {
-            flex: 1 1 50%;
-            max-width: 50%;
+            flex: 1;
+            max-width: calc(50% - 10px);
+            min-width: 0;
           }
         }
 
