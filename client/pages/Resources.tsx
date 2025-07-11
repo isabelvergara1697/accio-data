@@ -1143,7 +1143,7 @@ export default function Resources() {
           flexDirection: "column",
           background: "#FAFAFA",
           position: "relative",
-          minHeight: "auto",
+          minHeight: "100vh",
           height: "auto",
         }}
       >
