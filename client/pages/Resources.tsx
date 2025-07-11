@@ -995,11 +995,27 @@ export default function Resources() {
   const handleSortOptionSelect = (option: string) => {
     setSelectedSortOption(option);
     setSortDropdownOpen(false);
+    // Apply new sorting and filtering
+    const currentData = getCurrentTabData();
+    const filtered = applySortingAndFiltering(
+      currentData,
+      option,
+      selectedFileType,
+    );
+    setFilteredData(filtered);
   };
 
   const handleFileTypeSelect = (type: string) => {
     setSelectedFileType(type);
     setFileTypeDropdownOpen(false);
+    // Apply new sorting and filtering
+    const currentData = getCurrentTabData();
+    const filtered = applySortingAndFiltering(
+      currentData,
+      selectedSortOption,
+      type,
+    );
+    setFilteredData(filtered);
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
