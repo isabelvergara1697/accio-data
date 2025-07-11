@@ -617,8 +617,9 @@ export default function ActivateAccount() {
                   gap: "8px",
                   alignSelf: "stretch",
                   borderRadius: "8px",
-                  border:
-                    focusedField === "email"
+                  border: fieldErrors.email
+                    ? "1px solid #FDA29B"
+                    : focusedField === "email"
                       ? "2px solid #34479A"
                       : "1px solid #D5D7DA",
                   background: "#FFF",
