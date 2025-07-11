@@ -122,6 +122,28 @@ export default function ActivateAccount() {
           }
         }
 
+        /* Name fields responsive layout */
+        .name-group {
+          display: flex;
+          gap: 20px;
+          align-items: flex-start;
+          align-self: stretch;
+        }
+
+        @media (max-width: 1023px) {
+          .name-group {
+            flex-direction: column;
+            gap: 20px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .name-group {
+            flex-direction: row;
+            gap: 20px;
+          }
+        }
+
                 @media (max-width: 767px) {
           html, body {
             overflow-x: hidden !important;
