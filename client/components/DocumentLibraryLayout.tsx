@@ -463,17 +463,26 @@ export const DocumentLibraryLayout: React.FC<DocumentLibraryLayoutProps> = ({
             padding: isMobile ? "0 16px" : "0",
           }}
         >
-          {(isSearchActive ? searchResults : filteredSections).map(
-            (section) => (
-              <DocumentSection
-                key={section.id}
-                section={section}
-                isOpen={openAccordions.includes(section.id)}
-                onToggle={toggleAccordion}
-                isMobile={isMobile}
-                isDesktop={isDesktop}
-              />
-            ),
+          {/* Show empty state when searching with no results */}
+          {isSearchActive && searchResults.length === 0 ? (
+            <SearchEmptyState
+              searchQuery={searchQuery}
+              onClearSearch={clearSearch}
+              isMobile={isMobile}
+            />
+          ) : (
+            (isSearchActive ? searchResults : filteredSections).map(
+              (section) => (
+                <DocumentSection
+                  key={section.id}
+                  section={section}
+                  isOpen={openAccordions.includes(section.id)}
+                  onToggle={toggleAccordion}
+                  isMobile={isMobile}
+                  isDesktop={isDesktop}
+                />
+              ),
+            )
           )}
         </div>
       </div>
