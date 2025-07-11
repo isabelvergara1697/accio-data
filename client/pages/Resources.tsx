@@ -10,9 +10,9 @@ import { ResourceSection } from "../components/ResourceSection";
 
 // Tab configuration
 const tabs = [
-  { id: "onboarding", label: "Onboarding", current: true },
-  { id: "accio-power", label: "Accio Power" },
-  { id: "training", label: "Training" },
+  { id: "onboarding", label: "Onboarding" },
+  { id: "accio-university", label: "Accio University", current: true },
+  { id: "my-documents", label: "My Documents" },
   { id: "category1", label: "[Category]" },
   { id: "category2", label: "[Category]" },
   { id: "category3", label: "[Category]" },
@@ -174,6 +174,156 @@ const onboardingData = [
         id: "17",
         name: "Importing into QuickBooks Online",
         description: "How to use our module for invoicing.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+    ],
+  },
+];
+
+// Accio University data
+const accioUniversityData = [
+  {
+    id: "accio-university",
+    title: "Accio University",
+    count: 16,
+    isOpen: true,
+    gridVariant: "expanded" as const,
+    resources: [
+      {
+        id: "au-1",
+        name: "New Address Action Options",
+        date: "November 2023",
+        description:
+          "New options for email and printing address action letters in Version 4.10.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-2",
+        name: "Tips for the Killer Demo",
+        date: "April 2023",
+        description:
+          "How to put your best foot forward for prospective customers.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-3",
+        name: "The ABCs of XML",
+        date: "December 2022",
+        description:
+          "An overview of how verifications connect and receive work.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-4",
+        name: "Tips for the Killer Demo",
+        date: "November 2022",
+        description:
+          "How to put your best foot forward for prospective customers.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-5",
+        name: "Vendor Dispatch Processes",
+        date: "October 2022",
+        description:
+          "Reviewing ways you can distribute and manage work in the system.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-6",
+        name: "Inside the Accounting Hub",
+        date: "July 2022",
+        description: "Breaking down the numbers in the accounting module.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-7",
+        name: "New Address Action Options",
+        date: "May 2022",
+        description: "Our new features for handling address action letters.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-8",
+        name: "First Impressions",
+        date: "March 2022",
+        description: "Making the platform look the way you want.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-9",
+        name: "Add to Order and Reverifications",
+        date: "December 2021",
+        description: "Ways to change existing orders.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-10",
+        name: "Options for Managing Verifications",
+        date: "November 2021",
+        description:
+          "Looking at all the ways the platform handles verifications.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-11",
+        name: "Fine Tuning Version 4.07",
+        date: "October 2021",
+        description:
+          "New features in Version 4.07 that enhance the UI experience and increase operational efficiency.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-12",
+        name: "Ordering Options",
+        date: "May 2021",
+        description: "A look at the ways to get orders into the system.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-13",
+        name: "Package Pricing Refresher",
+        date: "April 2021",
+        description: "Simple to complex package pricing.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-14",
+        name: "Ordering Options",
+        date: "March 2021",
+        description: "Adding new logic to your workflow processes.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-15",
+        name: "New Document Management Features",
+        date: "February 2021",
+        description:
+          "New features in Version 4.06 for document annotation and management.",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+      {
+        id: "au-16",
+        name: "Versions: What's in a Name?",
+        date: "August 2016",
+        description:
+          "Understanding our version numbering system and beta software implications.",
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
@@ -486,12 +636,13 @@ export default function Resources() {
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
 
   // Tab and content state
-  const [currentTab, setCurrentTab] = useState("onboarding");
+  const [currentTab, setCurrentTab] = useState("accio-university");
   const [openAccordions, setOpenAccordions] = useState<string[]>([
     "training-videos",
     "basic",
     "advanced",
     "miscellaneous-setup",
+    "accio-university",
   ]);
 
   // Filter and search state
@@ -612,6 +763,8 @@ export default function Resources() {
     switch (currentTab) {
       case "onboarding":
         return onboardingData;
+      case "accio-university":
+        return accioUniversityData;
       default:
         return placeholderData;
     }
