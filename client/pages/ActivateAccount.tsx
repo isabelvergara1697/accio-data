@@ -240,11 +240,27 @@ export default function ActivateAccount() {
                 .name-group {
           gap: 20px;
         }
-        @media (max-width: 767px) {
+                @media (max-width: 767px) {
           .name-group {
             flex-direction: column;
             gap: 20px;
           }
+          .name-group > div {
+            min-height: auto !important;
+          }
+        }
+
+        /* Ensure error messages don't affect alignment */
+        .name-field-container {
+          position: relative;
+          flex: 1;
+        }
+
+        .name-field-container .error-message {
+          position: absolute;
+          bottom: -24px;
+          left: 0;
+          right: 0;
         }
         .primary-button {
           border-radius: 8px;
