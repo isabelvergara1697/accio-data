@@ -225,8 +225,9 @@ export default function Dashboard() {
           {/* Dashboard Content */}
           <div
             style={{
-              maxWidth: "1200px",
-              margin: "0 auto",
+              display: "flex",
+              flexDirection: "column",
+              gap: isMobile ? "16px" : "32px",
               width: "100%",
             }}
           >
