@@ -806,36 +806,8 @@ const resourcesStyles = `
       gap: 16px !important;
     }
 
-        /* Mobile tab scrolling improvements */
-    .scrollable-tabs {
-      overflow-x: auto !important;
-      overflow-y: hidden !important;
-      -webkit-overflow-scrolling: touch !important;
-      scroll-behavior: smooth !important;
-      touch-action: pan-x !important;
-      scrollbar-width: none !important;
-      -ms-overflow-style: none !important;
-      flex-wrap: nowrap !important;
-      white-space: nowrap !important;
-      scroll-snap-type: x proximity !important;
-      padding-left: 4px !important;
-      padding-right: 4px !important;
-    }
-
-    .scrollable-tabs::-webkit-scrollbar {
-      display: none !important;
-      width: 0 !important;
-      height: 0 !important;
-    }
-
-    /* Individual tab buttons for mobile */
-    .scrollable-tabs button {
-      flex-shrink: 0 !important;
-      scroll-snap-align: start !important;
-    }
-
-    /* Ensure proper container behavior */
-    .mobile-container .scrollable-tabs {
+            /* Mobile tab scrolling - simplified */
+    .tabs-container {
       width: 100% !important;
       max-width: 100% !important;
     }
