@@ -1089,23 +1089,23 @@ export default function Resources() {
 
     // Apply file type filtering
     if (fileType !== "All Files") {
-      processed = processed.map((section) => ({
-        ...section,
-        resources: section.resources.filter((resource) => {
-          if (fileType === "PDF") return resource.type === "document";
-          if (fileType === "Videos") return resource.type === "video";
-          if (fileType === "Docs") return resource.type === "document";
-          if (fileType === "PPT") return resource.type === "document";
-          return true;
-        }),
-        count: section.resources.filter((resource) => {
-          if (fileType === "PDF") return resource.type === "document";
-          if (fileType === "Videos") return resource.type === "video";
-          if (fileType === "Docs") return resource.type === "document";
-          if (fileType === "PPT") return resource.type === "document";
-          return true;
-        }).length,
-      }));
+      processed = processed
+        .map((section) => {
+          const filteredResources = section.resources.filter((resource) => {
+            if (fileType === "PDF") return resource.type === "document";
+            if (fileType === "Videos") return resource.type === "video";
+            if (fileType === "Docs") return resource.type === "document";
+            if (fileType === "PPT") return resource.type === "document";
+            return true;
+          });
+
+          return {
+            ...section,
+            resources: filteredResources,
+            count: filteredResources.length,
+          };
+        })
+        .filter((section) => section.resources.length > 0); // Remove empty sections
     }
 
     // Apply sorting within each section
