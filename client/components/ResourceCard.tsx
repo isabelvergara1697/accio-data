@@ -4,6 +4,7 @@ interface ResourceItem {
   id: string;
   name: string;
   size?: string;
+  date?: string;
   type: "video" | "document";
   description?: string;
   thumbnail?: string;
@@ -188,6 +189,38 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
               {resource.name}
             </span>
           </div>
+          {resource.date && resource.type === "video" && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <div
+                style={{
+                  color: "#535862",
+                  fontFamily: "'Public Sans'",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "18px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "12px",
+                    color: "rgba(83,88,98,1)",
+                  }}
+                >
+                  {resource.date}
+                </span>
+              </div>
+            </div>
+          )}
           {resource.description && variant === "expanded" && (
             <div
               style={{
