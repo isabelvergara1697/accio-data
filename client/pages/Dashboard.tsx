@@ -3,6 +3,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import SuccessNotification from "../components/SuccessNotification";
 import { UserMenuDropdown } from "../components/UserMenuDropdown";
 import { Header } from "../components/Header";
+import { Sidebar } from "../components/Sidebar";
+import { MobileHeader } from "../components/MobileHeader";
 
 // Add styles for button hover states and metric card hovers
 const dashboardStyles = `
