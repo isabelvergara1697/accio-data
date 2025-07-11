@@ -1073,8 +1073,8 @@ export default function Resources() {
           flexDirection: "column",
           background: "#FAFAFA",
           position: "relative",
-          minHeight: isMobile ? "100vh" : "auto",
-          minHeight: isMobile ? "100dvh" : "auto", // Dynamic viewport height
+          minHeight: "auto",
+          height: "auto",
         }}
       >
         {/* Desktop Top Navigation Bar */}
@@ -1107,13 +1107,12 @@ export default function Resources() {
           style={{
             marginTop: isDesktop ? "80px" : "64px",
             padding: isMobile ? "0" : "32px",
+            paddingBottom: isMobile ? "80px" : "32px",
             display: "flex",
             flexDirection: "column",
             gap: isMobile ? "0" : "32px",
-            flex: isMobile ? "1 1 auto" : "none",
-            minHeight: isMobile ? "0" : "auto",
-            overflowY: isMobile ? "auto" : "visible",
-            paddingBottom: isMobile ? "40px" : "32px",
+            minHeight: "auto",
+            height: "auto",
           }}
         >
           {/* Page Header */}
@@ -1338,9 +1337,9 @@ export default function Resources() {
               flexDirection: "column",
               gap: isMobile ? "16px" : "32px",
               padding: isMobile ? "16px" : "0",
-              paddingBottom: isMobile ? "40px" : "0",
-              flex: isMobile ? "1 1 auto" : "none",
-              minHeight: isMobile ? "0" : "auto",
+              paddingBottom: isMobile ? "60px" : "0",
+              minHeight: "auto",
+              height: "auto",
             }}
           >
             {/* Search Results Header */}
