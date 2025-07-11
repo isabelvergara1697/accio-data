@@ -26,6 +26,7 @@ interface ResourceSectionProps {
   onToggle: (sectionId: string) => void;
   isMobile: boolean;
   isDesktop: boolean;
+  showTabLabel?: string;
 }
 
 export const ResourceSection: React.FC<ResourceSectionProps> = ({
@@ -34,6 +35,7 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
   onToggle,
   isMobile,
   isDesktop,
+  showTabLabel,
 }) => {
   return (
     <div
@@ -116,6 +118,42 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
                     {section.title}
                   </span>
                 </div>
+                {showTabLabel && (
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #34479A",
+                      background: "#ECEEF9",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#273572",
+                        textAlign: "center",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 500,
+                          fontSize: "12px",
+                          color: "rgba(39,53,114,1)",
+                        }}
+                      >
+                        {showTabLabel}
+                      </span>
+                    </div>
+                  </div>
+                )}
                 <div
                   style={{
                     display: "flex",
