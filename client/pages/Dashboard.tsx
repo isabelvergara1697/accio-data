@@ -624,8 +624,7 @@ export default function Dashboard() {
         setUserMenuHovered={setUserMenuHovered}
         handleSignOut={handleSignOut}
         getUserMenuStyles={getUserMenuStyles}
-            />
-          display: "flex",
+                  />
           width: isDesktop ? "296px" : mobileMenuOpen ? "75%" : "296px",
           height: "100vh",
           padding: isDesktop
