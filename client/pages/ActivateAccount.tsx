@@ -123,14 +123,15 @@ export default function ActivateAccount() {
         }
 
         /* Name fields responsive layout */
-        .name-group {
+                .name-group {
           display: flex;
+          flex-direction: row;
           gap: 20px;
           align-items: flex-start;
           align-self: stretch;
         }
 
-                @media (max-width: 1023px) {
+        @media (max-width: 1023px) {
           .name-group {
             flex-direction: column;
             gap: 20px;
@@ -145,6 +146,10 @@ export default function ActivateAccount() {
           .name-group {
             flex-direction: row;
             gap: 20px;
+          }
+          .name-group > div {
+            flex: 1 1 50%;
+            max-width: 50%;
           }
         }
 
