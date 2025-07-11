@@ -5,6 +5,20 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
 
+// Add styles for mobile responsiveness
+const dashboardStyles = `
+  @media (max-width: 767px) {
+    .dashboard-main {
+      padding-left: 20px !important;
+    }
+  }
+  @media (min-width: 1024px) {
+    .dashboard-main {
+      padding-left: 320px !important;
+    }
+  }
+`;
+
 export default function Dashboard() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
