@@ -58,12 +58,41 @@ export default function ActivateAccount() {
     setRequirementStates(newStates);
   }, [formData.password]);
 
+  const validateField = (field: string, value: string) => {
+    if (!value.trim()) {
+      switch (field) {
+        case "firstName":
+          return "Please enter your first name.";
+        case "lastName":
+          return "Please enter your last name.";
+        case "email":
+          return "Please enter your email address.";
+        case "role":
+          return "Please enter your role.";
+        case "password":
+          return "Please enter a password.";
+        default:
+          return "This field is required.";
+      }
+    }
+    return "";
+  };
+
   const handleInputChange =
     (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
       setFormData((prev) => ({
         ...prev,
-        [field]: e.target.value,
+        [field]: value,
       }));
+
+      // Clear error when user starts typing
+      if (hasAttemptedSubmit && fieldErrors[field]) {
+        setFieldErrors((prev) => ({
+          ...prev,
+          [field]: validateField(field, value),
+        }));
+      }
     };
 
   const handleSubmit = (e: React.FormEvent) => {
