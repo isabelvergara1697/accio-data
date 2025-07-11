@@ -493,8 +493,6 @@ export default function DocumentLibrary() {
       style={{
         display: "flex",
         width: "100%",
-        minHeight: "100vh",
-        minHeight: "100dvh", // Dynamic viewport height for mobile
         background: "#FAFAFA",
         position: "relative",
       }}
