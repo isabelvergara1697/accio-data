@@ -487,6 +487,13 @@ const myDocumentsData = [
         type: "video" as const,
         thumbnail: "/api/placeholder/71/40",
       },
+      {
+        id: "vss-2",
+        name: "Electronic I9 demo",
+        description: "How to handle AKAs (also known as).",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
     ],
   },
 ];
