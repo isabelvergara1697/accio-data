@@ -1008,6 +1008,7 @@ export default function Resources() {
 
       {/* Main Content */}
       <div
+        className={isMobile ? "mobile-container" : ""}
         style={{
           marginLeft: isDesktop ? "296px" : "0",
           flex: "1 0 0",
