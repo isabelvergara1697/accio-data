@@ -533,6 +533,7 @@ export default function DocumentLibrary() {
 
       {/* Main Content */}
       <div
+        className={isMobile ? "mobile-container" : ""}
         style={{
           marginLeft: isDesktop ? "296px" : "0",
           flex: "1 0 0",
@@ -540,6 +541,10 @@ export default function DocumentLibrary() {
           flexDirection: "column",
           background: "#FAFAFA",
           position: "relative",
+          minHeight: isMobile ? "100vh" : "auto",
+          minHeight: isMobile ? "100dvh" : "auto",
+          overflowY: isMobile ? "auto" : "visible",
+          overflowX: "hidden",
         }}
       >
         {/* Desktop Top Navigation Bar */}
@@ -572,9 +577,12 @@ export default function DocumentLibrary() {
           style={{
             marginTop: isDesktop ? "80px" : "64px",
             padding: isMobile ? "16px" : "32px",
+            paddingBottom: isMobile ? "40px" : "32px",
             display: "flex",
             flexDirection: "column",
             gap: isMobile ? "16px" : "32px",
+            flex: isMobile ? "1 1 auto" : "none",
+            minHeight: isMobile ? "0" : "auto",
           }}
         >
           <DocumentLibraryLayout
