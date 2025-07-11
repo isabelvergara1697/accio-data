@@ -711,6 +711,14 @@ export default function DocumentLibrary() {
             gap: isMobile ? "16px" : "32px",
           }}
         >
+          <DocumentLibraryLayout
+            title="Document Library"
+            subtitle="Browse and download key forms and documents needed for screenings, compliance, and account setup."
+            documentSections={documentSections}
+            isMobile={isMobile}
+            isDesktop={isDesktop}
+            searchPlaceholder="Find documents or categories"
+          />
           {/* Page Header */}
           <div
             style={{
