@@ -124,8 +124,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
       className="document-card"
       style={{
         display: "flex",
-        height:
-          variant === "compact" && resource.type === "video" ? "120px" : "92px",
+        height: "92px",
         padding: "16px",
         alignItems: "center",
         gap: "4px",
@@ -133,9 +132,8 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
         border: "1px solid #E9EAEB",
         background: "#FFF",
         cursor: "pointer",
-        width: isMobile ? "100%" : "100%",
-        flexDirection:
-          variant === "compact" && resource.type === "video" ? "column" : "row",
+        width: "100%",
+        flexDirection: "row",
       }}
     >
       <div
