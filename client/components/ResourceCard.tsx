@@ -324,7 +324,7 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
                         fontStyle: "normal",
                         fontWeight: 400,
                         lineHeight: "18px",
-                        cursor: "help",
+                        cursor: "pointer",
                       }}
                     >
                       <span
