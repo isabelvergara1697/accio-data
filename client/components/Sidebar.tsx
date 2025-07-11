@@ -534,7 +534,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         position: "fixed",
         left: 0,
         top: 0,
-        zIndex: 50,
+        zIndex: 1000,
       }}
     >
       <div
