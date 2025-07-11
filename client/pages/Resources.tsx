@@ -551,7 +551,7 @@ export default function Resources() {
         >
           <DocumentLibraryLayout
             title="Resources"
-            subtitle="Browse and download key forms and documents needed for screenings, compliance, and account setup."
+            subtitle="Find system manuals, revision history, training videos, and webinar archives—everything you need to understand and get the most out of Accio Data, all in one place."
             documentSections={resourceSections}
             isMobile={isMobile}
             isDesktop={isDesktop}
