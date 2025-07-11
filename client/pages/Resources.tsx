@@ -1039,10 +1039,10 @@ export default function Resources() {
         <div
           style={{
             marginTop: isDesktop ? "80px" : "64px",
-            padding: isMobile ? "16px" : "32px",
+            padding: isMobile ? "0" : "32px",
             display: "flex",
             flexDirection: "column",
-            gap: isMobile ? "16px" : "32px",
+            gap: isMobile ? "0" : "32px",
           }}
         >
           {/* Page Header */}
@@ -1053,6 +1053,7 @@ export default function Resources() {
               alignItems: "flex-start",
               gap: "16px",
               alignSelf: "stretch",
+              padding: isMobile ? "16px" : "0",
             }}
           >
             <div
@@ -1238,8 +1239,16 @@ export default function Resources() {
                 </>
               )}
             </div>
+          </div>
 
-            {/* Horizontal Tabs */}
+          {/* Horizontal Tabs Container - Mobile Scroll */}
+          <div
+            style={{
+              alignSelf: "stretch",
+              padding: isMobile ? "0 16px" : "0",
+              marginTop: isMobile ? "0" : "-16px",
+            }}
+          >
             <HorizontalTabs
               tabs={tabs}
               onTabChange={handleTabChange}
@@ -1248,94 +1257,56 @@ export default function Resources() {
             />
           </div>
 
-          {/* Search Results Header */}
-          {isSearchActive && (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                alignSelf: "stretch",
-                padding: isMobile ? "0px 16px" : "0px",
-              }}
-            >
-              <div
-                style={{
-                  color: "#181D27",
-                  fontFamily: "'Public Sans'",
-                  fontSize: "18px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "28px",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 600,
-                    fontSize: "18px",
-                    color: "rgba(24,29,39,1)",
-                  }}
-                >
-                  Search results
-                </span>
-              </div>
-              <div
-                style={{
-                  color: "#535862",
-                  fontFamily: "'Public Sans'",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 400,
-                    fontSize: "14px",
-                    color: "rgba(83,88,98,1)",
-                  }}
-                >
-                  0 Results
-                </span>
-              </div>
-            </div>
-          )}
-
-          {/* Resource Sections */}
+          {/* Content Container */}
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
-              gap: "24px",
-              alignSelf: "stretch",
+              gap: isMobile ? "16px" : "32px",
+              padding: isMobile ? "16px" : "0",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "24px",
-                alignSelf: "stretch",
-              }}
-            >
-              {/* Show descriptive text for Accio University tab */}
-              {currentTab === "accio-university" && (
+            {/* Search Results Header */}
+            {isSearchActive && (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  alignSelf: "stretch",
+                  padding: isMobile ? "0px 16px" : "0px",
+                }}
+              >
                 <div
                   style={{
-                    alignSelf: "stretch",
+                    color: "#181D27",
+                    fontFamily: "'Public Sans'",
+                    fontSize: "18px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 600,
+                      fontSize: "18px",
+                      color: "rgba(24,29,39,1)",
+                    }}
+                  >
+                    Search results
+                  </span>
+                </div>
+                <div
+                  style={{
                     color: "#535862",
                     fontFamily: "'Public Sans'",
-                    fontSize: "16px",
+                    fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
-                    lineHeight: "24px",
+                    lineHeight: "20px",
                   }}
                 >
                   <span
@@ -1343,27 +1314,75 @@ export default function Resources() {
                       fontFamily:
                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontWeight: 400,
-                      fontSize: "16px",
+                      fontSize: "14px",
                       color: "rgba(83,88,98,1)",
                     }}
                   >
-                    Accio University is a webinar held on the second Wednesday
-                    of each month. Geared toward owners and managers, Accio U
-                    looks at more advanced topics.
+                    0 Results
                   </span>
                 </div>
-              )}
+              </div>
+            )}
 
-              {getCurrentTabData().map((section) => (
-                <ResourceSection
-                  key={section.id}
-                  section={section}
-                  isOpen={openAccordions.includes(section.id)}
-                  onToggle={toggleAccordion}
-                  isMobile={isMobile}
-                  isDesktop={isDesktop}
-                />
-              ))}
+            {/* Resource Sections */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "24px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "24px",
+                  alignSelf: "stretch",
+                }}
+              >
+                {/* Show descriptive text for Accio University tab */}
+                {currentTab === "accio-university" && (
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#535862",
+                      fontFamily: "'Public Sans'",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontWeight: 400,
+                        fontSize: "16px",
+                        color: "rgba(83,88,98,1)",
+                      }}
+                    >
+                      Accio University is a webinar held on the second Wednesday
+                      of each month. Geared toward owners and managers, Accio U
+                      looks at more advanced topics.
+                    </span>
+                  </div>
+                )}
+
+                {getCurrentTabData().map((section) => (
+                  <ResourceSection
+                    key={section.id}
+                    section={section}
+                    isOpen={openAccordions.includes(section.id)}
+                    onToggle={toggleAccordion}
+                    isMobile={isMobile}
+                    isDesktop={isDesktop}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
