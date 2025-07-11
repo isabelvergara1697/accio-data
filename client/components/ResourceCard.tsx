@@ -305,7 +305,8 @@ export const ResourceCard: React.FC<ResourceCardProps> = ({
                 alignSelf: "stretch",
               }}
             >
-              {isDescriptionTruncated ? (
+              {isDescriptionTruncated ||
+              (resource.description && resource.description.length > 50) ? (
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <div
