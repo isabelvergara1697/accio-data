@@ -331,6 +331,154 @@ const accioUniversityData = [
   },
 ];
 
+// My Documents data
+const myDocumentsData = [
+  {
+    id: "accio-system-manuals",
+    title: "Accio System Manuals",
+    count: 7,
+    isOpen: true,
+    gridVariant: "expanded" as const,
+    resources: [
+      {
+        id: "asm-1",
+        name: "Operations Manual",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "asm-2",
+        name: "Quick Start Guide",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "asm-3",
+        name: "Receiving Account Information",
+        size: "200 KB",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        type: "document" as const,
+      },
+      {
+        id: "asm-4",
+        name: "Accio Accounting Hub",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "asm-5",
+        name: "Create Accounts via XML",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "asm-6",
+        name: "Accio Account Information via XML",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "asm-7",
+        name: "Create Accounts via XML",
+        size: "200 KB",
+        type: "document" as const,
+      },
+    ],
+  },
+  {
+    id: "product-vendors-manuals",
+    title: "Product Vendors Manuals",
+    count: 6,
+    isOpen: true,
+    gridVariant: "expanded" as const,
+    resources: [
+      {
+        id: "pvm-1",
+        name: "Instaclear Manual",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "pvm-2",
+        name: "Applicant School Check",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "pvm-3",
+        name: "E-Verify Users Manuals",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "pvm-4",
+        name: "Taleo Business Edition Integration",
+        size: "200 KB",
+        type: "document" as const,
+      },
+    ],
+  },
+  {
+    id: "third-party-xml-integrations",
+    title: "Third Party XML Integrations",
+    subtitle: "Your XML PostBack URL is [url]",
+    count: 4,
+    isOpen: true,
+    gridVariant: "expanded" as const,
+    resources: [
+      {
+        id: "tpxi-1",
+        name: "Order Entry",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "tpxi-2",
+        name: "Results Delivery (To Clients)",
+        size: "200 KB",
+        type: "document" as const,
+        documentType: "pptx",
+      },
+      {
+        id: "tpxi-3",
+        name: "Orders Distribution and Fulfilment",
+        size: "200 KB",
+        type: "document" as const,
+      },
+      {
+        id: "tpxi-4",
+        name: "Update Termination Dates",
+        size: "200 KB",
+        type: "document" as const,
+        documentType: "docx",
+      },
+      {
+        id: "tpxi-5",
+        name: "Electronic I9 demo",
+        description: "How to handle AKAs (also known as).",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+    ],
+  },
+  {
+    id: "vendor-specific-setup",
+    title: "Vendor Specific Setup",
+    count: 2,
+    isOpen: true,
+    gridVariant: "expanded" as const,
+    resources: [
+      {
+        id: "vss-1",
+        name: "Electronic I9 demo",
+        description: "How to handle AKAs (also known as).",
+        type: "video" as const,
+        thumbnail: "/api/placeholder/71/40",
+      },
+    ],
+  },
+];
+
 // Placeholder data for other tabs
 const placeholderData = [
   {
