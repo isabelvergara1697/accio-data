@@ -1043,6 +1043,92 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       </div>
                     </div>
                   </div>
+
+                  {/* Sign Out Item */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0px 6px",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "8px",
+                        alignItems: "center",
+                        gap: "12px",
+                        flex: "1 0 0",
+                        borderRadius: "6px",
+                        cursor: "pointer",
+                        position: "relative",
+                      }}
+                      onClick={handleSignOut}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#F5F5F5";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          flex: "1 0 0",
+                          position: "relative",
+                        }}
+                      >
+                        <svg
+                          style={{
+                            width: "14px",
+                            height: "14px",
+                            position: "relative",
+                          }}
+                          width="14"
+                          height="14"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11.3327 10.6667L14.666 8L11.3327 5.33333M13.9993 8H6.66602M6.66602 14H4.53268C3.41268 14 2.85268 14 2.42535 13.7893C2.04935 13.6049 1.72885 13.2844 1.54452 12.9084C1.33268 12.4811 1.33268 11.9211 1.33268 10.8V5.2C1.33268 4.0789 1.33268 3.5184 1.54452 3.0916C1.72885 2.7156 2.04935 2.3951 2.42535 2.2107C2.85268 2 3.41268 2 4.53268 2H6.66602"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.67"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <div
+                          style={{
+                            flex: "1 0 0",
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 600,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Sign out
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Divider */}
