@@ -20,98 +20,101 @@ export const HorizontalTabs: React.FC<HorizontalTabsProps> = ({
   isMobile = false,
 }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        padding: "4px",
-        alignItems: "center",
-        gap: "4px",
-        alignSelf: "stretch",
-        borderRadius: "10px",
-        border: "1px solid #E9EAEB",
-        background: "#FFF",
-        overflowX: isMobile ? "auto" : "visible",
-        overflowY: "hidden",
-        WebkitOverflowScrolling: "touch",
-        scrollbarWidth: "none", // Firefox
-        msOverflowStyle: "none", // IE/Edge
-        touchAction: isMobile ? "pan-x" : "auto",
-        scrollBehavior: "smooth",
-      }}
-      className="scrollable-tabs"
-    >
+    <>
       <style
         dangerouslySetInnerHTML={{
           __html: `
-        .scrollable-tabs::-webkit-scrollbar {
-          display: none; /* Safari and Chrome */
-        }
-        .scrollable-tabs {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-        }
-        `,
+            .tabs-container {
+              display: flex;
+              padding: 4px;
+              align-items: center;
+              gap: 4px;
+              align-self: stretch;
+              border-radius: 10px;
+              border: 1px solid #E9EAEB;
+              background: #FFF;
+              overflow-x: ${isMobile ? "auto" : "visible"};
+              overflow-y: hidden;
+              -webkit-overflow-scrolling: touch;
+              scrollbar-width: none;
+              -ms-overflow-style: none;
+              ${isMobile ? "touch-action: pan-x;" : ""}
+              ${isMobile ? "scroll-behavior: smooth;" : ""}
+            }
+
+            .tabs-container::-webkit-scrollbar {
+              display: none;
+              width: 0;
+              height: 0;
+            }
+
+            .tab-button {
+              display: flex;
+              height: 36px;
+              padding: 8px 12px;
+              justify-content: center;
+              align-items: center;
+              gap: 8px;
+              border-radius: 6px;
+              border: none;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              flex-shrink: 0;
+              white-space: nowrap;
+              min-width: fit-content;
+            }
+          `,
         }}
       />
-      {tabs.map((tab) => (
-        <button
-          key={tab.id}
-          onClick={() => onTabChange(tab.id)}
-          style={{
-            display: "flex",
-            height: "36px",
-            padding: "8px 12px",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "8px",
-            borderRadius: "6px",
-            background: currentTab === tab.id ? "#ECEEF9" : "transparent",
-            boxShadow:
-              currentTab === tab.id
-                ? "0px 1px 3px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px -1px rgba(10, 13, 18, 0.10)"
-                : "none",
-            border: "none",
-            cursor: "pointer",
-            transition: "all 0.2s ease",
-            flexShrink: 0,
-            minWidth: isMobile ? "fit-content" : "fit-content",
-            whiteSpace: "nowrap",
-          }}
-          onMouseEnter={(e) => {
-            if (currentTab !== tab.id) {
-              e.currentTarget.style.background = "#F5F5F5";
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (currentTab !== tab.id) {
-              e.currentTarget.style.background = "transparent";
-            }
-          }}
-        >
-          <div
+      <div className="tabs-container">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => onTabChange(tab.id)}
+            className="tab-button"
             style={{
-              color: currentTab === tab.id ? "#273572" : "#717680",
-              fontFamily: "'Public Sans'",
-              fontSize: "14px",
-              fontStyle: "normal",
-              fontWeight: 600,
-              lineHeight: "20px",
+              background: currentTab === tab.id ? "#ECEEF9" : "transparent",
+              boxShadow:
+                currentTab === tab.id
+                  ? "0px 1px 3px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px -1px rgba(10, 13, 18, 0.10)"
+                  : "none",
+            }}
+            onMouseEnter={(e) => {
+              if (currentTab !== tab.id) {
+                e.currentTarget.style.background = "#F5F5F5";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (currentTab !== tab.id) {
+                e.currentTarget.style.background = "transparent";
+              }
             }}
           >
-            <span
+            <div
               style={{
-                fontFamily:
-                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                fontWeight: 600,
-                fontSize: "14px",
                 color: currentTab === tab.id ? "#273572" : "#717680",
+                fontFamily: "'Public Sans'",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "20px",
               }}
             >
-              {tab.label}
-            </span>
-          </div>
-        </button>
-      ))}
-    </div>
+              <span
+                style={{
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  color: currentTab === tab.id ? "#273572" : "#717680",
+                }}
+              >
+                {tab.label}
+              </span>
+            </div>
+          </button>
+        ))}
+      </div>
+    </>
   );
 };
