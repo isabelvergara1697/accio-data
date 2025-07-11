@@ -21,6 +21,8 @@ export const SearchEmptyState: React.FC<SearchEmptyStateProps> = ({
         position: "relative",
         minHeight: "400px",
         padding: isMobile ? "40px 16px" : "60px 32px",
+        width: "100%",
+        textAlign: "center",
       }}
     >
       {/* Background pattern decorative */}
