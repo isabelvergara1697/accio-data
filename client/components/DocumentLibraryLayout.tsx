@@ -198,6 +198,7 @@ export const DocumentLibraryLayout: React.FC<DocumentLibraryLayoutProps> = ({
           alignItems: "flex-start",
           gap: "16px",
           alignSelf: "stretch",
+          padding: isMobile ? "16px" : "0",
         }}
       >
         <div
