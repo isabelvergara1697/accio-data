@@ -187,8 +187,10 @@ export const SearchEmptyState: React.FC<SearchEmptyStateProps> = ({
         <div
           style={{
             display: "flex",
-            alignItems: "flex-start",
+            alignItems: "center",
+            justifyContent: "center",
             gap: "12px",
+            width: "100%",
           }}
         >
           <button
