@@ -784,13 +784,17 @@ export default function Resources() {
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
 
   // Tab and content state
-  const [currentTab, setCurrentTab] = useState("accio-university");
+  const [currentTab, setCurrentTab] = useState("my-documents");
   const [openAccordions, setOpenAccordions] = useState<string[]>([
     "training-videos",
     "basic",
     "advanced",
     "miscellaneous-setup",
     "accio-university",
+    "accio-system-manuals",
+    "product-vendors-manuals",
+    "third-party-xml-integrations",
+    "vendor-specific-setup",
   ]);
 
   // Filter and search state
