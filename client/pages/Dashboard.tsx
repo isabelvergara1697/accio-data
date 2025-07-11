@@ -610,7 +610,21 @@ export default function Dashboard() {
         ></div>
       )}
 
-      {/* Sidebar Navigation */}
+      <Sidebar
+        isDesktop={isDesktop}
+        isMobile={isMobile}
+        mobileMenuOpen={mobileMenuOpen}
+        currentPage="dashboard"
+        showMobileUserMenu={showMobileUserMenu}
+        setShowMobileUserMenu={setShowMobileUserMenu}
+        setMobileMenuOpen={setMobileMenuOpen}
+        userMenuOpen={userMenuOpen}
+        setUserMenuOpen={setUserMenuOpen}
+        userMenuHovered={userMenuHovered}
+        setUserMenuHovered={setUserMenuHovered}
+        handleSignOut={handleSignOut}
+        getUserMenuStyles={getUserMenuStyles}
+      />
       <aside
         className={`transition-all duration-300 lg:translate-x-0 ${
           mobileMenuOpen
