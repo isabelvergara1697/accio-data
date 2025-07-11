@@ -432,7 +432,7 @@ const documentLibraryStyles = `
       -webkit-overflow-scrolling: touch !important;
       min-height: auto !important;
       height: auto !important;
-      padding-bottom: 60px !important;
+            padding-bottom: 80px !important;
     }
   }
 `;
