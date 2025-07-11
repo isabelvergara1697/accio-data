@@ -240,9 +240,11 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
               <div
                 style={{
                   display: "flex",
-                  width: "200px",
+                  minWidth: "120px",
+                  maxWidth: "180px",
                   alignItems: "center",
                   gap: "8px",
+                  overflow: "hidden",
                 }}
               >
                 <div
@@ -271,6 +273,9 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
                       fontSize: "14px",
                       fontWeight: 600,
                       lineHeight: "20px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
                     }}
                   >
                     <span
