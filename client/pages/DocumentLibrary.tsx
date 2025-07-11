@@ -400,6 +400,14 @@ const documentLibraryStyles = `
     .mobile-document-grid {
       grid-template-columns: 1fr !important;
       gap: 16px !important;
+        }
+
+    /* iPhone Safari specific fixes */
+    @supports (-webkit-touch-callout: none) {
+      .mobile-container {
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+      }
     }
 
         /* Mobile scrolling improvements */
