@@ -932,6 +932,17 @@ export default function Resources() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Update filtered data when current tab changes or on initial load
+  useEffect(() => {
+    const currentData = getCurrentTabData();
+    const filtered = applySortingAndFiltering(
+      currentData,
+      selectedSortOption,
+      selectedFileType,
+    );
+    setFilteredData(filtered);
+  }, [currentTab, selectedSortOption, selectedFileType]);
+
   // Close user menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
