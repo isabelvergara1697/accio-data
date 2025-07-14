@@ -1,6 +1,7 @@
 import React from "react";
 import { UserMenuDropdown } from "./UserMenuDropdown";
 import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
+import QuickOrderDrawer from "./ui/quick-order-drawer";
 
 interface MobileHeaderProps {
   isDesktop: boolean;
@@ -28,6 +29,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   showMobileUserMenu = false,
 }) => {
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
 
   if (isDesktop) return null;
 
@@ -170,6 +172,10 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             isOpen={quickCreateOpen}
             onClose={() => setQuickCreateOpen(false)}
             breakpoint={isMobile ? "mobile" : "tablet"}
+            onOpenDrawer={() => {
+              setDrawerOpen(true);
+              setQuickCreateOpen(false);
+            }}
           />
         </div>
 
@@ -382,6 +388,12 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           </svg>
         </button>
       </div>
+
+      {/* Quick Order Drawer */}
+      <QuickOrderDrawer
+        isOpen={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      />
     </div>
   );
 };
