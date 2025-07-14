@@ -125,13 +125,12 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
       };
     }
 
-    // Mobile: Position below Quick Create button with Figma spacing
+    // Mobile: Position exactly as in Figma design
     if (breakpoint === "mobile") {
       return {
         position: "absolute" as const,
-        top: "100%",
-        left: "-211px", // Match Figma positioning exactly
-        marginTop: "110px", // Match Figma bottom offset
+        top: "calc(100% + 110px)", // Figma bottom:-110px = 110px below button
+        left: "-211px", // Exact Figma left positioning
       };
     }
 
