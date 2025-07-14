@@ -150,23 +150,40 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
     onClose();
   };
 
-  return (
-    <div
-      data-quick-create-dropdown
-      style={{
-        ...getDropdownPosition(),
-        width: breakpoint === "mobile" ? "auto" : getDropdownWidth(),
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        borderRadius: "8px",
-        border: "1px solid rgba(0, 0, 0, 0.08)",
-        background: "#FFF",
-        boxShadow:
-          "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
-        zIndex: 1000,
-      }}
-    >
+    return (
+    <>
+      {/* Mobile backdrop */}
+      {breakpoint === "mobile" && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.1)",
+            zIndex: 999,
+          }}
+          onClick={onClose}
+        />
+      )}
+
+      <div
+        data-quick-create-dropdown
+        style={{
+          ...getDropdownPosition(),
+          width: breakpoint === "mobile" ? "auto" : getDropdownWidth(),
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          borderRadius: "8px",
+          border: "1px solid rgba(0, 0, 0, 0.08)",
+          background: "#FFF",
+          boxShadow:
+            "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
+          zIndex: 1000,
+        }}
+      >
       <div
         style={{
           display: "flex",
