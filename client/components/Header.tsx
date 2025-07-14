@@ -126,25 +126,37 @@ export const Header: React.FC<HeaderProps> = ({
           flexShrink: 0,
         }}
       >
-        {/* Quick Create Button */}
-        <button
-          className="quick-create-button"
-          style={{
-            display: "flex",
-            padding: "12px 16px",
-            alignItems: "center",
-            gap: "8px",
-            borderRadius: "8px",
-            border: "2px solid rgba(255, 255, 255, 0.12)",
-            background: "#344698",
-            boxShadow:
-              "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-            transition: "all 0.2s ease",
-            cursor: "pointer",
-            flexShrink: 0,
-            minWidth: "fit-content",
-          }}
-        >
+                {/* Quick Create Button */}
+        <div style={{ position: "relative" }}>
+          <button
+            className="quick-create-button"
+            style={{
+              display: "flex",
+              padding: "12px 16px",
+              alignItems: "center",
+              gap: "8px",
+              borderRadius: "8px",
+              border: "2px solid rgba(255, 255, 255, 0.12)",
+              background: quickCreateOpen ? "#273572" : "#344698",
+              boxShadow:
+                "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+              transition: "all 0.2s ease",
+              cursor: "pointer",
+              flexShrink: 0,
+              minWidth: "fit-content",
+            }}
+            onClick={() => setQuickCreateOpen(!quickCreateOpen)}
+            onMouseEnter={(e) => {
+              if (!quickCreateOpen) {
+                e.currentTarget.style.background = "#273572";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!quickCreateOpen) {
+                e.currentTarget.style.background = "#344698";
+              }
+            }}
+          >
           <span
             style={{
               fontFamily: "Public Sans",
