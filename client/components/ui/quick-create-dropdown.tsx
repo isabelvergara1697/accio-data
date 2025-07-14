@@ -154,7 +154,7 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
       data-quick-create-dropdown
       style={{
         ...getDropdownPosition(),
-        width: breakpoint === "mobile" ? "auto" : getDropdownWidth(),
+        width: getDropdownWidth(),
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
