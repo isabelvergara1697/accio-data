@@ -37,7 +37,7 @@ export const Header: React.FC<HeaderProps> = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "20px 32px",
+        padding: "20px 32px 32px",
         zIndex: 20,
       }}
     >
