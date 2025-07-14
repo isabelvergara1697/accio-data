@@ -431,7 +431,6 @@ export default function Dashboard() {
           background: "#FAFAFA",
           position: "relative",
           minHeight: "100vh",
-          marginTop: showNotification && isDesktop ? "60px" : "0",
         }}
       >
         {/* Mobile Menu Overlay */}
