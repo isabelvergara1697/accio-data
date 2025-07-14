@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({
     <div
       style={{
         position: "fixed",
-        top: 0,
+        top: showNotification ? "60px" : 0,
         left: "296px",
         right: 0,
         height: "80px",
