@@ -32,6 +32,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   setUserMenuHovered,
   handleSignOut,
   getUserMenuStyles,
+  showNotification = false,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
