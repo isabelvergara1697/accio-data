@@ -401,447 +401,10 @@ export default function Dashboard() {
   );
 
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-        background: "#FAFAFA",
-        position: "relative",
-        minHeight: "100vh",
-      }}
-    >
+    <>
       <style dangerouslySetInnerHTML={{ __html: dashboardStyles }} />
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && !isDesktop && (
-        <div
-          className="fixed inset-0 z-[9998]"
-          style={{
-            width: "100vw",
-            height: "100vh",
-            background: "rgba(10, 13, 18, 0.7)",
-            backdropFilter: "blur(8px)",
-            position: "fixed",
-            left: 0,
-            top: 0,
-          }}
-          onClick={() => setMobileMenuOpen(false)}
-        ></div>
-      )}
 
-      {/* Sidebar Navigation */}
-      <Sidebar
-        isDesktop={isDesktop}
-        isMobile={isMobile}
-        mobileMenuOpen={mobileMenuOpen}
-        currentPage="Dashboard"
-        showMobileUserMenu={showMobileUserMenu}
-        setShowMobileUserMenu={setShowMobileUserMenu}
-        setMobileMenuOpen={setMobileMenuOpen}
-        userMenuOpen={userMenuOpen}
-        setUserMenuOpen={setUserMenuOpen}
-        userMenuHovered={userMenuHovered}
-        setUserMenuHovered={setUserMenuHovered}
-        handleSignOut={handleSignOut}
-        getUserMenuStyles={getUserMenuStyles}
-      />
-
-      {/* Main Content */}
-      <div
-        className={isMobile ? "mobile-container" : ""}
-        style={{
-          marginLeft: isDesktop ? "296px" : "0",
-          flex: "1 1 auto",
-          display: "flex",
-          flexDirection: "column",
-          background: "#FAFAFA",
-          position: "relative",
-          minHeight: "100vh",
-        }}
-      >
-        {/* Desktop Top Navigation Bar */}
-        <Header
-          isDesktop={isDesktop}
-          userMenuOpen={userMenuOpen}
-          setUserMenuOpen={setUserMenuOpen}
-          userMenuHovered={userMenuHovered}
-          setUserMenuHovered={setUserMenuHovered}
-          handleSignOut={handleSignOut}
-          getUserMenuStyles={getUserMenuStyles}
-          showMobileUserMenu={showMobileUserMenu}
-        />
-
-        <MobileHeader
-          isDesktop={isDesktop}
-          isMobile={isMobile}
-          setMobileMenuOpen={setMobileMenuOpen}
-          userMenuOpen={userMenuOpen}
-          setUserMenuOpen={setUserMenuOpen}
-          userMenuHovered={userMenuHovered}
-          setUserMenuHovered={setUserMenuHovered}
-          handleSignOut={handleSignOut}
-          getUserMenuStyles={getUserMenuStyles}
-          showMobileUserMenu={showMobileUserMenu}
-        />
-
-        {/* Main Content Area */}
-        <div
-          style={{
-            marginTop: isDesktop
-              ? showNotification
-                ? "124px"
-                : "80px"
-              : "64px",
-            paddingBottom: isMobile
-              ? showNotification
-                ? "140px"
-                : "80px"
-              : "32px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "32px",
-            minHeight: "auto",
-            height: "auto",
-          }}
-        >
-          {/* Header Section */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "24px",
-              alignSelf: "stretch",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: isMobile ? "0px 16px" : "0px 32px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "20px",
-                alignSelf: "stretch",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "16px",
-                  alignSelf: "stretch",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    ...(isMobile
-                      ? {
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          gap: "16px",
-                          alignSelf: "stretch",
-                        }
-                      : {
-                          alignItems: "flex-end",
-                          alignContent: "flex-end",
-                          gap: "20px 16px",
-                          alignSelf: "stretch",
-                          flexWrap: "wrap",
-                        }),
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      ...(isMobile
-                        ? {
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            gap: "2px",
-                            alignSelf: "stretch",
-                          }
-                        : {
-                            minWidth: "320px",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            gap: "4px",
-                            flex: "1 0 0",
-                          }),
-                    }}
-                  >
-                    <div
-                      style={{
-                        alignSelf: "stretch",
-                        color: "#181D27",
-                        fontFamily: "Public Sans",
-                        fontSize: isDesktop ? "24px" : "20px",
-                        fontWeight: "600",
-                        lineHeight: isDesktop ? "32px" : "30px",
-                      }}
-                    >
-                      Dashboard
-                    </div>
-                    <div
-                      style={{
-                        alignSelf: "stretch",
-                        color: "#535862",
-                        fontFamily: "Public Sans",
-                        fontSize: "16px",
-                        fontWeight: "400",
-                        lineHeight: "24px",
-                      }}
-                    >
-                      View recent activity, task progress, and key data to stay
-                      informed and organized.
-                    </div>
-                  </div>
-
-                  {/* Action buttons */}
-                  <div
-                    style={{
-                      display: "flex",
-                      ...(isMobile
-                        ? {
-                            flexDirection: "column",
-                            justifyContent: "center",
-                            alignItems: "flex-start",
-                            gap: "12px",
-                            alignSelf: "stretch",
-                          }
-                        : { alignItems: "center", gap: "12px" }),
-                    }}
-                  >
-                    {renderCustomizeButton()}
-                    {renderDefaultButton()}
-                    {renderDateButton()}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Dashboard Content */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: isMobile ? "16px" : "32px",
-              width: "100%",
-              padding: isMobile ? "0 16px" : "0 32px",
-            }}
-          >
-            {/* Dashboard Metrics */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: isDesktop
-                  ? "repeat(4, 1fr)"
-                  : isMobile
-                    ? "1fr"
-                    : "repeat(2, 1fr)",
-                gap: "20px",
-                marginBottom: "32px",
-              }}
-            >
-              <div
-                style={{
-                  background: "#FFF",
-                  border: "1px solid #E9EAEB",
-                  borderRadius: "12px",
-                  padding: "24px",
-                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "14px",
-                    color: "#535862",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Total Orders
-                </h3>
-                <p
-                  style={{
-                    fontSize: "24px",
-                    fontWeight: "600",
-                    color: "#181D27",
-                  }}
-                >
-                  142
-                </p>
-              </div>
-
-              <div
-                style={{
-                  background: "#FFF",
-                  border: "1px solid #E9EAEB",
-                  borderRadius: "12px",
-                  padding: "24px",
-                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "14px",
-                    color: "#535862",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Pending Reviews
-                </h3>
-                <p
-                  style={{
-                    fontSize: "24px",
-                    fontWeight: "600",
-                    color: "#181D27",
-                  }}
-                >
-                  8
-                </p>
-              </div>
-
-              <div
-                style={{
-                  background: "#FFF",
-                  border: "1px solid #E9EAEB",
-                  borderRadius: "12px",
-                  padding: "24px",
-                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "14px",
-                    color: "#535862",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Completed
-                </h3>
-                <p
-                  style={{
-                    fontSize: "24px",
-                    fontWeight: "600",
-                    color: "#181D27",
-                  }}
-                >
-                  134
-                </p>
-              </div>
-
-              <div
-                style={{
-                  background: "#FFF",
-                  border: "1px solid #E9EAEB",
-                  borderRadius: "12px",
-                  padding: "24px",
-                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "14px",
-                    color: "#535862",
-                    marginBottom: "8px",
-                  }}
-                >
-                  Active Users
-                </h3>
-                <p
-                  style={{
-                    fontSize: "24px",
-                    fontWeight: "600",
-                    color: "#181D27",
-                  }}
-                >
-                  23
-                </p>
-              </div>
-            </div>
-
-            {/* Quick Actions */}
-            <div
-              style={{
-                background: "#FFF",
-                border: "1px solid #E9EAEB",
-                borderRadius: "12px",
-                padding: "24px",
-                boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "600",
-                  marginBottom: "16px",
-                  color: "#181D27",
-                }}
-              >
-                Quick Actions
-              </h2>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: isDesktop
-                    ? "repeat(3, 1fr)"
-                    : isMobile
-                      ? "1fr"
-                      : "repeat(2, 1fr)",
-                  gap: "12px",
-                }}
-              >
-                <button
-                  style={{
-                    padding: "12px 16px",
-                    background: "#344698",
-                    color: "#FFF",
-                    border: "none",
-                    borderRadius: "8px",
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    cursor: "pointer",
-                  }}
-                >
-                  Create New Order
-                </button>
-                <button
-                  style={{
-                    padding: "12px 16px",
-                    background: "#FFF",
-                    color: "#344698",
-                    border: "1px solid #344698",
-                    borderRadius: "8px",
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    cursor: "pointer",
-                  }}
-                >
-                  View Reports
-                </button>
-                <button
-                  style={{
-                    padding: "12px 16px",
-                    background: "#FFF",
-                    color: "#344698",
-                    border: "1px solid #344698",
-                    borderRadius: "8px",
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => navigate("/resources")}
-                >
-                  Access Resources
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Success Notification - Fixed positioning handled by component */}
+      {/* Success Notification - Positioned at the very top */}
       {showNotification && (
         <AlertNotification
           title="Account Activated Successfully"
@@ -860,6 +423,447 @@ export default function Dashboard() {
           }}
         />
       )}
-    </div>
+
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          background: "#FAFAFA",
+          position: "relative",
+          minHeight: "100vh",
+          marginTop: showNotification && isDesktop ? "60px" : "0",
+        }}
+      >
+        {/* Mobile Menu Overlay */}
+        {mobileMenuOpen && !isDesktop && (
+          <div
+            className="fixed inset-0 z-[9998]"
+            style={{
+              width: "100vw",
+              height: "100vh",
+              background: "rgba(10, 13, 18, 0.7)",
+              backdropFilter: "blur(8px)",
+              position: "fixed",
+              left: 0,
+              top: 0,
+            }}
+            onClick={() => setMobileMenuOpen(false)}
+          ></div>
+        )}
+
+        {/* Sidebar Navigation */}
+        <Sidebar
+          isDesktop={isDesktop}
+          isMobile={isMobile}
+          mobileMenuOpen={mobileMenuOpen}
+          currentPage="Dashboard"
+          showMobileUserMenu={showMobileUserMenu}
+          setShowMobileUserMenu={setShowMobileUserMenu}
+          setMobileMenuOpen={setMobileMenuOpen}
+          userMenuOpen={userMenuOpen}
+          setUserMenuOpen={setUserMenuOpen}
+          userMenuHovered={userMenuHovered}
+          setUserMenuHovered={setUserMenuHovered}
+          handleSignOut={handleSignOut}
+          getUserMenuStyles={getUserMenuStyles}
+        />
+
+        {/* Main Content */}
+        <div
+          className={isMobile ? "mobile-container" : ""}
+          style={{
+            marginLeft: isDesktop ? "296px" : "0",
+            flex: "1 1 auto",
+            display: "flex",
+            flexDirection: "column",
+            background: "#FAFAFA",
+            position: "relative",
+            minHeight: "100vh",
+          }}
+        >
+          {/* Desktop Top Navigation Bar */}
+          <Header
+            isDesktop={isDesktop}
+            userMenuOpen={userMenuOpen}
+            setUserMenuOpen={setUserMenuOpen}
+            userMenuHovered={userMenuHovered}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={handleSignOut}
+            getUserMenuStyles={getUserMenuStyles}
+            showMobileUserMenu={showMobileUserMenu}
+          />
+
+          <MobileHeader
+            isDesktop={isDesktop}
+            isMobile={isMobile}
+            setMobileMenuOpen={setMobileMenuOpen}
+            userMenuOpen={userMenuOpen}
+            setUserMenuOpen={setUserMenuOpen}
+            userMenuHovered={userMenuHovered}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={handleSignOut}
+            getUserMenuStyles={getUserMenuStyles}
+            showMobileUserMenu={showMobileUserMenu}
+          />
+
+          {/* Main Content Area */}
+          <div
+            style={{
+              marginTop: isDesktop
+                ? showNotification
+                  ? "124px"
+                  : "80px"
+                : "64px",
+              paddingBottom: isMobile
+                ? showNotification
+                  ? "140px"
+                  : "80px"
+                : "32px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "32px",
+              minHeight: "auto",
+              height: "auto",
+            }}
+          >
+            {/* Header Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "24px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: isMobile ? "0px 16px" : "0px 32px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "20px",
+                  alignSelf: "stretch",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      ...(isMobile
+                        ? {
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                          }
+                        : {
+                            alignItems: "flex-end",
+                            alignContent: "flex-end",
+                            gap: "20px 16px",
+                            alignSelf: "stretch",
+                            flexWrap: "wrap",
+                          }),
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        ...(isMobile
+                          ? {
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              alignSelf: "stretch",
+                            }
+                          : {
+                              minWidth: "320px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              flex: "1 0 0",
+                            }),
+                      }}
+                    >
+                      <div
+                        style={{
+                          alignSelf: "stretch",
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: isDesktop ? "24px" : "20px",
+                          fontWeight: "600",
+                          lineHeight: isDesktop ? "32px" : "30px",
+                        }}
+                      >
+                        Dashboard
+                      </div>
+                      <div
+                        style={{
+                          alignSelf: "stretch",
+                          color: "#535862",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontWeight: "400",
+                          lineHeight: "24px",
+                        }}
+                      >
+                        View recent activity, task progress, and key data to
+                        stay informed and organized.
+                      </div>
+                    </div>
+
+                    {/* Action buttons */}
+                    <div
+                      style={{
+                        display: "flex",
+                        ...(isMobile
+                          ? {
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                            }
+                          : { alignItems: "center", gap: "12px" }),
+                      }}
+                    >
+                      {renderCustomizeButton()}
+                      {renderDefaultButton()}
+                      {renderDateButton()}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Dashboard Content */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: isMobile ? "16px" : "32px",
+                width: "100%",
+                padding: isMobile ? "0 16px" : "0 32px",
+              }}
+            >
+              {/* Dashboard Metrics */}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: isDesktop
+                    ? "repeat(4, 1fr)"
+                    : isMobile
+                      ? "1fr"
+                      : "repeat(2, 1fr)",
+                  gap: "20px",
+                  marginBottom: "32px",
+                }}
+              >
+                <div
+                  style={{
+                    background: "#FFF",
+                    border: "1px solid #E9EAEB",
+                    borderRadius: "12px",
+                    padding: "24px",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontSize: "14px",
+                      color: "#535862",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    Total Orders
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "600",
+                      color: "#181D27",
+                    }}
+                  >
+                    142
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    background: "#FFF",
+                    border: "1px solid #E9EAEB",
+                    borderRadius: "12px",
+                    padding: "24px",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontSize: "14px",
+                      color: "#535862",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    Pending Reviews
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "600",
+                      color: "#181D27",
+                    }}
+                  >
+                    8
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    background: "#FFF",
+                    border: "1px solid #E9EAEB",
+                    borderRadius: "12px",
+                    padding: "24px",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontSize: "14px",
+                      color: "#535862",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    Completed
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "600",
+                      color: "#181D27",
+                    }}
+                  >
+                    134
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    background: "#FFF",
+                    border: "1px solid #E9EAEB",
+                    borderRadius: "12px",
+                    padding: "24px",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontSize: "14px",
+                      color: "#535862",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    Active Users
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "24px",
+                      fontWeight: "600",
+                      color: "#181D27",
+                    }}
+                  >
+                    23
+                  </p>
+                </div>
+              </div>
+
+              {/* Quick Actions */}
+              <div
+                style={{
+                  background: "#FFF",
+                  border: "1px solid #E9EAEB",
+                  borderRadius: "12px",
+                  padding: "24px",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    marginBottom: "16px",
+                    color: "#181D27",
+                  }}
+                >
+                  Quick Actions
+                </h2>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: isDesktop
+                      ? "repeat(3, 1fr)"
+                      : isMobile
+                        ? "1fr"
+                        : "repeat(2, 1fr)",
+                    gap: "12px",
+                  }}
+                >
+                  <button
+                    style={{
+                      padding: "12px 16px",
+                      background: "#344698",
+                      color: "#FFF",
+                      border: "none",
+                      borderRadius: "8px",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Create New Order
+                  </button>
+                  <button
+                    style={{
+                      padding: "12px 16px",
+                      background: "#FFF",
+                      color: "#344698",
+                      border: "1px solid #344698",
+                      borderRadius: "8px",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      cursor: "pointer",
+                    }}
+                  >
+                    View Reports
+                  </button>
+                  <button
+                    style={{
+                      padding: "12px 16px",
+                      background: "#FFF",
+                      color: "#344698",
+                      border: "1px solid #344698",
+                      borderRadius: "8px",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => navigate("/resources")}
+                  >
+                    Access Resources
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
