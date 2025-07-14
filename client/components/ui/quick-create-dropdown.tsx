@@ -108,7 +108,7 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
   const getDropdownWidth = () => {
     switch (breakpoint) {
       case "mobile":
-        return "343px"; // Match Figma design exactly
+        return "calc(100vw - 32px)"; // Full width minus 16px padding on each side
       case "tablet":
       case "desktop":
       default:
@@ -125,12 +125,13 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
       };
     }
 
-    // Mobile: Position exactly as in Figma design
+    // Mobile: Position 4px below navbar, center aligned with buttons
     if (breakpoint === "mobile") {
       return {
-        position: "absolute" as const,
-        bottom: "-110px", // Exact Figma bottom positioning
-        left: "-211px", // Exact Figma left positioning
+        position: "fixed" as const,
+        top: "68px", // 4px below 64px navbar
+        left: "16px", // 16px from left edge to match button alignment
+        right: "16px", // 16px from right edge
       };
     }
 
