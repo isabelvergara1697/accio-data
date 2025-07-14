@@ -113,15 +113,13 @@ export default function AlertNotification({
     );
   };
 
-  // Desktop layout: exactly matching Figma
+  // Desktop layout: exactly matching Figma - uses document flow to push content down
   if (breakpoint === "desktop") {
     return (
       <div
         style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
+          position: "relative",
+          width: "100%",
           zIndex: 10000,
           display: "flex",
           flexDirection: "column",
