@@ -126,7 +126,7 @@ export const Header: React.FC<HeaderProps> = ({
           flexShrink: 0,
         }}
       >
-                {/* Quick Create Button */}
+        {/* Quick Create Button */}
         <div style={{ position: "relative" }}>
           <button
             className="quick-create-button"
@@ -157,40 +157,47 @@ export const Header: React.FC<HeaderProps> = ({
               }
             }}
           >
-          <span
-            style={{
-              fontFamily: "Public Sans",
-              fontWeight: 600,
-              fontSize: "14px",
-              color: "#FFF",
-            }}
-          >
-            Quick Create
-          </span>
-          <svg
-            style={{ width: "20px", height: "20px" }}
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clipPath="url(#clip0_508_136928)">
-              <path
-                d="M10.0001 6.6665V13.3332M6.66675 9.99984H13.3334M18.3334 9.99984C18.3334 14.6022 14.6025 18.3332 10.0001 18.3332C5.39771 18.3332 1.66675 14.6022 1.66675 9.99984C1.66675 5.39746 5.39771 1.6665 10.0001 1.6665C14.6025 1.6665 18.3334 5.39746 18.3334 9.99984Z"
-                stroke="#8D9BD8"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_508_136928">
-                <rect width="20" height="20" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-        </button>
+            <span
+              style={{
+                fontFamily: "Public Sans",
+                fontWeight: 600,
+                fontSize: "14px",
+                color: "#FFF",
+              }}
+            >
+              Quick Create
+            </span>
+            <svg
+              style={{ width: "20px", height: "20px" }}
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clipPath="url(#clip0_508_136928)">
+                <path
+                  d="M10.0001 6.6665V13.3332M6.66675 9.99984H13.3334M18.3334 9.99984C18.3334 14.6022 14.6025 18.3332 10.0001 18.3332C5.39771 18.3332 1.66675 14.6022 1.66675 9.99984C1.66675 5.39746 5.39771 1.6665 10.0001 1.6665C14.6025 1.6665 18.3334 5.39746 18.3334 9.99984Z"
+                  stroke="#8D9BD8"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_508_136928">
+                  <rect width="20" height="20" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+
+          <QuickCreateDropdown
+            isOpen={quickCreateOpen}
+            onClose={() => setQuickCreateOpen(false)}
+            breakpoint="desktop"
+          />
+        </div>
 
         {/* Notifications */}
         <button
