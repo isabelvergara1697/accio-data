@@ -510,7 +510,11 @@ export default function Dashboard() {
           {/* Main Content Area */}
           <div
             style={{
-              marginTop: isDesktop ? "80px" : "64px",
+              marginTop: isDesktop
+                ? showNotification
+                  ? "140px"
+                  : "80px"
+                : "64px",
               paddingBottom: isMobile
                 ? showNotification
                   ? "140px"
