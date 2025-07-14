@@ -129,7 +129,7 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
     if (breakpoint === "mobile") {
       return {
         position: "absolute" as const,
-        top: "calc(100% + 110px)", // Figma bottom:-110px = 110px below button
+        bottom: "-110px", // Exact Figma bottom positioning
         left: "-211px", // Exact Figma left positioning
       };
     }
