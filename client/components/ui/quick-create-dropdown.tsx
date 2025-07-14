@@ -129,7 +129,7 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
     if (breakpoint === "mobile") {
       return {
         position: "fixed" as const,
-        top: "120px", // Below header and title section
+        top: "260px", // Position with 4px spacing from bottom of buttons
         left: "16px", // Same as container padding
         right: "16px",
         width: "auto",
@@ -151,103 +151,84 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
   };
 
   return (
-    <>
-      {/* Mobile backdrop */}
-      {breakpoint === "mobile" && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.1)",
-            zIndex: 999,
-          }}
-          onClick={onClose}
-        />
-      )}
-
+    <div
+      data-quick-create-dropdown
+      style={{
+        ...getDropdownPosition(),
+        width: breakpoint === "mobile" ? "auto" : getDropdownWidth(),
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        borderRadius: "8px",
+        border: "1px solid rgba(0, 0, 0, 0.08)",
+        background: "#FFF",
+        boxShadow:
+          "0px 12px 16px -4px var(--Colors-Effects-Shadows-shadow-lg_01, rgba(10, 13, 18, 0.08)), 0px 4px 6px -2px var(--Colors-Effects-Shadows-shadow-lg_02, rgba(10, 13, 18, 0.03)), 0px 2px 2px -1px var(--Colors-Effects-Shadows-shadow-lg_03, rgba(10, 13, 18, 0.04))",
+        zIndex: 1000,
+      }}
+    >
       <div
-        data-quick-create-dropdown
         style={{
-          ...getDropdownPosition(),
-          width: breakpoint === "mobile" ? "auto" : getDropdownWidth(),
           display: "flex",
+          padding: "4px 0px",
           flexDirection: "column",
           alignItems: "flex-start",
-          borderRadius: "8px",
-          border: "1px solid rgba(0, 0, 0, 0.08)",
-          background: "#FFF",
-          boxShadow:
-            "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
-          zIndex: 1000,
+          alignSelf: "stretch",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            padding: "4px 0px",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            alignSelf: "stretch",
-          }}
-        >
-          {dropdownItems.map((item) => (
+        {dropdownItems.map((item) => (
+          <div
+            key={item.id}
+            style={{
+              display: "flex",
+              padding: "1px 6px",
+              alignItems: "center",
+              alignSelf: "stretch",
+              cursor: "pointer",
+            }}
+            onMouseEnter={() => setHoveredItem(item.id)}
+            onMouseLeave={() => setHoveredItem(null)}
+            onClick={() => handleItemClick(item)}
+          >
             <div
-              key={item.id}
               style={{
                 display: "flex",
-                padding: "1px 6px",
+                padding: "8px 10px",
                 alignItems: "center",
-                alignSelf: "stretch",
-                cursor: "pointer",
+                gap: "12px",
+                flex: "1 0 0",
+                borderRadius: "6px",
+                background: hoveredItem === item.id ? "#F5F5F5" : "transparent",
+                transition: "background-color 0.15s ease",
               }}
-              onMouseEnter={() => setHoveredItem(item.id)}
-              onMouseLeave={() => setHoveredItem(null)}
-              onClick={() => handleItemClick(item)}
             >
               <div
                 style={{
                   display: "flex",
-                  padding: "8px 10px",
                   alignItems: "center",
-                  gap: "12px",
+                  gap: "8px",
                   flex: "1 0 0",
-                  borderRadius: "6px",
-                  background:
-                    hoveredItem === item.id ? "#F5F5F5" : "transparent",
-                  transition: "background-color 0.15s ease",
                 }}
               >
+                {item.icon}
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
                     flex: "1 0 0",
+                    color: hoveredItem === item.id ? "#252B37" : "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    transition: "color 0.15s ease",
                   }}
                 >
-                  {item.icon}
-                  <div
-                    style={{
-                      flex: "1 0 0",
-                      color: hoveredItem === item.id ? "#252B37" : "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: 600,
-                      lineHeight: "20px",
-                      transition: "color 0.15s ease",
-                    }}
-                  >
-                    {item.label}
-                  </div>
+                  {item.label}
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
