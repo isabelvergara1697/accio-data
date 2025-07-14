@@ -150,7 +150,7 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
     onClose();
   };
 
-    return (
+  return (
     <>
       {/* Mobile backdrop */}
       {breakpoint === "mobile" && (
@@ -184,68 +184,70 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
           zIndex: 1000,
         }}
       >
-      <div
-        style={{
-          display: "flex",
-          padding: "4px 0px",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          alignSelf: "stretch",
-        }}
-      >
-        {dropdownItems.map((item) => (
-          <div
-            key={item.id}
-            style={{
-              display: "flex",
-              padding: "1px 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              cursor: "pointer",
-            }}
-            onMouseEnter={() => setHoveredItem(item.id)}
-            onMouseLeave={() => setHoveredItem(null)}
-            onClick={() => handleItemClick(item)}
-          >
+        <div
+          style={{
+            display: "flex",
+            padding: "4px 0px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+          }}
+        >
+          {dropdownItems.map((item) => (
             <div
+              key={item.id}
               style={{
                 display: "flex",
-                padding: "8px 10px",
+                padding: "1px 6px",
                 alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                background: hoveredItem === item.id ? "#F5F5F5" : "transparent",
-                transition: "background-color 0.15s ease",
+                alignSelf: "stretch",
+                cursor: "pointer",
               }}
+              onMouseEnter={() => setHoveredItem(item.id)}
+              onMouseLeave={() => setHoveredItem(null)}
+              onClick={() => handleItemClick(item)}
             >
               <div
                 style={{
                   display: "flex",
+                  padding: "8px 10px",
                   alignItems: "center",
-                  gap: "8px",
+                  gap: "12px",
                   flex: "1 0 0",
+                  borderRadius: "6px",
+                  background:
+                    hoveredItem === item.id ? "#F5F5F5" : "transparent",
+                  transition: "background-color 0.15s ease",
                 }}
               >
-                {item.icon}
                 <div
                   style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
                     flex: "1 0 0",
-                    color: hoveredItem === item.id ? "#252B37" : "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    transition: "color 0.15s ease",
                   }}
                 >
-                  {item.label}
+                  {item.icon}
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: hoveredItem === item.id ? "#252B37" : "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      transition: "color 0.15s ease",
+                    }}
+                  >
+                    {item.label}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
