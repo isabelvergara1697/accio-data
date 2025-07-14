@@ -108,7 +108,7 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
   const getDropdownWidth = () => {
     switch (breakpoint) {
       case "mobile":
-        return "343px";
+        return "calc(100vw - 32px)"; // Full width minus 16px padding on each side
       case "tablet":
       case "desktop":
       default:
@@ -125,11 +125,22 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
       };
     }
 
-    // Default positioning relative to button
+    // Mobile: Position as overlay aligned with page content
+    if (breakpoint === "mobile") {
+      return {
+        position: "fixed" as const,
+        top: "120px", // Below header and title section
+        left: "16px", // Same as container padding
+        right: "16px",
+        width: "auto",
+      };
+    }
+
+    // Desktop/Tablet: Default positioning relative to button
     return {
       position: "absolute" as const,
       top: "100%",
-      left: breakpoint === "mobile" ? "-211px" : "-31px",
+      left: "-31px",
       marginTop: "8px",
     };
   };
@@ -144,7 +155,7 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
       data-quick-create-dropdown
       style={{
         ...getDropdownPosition(),
-        width: getDropdownWidth(),
+        width: breakpoint === "mobile" ? "auto" : getDropdownWidth(),
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
