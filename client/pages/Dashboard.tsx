@@ -490,6 +490,7 @@ export default function Dashboard() {
             handleSignOut={handleSignOut}
             getUserMenuStyles={getUserMenuStyles}
             showMobileUserMenu={showMobileUserMenu}
+            showNotification={showNotification}
           />
 
           <MobileHeader
