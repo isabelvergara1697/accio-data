@@ -165,6 +165,12 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
               </defs>
             </svg>
           </button>
+
+          <QuickCreateDropdown
+            isOpen={quickCreateOpen}
+            onClose={() => setQuickCreateOpen(false)}
+            breakpoint={isMobile ? "mobile" : "tablet"}
+          />
         </div>
 
         {/* Notification Bell */}
