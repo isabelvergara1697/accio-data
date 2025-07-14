@@ -1,5 +1,6 @@
 import React from "react";
 import { UserMenuDropdown } from "./UserMenuDropdown";
+import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 
 interface HeaderProps {
   isDesktop: boolean;
@@ -24,6 +25,8 @@ export const Header: React.FC<HeaderProps> = ({
   showMobileUserMenu = false,
   showNotification = false,
 }) => {
+  const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
+
   if (!isDesktop) return null;
 
   return (
