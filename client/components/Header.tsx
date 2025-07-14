@@ -10,6 +10,7 @@ interface HeaderProps {
   handleSignOut: () => void;
   getUserMenuStyles: () => object;
   showMobileUserMenu?: boolean;
+  showNotification?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -21,6 +22,7 @@ export const Header: React.FC<HeaderProps> = ({
   handleSignOut,
   getUserMenuStyles,
   showMobileUserMenu = false,
+  showNotification = false,
 }) => {
   if (!isDesktop) return null;
 
