@@ -15,6 +15,7 @@ interface SidebarProps {
   setUserMenuHovered?: (hovered: boolean) => void;
   handleSignOut?: () => void;
   getUserMenuStyles?: () => object;
+  showNotification?: boolean;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
