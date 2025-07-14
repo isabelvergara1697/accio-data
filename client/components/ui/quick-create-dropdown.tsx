@@ -125,14 +125,13 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
       };
     }
 
-    // Mobile: Position as overlay aligned with page content
+    // Mobile: Position below Quick Create button in header
     if (breakpoint === "mobile") {
       return {
-        position: "fixed" as const,
-        top: "260px", // Position with 4px spacing from bottom of buttons
-        left: "16px", // Same as container padding
-        right: "16px",
-        width: "auto",
+        position: "absolute" as const,
+        top: "100%",
+        left: "-211px", // Match Figma positioning
+        marginTop: "8px",
       };
     }
 
