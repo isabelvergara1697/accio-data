@@ -792,24 +792,75 @@ export default function QuickOrderDrawer({
                       </SimpleTooltip>
                     </div>
                   ) : (
-                    <FormInput
-                      label={contact.label}
-                      type="text"
-                      value={contact.value}
-                      onChange={(e) =>
-                        updateContactField(contact.id, e.target.value)
-                      }
-                      onFocus={() => setFocusedField(contact.id)}
-                      onBlur={() => setFocusedField(null)}
-                      placeholder={
-                        contact.type === "email"
-                          ? "Enter email address"
-                          : "e.g. 123-456-7890"
-                      }
-                      error={errors.contacts?.[contact.id]}
-                      isFocused={focusedField === contact.id}
-                      required={contact.required}
-                    />
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                      }}
+                    >
+                      <FormInput
+                        label={contact.label}
+                        type="text"
+                        value={contact.value}
+                        onChange={(e) =>
+                          updateContactField(contact.id, e.target.value)
+                        }
+                        onFocus={() => setFocusedField(contact.id)}
+                        onBlur={() => setFocusedField(null)}
+                        placeholder={
+                          contact.type === "email"
+                            ? "Enter email address"
+                            : "e.g. 123-456-7890"
+                        }
+                        error={errors.contacts?.[contact.id]}
+                        isFocused={focusedField === contact.id}
+                        required={contact.required}
+                        style={{ flex: 1 }}
+                      />
+                      <SimpleTooltip content="Remove">
+                        <button
+                          type="button"
+                          onClick={() => removeContactField(contact.id)}
+                          style={{
+                            marginTop: "26px", // Account for label height (20px) + gap (6px)
+                            padding: "8px",
+                            border: "1px solid #D5D7DA",
+                            borderRadius: "6px",
+                            background: "#FFF",
+                            cursor: "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            minWidth: "40px",
+                            height: "40px",
+                            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "#FEF3F2";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "#FFF";
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.33333 8H12.6667"
+                              stroke="#F04438"
+                              strokeWidth="1.33"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </SimpleTooltip>
+                    </div>
                   )}
                 </div>
               ))}
