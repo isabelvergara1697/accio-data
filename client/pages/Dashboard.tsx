@@ -558,10 +558,13 @@ export default function Dashboard() {
             setQuickOrderDrawerOpen={setQuickOrderDrawerOpen}
             ssnOrderDrawerOpen={ssnOrderDrawerOpen}
             setSSNOrderDrawerOpen={setSSNOrderDrawerOpen}
+            customizeDrawerOpen={customizeDrawerOpen}
+            setCustomizeDrawerOpen={setCustomizeDrawerOpen}
             notificationModalOpen={notificationModalOpen}
             setNotificationModalOpen={setNotificationModalOpen}
             onOpenQuickOrderDrawer={handleOpenQuickOrderDrawer}
             onOpenSSNOrderDrawer={handleOpenSSNOrderDrawer}
+            onOpenCustomizeDrawer={handleOpenCustomizeDrawer}
             onOpenNotificationModal={handleOpenNotificationModal}
           />
 
