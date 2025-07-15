@@ -1071,7 +1071,7 @@ export default function QuickOrderDrawer({
 
   return (
     <>
-      {createPortal(modalContent, document.body)}
+      {modalContent && createPortal(modalContent, document.body)}
       {orderData && (
         <OrderSuccessNotification
           isVisible={showNotification}
