@@ -27,10 +27,13 @@ interface MobileHeaderProps {
   setQuickOrderDrawerOpen?: (open: boolean) => void;
   ssnOrderDrawerOpen?: boolean;
   setSSNOrderDrawerOpen?: (open: boolean) => void;
+  customizeDrawerOpen?: boolean;
+  setCustomizeDrawerOpen?: (open: boolean) => void;
   notificationModalOpen?: boolean;
   setNotificationModalOpen?: (open: boolean) => void;
   onOpenQuickOrderDrawer?: () => void;
   onOpenSSNOrderDrawer?: () => void;
+  onOpenCustomizeDrawer?: () => void;
   onOpenNotificationModal?: () => void;
 }
 
@@ -50,10 +53,13 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   setQuickOrderDrawerOpen,
   ssnOrderDrawerOpen = false,
   setSSNOrderDrawerOpen,
+  customizeDrawerOpen = false,
+  setCustomizeDrawerOpen,
   notificationModalOpen = false,
   setNotificationModalOpen,
   onOpenQuickOrderDrawer,
   onOpenSSNOrderDrawer,
+  onOpenCustomizeDrawer,
   onOpenNotificationModal,
 }) => {
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
