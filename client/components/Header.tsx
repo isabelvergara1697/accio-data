@@ -239,7 +239,9 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Notifications */}
         <div style={{ position: "relative" }}>
           <button
-            onClick={() => setNotificationModalOpen(true)}
+            onClick={() => {
+              if (onOpenNotificationModal) onOpenNotificationModal();
+            }}
             style={{
               display: "flex",
               padding: "8px",
