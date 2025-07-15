@@ -95,7 +95,15 @@ export default function QuickOrderDrawer({
     firstName: "",
     middleName: "",
     lastName: "",
-    emailOrPhone: "",
+    contacts: [
+      {
+        id: "contact-1",
+        type: "email",
+        label: "Email or Phone Number",
+        value: "",
+        required: true,
+      },
+    ],
     package: "",
     account: "",
     user: "",
@@ -112,7 +120,15 @@ export default function QuickOrderDrawer({
         firstName: "",
         middleName: "",
         lastName: "",
-        emailOrPhone: "",
+        contacts: [
+          {
+            id: "contact-1",
+            type: "email",
+            label: "Email or Phone Number",
+            value: "",
+            required: true,
+          },
+        ],
         package: "",
         account: "",
         user: "",
