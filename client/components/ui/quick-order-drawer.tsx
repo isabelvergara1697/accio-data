@@ -215,7 +215,7 @@ export default function QuickOrderDrawer({
           }
         }
         
-                        @media (min-width: 768px) and (max-width: 991px) {
+                                                @media (min-width: 768px) and (max-width: 991px) {
           .drawer-container {
             width: 400px !important;
             right: 0 !important;
@@ -223,6 +223,9 @@ export default function QuickOrderDrawer({
           }
           .drawer-header {
             margin-bottom: 24px !important;
+          }
+          .form-container {
+            gap: 24px !important;
           }
         }
         
