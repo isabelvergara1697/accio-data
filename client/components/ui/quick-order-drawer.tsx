@@ -546,7 +546,7 @@ export default function QuickOrderDrawer({
           bottom: 0,
           backgroundColor: "rgba(10, 13, 18, 0.5)",
           backdropFilter: "blur(4px)",
-          zIndex: 99999,
+          zIndex: 2147483647,
           transition: "opacity 0.3s ease",
         }}
         onClick={handleBackdropClick}
@@ -588,7 +588,7 @@ export default function QuickOrderDrawer({
                 style={{
                   display: "flex",
                   width: "44px",
-                  height: "44px",
+                  height: "40px",
                   padding: "12px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -780,7 +780,7 @@ export default function QuickOrderDrawer({
                             alignItems: "center",
                             justifyContent: "center",
                             minWidth: "40px",
-                            height: "44px",
+                            height: "40px",
                             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                           }}
                           onMouseEnter={(e) => {
@@ -856,7 +856,7 @@ export default function QuickOrderDrawer({
                               alignItems: "center",
                               justifyContent: "center",
                               minWidth: "40px",
-                              height: "44px",
+                              height: "40px",
                               boxShadow:
                                 "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                             }}
