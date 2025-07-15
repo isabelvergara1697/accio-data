@@ -430,6 +430,29 @@ export default function Dashboard() {
         />
       )}
 
+      {/* Order Success Notification - Positioned at the very top */}
+      {orderNotification?.show && (
+        <AlertNotification
+          title={orderNotification.title}
+          description={orderNotification.description}
+          variant="success"
+          position={getNotificationPosition()}
+          breakpoint={getNotificationBreakpoint()}
+          onDismiss={() => setOrderNotification(null)}
+          primaryAction={{
+            label: "View Order",
+            onClick: () => {
+              console.log("View order:", orderNotification.orderNumber);
+              setOrderNotification(null);
+            },
+          }}
+          secondaryAction={{
+            label: "Dismiss",
+            onClick: () => setOrderNotification(null),
+          }}
+        />
+      )}
+
       <div
         style={{
           display: "flex",
