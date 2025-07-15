@@ -276,18 +276,18 @@ export default function QuickOrderDrawer({
             }}
           >
             <div
-              style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}
+              style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}
             >
               <div
                 style={{
                   display: "flex",
-                  padding: "10px",
-                  alignItems: "center",
+                  width: "44px",
+                  height: "44px",
+                  padding: "12px",
                   justifyContent: "center",
-                  borderRadius: "10px",
-                  border: "1px solid #E9EAEB",
-                  background: "#FFF",
-                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  alignItems: "center",
+                  borderRadius: "9999px",
+                  background: "#D9DEF2",
                 }}
               >
                 <svg
@@ -298,15 +298,8 @@ export default function QuickOrderDrawer({
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M17.5 17.5L14.5834 14.5833M16.6667 9.58333C16.6667 13.4954 13.4954 16.6667 9.58333 16.6667C5.67132 16.6667 2.5 13.4954 2.5 9.58333C2.5 5.67132 5.67132 2.5 9.58333 2.5C13.4954 2.5 16.6667 5.67132 16.6667 9.58333Z"
-                    stroke="#667085"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M9.58333 6.25V9.58333L11.6667 11.6667"
-                    stroke="#667085"
+                    d="M11.6667 9.16675H6.66671M8.33337 12.5001H6.66671M13.3334 5.83341H6.66671M16.6667 8.75008V5.66675C16.6667 4.26662 16.6667 3.56655 16.3942 3.03177C16.1545 2.56137 15.7721 2.17892 15.3017 1.93923C14.7669 1.66675 14.0668 1.66675 12.6667 1.66675H7.33337C5.93324 1.66675 5.23318 1.66675 4.6984 1.93923C4.22799 2.17892 3.84554 2.56137 3.60586 3.03177C3.33337 3.56655 3.33337 4.26662 3.33337 5.66675V14.3334C3.33337 15.7335 3.33337 16.4336 3.60586 16.9684C3.84554 17.4388 4.22799 17.8212 4.6984 18.0609C5.23318 18.3334 5.93324 18.3334 7.33337 18.3334H9.58337M18.3334 18.3334L17.0834 17.0834M17.9167 15.0001C17.9167 16.6109 16.6109 17.9167 15 17.9167C13.3892 17.9167 12.0834 16.6109 12.0834 15.0001C12.0834 13.3893 13.3892 12.0834 15 12.0834C16.6109 12.0834 17.9167 13.3893 17.9167 15.0001Z"
+                    stroke="#344698"
                     strokeWidth="1.66667"
                     strokeLinecap="round"
                     strokeLinejoin="round"
