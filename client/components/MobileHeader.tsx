@@ -22,6 +22,16 @@ interface MobileHeaderProps {
     description: string;
     orderNumber?: string;
   }) => void;
+  // Drawer control props
+  quickOrderDrawerOpen?: boolean;
+  setQuickOrderDrawerOpen?: (open: boolean) => void;
+  ssnOrderDrawerOpen?: boolean;
+  setSSNOrderDrawerOpen?: (open: boolean) => void;
+  notificationModalOpen?: boolean;
+  setNotificationModalOpen?: (open: boolean) => void;
+  onOpenQuickOrderDrawer?: () => void;
+  onOpenSSNOrderDrawer?: () => void;
+  onOpenNotificationModal?: () => void;
 }
 
 export const MobileHeader: React.FC<MobileHeaderProps> = ({
