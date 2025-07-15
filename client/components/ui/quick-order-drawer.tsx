@@ -13,6 +13,12 @@ import {
 export interface QuickOrderDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  onOrderSuccess?: (orderData: {
+    orderNumber: string;
+    customerName: string;
+    email?: string;
+    phone?: string;
+  }) => void;
 }
 
 interface ContactField {
@@ -215,6 +221,7 @@ const companyUsers: { [key: string]: SelectOption[] } = {
 export default function QuickOrderDrawer({
   isOpen,
   onClose,
+  onOrderSuccess,
 }: QuickOrderDrawerProps) {
   // Responsive detection
   const [isDesktop, setIsDesktop] = useState(true);
@@ -250,13 +257,6 @@ export default function QuickOrderDrawer({
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
-  const [orderData, setOrderData] = useState<{
-    orderNumber: string;
-    customerName: string;
-    email?: string;
-    phone?: string;
-  } | null>(null);
 
   // Reset form when drawer closes
   useEffect(() => {
@@ -512,16 +512,17 @@ export default function QuickOrderDrawer({
       );
       const { email, phone } = extractContactInfo(formData.contacts);
 
-      // Set notification data
-      setOrderData({
+      const orderData = {
         orderNumber,
         customerName,
         email,
         phone,
-      });
+      };
 
-      // Show notification and close drawer
-      setShowNotification(true);
+      // Trigger success callback and close drawer
+      if (onOrderSuccess) {
+        onOrderSuccess(orderData);
+      }
       onClose();
 
       console.log("Order created:", {
@@ -1038,51 +1039,5 @@ export default function QuickOrderDrawer({
     </>
   );
 
-  const handleNotificationDismiss = () => {
-    setShowNotification(false);
-    setOrderData(null);
-  };
-
-  const handleViewOrder = () => {
-    console.log("View order:", orderData?.orderNumber);
-    // Here you would navigate to the order details page
-    handleNotificationDismiss();
-  };
-
-  const getNotificationPosition = () => {
-    // Desktop: top, Tablet and Mobile: bottom
-    return isDesktop ? "top" : "bottom";
-  };
-
-  const getNotificationBreakpoint = () => {
-    if (isDesktop) return "desktop";
-    if (window.innerWidth < 768) return "mobile";
-    return "tablet";
-  };
-
-  return (
-    <>
-      {modalContent && createPortal(modalContent, document.body)}
-      {orderData && showNotification && (
-        <AlertNotification
-          title={`Order ${orderData.orderNumber} Created Successfully`}
-          description={`${orderData.customerName} will receive an invitation to complete its order ${formatContactText(orderData.email, orderData.phone)}`}
-          variant="success"
-          position={getNotificationPosition()}
-          breakpoint={getNotificationBreakpoint()}
-          onDismiss={handleNotificationDismiss}
-          autoHide={true}
-          autoHideDelay={15000}
-          primaryAction={{
-            label: "View Order",
-            onClick: handleViewOrder,
-          }}
-          secondaryAction={{
-            label: "Dismiss",
-            onClick: handleNotificationDismiss,
-          }}
-        />
-      )}
-    </>
-  );
+  return <>{modalContent && createPortal(modalContent, document.body)}</>;
 }
