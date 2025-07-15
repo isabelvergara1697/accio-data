@@ -201,10 +201,10 @@ export default function QuickOrderDrawer({
   return (
     <>
       <style>{`
-        @media (max-width: 767px) {
+                @media (max-width: 767px) {
           .drawer-container {
-            width: 100% !important;
-            left: 0 !important;
+            width: 85% !important;
+            left: 15% !important;
             padding: 24px !important;
           }
           .drawer-header {
