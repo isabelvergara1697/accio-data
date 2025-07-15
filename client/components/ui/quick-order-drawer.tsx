@@ -164,6 +164,64 @@ export default function QuickOrderDrawer({
     };
   }, [isOpen]);
 
+  // Helper function to detect if input is email or phone
+  const detectContactType = (value: string): "email" | "phone" => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{1,10}$/;
+
+    if (emailRegex.test(value)) {
+      return "email";
+    } else if (phoneRegex.test(value.replace(/\s|-|\(|\)/g, ""))) {
+      return "phone";
+    }
+    // Default to email if unclear
+    return "email";
+  };
+
+  // Helper function to add a new contact field
+  const addContactField = () => {
+    const lastContact = formData.contacts[formData.contacts.length - 1];
+    if (!lastContact.value.trim()) return; // Don't add if last field is empty
+
+    const detectedType = detectContactType(lastContact.value);
+    const nextType = detectedType === "email" ? "phone" : "email";
+    const nextLabel = nextType === "email" ? "Email" : "Phone Number";
+
+    const newContact: ContactField = {
+      id: `contact-${Date.now()}`,
+      type: nextType,
+      label: nextLabel,
+      value: "",
+      required: false,
+    };
+
+    setFormData((prev) => ({
+      ...prev,
+      contacts: [...prev.contacts, newContact],
+    }));
+  };
+
+  // Helper function to update contact field
+  const updateContactField = (id: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      contacts: prev.contacts.map((contact) =>
+        contact.id === id ? { ...contact, value } : contact,
+      ),
+    }));
+
+    // Clear error when user starts typing
+    if (hasAttemptedSubmit && errors.contacts?.[id]) {
+      setErrors((prev) => ({
+        ...prev,
+        contacts: {
+          ...prev.contacts,
+          [id]: "",
+        },
+      }));
+    }
+  };
+
   const validateField = (field: keyof FormData, value: string): string => {
     switch (field) {
       case "firstName":
