@@ -451,6 +451,10 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         isOpen={ssnDrawerOpen}
         onClose={() => setSSNDrawerOpen(false)}
         onOrderSuccess={(orderNumber) => {
+          console.log(
+            "Mobile SSN Order success callback triggered:",
+            orderNumber,
+          );
           showOrderNotification({
             title: `Order ${orderNumber} Created Successfully`,
             description:
