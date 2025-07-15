@@ -428,12 +428,16 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         onOrderSuccess={(orderData) => {
-          setOrderNotification({
-            type: "quick",
-            orderNumber: orderData.orderNumber,
-            customerName: orderData.customerName,
-            email: orderData.email,
-            phone: orderData.phone,
+          showNotification({
+            title: `Order ${orderData.orderNumber} Created Successfully`,
+            description: `${orderData.customerName} will receive an invitation to complete its order ${formatContactText(orderData.email, orderData.phone)}`,
+            variant: "success",
+            primaryAction: {
+              label: "View Order",
+              onClick: () => {
+                console.log("View order:", orderData.orderNumber);
+              },
+            },
           });
         }}
       />
@@ -443,9 +447,17 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         isOpen={ssnDrawerOpen}
         onClose={() => setSSNDrawerOpen(false)}
         onOrderSuccess={(orderNumber) => {
-          setOrderNotification({
-            type: "ssn",
-            orderNumber,
+          showNotification({
+            title: `Order ${orderNumber} Created Successfully`,
+            description:
+              "Order submitted using SSN Trace. The user will be notified using the contact information retrieved.",
+            variant: "success",
+            primaryAction: {
+              label: "View Order",
+              onClick: () => {
+                console.log("View order:", orderNumber);
+              },
+            },
           });
         }}
       />
