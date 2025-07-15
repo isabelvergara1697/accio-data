@@ -257,6 +257,13 @@ export default function QuickOrderDrawer({
     }
   }, [isOpen]);
 
+  // Reset user when account changes
+  useEffect(() => {
+    if (formData.account) {
+      setFormData((prev) => ({ ...prev, user: "" }));
+    }
+  }, [formData.account]);
+
   // Close drawer on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
