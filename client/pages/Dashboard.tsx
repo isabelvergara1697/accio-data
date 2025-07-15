@@ -497,7 +497,13 @@ export default function Dashboard() {
             handleSignOut={handleSignOut}
             getUserMenuStyles={getUserMenuStyles}
             showMobileUserMenu={showMobileUserMenu}
-            showNotification={showNotification}
+            showNotification={showNotification || orderNotification?.show}
+            onOrderNotification={(notification) => {
+              setOrderNotification({
+                show: true,
+                ...notification,
+              });
+            }}
           />
 
           <MobileHeader
