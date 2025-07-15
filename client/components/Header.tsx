@@ -398,7 +398,7 @@ export const Header: React.FC<HeaderProps> = ({
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         onOrderSuccess={(orderData) => {
-          showNotification({
+          showOrderNotification({
             title: `Order ${orderData.orderNumber} Created Successfully`,
             description: `${orderData.customerName} will receive an invitation to complete its order ${formatContactText(orderData.email, orderData.phone)}`,
             variant: "success",
@@ -417,7 +417,7 @@ export const Header: React.FC<HeaderProps> = ({
         isOpen={ssnDrawerOpen}
         onClose={() => setSSNDrawerOpen(false)}
         onOrderSuccess={(orderNumber) => {
-          showNotification({
+          showOrderNotification({
             title: `Order ${orderNumber} Created Successfully`,
             description:
               "Order submitted using SSN Trace. The user will be notified using the contact information retrieved.",
