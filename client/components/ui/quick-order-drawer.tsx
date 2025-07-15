@@ -275,35 +275,74 @@ export default function QuickOrderDrawer({
               borderBottom: "1px solid #E9EAEB",
             }}
           >
-            <div>
-              <h2
+            <div
+              style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}
+            >
+              <div
                 style={{
-                  margin: 0,
-                  color: "#181D27",
-                  fontFamily:
-                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "24px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "32px",
+                  display: "flex",
+                  padding: "10px",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: "10px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 }}
               >
-                Create New Order
-              </h2>
-              <p
-                style={{
-                  margin: "4px 0 0 0",
-                  color: "#535862",
-                  fontFamily:
-                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                }}
-              >
-                Fill out the form below to create a new order
-              </p>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.5 17.5L14.5834 14.5833M16.6667 9.58333C16.6667 13.4954 13.4954 16.6667 9.58333 16.6667C5.67132 16.6667 2.5 13.4954 2.5 9.58333C2.5 5.67132 5.67132 2.5 9.58333 2.5C13.4954 2.5 16.6667 5.67132 16.6667 9.58333Z"
+                    stroke="#667085"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M9.58333 6.25V9.58333L11.6667 11.6667"
+                    stroke="#667085"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h2
+                  style={{
+                    margin: 0,
+                    color: "#181D27",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "24px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "32px",
+                  }}
+                >
+                  Create New Order
+                </h2>
+                <p
+                  style={{
+                    margin: "4px 0 0 0",
+                    color: "#535862",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Fill out the form below to create a new order
+                </p>
+              </div>
             </div>
             <button
               onClick={onClose}
