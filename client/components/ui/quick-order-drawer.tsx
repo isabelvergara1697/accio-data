@@ -1064,6 +1064,13 @@ export default function QuickOrderDrawer({
     </>
   );
 
+  console.log(
+    "Render - showNotification:",
+    showNotification,
+    "orderData:",
+    orderData,
+  );
+
   return (
     <>
       {createPortal(modalContent, document.body)}
