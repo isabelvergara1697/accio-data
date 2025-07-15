@@ -220,7 +220,9 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         >
           <div style={{ position: "relative" }}>
             <button
-              onClick={() => setNotificationModalOpen(true)}
+              onClick={() => {
+                if (onOpenNotificationModal) onOpenNotificationModal();
+              }}
               style={{
                 display: "flex",
                 width: "40px",
