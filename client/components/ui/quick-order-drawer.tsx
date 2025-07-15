@@ -763,8 +763,6 @@ export default function QuickOrderDrawer({
                       <SimpleTooltip
                         content="Add Additional Contact"
                         position="top"
-                        align="start"
-                        sideOffset={4}
                       >
                         <button
                           type="button"
