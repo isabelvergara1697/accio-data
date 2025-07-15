@@ -7,6 +7,7 @@ import {
   generateOrderNumber,
   formatFullName,
   extractContactInfo,
+  formatContactText,
 } from "../../lib/order-utils";
 
 export interface QuickOrderDrawerProps {
