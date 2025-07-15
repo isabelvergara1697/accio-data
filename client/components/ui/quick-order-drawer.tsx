@@ -491,24 +491,16 @@ export default function QuickOrderDrawer({
 
     // If no errors, submit form
     if (Object.keys(newErrors).length === 0) {
-      console.log("Form submission started");
-
       // Generate order number and prepare data
       const orderNumber = generateOrderNumber();
-      console.log("Generated order number:", orderNumber);
-
       const customerName = formatFullName(
         formData.firstName,
         formData.middleName,
         formData.lastName,
       );
-      console.log("Formatted customer name:", customerName);
-
       const { email, phone } = extractContactInfo(formData.contacts);
-      console.log("Extracted contact info:", { email, phone });
 
       // Set notification data
-      console.log("Setting order data...");
       setOrderData({
         orderNumber,
         customerName,
@@ -517,10 +509,7 @@ export default function QuickOrderDrawer({
       });
 
       // Show notification and close drawer
-      console.log("Setting showNotification to true...");
       setShowNotification(true);
-
-      console.log("Closing drawer...");
       onClose();
 
       console.log("Order created:", {
