@@ -228,18 +228,6 @@ export default function QuickOrderDrawer({
         return !value.trim() ? "Please enter your first name." : "";
       case "lastName":
         return !value.trim() ? "Please enter your last name." : "";
-      case "emailOrPhone":
-        if (!value.trim()) return "Please enter your email or phone number.";
-        // Basic validation for email or phone
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-        if (
-          !emailRegex.test(value) &&
-          !phoneRegex.test(value.replace(/\s|-|\(|\)/g, ""))
-        ) {
-          return "Please enter a valid email or phone number.";
-        }
-        return "";
       case "package":
         return !value ? "Please select a package." : "";
       case "account":
@@ -249,6 +237,28 @@ export default function QuickOrderDrawer({
       default:
         return "";
     }
+  };
+
+  const validateContact = (contact: ContactField): string => {
+    if (contact.required && !contact.value.trim()) {
+      return `Please enter your ${contact.type}.`;
+    }
+
+    if (contact.value.trim()) {
+      if (contact.type === "email") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(contact.value)) {
+          return "Please enter a valid email address.";
+        }
+      } else if (contact.type === "phone") {
+        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+        if (!phoneRegex.test(contact.value.replace(/\s|-|\(|\)/g, ""))) {
+          return "Please enter a valid phone number.";
+        }
+      }
+    }
+
+    return "";
   };
 
   const handleInputChange =
