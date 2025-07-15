@@ -552,12 +552,12 @@ export default function Dashboard() {
           <div
             style={{
               marginTop: isDesktop
-                ? showNotification
+                ? showNotification || orderNotification?.show
                   ? "140px"
                   : "80px"
                 : "64px",
               paddingBottom: isMobile
-                ? showNotification
+                ? showNotification || orderNotification?.show
                   ? "140px"
                   : "80px"
                 : "32px",
