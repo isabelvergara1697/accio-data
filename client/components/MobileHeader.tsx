@@ -4,7 +4,7 @@ import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 import QuickOrderDrawer from "./ui/quick-order-drawer";
 import SSNOrderDrawer from "./ui/ssn-order-drawer";
 import NotificationModal from "./ui/notification-modal";
-import AlertNotification from "./ui/alert-notification";
+import { useNotification } from "./ui/notification-provider";
 import { formatContactText } from "../lib/order-utils";
 
 interface MobileHeaderProps {
@@ -36,13 +36,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [ssnDrawerOpen, setSSNDrawerOpen] = React.useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
-  const [orderNotification, setOrderNotification] = useState<{
-    type: "quick" | "ssn";
-    orderNumber: string;
-    customerName?: string;
-    email?: string;
-    phone?: string;
-  } | null>(null);
+  const { showNotification } = useNotification();
 
   if (isDesktop) return null;
 
