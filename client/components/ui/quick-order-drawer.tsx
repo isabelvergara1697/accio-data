@@ -60,9 +60,16 @@ const packageOptions: SelectOption[] = [
 ];
 
 const accountOptions: SelectOption[] = [
-  { value: "personal", label: "Personal Account" },
-  { value: "business", label: "Business Account" },
-  { value: "enterprise", label: "Enterprise Account" },
+  { value: "techcorp", label: "TechCorp Industries" },
+  { value: "globalventures", label: "Global Ventures LLC" },
+  { value: "innovationsystems", label: "Innovation Systems Inc" },
+  { value: "blueoceancorp", label: "Blue Ocean Corporation" },
+  { value: "alphaenterprises", label: "Alpha Enterprises" },
+  { value: "nexustech", label: "Nexus Technologies" },
+  { value: "meridiangroup", label: "Meridian Group" },
+  { value: "stellarlogistics", label: "Stellar Logistics" },
+  { value: "quantumsolutions", label: "Quantum Solutions" },
+  { value: "phoenixconsulting", label: "Phoenix Consulting" },
 ];
 
 const userOptions: SelectOption[] = [
