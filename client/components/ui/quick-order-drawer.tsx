@@ -528,6 +528,17 @@ export default function QuickOrderDrawer({
     }
   };
 
+  const handleDismissNotification = () => {
+    setShowNotification(false);
+    setOrderData(null);
+  };
+
+  const handleViewOrder = () => {
+    // Here you would navigate to the order details page
+    console.log("View order:", orderData?.orderNumber);
+    handleDismissNotification();
+  };
+
   if (!isOpen) return null;
 
   const modalContent = (
