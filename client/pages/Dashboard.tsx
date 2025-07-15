@@ -50,8 +50,8 @@ const dashboardStyles = `
     transition: background-color 0.2s ease-in-out;
   }
 
-  .dashboard-button:hover {
-    background-color: #F9FAFB;
+    .dashboard-button:hover {
+    background-color: #F5F5F5;
   }
 
   .dashboard-button:active {
