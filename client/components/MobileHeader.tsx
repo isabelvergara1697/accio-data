@@ -447,8 +447,10 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
 
       {/* Quick Order Drawer */}
       <QuickOrderDrawer
-        isOpen={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
+        isOpen={quickOrderDrawerOpen}
+        onClose={() =>
+          setQuickOrderDrawerOpen && setQuickOrderDrawerOpen(false)
+        }
         onOrderSuccess={(orderData) => {
           console.log(
             "Mobile Quick Order success callback triggered:",
@@ -466,8 +468,8 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
 
       {/* SSN Order Drawer */}
       <SSNOrderDrawer
-        isOpen={ssnDrawerOpen}
-        onClose={() => setSSNDrawerOpen(false)}
+        isOpen={ssnOrderDrawerOpen}
+        onClose={() => setSSNOrderDrawerOpen && setSSNOrderDrawerOpen(false)}
         onOrderSuccess={(orderNumber) => {
           console.log(
             "Mobile SSN Order success callback triggered:",
@@ -487,7 +489,9 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
       {/* Notification Modal */}
       <NotificationModal
         isOpen={notificationModalOpen}
-        onClose={() => setNotificationModalOpen(false)}
+        onClose={() =>
+          setNotificationModalOpen && setNotificationModalOpen(false)
+        }
       />
     </div>
   );
