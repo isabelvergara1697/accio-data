@@ -1068,7 +1068,7 @@ export default function QuickOrderDrawer({
       {orderData && showNotification && (
         <UniversalNotification
           title={`Order ${orderData.orderNumber} Created Successfully`}
-          description={`${orderData.customerName} will receive an invitation to complete its order to ${extractContactInfo(orderData.email, orderData.phone)}`}
+          description={`${orderData.customerName} will receive an invitation to complete its order ${formatContactText(orderData.email, orderData.phone)}`}
           variant="success"
           isDesktop={isDesktop}
           primaryAction={{
