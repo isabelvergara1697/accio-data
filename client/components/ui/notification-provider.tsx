@@ -73,7 +73,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
       // Auto-hide if enabled
       if (newNotification.autoHide) {
         setTimeout(() => {
-          hideNotification(id);
+          setNotifications((prev) => prev.filter((n) => n.id !== id));
         }, newNotification.autoHideDelay);
       }
     },
