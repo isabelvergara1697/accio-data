@@ -20,20 +20,7 @@ export default function OrderSuccessNotification({
   onDismiss,
   onViewOrder,
 }: OrderSuccessNotificationProps) {
-  console.log("OrderSuccessNotification props:", {
-    isVisible,
-    orderNumber,
-    customerName,
-    email,
-    phone,
-  });
-
-  if (!isVisible) {
-    console.log("OrderSuccessNotification not visible, returning null");
-    return null;
-  }
-
-  console.log("OrderSuccessNotification rendering...");
+  if (!isVisible) return null;
 
   // Create contact text based on provided information
   const getContactText = () => {
