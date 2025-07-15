@@ -237,6 +237,15 @@ export default function QuickOrderDrawer({
   const [errors, setErrors] = useState<FormErrors>({});
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
 
+  // Notification state
+  const [showNotification, setShowNotification] = useState(false);
+  const [orderData, setOrderData] = useState<{
+    orderNumber: string;
+    customerName: string;
+    email?: string;
+    phone?: string;
+  } | null>(null);
+
   // Reset form when drawer closes
   useEffect(() => {
     if (!isOpen) {
