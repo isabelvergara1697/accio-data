@@ -788,7 +788,7 @@ export default function QuickOrderDrawer({
                       <button
                         type="button"
                         onClick={addContactField}
-                        title="Add Additional Contact"
+                        data-tooltip="Add Additional Contact"
                         style={{
                           marginTop: "26px", // Account for label height (20px) + gap (6px)
                           padding: "8px",
