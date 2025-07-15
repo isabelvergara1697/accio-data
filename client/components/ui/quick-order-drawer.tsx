@@ -201,7 +201,7 @@ export default function QuickOrderDrawer({
   return (
     <>
       <style>{`
-                @media (max-width: 767px) {
+                                @media (max-width: 767px) {
           .drawer-container {
             width: 85% !important;
             left: 15% !important;
@@ -209,6 +209,9 @@ export default function QuickOrderDrawer({
           }
           .drawer-header {
             margin-bottom: 24px !important;
+          }
+          .form-container {
+            gap: 24px !important;
           }
         }
         
