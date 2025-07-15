@@ -675,7 +675,7 @@ export default function QuickOrderDrawer({
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "20px",
+                gap: "24px",
               }}
             >
               {/* First Name */}
