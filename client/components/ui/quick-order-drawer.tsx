@@ -551,7 +551,7 @@ export default function QuickOrderDrawer({
             backgroundColor: "#FFF",
             boxShadow: "-4px 0 24px rgba(0, 0, 0, 0.1)",
             overflowY: "auto",
-            padding: "40px",
+            padding: "24px",
             transform: isOpen ? "translateX(0)" : "translateX(100%)",
             transition: "transform 0.3s ease",
             boxSizing: "border-box",
