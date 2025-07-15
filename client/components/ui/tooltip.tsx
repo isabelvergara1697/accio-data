@@ -1,28 +1,106 @@
-import * as React from "react";
-import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import React, { useState } from "react";
 
-import { cn } from "@/lib/utils";
+export interface TooltipProps {
+  content: string;
+  children: React.ReactNode;
+  position?: "top" | "bottom" | "left" | "right";
+  className?: string;
+}
 
-const TooltipProvider = TooltipPrimitive.Provider;
+export default function Tooltip({
+  content,
+  children,
+  position = "top",
+  className = "",
+}: TooltipProps) {
+  const [isVisible, setIsVisible] = useState(false);
 
-const Tooltip = TooltipPrimitive.Root;
+  const getTooltipPosition = () => {
+    switch (position) {
+      case "top":
+        return {
+          bottom: "100%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          marginBottom: "8px",
+        };
+      case "bottom":
+        return {
+          top: "100%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          marginTop: "8px",
+        };
+      case "left":
+        return {
+          right: "100%",
+          top: "50%",
+          transform: "translateY(-50%)",
+          marginRight: "8px",
+        };
+      case "right":
+        return {
+          left: "100%",
+          top: "50%",
+          transform: "translateY(-50%)",
+          marginLeft: "8px",
+        };
+      default:
+        return {
+          bottom: "100%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          marginBottom: "8px",
+        };
+    }
+  };
 
-const TooltipTrigger = TooltipPrimitive.Trigger;
-
-const TooltipContent = React.forwardRef<
-  React.ElementRef<typeof TooltipPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
-  <TooltipPrimitive.Content
-    ref={ref}
-    sideOffset={sideOffset}
-    className={cn(
-      "z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-      className,
-    )}
-    {...props}
-  />
-));
-TooltipContent.displayName = TooltipPrimitive.Content.displayName;
-
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
+  return (
+    <div
+      className={className}
+      style={{ position: "relative", display: "inline-block" }}
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+    >
+      {children}
+      {isVisible && (
+        <div
+          style={{
+            position: "absolute",
+            ...getTooltipPosition(),
+            zIndex: 1000,
+            whiteSpace: "nowrap",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              padding: "8px 12px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              borderRadius: "8px",
+              background: "#0A0D12",
+              boxShadow:
+                "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
+            }}
+          >
+            <div
+              style={{
+                color: "#FFF",
+                textAlign: "center",
+                fontFamily:
+                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontSize: "12px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "18px",
+              }}
+            >
+              {content}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
