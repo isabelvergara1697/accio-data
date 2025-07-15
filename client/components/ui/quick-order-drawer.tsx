@@ -223,7 +223,7 @@ export default function QuickOrderDrawer({
           }
         }
         
-        @media (min-width: 1024px) {
+                @media (min-width: 992px) {
           .drawer-container {
             width: 440px !important;
             right: 0 !important;
