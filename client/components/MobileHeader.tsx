@@ -36,7 +36,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [ssnDrawerOpen, setSSNDrawerOpen] = React.useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
-  const { showNotification } = useNotification();
+  const { showNotification: showOrderNotification } = useNotification();
 
   if (isDesktop) return null;
 
@@ -428,7 +428,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         onOrderSuccess={(orderData) => {
-          showNotification({
+          showOrderNotification({
             title: `Order ${orderData.orderNumber} Created Successfully`,
             description: `${orderData.customerName} will receive an invitation to complete its order ${formatContactText(orderData.email, orderData.phone)}`,
             variant: "success",
@@ -447,7 +447,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         isOpen={ssnDrawerOpen}
         onClose={() => setSSNDrawerOpen(false)}
         onOrderSuccess={(orderNumber) => {
-          showNotification({
+          showOrderNotification({
             title: `Order ${orderNumber} Created Successfully`,
             description:
               "Order submitted using SSN Trace. The user will be notified using the contact information retrieved.",
