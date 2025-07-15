@@ -312,17 +312,17 @@ export default function QuickOrderDrawer({
                     color: "#181D27",
                     fontFamily:
                       "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "24px",
+                    fontSize: "18px",
                     fontStyle: "normal",
                     fontWeight: 600,
-                    lineHeight: "32px",
+                    lineHeight: "28px",
                   }}
                 >
-                  Create New Order
+                  Create Quick Order
                 </h2>
                 <p
                   style={{
-                    margin: "4px 0 0 0",
+                    margin: "2px 0 0 0",
                     color: "#535862",
                     fontFamily:
                       "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
@@ -332,7 +332,7 @@ export default function QuickOrderDrawer({
                     lineHeight: "20px",
                   }}
                 >
-                  Fill out the form below to create a new order
+                  Submit an order quickly using only the essential information.
                 </p>
               </div>
             </div>
