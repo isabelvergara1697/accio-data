@@ -123,6 +123,10 @@ export default function Dashboard() {
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [defaultDropdownOpen, setDefaultDropdownOpen] = useState(false);
+  // Drawer states to coordinate with mobile menu
+  const [quickOrderDrawerOpen, setQuickOrderDrawerOpen] = useState(false);
+  const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
+  const [notificationModalOpen, setNotificationModalOpen] = useState(false);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
