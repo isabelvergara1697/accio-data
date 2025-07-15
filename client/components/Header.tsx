@@ -4,7 +4,7 @@ import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 import QuickOrderDrawer from "./ui/quick-order-drawer";
 import SSNOrderDrawer from "./ui/ssn-order-drawer";
 import NotificationModal from "./ui/notification-modal";
-import { useNotification } from "./ui/notification-provider";
+import AlertNotification from "./ui/alert-notification";
 import { formatContactText } from "../lib/order-utils";
 
 interface HeaderProps {
@@ -30,15 +30,46 @@ export const Header: React.FC<HeaderProps> = ({
   showMobileUserMenu = false,
   showNotification = false,
 }) => {
-  const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
+    const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [ssnDrawerOpen, setSSNDrawerOpen] = React.useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
-  const { showNotification: showOrderNotification } = useNotification();
+  const [orderNotification, setOrderNotification] = useState<{
+    show: boolean;
+    title: string;
+    description: string;
+    orderNumber?: string;
+  } | null>(null);
 
-  if (!isDesktop) return null;
+    if (!isDesktop) return null;
+
+  const getNotificationPosition = () => "top";
+  const getNotificationBreakpoint = () => "desktop";
 
   return (
+    <>
+      {/* Order Success Notification */}
+      {orderNotification?.show && (
+        <AlertNotification
+          title={orderNotification.title}
+          description={orderNotification.description}
+          variant="success"
+          position={getNotificationPosition()}
+          breakpoint={getNotificationBreakpoint()}
+          onDismiss={() => setOrderNotification(null)}
+          primaryAction={{
+            label: "View Order",
+            onClick: () => {
+              console.log("View order:", orderNotification.orderNumber);
+              setOrderNotification(null);
+            },
+          }}
+          secondaryAction={{
+            label: "Dismiss",
+            onClick: () => setOrderNotification(null),
+          }}
+        />
+      )}
     <div
       style={{
         position: "fixed",
@@ -397,18 +428,13 @@ export const Header: React.FC<HeaderProps> = ({
       <QuickOrderDrawer
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
-        onOrderSuccess={(orderData) => {
+                        onOrderSuccess={(orderData) => {
           console.log("Quick Order success callback triggered:", orderData);
-          showOrderNotification({
+          setOrderNotification({
+            show: true,
             title: `Order ${orderData.orderNumber} Created Successfully`,
             description: `${orderData.customerName} will receive an invitation to complete its order ${formatContactText(orderData.email, orderData.phone)}`,
-            variant: "success",
-            primaryAction: {
-              label: "View Order",
-              onClick: () => {
-                console.log("View order:", orderData.orderNumber);
-              },
-            },
+            orderNumber: orderData.orderNumber,
           });
         }}
       />
@@ -417,19 +443,13 @@ export const Header: React.FC<HeaderProps> = ({
       <SSNOrderDrawer
         isOpen={ssnDrawerOpen}
         onClose={() => setSSNDrawerOpen(false)}
-        onOrderSuccess={(orderNumber) => {
+                        onOrderSuccess={(orderNumber) => {
           console.log("SSN Order success callback triggered:", orderNumber);
-          showOrderNotification({
+          setOrderNotification({
+            show: true,
             title: `Order ${orderNumber} Created Successfully`,
-            description:
-              "Order submitted using SSN Trace. The user will be notified using the contact information retrieved.",
-            variant: "success",
-            primaryAction: {
-              label: "View Order",
-              onClick: () => {
-                console.log("View order:", orderNumber);
-              },
-            },
+            description: "Order submitted using SSN Trace. The user will be notified using the contact information retrieved.",
+            orderNumber: orderNumber,
           });
         }}
       />
@@ -438,7 +458,7 @@ export const Header: React.FC<HeaderProps> = ({
       <NotificationModal
         isOpen={notificationModalOpen}
         onClose={() => setNotificationModalOpen(false)}
-      />
-    </div>
+            />
+    </>
   );
 };
