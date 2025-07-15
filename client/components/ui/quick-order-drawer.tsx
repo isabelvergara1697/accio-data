@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import FormInput from "./form-input";
 import FormSelect, { SelectOption } from "./form-select";
-import UniversalNotification from "./universal-notification";
+import { toast } from "sonner";
 import {
   generateOrderNumber,
   formatFullName,
@@ -250,15 +250,6 @@ export default function QuickOrderDrawer({
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
-
-  // Notification state
-  const [showNotification, setShowNotification] = useState(false);
-  const [orderData, setOrderData] = useState<{
-    orderNumber: string;
-    customerName: string;
-    email?: string;
-    phone?: string;
-  } | null>(null);
 
   // Reset form when drawer closes
   useEffect(() => {
@@ -513,17 +504,21 @@ export default function QuickOrderDrawer({
         formData.lastName,
       );
       const { email, phone } = extractContactInfo(formData.contacts);
+      const contactText = formatContactText(email, phone);
 
-      // Set notification data
-      setOrderData({
-        orderNumber,
-        customerName,
-        email,
-        phone,
+      // Show success toast
+      toast.success(`Order ${orderNumber} Created Successfully`, {
+        description: `${customerName} will receive an invitation to complete its order ${contactText}`,
+        action: {
+          label: "View Order",
+          onClick: () => {
+            console.log("View order:", orderNumber);
+            // Here you would navigate to the order details page
+          },
+        },
       });
 
-      // Show notification and close drawer
-      setShowNotification(true);
+      // Close drawer
       onClose();
 
       console.log("Order created:", {
@@ -541,28 +536,6 @@ export default function QuickOrderDrawer({
       onClose();
     }
   };
-
-  const handleDismissNotification = () => {
-    setShowNotification(false);
-    setOrderData(null);
-  };
-
-  const handleViewOrder = () => {
-    // Here you would navigate to the order details page
-    console.log("View order:", orderData?.orderNumber);
-    handleDismissNotification();
-  };
-
-  // Auto-dismiss notification after 10 seconds
-  useEffect(() => {
-    if (showNotification) {
-      const timer = setTimeout(() => {
-        handleDismissNotification();
-      }, 10000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [showNotification]);
 
   const modalContent = !isOpen ? null : (
     <>
@@ -1062,28 +1035,5 @@ export default function QuickOrderDrawer({
     </>
   );
 
-  return (
-    <>
-      {modalContent && createPortal(modalContent, document.body)}
-      {orderData && showNotification && (
-        <UniversalNotification
-          title={`Order ${orderData.orderNumber} Created Successfully`}
-          description={`${orderData.customerName} will receive an invitation to complete its order ${formatContactText(orderData.email, orderData.phone)}`}
-          variant="success"
-          isDesktop={isDesktop}
-          primaryAction={{
-            label: "View Order",
-            onClick: handleViewOrder,
-          }}
-          secondaryAction={{
-            label: "Dismiss",
-            onClick: handleDismissNotification,
-          }}
-          onDismiss={handleDismissNotification}
-          autoHide={true}
-          autoHideDelay={10000}
-        />
-      )}
-    </>
-  );
+  return <>{modalContent && createPortal(modalContent, document.body)}</>;
 }
