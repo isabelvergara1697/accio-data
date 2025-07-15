@@ -215,6 +215,19 @@ export default function QuickOrderDrawer({
   isOpen,
   onClose,
 }: QuickOrderDrawerProps) {
+  // Responsive detection
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    const checkViewport = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkViewport();
+    window.addEventListener("resize", checkViewport);
+    return () => window.removeEventListener("resize", checkViewport);
+  }, []);
+
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     middleName: "",
