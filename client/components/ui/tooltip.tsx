@@ -51,9 +51,13 @@ export function TooltipTrigger({
 export function TooltipContent({
   children,
   side = "top",
+  align = "center",
+  sideOffset = 8,
 }: {
   children: React.ReactNode;
   side?: "top" | "bottom" | "left" | "right";
+  align?: "start" | "center" | "end";
+  sideOffset?: number;
 }) {
   const context = useContext(TooltipContext);
   if (!context) {
@@ -65,41 +69,57 @@ export function TooltipContent({
   if (!isOpen) return null;
 
   const getPosition = () => {
+    const offset = `${sideOffset}px`;
+
     switch (side) {
       case "top":
-        return {
+        const topBase = {
           bottom: "100%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          marginBottom: "8px",
+          marginBottom: offset,
         };
+
+        if (align === "start") {
+          return { ...topBase, left: "0" };
+        } else if (align === "end") {
+          return { ...topBase, right: "0" };
+        } else {
+          return { ...topBase, left: "50%", transform: "translateX(-50%)" };
+        }
+
       case "bottom":
-        return {
+        const bottomBase = {
           top: "100%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          marginTop: "8px",
+          marginTop: offset,
         };
+
+        if (align === "start") {
+          return { ...bottomBase, left: "0" };
+        } else if (align === "end") {
+          return { ...bottomBase, right: "0" };
+        } else {
+          return { ...bottomBase, left: "50%", transform: "translateX(-50%)" };
+        }
+
       case "left":
         return {
           right: "100%",
           top: "50%",
           transform: "translateY(-50%)",
-          marginRight: "8px",
+          marginRight: offset,
         };
       case "right":
         return {
           left: "100%",
           top: "50%",
           transform: "translateY(-50%)",
-          marginLeft: "8px",
+          marginLeft: offset,
         };
       default:
         return {
           bottom: "100%",
           left: "50%",
           transform: "translateX(-50%)",
-          marginBottom: "8px",
+          marginBottom: offset,
         };
     }
   };
