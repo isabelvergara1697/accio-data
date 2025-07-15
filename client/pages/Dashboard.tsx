@@ -175,6 +175,22 @@ export default function Dashboard() {
     setShowNotification(false);
   };
 
+  // Drawer control functions that close mobile menu
+  const handleOpenQuickOrderDrawer = () => {
+    setMobileMenuOpen(false);
+    setQuickOrderDrawerOpen(true);
+  };
+
+  const handleOpenSSNOrderDrawer = () => {
+    setMobileMenuOpen(false);
+    setSSNOrderDrawerOpen(true);
+  };
+
+  const handleOpenNotificationModal = () => {
+    setMobileMenuOpen(false);
+    setNotificationModalOpen(true);
+  };
+
   const handleUpdateAccount = () => {
     // Navigate to account settings or profile page
     console.log("Navigate to account settings");
