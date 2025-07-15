@@ -190,6 +190,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           }}
         >
           <button
+            onClick={() => setNotificationModalOpen(true)}
             style={{
               display: "flex",
               width: "40px",
@@ -200,6 +201,12 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
               background: "transparent",
               border: "none",
               cursor: "pointer",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#F5F5F5";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
             }}
           >
             <svg
