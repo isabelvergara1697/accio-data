@@ -858,7 +858,7 @@ export default function QuickOrderDrawer({
                         <button
                           type="button"
                           onClick={() => removeContactField(contact.id)}
-                          title="Remove"
+                          data-tooltip="Remove"
                           style={{
                             marginTop: "26px", // Account for label height (20px) + gap (6px)
                             padding: "8px",
