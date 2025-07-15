@@ -762,8 +762,8 @@ export default function QuickOrderDrawer({
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            minWidth: "44px",
-                            height: "44px",
+                            minWidth: "40px",
+                            height: "40px",
                             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                           }}
                           onMouseEnter={(e) => {
