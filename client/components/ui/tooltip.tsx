@@ -69,57 +69,41 @@ export function TooltipContent({
   if (!isOpen) return null;
 
   const getPosition = () => {
-    const offset = `${sideOffset}px`;
-
     switch (side) {
       case "top":
-        const topBase = {
+        return {
           bottom: "100%",
-          marginBottom: offset,
+          left: "50%",
+          transform: "translateX(-50%)",
+          marginBottom: `${sideOffset}px`,
         };
-
-        if (align === "start") {
-          return { ...topBase, left: "0" };
-        } else if (align === "end") {
-          return { ...topBase, right: "0" };
-        } else {
-          return { ...topBase, left: "50%", transform: "translateX(-50%)" };
-        }
-
       case "bottom":
-        const bottomBase = {
+        return {
           top: "100%",
-          marginTop: offset,
+          left: "50%",
+          transform: "translateX(-50%)",
+          marginTop: `${sideOffset}px`,
         };
-
-        if (align === "start") {
-          return { ...bottomBase, left: "0" };
-        } else if (align === "end") {
-          return { ...bottomBase, right: "0" };
-        } else {
-          return { ...bottomBase, left: "50%", transform: "translateX(-50%)" };
-        }
-
       case "left":
         return {
           right: "100%",
           top: "50%",
           transform: "translateY(-50%)",
-          marginRight: offset,
+          marginRight: `${sideOffset}px`,
         };
       case "right":
         return {
           left: "100%",
           top: "50%",
           transform: "translateY(-50%)",
-          marginLeft: offset,
+          marginLeft: `${sideOffset}px`,
         };
       default:
         return {
           bottom: "100%",
           left: "50%",
           transform: "translateX(-50%)",
-          marginBottom: offset,
+          marginBottom: `${sideOffset}px`,
         };
     }
   };
