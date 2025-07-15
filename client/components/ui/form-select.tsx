@@ -206,35 +206,81 @@ export default function FormSelect({
             overflowY: "auto",
           }}
         >
-          {options.map((option) => (
-            <div
-              key={option.value}
-              style={{
-                padding: "10px 14px",
-                cursor: "pointer",
-                color: "#181D27",
-                fontFamily:
-                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: "16px",
-                fontStyle: "normal",
-                fontWeight: 400,
-                lineHeight: "24px",
-                borderBottom:
-                  option !== options[options.length - 1]
-                    ? "1px solid #E9EAEB"
-                    : "none",
-              }}
-              onClick={() => handleOptionClick(option.value)}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#F5F5F5";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-              }}
-            >
-              {option.label}
-            </div>
-          ))}
+          {options.map((option) => {
+            const isSelected = option.value === value;
+            return (
+              <div
+                key={option.value}
+                style={{
+                  padding: "1px 6px",
+                  cursor: "pointer",
+                }}
+                onClick={() => handleOptionClick(option.value)}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "8px 10px 8px 8px",
+                    alignItems: "center",
+                    gap: "8px",
+                    borderRadius: "6px",
+                    background: isSelected ? "#F5F5F5" : "transparent",
+                    transition: "background 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isSelected) {
+                      e.currentTarget.style.background = "#F5F5F5";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isSelected) {
+                      e.currentTarget.style.background = "transparent";
+                    }
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      flex: "1 0 0",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#181D27",
+                        fontFamily:
+                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "16px",
+                        fontStyle: "normal",
+                        fontWeight: isSelected ? 500 : 400,
+                        lineHeight: "24px",
+                      }}
+                    >
+                      {option.label}
+                    </div>
+                  </div>
+                  {isSelected && (
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M20 6L9 17L4 12"
+                        stroke="#344698"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
 
