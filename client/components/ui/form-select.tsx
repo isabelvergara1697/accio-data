@@ -200,7 +200,7 @@ export default function FormSelect({
         </div>
       </div>
 
-      {/* Dropdown Options */}
+            {/* Dropdown Options */}
       {isOpen && (
         <div
           style={{
@@ -215,11 +215,53 @@ export default function FormSelect({
             boxShadow:
               "0px 4px 8px -2px rgba(10, 13, 18, 0.10), 0px 2px 4px -2px rgba(10, 13, 18, 0.06)",
             zIndex: 1000,
-            maxHeight: "200px",
+            maxHeight: "256px",
             overflowY: "auto",
           }}
         >
-          {options.map((option) => {
+          {/* Search Input */}
+          <div
+            style={{
+              padding: "6px",
+              borderBottom: "1px solid #E9EAEB",
+            }}
+          >
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              placeholder="Search..."
+              style={{
+                width: "100%",
+                padding: "8px 12px",
+                border: "1px solid #D5D7DA",
+                borderRadius: "6px",
+                outline: "none",
+                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontSize: "14px",
+                color: "#181D27",
+              }}
+              onFocus={(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+
+          {/* Options */}
+          <div style={{ padding: "4px 0" }}>
+            {filteredOptions.length === 0 ? (
+              <div
+                style={{
+                  padding: "8px 12px",
+                  color: "#717680",
+                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  textAlign: "center",
+                }}
+              >
+                No options found
+              </div>
+            ) : (
+              filteredOptions.map((option) => {
             const isSelected = option.value === value;
             return (
               <div
