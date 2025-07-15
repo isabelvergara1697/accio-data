@@ -45,3 +45,20 @@ export function extractContactInfo(
     phone: phone?.trim() || undefined,
   };
 }
+
+/**
+ * Formats contact information for notification descriptions
+ * @param email - Optional email address
+ * @param phone - Optional phone number
+ * @returns Formatted contact string (e.g., "to email@example.com", "to +1234567890", "to email@example.com and to +1234567890")
+ */
+export function formatContactText(email?: string, phone?: string): string {
+  if (email && phone) {
+    return `to ${email} and to ${phone}`;
+  } else if (email) {
+    return `to ${email}`;
+  } else if (phone) {
+    return `to ${phone}`;
+  }
+  return "";
+}
