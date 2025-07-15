@@ -428,6 +428,12 @@ export default function QuickOrderDrawer({
     }
   };
 
+  // Get user options based on selected account
+  const getUserOptions = (): SelectOption[] => {
+    if (!formData.account) return [];
+    return companyUsers[formData.account] || [];
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setHasAttemptedSubmit(true);
