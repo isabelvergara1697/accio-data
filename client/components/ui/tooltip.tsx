@@ -71,19 +71,47 @@ export function TooltipContent({
   const getPosition = () => {
     switch (side) {
       case "top":
-        return {
-          bottom: "100%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          marginBottom: `${sideOffset}px`,
-        };
+        if (align === "start") {
+          return {
+            bottom: "100%",
+            left: "0",
+            marginBottom: `${sideOffset}px`,
+          };
+        } else if (align === "end") {
+          return {
+            bottom: "100%",
+            right: "0",
+            marginBottom: `${sideOffset}px`,
+          };
+        } else {
+          return {
+            bottom: "100%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            marginBottom: `${sideOffset}px`,
+          };
+        }
       case "bottom":
-        return {
-          top: "100%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          marginTop: `${sideOffset}px`,
-        };
+        if (align === "start") {
+          return {
+            top: "100%",
+            left: "0",
+            marginTop: `${sideOffset}px`,
+          };
+        } else if (align === "end") {
+          return {
+            top: "100%",
+            right: "0",
+            marginTop: `${sideOffset}px`,
+          };
+        } else {
+          return {
+            top: "100%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            marginTop: `${sideOffset}px`,
+          };
+        }
       case "left":
         return {
           right: "100%",
