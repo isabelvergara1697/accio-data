@@ -454,11 +454,11 @@ export const Header: React.FC<HeaderProps> = ({
         }}
       />
 
-      {/* Notification Modal */}
+            {/* Notification Modal */}
       <NotificationModal
         isOpen={notificationModalOpen}
         onClose={() => setNotificationModalOpen(false)}
-            />
+      />
     </>
   );
 };
