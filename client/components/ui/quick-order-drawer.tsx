@@ -27,10 +27,36 @@ interface FormErrors {
 }
 
 const packageOptions: SelectOption[] = [
-  { value: "basic", label: "Basic Package" },
-  { value: "standard", label: "Standard Package" },
-  { value: "premium", label: "Premium Package" },
-  { value: "enterprise", label: "Enterprise Package" },
+  { value: "csd-standard", label: "CSD Standard" },
+  { value: "volunteer-application", label: "Volunteer Application" },
+  { value: "a-la-carte", label: "A La Carte" },
+  { value: "retail", label: "Retail" },
+  { value: "mvr", label: "MVR" },
+  { value: "sales", label: "Sales" },
+  { value: "executive", label: "Executive" },
+  { value: "operations", label: "Operations" },
+  { value: "hourly", label: "Hourly" },
+  { value: "cbsv", label: "CBSV" },
+  { value: "dot", label: "DOT" },
+  { value: "new-york", label: "New York" },
+  { value: "immunization-records", label: "Immunization Records" },
+  { value: "just-mvr", label: "Just MVR" },
+  { value: "hasc-contractor", label: "HASC Contractor" },
+  {
+    value: "applicant-provided-address-only",
+    label: "Applicant Provided Address Only",
+  },
+  { value: "employment-only", label: "Employment Only" },
+  { value: "sap-10", label: "SAP 10" },
+  { value: "identity-check-package", label: "Identity Check Package" },
+  {
+    value: "identity-check-test-package-includes-product",
+    label: "Identity Check Test Package Includes Product",
+  },
+  { value: "standard-with-edu-and-emp", label: "Standard With EDU And EMP" },
+  { value: "test", label: "Test" },
+  { value: "executive-plus", label: "Executive Plus" },
+  { value: "portal", label: "Portal" },
 ];
 
 const accountOptions: SelectOption[] = [
