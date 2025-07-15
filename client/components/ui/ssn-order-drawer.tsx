@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import FormInput from "./form-input";
 import FormSelect, { SelectOption } from "./form-select";
-import UniversalNotification from "./universal-notification";
-import { generateOrderNumber, formatContactText } from "../../lib/order-utils";
+import { toast } from "sonner";
+import { generateOrderNumber } from "../../lib/order-utils";
 
 export interface SSNOrderDrawerProps {
   isOpen: boolean;
@@ -97,12 +97,6 @@ export default function SSNOrderDrawer({
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
-
-  // Notification state
-  const [showNotification, setShowNotification] = useState(false);
-  const [orderData, setOrderData] = useState<{
-    orderNumber: string;
-  } | null>(null);
 
   // Reset form when drawer closes
   useEffect(() => {
@@ -222,13 +216,20 @@ export default function SSNOrderDrawer({
       // Generate order number
       const orderNumber = generateOrderNumber();
 
-      // Set notification data
-      setOrderData({
-        orderNumber,
+      // Show success toast
+      toast.success(`Order ${orderNumber} Created Successfully`, {
+        description:
+          "Order submitted using SSN Trace. The user will be notified using the contact information retrieved.",
+        action: {
+          label: "View Order",
+          onClick: () => {
+            console.log("View order:", orderNumber);
+            // Here you would navigate to the order details page
+          },
+        },
       });
 
-      // Show notification and close drawer
-      setShowNotification(true);
+      // Close drawer
       onClose();
 
       console.log("SSN Order created:", {
@@ -243,28 +244,6 @@ export default function SSNOrderDrawer({
       onClose();
     }
   };
-
-  const handleDismissNotification = () => {
-    setShowNotification(false);
-    setOrderData(null);
-  };
-
-  const handleViewOrder = () => {
-    // Here you would navigate to the order details page
-    console.log("View order:", orderData?.orderNumber);
-    handleDismissNotification();
-  };
-
-  // Auto-dismiss notification after 10 seconds
-  useEffect(() => {
-    if (showNotification) {
-      const timer = setTimeout(() => {
-        handleDismissNotification();
-      }, 10000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [showNotification]);
 
   const modalContent = !isOpen ? null : (
     <>
@@ -554,28 +533,5 @@ export default function SSNOrderDrawer({
     </>
   );
 
-  return (
-    <>
-      {modalContent && createPortal(modalContent, document.body)}
-      {orderData && showNotification && (
-        <UniversalNotification
-          title={`Order ${orderData.orderNumber} Created Successfully`}
-          description="Order submitted using SSN Trace. The user will be notified using the contact information retrieved."
-          variant="success"
-          isDesktop={isDesktop}
-          primaryAction={{
-            label: "View Order",
-            onClick: handleViewOrder,
-          }}
-          secondaryAction={{
-            label: "Dismiss",
-            onClick: handleDismissNotification,
-          }}
-          onDismiss={handleDismissNotification}
-          autoHide={true}
-          autoHideDelay={10000}
-        />
-      )}
-    </>
-  );
+  return <>{modalContent && createPortal(modalContent, document.body)}</>;
 }
