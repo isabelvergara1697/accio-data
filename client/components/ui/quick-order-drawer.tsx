@@ -834,12 +834,7 @@ export default function QuickOrderDrawer({
                         style={{ flex: 1 }}
                       />
                       {index !== 0 && (
-                        <SimpleTooltip
-                          content="Remove"
-                          position="top"
-                          align="start"
-                          sideOffset={4}
-                        >
+                        <SimpleTooltip content="Remove" position="top">
                           <button
                             type="button"
                             onClick={() => removeContactField(contact.id)}
