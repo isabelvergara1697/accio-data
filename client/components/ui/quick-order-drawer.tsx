@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import FormInput from "./form-input";
 import FormSelect, { SelectOption } from "./form-select";
-import { toast } from "sonner";
+import AlertNotification from "./alert-notification";
 import {
   generateOrderNumber,
   formatFullName,
@@ -250,6 +250,13 @@ export default function QuickOrderDrawer({
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const [orderData, setOrderData] = useState<{
+    orderNumber: string;
+    customerName: string;
+    email?: string;
+    phone?: string;
+  } | null>(null);
 
   // Reset form when drawer closes
   useEffect(() => {
@@ -504,21 +511,17 @@ export default function QuickOrderDrawer({
         formData.lastName,
       );
       const { email, phone } = extractContactInfo(formData.contacts);
-      const contactText = formatContactText(email, phone);
 
-      // Show success toast
-      toast.success(`Order ${orderNumber} Created Successfully`, {
-        description: `${customerName} will receive an invitation to complete its order ${contactText}`,
-        action: {
-          label: "View Order",
-          onClick: () => {
-            console.log("View order:", orderNumber);
-            // Here you would navigate to the order details page
-          },
-        },
+      // Set notification data
+      setOrderData({
+        orderNumber,
+        customerName,
+        email,
+        phone,
       });
 
-      // Close drawer
+      // Show notification and close drawer
+      setShowNotification(true);
       onClose();
 
       console.log("Order created:", {
@@ -1035,5 +1038,51 @@ export default function QuickOrderDrawer({
     </>
   );
 
-  return <>{modalContent && createPortal(modalContent, document.body)}</>;
+  const handleNotificationDismiss = () => {
+    setShowNotification(false);
+    setOrderData(null);
+  };
+
+  const handleViewOrder = () => {
+    console.log("View order:", orderData?.orderNumber);
+    // Here you would navigate to the order details page
+    handleNotificationDismiss();
+  };
+
+  const getNotificationPosition = () => {
+    // Desktop: top, Tablet and Mobile: bottom
+    return isDesktop ? "top" : "bottom";
+  };
+
+  const getNotificationBreakpoint = () => {
+    if (isDesktop) return "desktop";
+    if (window.innerWidth < 768) return "mobile";
+    return "tablet";
+  };
+
+  return (
+    <>
+      {modalContent && createPortal(modalContent, document.body)}
+      {orderData && showNotification && (
+        <AlertNotification
+          title={`Order ${orderData.orderNumber} Created Successfully`}
+          description={`${orderData.customerName} will receive an invitation to complete its order ${formatContactText(orderData.email, orderData.phone)}`}
+          variant="success"
+          position={getNotificationPosition()}
+          breakpoint={getNotificationBreakpoint()}
+          onDismiss={handleNotificationDismiss}
+          autoHide={true}
+          autoHideDelay={15000}
+          primaryAction={{
+            label: "View Order",
+            onClick: handleViewOrder,
+          }}
+          secondaryAction={{
+            label: "Dismiss",
+            onClick: handleNotificationDismiss,
+          }}
+        />
+      )}
+    </>
+  );
 }
