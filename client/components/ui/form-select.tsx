@@ -125,9 +125,10 @@ export default function FormSelect({
               : isOpen || isFocused
                 ? "2px solid #34479A"
                 : "1px solid #D5D7DA",
-            background: "#FFF",
+            background: disabled ? "#F9FAFB" : "#FFF",
             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-            cursor: "pointer",
+            cursor: disabled ? "not-allowed" : "pointer",
+            opacity: disabled ? 0.6 : 1,
             position: "relative",
           }}
           onClick={handleToggle}
