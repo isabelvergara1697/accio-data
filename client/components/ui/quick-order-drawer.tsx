@@ -546,7 +546,7 @@ export default function QuickOrderDrawer({
           bottom: 0,
           backgroundColor: "rgba(10, 13, 18, 0.5)",
           backdropFilter: "blur(4px)",
-          zIndex: 100000,
+          zIndex: 999999,
           transition: "opacity 0.3s ease",
         }}
         onClick={handleBackdropClick}
@@ -578,7 +578,7 @@ export default function QuickOrderDrawer({
               alignItems: "flex-start",
               justifyContent: "space-between",
               marginBottom: "0px",
-              paddingBottom: "24px",
+              paddingBottom: "0px",
             }}
           >
             <div
@@ -763,8 +763,6 @@ export default function QuickOrderDrawer({
                       <SimpleTooltip
                         content="Add Additional Contact"
                         position="top"
-                        align="start"
-                        sideOffset={4}
                       >
                         <button
                           type="button"
@@ -836,12 +834,7 @@ export default function QuickOrderDrawer({
                         style={{ flex: 1 }}
                       />
                       {index !== 0 && (
-                        <SimpleTooltip
-                          content="Remove"
-                          position="top"
-                          align="start"
-                          sideOffset={4}
-                        >
+                        <SimpleTooltip content="Remove" position="top">
                           <button
                             type="button"
                             onClick={() => removeContactField(contact.id)}
@@ -861,7 +854,7 @@ export default function QuickOrderDrawer({
                                 "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.background = "#FEF3F2";
+                              e.currentTarget.style.background = "#F5F5F5";
                             }}
                             onMouseLeave={(e) => {
                               e.currentTarget.style.background = "#FFF";
