@@ -200,11 +200,11 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             onClose={() => setQuickCreateOpen(false)}
             breakpoint={isMobile ? "mobile" : "tablet"}
             onOpenDrawer={() => {
-              setDrawerOpen(true);
+              if (onOpenQuickOrderDrawer) onOpenQuickOrderDrawer();
               setQuickCreateOpen(false);
             }}
             onOpenSSNDrawer={() => {
-              setSSNDrawerOpen(true);
+              if (onOpenSSNOrderDrawer) onOpenSSNOrderDrawer();
               setQuickCreateOpen(false);
             }}
           />
