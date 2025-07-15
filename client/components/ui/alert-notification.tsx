@@ -29,7 +29,7 @@ export default function AlertNotification({
   primaryAction,
   secondaryAction,
   autoHide = false,
-  autoHideDelay = 5000,
+  autoHideDelay = 15000,
 }: AlertNotificationProps) {
   const [isVisible, setIsVisible] = useState(true);
 
