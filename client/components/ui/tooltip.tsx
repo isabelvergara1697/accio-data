@@ -141,7 +141,7 @@ export function TooltipContent({
       style={{
         position: "absolute",
         ...getPosition(),
-        zIndex: 1000,
+        zIndex: 100000,
         whiteSpace: "nowrap",
       }}
     >
