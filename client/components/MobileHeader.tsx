@@ -403,6 +403,12 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       />
+
+      {/* Notification Modal */}
+      <NotificationModal
+        isOpen={notificationModalOpen}
+        onClose={() => setNotificationModalOpen(false)}
+      />
     </div>
   );
 };
