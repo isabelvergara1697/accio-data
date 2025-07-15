@@ -209,6 +209,7 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Notifications */}
         <button
+          onClick={() => setNotificationModalOpen(true)}
           style={{
             display: "flex",
             padding: "8px",
@@ -218,6 +219,12 @@ export const Header: React.FC<HeaderProps> = ({
             background: "transparent",
             border: "none",
             cursor: "pointer",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#F5F5F5";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
           }}
         >
           <svg
