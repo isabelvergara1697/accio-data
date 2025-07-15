@@ -830,9 +830,10 @@ export default function QuickOrderDrawer({
                             strokeLinecap="round"
                             strokeLinejoin="round"
                           />
-                        </svg>
-                      </button>
-                    </div>
+                                                </svg>
+                        </button>
+                        <span className="tooltip-text">Add Additional Contact</span>
+                      </div>
                   ) : (
                     <div
                       style={{
