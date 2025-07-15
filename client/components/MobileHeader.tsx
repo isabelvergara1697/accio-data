@@ -428,6 +428,10 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         onOrderSuccess={(orderData) => {
+          console.log(
+            "Mobile Quick Order success callback triggered:",
+            orderData,
+          );
           showOrderNotification({
             title: `Order ${orderData.orderNumber} Created Successfully`,
             description: `${orderData.customerName} will receive an invitation to complete its order ${formatContactText(orderData.email, orderData.phone)}`,
