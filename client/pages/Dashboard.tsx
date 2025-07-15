@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import AlertNotification from "../components/ui/alert-notification";
+import CustomizeDrawer from "../components/ui/customize-drawer";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
@@ -126,6 +127,7 @@ export default function Dashboard() {
   // Drawer states to coordinate with mobile menu
   const [quickOrderDrawerOpen, setQuickOrderDrawerOpen] = useState(false);
   const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
+  const [customizeDrawerOpen, setCustomizeDrawerOpen] = useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
 
   // Handle window resize for responsive behavior
@@ -184,6 +186,11 @@ export default function Dashboard() {
   const handleOpenSSNOrderDrawer = () => {
     setMobileMenuOpen(false);
     setSSNOrderDrawerOpen(true);
+  };
+
+  const handleOpenCustomizeDrawer = () => {
+    setMobileMenuOpen(false);
+    setCustomizeDrawerOpen(true);
   };
 
   const handleOpenNotificationModal = () => {
