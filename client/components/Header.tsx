@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { UserMenuDropdown } from "./UserMenuDropdown";
 import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 import QuickOrderDrawer from "./ui/quick-order-drawer";
+import NotificationModal from "./ui/notification-modal";
 
 interface HeaderProps {
   isDesktop: boolean;
