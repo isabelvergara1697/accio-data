@@ -911,7 +911,8 @@ export default function QuickOrderDrawer({
                 placeholder="Select user"
                 error={errors.user}
                 isFocused={focusedField === "user"}
-                options={userOptions}
+                options={getUserOptions()}
+                disabled={!formData.account}
               />
 
               {/* Submit Button */}
