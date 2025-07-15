@@ -437,35 +437,6 @@ export const Header: React.FC<HeaderProps> = ({
         isOpen={notificationModalOpen}
         onClose={() => setNotificationModalOpen(false)}
       />
-
-      {/* Order Success Notification */}
-      {orderNotification && (
-        <AlertNotification
-          title={`Order ${orderNotification.orderNumber} Created Successfully`}
-          description={
-            orderNotification.type === "ssn"
-              ? "Order submitted using SSN Trace. The user will be notified using the contact information retrieved."
-              : `${orderNotification.customerName} will receive an invitation to complete its order ${formatContactText(orderNotification.email, orderNotification.phone)}`
-          }
-          variant="success"
-          position={isDesktop ? "top" : "bottom"}
-          breakpoint={isDesktop ? "desktop" : "tablet"}
-          onDismiss={() => setOrderNotification(null)}
-          autoHide={true}
-          autoHideDelay={15000}
-          primaryAction={{
-            label: "View Order",
-            onClick: () => {
-              console.log("View order:", orderNotification.orderNumber);
-              setOrderNotification(null);
-            },
-          }}
-          secondaryAction={{
-            label: "Dismiss",
-            onClick: () => setOrderNotification(null),
-          }}
-        />
-      )}
     </div>
   );
 };
