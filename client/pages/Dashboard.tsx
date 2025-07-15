@@ -494,7 +494,7 @@ export default function Dashboard() {
           setUserMenuHovered={setUserMenuHovered}
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
-          showNotification={showNotification}
+          showNotification={showNotification || orderNotification?.show}
         />
 
         {/* Main Content */}
