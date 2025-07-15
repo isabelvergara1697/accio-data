@@ -540,11 +540,11 @@ export default function QuickOrderDrawer({
           position: relative;
         }
 
-                [data-tooltip]:hover::after {
+                        [data-tooltip]:hover::after {
           content: attr(data-tooltip);
           position: absolute;
           bottom: 125%;
-          left: 0;
+          right: 0;
           background: #0A0D12;
           color: #FFF;
           padding: 8px 12px;
