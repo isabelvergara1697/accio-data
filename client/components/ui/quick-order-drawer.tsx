@@ -530,9 +530,42 @@ export default function QuickOrderDrawer({
           .drawer-header {
             margin-bottom: 24px !important;
           }
-          .form-container {
+                    .form-container {
             gap: 24px !important;
           }
+        }
+
+        /* Custom Tooltip Styles */
+        .tooltip-container {
+          position: relative;
+          display: inline-block;
+        }
+
+        .tooltip-container .tooltip-text {
+          visibility: hidden;
+          opacity: 0;
+          position: absolute;
+          bottom: 125%;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #0A0D12;
+          color: #FFF;
+          text-align: center;
+          padding: 8px 12px;
+          border-radius: 8px;
+          font-family: 'Public Sans', -apple-system, Roboto, Helvetica, sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 18px;
+          white-space: nowrap;
+          z-index: 10003;
+          box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04);
+          transition: opacity 0.2s ease;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+          visibility: visible;
+          opacity: 1;
         }
       `}</style>
 
