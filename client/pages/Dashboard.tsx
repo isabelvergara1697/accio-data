@@ -480,26 +480,23 @@ export default function Dashboard() {
           minHeight: "100vh",
         }}
       >
-        {/* Mobile Menu Overlay */}
-        {mobileMenuOpen &&
-          !isDesktop &&
-          !quickOrderDrawerOpen &&
-          !ssnOrderDrawerOpen &&
-          !notificationModalOpen && (
-            <div
-              className="fixed inset-0 z-[9998]"
-              style={{
-                width: "100vw",
-                height: "100vh",
-                background: "rgba(10, 13, 18, 0.7)",
-                backdropFilter: "blur(8px)",
-                position: "fixed",
-                left: 0,
-                top: 0,
-              }}
-              onClick={() => setMobileMenuOpen(false)}
-            ></div>
-          )}
+        {/* Mobile Menu Overlay - Only show when mobile menu is open and no drawers are active */}
+        {mobileMenuOpen && !isDesktop && (
+          <div
+            className="fixed inset-0"
+            style={{
+              width: "100vw",
+              height: "100vh",
+              background: "rgba(10, 13, 18, 0.7)",
+              backdropFilter: "blur(8px)",
+              position: "fixed",
+              left: 0,
+              top: 0,
+              zIndex: 999,
+            }}
+            onClick={() => setMobileMenuOpen(false)}
+          ></div>
+        )}
 
         {/* Sidebar Navigation */}
         <Sidebar
