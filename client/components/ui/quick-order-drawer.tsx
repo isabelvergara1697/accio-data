@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import FormInput from "./form-input";
 import FormSelect, { SelectOption } from "./form-select";
-import { SimpleTooltip } from "./tooltip";
 
 export interface QuickOrderDrawerProps {
   isOpen: boolean;
