@@ -128,9 +128,9 @@ export default function QuickOrderDrawer({
       case "package":
         return !value ? "Please select a package." : "";
       case "account":
-        return !value ? "Please select an account." : "";
+        return "";
       case "user":
-        return !value ? "Please select a user." : "";
+        return "";
       default:
         return "";
     }
@@ -164,21 +164,14 @@ export default function QuickOrderDrawer({
 
     // Validate all required fields
     const newErrors: FormErrors = {};
-    (
-      [
-        "firstName",
-        "lastName",
-        "emailOrPhone",
-        "package",
-        "account",
-        "user",
-      ] as const
-    ).forEach((field) => {
-      const error = validateField(field, formData[field]);
-      if (error) {
-        newErrors[field] = error;
-      }
-    });
+    (["firstName", "lastName", "emailOrPhone", "package"] as const).forEach(
+      (field) => {
+        const error = validateField(field, formData[field]);
+        if (error) {
+          newErrors[field] = error;
+        }
+      },
+    );
 
     setErrors(newErrors);
 
@@ -527,7 +520,6 @@ export default function QuickOrderDrawer({
                 error={errors.account}
                 isFocused={focusedField === "account"}
                 options={accountOptions}
-                required
               />
 
               {/* User */}
@@ -541,7 +533,6 @@ export default function QuickOrderDrawer({
                 error={errors.user}
                 isFocused={focusedField === "user"}
                 options={userOptions}
-                required
               />
 
               {/* Submit Button */}
