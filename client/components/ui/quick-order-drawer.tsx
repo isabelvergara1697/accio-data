@@ -564,9 +564,7 @@ export default function QuickOrderDrawer({
     }
   }, [showNotification]);
 
-  if (!isOpen) return null;
-
-  const modalContent = (
+  const modalContent = !isOpen ? null : (
     <>
       <style>{`
                                 @media (max-width: 767px) {
