@@ -169,6 +169,8 @@ export interface SimpleTooltipProps {
   content: string;
   children: React.ReactNode;
   position?: "top" | "bottom" | "left" | "right";
+  align?: "start" | "center" | "end";
+  sideOffset?: number;
   className?: string;
 }
 
@@ -176,12 +178,16 @@ export function SimpleTooltip({
   content,
   children,
   position = "top",
+  align = "center",
+  sideOffset = 8,
   className = "",
 }: SimpleTooltipProps) {
   return (
     <Tooltip>
       <TooltipTrigger>{children}</TooltipTrigger>
-      <TooltipContent side={position}>{content}</TooltipContent>
+      <TooltipContent side={position} align={align} sideOffset={sideOffset}>
+        {content}
+      </TooltipContent>
     </Tooltip>
   );
 }
