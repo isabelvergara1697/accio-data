@@ -418,6 +418,7 @@ export const Header: React.FC<HeaderProps> = ({
         isOpen={ssnDrawerOpen}
         onClose={() => setSSNDrawerOpen(false)}
         onOrderSuccess={(orderNumber) => {
+          console.log("SSN Order success callback triggered:", orderNumber);
           showOrderNotification({
             title: `Order ${orderNumber} Created Successfully`,
             description:
