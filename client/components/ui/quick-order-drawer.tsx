@@ -539,6 +539,17 @@ export default function QuickOrderDrawer({
     handleDismissNotification();
   };
 
+  // Auto-dismiss notification after 10 seconds
+  useEffect(() => {
+    if (showNotification) {
+      const timer = setTimeout(() => {
+        handleDismissNotification();
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showNotification]);
+
   if (!isOpen) return null;
 
   const modalContent = (
