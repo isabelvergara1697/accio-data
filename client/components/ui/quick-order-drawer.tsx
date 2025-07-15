@@ -592,7 +592,7 @@ export default function QuickOrderDrawer({
                         required={contact.required}
                         style={{ flex: 1 }}
                       />
-                                            <SimpleTooltip content="Add Additional Contact">
+                      <SimpleTooltip content="Add Additional Contact">
                         <button
                           type="button"
                           onClick={addContactField}
@@ -633,7 +633,7 @@ export default function QuickOrderDrawer({
                             />
                           </svg>
                         </button>
-                      </Tooltip>
+                      </SimpleTooltip>
                     </div>
                   ) : (
                     <FormInput
