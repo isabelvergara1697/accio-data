@@ -1039,5 +1039,20 @@ export default function QuickOrderDrawer({
     </>
   );
 
-  return createPortal(modalContent, document.body);
+  return (
+    <>
+      {createPortal(modalContent, document.body)}
+      {orderData && (
+        <OrderSuccessNotification
+          isVisible={showNotification}
+          orderNumber={orderData.orderNumber}
+          customerName={orderData.customerName}
+          email={orderData.email}
+          phone={orderData.phone}
+          onDismiss={handleDismissNotification}
+          onViewOrder={handleViewOrder}
+        />
+      )}
+    </>
+  );
 }
