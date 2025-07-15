@@ -239,7 +239,7 @@ export default function QuickOrderDrawer({
           bottom: 0,
           backgroundColor: "rgba(10, 13, 18, 0.5)",
           backdropFilter: "blur(4px)",
-          zIndex: 9999,
+          zIndex: 10000,
           transition: "opacity 0.3s ease",
         }}
         onClick={handleBackdropClick}
