@@ -44,11 +44,17 @@ export const Header: React.FC<HeaderProps> = ({
   showMobileUserMenu = false,
   showNotification = false,
   onOrderNotification,
+  quickOrderDrawerOpen = false,
+  setQuickOrderDrawerOpen,
+  ssnOrderDrawerOpen = false,
+  setSSNOrderDrawerOpen,
+  notificationModalOpen = false,
+  setNotificationModalOpen,
+  onOpenQuickOrderDrawer,
+  onOpenSSNOrderDrawer,
+  onOpenNotificationModal,
 }) => {
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
-  const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const [ssnDrawerOpen, setSSNDrawerOpen] = React.useState(false);
-  const [notificationModalOpen, setNotificationModalOpen] = useState(false);
 
   if (!isDesktop) return null;
 
