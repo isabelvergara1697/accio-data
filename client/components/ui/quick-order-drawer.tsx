@@ -777,10 +777,10 @@ export default function QuickOrderDrawer({
                           height: "40px",
                           boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                         }}
-                        onMouseEnter={(e) => {
+                        onMouseOver={(e) => {
                           e.currentTarget.style.background = "#F5F5F5";
                         }}
-                        onMouseLeave={(e) => {
+                        onMouseOut={(e) => {
                           e.currentTarget.style.background = "#FFF";
                         }}
                       >
