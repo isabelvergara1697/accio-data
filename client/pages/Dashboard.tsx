@@ -208,7 +208,7 @@ export default function Dashboard() {
         display: "flex",
         minHeight: "36px",
         padding: "6px 8px",
-        justifyContent: "center",
+        justifyContent: isMobile ? "flex-end" : "center",
         alignItems: "center",
         gap: "4px",
         borderRadius: "8px",
