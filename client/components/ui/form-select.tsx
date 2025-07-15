@@ -34,6 +34,7 @@ export default function FormSelect({
   required,
   style,
   className,
+  disabled = false,
 }: FormSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
