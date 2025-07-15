@@ -4,7 +4,7 @@ import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 import QuickOrderDrawer from "./ui/quick-order-drawer";
 import SSNOrderDrawer from "./ui/ssn-order-drawer";
 import NotificationModal from "./ui/notification-modal";
-import AlertNotification from "./ui/alert-notification";
+import { useNotification } from "./ui/notification-provider";
 import { formatContactText } from "../lib/order-utils";
 
 interface HeaderProps {
