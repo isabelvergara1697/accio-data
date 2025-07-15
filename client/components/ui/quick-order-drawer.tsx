@@ -577,8 +577,7 @@ export default function QuickOrderDrawer({
               display: "flex",
               alignItems: "flex-start",
               justifyContent: "space-between",
-              marginBottom: "0px",
-              paddingBottom: "0px",
+              marginBottom: "24px",
             }}
           >
             <div
