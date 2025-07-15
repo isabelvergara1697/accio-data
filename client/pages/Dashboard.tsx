@@ -540,6 +540,12 @@ export default function Dashboard() {
             handleSignOut={handleSignOut}
             getUserMenuStyles={getUserMenuStyles}
             showMobileUserMenu={showMobileUserMenu}
+            onOrderNotification={(notification) => {
+              setOrderNotification({
+                show: true,
+                ...notification,
+              });
+            }}
           />
 
           {/* Main Content Area */}
