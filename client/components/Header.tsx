@@ -34,13 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [ssnDrawerOpen, setSSNDrawerOpen] = React.useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
-  const [orderNotification, setOrderNotification] = useState<{
-    type: "quick" | "ssn";
-    orderNumber: string;
-    customerName?: string;
-    email?: string;
-    phone?: string;
-  } | null>(null);
+  const { showNotification } = useNotification();
 
   if (!isDesktop) return null;
 
