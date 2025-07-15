@@ -60,6 +60,7 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
 
   const showNotification = useCallback(
     (notification: Omit<NotificationData, "id">) => {
+      console.log("showNotification called:", notification);
       const id = `notification-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
       const newNotification: NotificationData = {
         id,
@@ -68,11 +69,16 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
         autoHideDelay: notification.autoHideDelay ?? 15000,
       };
 
-      setNotifications((prev) => [newNotification, ...prev]);
+      console.log("Adding notification:", newNotification);
+      setNotifications((prev) => {
+        console.log("Previous notifications:", prev);
+        return [newNotification, ...prev];
+      });
 
       // Auto-hide if enabled
       if (newNotification.autoHide) {
         setTimeout(() => {
+          console.log("Auto-hiding notification:", id);
           setNotifications((prev) => prev.filter((n) => n.id !== id));
         }, newNotification.autoHideDelay);
       }
