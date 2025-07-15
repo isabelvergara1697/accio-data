@@ -226,11 +226,11 @@ export const Header: React.FC<HeaderProps> = ({
             onClose={() => setQuickCreateOpen(false)}
             breakpoint="desktop"
             onOpenDrawer={() => {
-              setDrawerOpen(true);
+              if (onOpenQuickOrderDrawer) onOpenQuickOrderDrawer();
               setQuickCreateOpen(false);
             }}
             onOpenSSNDrawer={() => {
-              setSSNDrawerOpen(true);
+              if (onOpenSSNOrderDrawer) onOpenSSNOrderDrawer();
               setQuickCreateOpen(false);
             }}
           />
