@@ -9,6 +9,7 @@ interface QuickCreateDropdownProps {
     left: number;
   };
   onOpenDrawer?: () => void;
+  onOpenSSNDrawer?: () => void;
 }
 
 interface DropdownItem {
@@ -18,7 +19,10 @@ interface DropdownItem {
   onClick: () => void;
 }
 
-const createDropdownItems = (onOpenDrawer?: () => void): DropdownItem[] => [
+const createDropdownItems = (
+  onOpenDrawer?: () => void,
+  onOpenSSNDrawer?: () => void,
+): DropdownItem[] => [
   {
     id: "order",
     label: "Order",
@@ -70,7 +74,11 @@ const createDropdownItems = (onOpenDrawer?: () => void): DropdownItem[] => [
       </svg>
     ),
     onClick: () => {
-      console.log("Order by SSN clicked");
+      if (onOpenSSNDrawer) {
+        onOpenSSNDrawer();
+      } else {
+        console.log("Order by SSN clicked");
+      }
     },
   },
 ];
@@ -81,9 +89,10 @@ export const QuickCreateDropdown: React.FC<QuickCreateDropdownProps> = ({
   breakpoint,
   position,
   onOpenDrawer,
+  onOpenSSNDrawer,
 }) => {
   const [hoveredItem, setHoveredItem] = React.useState<string | null>(null);
-  const dropdownItems = createDropdownItems(onOpenDrawer);
+  const dropdownItems = createDropdownItems(onOpenDrawer, onOpenSSNDrawer);
 
   React.useEffect(() => {
     if (isOpen) {
