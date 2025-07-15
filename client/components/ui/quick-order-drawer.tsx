@@ -212,11 +212,19 @@ export default function QuickOrderDrawer({
           }
         }
         
+                @media (max-width: 991px) {
+          .drawer-container {
+            padding: 24px !important;
+          }
+          .drawer-header {
+            margin-bottom: 24px !important;
+          }
+        }
+
         @media (min-width: 768px) and (max-width: 1023px) {
           .drawer-container {
             width: 400px !important;
             right: 0 !important;
-            padding: 32px !important;
           }
         }
         
