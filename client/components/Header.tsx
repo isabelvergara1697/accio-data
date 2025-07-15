@@ -34,7 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [ssnDrawerOpen, setSSNDrawerOpen] = React.useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
-  const { showNotification } = useNotification();
+  const { showNotification: showOrderNotification } = useNotification();
 
   if (!isDesktop) return null;
 
