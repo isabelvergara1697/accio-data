@@ -838,7 +838,7 @@ export default function QuickOrderDrawer({
                       {index !== 0 && (
                         <SimpleTooltip
                           content="Remove"
-                          side="top"
+                          position="top"
                           align="start"
                           sideOffset={4}
                         >
