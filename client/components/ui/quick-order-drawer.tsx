@@ -516,15 +516,12 @@ export default function QuickOrderDrawer({
         phone,
       });
 
-      // Show notification first, then close drawer
+      // Show notification and close drawer
       console.log("Setting showNotification to true...");
       setShowNotification(true);
 
-      // Close drawer after a brief delay to ensure state is set
-      setTimeout(() => {
-        console.log("Closing drawer...");
-        onClose();
-      }, 100);
+      console.log("Closing drawer...");
+      onClose();
 
       console.log("Order created:", {
         orderNumber,
