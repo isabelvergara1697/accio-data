@@ -46,18 +46,16 @@ const dashboardStyles = `
   }
 
   /* Dashboard action buttons hover states */
-  .dashboard-button {
-    transition: all 0.2s ease-in-out;
+    .dashboard-button {
+    transition: background-color 0.2s ease-in-out;
   }
 
   .dashboard-button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -4px 6px 0px rgba(10, 13, 18, 0.1) inset, 0px 2px 4px 0px rgba(10, 13, 18, 0.1);
+    background-color: #F9FAFB;
   }
 
   .dashboard-button:active {
-    transform: translateY(0);
-    box-shadow: 0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -1px 2px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+    background-color: #F2F4F7;
   }
 
   .dashboard-dropdown {
