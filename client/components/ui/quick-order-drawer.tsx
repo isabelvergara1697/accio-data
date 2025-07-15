@@ -562,67 +562,101 @@ export default function QuickOrderDrawer({
                 required
               />
 
-              {/* Email or Phone */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "8px",
-                }}
-              >
-                <FormInput
-                  label="Email or Phone Number"
-                  type="text"
-                  value={formData.emailOrPhone}
-                  onChange={handleInputChange("emailOrPhone")}
-                  onFocus={() => setFocusedField("emailOrPhone")}
-                  onBlur={() => setFocusedField(null)}
-                  placeholder="Enter email or phone number"
-                  error={errors.emailOrPhone}
-                  isFocused={focusedField === "emailOrPhone"}
-                  required
-                  style={{ flex: 1 }}
-                />
-                <button
-                  type="button"
-                  style={{
-                    marginTop: "26px", // Account for label height (20px) + gap (6px)
-                    padding: "10px 14px",
-                    border: "1px solid #D5D7DA",
-                    borderRadius: "8px",
-                    background: "#FFF",
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    minWidth: "44px",
-                    height: "44px",
-                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#F5F5F5";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#FFF";
-                  }}
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8 3.33325V12.6666M3.33333 7.99992H12.6667"
-                      stroke="#667085"
-                      strokeWidth="1.33"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+              {/* Contact Fields */}
+              {formData.contacts.map((contact, index) => (
+                <div key={contact.id}>
+                  {index === formData.contacts.length - 1 ? (
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                      }}
+                    >
+                      <FormInput
+                        label={contact.label}
+                        type="text"
+                        value={contact.value}
+                        onChange={(e) =>
+                          updateContactField(contact.id, e.target.value)
+                        }
+                        onFocus={() => setFocusedField(contact.id)}
+                        onBlur={() => setFocusedField(null)}
+                        placeholder={
+                          contact.type === "email"
+                            ? "Enter email address"
+                            : "e.g. 123-456-7890"
+                        }
+                        error={errors.contacts?.[contact.id]}
+                        isFocused={focusedField === contact.id}
+                        required={contact.required}
+                        style={{ flex: 1 }}
+                      />
+                      <Tooltip content="Add Additional Contact">
+                        <button
+                          type="button"
+                          onClick={addContactField}
+                          style={{
+                            marginTop: "26px", // Account for label height (20px) + gap (6px)
+                            padding: "10px 14px",
+                            border: "1px solid #D5D7DA",
+                            borderRadius: "8px",
+                            background: "#FFF",
+                            cursor: "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            minWidth: "44px",
+                            height: "44px",
+                            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "#F5F5F5";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "#FFF";
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8 3.33325V12.6666M3.33333 7.99992H12.6667"
+                              stroke="#667085"
+                              strokeWidth="1.33"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </Tooltip>
+                    </div>
+                  ) : (
+                    <FormInput
+                      label={contact.label}
+                      type="text"
+                      value={contact.value}
+                      onChange={(e) =>
+                        updateContactField(contact.id, e.target.value)
+                      }
+                      onFocus={() => setFocusedField(contact.id)}
+                      onBlur={() => setFocusedField(null)}
+                      placeholder={
+                        contact.type === "email"
+                          ? "Enter email address"
+                          : "e.g. 123-456-7890"
+                      }
+                      error={errors.contacts?.[contact.id]}
+                      isFocused={focusedField === contact.id}
+                      required={contact.required}
                     />
-                  </svg>
-                </button>
-              </div>
+                  )}
+                </div>
+              ))}
 
               {/* Package */}
               <FormSelect
