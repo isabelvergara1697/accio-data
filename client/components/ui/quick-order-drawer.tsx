@@ -289,14 +289,25 @@ export default function QuickOrderDrawer({
 
     // Validate all required fields
     const newErrors: FormErrors = {};
-    (["firstName", "lastName", "emailOrPhone", "package"] as const).forEach(
-      (field) => {
-        const error = validateField(field, formData[field]);
-        if (error) {
-          newErrors[field] = error;
-        }
-      },
-    );
+    (["firstName", "lastName", "package"] as const).forEach((field) => {
+      const error = validateField(field, formData[field]);
+      if (error) {
+        newErrors[field] = error;
+      }
+    });
+
+    // Validate contacts
+    const contactErrors: { [key: string]: string } = {};
+    formData.contacts.forEach((contact) => {
+      const error = validateContact(contact);
+      if (error) {
+        contactErrors[contact.id] = error;
+      }
+    });
+
+    if (Object.keys(contactErrors).length > 0) {
+      newErrors.contacts = contactErrors;
+    }
 
     setErrors(newErrors);
 
