@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import FormInput from "./form-input";
 import FormSelect, { SelectOption } from "./form-select";
-import { toast } from "sonner";
+import AlertNotification from "./alert-notification";
 import { generateOrderNumber } from "../../lib/order-utils";
 
 export interface SSNOrderDrawerProps {
@@ -97,6 +97,8 @@ export default function SSNOrderDrawer({
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const [orderNumber, setOrderNumber] = useState<string>("");
 
   // Reset form when drawer closes
   useEffect(() => {
@@ -214,26 +216,15 @@ export default function SSNOrderDrawer({
     // If no errors, submit form
     if (Object.keys(newErrors).length === 0) {
       // Generate order number
-      const orderNumber = generateOrderNumber();
+      const newOrderNumber = generateOrderNumber();
+      setOrderNumber(newOrderNumber);
 
-      // Show success toast
-      toast.success(`Order ${orderNumber} Created Successfully`, {
-        description:
-          "Order submitted using SSN Trace. The user will be notified using the contact information retrieved.",
-        action: {
-          label: "View Order",
-          onClick: () => {
-            console.log("View order:", orderNumber);
-            // Here you would navigate to the order details page
-          },
-        },
-      });
-
-      // Close drawer
+      // Show notification and close drawer
+      setShowNotification(true);
       onClose();
 
       console.log("SSN Order created:", {
-        orderNumber,
+        orderNumber: newOrderNumber,
         formData,
       });
     }
@@ -533,5 +524,50 @@ export default function SSNOrderDrawer({
     </>
   );
 
-  return <>{modalContent && createPortal(modalContent, document.body)}</>;
+  const handleNotificationDismiss = () => {
+    setShowNotification(false);
+  };
+
+  const handleViewOrder = () => {
+    console.log("View order:", orderNumber);
+    // Here you would navigate to the order details page
+    handleNotificationDismiss();
+  };
+
+  const getNotificationPosition = () => {
+    // Desktop: top, Tablet and Mobile: bottom
+    return isDesktop ? "top" : "bottom";
+  };
+
+  const getNotificationBreakpoint = () => {
+    if (isDesktop) return "desktop";
+    if (window.innerWidth < 768) return "mobile";
+    return "tablet";
+  };
+
+  return (
+    <>
+      {modalContent && createPortal(modalContent, document.body)}
+      {showNotification && (
+        <AlertNotification
+          title={`Order ${orderNumber} Created Successfully`}
+          description="Order submitted using SSN Trace. The user will be notified using the contact information retrieved."
+          variant="success"
+          position={getNotificationPosition()}
+          breakpoint={getNotificationBreakpoint()}
+          onDismiss={handleNotificationDismiss}
+          autoHide={true}
+          autoHideDelay={15000}
+          primaryAction={{
+            label: "View Order",
+            onClick: handleViewOrder,
+          }}
+          secondaryAction={{
+            label: "Dismiss",
+            onClick: handleNotificationDismiss,
+          }}
+        />
+      )}
+    </>
+  );
 }
