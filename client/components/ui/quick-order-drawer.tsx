@@ -326,6 +326,26 @@ export default function QuickOrderDrawer({
     }));
   };
 
+  // Helper function to remove a contact field
+  const removeContactField = (id: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      contacts: prev.contacts.filter((contact) => contact.id !== id),
+    }));
+
+    // Clear error for removed field
+    if (errors.contacts?.[id]) {
+      setErrors((prev) => {
+        const newContacts = { ...prev.contacts };
+        delete newContacts[id];
+        return {
+          ...prev,
+          contacts: newContacts,
+        };
+      });
+    }
+  };
+
   // Helper function to update contact field
   const updateContactField = (id: string, value: string) => {
     setFormData((prev) => ({
