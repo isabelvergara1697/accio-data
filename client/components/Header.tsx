@@ -46,32 +46,8 @@ export const Header: React.FC<HeaderProps> = ({
   const getNotificationPosition = () => "top";
   const getNotificationBreakpoint = () => "desktop";
 
-  return (
-    <>
-      {/* Order Success Notification */}
-      {orderNotification?.show && (
-        <AlertNotification
-          title={orderNotification.title}
-          description={orderNotification.description}
-          variant="success"
-          position={getNotificationPosition()}
-          breakpoint={getNotificationBreakpoint()}
-          onDismiss={() => setOrderNotification(null)}
-          primaryAction={{
-            label: "View Order",
-            onClick: () => {
-              console.log("View order:", orderNotification.orderNumber);
-              setOrderNotification(null);
-            },
-          }}
-          secondaryAction={{
-            label: "Dismiss",
-            onClick: () => setOrderNotification(null),
-          }}
-        />
-      )}
-
-      <div
+    return (
+    <div
         style={{
           position: "fixed",
           top: showNotification ? "60px" : 0,
