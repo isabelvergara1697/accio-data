@@ -1064,15 +1064,23 @@ export default function QuickOrderDrawer({
   return (
     <>
       {modalContent && createPortal(modalContent, document.body)}
-      {orderData && (
-        <OrderSuccessNotification
-          isVisible={showNotification}
-          orderNumber={orderData.orderNumber}
-          customerName={orderData.customerName}
-          email={orderData.email}
-          phone={orderData.phone}
+      {orderData && showNotification && (
+        <UniversalNotification
+          title={`Order ${orderData.orderNumber} Created Successfully`}
+          description={`${orderData.customerName} will receive an invitation to complete its order to ${extractContactInfo(orderData.email, orderData.phone)}`}
+          variant="success"
+          isDesktop={isDesktop}
+          primaryAction={{
+            label: "View Order",
+            onClick: handleViewOrder,
+          }}
+          secondaryAction={{
+            label: "Dismiss",
+            onClick: handleDismissNotification,
+          }}
           onDismiss={handleDismissNotification}
-          onViewOrder={handleViewOrder}
+          autoHide={true}
+          autoHideDelay={10000}
         />
       )}
     </>
