@@ -373,6 +373,12 @@ export const Header: React.FC<HeaderProps> = ({
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       />
+
+      {/* Notification Modal */}
+      <NotificationModal
+        isOpen={notificationModalOpen}
+        onClose={() => setNotificationModalOpen(false)}
+      />
     </div>
   );
 };
