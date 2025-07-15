@@ -21,6 +21,16 @@ interface HeaderProps {
     description: string;
     orderNumber?: string;
   }) => void;
+  // Drawer control props
+  quickOrderDrawerOpen?: boolean;
+  setQuickOrderDrawerOpen?: (open: boolean) => void;
+  ssnOrderDrawerOpen?: boolean;
+  setSSNOrderDrawerOpen?: (open: boolean) => void;
+  notificationModalOpen?: boolean;
+  setNotificationModalOpen?: (open: boolean) => void;
+  onOpenQuickOrderDrawer?: () => void;
+  onOpenSSNOrderDrawer?: () => void;
+  onOpenNotificationModal?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
