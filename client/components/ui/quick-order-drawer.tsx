@@ -7,11 +7,19 @@ export interface QuickOrderDrawerProps {
   onClose: () => void;
 }
 
+interface ContactField {
+  id: string;
+  type: "email" | "phone";
+  label: string;
+  value: string;
+  required: boolean;
+}
+
 interface FormData {
   firstName: string;
   middleName: string;
   lastName: string;
-  emailOrPhone: string;
+  contacts: ContactField[];
   package: string;
   account: string;
   user: string;
@@ -20,7 +28,7 @@ interface FormData {
 interface FormErrors {
   firstName?: string;
   lastName?: string;
-  emailOrPhone?: string;
+  contacts?: { [key: string]: string };
   package?: string;
   account?: string;
   user?: string;
