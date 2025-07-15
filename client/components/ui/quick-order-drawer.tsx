@@ -754,9 +754,9 @@ export default function QuickOrderDrawer({
                           onClick={addContactField}
                           style={{
                             marginTop: "26px", // Account for label height (20px) + gap (6px)
-                            padding: "10px 14px",
+                            padding: "8px",
                             border: "1px solid #D5D7DA",
-                            borderRadius: "8px",
+                            borderRadius: "6px",
                             background: "#FFF",
                             cursor: "pointer",
                             display: "flex",
