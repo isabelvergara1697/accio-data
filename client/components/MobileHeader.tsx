@@ -31,6 +31,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
 }) => {
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [notificationModalOpen, setNotificationModalOpen] = useState(false);
 
   if (isDesktop) return null;
 
