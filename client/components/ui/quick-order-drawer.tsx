@@ -497,6 +497,15 @@ export default function QuickOrderDrawer({
                 required
               />
 
+              {/* Divider */}
+              <div
+                style={{
+                  height: "1px",
+                  background: "#E9EAEB",
+                  margin: "4px 0",
+                }}
+              />
+
               {/* Account */}
               <FormSelect
                 label="Account"
