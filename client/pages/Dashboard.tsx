@@ -305,7 +305,7 @@ export default function Dashboard() {
           style={{
             display: "flex",
             padding: "0px 2px",
-            justifyContent: "center",
+            justifyContent: isMobile ? "flex-start" : "center",
             alignItems: "center",
             ...(isMobile ? { flex: "1 0 0" } : {}),
           }}
@@ -317,7 +317,7 @@ export default function Dashboard() {
               fontSize: "14px",
               fontWeight: "600",
               lineHeight: "20px",
-              ...(isMobile ? { flex: "1 0 0" } : {}),
+              textAlign: isMobile ? "left" : "center",
             }}
           >
             Default
