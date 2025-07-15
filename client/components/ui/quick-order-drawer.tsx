@@ -455,7 +455,7 @@ export default function QuickOrderDrawer({
               <div
                 style={{
                   display: "flex",
-                  alignItems: "flex-end",
+                  alignItems: "flex-start",
                   gap: "8px",
                 }}
               >
@@ -475,6 +475,7 @@ export default function QuickOrderDrawer({
                 <button
                   type="button"
                   style={{
+                    marginTop: "26px", // Account for label height (20px) + gap (6px)
                     padding: "10px 14px",
                     border: "1px solid #D5D7DA",
                     borderRadius: "8px",
