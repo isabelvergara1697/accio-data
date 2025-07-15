@@ -491,9 +491,34 @@ export default function QuickOrderDrawer({
 
     // If no errors, submit form
     if (Object.keys(newErrors).length === 0) {
-      console.log("Form submitted:", formData);
-      // Here you would typically send the data to your API
+      // Generate order number and prepare data
+      const orderNumber = generateOrderNumber();
+      const customerName = formatFullName(
+        formData.firstName,
+        formData.middleName,
+        formData.lastName,
+      );
+      const { email, phone } = extractContactInfo(formData.contacts);
+
+      // Set notification data
+      setOrderData({
+        orderNumber,
+        customerName,
+        email,
+        phone,
+      });
+
+      // Close drawer and show notification
       onClose();
+      setShowNotification(true);
+
+      console.log("Order created:", {
+        orderNumber,
+        customerName,
+        email,
+        phone,
+        formData,
+      });
     }
   };
 
