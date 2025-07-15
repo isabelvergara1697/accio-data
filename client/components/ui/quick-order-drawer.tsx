@@ -792,31 +792,30 @@ export default function QuickOrderDrawer({
                         required={contact.required}
                         style={{ flex: 1 }}
                       />
-                      <button
-                        type="button"
-                        onClick={addContactField}
-                        title="Add Additional Contact"
-                        style={{
-                          marginTop: "26px", // Account for label height (20px) + gap (6px)
-                          padding: "8px",
-                          border: "1px solid #D5D7DA",
-                          borderRadius: "6px",
-                          background: "#FFF",
-                          cursor: "pointer",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          minWidth: "40px",
-                          height: "40px",
-                          boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                        }}
-                        onMouseOver={(e) => {
-                          e.currentTarget.style.background = "#F5F5F5";
-                        }}
-                        onMouseOut={(e) => {
-                          e.currentTarget.style.background = "#FFF";
-                        }}
-                      >
+                                            <div className="tooltip-container" style={{ marginTop: "26px" }}>
+                        <button
+                          type="button"
+                          onClick={addContactField}
+                          style={{
+                            padding: "8px",
+                            border: "1px solid #D5D7DA",
+                            borderRadius: "6px",
+                            background: "#FFF",
+                            cursor: "pointer",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            minWidth: "40px",
+                            height: "40px",
+                            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                          }}
+                          onMouseOver={(e) => {
+                            e.currentTarget.style.background = "#F5F5F5";
+                          }}
+                          onMouseOut={(e) => {
+                            e.currentTarget.style.background = "#FFF";
+                          }}
+                        >
                         <svg
                           width="16"
                           height="16"
