@@ -509,11 +509,17 @@ export default function QuickOrderDrawer({
           }
         }
         
-                @media (min-width: 992px) {
+                                @media (min-width: 992px) {
           .drawer-container {
             width: 440px !important;
             right: 0 !important;
-            padding: 40px !important;
+            padding: 24px !important;
+          }
+          .drawer-header {
+            margin-bottom: 24px !important;
+          }
+          .form-container {
+            gap: 24px !important;
           }
         }
       `}</style>
