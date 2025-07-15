@@ -231,6 +231,7 @@ export default function Dashboard() {
   const renderCustomizeButton = () => (
     <button
       className="dashboard-button"
+      onClick={handleOpenCustomizeDrawer}
       style={{
         display: "flex",
         minHeight: "36px",
@@ -950,6 +951,12 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      {/* Customize Drawer */}
+      <CustomizeDrawer
+        isOpen={customizeDrawerOpen}
+        onClose={() => setCustomizeDrawerOpen(false)}
+      />
     </>
   );
 }
