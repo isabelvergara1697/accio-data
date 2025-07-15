@@ -47,6 +47,7 @@ export default function FormSelect({
   };
 
   const handleToggle = () => {
+    if (disabled) return;
     if (!isOpen) {
       setSearchTerm("");
     }
