@@ -760,10 +760,13 @@ export default function QuickOrderDrawer({
                         required={contact.required}
                         style={{ flex: 1 }}
                       />
-                                              <button
+                      <SimpleTooltip
+                        content="Add Additional Contact"
+                        position="top"
+                      >
+                        <button
                           type="button"
                           onClick={addContactField}
-                          title="Add Additional Contact"
                           style={{
                             marginTop: "26px", // Account for label height (20px) + gap (6px)
                             padding: "8px",
@@ -962,7 +965,7 @@ export default function QuickOrderDrawer({
               </button>
             </div>
           </form>
-                </div>
+        </div>
       </div>
     </>
   );
