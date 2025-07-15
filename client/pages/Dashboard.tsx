@@ -208,7 +208,7 @@ export default function Dashboard() {
         display: "flex",
         minHeight: "36px",
         padding: "6px 8px",
-        justifyContent: isMobile ? "flex-end" : "center",
+        justifyContent: isMobile ? "flex-start" : "center",
         alignItems: "center",
         gap: "4px",
         borderRadius: "8px",
@@ -217,10 +217,6 @@ export default function Dashboard() {
         boxShadow:
           "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
         cursor: "pointer",
-        "@media (max-width: 640px)": {
-          justifyContent: "flex-start",
-          alignItems: "center",
-        },
         ...(isMobile ? { alignSelf: "stretch" } : {}),
       }}
     >
