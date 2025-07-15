@@ -530,42 +530,9 @@ export default function QuickOrderDrawer({
           .drawer-header {
             margin-bottom: 24px !important;
           }
-                    .form-container {
+          .form-container {
             gap: 24px !important;
           }
-        }
-
-        /* Custom Tooltip Styles */
-        .tooltip-container {
-          position: relative;
-          display: inline-block;
-        }
-
-        .tooltip-container .tooltip-text {
-          visibility: hidden;
-          opacity: 0;
-          position: absolute;
-          bottom: 125%;
-          left: 50%;
-          transform: translateX(-50%);
-          background-color: #0A0D12;
-          color: #FFF;
-          text-align: center;
-          padding: 8px 12px;
-          border-radius: 8px;
-          font-family: 'Public Sans', -apple-system, Roboto, Helvetica, sans-serif;
-          font-size: 12px;
-          font-weight: 600;
-          line-height: 18px;
-          white-space: nowrap;
-          z-index: 10003;
-          box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04);
-          transition: opacity 0.2s ease;
-        }
-
-        .tooltip-container:hover .tooltip-text {
-          visibility: visible;
-          opacity: 1;
         }
       `}</style>
 
@@ -792,30 +759,31 @@ export default function QuickOrderDrawer({
                         required={contact.required}
                         style={{ flex: 1 }}
                       />
-                                            <div className="tooltip-container" style={{ marginTop: "26px" }}>
-                        <button
-                          type="button"
-                          onClick={addContactField}
-                          style={{
-                            padding: "8px",
-                            border: "1px solid #D5D7DA",
-                            borderRadius: "6px",
-                            background: "#FFF",
-                            cursor: "pointer",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            minWidth: "40px",
-                            height: "40px",
-                            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                          }}
-                          onMouseOver={(e) => {
-                            e.currentTarget.style.background = "#F5F5F5";
-                          }}
-                          onMouseOut={(e) => {
-                            e.currentTarget.style.background = "#FFF";
-                          }}
-                        >
+                      <button
+                        type="button"
+                        onClick={addContactField}
+                        title="Add Additional Contact"
+                        style={{
+                          marginTop: "26px", // Account for label height (20px) + gap (6px)
+                          padding: "8px",
+                          border: "1px solid #D5D7DA",
+                          borderRadius: "6px",
+                          background: "#FFF",
+                          cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          minWidth: "40px",
+                          height: "40px",
+                          boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "#F5F5F5";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "#FFF";
+                        }}
+                      >
                         <svg
                           width="16"
                           height="16"
@@ -830,10 +798,9 @@ export default function QuickOrderDrawer({
                             strokeLinecap="round"
                             strokeLinejoin="round"
                           />
-                                                </svg>
-                        </button>
-                        <span className="tooltip-text">Add Additional Contact</span>
-                      </div>
+                        </svg>
+                      </button>
+                    </div>
                   ) : (
                     <div
                       style={{
@@ -880,10 +847,10 @@ export default function QuickOrderDrawer({
                             height: "40px",
                             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                           }}
-                          onMouseOver={(e) => {
+                          onMouseEnter={(e) => {
                             e.currentTarget.style.background = "#F5F5F5";
                           }}
-                          onMouseOut={(e) => {
+                          onMouseLeave={(e) => {
                             e.currentTarget.style.background = "#FFF";
                           }}
                         >
