@@ -74,7 +74,7 @@ export default function FormInput({
           >
             {label}
             {required && (
-              <span style={{ color: "#F04438", marginLeft: "2px" }}>*</span>
+              <span style={{ color: "#344698", marginLeft: "2px" }}>*</span>
             )}
           </div>
         </div>
