@@ -417,8 +417,10 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Quick Order Drawer */}
       <QuickOrderDrawer
-        isOpen={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
+        isOpen={quickOrderDrawerOpen}
+        onClose={() =>
+          setQuickOrderDrawerOpen && setQuickOrderDrawerOpen(false)
+        }
         onOrderSuccess={(orderData) => {
           console.log("Quick Order success callback triggered:", orderData);
           if (onOrderNotification) {
@@ -433,8 +435,8 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* SSN Order Drawer */}
       <SSNOrderDrawer
-        isOpen={ssnDrawerOpen}
-        onClose={() => setSSNDrawerOpen(false)}
+        isOpen={ssnOrderDrawerOpen}
+        onClose={() => setSSNOrderDrawerOpen && setSSNOrderDrawerOpen(false)}
         onOrderSuccess={(orderNumber) => {
           console.log("SSN Order success callback triggered:", orderNumber);
           if (onOrderNotification) {
@@ -451,7 +453,9 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Notification Modal */}
       <NotificationModal
         isOpen={notificationModalOpen}
-        onClose={() => setNotificationModalOpen(false)}
+        onClose={() =>
+          setNotificationModalOpen && setNotificationModalOpen(false)
+        }
       />
     </div>
   );
