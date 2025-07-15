@@ -577,6 +577,15 @@ export default function Dashboard() {
                 ...notification,
               });
             }}
+            quickOrderDrawerOpen={quickOrderDrawerOpen}
+            setQuickOrderDrawerOpen={setQuickOrderDrawerOpen}
+            ssnOrderDrawerOpen={ssnOrderDrawerOpen}
+            setSSNOrderDrawerOpen={setSSNOrderDrawerOpen}
+            notificationModalOpen={notificationModalOpen}
+            setNotificationModalOpen={setNotificationModalOpen}
+            onOpenQuickOrderDrawer={handleOpenQuickOrderDrawer}
+            onOpenSSNOrderDrawer={handleOpenSSNOrderDrawer}
+            onOpenNotificationModal={handleOpenNotificationModal}
           />
 
           {/* Main Content Area */}
