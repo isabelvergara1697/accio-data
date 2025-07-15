@@ -4,6 +4,8 @@ import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 import QuickOrderDrawer from "./ui/quick-order-drawer";
 import SSNOrderDrawer from "./ui/ssn-order-drawer";
 import NotificationModal from "./ui/notification-modal";
+import AlertNotification from "./ui/alert-notification";
+import { formatContactText } from "../lib/order-utils";
 
 interface HeaderProps {
   isDesktop: boolean;
@@ -32,6 +34,13 @@ export const Header: React.FC<HeaderProps> = ({
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [ssnDrawerOpen, setSSNDrawerOpen] = React.useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
+  const [orderNotification, setOrderNotification] = useState<{
+    type: "quick" | "ssn";
+    orderNumber: string;
+    customerName?: string;
+    email?: string;
+    phone?: string;
+  } | null>(null);
 
   if (!isDesktop) return null;
 
@@ -394,12 +403,27 @@ export const Header: React.FC<HeaderProps> = ({
       <QuickOrderDrawer
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
+        onOrderSuccess={(orderData) => {
+          setOrderNotification({
+            type: "quick",
+            orderNumber: orderData.orderNumber,
+            customerName: orderData.customerName,
+            email: orderData.email,
+            phone: orderData.phone,
+          });
+        }}
       />
 
       {/* SSN Order Drawer */}
       <SSNOrderDrawer
         isOpen={ssnDrawerOpen}
         onClose={() => setSSNDrawerOpen(false)}
+        onOrderSuccess={(orderNumber) => {
+          setOrderNotification({
+            type: "ssn",
+            orderNumber,
+          });
+        }}
       />
 
       {/* Notification Modal */}
@@ -407,6 +431,35 @@ export const Header: React.FC<HeaderProps> = ({
         isOpen={notificationModalOpen}
         onClose={() => setNotificationModalOpen(false)}
       />
+
+      {/* Order Success Notification */}
+      {orderNotification && (
+        <AlertNotification
+          title={`Order ${orderNotification.orderNumber} Created Successfully`}
+          description={
+            orderNotification.type === "ssn"
+              ? "Order submitted using SSN Trace. The user will be notified using the contact information retrieved."
+              : `${orderNotification.customerName} will receive an invitation to complete its order ${formatContactText(orderNotification.email, orderNotification.phone)}`
+          }
+          variant="success"
+          position={isDesktop ? "top" : "bottom"}
+          breakpoint={isDesktop ? "desktop" : "tablet"}
+          onDismiss={() => setOrderNotification(null)}
+          autoHide={true}
+          autoHideDelay={15000}
+          primaryAction={{
+            label: "View Order",
+            onClick: () => {
+              console.log("View order:", orderNotification.orderNumber);
+              setOrderNotification(null);
+            },
+          }}
+          secondaryAction={{
+            label: "Dismiss",
+            onClick: () => setOrderNotification(null),
+          }}
+        />
+      )}
     </div>
   );
 };
