@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { UserMenuDropdown } from "./UserMenuDropdown";
 import { QuickCreateDropdown } from "./ui/quick-create-dropdown";
 import QuickOrderDrawer from "./ui/quick-order-drawer";
+import SSNOrderDrawer from "./ui/ssn-order-drawer";
 import NotificationModal from "./ui/notification-modal";
 
 interface MobileHeaderProps {
@@ -31,6 +32,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
 }) => {
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [ssnDrawerOpen, setSSNDrawerOpen] = React.useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
 
   if (isDesktop) return null;
@@ -176,6 +178,10 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             breakpoint={isMobile ? "mobile" : "tablet"}
             onOpenDrawer={() => {
               setDrawerOpen(true);
+              setQuickCreateOpen(false);
+            }}
+            onOpenSSNDrawer={() => {
+              setSSNDrawerOpen(true);
               setQuickCreateOpen(false);
             }}
           />
@@ -418,6 +424,12 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
       <QuickOrderDrawer
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
+      />
+
+      {/* SSN Order Drawer */}
+      <SSNOrderDrawer
+        isOpen={ssnDrawerOpen}
+        onClose={() => setSSNDrawerOpen(false)}
       />
 
       {/* Notification Modal */}
