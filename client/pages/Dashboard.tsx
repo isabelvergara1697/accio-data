@@ -112,6 +112,12 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [showNotification, setShowNotification] = useState(false);
+  const [orderNotification, setOrderNotification] = useState<{
+    show: boolean;
+    title: string;
+    description: string;
+    orderNumber?: string;
+  } | null>(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
