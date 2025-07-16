@@ -21,26 +21,27 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
   const calendarRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
-  // Working dates (before Apply)
+  // Working dates (internal state before apply)
   const [workingStartDate, setWorkingStartDate] = useState(selectedStartDate);
   const [workingEndDate, setWorkingEndDate] = useState(selectedEndDate);
 
-  // Calendar state
+  // Calendar display months
   const [currentMonth, setCurrentMonth] = useState(() => {
     const start = new Date(selectedStartDate);
     return new Date(start.getFullYear(), start.getMonth(), 1);
   });
 
+  // Selection state
   const [selectedPreset, setSelectedPreset] = useState("");
   const [isSelectingRange, setIsSelectingRange] = useState(false);
   const [rangeStart, setRangeStart] = useState<Date | null>(null);
   const [hoverDate, setHoverDate] = useState<Date | null>(null);
 
-  // Input state
+  // Input values
   const [startInput, setStartInput] = useState("");
   const [endInput, setEndInput] = useState("");
 
-  // Initialize when opening
+  // Initialize when calendar opens
   useEffect(() => {
     if (isOpen) {
       setWorkingStartDate(selectedStartDate);
@@ -50,6 +51,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       setRangeStart(null);
       setHoverDate(null);
 
+      // Set calendar to show the current date range
       const month = new Date(
         selectedStartDate.getFullYear(),
         selectedStartDate.getMonth(),
@@ -57,25 +59,11 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       );
       setCurrentMonth(month);
 
+      // Update inputs
       setStartInput(formatDate(selectedStartDate));
       setEndInput(formatDate(selectedEndDate));
     }
   }, [isOpen, selectedStartDate, selectedEndDate]);
-
-  // Position calendar
-  useEffect(() => {
-    if (isOpen && triggerRef.current && calendarRef.current) {
-      const triggerRect = triggerRef.current.getBoundingClientRect();
-      const calendarRect = calendarRef.current.getBoundingClientRect();
-
-      const top = triggerRect.bottom + 4;
-      const left = triggerRect.right - calendarRect.width;
-
-      setPosition({ top, left });
-    }
-  }, [isOpen, triggerRef]);
-
-  if (!isOpen) return null;
 
   // Helper functions
   const formatDate = (date: Date): string => {
@@ -126,28 +114,80 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     return firstDay === 0 ? 6 : firstDay - 1; // Convert Sunday=0 to Monday=0
   };
 
-  const getMonthName = (date: Date): string => {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    return `${months[date.getMonth()]} ${date.getFullYear()}`;
+  const getNextMonth = (date: Date): Date => {
+    return new Date(date.getFullYear(), date.getMonth() + 1, 1);
   };
 
-  // Event handlers
-  const handlePresetClick = (preset: string, e: React.MouseEvent) => {
-    e.stopPropagation();
+  // Position calendar
+  useEffect(() => {
+    if (isOpen && triggerRef.current && calendarRef.current) {
+      const triggerRect = triggerRef.current.getBoundingClientRect();
+      const calendarRect = calendarRef.current.getBoundingClientRect();
 
+      const top = triggerRect.bottom + 4;
+      const left = triggerRect.right - calendarRect.width;
+
+      setPosition({ top, left });
+    }
+  }, [isOpen, triggerRef]);
+
+  // Handle outside clicks
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (
+        calendarRef.current &&
+        !calendarRef.current.contains(target) &&
+        triggerRef.current &&
+        !triggerRef.current.contains(target)
+      ) {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose, triggerRef]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  // Preset options
+  const presets = [
+    "This week",
+    "Last week",
+    "This month",
+    "Last month",
+    "Last tree months",
+    "Last six months",
+    "This year",
+    "Last year",
+    "All time",
+  ];
+
+  // Handle preset selection
+  const handlePresetClick = (preset: string) => {
     setSelectedPreset(preset);
     setIsSelectingRange(false);
     setRangeStart(null);
@@ -208,68 +248,77 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         break;
 
       case "All time":
-      default:
         start = new Date(2020, 0, 1);
         end = today;
         break;
+
+      default:
+        return;
     }
 
+    // Update working dates
     setWorkingStartDate(start);
     setWorkingEndDate(end);
+
+    // Update inputs
     setStartInput(formatDate(start));
     setEndInput(formatDate(end));
+
+    // Update calendar view to show the start date
     setCurrentMonth(new Date(start.getFullYear(), start.getMonth(), 1));
   };
 
-  const handleDateClick = (date: Date, e: React.MouseEvent) => {
-    e.stopPropagation();
+  // Handle month navigation
+  const handlePrevMonth = () => {
+    setCurrentMonth(
+      (prev) => new Date(prev.getFullYear(), prev.getMonth() - 1, 1),
+    );
+  };
 
-    setSelectedPreset("");
+  const handleNextMonth = () => {
+    setCurrentMonth(
+      (prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1),
+    );
+  };
+
+  // Handle date clicks
+  const handleDateClick = (date: Date) => {
+    setSelectedPreset(""); // Clear preset when manually selecting
 
     if (!isSelectingRange) {
+      // Start new selection
       setIsSelectingRange(true);
       setRangeStart(date);
       setWorkingStartDate(date);
       setWorkingEndDate(date);
       setHoverDate(null);
     } else {
+      // Complete selection
       if (rangeStart) {
         const start = date < rangeStart ? date : rangeStart;
         const end = date > rangeStart ? date : rangeStart;
+
         setWorkingStartDate(start);
         setWorkingEndDate(end);
         setStartInput(formatDate(start));
         setEndInput(formatDate(end));
       }
+
       setIsSelectingRange(false);
       setRangeStart(null);
       setHoverDate(null);
     }
   };
 
+  // Handle date hover
   const handleDateHover = (date: Date) => {
     if (isSelectingRange && rangeStart) {
       setHoverDate(date);
     }
   };
 
-  const handlePrevMonth = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrentMonth(
-      (prev) => new Date(prev.getFullYear(), prev.getMonth() - 1, 1),
-    );
-  };
-
-  const handleNextMonth = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrentMonth(
-      (prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1),
-    );
-  };
-
-  const handleStartInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    const value = e.target.value;
+  // Handle input changes
+  const handleStartInputChange = (value: string) => {
     setStartInput(value);
     const parsed = parseDate(value);
     if (parsed) {
@@ -278,9 +327,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     }
   };
 
-  const handleEndInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    const value = e.target.value;
+  const handleEndInputChange = (value: string) => {
     setEndInput(value);
     const parsed = parseDate(value);
     if (parsed) {
@@ -289,20 +336,65 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     }
   };
 
-  const handleApply = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  // Handle apply
+  const handleApply = () => {
     onDateChange(workingStartDate, workingEndDate);
     onClose();
   };
 
-  const handleCancel = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  // Handle cancel
+  const handleCancel = () => {
     onClose();
   };
 
-  const handleCalendarClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
+  // SVG Connector Components
+  const RightConnector = () => (
+    <svg
+      style={{
+        width: "40px",
+        height: "40px",
+        position: "absolute",
+        left: "20px",
+        top: "0px",
+        zIndex: -1,
+      }}
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      fill="none"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M20 20C20 31.0457 28.9543 40 40 40H0C11.0457 40 20 31.0457 20 20ZM0 0C11.0457 0 20 8.95435 20 20C20 8.95435 28.9543 0 40 0H0Z"
+        fill="#F5F5F5"
+      />
+    </svg>
+  );
+
+  const LeftConnector = () => (
+    <svg
+      style={{
+        width: "40px",
+        height: "40px",
+        position: "absolute",
+        left: "-20px",
+        top: "0px",
+        zIndex: -1,
+      }}
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      fill="none"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M40 0H0C11.0457 0 20 8.95435 20 20C20 31.0457 11.0457 40 0 40H40C28.9543 40 20 31.0457 20 20C20 8.95435 28.9543 0 40 0Z"
+        fill="#F5F5F5"
+      />
+    </svg>
+  );
 
   // Render calendar month
   const renderCalendarMonth = (monthDate: Date) => {
@@ -320,24 +412,65 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             display: "flex",
             width: "40px",
             height: "40px",
+            padding: "10px 8px",
             justifyContent: "center",
             alignItems: "center",
-            color: "#414651",
-            fontFamily: "Public Sans",
-            fontSize: "14px",
-            fontWeight: "500",
-            lineHeight: "20px",
+            borderRadius: "9999px",
           }}
         >
-          {day}
+          <div
+            style={{
+              width: "24px",
+              color: "#414651",
+              textAlign: "center",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "500",
+              lineHeight: "20px",
+            }}
+          >
+            {day}
+          </div>
         </div>,
       );
     });
 
     // Empty cells for days before month starts
     for (let i = 0; i < firstDay; i++) {
+      const prevMonth = new Date(
+        monthDate.getFullYear(),
+        monthDate.getMonth() - 1,
+      );
+      const prevMonthDays = getDaysInMonth(prevMonth);
+      const day = prevMonthDays - (firstDay - 1 - i);
+
       days.push(
-        <div key={`empty-${i}`} style={{ width: "40px", height: "40px" }} />,
+        <div
+          key={`prev-${i}`}
+          style={{
+            display: "flex",
+            width: "40px",
+            height: "40px",
+            padding: "10px 8px",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "9999px",
+          }}
+        >
+          <div
+            style={{
+              width: "24px",
+              color: "#717680",
+              textAlign: "center",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "400",
+              lineHeight: "20px",
+            }}
+          >
+            {day}
+          </div>
+        </div>,
       );
     }
 
@@ -367,23 +500,19 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         isRangeEnd = isSameDate(date, workingEndDate);
       }
 
+      // Determine if we need connectors
+      const needsLeftConnector = isInRange && !isRangeStart;
+      const needsRightConnector = isInRange && !isRangeEnd;
+
       days.push(
         <div
           key={`day-${day}`}
-          onClick={(e) => handleDateClick(date, e)}
+          onClick={() => handleDateClick(date)}
           onMouseEnter={() => handleDateHover(date)}
           style={{
-            display: "flex",
             width: "40px",
             height: "40px",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius:
-              isRangeStart && !isRangeEnd
-                ? "20px 0 0 20px"
-                : isRangeEnd && !isRangeStart
-                  ? "0 20px 20px 0"
-                  : "20px",
+            borderRadius: "9999px",
             background: isSelected
               ? "#344698"
               : isInRange
@@ -391,45 +520,65 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 : "transparent",
             cursor: "pointer",
             position: "relative",
-            color: isSelected ? "#FFF" : "#414651",
-            fontFamily: "Public Sans",
-            fontSize: "14px",
-            fontWeight: "500",
-            lineHeight: "20px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           {/* Range connectors */}
-          {isInRange && !isSelected && (
-            <>
-              {!isRangeStart && (
-                <div
-                  style={{
-                    position: "absolute",
-                    left: "-20px",
-                    top: "0",
-                    width: "40px",
-                    height: "40px",
-                    background: "#F5F5F5",
-                    zIndex: -1,
-                  }}
-                />
-              )}
-              {!isRangeEnd && (
-                <div
-                  style={{
-                    position: "absolute",
-                    right: "-20px",
-                    top: "0",
-                    width: "40px",
-                    height: "40px",
-                    background: "#F5F5F5",
-                    zIndex: -1,
-                  }}
-                />
-              )}
-            </>
-          )}
-          {day}
+          {needsLeftConnector && <LeftConnector />}
+          {needsRightConnector && <RightConnector />}
+
+          <div
+            style={{
+              width: "24px",
+              color: isSelected ? "#FFF" : "#414651",
+              textAlign: "center",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "500",
+              lineHeight: "20px",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            {day}
+          </div>
+        </div>,
+      );
+    }
+
+    // Next month leading days to fill the grid
+    const totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
+    const remainingCells = totalCells - (firstDay + daysInMonth);
+
+    for (let day = 1; day <= remainingCells; day++) {
+      days.push(
+        <div
+          key={`next-${day}`}
+          style={{
+            display: "flex",
+            width: "40px",
+            height: "40px",
+            padding: "10px 8px",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "9999px",
+          }}
+        >
+          <div
+            style={{
+              width: "24px",
+              color: "#717680",
+              textAlign: "center",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "400",
+              lineHeight: "20px",
+            }}
+          >
+            {day}
+          </div>
         </div>,
       );
     }
@@ -437,30 +586,32 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     return days;
   };
 
-  const presets = [
-    "This week",
-    "Last week",
-    "This month",
-    "Last month",
-    "Last tree months",
-    "Last six months",
-    "This year",
-    "Last year",
-    "All time",
-  ];
+  const getMonthName = (date: Date): string => {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    return `${months[date.getMonth()]} ${date.getFullYear()}`;
+  };
 
   const leftMonth = currentMonth;
-  const rightMonth = new Date(
-    currentMonth.getFullYear(),
-    currentMonth.getMonth() + 1,
-    1,
-  );
+  const rightMonth = getNextMonth(currentMonth);
 
   return createPortal(
     <div
       data-date-picker
       ref={calendarRef}
-      onClick={handleCalendarClick}
+      onClick={(e) => e.stopPropagation()}
       style={{
         position: "fixed",
         top: `${position.top}px`,
@@ -491,7 +642,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         {presets.map((preset) => (
           <button
             key={preset}
-            onClick={(e) => handlePresetClick(preset, e)}
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePresetClick(preset);
+            }}
             style={{
               display: "flex",
               padding: "8px 12px",
@@ -574,7 +728,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   }}
                 >
                   <button
-                    onClick={handlePrevMonth}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrevMonth();
+                    }}
                     style={{
                       display: "flex",
                       width: "32px",
@@ -617,10 +774,12 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 {/* Calendar grid */}
                 <div
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(7, 1fr)",
-                    gap: "0px",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    alignContent: "flex-start",
+                    gap: "4px 0px",
                     alignSelf: "stretch",
+                    flexWrap: "wrap",
                   }}
                 >
                   {renderCalendarMonth(leftMonth)}
@@ -681,7 +840,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                     {getMonthName(rightMonth)}
                   </div>
                   <button
-                    onClick={handleNextMonth}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNextMonth();
+                    }}
                     style={{
                       display: "flex",
                       width: "32px",
@@ -710,10 +872,12 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 {/* Calendar grid */}
                 <div
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(7, 1fr)",
-                    gap: "0px",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    alignContent: "flex-start",
+                    gap: "4px 0px",
                     alignSelf: "stretch",
+                    flexWrap: "wrap",
                   }}
                 >
                   {renderCalendarMonth(rightMonth)}
@@ -728,7 +892,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           style={{
             display: "flex",
             padding: "16px",
-            alignItems: "center",
+            alignItems: "flex-start",
             gap: "12px",
             alignSelf: "stretch",
             borderTop: "1px solid #E9EAEB",
@@ -768,7 +932,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 <input
                   type="text"
                   value={startInput}
-                  onChange={handleStartInputChange}
+                  onChange={(e) => {
+                    e.stopPropagation();
+                    handleStartInputChange(e.target.value);
+                  }}
                   onClick={(e) => e.stopPropagation()}
                   style={{
                     flex: "1 0 0",
@@ -822,7 +989,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 <input
                   type="text"
                   value={endInput}
-                  onChange={handleEndInputChange}
+                  onChange={(e) => {
+                    e.stopPropagation();
+                    handleEndInputChange(e.target.value);
+                  }}
                   onClick={(e) => e.stopPropagation()}
                   style={{
                     flex: "1 0 0",
@@ -841,13 +1011,17 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           </div>
 
           {/* Action buttons */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div
+            style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}
+          >
             <button
-              onClick={handleCancel}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleCancel();
+              }}
               style={{
                 display: "flex",
-                height: "40px",
-                padding: "10px 16px",
+                padding: "12px",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "4px",
@@ -858,11 +1032,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
                 transition: "background-color 0.15s ease",
-                color: "#414651",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight: "600",
-                lineHeight: "20px",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#F5F5F5";
@@ -871,15 +1040,29 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 e.currentTarget.style.background = "#FFF";
               }}
             >
-              Cancel
+              <div
+                style={{
+                  padding: "0px 2px",
+                  color: "#414651",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  lineHeight: "20px",
+                  pointerEvents: "none",
+                }}
+              >
+                Cancel
+              </div>
             </button>
 
             <button
-              onClick={handleApply}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleApply();
+              }}
               style={{
                 display: "flex",
-                height: "40px",
-                padding: "10px 16px",
+                padding: "12px",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "4px",
@@ -890,11 +1073,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
                 transition: "background-color 0.15s ease",
-                color: "#FFF",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight: "600",
-                lineHeight: "20px",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#2A3A7C";
@@ -903,7 +1081,19 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 e.currentTarget.style.background = "#344698";
               }}
             >
-              Apply
+              <div
+                style={{
+                  padding: "0px 2px",
+                  color: "#FFF",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  lineHeight: "20px",
+                  pointerEvents: "none",
+                }}
+              >
+                Apply
+              </div>
             </button>
           </div>
         </div>
