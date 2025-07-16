@@ -650,6 +650,16 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     </svg>
                   </div>
                 )}
+
+                {/* Empty header space for drag handle */}
+                <div
+                  style={{
+                    display: "flex",
+                    width: "44px",
+                    padding: "6px 12px",
+                    alignItems: "center",
+                  }}
+                ></div>
               </div>
 
               {/* Table Rows */}
