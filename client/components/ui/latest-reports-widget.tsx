@@ -220,10 +220,26 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
     null,
   );
   const [isWidgetHovered, setIsWidgetHovered] = React.useState(false);
+  const [isDragButtonHovered, setIsDragButtonHovered] = React.useState(false);
 
   // Determine which columns to show based on width
   const showOrderColumn = windowWidth >= 640;
   const showProgressColumn = windowWidth >= 480;
+
+  // Determine widget state and styling
+  const getWidgetBorder = () => {
+    if (isDragButtonHovered) return "1px solid #34479A"; // Brand color when drag button is hovered
+    if (isWidgetHovered) return "1px solid #D5D7DA"; // Primary border on widget hover
+    return "1px solid #E9EAEB"; // Default secondary border
+  };
+
+  const getWidgetShadow = () => {
+    if (isDragButtonHovered)
+      return "0px 4px 6px -1px rgba(10, 13, 18, 0.10), 0px 2px 4px -2px rgba(10, 13, 18, 0.06)"; // Stronger shadows
+    if (isWidgetHovered)
+      return "0px 1px 3px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px -1px rgba(10, 13, 18, 0.10)"; // Medium shadows
+    return "none"; // No shadows in default state
+  };
 
   return (
     <div
@@ -234,18 +250,17 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         flex: "1 0 0",
         alignSelf: "stretch",
         borderRadius: "12px",
-        border: isWidgetHovered ? "1px solid #34479A" : "1px solid #E9EAEB",
+        border: getWidgetBorder(),
         background: "#FDFDFD",
         position: "relative",
-        boxShadow: isWidgetHovered
-          ? "0px 1px 3px 0px rgba(10, 13, 18, 0.05), 0px 4px 8px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
-          : "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+        boxShadow: getWidgetShadow(),
         transition: "all 0.2s ease-in-out",
       }}
       onMouseEnter={() => setIsWidgetHovered(true)}
       onMouseLeave={() => {
         setIsWidgetHovered(false);
         setHoveredRowIndex(null);
+        setIsDragButtonHovered(false);
       }}
     >
       {/* Heading and content */}
@@ -744,60 +759,108 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       zIndex: 10,
                     }}
                   >
-                    <button
-                      style={{
-                        display: "flex",
-                        width: "32px",
-                        height: "32px",
-                        padding: "8px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        borderRadius: "8px",
-                        border: "1px solid #E9EAEB",
-                        background: "#FFFFFF",
-                        cursor: "grab",
-                        boxShadow: "none",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = "#F9FAFB";
-                        e.currentTarget.style.boxShadow =
-                          "0px 1px 2px 0px rgba(10, 13, 18, 0.05), 0px 1px 3px 0px rgba(10, 13, 18, 0.10)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = "#FFFFFF";
-                        e.currentTarget.style.boxShadow = "none";
-                      }}
-                    >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                    <div style={{ position: "relative" }}>
+                      <button
+                        style={{
+                          display: "flex",
+                          width: "32px",
+                          height: "32px",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FFFFFF",
+                          cursor: "grab",
+                          boxShadow: "none",
+                          transition: "all 0.2s ease-in-out",
+                        }}
+                        onMouseEnter={() => {
+                          setIsDragButtonHovered(true);
+                        }}
+                        onMouseLeave={() => {
+                          setIsDragButtonHovered(false);
+                        }}
+                        title="Drag to move"
                       >
-                        <path
-                          d="M7.99992 8.66675C8.36811 8.66675 8.66659 8.36827 8.66659 8.00008C8.66659 7.63189 8.36811 7.33341 7.99992 7.33341C7.63173 7.33341 7.33325 7.63189 7.33325 8.00008C7.33325 8.36827 7.63173 8.66675 7.99992 8.66675Z"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M7.99992 4.00008C8.36811 4.00008 8.66659 3.7016 8.66659 3.33341C8.66659 2.96522 8.36811 2.66675 7.99992 2.66675C7.63173 2.66675 7.33325 2.96522 7.33325 3.33341C7.33325 3.7016 7.63173 4.00008 7.99992 4.00008Z"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M7.99992 13.3334C8.36811 13.3334 8.66659 13.0349 8.66659 12.6667C8.66659 12.2986 8.36811 12.0001 7.99992 12.0001C7.63173 12.0001 7.33325 12.2986 7.33325 12.6667C7.33325 13.0349 7.63173 13.3334 7.99992 13.3334Z"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.33325 5.99992C7.33325 6.36811 7.63173 6.66658 7.99992 6.66658C8.36811 6.66658 8.66659 6.36811 8.66659 5.99992C8.66659 5.63173 8.36811 5.33325 7.99992 5.33325C7.63173 5.33325 7.33325 5.63173 7.33325 5.99992Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12.0001 5.99992C12.0001 6.36811 12.2986 6.66658 12.6668 6.66658C13.035 6.66658 13.3335 6.36811 13.3335 5.99992C13.3335 5.63173 13.035 5.33325 12.6668 5.33325C12.2986 5.33325 12.0001 5.63173 12.0001 5.99992Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M2.66659 5.99992C2.66659 6.36811 2.96507 6.66658 3.33325 6.66658C3.70144 6.66658 3.99992 6.36811 3.99992 5.99992C3.99992 5.63173 3.70144 5.33325 3.33325 5.33325C2.96507 5.33325 2.66659 5.63173 2.66659 5.99992Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M7.33325 9.99992C7.33325 10.3681 7.63173 10.6666 7.99992 10.6666C8.36811 10.6666 8.66659 10.3681 8.66659 9.99992C8.66659 9.63173 8.36811 9.33325 7.99992 9.33325C7.63173 9.33325 7.33325 9.63173 7.33325 9.99992Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12.0001 9.99992C12.0001 10.3681 12.2986 10.6666 12.6668 10.6666C13.035 10.6666 13.3335 10.3681 13.3335 9.99992C13.3335 9.63173 13.035 9.33325 12.6668 9.33325C12.2986 9.33325 12.0001 9.63173 12.0001 9.99992Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M2.66659 9.99992C2.66659 10.3681 2.96507 10.6666 3.33325 10.6666C3.70144 10.6666 3.99992 10.3681 3.99992 9.99992C3.99992 9.63173 3.70144 9.33325 3.33325 9.33325C2.96507 9.33325 2.66659 9.63173 2.66659 9.99992Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+
+                      {/* Tooltip */}
+                      {isDragButtonHovered && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            bottom: "40px",
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            padding: "8px 12px",
+                            borderRadius: "8px",
+                            background: "#0A0D12",
+                            color: "#FFF",
+                            fontSize: "12px",
+                            fontWeight: "600",
+                            lineHeight: "18px",
+                            fontFamily: "Public Sans",
+                            whiteSpace: "nowrap",
+                            boxShadow:
+                              "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                            zIndex: 1000,
+                          }}
+                        >
+                          Drag to move
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
