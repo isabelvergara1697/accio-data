@@ -18,6 +18,32 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
   selectedEndDate,
   onDateChange,
 }) => {
+  const calendarRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ top: 0, left: 0 });
+
+  // Internal state for current selection (before Apply)
+  const [tempStartDate, setTempStartDate] = useState(selectedStartDate);
+  const [tempEndDate, setTempEndDate] = useState(selectedEndDate);
+
+  // Calendar navigation state
+  const [leftMonth, setLeftMonth] = useState(() => {
+    const start = new Date(selectedStartDate);
+    return new Date(start.getFullYear(), start.getMonth(), 1);
+  });
+  const [rightMonth, setRightMonth] = useState(() => {
+    const left = new Date(selectedStartDate);
+    return new Date(left.getFullYear(), left.getMonth() + 1, 1);
+  });
+
+  // Selection state
+  const [selectedPreset, setSelectedPreset] = useState("This month");
+  const [isSelectingRange, setIsSelectingRange] = useState(false);
+  const [hoverDate, setHoverDate] = useState<Date | null>(null);
+
+  // Input state
+  const [startInput, setStartInput] = useState("");
+  const [endInput, setEndInput] = useState("");
+
   // Helper function to format dates
   const formatDate = (date: Date): string => {
     const months = [
@@ -37,17 +63,44 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
   };
 
-  const calendarRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ top: 0, left: 0 });
-  const [selectedPreset, setSelectedPreset] = useState("This month");
-  const [leftMonth, setLeftMonth] = useState(new Date(2025, 0)); // January 2025
-  const [rightMonth, setRightMonth] = useState(new Date(2025, 1)); // February 2025
-  const [startDate, setStartDate] = useState(selectedStartDate);
-  const [endDate, setEndDate] = useState(selectedEndDate);
-  const [startInput, setStartInput] = useState(formatDate(selectedStartDate));
-  const [endInput, setEndInput] = useState(formatDate(selectedEndDate));
-  const [isSelectingRange, setIsSelectingRange] = useState(false);
-  const [tempDate, setTempDate] = useState<Date | null>(null);
+  // Parse date from string
+  const parseDate = (dateStr: string): Date | null => {
+    try {
+      // Try to parse common formats
+      const date = new Date(dateStr);
+      if (!isNaN(date.getTime())) {
+        return date;
+      }
+      return null;
+    } catch {
+      return null;
+    }
+  };
+
+  // Update input fields when temp dates change
+  useEffect(() => {
+    setStartInput(formatDate(tempStartDate));
+    setEndInput(formatDate(tempEndDate));
+  }, [tempStartDate, tempEndDate]);
+
+  // Update internal state when props change
+  useEffect(() => {
+    if (isOpen) {
+      setTempStartDate(selectedStartDate);
+      setTempEndDate(selectedEndDate);
+
+      // Update calendar view to show the selected date range
+      const startMonth = new Date(
+        selectedStartDate.getFullYear(),
+        selectedStartDate.getMonth(),
+        1,
+      );
+      setLeftMonth(startMonth);
+      setRightMonth(
+        new Date(startMonth.getFullYear(), startMonth.getMonth() + 1, 1),
+      );
+    }
+  }, [isOpen, selectedStartDate, selectedEndDate]);
 
   // Position the calendar relative to the trigger button
   useEffect(() => {
@@ -63,18 +116,16 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     }
   }, [isOpen, triggerRef]);
 
-  // Close calendar when clicking outside (but not on inputs or interactive elements)
+  // Close calendar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
 
-      // Don't close if clicking on calendar content, trigger, or input elements
       if (
         calendarRef.current &&
         !calendarRef.current.contains(target) &&
         triggerRef.current &&
-        !triggerRef.current.contains(target) &&
-        !target.closest("input") // Don't close when clicking inputs
+        !triggerRef.current.contains(target)
       ) {
         onClose();
       }
@@ -108,122 +159,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
   if (!isOpen) return null;
 
-  const getDaysInMonth = (date: Date): number => {
-    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  };
-
-  const getFirstDayOfMonth = (date: Date): number => {
-    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-    return firstDay === 0 ? 6 : firstDay - 1; // Convert Sunday=0 to Monday=0
-  };
-
-  const isDateInRange = (date: Date, monthDate: Date, day: number): boolean => {
-    const currentDate = new Date(
-      monthDate.getFullYear(),
-      monthDate.getMonth(),
-      day,
-    );
-    const rangeStart = isSelectingRange && tempDate ? tempDate : startDate;
-    const rangeEnd = isSelectingRange && tempDate ? startDate : endDate;
-    return currentDate >= rangeStart && currentDate <= rangeEnd;
-  };
-
-  const isDateSelected = (
-    date: Date,
-    monthDate: Date,
-    day: number,
-  ): boolean => {
-    const currentDate = new Date(
-      monthDate.getFullYear(),
-      monthDate.getMonth(),
-      day,
-    );
-
-    if (isSelectingRange && tempDate) {
-      const rangeStart = tempDate < startDate ? tempDate : startDate;
-      const rangeEnd = tempDate < startDate ? startDate : tempDate;
-      return (
-        currentDate.getTime() === rangeStart.getTime() ||
-        currentDate.getTime() === rangeEnd.getTime()
-      );
-    }
-
-    return (
-      currentDate.getTime() === startDate.getTime() ||
-      currentDate.getTime() === endDate.getTime()
-    );
-  };
-
-  const isRangeStart = (monthDate: Date, day: number): boolean => {
-    const currentDate = new Date(
-      monthDate.getFullYear(),
-      monthDate.getMonth(),
-      day,
-    );
-
-    if (isSelectingRange && tempDate) {
-      const rangeStart = tempDate < startDate ? tempDate : startDate;
-      return currentDate.getTime() === rangeStart.getTime();
-    }
-
-    return currentDate.getTime() === startDate.getTime();
-  };
-
-  const isRangeEnd = (monthDate: Date, day: number): boolean => {
-    const currentDate = new Date(
-      monthDate.getFullYear(),
-      monthDate.getMonth(),
-      day,
-    );
-
-    if (isSelectingRange && tempDate) {
-      const rangeEnd = tempDate < startDate ? startDate : tempDate;
-      return currentDate.getTime() === rangeEnd.getTime();
-    }
-
-    return currentDate.getTime() === endDate.getTime();
-  };
-
-  const handleDateClick = (monthDate: Date, day: number) => {
-    const clickedDate = new Date(
-      monthDate.getFullYear(),
-      monthDate.getMonth(),
-      day,
-    );
-
-    if (!isSelectingRange) {
-      // Start new range selection
-      setStartDate(clickedDate);
-      setTempDate(clickedDate);
-      setIsSelectingRange(true);
-      setStartInput(formatDate(clickedDate));
-    } else {
-      // Complete range selection
-      if (clickedDate < startDate) {
-        setStartDate(clickedDate);
-        setEndDate(startDate);
-        setStartInput(formatDate(clickedDate));
-        setEndInput(formatDate(startDate));
-      } else {
-        setEndDate(clickedDate);
-        setEndInput(formatDate(clickedDate));
-      }
-      setIsSelectingRange(false);
-      setTempDate(null);
-    }
-  };
-
-  const handleDateHover = (monthDate: Date, day: number) => {
-    if (isSelectingRange) {
-      const hoveredDate = new Date(
-        monthDate.getFullYear(),
-        monthDate.getMonth(),
-        day,
-      );
-      setTempDate(hoveredDate);
-    }
-  };
-
   const presets = [
     "This week",
     "Last week",
@@ -236,43 +171,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     "All time",
   ];
 
-  const navigateMonth = (direction: "prev" | "next", isLeft: boolean) => {
-    if (isLeft) {
-      if (direction === "prev") {
-        setLeftMonth(
-          new Date(leftMonth.getFullYear(), leftMonth.getMonth() - 1),
-        );
-        setRightMonth(
-          new Date(rightMonth.getFullYear(), rightMonth.getMonth() - 1),
-        );
-      }
-    } else {
-      if (direction === "next") {
-        setLeftMonth(
-          new Date(leftMonth.getFullYear(), leftMonth.getMonth() + 1),
-        );
-        setRightMonth(
-          new Date(rightMonth.getFullYear(), rightMonth.getMonth() + 1),
-        );
-      }
-    }
-  };
-
-  const handleApply = () => {
-    onDateChange(startDate, endDate);
-    onClose();
-  };
-
-  const handleCancel = () => {
-    setStartDate(selectedStartDate);
-    setEndDate(selectedEndDate);
-    setStartInput(formatDate(selectedStartDate));
-    setEndInput(formatDate(selectedEndDate));
-    setIsSelectingRange(false);
-    setTempDate(null);
-    onClose();
-  };
-
   const handlePresetClick = (preset: string) => {
     setSelectedPreset(preset);
     const today = new Date();
@@ -281,6 +179,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
     switch (preset) {
       case "This week":
+        // Get Monday of current week
         const dayOfWeek = today.getDay();
         const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
         newStartDate = new Date(today);
@@ -289,11 +188,15 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         newEndDate.setDate(newStartDate.getDate() + 6);
         break;
       case "Last week":
-        const lastWeekMonday = new Date(today);
-        lastWeekMonday.setDate(today.getDate() - today.getDay() - 6);
-        newStartDate = lastWeekMonday;
-        newEndDate = new Date(lastWeekMonday);
-        newEndDate.setDate(lastWeekMonday.getDate() + 6);
+        // Get Monday of last week
+        const lastWeekToday = new Date(today);
+        lastWeekToday.setDate(today.getDate() - 7);
+        const lastWeekDay = lastWeekToday.getDay();
+        const lastMondayOffset = lastWeekDay === 0 ? -6 : 1 - lastWeekDay;
+        newStartDate = new Date(lastWeekToday);
+        newStartDate.setDate(lastWeekToday.getDate() + lastMondayOffset);
+        newEndDate = new Date(newStartDate);
+        newEndDate.setDate(newStartDate.getDate() + 6);
         break;
       case "This month":
         newStartDate = new Date(today.getFullYear(), today.getMonth(), 1);
@@ -326,12 +229,151 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         break;
     }
 
-    setStartDate(newStartDate);
-    setEndDate(newEndDate);
-    setStartInput(formatDate(newStartDate));
-    setEndInput(formatDate(newEndDate));
+    // Update temp dates and calendar view
+    setTempStartDate(newStartDate);
+    setTempEndDate(newEndDate);
     setIsSelectingRange(false);
-    setTempDate(null);
+    setHoverDate(null);
+
+    // Update calendar view to show the selected range
+    const startMonth = new Date(
+      newStartDate.getFullYear(),
+      newStartDate.getMonth(),
+      1,
+    );
+    setLeftMonth(startMonth);
+    setRightMonth(
+      new Date(startMonth.getFullYear(), startMonth.getMonth() + 1, 1),
+    );
+  };
+
+  const navigateMonth = (direction: "prev" | "next", isLeft: boolean) => {
+    if (isLeft && direction === "prev") {
+      setLeftMonth(new Date(leftMonth.getFullYear(), leftMonth.getMonth() - 1));
+      setRightMonth(
+        new Date(rightMonth.getFullYear(), rightMonth.getMonth() - 1),
+      );
+    } else if (!isLeft && direction === "next") {
+      setLeftMonth(new Date(leftMonth.getFullYear(), leftMonth.getMonth() + 1));
+      setRightMonth(
+        new Date(rightMonth.getFullYear(), rightMonth.getMonth() + 1),
+      );
+    }
+  };
+
+  const getDaysInMonth = (date: Date): number => {
+    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  };
+
+  const getFirstDayOfMonth = (date: Date): number => {
+    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+    return firstDay === 0 ? 6 : firstDay - 1; // Convert Sunday=0 to Monday=0
+  };
+
+  const isSameDay = (date1: Date, date2: Date): boolean => {
+    return (
+      date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate()
+    );
+  };
+
+  const isDateInRange = (date: Date): boolean => {
+    const start =
+      isSelectingRange && hoverDate
+        ? hoverDate < tempStartDate
+          ? hoverDate
+          : tempStartDate
+        : tempStartDate;
+    const end =
+      isSelectingRange && hoverDate
+        ? hoverDate > tempStartDate
+          ? hoverDate
+          : tempStartDate
+        : tempEndDate;
+
+    return date >= start && date <= end;
+  };
+
+  const isDateSelected = (date: Date): boolean => {
+    if (isSelectingRange && hoverDate) {
+      const start = hoverDate < tempStartDate ? hoverDate : tempStartDate;
+      const end = hoverDate > tempStartDate ? hoverDate : tempStartDate;
+      return isSameDay(date, start) || isSameDay(date, end);
+    }
+    return isSameDay(date, tempStartDate) || isSameDay(date, tempEndDate);
+  };
+
+  const isRangeStart = (date: Date): boolean => {
+    if (isSelectingRange && hoverDate) {
+      const start = hoverDate < tempStartDate ? hoverDate : tempStartDate;
+      return isSameDay(date, start);
+    }
+    return isSameDay(date, tempStartDate);
+  };
+
+  const isRangeEnd = (date: Date): boolean => {
+    if (isSelectingRange && hoverDate) {
+      const end = hoverDate > tempStartDate ? hoverDate : tempStartDate;
+      return isSameDay(date, end);
+    }
+    return isSameDay(date, tempEndDate);
+  };
+
+  const handleDateClick = (date: Date) => {
+    if (!isSelectingRange) {
+      // Start new range selection
+      setTempStartDate(date);
+      setIsSelectingRange(true);
+      setSelectedPreset(""); // Clear preset selection
+    } else {
+      // Complete range selection
+      if (date < tempStartDate) {
+        setTempStartDate(date);
+        setTempEndDate(tempStartDate);
+      } else {
+        setTempEndDate(date);
+      }
+      setIsSelectingRange(false);
+      setHoverDate(null);
+    }
+  };
+
+  const handleDateHover = (date: Date) => {
+    if (isSelectingRange) {
+      setHoverDate(date);
+    }
+  };
+
+  const handleInputChange = (value: string, isStart: boolean) => {
+    if (isStart) {
+      setStartInput(value);
+      const parsed = parseDate(value);
+      if (parsed) {
+        setTempStartDate(parsed);
+        setSelectedPreset(""); // Clear preset selection
+      }
+    } else {
+      setEndInput(value);
+      const parsed = parseDate(value);
+      if (parsed) {
+        setTempEndDate(parsed);
+        setSelectedPreset(""); // Clear preset selection
+      }
+    }
+  };
+
+  const handleApply = () => {
+    onDateChange(tempStartDate, tempEndDate);
+    onClose();
+  };
+
+  const handleCancel = () => {
+    setTempStartDate(selectedStartDate);
+    setTempEndDate(selectedEndDate);
+    setIsSelectingRange(false);
+    setHoverDate(null);
+    onClose();
   };
 
   const renderCalendarDays = (monthDate: Date): JSX.Element[] => {
@@ -352,7 +394,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             padding: "10px 8px",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: "9999px",
           }}
         >
           <div
@@ -390,7 +431,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             padding: "10px 8px",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: "9999px",
             cursor: "default",
           }}
         >
@@ -413,19 +453,20 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
     // Current month days
     for (let day = 1; day <= daysInMonth; day++) {
-      const isSelected = isDateSelected(monthDate, monthDate, day);
-      const isInRange = isDateInRange(monthDate, monthDate, day);
-      const isStart = isRangeStart(monthDate, day);
-      const isEnd = isRangeEnd(monthDate, day);
+      const date = new Date(monthDate.getFullYear(), monthDate.getMonth(), day);
+      const isSelected = isDateSelected(date);
+      const isInRange = isDateInRange(date);
+      const isStart = isRangeStart(date);
+      const isEnd = isRangeEnd(date);
 
       days.push(
         <div
           key={`current-${day}`}
           onClick={(e) => {
             e.stopPropagation();
-            handleDateClick(monthDate, day);
+            handleDateClick(date);
           }}
-          onMouseEnter={() => handleDateHover(monthDate, day)}
+          onMouseEnter={() => handleDateHover(date)}
           style={{
             display: "flex",
             width: "40px",
@@ -449,10 +490,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           }}
         >
           {/* Range connectors */}
-          {(isInRange || isSelected) && (
+          {isInRange && !isSelected && (
             <>
-              {/* Left connector - show if not range start and in range */}
-              {!isStart && (isInRange || isEnd) && (
+              {/* Left connector */}
+              {!isStart && (
                 <div
                   style={{
                     position: "absolute",
@@ -465,8 +506,8 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   }}
                 />
               )}
-              {/* Right connector - show if not range end and in range */}
-              {!isEnd && (isInRange || isStart) && (
+              {/* Right connector */}
+              {!isEnd && (
                 <div
                   style={{
                     position: "absolute",
@@ -513,7 +554,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             padding: "10px 8px",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: "9999px",
             cursor: "default",
           }}
         >
@@ -617,7 +657,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 fontSize: "14px",
                 fontWeight: "500",
                 lineHeight: "20px",
-                pointerEvents: "none", // Prevent interference with parent hover
+                pointerEvents: "none",
               }}
             >
               {preset}
@@ -878,7 +918,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 <input
                   type="text"
                   value={startInput}
-                  onChange={(e) => setStartInput(e.target.value)}
+                  onChange={(e) => handleInputChange(e.target.value, true)}
                   onClick={(e) => e.stopPropagation()}
                   onFocus={(e) => e.stopPropagation()}
                   style={{
@@ -933,7 +973,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 <input
                   type="text"
                   value={endInput}
-                  onChange={(e) => setEndInput(e.target.value)}
+                  onChange={(e) => handleInputChange(e.target.value, false)}
                   onClick={(e) => e.stopPropagation()}
                   onFocus={(e) => e.stopPropagation()}
                   style={{
