@@ -4,6 +4,7 @@ import AlertNotification from "../components/ui/alert-notification";
 import CustomizeDrawer from "../components/ui/customize-drawer";
 import DatePickerCalendar from "../components/ui/date-picker-calendar";
 import { MetricCard } from "../components/ui/metric-card";
+import { LatestReportsWidget } from "../components/ui/latest-reports-widget";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
@@ -959,6 +960,20 @@ export default function Dashboard() {
                   isMobile={isMobile}
                 />
               </div>
+            </div>
+
+            {/* Latest Reports Widget Section */}
+            <div
+              style={{
+                display: "flex",
+                padding: isMobile ? "0px 16px" : "0px 32px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                alignSelf: "stretch",
+              }}
+            >
+              <LatestReportsWidget isMobile={isMobile} />
             </div>
           </div>
         </div>
