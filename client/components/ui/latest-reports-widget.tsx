@@ -797,8 +797,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           transition: "background-color 0.2s ease-in-out",
           transform: "rotate(90deg)",
           position: "absolute",
-          left: "266px",
-          top: "46px",
+          left: "241px",
+          top: "-6px",
           zIndex: 10,
         }}
         onMouseEnter={(e) => {
