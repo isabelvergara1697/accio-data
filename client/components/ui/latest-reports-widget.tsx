@@ -27,6 +27,8 @@ interface ReportData {
 interface LatestReportsWidgetProps {
   /** Whether this is mobile view */
   isMobile?: boolean;
+  /** Window width for responsive behavior */
+  windowWidth?: number;
 }
 
 const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
@@ -208,15 +210,28 @@ const mockReportsData: ReportData[] = [
 
 export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
   isMobile = false,
+  windowWidth = 1024,
 }) => {
   const [hoveredRowIndex, setHoveredRowIndex] = React.useState<number | null>(
     null,
   );
+
+  // Determine which columns to show based on width
+  const isTablet = windowWidth >= 768 && windowWidth < 1024;
+  const isDesktop = windowWidth >= 1024;
+  const showOrderColumn = windowWidth >= 640;
+  const showProgressColumn = windowWidth >= 480;
+
+  // Truncate text helper
+  const truncateText = (text: string, maxLength: number) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + "...";
+  };
   return (
     <div
       style={{
         display: "flex",
-        width: isMobile ? "100%" : "532px",
+        width: isTablet || isMobile ? "100%" : "532px",
         height: "480px",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -416,11 +431,12 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           }}
         >
           {/* Order Column */}
-          {!isMobile && (
+          {showOrderColumn && (
             <div
               style={{
                 display: "flex",
                 width: "77px",
+                minWidth: "77px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 alignSelf: "stretch",
@@ -515,6 +531,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           <div
             style={{
               display: "flex",
+              width: windowWidth >= 480 ? "120px" : "100px",
+              minWidth: windowWidth >= 480 ? "120px" : "100px",
               flexDirection: "column",
               alignItems: "flex-start",
               alignSelf: "stretch",
@@ -599,7 +617,9 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              flex: "1 0 0",
+              flex: "1 1 auto",
+              minWidth: "120px",
+              maxWidth: "none",
             }}
           >
             {/* Header */}
@@ -687,9 +707,16 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       fontSize: "14px",
                       fontWeight: "500",
                       lineHeight: "20px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                      maxWidth: "100%",
                     }}
+                    title={report.requester.name}
                   >
-                    {report.requester.name}
+                    {windowWidth < 380
+                      ? truncateText(report.requester.name, 15)
+                      : report.requester.name}
                   </div>
                   <div
                     style={{
@@ -702,9 +729,13 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       fontWeight: "400",
                       lineHeight: "20px",
                       whiteSpace: "nowrap",
+                      maxWidth: "100%",
                     }}
+                    title={report.requester.email}
                   >
-                    {report.requester.email}
+                    {windowWidth < 480
+                      ? truncateText(report.requester.email, 20)
+                      : report.requester.email}
                   </div>
                 </div>
               </div>
@@ -712,12 +743,12 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           </div>
 
           {/* Progress Column */}
-          {!isMobile && (
+          {showProgressColumn && (
             <div
               style={{
                 display: "flex",
-                width: "120px",
-                minWidth: "120px",
+                width: windowWidth >= 768 ? "140px" : "120px",
+                minWidth: windowWidth >= 768 ? "140px" : "120px",
                 flexDirection: "column",
                 alignItems: "flex-start",
               }}
