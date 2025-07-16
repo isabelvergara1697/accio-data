@@ -318,83 +318,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             display: "flex",
             alignItems: "center",
             gap: "12px",
-            position: "relative",
           }}
         >
-          {/* Drag and Drop Button */}
-          <button
-            style={{
-              display: "flex",
-              height: "32px",
-              padding: "8px",
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: "8px",
-              border: "none",
-              background: "transparent",
-              cursor: "pointer",
-              transition: "background-color 0.2s ease-in-out",
-              transform: "rotate(90deg)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F5F5F5";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.33334 6.00016C7.33334 6.36835 7.63182 6.66683 8.00001 6.66683C8.3682 6.66683 8.66668 6.36835 8.66668 6.00016C8.66668 5.63197 8.3682 5.3335 8.00001 5.3335C7.63182 5.3335 7.33334 5.63197 7.33334 6.00016Z"
-                stroke="#A4A7AE"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12 6.00016C12 6.36835 12.2985 6.66683 12.6667 6.66683C13.0349 6.66683 13.3333 6.36835 13.3333 6.00016C13.3333 5.63197 13.0349 5.3335 12.6667 5.3335C12.2985 5.3335 12 5.63197 12 6.00016Z"
-                stroke="#A4A7AE"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M2.66668 6.00016C2.66668 6.36835 2.96515 6.66683 3.33334 6.66683C3.70153 6.66683 4.00001 6.36835 4.00001 6.00016C4.00001 5.63197 3.70153 5.3335 3.33334 5.3335C2.96515 5.3335 2.66668 5.63197 2.66668 6.00016Z"
-                stroke="#A4A7AE"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M7.33334 10.0002C7.33334 10.3684 7.63182 10.6668 8.00001 10.6668C8.3682 10.6668 8.66668 10.3684 8.66668 10.0002C8.66668 9.63197 8.3682 9.3335 8.00001 9.3335C7.63182 9.3335 7.33334 9.63197 7.33334 10.0002Z"
-                stroke="#A4A7AE"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12 10.0002C12 10.3684 12.2985 10.6668 12.6667 10.6668C13.0349 10.6668 13.3333 10.3684 13.3333 10.0002C13.3333 9.63197 13.0349 9.3335 12.6667 9.3335C12.2985 9.3335 12 9.63197 12 10.0002Z"
-                stroke="#A4A7AE"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M2.66668 10.0002C2.66668 10.3684 2.96515 10.6668 3.33334 10.6668C3.70153 10.6668 4.00001 10.3684 4.00001 10.0002C4.00001 9.63197 3.70153 9.3335 3.33334 9.3335C2.96515 9.3335 2.66668 9.63197 2.66668 10.0002Z"
-                stroke="#A4A7AE"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-
           {/* See All button */}
           <button
             style={{
