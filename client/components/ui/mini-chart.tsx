@@ -58,10 +58,8 @@ export const MiniChart: React.FC<MiniChartProps> = ({
     <div
       style={{
         height: "56px",
-        flex: "1 0 0",
+        width: "100%",
         position: "relative",
-        minWidth: "80px",
-        maxWidth: "200px",
         overflow: "hidden", // Prevent any overflow
       }}
     >
