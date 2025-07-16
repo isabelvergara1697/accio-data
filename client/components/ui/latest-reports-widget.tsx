@@ -116,17 +116,17 @@ const ProgressBar: React.FC<ProgressBarProps & { isCompact?: boolean }> = ({
     >
       <div
         style={{
-          height: "6px",
+          height: "8px",
           flex: "1 0 0",
           position: "relative",
-          minWidth: isCompact ? "40px" : "60px",
+          minWidth: isCompact ? "35px" : "40px",
         }}
       >
         {/* Background */}
         <div
           style={{
             width: "100%",
-            height: "6px",
+            height: "8px",
             borderRadius: "9999px",
             background: "#D5D7DA",
             position: "absolute",
@@ -138,14 +138,12 @@ const ProgressBar: React.FC<ProgressBarProps & { isCompact?: boolean }> = ({
         <div
           style={{
             width: `${percentage}%`,
-            height: "6px",
+            height: "8px",
             borderRadius: "9999px",
-            background: "linear-gradient(90deg, #344698 0%, #4F46E5 100%)",
+            background: "#344698",
             position: "absolute",
             left: "0px",
             top: "0px",
-            transition: "all 0.3s ease-in-out",
-            boxShadow: "0px 1px 2px 0px rgba(52, 70, 152, 0.2)",
           }}
         />
       </div>
