@@ -17,69 +17,75 @@ export const MiniChart: React.FC<MiniChartProps> = ({
   lineColor = "#344698",
   variant = "default",
 }) => {
-  // Base dimensions for consistent aspect ratio
-  const baseWidth = 103;
-  const baseHeight = 56;
-
-  // Chart path variations with normalized coordinates
+  // Chart path variations - simplified and properly aligned
   const chartVariations = {
     default: {
-      path: "M103 0C86.2658 1.51637 85.2295 37.8191 68.6667 42C55.0086 45.4477 48.0926 25.8771 34.3333 28C19.4094 30.3026 14.6336 50.6959 0 56H103V0Z",
-      line: "M1 57C5.29167 55.6667 12.333 49.5117 20.3125 39.5C32.2679 24.5 44.683 30.5 48.3616 33.5C52.0402 36.5 58.4777 44.5 66.7545 43.5C75.0313 42.5 83.308 33 89.2857 17.5C95.2634 2 99.4018 1.5 104 1",
-      markerPosition: { x: 76, y: 12 },
+      // Smooth curved line that starts low and ends high
+      line: "M8 45 Q25 35, 45 28 T85 15",
+      // Simple area fill that follows the line
+      area: "M8 45 Q25 35, 45 28 T85 15 L85 50 L8 50 Z",
+      // Marker position along the curve
+      markerX: 85,
+      markerY: 15,
     },
     variant1: {
-      path: "M103 15C85.5 8.5 79.2 25.3 65.5 20C48.8 13.2 52.1 35.8 34.5 38.5C20.2 40.8 18.7 25.2 0 30V56H103V15Z",
-      line: "M1 31C8.5 28.5 15.2 42.8 25.8 40C38.9 36.5 35.1 18.2 48.7 21.5C61.2 24.5 58.8 40.8 73.4 38C86.1 35.5 91.8 25.2 104 22",
-      markerPosition: { x: 82, y: 18 },
+      // Different curve pattern
+      line: "M8 35 Q30 45, 50 20 T85 25",
+      area: "M8 35 Q30 45, 50 20 T85 25 L85 50 L8 50 Z",
+      markerX: 85,
+      markerY: 25,
     },
     variant2: {
-      path: "M103 25C88.3 35.2 82.7 15.8 68.2 22.5C51.8 30.4 57.2 8.2 40.1 12C25.9 15.1 29.4 38.7 15.2 42.5C7.8 44.8 5.1 35.2 0 38V56H103V25Z",
-      line: "M1 39C9.2 36.1 12.8 45.9 22.4 43.2C34.1 39.8 30.7 21.5 43.2 24.8C57.9 28.8 52.4 12.5 67.8 18.2C80.5 22.8 85.1 38.2 104 35",
-      markerPosition: { x: 85, y: 28 },
+      // Another variation
+      line: "M8 40 Q25 20, 55 35 T85 18",
+      area: "M8 40 Q25 20, 55 35 T85 18 L85 50 L8 50 Z",
+      markerX: 85,
+      markerY: 18,
     },
     variant3: {
-      path: "M103 5C89.7 18.3 85.4 2.8 71.5 12.5C55.2 24.1 62.8 5.7 46.3 8.2C32.1 10.4 37.5 28.9 23.8 32.5C14.2 35.1 16.7 18.4 0 22V56H103V5Z",
-      line: "M1 23C11.8 19.2 14.5 34.8 26.1 31.9C39.4 28.4 34.2 12.1 47.8 15.2C63.7 18.9 56.1 7.5 71.2 13.8C83.9 19.1 88.2 7.2 104 10",
-      markerPosition: { x: 79, y: 8 },
+      // Fourth variation
+      line: "M8 30 Q35 40, 60 25 T85 20",
+      area: "M8 30 Q35 40, 60 25 T85 20 L85 50 L8 50 Z",
+      markerX: 85,
+      markerY: 20,
     },
   };
 
   const currentVariation = chartVariations[variant];
+  const uniqueId = `gradient-${backgroundColor.replace("#", "")}-${variant}`;
+
   return (
     <div
       style={{
         height: "56px",
         flex: "1 0 0",
         position: "relative",
-        minWidth: "60px",
+        minWidth: "100px",
       }}
     >
-      {/* Combined SVG for background and line - fully responsive */}
       <svg
         style={{
           width: "100%",
           height: "100%",
-          position: "absolute",
-          left: "0",
-          top: "0",
+          overflow: "visible",
         }}
-        viewBox={`0 0 ${baseWidth} ${baseHeight}`}
+        viewBox="0 0 100 56"
         preserveAspectRatio="none"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
           <linearGradient
-            id={`gradient-${backgroundColor.replace("#", "")}`}
+            id={uniqueId}
             x1="0%"
             y1="0%"
             x2="0%"
             y2="100%"
+            gradientUnits="objectBoundingBox"
           >
             <stop
               offset="0%"
-              style={{ stopColor: backgroundColor, stopOpacity: 0.2 }}
+              style={{ stopColor: backgroundColor, stopOpacity: 0.15 }}
             />
             <stop
               offset="100%"
@@ -88,13 +94,10 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           </linearGradient>
         </defs>
 
-        {/* Background gradient fill */}
-        <path
-          d={currentVariation.path}
-          fill={`url(#gradient-${backgroundColor.replace("#", "")})`}
-        />
+        {/* Background gradient area */}
+        <path d={currentVariation.area} fill={`url(#${uniqueId})`} />
 
-        {/* Wavy line */}
+        {/* Chart line */}
         <path
           d={currentVariation.line}
           stroke={lineColor}
@@ -106,42 +109,41 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         />
       </svg>
 
-      {/* Marker dot - positioned responsively */}
+      {/* Marker dot positioned at the end of the line */}
       <div
         style={{
-          width: "18px",
-          height: "19px",
           position: "absolute",
-          left: `${(currentVariation.markerPosition.x / baseWidth) * 100}%`,
-          top: `${(currentVariation.markerPosition.y / baseHeight) * 100}%`,
-          transform: "translate(-50%, -50%)",
+          right: "8px",
+          top: `${(currentVariation.markerY / 56) * 100}%`,
+          transform: "translateY(-50%)",
+          width: "16px",
+          height: "16px",
         }}
       >
-        {/* Ring */}
+        {/* Outer ring */}
         <div
           style={{
-            width: "19px",
-            height: "19px",
+            width: "16px",
+            height: "16px",
             borderRadius: "50%",
             border: `2px solid ${lineColor}`,
             opacity: 0.2,
             position: "absolute",
-            left: "-1px",
-            top: "0px",
+            top: 0,
+            left: 0,
           }}
         />
-
-        {/* Dot */}
+        {/* Inner dot */}
         <div
           style={{
-            width: "11px",
-            height: "11px",
+            width: "8px",
+            height: "8px",
             borderRadius: "50%",
             border: `2px solid ${lineColor}`,
             background: "#FFF",
             position: "absolute",
-            left: "3px",
-            top: "4px",
+            top: "2px",
+            left: "2px",
           }}
         />
       </div>
