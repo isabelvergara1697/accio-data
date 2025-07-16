@@ -750,6 +750,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                           fontSize: "14px",
                           fontWeight: "400",
                           lineHeight: "20px",
+                          whiteSpace: "nowrap",
+                          maxWidth: "100%",
                         }}
                       >
                         {report.requester.email}
