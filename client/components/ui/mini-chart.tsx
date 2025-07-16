@@ -127,7 +127,7 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M1 57C5.29167 55.6667 12.333 49.5117 20.3125 39.5C32.2679 24.5 44.683 30.5 48.3616 33.5C52.0402 36.5 58.4777 44.5 66.7545 43.5C75.0313 42.5 83.308 33 89.2857 17.5C95.2634 2 99.4018 1.5 104 1"
+          d={currentVariation.line}
           stroke={lineColor}
           strokeWidth="2"
           strokeLinecap="round"
