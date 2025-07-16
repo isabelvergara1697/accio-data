@@ -12,7 +12,6 @@ interface StatusBadgeProps {
 
 interface ProgressBarProps {
   percentage: number;
-  isCompact?: boolean;
 }
 
 interface ReportData {
@@ -103,16 +102,13 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
   );
 };
 
-const ProgressBar: React.FC<ProgressBarProps> = ({
-  percentage,
-  isCompact = false,
-}) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({ percentage }) => {
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
-        gap: isCompact ? "8px" : "12px",
+        gap: "12px",
         flex: "1 0 0",
       }}
     >
@@ -121,7 +117,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
           height: "8px",
           flex: "1 0 0",
           position: "relative",
-          minWidth: isCompact ? "35px" : "40px",
         }}
       >
         {/* Background */}
@@ -153,9 +148,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         style={{
           color: "#414651",
           fontFamily: "Public Sans",
-          fontSize: isCompact ? "12px" : "14px",
+          fontSize: "14px",
           fontWeight: "500",
-          lineHeight: isCompact ? "16px" : "20px",
+          lineHeight: "20px",
           minWidth: "32px",
         }}
       >
@@ -228,24 +223,19 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
   // Determine which columns to show based on width
   const showOrderColumn = windowWidth >= 640;
   const showProgressColumn = windowWidth >= 480;
-  const isDesktop = windowWidth >= 1024;
 
   return (
     <div
       style={{
         display: "flex",
-        width: isTablet || isMobile ? "100%" : "532px",
-        height: "480px",
         flexDirection: "column",
         alignItems: "flex-start",
-        flexShrink: 0,
+        flex: "1 0 0",
+        alignSelf: "stretch",
         borderRadius: "12px",
-        border: "1px solid #D5D7DA",
+        border: "1px solid #E9EAEB",
         background: "#FDFDFD",
-        boxShadow:
-          "0px 1px 3px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px -1px rgba(10, 13, 18, 0.10)",
         position: "relative",
-        overflow: "hidden",
       }}
     >
       {/* Heading and content */}
@@ -289,7 +279,12 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             >
               <div
                 style={{
+                  display: "-webkit-box",
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: 1,
+                  overflow: "hidden",
                   color: "#414651",
+                  textOverflow: "ellipsis",
                   fontFamily: "Public Sans",
                   fontSize: "16px",
                   fontWeight: "600",
@@ -356,41 +351,14 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                 boxShadow:
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
-                transition: "all 0.15s ease-in-out",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#F5F5F5";
-                e.currentTarget.style.transform = "translateY(-1px)";
-                e.currentTarget.style.boxShadow =
-                  "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 2px 4px 0px rgba(10, 13, 18, 0.08)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#FFF";
-                e.currentTarget.style.transform = "translateY(0px)";
-                e.currentTarget.style.boxShadow =
-                  "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)";
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: "600",
+                lineHeight: "20px",
+                color: "#414651",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  padding: "0px 2px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    lineHeight: "20px",
-                  }}
-                >
-                  See All
-                </div>
-              </div>
+              See All
             </button>
 
             {/* Menu button */}
@@ -404,15 +372,6 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                 border: "none",
                 background: "transparent",
                 cursor: "pointer",
-                transition: "all 0.15s ease-in-out",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#F5F5F5";
-                e.currentTarget.style.transform = "scale(1.05)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.transform = "scale(1)";
               }}
             >
               <svg
@@ -465,37 +424,205 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             position: "relative",
           }}
         >
-          {/* Widget Content - Table using Row-based approach */}
+          {/* Table */}
           <div
             style={{
               display: "flex",
+              flexDirection: "column",
               alignItems: "flex-start",
-              flex: "1 0 0",
               alignSelf: "stretch",
-              position: "relative",
+              flex: "1 0 0",
             }}
           >
+            {/* Table Header */}
             <div
               style={{
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
+                height: "36px",
+                alignItems: "center",
                 alignSelf: "stretch",
-                flex: "1 0 0",
+                borderBottom: "1px solid #E9EAEB",
+                background: "#FFF",
               }}
             >
-              {/* Table Header */}
+              {/* Order Header */}
+              {showOrderColumn && (
+                <div
+                  style={{
+                    display: "flex",
+                    width: "77px",
+                    padding: "6px 12px",
+                    alignItems: "center",
+                    gap: "4px",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#717680",
+                      fontFamily: "Public Sans",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      lineHeight: "18px",
+                    }}
+                  >
+                    Order
+                  </div>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              )}
+
+              {/* Status Header */}
               <div
                 style={{
                   display: "flex",
-                  height: "36px",
+                  width: "120px",
+                  padding: "6px 12px",
                   alignItems: "center",
-                  alignSelf: "stretch",
-                  borderBottom: "1px solid #E9EAEB",
-                  background: "#FFF",
+                  gap: "4px",
                 }}
               >
-                {/* Order Header */}
+                <div
+                  style={{
+                    color: "#717680",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: "600",
+                    lineHeight: "18px",
+                  }}
+                >
+                  Status
+                </div>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              {/* Requester Header */}
+              <div
+                style={{
+                  display: "flex",
+                  flex: "1 0 0",
+                  padding: "6px 12px",
+                  alignItems: "center",
+                  gap: "4px",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#717680",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: "600",
+                    lineHeight: "18px",
+                  }}
+                >
+                  Requester
+                </div>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              {/* Progress Header */}
+              {showProgressColumn && (
+                <div
+                  style={{
+                    display: "flex",
+                    width: "107px",
+                    padding: "6px 12px",
+                    alignItems: "center",
+                    gap: "4px",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#717680",
+                      fontFamily: "Public Sans",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      lineHeight: "18px",
+                    }}
+                  >
+                    Progress
+                  </div>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.66669 9.99984L8.00002 13.3332L11.3334 9.99984M4.66669 5.99984L8.00002 2.6665L11.3334 5.99984"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              )}
+            </div>
+
+            {/* Table Rows */}
+            {mockReportsData.map((report, index) => (
+              <div
+                key={index}
+                style={{
+                  display: "flex",
+                  height: "52px",
+                  alignItems: "center",
+                  alignSelf: "stretch",
+                  borderBottom:
+                    index < mockReportsData.length - 1
+                      ? "1px solid #E9EAEB"
+                      : "none",
+                  background: hoveredRowIndex === index ? "#F9FAFB" : "#FFF",
+                  cursor: "pointer",
+                  position: "relative",
+                }}
+                onMouseEnter={() => setHoveredRowIndex(index)}
+                onMouseLeave={() => setHoveredRowIndex(null)}
+              >
+                {/* Order Cell */}
                 {showOrderColumn && (
                   <div
                     style={{
@@ -503,300 +630,108 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       width: "77px",
                       padding: "6px 12px",
                       alignItems: "center",
-                      gap: "4px",
                     }}
                   >
                     <div
                       style={{
-                        color: "#717680",
+                        color: "#535862",
                         fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontWeight: "600",
-                        lineHeight: "18px",
+                        fontSize: "14px",
+                        fontWeight: "400",
+                        lineHeight: "20px",
                       }}
                     >
-                      Order
+                      {report.order}
                     </div>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
                   </div>
                 )}
 
-                {/* Status Header */}
+                {/* Status Cell */}
                 <div
                   style={{
                     display: "flex",
                     width: "120px",
                     padding: "6px 12px",
                     alignItems: "center",
-                    gap: "4px",
                   }}
                 >
-                  <div
-                    style={{
-                      color: "#717680",
-                      fontFamily: "Public Sans",
-                      fontSize: "12px",
-                      fontWeight: "600",
-                      lineHeight: "18px",
-                    }}
-                  >
-                    Status
-                  </div>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
-                      stroke="#A4A7AE"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <StatusBadge status={report.status} />
                 </div>
 
-                {/* Requester Header */}
+                {/* Requester Cell */}
                 <div
                   style={{
                     display: "flex",
-                    width: "188px",
+                    flex: "1 0 0",
                     padding: "6px 12px",
                     alignItems: "center",
-                    gap: "4px",
                   }}
                 >
                   <div
                     style={{
-                      color: "#717680",
-                      fontFamily: "Public Sans",
-                      fontSize: "12px",
-                      fontWeight: "600",
-                      lineHeight: "18px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      flex: "1 0 0",
+                      alignSelf: "stretch",
                     }}
                   >
-                    Requester
+                    <div
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                        lineHeight: "20px",
+                      }}
+                    >
+                      {report.requester.name}
+                    </div>
+                    <div
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 1,
+                        alignSelf: "stretch",
+                        overflow: "hidden",
+                        color: "#535862",
+                        textOverflow: "ellipsis",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: "400",
+                        lineHeight: "20px",
+                      }}
+                    >
+                      {report.requester.email}
+                    </div>
                   </div>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
-                      stroke="#A4A7AE"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
                 </div>
 
-                {/* Progress Header */}
+                {/* Progress Cell */}
                 {showProgressColumn && (
                   <div
                     style={{
                       display: "flex",
-                      flex: "1 0 0",
-                      padding: "6px 12px",
-                      alignItems: "center",
-                      gap: "4px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#717680",
-                        fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontWeight: "600",
-                        lineHeight: "18px",
-                      }}
-                    >
-                      Progress
-                    </div>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4.66669 9.99984L8.00002 13.3332L11.3334 9.99984M4.66669 5.99984L8.00002 2.6665L11.3334 5.99984"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                )}
-
-                {/* Empty header space for drag handle */}
-                <div
-                  style={{
-                    display: "flex",
-                    width: "44px",
-                    padding: "6px 12px",
-                    alignItems: "center",
-                  }}
-                ></div>
-              </div>
-
-              {/* Table Rows */}
-              {mockReportsData.map((report, index) => (
-                <div
-                  key={index}
-                  style={{
-                    display: "flex",
-                    height: "52px",
-                    alignItems: "center",
-                    alignSelf: "stretch",
-                    borderBottom:
-                      index < mockReportsData.length - 1
-                        ? "1px solid #E9EAEB"
-                        : "none",
-                    background: hoveredRowIndex === index ? "#F9FAFB" : "#FFF",
-                    transition: "background-color 0.15s ease-in-out",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={() => setHoveredRowIndex(index)}
-                  onMouseLeave={() => setHoveredRowIndex(null)}
-                >
-                  {/* Order Cell */}
-                  {showOrderColumn && (
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "77px",
-                        padding: "6px 12px",
-                        alignItems: "center",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#535862",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: "400",
-                          lineHeight: "20px",
-                        }}
-                      >
-                        {report.order}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Status Cell */}
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "120px",
-                      padding: "12px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <StatusBadge status={report.status} />
-                  </div>
-
-                  {/* Requester Cell */}
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "188px",
-                      padding: "6px 12px",
-                      alignItems: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        flex: "1 0 0",
-                        alignSelf: "stretch",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#181D27",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: "500",
-                          lineHeight: "20px",
-                        }}
-                      >
-                        {report.requester.name}
-                      </div>
-                      <div
-                        style={{
-                          overflow: "hidden",
-                          color: "#535862",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: "400",
-                          lineHeight: "20px",
-                          width: "156px",
-                          display: "-webkit-box",
-                          WebkitLineClamp: 1,
-                          WebkitBoxOrient: "vertical",
-                          textOverflow: "ellipsis",
-                        }}
-                      >
-                        {report.requester.email}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Progress Cell */}
-                  {showProgressColumn && (
-                    <div
-                      style={{
-                        display: "flex",
-                        flex: "1 0 0",
-                        height: "52px",
-                        padding: "6px 12px",
-                        alignItems: "center",
-                        gap: "12px",
-                      }}
-                    >
-                      <ProgressBar
-                        percentage={report.progress}
-                        isCompact={isDesktop}
-                      />
-                    </div>
-                  )}
-
-                  {/* Drag Handle - Only show on hover */}
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "44px",
+                      width: "107px",
                       height: "52px",
                       padding: "6px 12px",
                       alignItems: "center",
-                      justifyContent: "center",
-                      opacity: hoveredRowIndex === index ? 1 : 0,
-                      transition: "opacity 0.15s ease-in-out",
+                      gap: "12px",
+                    }}
+                  >
+                    <ProgressBar percentage={report.progress} />
+                  </div>
+                )}
+
+                {/* Drag Handle - Only show on hover */}
+                {hoveredRowIndex === index && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      right: "12px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      zIndex: 10,
                     }}
                   >
                     <button
@@ -811,18 +746,15 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                         border: "1px solid #E9EAEB",
                         background: "#FFFFFF",
                         cursor: "grab",
-                        transition: "all 0.15s ease-in-out",
                         boxShadow: "none",
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background = "#F9FAFB";
-                        e.currentTarget.style.border = "1px solid #E9EAEB";
                         e.currentTarget.style.boxShadow =
                           "0px 1px 2px 0px rgba(10, 13, 18, 0.05), 0px 1px 3px 0px rgba(10, 13, 18, 0.10)";
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.background = "#FFFFFF";
-                        e.currentTarget.style.border = "1px solid #E9EAEB";
                         e.currentTarget.style.boxShadow = "none";
                       }}
                     >
@@ -857,9 +789,9 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       </svg>
                     </button>
                   </div>
-                </div>
-              ))}
-            </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
