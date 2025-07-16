@@ -12,6 +12,7 @@ interface StatusBadgeProps {
 
 interface ProgressBarProps {
   percentage: number;
+  isCompact?: boolean;
 }
 
 interface ReportData {
