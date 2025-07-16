@@ -133,10 +133,50 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       monthDate.getMonth(),
       day,
     );
+
+    if (isSelectingRange && tempDate) {
+      const rangeStart = tempDate < startDate ? tempDate : startDate;
+      const rangeEnd = tempDate < startDate ? startDate : tempDate;
+      return (
+        currentDate.getTime() === rangeStart.getTime() ||
+        currentDate.getTime() === rangeEnd.getTime()
+      );
+    }
+
     return (
       currentDate.getTime() === startDate.getTime() ||
       currentDate.getTime() === endDate.getTime()
     );
+  };
+
+  const isRangeStart = (monthDate: Date, day: number): boolean => {
+    const currentDate = new Date(
+      monthDate.getFullYear(),
+      monthDate.getMonth(),
+      day,
+    );
+
+    if (isSelectingRange && tempDate) {
+      const rangeStart = tempDate < startDate ? tempDate : startDate;
+      return currentDate.getTime() === rangeStart.getTime();
+    }
+
+    return currentDate.getTime() === startDate.getTime();
+  };
+
+  const isRangeEnd = (monthDate: Date, day: number): boolean => {
+    const currentDate = new Date(
+      monthDate.getFullYear(),
+      monthDate.getMonth(),
+      day,
+    );
+
+    if (isSelectingRange && tempDate) {
+      const rangeEnd = tempDate < startDate ? startDate : tempDate;
+      return currentDate.getTime() === rangeEnd.getTime();
+    }
+
+    return currentDate.getTime() === endDate.getTime();
   };
 
   const handleDateClick = (monthDate: Date, day: number) => {
