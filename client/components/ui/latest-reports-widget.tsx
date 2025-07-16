@@ -770,9 +770,13 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                           alignItems: "center",
                           borderRadius: "8px",
                           border: "1px solid #E9EAEB",
-                          background: "#FFFFFF",
+                          background: isDragButtonHovered
+                            ? "#F9FAFB"
+                            : "#FFFFFF",
                           cursor: "grab",
-                          boxShadow: "none",
+                          boxShadow: isDragButtonHovered
+                            ? "0px 1px 2px 0px rgba(10, 13, 18, 0.05), 0px 1px 3px 0px rgba(10, 13, 18, 0.10)"
+                            : "none",
                           transition: "all 0.2s ease-in-out",
                         }}
                         onMouseEnter={() => {
