@@ -129,13 +129,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       let left;
 
       if (isMobile) {
-        // On mobile, align calendar with trigger button (same width and position)
+        // On mobile, align calendar with trigger button
         left = triggerRect.left;
-      } else if (window.innerWidth < 1024) {
-        // On tablet, center calendar relative to trigger
-        left = triggerRect.left + (triggerRect.width - 360) / 2;
       } else {
-        // On desktop, align right edge of calendar with right edge of trigger
+        // On desktop and tablet, align right edge
         left = triggerRect.right - calendarRect.width;
       }
 
@@ -196,6 +193,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
+
+  // Check if tablet
+  const isTablet = !isMobile && window.innerWidth < 1024;
 
   if (!isOpen) return null;
 
@@ -659,12 +659,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
         zIndex: 50,
         width: isMobile
-          ? triggerRef.current
-            ? `${triggerRef.current.getBoundingClientRect().width}px`
-            : "100%"
-          : window.innerWidth < 1024
-            ? "360px"
-            : "auto",
+          ? "100%" // Full width on mobile to match other buttons
+          : isTablet
+            ? "380px" // Fixed width for tablet
+            : "auto", // Auto width for desktop
       }}
     >
       {/* Desktop: Left sidebar with presets */}
@@ -1085,11 +1083,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           <div
             style={{
               display: "flex",
-              padding: "8px 16px 12px 16px",
+              padding: "4px 8px 0px 8px",
               justifyContent: "space-between",
               alignItems: "center",
               alignSelf: "stretch",
-              gap: "8px",
             }}
           >
             {mobilePresets.map((preset) => (
@@ -1107,19 +1104,13 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   background: "transparent",
                   border: "none",
                   cursor: "pointer",
-                  transition: "color 0.15s ease",
-                  color: selectedPreset === preset ? "#273572" : "#273572",
+                  padding: "0",
+                  color: "#273572",
                   fontFamily: "Public Sans",
                   fontSize: "14px",
                   fontWeight: "600",
                   lineHeight: "20px",
-                  whiteSpace: "nowrap",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#1E2A5E";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#273572";
+                  textDecoration: "none",
                 }}
               >
                 {preset}
