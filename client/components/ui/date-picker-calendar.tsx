@@ -589,6 +589,16 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           <div
             key={preset}
             onClick={() => handlePresetClick(preset)}
+            onMouseEnter={(e) => {
+              if (selectedPreset !== preset) {
+                (e.target as HTMLElement).style.background = "#F9FAFB";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (selectedPreset !== preset) {
+                (e.target as HTMLElement).style.background = "transparent";
+              }
+            }}
             style={{
               display: "flex",
               padding: "8px 12px",
@@ -597,6 +607,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               borderRadius: "6px",
               background: selectedPreset === preset ? "#F5F5F5" : "transparent",
               cursor: "pointer",
+              transition: "background-color 0.15s ease",
             }}
           >
             <div
@@ -606,6 +617,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 fontSize: "14px",
                 fontWeight: "500",
                 lineHeight: "20px",
+                pointerEvents: "none", // Prevent interference with parent hover
               }}
             >
               {preset}
