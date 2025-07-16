@@ -212,6 +212,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           trend={chartTrend}
           backgroundColor={backgroundColor}
           lineColor={lineColor}
+          variant={variant}
         />
       </div>
     </div>
