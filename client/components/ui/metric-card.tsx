@@ -213,7 +213,8 @@ export const MetricCard: React.FC<MetricCardProps> = ({
             alignItems: "center",
             justifyContent: "center",
             height: "56px",
-            flex: "1 0 0", // Allow chart to grow/shrink with container
+            minWidth: "100px",
+            flex: "1 0 100px", // Give chart more space while keeping responsive
           }}
         >
           <MiniChart
