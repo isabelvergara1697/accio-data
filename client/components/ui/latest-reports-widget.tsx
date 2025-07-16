@@ -775,102 +775,83 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       />
                     </div>
                   )}
+
+                  {/* Drag Handle - Only show on hover */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "44px",
+                      height: "52px",
+                      padding: "6px 12px",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      opacity: hoveredRowIndex === index ? 1 : 0,
+                      transition: "opacity 0.15s ease-in-out",
+                    }}
+                  >
+                    <button
+                      style={{
+                        display: "flex",
+                        width: "32px",
+                        height: "32px",
+                        padding: "8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: "8px",
+                        border: "1px solid #E9EAEB",
+                        background: "#FFFFFF",
+                        cursor: "grab",
+                        transition: "all 0.15s ease-in-out",
+                        boxShadow: "none",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#F9FAFB";
+                        e.currentTarget.style.border = "1px solid #E9EAEB";
+                        e.currentTarget.style.boxShadow =
+                          "0px 1px 2px 0px rgba(10, 13, 18, 0.05), 0px 1px 3px 0px rgba(10, 13, 18, 0.10)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "#FFFFFF";
+                        e.currentTarget.style.border = "1px solid #E9EAEB";
+                        e.currentTarget.style.boxShadow = "none";
+                      }}
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7.99992 8.66675C8.36811 8.66675 8.66659 8.36827 8.66659 8.00008C8.66659 7.63189 8.36811 7.33341 7.99992 7.33341C7.63173 7.33341 7.33325 7.63189 7.33325 8.00008C7.33325 8.36827 7.63173 8.66675 7.99992 8.66675Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M7.99992 4.00008C8.36811 4.00008 8.66659 3.7016 8.66659 3.33341C8.66659 2.96522 8.36811 2.66675 7.99992 2.66675C7.63173 2.66675 7.33325 2.96522 7.33325 3.33341C7.33325 3.7016 7.63173 4.00008 7.99992 4.00008Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M7.99992 13.3334C8.36811 13.3334 8.66659 13.0349 8.66659 12.6667C8.66659 12.2986 8.36811 12.0001 7.99992 12.0001C7.63173 12.0001 7.33325 12.2986 7.33325 12.6667C7.33325 13.0349 7.63173 13.3334 7.99992 13.3334Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Drag and Drop Button - positioned correctly */}
-      <div
-        style={{
-          position: "absolute",
-          right: "12px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 10,
-        }}
-      >
-        <button
-          style={{
-            display: "flex",
-            width: "32px",
-            height: "32px",
-            padding: "8px",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: "8px",
-            border: "1px solid #E9EAEB",
-            background: "#FFFFFF",
-            cursor: "grab",
-            transition: "all 0.15s ease-in-out",
-            transform: "rotate(90deg)",
-            boxShadow: "none",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#F9FAFB";
-            e.currentTarget.style.border = "1px solid #E9EAEB";
-            e.currentTarget.style.boxShadow =
-              "0px 1px 2px 0px rgba(10, 13, 18, 0.05), 0px 1px 3px 0px rgba(10, 13, 18, 0.10)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#FFFFFF";
-            e.currentTarget.style.border = "1px solid #E9EAEB";
-            e.currentTarget.style.boxShadow = "none";
-          }}
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M7.33334 6.00016C7.33334 6.36835 7.63182 6.66683 8.00001 6.66683C8.3682 6.66683 8.66668 6.36835 8.66668 6.00016C8.66668 5.63197 8.3682 5.3335 8.00001 5.3335C7.63182 5.3335 7.33334 5.63197 7.33334 6.00016Z"
-              stroke="#A4A7AE"
-              strokeWidth="1.66667"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M12 6.00016C12 6.36835 12.2985 6.66683 12.6667 6.66683C13.0349 6.66683 13.3333 6.36835 13.3333 6.00016C13.3333 5.63197 13.0349 5.3335 12.6667 5.3335C12.2985 5.3335 12 5.63197 12 6.00016Z"
-              stroke="#A4A7AE"
-              strokeWidth="1.66667"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M2.66668 6.00016C2.66668 6.36835 2.96515 6.66683 3.33334 6.66683C3.70153 6.66683 4.00001 6.36835 4.00001 6.00016C4.00001 5.63197 3.70153 5.3335 3.33334 5.3335C2.96515 5.3335 2.66668 5.63197 2.66668 6.00016Z"
-              stroke="#A4A7AE"
-              strokeWidth="1.66667"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M7.33334 10.0002C7.33334 10.3684 7.63182 10.6668 8.00001 10.6668C8.3682 10.6668 8.66668 10.3684 8.66668 10.0002C8.66668 9.63197 8.3682 9.3335 8.00001 9.3335C7.63182 9.3335 7.33334 9.63197 7.33334 10.0002Z"
-              stroke="#A4A7AE"
-              strokeWidth="1.66667"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M12 10.0002C12 10.3684 12.2985 10.6668 12.6667 10.6668C13.0349 10.6668 13.3333 10.3684 13.3333 10.0002C13.3333 9.63197 13.0349 9.3335 12.6667 9.3335C12.2985 9.3335 12 9.63197 12 10.0002Z"
-              stroke="#A4A7AE"
-              strokeWidth="1.66667"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M2.66668 10.0002C2.66668 10.3684 2.96515 10.6668 3.33334 10.6668C3.70153 10.6668 4.00001 10.3684 4.00001 10.0002C4.00001 9.63197 3.70153 9.3335 3.33334 9.3335C2.96515 9.3335 2.66668 9.63197 2.66668 10.0002Z"
-              stroke="#A4A7AE"
-              strokeWidth="1.66667"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
       </div>
     </div>
   );
