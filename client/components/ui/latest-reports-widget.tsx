@@ -224,13 +224,6 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
   const [hoveredRowIndex, setHoveredRowIndex] = React.useState<number | null>(
     null,
   );
-  const [isWidgetHovered, setIsWidgetHovered] = React.useState(false);
-  const [isLoaded, setIsLoaded] = React.useState(false);
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
 
   // Determine which columns to show based on width
   const isTablet = windowWidth >= 768 && windowWidth < 1024;
