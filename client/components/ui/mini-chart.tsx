@@ -113,39 +113,38 @@ export const MiniChart: React.FC<MiniChartProps> = ({
       <div
         style={{
           position: "absolute",
-          right: "6%",
+          right: "8%",
           top: `${(currentVariation.markerY / 56) * 100}%`,
           transform: "translate(50%, -50%)",
-          width: "20px",
-          height: "20px",
+          width: "18px",
+          height: "18px",
         }}
       >
         {/* Outer ring */}
         <div
           style={{
-            width: "20px",
-            height: "20px",
+            width: "18px",
+            height: "18px",
             borderRadius: "50%",
             border: `2px solid ${lineColor}`,
             opacity: 0.2,
-            position: "absolute",
-            top: 0,
-            left: 0,
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
-        />
-        {/* Inner dot */}
-        <div
-          style={{
-            width: "12px",
-            height: "12px",
-            borderRadius: "50%",
-            border: `2px solid ${lineColor}`,
-            background: "#FFF",
-            position: "absolute",
-            top: "2px",
-            left: "2px",
-          }}
-        />
+        >
+          {/* Inner dot */}
+          <div
+            style={{
+              width: "10px",
+              height: "10px",
+              borderRadius: "50%",
+              border: `2px solid ${lineColor}`,
+              background: "#FFF",
+            }}
+          />
+        </div>
       </div>
     </div>
   );
