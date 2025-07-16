@@ -877,6 +877,8 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   type="text"
                   value={startInput}
                   onChange={(e) => setStartInput(e.target.value)}
+                  onClick={(e) => e.stopPropagation()}
+                  onFocus={(e) => e.stopPropagation()}
                   style={{
                     flex: "1 0 0",
                     border: "none",
@@ -930,6 +932,8 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   type="text"
                   value={endInput}
                   onChange={(e) => setEndInput(e.target.value)}
+                  onClick={(e) => e.stopPropagation()}
+                  onFocus={(e) => e.stopPropagation()}
                   style={{
                     flex: "1 0 0",
                     border: "none",
@@ -956,9 +960,15 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           >
             <button
               onClick={handleCancel}
+              onMouseEnter={(e) => {
+                (e.target as HTMLElement).style.background = "#F5F5F5";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLElement).style.background = "#FFF";
+              }}
               style={{
                 display: "flex",
-                padding: "12px",
+                padding: "10px 16px",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "4px",
@@ -968,6 +978,8 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 boxShadow:
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
+                transition: "background-color 0.15s ease",
+                minWidth: "70px",
               }}
             >
               <div
@@ -977,6 +989,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   fontSize: "14px",
                   fontWeight: "600",
                   lineHeight: "20px",
+                  pointerEvents: "none",
                 }}
               >
                 Cancel
@@ -985,9 +998,15 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
             <button
               onClick={handleApply}
+              onMouseEnter={(e) => {
+                (e.target as HTMLElement).style.background = "#2A3A7C";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLElement).style.background = "#344698";
+              }}
               style={{
                 display: "flex",
-                padding: "12px",
+                padding: "10px 16px",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "4px",
@@ -997,6 +1016,8 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 boxShadow:
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
+                transition: "background-color 0.15s ease",
+                minWidth: "70px",
               }}
             >
               <div
@@ -1006,6 +1027,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   fontSize: "14px",
                   fontWeight: "600",
                   lineHeight: "20px",
+                  pointerEvents: "none",
                 }}
               >
                 Apply
