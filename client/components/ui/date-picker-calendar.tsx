@@ -128,17 +128,17 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       const top = triggerRect.bottom + 4;
       let left;
 
-      if (isMobile) {
+      if (isMobileDevice) {
         // On mobile, align calendar with trigger button's left edge
         left = triggerRect.left;
       } else {
-        // On desktop and tablet, align calendar's right edge with trigger's right edge
+        // On tablet and desktop, align calendar's right edge with trigger's right edge
         left = triggerRect.right - calendarRect.width;
       }
 
       setPosition({ top, left });
     }
-  }, [isOpen, triggerRef, isMobile]);
+  }, [isOpen, triggerRef, isMobileDevice]);
 
   // Handle outside clicks
   useEffect(() => {
@@ -183,7 +183,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
   // Handle responsive breakpoint
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1024); // Treat tablet as mobile for layout
     };
 
     checkMobile();
@@ -196,8 +196,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
   if (!isOpen) return null;
 
-  // Check if tablet
-  const isTablet = !isMobile && window.innerWidth < 1024;
+  // Check if tablet (between 768px and 1024px)
+  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+  // Check if mobile (less than 768px)
+  const isMobileDevice = window.innerWidth < 768;
 
   // Preset options
   const presets = [
@@ -658,7 +660,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         boxShadow:
           "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
         zIndex: 50,
-        width: isMobile
+        width: isMobileDevice
           ? triggerRef.current
             ? `${triggerRef.current.getBoundingClientRect().width}px`
             : "343px"
