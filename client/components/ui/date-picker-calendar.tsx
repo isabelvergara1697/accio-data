@@ -652,9 +652,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         top: `${position.top}px`,
         left: `${position.left}px`,
         display: "flex",
-        flexDirection: isMobile ? "column" : "row",
+        flexDirection: "column",
         alignItems: "flex-start",
-        borderRadius: isMobile ? "8px" : "16px",
+        borderRadius: isMobileDevice ? "8px" : "16px",
         border: "1px solid #D5D7DA",
         background: "#FFF",
         boxShadow:
