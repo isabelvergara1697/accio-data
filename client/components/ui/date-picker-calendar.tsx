@@ -180,10 +180,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     };
   }, [isOpen, onClose]);
 
-  // Handle responsive breakpoint (tablets should also use mobile layout)
+  // Handle responsive breakpoint
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
+      setIsMobile(window.innerWidth < 768);
     };
 
     checkMobile();
@@ -659,7 +659,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           ? triggerRef.current
             ? `${triggerRef.current.getBoundingClientRect().width}px`
             : "100%"
-          : "auto",
+          : window.innerWidth < 1024
+            ? "360px"
+            : "auto",
       }}
     >
       {/* Desktop: Left sidebar with presets */}
@@ -742,7 +744,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             <div
               style={{
                 display: "flex",
-                padding: "16px 20px",
+                padding: "16px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "12px",
@@ -844,14 +846,14 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "12px",
+                      gap: "8px",
                       alignSelf: "stretch",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        width: "120px",
+                        flex: "1 0 0",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "6px",
@@ -908,7 +910,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                     <div
                       style={{
                         display: "flex",
-                        width: "120px",
+                        flex: "1 0 0",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "6px",
@@ -1080,12 +1082,11 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           <div
             style={{
               display: "flex",
-              padding: "12px 16px",
+              padding: "8px 16px 12px 16px",
+              justifyContent: "space-between",
               alignItems: "center",
-              gap: "8px",
               alignSelf: "stretch",
-              borderTop: "1px solid #E9EAEB",
-              overflowX: "auto",
+              gap: "8px",
             }}
           >
             {mobilePresets.map((preset) => (
@@ -1097,30 +1098,25 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 }}
                 style={{
                   display: "flex",
-                  padding: "6px 12px",
+                  justifyContent: "center",
                   alignItems: "center",
-                  borderRadius: "6px",
-                  background:
-                    selectedPreset === preset ? "#F5F5F5" : "transparent",
-                  border: "1px solid #D5D7DA",
+                  gap: "4px",
+                  background: "transparent",
+                  border: "none",
                   cursor: "pointer",
-                  transition: "background-color 0.15s ease",
-                  color: selectedPreset === preset ? "#252B37" : "#414651",
+                  transition: "color 0.15s ease",
+                  color: selectedPreset === preset ? "#273572" : "#273572",
                   fontFamily: "Public Sans",
-                  fontSize: "12px",
-                  fontWeight: "500",
-                  lineHeight: "16px",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  lineHeight: "20px",
                   whiteSpace: "nowrap",
                 }}
                 onMouseEnter={(e) => {
-                  if (selectedPreset !== preset) {
-                    e.currentTarget.style.background = "#F9FAFB";
-                  }
+                  e.currentTarget.style.color = "#1E2A5E";
                 }}
                 onMouseLeave={(e) => {
-                  if (selectedPreset !== preset) {
-                    e.currentTarget.style.background = "transparent";
-                  }
+                  e.currentTarget.style.color = "#273572";
                 }}
               >
                 {preset}
