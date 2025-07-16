@@ -713,8 +713,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           <div
             style={{
               display: "flex",
-              width: "100px",
-              minWidth: "100px",
+              width: "120px",
+              minWidth: "120px",
               flexDirection: "column",
               alignItems: "flex-start",
             }}
