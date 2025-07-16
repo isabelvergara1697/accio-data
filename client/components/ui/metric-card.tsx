@@ -87,7 +87,13 @@ export const MetricCard: React.FC<MetricCardProps> = ({
     <div
       style={{
         display: "flex",
-        width: isMobile ? "100%" : "258px",
+        ...(isMobile
+          ? { width: "100%" }
+          : {
+              flex: "1 1 0",
+              minWidth: "200px",
+              maxWidth: "300px",
+            }),
         padding: "16px 12px 12px 16px",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -97,7 +103,6 @@ export const MetricCard: React.FC<MetricCardProps> = ({
         background: "#FFF",
         boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
         position: "relative",
-        ...(isMobile ? { flex: "1 0 0" } : {}),
       }}
     >
       <div
