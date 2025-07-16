@@ -41,6 +41,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
     trend: chartTrend = "positive",
     backgroundColor = "#344698",
     lineColor = "#344698",
+    variant = "default",
   } = chart;
 
   const trendColor =
