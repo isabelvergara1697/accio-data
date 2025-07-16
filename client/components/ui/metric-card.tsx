@@ -111,7 +111,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
         style={{
           display: "flex",
           alignItems: "flex-end",
-          gap: isMobile ? "16px" : "24px", // Reduce gap on mobile
+          gap: "24px",
           alignSelf: "stretch",
           position: "relative",
         }}
@@ -206,15 +206,15 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           </div>
         </div>
 
-        {/* Chart section with responsive container */}
+        {/* Chart section - flex sizing for responsive behavior */}
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-end",
             height: "56px",
-            width: isMobile ? "120px" : "140px", // Fixed optimal width per breakpoint
-            flexShrink: 0, // Prevent shrinking
+            flex: "1 0 0",
+            position: "relative",
+            // Responsive width constraints based on breakpoint
+            minWidth: isMobile ? "100px" : "120px",
+            maxWidth: isMobile ? "150px" : "200px",
           }}
         >
           <MiniChart
