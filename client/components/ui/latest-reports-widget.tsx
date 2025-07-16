@@ -209,6 +209,9 @@ const mockReportsData: ReportData[] = [
 export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
   isMobile = false,
 }) => {
+  const [hoveredRowIndex, setHoveredRowIndex] = React.useState<number | null>(
+    null,
+  );
   return (
     <div
       style={{
@@ -483,7 +486,13 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     index < mockReportsData.length - 1
                       ? "1px solid #E9EAEB"
                       : "none",
+                  background:
+                    hoveredRowIndex === index ? "#F9FAFB" : "transparent",
+                  transition: "background-color 0.2s ease-in-out",
+                  cursor: "pointer",
                 }}
+                onMouseEnter={() => setHoveredRowIndex(index)}
+                onMouseLeave={() => setHoveredRowIndex(null)}
               >
                 <div
                   style={{
