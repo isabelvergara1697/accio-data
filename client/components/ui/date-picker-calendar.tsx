@@ -18,6 +18,25 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
   selectedEndDate,
   onDateChange,
 }) => {
+  // Helper function to format dates
+  const formatDate = (date: Date): string => {
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+  };
+
   const calendarRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const [selectedPreset, setSelectedPreset] = useState("This month");
