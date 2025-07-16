@@ -49,99 +49,72 @@ export const MiniChart: React.FC<MiniChartProps> = ({
   return (
     <div
       style={{
-        height: `${height}px`,
+        height: "56px",
         flex: "1 0 0",
         position: "relative",
+        minWidth: "60px",
       }}
     >
-      {/* Background with gradient */}
-      <div
-        style={{
-          width: `${width}px`,
-          height: `${height}px`,
-          flexShrink: 0,
-          position: "absolute",
-          left: "0px",
-          top: "0px",
-        }}
-      >
-        {/* Background with gradient fill */}
-        <svg
-          style={{
-            width: `${width}px`,
-            height: `${height}px`,
-            flexShrink: 0,
-            position: "absolute",
-            left: "0px",
-            top: "0px",
-          }}
-          width={width}
-          height={height}
-          viewBox={`0 0 ${width} ${height}`}
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient
-              id={`gradient-${backgroundColor.replace("#", "")}`}
-              x1="0%"
-              y1="0%"
-              x2="0%"
-              y2="100%"
-            >
-              <stop
-                offset="0%"
-                style={{ stopColor: backgroundColor, stopOpacity: 0.2 }}
-              />
-              <stop
-                offset="100%"
-                style={{ stopColor: backgroundColor, stopOpacity: 0 }}
-              />
-            </linearGradient>
-          </defs>
-          <path
-            d={currentVariation.path}
-            fill={`url(#gradient-${backgroundColor.replace("#", "")})`}
-          />
-        </svg>
-      </div>
-
-      {/* Wavy line */}
+      {/* Combined SVG for background and line - fully responsive */}
       <svg
         style={{
-          width: `${width}px`,
-          height: `${height}px`,
-          flexShrink: 0,
-          strokeWidth: "2px",
-          stroke: lineColor,
+          width: "100%",
+          height: "100%",
           position: "absolute",
-          left: "0px",
-          top: "0px",
+          left: "0",
+          top: "0",
         }}
-        width={width + 2}
-        height={height + 2}
-        viewBox={`0 0 ${width + 2} ${height + 2}`}
+        viewBox={`0 0 ${baseWidth} ${baseHeight}`}
+        preserveAspectRatio="none"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <defs>
+          <linearGradient
+            id={`gradient-${backgroundColor.replace("#", "")}`}
+            x1="0%"
+            y1="0%"
+            x2="0%"
+            y2="100%"
+          >
+            <stop
+              offset="0%"
+              style={{ stopColor: backgroundColor, stopOpacity: 0.2 }}
+            />
+            <stop
+              offset="100%"
+              style={{ stopColor: backgroundColor, stopOpacity: 0 }}
+            />
+          </linearGradient>
+        </defs>
+
+        {/* Background gradient fill */}
+        <path
+          d={currentVariation.path}
+          fill={`url(#gradient-${backgroundColor.replace("#", "")})`}
+        />
+
+        {/* Wavy line */}
         <path
           d={currentVariation.line}
           stroke={lineColor}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          fill="none"
+          vectorEffect="non-scaling-stroke"
         />
       </svg>
 
-      {/* Marker dot */}
+      {/* Marker dot - positioned responsively */}
       <div
         style={{
           width: "18px",
           height: "19px",
-          flexShrink: 0,
           position: "absolute",
-          left: currentVariation.markerPosition.left,
-          top: currentVariation.markerPosition.top,
+          left: `${(currentVariation.markerPosition.x / baseWidth) * 100}%`,
+          top: `${(currentVariation.markerPosition.y / baseHeight) * 100}%`,
+          transform: "translate(-50%, -50%)",
         }}
       >
         {/* Ring */}
@@ -149,8 +122,7 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           style={{
             width: "19px",
             height: "19px",
-            flexShrink: 0,
-            borderRadius: "200px",
+            borderRadius: "50%",
             border: `2px solid ${lineColor}`,
             opacity: 0.2,
             position: "absolute",
@@ -164,8 +136,7 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           style={{
             width: "11px",
             height: "11px",
-            flexShrink: 0,
-            borderRadius: "200px",
+            borderRadius: "50%",
             border: `2px solid ${lineColor}`,
             background: "#FFF",
             position: "absolute",
