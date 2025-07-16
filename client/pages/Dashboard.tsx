@@ -900,6 +900,7 @@ export default function Dashboard() {
                     trend: "positive",
                     backgroundColor: "#344698",
                     lineColor: "#344698",
+                    variant: "default",
                   }}
                   isMobile={isMobile}
                 />
@@ -915,6 +916,7 @@ export default function Dashboard() {
                     trend: "positive",
                     backgroundColor: "#344698",
                     lineColor: "#344698",
+                    variant: "variant1",
                   }}
                   isMobile={isMobile}
                 />
@@ -930,6 +932,7 @@ export default function Dashboard() {
                     trend: "positive",
                     backgroundColor: "#344698",
                     lineColor: "#344698",
+                    variant: "variant2",
                   }}
                   isMobile={isMobile}
                 />
@@ -945,6 +948,7 @@ export default function Dashboard() {
                     trend: "positive",
                     backgroundColor: "#344698",
                     lineColor: "#344698",
+                    variant: "variant3",
                   }}
                   isMobile={isMobile}
                 />
