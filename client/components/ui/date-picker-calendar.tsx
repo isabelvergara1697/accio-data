@@ -63,14 +63,18 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     }
   }, [isOpen, triggerRef]);
 
-  // Close calendar when clicking outside
+  // Close calendar when clicking outside (but not on inputs or interactive elements)
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+
+      // Don't close if clicking on calendar content, trigger, or input elements
       if (
         calendarRef.current &&
-        !calendarRef.current.contains(event.target as Node) &&
+        !calendarRef.current.contains(target) &&
         triggerRef.current &&
-        !triggerRef.current.contains(event.target as Node)
+        !triggerRef.current.contains(target) &&
+        !target.closest("input") // Don't close when clicking inputs
       ) {
         onClose();
       }
@@ -417,7 +421,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       days.push(
         <div
           key={`current-${day}`}
-          onClick={() => handleDateClick(monthDate, day)}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleDateClick(monthDate, day);
+          }}
           onMouseEnter={() => handleDateHover(monthDate, day)}
           style={{
             display: "flex",
@@ -426,7 +433,12 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             padding: "10px 8px",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: "9999px",
+            borderRadius:
+              isStart && !isEnd
+                ? "9999px 0 0 9999px"
+                : isEnd && !isStart
+                  ? "0 9999px 9999px 0"
+                  : "9999px",
             background: isSelected
               ? "#344698"
               : isInRange
