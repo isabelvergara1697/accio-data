@@ -126,11 +126,19 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       const calendarRect = calendarRef.current.getBoundingClientRect();
 
       const top = triggerRect.bottom + 4;
-      const left = triggerRect.right - calendarRect.width;
+      let left;
+
+      if (isMobile) {
+        // On mobile, align calendar with trigger button (same width and position)
+        left = triggerRect.left;
+      } else {
+        // On desktop, align right edge of calendar with right edge of trigger
+        left = triggerRect.right - calendarRect.width;
+      }
 
       setPosition({ top, left });
     }
-  }, [isOpen, triggerRef]);
+  }, [isOpen, triggerRef, isMobile]);
 
   // Handle outside clicks
   useEffect(() => {
@@ -172,10 +180,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     };
   }, [isOpen, onClose]);
 
-  // Handle responsive breakpoint
+  // Handle responsive breakpoint (tablets should also use mobile layout)
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1024);
     };
 
     checkMobile();
@@ -647,7 +655,11 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         boxShadow:
           "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
         zIndex: 50,
-        width: isMobile ? "328px" : "auto",
+        width: isMobile
+          ? triggerRef.current
+            ? `${triggerRef.current.getBoundingClientRect().width}px`
+            : "328px"
+          : "auto",
       }}
     >
       {/* Desktop: Left sidebar with presets */}
