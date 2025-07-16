@@ -206,13 +206,25 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           </div>
         </div>
 
-        {/* Chart section */}
-        <MiniChart
-          trend={chartTrend}
-          backgroundColor={backgroundColor}
-          lineColor={lineColor}
-          variant={variant}
-        />
+        {/* Chart section with proper container */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minWidth: "80px",
+            maxWidth: "120px",
+            height: "56px",
+            flex: "0 0 auto", // Prevent chart from growing/shrinking
+          }}
+        >
+          <MiniChart
+            trend={chartTrend}
+            backgroundColor={backgroundColor}
+            lineColor={lineColor}
+            variant={variant}
+          />
+        </div>
       </div>
     </div>
   );
