@@ -1255,7 +1255,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               display: "flex",
               alignItems: "flex-start",
               gap: "12px",
-              width: isMobile ? "100%" : "auto",
+              width: "100%",
             }}
           >
             <button
