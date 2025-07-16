@@ -194,9 +194,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     };
   }, []);
 
-  // Check if tablet
-  const isTablet = !isMobile && window.innerWidth < 1024;
-
   if (!isOpen) return null;
 
   // Check if tablet
