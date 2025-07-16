@@ -11,6 +11,8 @@ interface MiniChartProps {
   width?: number;
   /** Height of the chart */
   height?: number;
+  /** Chart variation pattern */
+  variant?: "default" | "variant1" | "variant2" | "variant3";
 }
 
 export const MiniChart: React.FC<MiniChartProps> = ({
