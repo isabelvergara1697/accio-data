@@ -17,37 +17,37 @@ export const MiniChart: React.FC<MiniChartProps> = ({
   lineColor = "#344698",
   variant = "default",
 }) => {
-  // Chart path variations - simplified and properly aligned
+  // Chart path variations - contained within a safe area to prevent overflow
   const chartVariations = {
     default: {
-      // Smooth curved line that starts low and ends high
-      line: "M8 45 Q25 35, 45 28 T85 15",
+      // Smooth curved line that starts low and ends high, with safe margins
+      line: "M10 42 Q25 32, 45 25 T80 12",
       // Simple area fill that follows the line
-      area: "M8 45 Q25 35, 45 28 T85 15 L85 50 L8 50 Z",
-      // Marker position along the curve
-      markerX: 85,
-      markerY: 15,
+      area: "M10 42 Q25 32, 45 25 T80 12 L80 48 L10 48 Z",
+      // Marker position along the curve (percentage-based for better scaling)
+      markerX: 80, // 80% of viewBox width
+      markerY: 12,
     },
     variant1: {
       // Different curve pattern
-      line: "M8 35 Q30 45, 50 20 T85 25",
-      area: "M8 35 Q30 45, 50 20 T85 25 L85 50 L8 50 Z",
-      markerX: 85,
-      markerY: 25,
+      line: "M10 32 Q30 42, 50 17 T80 22",
+      area: "M10 32 Q30 42, 50 17 T80 22 L80 48 L10 48 Z",
+      markerX: 80,
+      markerY: 22,
     },
     variant2: {
       // Another variation
-      line: "M8 40 Q25 20, 55 35 T85 18",
-      area: "M8 40 Q25 20, 55 35 T85 18 L85 50 L8 50 Z",
-      markerX: 85,
-      markerY: 18,
+      line: "M10 37 Q25 17, 55 32 T80 15",
+      area: "M10 37 Q25 17, 55 32 T80 15 L80 48 L10 48 Z",
+      markerX: 80,
+      markerY: 15,
     },
     variant3: {
       // Fourth variation
-      line: "M8 30 Q35 40, 60 25 T85 20",
-      area: "M8 30 Q35 40, 60 25 T85 20 L85 50 L8 50 Z",
-      markerX: 85,
-      markerY: 20,
+      line: "M10 27 Q35 37, 60 22 T80 17",
+      area: "M10 27 Q35 37, 60 22 T80 17 L80 48 L10 48 Z",
+      markerX: 80,
+      markerY: 17,
     },
   };
 
@@ -60,17 +60,19 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         height: "56px",
         flex: "1 0 0",
         position: "relative",
-        minWidth: "100px",
+        minWidth: "80px",
+        maxWidth: "200px",
+        overflow: "hidden", // Prevent any overflow
       }}
     >
       <svg
         style={{
           width: "100%",
           height: "100%",
-          overflow: "visible",
+          display: "block", // Remove any default spacing
         }}
         viewBox="0 0 100 56"
-        preserveAspectRatio="none"
+        preserveAspectRatio="xMidYMid meet" // Maintain aspect ratio and center content
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -105,47 +107,33 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
-          vectorEffect="non-scaling-stroke"
         />
-      </svg>
 
-      {/* Marker dot positioned at the end of the line */}
-      <div
-        style={{
-          position: "absolute",
-          right: "8%",
-          top: `${(currentVariation.markerY / 56) * 100}%`,
-          transform: "translate(50%, -50%)",
-          width: "18px",
-          height: "18px",
-        }}
-      >
-        {/* Outer ring */}
-        <div
-          style={{
-            width: "18px",
-            height: "18px",
-            borderRadius: "50%",
-            border: `2px solid ${lineColor}`,
-            opacity: 0.2,
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+        {/* Marker dot as SVG element for better scaling */}
+        <g
+          transform={`translate(${currentVariation.markerX}, ${currentVariation.markerY})`}
         >
-          {/* Inner dot */}
-          <div
-            style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "50%",
-              border: `2px solid ${lineColor}`,
-              background: "#FFF",
-            }}
+          {/* Outer ring */}
+          <circle
+            cx="0"
+            cy="0"
+            r="9"
+            fill="none"
+            stroke={lineColor}
+            strokeWidth="2"
+            opacity="0.2"
           />
-        </div>
-      </div>
+          {/* Inner dot */}
+          <circle
+            cx="0"
+            cy="0"
+            r="5"
+            fill="#FFF"
+            stroke={lineColor}
+            strokeWidth="2"
+          />
+        </g>
+      </svg>
     </div>
   );
 };
