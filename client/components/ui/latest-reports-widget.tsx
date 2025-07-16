@@ -245,6 +245,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         boxShadow:
           "0px 1px 3px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px -1px rgba(10, 13, 18, 0.10)",
         position: "relative",
+        overflow: "hidden",
       }}
     >
       {/* Heading and content */}
@@ -781,40 +782,41 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         </div>
       </div>
 
-      {/* Drag and Drop Button - positioned exactly as per Figma design */}
+      {/* Drag and Drop Button - positioned within widget bounds */}
       <div
         style={{
           position: "absolute",
-          left: "241px",
-          top: "-6px",
+          right: "8px",
+          top: "50%",
+          transform: "translateY(-50%)",
           zIndex: 10,
         }}
       >
         <button
           style={{
             display: "flex",
-            width: "32px",
-            height: "32px",
-            padding: "8px",
+            width: "24px",
+            height: "24px",
+            padding: "4px",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: "8px",
-            border: "1px solid #E9EAEB",
-            background: "#FFFFFF",
+            borderRadius: "6px",
+            border: "none",
+            background: "transparent",
             cursor: "grab",
-            transition: "all 0.2s ease-in-out",
+            transition: "all 0.15s ease-in-out",
             transform: "rotate(90deg)",
-            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.background = "#F9FAFB";
-            e.currentTarget.style.boxShadow =
-              "0px 2px 4px 0px rgba(10, 13, 18, 0.10)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#FFFFFF";
+            e.currentTarget.style.border = "1px solid #E9EAEB";
             e.currentTarget.style.boxShadow =
               "0px 1px 2px 0px rgba(10, 13, 18, 0.05)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.border = "none";
+            e.currentTarget.style.boxShadow = "none";
           }}
         >
           <svg
