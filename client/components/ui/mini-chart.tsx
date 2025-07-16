@@ -39,28 +39,12 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           top: "0px",
         }}
       >
-        {/* Gradient mask */}
-        <div
-          style={{
-            width: `${width}px`,
-            height: `${height}px`,
-            flexShrink: 0,
-            background:
-              "linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 100%)",
-            position: "absolute",
-            left: "0px",
-            top: "0px",
-          }}
-        />
-
-        {/* Background color fill */}
+        {/* Background with gradient fill */}
         <svg
           style={{
             width: `${width}px`,
             height: `${height}px`,
             flexShrink: 0,
-            fill: backgroundColor,
-            opacity: 0.1,
             position: "absolute",
             left: "0px",
             top: "0px",
@@ -71,10 +55,27 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <defs>
+            <linearGradient
+              id={`gradient-${backgroundColor.replace("#", "")}`}
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
+              <stop
+                offset="0%"
+                style={{ stopColor: backgroundColor, stopOpacity: 0.2 }}
+              />
+              <stop
+                offset="100%"
+                style={{ stopColor: backgroundColor, stopOpacity: 0 }}
+              />
+            </linearGradient>
+          </defs>
           <path
-            opacity="0.1"
             d="M103 0C86.2658 1.51637 85.2295 37.8191 68.6667 42C55.0086 45.4477 48.0926 25.8771 34.3333 28C19.4094 30.3026 14.6336 50.6959 0 56H103V0Z"
-            fill={backgroundColor}
+            fill={`url(#gradient-${backgroundColor.replace("#", "")})`}
           />
         </svg>
       </div>
