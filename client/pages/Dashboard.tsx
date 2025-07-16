@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import AlertNotification from "../components/ui/alert-notification";
 import CustomizeDrawer from "../components/ui/customize-drawer";
+import DatePickerCalendar from "../components/ui/date-picker-calendar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
@@ -129,6 +130,12 @@ export default function Dashboard() {
   const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
   const [customizeDrawerOpen, setCustomizeDrawerOpen] = useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
+  const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const [selectedStartDate, setSelectedStartDate] = useState(
+    new Date(2025, 0, 10),
+  ); // Jan 10, 2025
+  const [selectedEndDate, setSelectedEndDate] = useState(new Date(2025, 0, 16)); // Jan 16, 2025
+  const dateButtonRef = useRef<HTMLButtonElement>(null);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
@@ -152,16 +159,19 @@ export default function Dashboard() {
       if (defaultDropdownOpen && !target.closest("[data-dropdown]")) {
         setDefaultDropdownOpen(false);
       }
+      if (datePickerOpen && !target.closest("[data-date-picker]")) {
+        setDatePickerOpen(false);
+      }
     };
 
-    if (userMenuOpen || defaultDropdownOpen) {
+    if (userMenuOpen || defaultDropdownOpen || datePickerOpen) {
       document.addEventListener("click", handleClickOutside, true);
     }
 
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
     };
-  }, [userMenuOpen, defaultDropdownOpen]);
+  }, [userMenuOpen, defaultDropdownOpen, datePickerOpen]);
 
   // Check for activation success parameter
   useEffect(() => {
@@ -196,6 +206,39 @@ export default function Dashboard() {
   const handleOpenNotificationModal = () => {
     setMobileMenuOpen(false);
     setNotificationModalOpen(true);
+  };
+
+  const handleOpenDatePicker = () => {
+    setMobileMenuOpen(false);
+    setDatePickerOpen(true);
+  };
+
+  const formatDateRange = (startDate: Date, endDate: Date): string => {
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    const formatSingleDate = (date: Date) => {
+      return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+    };
+
+    return `${formatSingleDate(startDate)} – ${formatSingleDate(endDate)}`;
+  };
+
+  const handleDateChange = (startDate: Date, endDate: Date) => {
+    setSelectedStartDate(startDate);
+    setSelectedEndDate(endDate);
   };
 
   const handleUpdateAccount = () => {
@@ -376,60 +419,64 @@ export default function Dashboard() {
   );
 
   const renderDateButton = () => (
-    <button
-      className="dashboard-button"
-      style={{
-        display: "flex",
-        minHeight: "36px",
-        padding: "6px 8px",
-        justifyContent: isMobile ? "flex-start" : "center",
-        alignItems: "center",
-        gap: "4px",
-        borderRadius: "8px",
-        border: "1px solid #D5D7DA",
-        background: "#FFF",
-        boxShadow:
-          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-        cursor: "pointer",
-        ...(isMobile ? { alignSelf: "stretch" } : {}),
-      }}
-    >
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M14 6.66683H2M10.6667 1.3335V4.00016M5.33333 1.3335V4.00016M5.2 14.6668H10.8C11.9201 14.6668 12.4802 14.6668 12.908 14.4488C13.2843 14.2571 13.5903 13.9511 13.782 13.5748C14 13.147 14 12.5869 14 11.4668V5.86683C14 4.74672 14 4.18667 13.782 3.75885C13.5903 3.38252 13.2843 3.07656 12.908 2.88482C12.4802 2.66683 11.9201 2.66683 10.8 2.66683H5.2C4.0799 2.66683 3.51984 2.66683 3.09202 2.88482C2.71569 3.07656 2.40973 3.38252 2.21799 3.75885C2 4.18667 2 4.74672 2 5.86683V11.4668C2 12.5869 2 13.147 2.21799 13.5748C2.40973 13.9511 2.71569 14.2571 3.09202 14.4488C3.51984 14.6668 4.0799 14.6668 5.2 14.6668Z"
-          stroke="#A4A7AE"
-          strokeWidth="1.66667"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-      <div
+    <div data-date-picker style={{ position: "relative" }}>
+      <button
+        ref={dateButtonRef}
+        className="dashboard-button"
+        onClick={handleOpenDatePicker}
         style={{
           display: "flex",
-          padding: "0px 2px",
-          justifyContent: "center",
+          minHeight: "36px",
+          padding: "6px 8px",
+          justifyContent: isMobile ? "flex-start" : "center",
           alignItems: "center",
+          gap: "4px",
+          borderRadius: "8px",
+          border: "1px solid #D5D7DA",
+          background: datePickerOpen ? "#F5F5F5" : "#FFF",
+          boxShadow:
+            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+          cursor: "pointer",
+          ...(isMobile ? { alignSelf: "stretch" } : {}),
         }}
       >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14 6.66683H2M10.6667 1.3335V4.00016M5.33333 1.3335V4.00016M5.2 14.6668H10.8C11.9201 14.6668 12.4802 14.6668 12.908 14.4488C13.2843 14.2571 13.5903 13.9511 13.782 13.5748C14 13.147 14 12.5869 14 11.4668V5.86683C14 4.74672 14 4.18667 13.782 3.75885C13.5903 3.38252 13.2843 3.07656 12.908 2.88482C12.4802 2.66683 11.9201 2.66683 10.8 2.66683H5.2C4.0799 2.66683 3.51984 2.66683 3.09202 2.88482C2.71569 3.07656 2.40973 3.38252 2.21799 3.75885C2 4.18667 2 4.74672 2 5.86683V11.4668C2 12.5869 2 13.147 2.21799 13.5748C2.40973 13.9511 2.71569 14.2571 3.09202 14.4488C3.51984 14.6668 4.0799 14.6668 5.2 14.6668Z"
+            stroke={datePickerOpen ? "#717680" : "#A4A7AE"}
+            strokeWidth="1.66667"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
         <div
           style={{
-            color: "#414651",
-            fontFamily: "Public Sans",
-            fontSize: "14px",
-            fontWeight: "600",
-            lineHeight: "20px",
+            display: "flex",
+            padding: "0px 2px",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          Jan 10, 2025 – Jan 16, 2025
+          <div
+            style={{
+              color: datePickerOpen ? "#252B37" : "#414651",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "600",
+              lineHeight: "20px",
+            }}
+          >
+            {formatDateRange(selectedStartDate, selectedEndDate)}
+          </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   );
 
   return (
@@ -962,6 +1009,16 @@ export default function Dashboard() {
       <CustomizeDrawer
         isOpen={customizeDrawerOpen}
         onClose={() => setCustomizeDrawerOpen(false)}
+      />
+
+      {/* Date Picker Calendar */}
+      <DatePickerCalendar
+        isOpen={datePickerOpen}
+        onClose={() => setDatePickerOpen(false)}
+        triggerRef={dateButtonRef}
+        selectedStartDate={selectedStartDate}
+        selectedEndDate={selectedEndDate}
+        onDateChange={handleDateChange}
       />
     </>
   );
