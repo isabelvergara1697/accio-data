@@ -219,6 +219,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
   const [hoveredRowIndex, setHoveredRowIndex] = React.useState<number | null>(
     null,
   );
+  const [isWidgetHovered, setIsWidgetHovered] = React.useState(false);
 
   // Determine which columns to show based on width
   const showOrderColumn = windowWidth >= 640;
@@ -233,9 +234,18 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         flex: "1 0 0",
         alignSelf: "stretch",
         borderRadius: "12px",
-        border: "1px solid #E9EAEB",
+        border: isWidgetHovered ? "1px solid #34479A" : "1px solid #E9EAEB",
         background: "#FDFDFD",
         position: "relative",
+        boxShadow: isWidgetHovered
+          ? "0px 1px 3px 0px rgba(10, 13, 18, 0.05), 0px 4px 8px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
+          : "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+        transition: "all 0.2s ease-in-out",
+      }}
+      onMouseEnter={() => setIsWidgetHovered(true)}
+      onMouseLeave={() => {
+        setIsWidgetHovered(false);
+        setHoveredRowIndex(null);
       }}
     >
       {/* Heading and content */}
