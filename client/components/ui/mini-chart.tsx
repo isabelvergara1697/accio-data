@@ -17,36 +17,37 @@ export const MiniChart: React.FC<MiniChartProps> = ({
   lineColor = "#344698",
   variant = "default",
 }) => {
-  // Optimized chart path variations that look good at all sizes
+  // Chart paths optimized for the 103x56 container from Figma
   const chartVariations = {
     default: {
-      line: "M8 45 Q25 35, 45 25 T85 12",
-      area: "M8 45 Q25 35, 45 25 T85 12 L85 52 L8 52 Z",
-      markerX: 85,
-      markerY: 12,
+      // Smooth wavy line that looks good at all sizes
+      line: "M1 47 Q12 37, 25 32 Q40 26, 55 28 Q70 30, 85 20 Q92 16, 102 14",
+      area: "M1 47 Q12 37, 25 32 Q40 26, 55 28 Q70 30, 85 20 Q92 16, 102 14 L102 56 L1 56 Z",
+      markerX: 94, // Position as percentage of width
+      markerY: 16,
     },
     variant1: {
-      line: "M8 32 Q30 45, 50 18 T85 25",
-      area: "M8 32 Q30 45, 50 18 T85 25 L85 52 L8 52 Z",
-      markerX: 85,
-      markerY: 25,
+      line: "M1 35 Q15 45, 30 22 Q45 18, 60 25 Q75 32, 90 18 Q96 15, 102 22",
+      area: "M1 35 Q15 45, 30 22 Q45 18, 60 25 Q75 32, 90 18 Q96 15, 102 22 L102 56 L1 56 Z",
+      markerX: 94,
+      markerY: 20,
     },
     variant2: {
-      line: "M8 40 Q25 18, 55 35 T85 15",
-      area: "M8 40 Q25 18, 55 35 T85 15 L85 52 L8 52 Z",
-      markerX: 85,
-      markerY: 15,
+      line: "M1 42 Q18 25, 35 30 Q50 35, 65 22 Q80 16, 95 18 Q98 19, 102 17",
+      area: "M1 42 Q18 25, 35 30 Q50 35, 65 22 Q80 16, 95 18 Q98 19, 102 17 L102 56 L1 56 Z",
+      markerX: 94,
+      markerY: 18,
     },
     variant3: {
-      line: "M8 28 Q35 42, 60 22 T85 18",
-      area: "M8 28 Q35 42, 60 22 T85 18 L85 52 L8 52 Z",
-      markerX: 85,
-      markerY: 18,
+      line: "M1 38 Q20 48, 40 28 Q55 22, 70 26 Q85 30, 95 15 Q98 13, 102 16",
+      area: "M1 38 Q20 48, 40 28 Q55 22, 70 26 Q85 30, 95 15 Q98 13, 102 16 L102 56 L1 56 Z",
+      markerX: 94,
+      markerY: 15,
     },
   };
 
   const currentVariation = chartVariations[variant];
-  const uniqueId = `gradient-${backgroundColor.replace("#", "")}-${variant}`;
+  const uniqueId = `gradient-${backgroundColor.replace("#", "")}-${variant}-${Math.random().toString(36).substr(2, 9)}`;
 
   return (
     <div
@@ -55,6 +56,8 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         height: "56px",
         position: "relative",
         overflow: "hidden",
+        // Ensure minimum size for visibility
+        minWidth: "80px",
       }}
     >
       <svg
@@ -63,28 +66,15 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           height: "100%",
           display: "block",
         }}
-        viewBox="0 0 100 60"
+        viewBox="0 0 103 56"
         preserveAspectRatio="none"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <linearGradient
-            id={uniqueId}
-            x1="0%"
-            y1="0%"
-            x2="0%"
-            y2="100%"
-            gradientUnits="objectBoundingBox"
-          >
-            <stop
-              offset="0%"
-              style={{ stopColor: backgroundColor, stopOpacity: 0.15 }}
-            />
-            <stop
-              offset="100%"
-              style={{ stopColor: backgroundColor, stopOpacity: 0 }}
-            />
+          <linearGradient id={uniqueId} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor={backgroundColor} stopOpacity={0.1} />
+            <stop offset="100%" stopColor={backgroundColor} stopOpacity={0} />
           </linearGradient>
         </defs>
 
@@ -99,33 +89,28 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
-          vectorEffect="non-scaling-stroke"
         />
 
-        {/* Marker dot */}
-        <g
-          transform={`translate(${currentVariation.markerX}, ${currentVariation.markerY})`}
-        >
+        {/* Marker dots - fixed size circles that maintain their shape */}
+        <g>
           {/* Outer ring */}
           <circle
-            cx="0"
-            cy="0"
-            r="8"
+            cx={currentVariation.markerX}
+            cy={currentVariation.markerY}
+            r="9"
             fill="none"
             stroke={lineColor}
             strokeWidth="2"
             opacity="0.2"
-            vectorEffect="non-scaling-stroke"
           />
           {/* Inner dot */}
           <circle
-            cx="0"
-            cy="0"
-            r="4"
+            cx={currentVariation.markerX}
+            cy={currentVariation.markerY}
+            r="5.5"
             fill="#FFF"
             stroke={lineColor}
             strokeWidth="2"
-            vectorEffect="non-scaling-stroke"
           />
         </g>
       </svg>
