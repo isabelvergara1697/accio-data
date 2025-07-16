@@ -20,6 +20,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   // Working dates (internal state before apply)
   const [workingStartDate, setWorkingStartDate] = useState(selectedStartDate);
@@ -171,6 +172,20 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     };
   }, [isOpen, onClose]);
 
+  // Handle responsive breakpoint
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
   if (!isOpen) return null;
 
   // Preset options
@@ -185,6 +200,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     "Last year",
     "All time",
   ];
+
+  // Mobile preset options (shortened list)
+  const mobilePresets = ["Last week", "Last month", "Last year"];
 
   // Handle preset selection
   const handlePresetClick = (preset: string) => {
@@ -609,6 +627,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
   const leftMonth = currentMonth;
   const rightMonth = getNextMonth(currentMonth);
+  const currentPresets = isMobile ? mobilePresets : presets;
 
   return createPortal(
     <div
@@ -620,86 +639,92 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         top: `${position.top}px`,
         left: `${position.left}px`,
         display: "flex",
+        flexDirection: isMobile ? "column" : "row",
         alignItems: "flex-start",
-        borderRadius: "16px",
+        borderRadius: isMobile ? "8px" : "16px",
         border: "1px solid #D5D7DA",
         background: "#FFF",
         boxShadow:
           "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
         zIndex: 50,
+        width: isMobile ? "328px" : "auto",
       }}
     >
-      {/* Left sidebar with presets */}
-      <div
-        style={{
-          display: "flex",
-          width: "152px",
-          padding: "12px",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "2px",
-          alignSelf: "stretch",
-          borderRight: "1px solid #E9EAEB",
-        }}
-      >
-        {presets.map((preset) => (
-          <button
-            key={preset}
-            onClick={(e) => {
-              e.stopPropagation();
-              handlePresetClick(preset);
-            }}
-            style={{
-              display: "flex",
-              padding: "8px 12px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              borderRadius: "6px",
-              background: selectedPreset === preset ? "#F5F5F5" : "transparent",
-              border: "none",
-              cursor: "pointer",
-              transition: "background-color 0.15s ease",
-              color: selectedPreset === preset ? "#252B37" : "#414651",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: "500",
-              lineHeight: "20px",
-              textAlign: "left",
-            }}
-            onMouseEnter={(e) => {
-              if (selectedPreset !== preset) {
-                e.currentTarget.style.background = "#F9FAFB";
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (selectedPreset !== preset) {
-                e.currentTarget.style.background = "transparent";
-              }
-            }}
-          >
-            {preset}
-          </button>
-        ))}
-      </div>
+      {/* Desktop: Left sidebar with presets */}
+      {!isMobile && (
+        <div
+          style={{
+            display: "flex",
+            width: "152px",
+            padding: "12px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "2px",
+            alignSelf: "stretch",
+            borderRight: "1px solid #E9EAEB",
+          }}
+        >
+          {presets.map((preset) => (
+            <button
+              key={preset}
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePresetClick(preset);
+              }}
+              style={{
+                display: "flex",
+                padding: "8px 12px",
+                alignItems: "center",
+                alignSelf: "stretch",
+                borderRadius: "6px",
+                background:
+                  selectedPreset === preset ? "#F5F5F5" : "transparent",
+                border: "none",
+                cursor: "pointer",
+                transition: "background-color 0.15s ease",
+                color: selectedPreset === preset ? "#252B37" : "#414651",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: "500",
+                lineHeight: "20px",
+                textAlign: "left",
+              }}
+              onMouseEnter={(e) => {
+                if (selectedPreset !== preset) {
+                  e.currentTarget.style.background = "#F9FAFB";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (selectedPreset !== preset) {
+                  e.currentTarget.style.background = "transparent";
+                }
+              }}
+            >
+              {preset}
+            </button>
+          ))}
+        </div>
+      )}
 
-      {/* Right side with calendar months */}
+      {/* Calendar content */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
+          width: isMobile ? "100%" : "auto",
         }}
       >
         {/* Calendar months */}
         <div style={{ display: "flex", alignItems: "flex-start" }}>
-          {/* Left month */}
+          {/* Single month for mobile, dual months for desktop */}
           <div
             style={{
               display: "flex",
               width: "328px",
               flexDirection: "column",
               alignItems: "center",
-              borderRight: "1px solid #E9EAEB",
+              borderRight: !isMobile ? "1px solid #E9EAEB" : "none",
             }}
           >
             <div
@@ -771,77 +796,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   >
                     {getMonthName(leftMonth)}
                   </div>
-                  <div style={{ width: "32px", height: "32px" }} />
-                </div>
-
-                {/* Calendar grid */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    alignContent: "flex-start",
-                    gap: "0px",
-                    alignSelf: "stretch",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  {renderCalendarMonth(leftMonth)}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right month */}
-          <div
-            style={{
-              display: "flex",
-              width: "328px",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "16px 20px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "12px",
-                alignSelf: "stretch",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "12px",
-                  alignSelf: "stretch",
-                }}
-              >
-                {/* Month header */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    alignSelf: "stretch",
-                  }}
-                >
-                  <div style={{ width: "32px", height: "32px" }} />
-                  <div
-                    style={{
-                      color: "#414651",
-                      textAlign: "center",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      lineHeight: "20px",
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    {getMonthName(rightMonth)}
-                  </div>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
@@ -872,23 +826,296 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   </button>
                 </div>
 
+                {/* Mobile: Input fields after month header */}
+                {isMobile && (
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "120px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "6px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "8px 12px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                        }}
+                      >
+                        <input
+                          type="text"
+                          value={startInput}
+                          onChange={(e) => {
+                            e.stopPropagation();
+                            handleStartInputChange(e.target.value);
+                          }}
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            flex: "1 0 0",
+                            border: "none",
+                            outline: "none",
+                            background: "transparent",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: "400",
+                            lineHeight: "20px",
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        color: "#A4A7AE",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: "400",
+                        lineHeight: "20px",
+                      }}
+                    >
+                      –
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "120px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "6px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "8px 12px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                        }}
+                      >
+                        <input
+                          type="text"
+                          value={endInput}
+                          onChange={(e) => {
+                            e.stopPropagation();
+                            handleEndInputChange(e.target.value);
+                          }}
+                          onClick={(e) => e.stopPropagation()}
+                          style={{
+                            flex: "1 0 0",
+                            border: "none",
+                            outline: "none",
+                            background: "transparent",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: "400",
+                            lineHeight: "20px",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Calendar grid */}
                 <div
                   style={{
                     display: "flex",
                     alignItems: "flex-start",
                     alignContent: "flex-start",
-                    gap: "0px",
+                    gap: isMobile ? "4px 0px" : "0px",
                     alignSelf: "stretch",
                     flexWrap: "wrap",
                   }}
                 >
-                  {renderCalendarMonth(rightMonth)}
+                  {renderCalendarMonth(leftMonth)}
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Desktop: Right month */}
+          {!isMobile && (
+            <div
+              style={{
+                display: "flex",
+                width: "328px",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "16px 20px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "12px",
+                  alignSelf: "stretch",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  {/* Month header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div style={{ width: "32px", height: "32px" }} />
+                    <div
+                      style={{
+                        color: "#414651",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        lineHeight: "20px",
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
+                      {getMonthName(rightMonth)}
+                    </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNextMonth();
+                      }}
+                      style={{
+                        display: "flex",
+                        width: "32px",
+                        height: "32px",
+                        padding: "6px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: "6px",
+                        border: "none",
+                        background: "transparent",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M9 18L15 12L9 6"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.67"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+
+                  {/* Calendar grid */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      alignContent: "flex-start",
+                      gap: "0px",
+                      alignSelf: "stretch",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    {renderCalendarMonth(rightMonth)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
+
+        {/* Mobile: Horizontal preset buttons */}
+        {isMobile && (
+          <div
+            style={{
+              display: "flex",
+              padding: "12px 16px",
+              alignItems: "center",
+              gap: "8px",
+              alignSelf: "stretch",
+              borderTop: "1px solid #E9EAEB",
+              overflowX: "auto",
+            }}
+          >
+            {mobilePresets.map((preset) => (
+              <button
+                key={preset}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePresetClick(preset);
+                }}
+                style={{
+                  display: "flex",
+                  padding: "6px 12px",
+                  alignItems: "center",
+                  borderRadius: "6px",
+                  background:
+                    selectedPreset === preset ? "#F5F5F5" : "transparent",
+                  border: "1px solid #D5D7DA",
+                  cursor: "pointer",
+                  transition: "background-color 0.15s ease",
+                  color: selectedPreset === preset ? "#252B37" : "#414651",
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  lineHeight: "16px",
+                  whiteSpace: "nowrap",
+                }}
+                onMouseEnter={(e) => {
+                  if (selectedPreset !== preset) {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (selectedPreset !== preset) {
+                    e.currentTarget.style.background = "transparent";
+                  }
+                }}
+              >
+                {preset}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Bottom panel with inputs and buttons */}
         <div
@@ -899,123 +1126,131 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             gap: "12px",
             alignSelf: "stretch",
             borderTop: "1px solid #E9EAEB",
+            flexDirection: isMobile ? "column" : "row",
           }}
         >
-          {/* Input fields */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "12px",
-              flex: "1 0 0",
-            }}
-          >
+          {/* Desktop: Input fields */}
+          {!isMobile && (
             <div
               style={{
                 display: "flex",
-                width: "136px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "6px",
+                alignItems: "center",
+                gap: "12px",
+                flex: "1 0 0",
               }}
             >
               <div
                 style={{
                   display: "flex",
-                  padding: "8px 12px",
-                  alignItems: "center",
-                  gap: "8px",
-                  alignSelf: "stretch",
-                  borderRadius: "8px",
-                  border: "1px solid #D5D7DA",
-                  background: "#FFF",
-                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  width: "136px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
                 }}
               >
-                <input
-                  type="text"
-                  value={startInput}
-                  onChange={(e) => {
-                    e.stopPropagation();
-                    handleStartInputChange(e.target.value);
-                  }}
-                  onClick={(e) => e.stopPropagation()}
+                <div
                   style={{
-                    flex: "1 0 0",
-                    border: "none",
-                    outline: "none",
-                    background: "transparent",
-                    color: "#181D27",
-                    fontFamily: "Public Sans",
-                    fontSize: "16px",
-                    fontWeight: "400",
-                    lineHeight: "24px",
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   }}
-                />
+                >
+                  <input
+                    type="text"
+                    value={startInput}
+                    onChange={(e) => {
+                      e.stopPropagation();
+                      handleStartInputChange(e.target.value);
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      flex: "1 0 0",
+                      border: "none",
+                      outline: "none",
+                      background: "transparent",
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontWeight: "400",
+                      lineHeight: "24px",
+                    }}
+                  />
+                </div>
               </div>
-            </div>
 
-            <div
-              style={{
-                color: "#A4A7AE",
-                fontFamily: "Public Sans",
-                fontSize: "16px",
-                fontWeight: "400",
-                lineHeight: "24px",
-              }}
-            >
-              –
-            </div>
+              <div
+                style={{
+                  color: "#A4A7AE",
+                  fontFamily: "Public Sans",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  lineHeight: "24px",
+                }}
+              >
+                –
+              </div>
 
-            <div
-              style={{
-                display: "flex",
-                width: "136px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "6px",
-              }}
-            >
               <div
                 style={{
                   display: "flex",
-                  padding: "8px 12px",
-                  alignItems: "center",
-                  gap: "8px",
-                  alignSelf: "stretch",
-                  borderRadius: "8px",
-                  border: "1px solid #D5D7DA",
-                  background: "#FFF",
-                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  width: "136px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
                 }}
               >
-                <input
-                  type="text"
-                  value={endInput}
-                  onChange={(e) => {
-                    e.stopPropagation();
-                    handleEndInputChange(e.target.value);
-                  }}
-                  onClick={(e) => e.stopPropagation()}
+                <div
                   style={{
-                    flex: "1 0 0",
-                    border: "none",
-                    outline: "none",
-                    background: "transparent",
-                    color: "#181D27",
-                    fontFamily: "Public Sans",
-                    fontSize: "16px",
-                    fontWeight: "400",
-                    lineHeight: "24px",
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   }}
-                />
+                >
+                  <input
+                    type="text"
+                    value={endInput}
+                    onChange={(e) => {
+                      e.stopPropagation();
+                      handleEndInputChange(e.target.value);
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      flex: "1 0 0",
+                      border: "none",
+                      outline: "none",
+                      background: "transparent",
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontWeight: "400",
+                      lineHeight: "24px",
+                    }}
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Action buttons */}
           <div
-            style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "12px",
+              width: isMobile ? "100%" : "auto",
+            }}
           >
             <button
               onClick={(e) => {
@@ -1036,6 +1271,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 cursor: "pointer",
                 transition: "background-color 0.15s ease",
                 height: "40px",
+                flex: isMobile ? "1 0 0" : "auto",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#F5F5F5";
@@ -1078,6 +1314,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 cursor: "pointer",
                 transition: "background-color 0.15s ease",
                 height: "40px",
+                flex: isMobile ? "1 0 0" : "auto",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#2A3A7C";
