@@ -483,6 +483,14 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                   gap: "12px",
                   borderBottom: "1px solid #E9EAEB",
                   background: "#FFF",
+                  transition: "background-color 0.2s ease-in-out",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#F8F9FA";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#FFF";
                 }}
               >
                 <div
@@ -509,6 +517,15 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     viewBox="0 0 16 16"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      transition: "transform 0.2s ease-in-out",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "scale(1.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
                   >
                     <path
                       d="M4.66663 10.0001L7.99996 13.3334L11.3333 10.0001M4.66663 6.00008L7.99996 2.66675L11.3333 6.00008"
