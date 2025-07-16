@@ -731,7 +731,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          width: isMobile ? "100%" : "auto",
+          width: "100%",
         }}
       >
         {/* Calendar months */}
