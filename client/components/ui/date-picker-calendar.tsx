@@ -984,7 +984,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               <div
                 style={{
                   display: "flex",
-                  padding: "16px 20px",
+                  padding: "16px",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "12px",
