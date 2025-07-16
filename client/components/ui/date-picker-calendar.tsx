@@ -663,7 +663,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             ? `${triggerRef.current.getBoundingClientRect().width}px`
             : "100%"
           : isTablet
-            ? "380px" // Fixed width for tablet
+            ? "400px" // Fixed width for tablet
             : "auto", // Auto width for desktop
       }}
     >
