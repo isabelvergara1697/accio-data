@@ -658,7 +658,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         width: isMobile
           ? triggerRef.current
             ? `${triggerRef.current.getBoundingClientRect().width}px`
-            : "328px"
+            : "100%"
           : "auto",
       }}
     >
