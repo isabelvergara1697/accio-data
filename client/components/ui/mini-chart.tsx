@@ -56,15 +56,18 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         height: "56px",
         position: "relative",
         overflow: "hidden",
-        // Ensure minimum size for visibility
         minWidth: "80px",
       }}
     >
+      {/* Chart SVG - responsive and stretches to fit */}
       <svg
         style={{
           width: "100%",
           height: "100%",
           display: "block",
+          position: "absolute",
+          top: 0,
+          left: 0,
         }}
         viewBox="0 0 103 56"
         preserveAspectRatio="none"
@@ -90,8 +93,25 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           strokeLinejoin="round"
           fill="none"
         />
+      </svg>
 
-        {/* Marker dots - fixed size circles that maintain their shape */}
+      {/* Circle overlay - maintains aspect ratio and perfect circles */}
+      <svg
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "block",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          pointerEvents: "none",
+        }}
+        viewBox="0 0 103 56"
+        preserveAspectRatio="xMidYMid meet"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Marker dots with proper aspect ratio to maintain perfect circles */}
         <g>
           {/* Outer ring */}
           <circle
@@ -102,7 +122,6 @@ export const MiniChart: React.FC<MiniChartProps> = ({
             stroke={lineColor}
             strokeWidth="1"
             opacity="0.2"
-            vectorEffect="non-scaling-stroke"
           />
           {/* Inner dot */}
           <circle
@@ -112,7 +131,6 @@ export const MiniChart: React.FC<MiniChartProps> = ({
             fill="#FFF"
             stroke={lineColor}
             strokeWidth="1"
-            vectorEffect="non-scaling-stroke"
           />
         </g>
       </svg>
