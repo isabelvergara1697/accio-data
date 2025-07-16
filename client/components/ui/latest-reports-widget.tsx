@@ -847,18 +847,11 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             <div
               style={{
                 display: "flex",
-                width: isDesktop
-                  ? "120px"
-                  : windowWidth >= 768
-                    ? "140px"
-                    : "120px",
-                minWidth: isDesktop
-                  ? "120px"
-                  : windowWidth >= 768
-                    ? "140px"
-                    : "120px",
+                width: "107px",
+                minWidth: "107px",
                 flexDirection: "column",
                 alignItems: "flex-start",
+                alignSelf: "stretch",
               }}
             >
               {/* Header */}
