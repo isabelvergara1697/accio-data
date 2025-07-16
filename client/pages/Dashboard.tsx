@@ -437,7 +437,7 @@ export default function Dashboard() {
           boxShadow:
             "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
           cursor: "pointer",
-          ...(isMobile ? { alignSelf: "stretch" } : {}),
+          ...(isMobile ? { alignSelf: "stretch", width: "100%" } : {}),
         }}
       >
         <svg
