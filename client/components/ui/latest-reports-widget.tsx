@@ -741,13 +741,15 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                         style={{
                           overflow: "hidden",
                           color: "#535862",
-                          textOverflow: "ellipsis",
                           fontFamily: "Public Sans",
                           fontSize: "14px",
                           fontWeight: "400",
                           lineHeight: "20px",
-                          whiteSpace: "nowrap",
                           width: "156px",
+                          display: "-webkit-box",
+                          WebkitLineClamp: 1,
+                          WebkitBoxOrient: "vertical",
+                          textOverflow: "ellipsis",
                         }}
                       >
                         {report.requester.email}
@@ -780,13 +782,12 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         </div>
       </div>
 
-      {/* Drag and Drop Button - positioned correctly like Figma */}
+      {/* Drag and Drop Button - positioned exactly as per Figma design */}
       <div
         style={{
           position: "absolute",
-          right: "20px",
-          top: "50%",
-          transform: "translateY(-50%)",
+          left: "241px",
+          top: "-6px",
           zIndex: 10,
         }}
       >
