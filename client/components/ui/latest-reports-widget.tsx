@@ -310,6 +310,13 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
               boxShadow:
                 "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
               cursor: "pointer",
+              transition: "background-color 0.2s ease-in-out",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#F5F5F5";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "#FFF";
             }}
           >
             <div
@@ -336,6 +343,13 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
               border: "none",
               background: "transparent",
               cursor: "pointer",
+              transition: "background-color 0.2s ease-in-out",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#F5F5F5";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
             }}
           >
             <svg
