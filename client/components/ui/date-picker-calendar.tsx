@@ -1132,7 +1132,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             gap: "12px",
             alignSelf: "stretch",
             borderTop: "1px solid #E9EAEB",
-            flexDirection: isMobile ? "column" : "row",
+            flexDirection: "column",
           }}
         >
           {/* Desktop: Input fields */}
