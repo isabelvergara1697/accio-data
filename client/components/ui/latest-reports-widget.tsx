@@ -33,6 +33,8 @@ interface LatestReportsWidgetProps {
 }
 
 const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
   const statusConfig = {
     completed: {
       text: "Completed",
@@ -83,7 +85,12 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
         borderRadius: "9999px",
         border: `1px solid ${config.borderColor}`,
         background: config.bgColor,
+        transition: "all 0.15s ease-in-out",
+        transform: isHovered ? "scale(1.05)" : "scale(1)",
+        cursor: "pointer",
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div
         style={{
@@ -140,10 +147,12 @@ const ProgressBar: React.FC<ProgressBarProps & { isCompact?: boolean }> = ({
             width: `${percentage}%`,
             height: "6px",
             borderRadius: "9999px",
-            background: "#344698",
+            background: "linear-gradient(90deg, #344698 0%, #4F46E5 100%)",
             position: "absolute",
             left: "0px",
             top: "0px",
+            transition: "all 0.3s ease-in-out",
+            boxShadow: "0px 1px 2px 0px rgba(52, 70, 152, 0.2)",
           }}
         />
       </div>
@@ -155,6 +164,7 @@ const ProgressBar: React.FC<ProgressBarProps & { isCompact?: boolean }> = ({
           fontWeight: "500",
           lineHeight: isCompact ? "16px" : "20px",
           minWidth: "32px",
+          transition: "color 0.2s ease-in-out",
         }}
       >
         {percentage}%
