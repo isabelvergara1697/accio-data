@@ -739,7 +739,6 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       </div>
                       <div
                         style={{
-                          alignSelf: "stretch",
                           overflow: "hidden",
                           color: "#535862",
                           textOverflow: "ellipsis",
@@ -748,7 +747,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                           fontWeight: "400",
                           lineHeight: "20px",
                           whiteSpace: "nowrap",
-                          maxWidth: "100%",
+                          width: "156px",
                         }}
                       >
                         {report.requester.email}
@@ -785,7 +784,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
       <div
         style={{
           position: "absolute",
-          right: "8px",
+          right: "20px",
           top: "50%",
           transform: "translateY(-50%)",
           zIndex: 10,
@@ -800,17 +799,22 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             justifyContent: "center",
             alignItems: "center",
             borderRadius: "8px",
-            border: "none",
-            background: "transparent",
+            border: "1px solid #E9EAEB",
+            background: "#FFFFFF",
             cursor: "grab",
-            transition: "background-color 0.2s ease-in-out",
+            transition: "all 0.2s ease-in-out",
             transform: "rotate(90deg)",
+            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#F5F5F5";
+            e.currentTarget.style.background = "#F9FAFB";
+            e.currentTarget.style.boxShadow =
+              "0px 2px 4px 0px rgba(10, 13, 18, 0.10)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.background = "#FFFFFF";
+            e.currentTarget.style.boxShadow =
+              "0px 1px 2px 0px rgba(10, 13, 18, 0.05)";
           }}
         >
           <svg
