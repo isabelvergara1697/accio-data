@@ -129,10 +129,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       let left;
 
       if (isMobile) {
-        // On mobile, align calendar with trigger button
+        // On mobile, align calendar with trigger button's left edge
         left = triggerRect.left;
       } else {
-        // On desktop and tablet, align right edge
+        // On desktop and tablet, align calendar's right edge with trigger's right edge
         left = triggerRect.right - calendarRect.width;
       }
 
@@ -661,7 +661,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         width: isMobile
           ? triggerRef.current
             ? `${triggerRef.current.getBoundingClientRect().width}px`
-            : "100%"
+            : "343px"
           : isTablet
             ? "400px" // Fixed width for tablet
             : "auto", // Auto width for desktop
@@ -957,6 +957,47 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   </div>
                 )}
 
+                {/* Mobile: Horizontal preset buttons */}
+                {isMobile && (
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "4px 8px 0px 8px",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    {mobilePresets.map((preset) => (
+                      <button
+                        key={preset}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handlePresetClick(preset);
+                        }}
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          background: "transparent",
+                          border: "none",
+                          cursor: "pointer",
+                          padding: "4px 8px 0px 8px",
+                          color: "#273572",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: "600",
+                          lineHeight: "20px",
+                          textDecoration: "none",
+                        }}
+                      >
+                        {preset}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
                 {/* Calendar grid */}
                 <div
                   style={{
@@ -1079,47 +1120,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             </div>
           )}
         </div>
-
-        {/* Mobile: Horizontal preset buttons */}
-        {isMobile && (
-          <div
-            style={{
-              display: "flex",
-              padding: "4px 8px 0px 8px",
-              justifyContent: "space-between",
-              alignItems: "center",
-              alignSelf: "stretch",
-            }}
-          >
-            {mobilePresets.map((preset) => (
-              <button
-                key={preset}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handlePresetClick(preset);
-                }}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "4px",
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: "0",
-                  color: "#273572",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  lineHeight: "20px",
-                  textDecoration: "none",
-                }}
-              >
-                {preset}
-              </button>
-            ))}
-          </div>
-        )}
 
         {/* Bottom panel with inputs and buttons */}
         <div
