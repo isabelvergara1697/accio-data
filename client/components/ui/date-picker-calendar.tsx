@@ -197,10 +197,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
   if (!isOpen) return null;
 
-  // Check if tablet (between 768px and 1024px)
-  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-  // Check if mobile (less than 768px)
-  const isMobileDevice = window.innerWidth < 768;
+  // Check responsive breakpoints
+  const currentWidth = window.innerWidth;
+  const isMobileDevice = currentWidth < 768;
+  const isTablet = currentWidth >= 768 && currentWidth < 1024;
 
   // Preset options
   const presets = [
