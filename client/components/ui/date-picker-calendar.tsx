@@ -128,6 +128,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       const top = triggerRect.bottom + 4;
       let left;
 
+      const isMobileDevice = window.innerWidth < 768;
       if (isMobileDevice) {
         // On mobile, align calendar with trigger button's left edge
         left = triggerRect.left;
@@ -138,7 +139,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
       setPosition({ top, left });
     }
-  }, [isOpen, triggerRef, isMobileDevice]);
+  }, [isOpen, triggerRef]);
 
   // Handle outside clicks
   useEffect(() => {
