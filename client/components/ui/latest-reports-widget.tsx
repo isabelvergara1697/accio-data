@@ -666,7 +666,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                         : "none",
                     background:
                       hoveredRowIndex === index ? "#F9FAFB" : "transparent",
-                    transition: "background-color 0.2s ease-in-out",
+                    transition: "background-color 0.15s ease-in-out",
                     cursor: "pointer",
                   }}
                   onMouseEnter={() => setHoveredRowIndex(index)}
@@ -794,12 +794,13 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           borderRadius: "8px",
           border: "none",
           background: "transparent",
-          cursor: "pointer",
+          cursor: "grab",
           transition: "background-color 0.2s ease-in-out",
           transform: "rotate(90deg)",
           position: "absolute",
-          left: "250px",
-          top: "218px",
+          right: "-16px",
+          top: "50%",
+          transform: "rotate(90deg) translateY(-50%)",
           zIndex: 10,
         }}
         onMouseEnter={(e) => {
