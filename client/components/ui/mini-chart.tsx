@@ -70,7 +70,7 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           display: "block", // Remove any default spacing
         }}
         viewBox="0 0 100 56"
-        preserveAspectRatio="xMidYMid meet" // Maintain aspect ratio and center content
+        preserveAspectRatio="none" // Allow stretching to fit container
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
