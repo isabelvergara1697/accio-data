@@ -875,7 +875,7 @@ export default function Dashboard() {
               {/* Metric cards group */}
               <div
                 style={{
-                  display: "flex",
+                  display: isMobile ? "flex" : "grid",
                   justifyContent: "center",
                   alignItems: "flex-start",
                   gap: "16px",
@@ -884,9 +884,15 @@ export default function Dashboard() {
                     ? {
                         flexDirection: "column",
                       }
-                    : {
-                        flexDirection: "row",
-                      }),
+                    : isDesktop
+                      ? {
+                          gridTemplateColumns: "repeat(4, 1fr)",
+                        }
+                      : {
+                          // Tablet: 2x2 grid
+                          gridTemplateColumns: "repeat(2, 1fr)",
+                          gridTemplateRows: "repeat(2, 1fr)",
+                        }),
                 }}
               >
                 <MetricCard
