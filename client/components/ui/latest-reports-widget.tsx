@@ -576,7 +576,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                 <div
                   style={{
                     display: "flex",
-                    flex: "1 0 0",
+                    width: "188px",
                     padding: "6px 12px",
                     alignItems: "center",
                     gap: "4px",
@@ -615,7 +615,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                   <div
                     style={{
                       display: "flex",
-                      width: "107px",
+                      flex: "1 0 0",
                       padding: "6px 12px",
                       alignItems: "center",
                       gap: "4px",
@@ -712,7 +712,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                   <div
                     style={{
                       display: "flex",
-                      flex: "1 0 0",
+                      width: "188px",
                       padding: "6px 12px",
                       alignItems: "center",
                     }}
@@ -762,7 +762,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     <div
                       style={{
                         display: "flex",
-                        width: "107px",
+                        flex: "1 0 0",
                         height: "52px",
                         padding: "6px 12px",
                         alignItems: "center",
@@ -786,6 +786,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
       <button
         style={{
           display: "flex",
+          width: "32px",
           height: "32px",
           padding: "8px",
           justifyContent: "center",
@@ -797,8 +798,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           transition: "background-color 0.2s ease-in-out",
           transform: "rotate(90deg)",
           position: "absolute",
-          left: "241px",
-          top: "-6px",
+          left: "250px",
+          top: "218px",
           zIndex: 10,
         }}
         onMouseEnter={(e) => {
