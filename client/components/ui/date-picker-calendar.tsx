@@ -477,6 +477,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     // Month days
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(monthDate.getFullYear(), monthDate.getMonth(), day);
+      const dayIndex = (firstDay + day - 1) % 7; // Position in current week
+      const isLastInRow = dayIndex === 6; // Sunday (last column)
+      const isFirstInRow = dayIndex === 0; // Monday (first column)
 
       // Determine visual state
       let isSelected = false;
@@ -500,9 +503,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         isRangeEnd = isSameDate(date, workingEndDate);
       }
 
-      // Determine if we need connectors
-      const needsLeftConnector = isInRange && !isRangeStart;
-      const needsRightConnector = isInRange && !isRangeEnd;
+      // Determine if we need connectors (avoid connectors at row ends)
+      const needsLeftConnector = isInRange && !isRangeStart && !isFirstInRow;
+      const needsRightConnector = isInRange && !isRangeEnd && !isLastInRow;
 
       days.push(
         <div
@@ -702,10 +705,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             <div
               style={{
                 display: "flex",
-                padding: "20px 24px",
+                padding: "16px 20px",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "16px",
+                gap: "12px",
                 alignSelf: "stretch",
               }}
             >
@@ -777,7 +780,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                     display: "flex",
                     alignItems: "flex-start",
                     alignContent: "flex-start",
-                    gap: "4px 0px",
+                    gap: "0px",
                     alignSelf: "stretch",
                     flexWrap: "wrap",
                   }}
@@ -800,10 +803,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             <div
               style={{
                 display: "flex",
-                padding: "20px 24px",
+                padding: "16px 20px",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "16px",
+                gap: "12px",
                 alignSelf: "stretch",
               }}
             >
@@ -875,7 +878,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                     display: "flex",
                     alignItems: "flex-start",
                     alignContent: "flex-start",
-                    gap: "4px 0px",
+                    gap: "0px",
                     alignSelf: "stretch",
                     flexWrap: "wrap",
                   }}
@@ -1021,7 +1024,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               }}
               style={{
                 display: "flex",
-                padding: "12px",
+                padding: "8px 12px",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "4px",
@@ -1032,6 +1035,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
                 transition: "background-color 0.15s ease",
+                height: "40px",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#F5F5F5";
@@ -1062,7 +1066,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               }}
               style={{
                 display: "flex",
-                padding: "12px",
+                padding: "8px 12px",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "4px",
@@ -1073,6 +1077,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
                 transition: "background-color 0.15s ease",
+                height: "40px",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#2A3A7C";
