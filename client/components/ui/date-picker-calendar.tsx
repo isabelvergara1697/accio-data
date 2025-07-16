@@ -21,30 +21,51 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
   const calendarRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
-  // Internal state for current selection (before Apply)
-  const [tempStartDate, setTempStartDate] = useState(selectedStartDate);
-  const [tempEndDate, setTempEndDate] = useState(selectedEndDate);
+  // Working dates (internal state before apply)
+  const [workingStartDate, setWorkingStartDate] = useState(selectedStartDate);
+  const [workingEndDate, setWorkingEndDate] = useState(selectedEndDate);
 
-  // Calendar navigation state
-  const [leftMonth, setLeftMonth] = useState(() => {
+  // Calendar display months
+  const [currentMonth, setCurrentMonth] = useState(() => {
     const start = new Date(selectedStartDate);
     return new Date(start.getFullYear(), start.getMonth(), 1);
   });
-  const [rightMonth, setRightMonth] = useState(() => {
-    const left = new Date(selectedStartDate);
-    return new Date(left.getFullYear(), left.getMonth() + 1, 1);
-  });
 
   // Selection state
-  const [selectedPreset, setSelectedPreset] = useState("This month");
+  const [selectedPreset, setSelectedPreset] = useState("");
   const [isSelectingRange, setIsSelectingRange] = useState(false);
+  const [rangeStart, setRangeStart] = useState<Date | null>(null);
   const [hoverDate, setHoverDate] = useState<Date | null>(null);
 
-  // Input state
+  // Input values
   const [startInput, setStartInput] = useState("");
   const [endInput, setEndInput] = useState("");
 
-  // Helper function to format dates
+  // Initialize when calendar opens
+  useEffect(() => {
+    if (isOpen) {
+      setWorkingStartDate(selectedStartDate);
+      setWorkingEndDate(selectedEndDate);
+      setSelectedPreset("");
+      setIsSelectingRange(false);
+      setRangeStart(null);
+      setHoverDate(null);
+
+      // Set calendar to show the current date range
+      const month = new Date(
+        selectedStartDate.getFullYear(),
+        selectedStartDate.getMonth(),
+        1,
+      );
+      setCurrentMonth(month);
+
+      // Update inputs
+      setStartInput(formatDate(selectedStartDate));
+      setEndInput(formatDate(selectedEndDate));
+    }
+  }, [isOpen, selectedStartDate, selectedEndDate]);
+
+  // Helper functions
   const formatDate = (date: Date): string => {
     const months = [
       "Jan",
@@ -63,52 +84,46 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
   };
 
-  // Parse date from string
   const parseDate = (dateStr: string): Date | null => {
     try {
-      // Try to parse common formats
       const date = new Date(dateStr);
-      if (!isNaN(date.getTime())) {
-        return date;
-      }
-      return null;
+      return !isNaN(date.getTime()) ? date : null;
     } catch {
       return null;
     }
   };
 
-  // Update input fields when temp dates change
-  useEffect(() => {
-    setStartInput(formatDate(tempStartDate));
-    setEndInput(formatDate(tempEndDate));
-  }, [tempStartDate, tempEndDate]);
+  const isSameDate = (date1: Date, date2: Date): boolean => {
+    return (
+      date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate()
+    );
+  };
 
-  // Update internal state when props change
-  useEffect(() => {
-    if (isOpen) {
-      setTempStartDate(selectedStartDate);
-      setTempEndDate(selectedEndDate);
+  const isDateInRange = (date: Date, start: Date, end: Date): boolean => {
+    return date >= start && date <= end;
+  };
 
-      // Update calendar view to show the selected date range
-      const startMonth = new Date(
-        selectedStartDate.getFullYear(),
-        selectedStartDate.getMonth(),
-        1,
-      );
-      setLeftMonth(startMonth);
-      setRightMonth(
-        new Date(startMonth.getFullYear(), startMonth.getMonth() + 1, 1),
-      );
-    }
-  }, [isOpen, selectedStartDate, selectedEndDate]);
+  const getDaysInMonth = (date: Date): number => {
+    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  };
 
-  // Position the calendar relative to the trigger button
+  const getFirstDayOfMonth = (date: Date): number => {
+    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+    return firstDay === 0 ? 6 : firstDay - 1; // Convert Sunday=0 to Monday=0
+  };
+
+  const getNextMonth = (date: Date): Date => {
+    return new Date(date.getFullYear(), date.getMonth() + 1, 1);
+  };
+
+  // Position calendar
   useEffect(() => {
     if (isOpen && triggerRef.current && calendarRef.current) {
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const calendarRect = calendarRef.current.getBoundingClientRect();
 
-      // Position 4px below and right-aligned with the button
       const top = triggerRect.bottom + 4;
       const left = triggerRect.right - calendarRect.width;
 
@@ -116,11 +131,10 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     }
   }, [isOpen, triggerRef]);
 
-  // Close calendar when clicking outside
+  // Handle outside clicks
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
-
       if (
         calendarRef.current &&
         !calendarRef.current.contains(target) &&
@@ -140,7 +154,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     };
   }, [isOpen, onClose, triggerRef]);
 
-  // Close on Escape key
+  // Handle escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -159,6 +173,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
   if (!isOpen) return null;
 
+  // Preset options
   const presets = [
     "This week",
     "Last week",
@@ -171,212 +186,179 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     "All time",
   ];
 
+  // Handle preset selection
   const handlePresetClick = (preset: string) => {
+    console.log("Preset clicked:", preset); // Debug log
+
     setSelectedPreset(preset);
+    setIsSelectingRange(false);
+    setRangeStart(null);
+    setHoverDate(null);
+
     const today = new Date();
-    let newStartDate: Date;
-    let newEndDate: Date;
+    let start: Date;
+    let end: Date;
 
     switch (preset) {
       case "This week":
-        // Get Monday of current week
-        const dayOfWeek = today.getDay();
-        const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
-        newStartDate = new Date(today);
-        newStartDate.setDate(today.getDate() + mondayOffset);
-        newEndDate = new Date(newStartDate);
-        newEndDate.setDate(newStartDate.getDate() + 6);
+        const currentDay = today.getDay();
+        const daysToMonday = currentDay === 0 ? 6 : currentDay - 1;
+        start = new Date(today);
+        start.setDate(today.getDate() - daysToMonday);
+        end = new Date(start);
+        end.setDate(start.getDate() + 6);
         break;
+
       case "Last week":
-        // Get Monday of last week
-        const lastWeekToday = new Date(today);
-        lastWeekToday.setDate(today.getDate() - 7);
-        const lastWeekDay = lastWeekToday.getDay();
-        const lastMondayOffset = lastWeekDay === 0 ? -6 : 1 - lastWeekDay;
-        newStartDate = new Date(lastWeekToday);
-        newStartDate.setDate(lastWeekToday.getDate() + lastMondayOffset);
-        newEndDate = new Date(newStartDate);
-        newEndDate.setDate(newStartDate.getDate() + 6);
+        const lastWeekStart = new Date(today);
+        const lastWeekDay = today.getDay();
+        const daysToLastMonday = lastWeekDay === 0 ? 13 : lastWeekDay + 6;
+        lastWeekStart.setDate(today.getDate() - daysToLastMonday);
+        start = lastWeekStart;
+        end = new Date(start);
+        end.setDate(start.getDate() + 6);
         break;
+
       case "This month":
-        newStartDate = new Date(today.getFullYear(), today.getMonth(), 1);
-        newEndDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        start = new Date(today.getFullYear(), today.getMonth(), 1);
+        end = new Date(today.getFullYear(), today.getMonth() + 1, 0);
         break;
+
       case "Last month":
-        newStartDate = new Date(today.getFullYear(), today.getMonth() - 1, 1);
-        newEndDate = new Date(today.getFullYear(), today.getMonth(), 0);
+        start = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+        end = new Date(today.getFullYear(), today.getMonth(), 0);
         break;
+
       case "Last tree months":
-        newStartDate = new Date(today.getFullYear(), today.getMonth() - 2, 1);
-        newEndDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        start = new Date(today.getFullYear(), today.getMonth() - 2, 1);
+        end = new Date(today.getFullYear(), today.getMonth() + 1, 0);
         break;
+
       case "Last six months":
-        newStartDate = new Date(today.getFullYear(), today.getMonth() - 5, 1);
-        newEndDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        start = new Date(today.getFullYear(), today.getMonth() - 5, 1);
+        end = new Date(today.getFullYear(), today.getMonth() + 1, 0);
         break;
+
       case "This year":
-        newStartDate = new Date(today.getFullYear(), 0, 1);
-        newEndDate = new Date(today.getFullYear(), 11, 31);
+        start = new Date(today.getFullYear(), 0, 1);
+        end = new Date(today.getFullYear(), 11, 31);
         break;
+
       case "Last year":
-        newStartDate = new Date(today.getFullYear() - 1, 0, 1);
-        newEndDate = new Date(today.getFullYear() - 1, 11, 31);
+        start = new Date(today.getFullYear() - 1, 0, 1);
+        end = new Date(today.getFullYear() - 1, 11, 31);
         break;
+
       case "All time":
-      default:
-        newStartDate = new Date(2020, 0, 1);
-        newEndDate = today;
+        start = new Date(2020, 0, 1);
+        end = today;
         break;
+
+      default:
+        return;
     }
 
-    // Update temp dates and calendar view
-    setTempStartDate(newStartDate);
-    setTempEndDate(newEndDate);
-    setIsSelectingRange(false);
-    setHoverDate(null);
+    console.log("Setting dates:", start, end); // Debug log
 
-    // Update calendar view to show the selected range
-    const startMonth = new Date(
-      newStartDate.getFullYear(),
-      newStartDate.getMonth(),
-      1,
-    );
-    setLeftMonth(startMonth);
-    setRightMonth(
-      new Date(startMonth.getFullYear(), startMonth.getMonth() + 1, 1),
-    );
+    // Update working dates
+    setWorkingStartDate(start);
+    setWorkingEndDate(end);
+
+    // Update inputs
+    setStartInput(formatDate(start));
+    setEndInput(formatDate(end));
+
+    // Update calendar view to show the start date
+    setCurrentMonth(new Date(start.getFullYear(), start.getMonth(), 1));
   };
 
-  const navigateMonth = (direction: "prev" | "next", isLeft: boolean) => {
-    if (isLeft && direction === "prev") {
-      setLeftMonth(new Date(leftMonth.getFullYear(), leftMonth.getMonth() - 1));
-      setRightMonth(
-        new Date(rightMonth.getFullYear(), rightMonth.getMonth() - 1),
-      );
-    } else if (!isLeft && direction === "next") {
-      setLeftMonth(new Date(leftMonth.getFullYear(), leftMonth.getMonth() + 1));
-      setRightMonth(
-        new Date(rightMonth.getFullYear(), rightMonth.getMonth() + 1),
-      );
-    }
-  };
-
-  const getDaysInMonth = (date: Date): number => {
-    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  };
-
-  const getFirstDayOfMonth = (date: Date): number => {
-    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-    return firstDay === 0 ? 6 : firstDay - 1; // Convert Sunday=0 to Monday=0
-  };
-
-  const isSameDay = (date1: Date, date2: Date): boolean => {
-    return (
-      date1.getFullYear() === date2.getFullYear() &&
-      date1.getMonth() === date2.getMonth() &&
-      date1.getDate() === date2.getDate()
+  // Handle month navigation
+  const handlePrevMonth = () => {
+    console.log("Previous month clicked"); // Debug log
+    setCurrentMonth(
+      (prev) => new Date(prev.getFullYear(), prev.getMonth() - 1, 1),
     );
   };
 
-  const isDateInRange = (date: Date): boolean => {
-    const start =
-      isSelectingRange && hoverDate
-        ? hoverDate < tempStartDate
-          ? hoverDate
-          : tempStartDate
-        : tempStartDate;
-    const end =
-      isSelectingRange && hoverDate
-        ? hoverDate > tempStartDate
-          ? hoverDate
-          : tempStartDate
-        : tempEndDate;
-
-    return date >= start && date <= end;
+  const handleNextMonth = () => {
+    console.log("Next month clicked"); // Debug log
+    setCurrentMonth(
+      (prev) => new Date(prev.getFullYear(), prev.getMonth() + 1, 1),
+    );
   };
 
-  const isDateSelected = (date: Date): boolean => {
-    if (isSelectingRange && hoverDate) {
-      const start = hoverDate < tempStartDate ? hoverDate : tempStartDate;
-      const end = hoverDate > tempStartDate ? hoverDate : tempStartDate;
-      return isSameDay(date, start) || isSameDay(date, end);
-    }
-    return isSameDay(date, tempStartDate) || isSameDay(date, tempEndDate);
-  };
-
-  const isRangeStart = (date: Date): boolean => {
-    if (isSelectingRange && hoverDate) {
-      const start = hoverDate < tempStartDate ? hoverDate : tempStartDate;
-      return isSameDay(date, start);
-    }
-    return isSameDay(date, tempStartDate);
-  };
-
-  const isRangeEnd = (date: Date): boolean => {
-    if (isSelectingRange && hoverDate) {
-      const end = hoverDate > tempStartDate ? hoverDate : tempStartDate;
-      return isSameDay(date, end);
-    }
-    return isSameDay(date, tempEndDate);
-  };
-
+  // Handle date clicks
   const handleDateClick = (date: Date) => {
+    console.log("Date clicked:", date); // Debug log
+
+    setSelectedPreset(""); // Clear preset when manually selecting
+
     if (!isSelectingRange) {
-      // Start new range selection
-      setTempStartDate(date);
+      // Start new selection
       setIsSelectingRange(true);
-      setSelectedPreset(""); // Clear preset selection
+      setRangeStart(date);
+      setWorkingStartDate(date);
+      setWorkingEndDate(date);
+      setHoverDate(null);
     } else {
-      // Complete range selection
-      if (date < tempStartDate) {
-        setTempStartDate(date);
-        setTempEndDate(tempStartDate);
-      } else {
-        setTempEndDate(date);
+      // Complete selection
+      if (rangeStart) {
+        const start = date < rangeStart ? date : rangeStart;
+        const end = date > rangeStart ? date : rangeStart;
+
+        setWorkingStartDate(start);
+        setWorkingEndDate(end);
+        setStartInput(formatDate(start));
+        setEndInput(formatDate(end));
       }
+
       setIsSelectingRange(false);
+      setRangeStart(null);
       setHoverDate(null);
     }
   };
 
+  // Handle date hover
   const handleDateHover = (date: Date) => {
-    if (isSelectingRange) {
+    if (isSelectingRange && rangeStart) {
       setHoverDate(date);
     }
   };
 
-  const handleInputChange = (value: string, isStart: boolean) => {
-    if (isStart) {
-      setStartInput(value);
-      const parsed = parseDate(value);
-      if (parsed) {
-        setTempStartDate(parsed);
-        setSelectedPreset(""); // Clear preset selection
-      }
-    } else {
-      setEndInput(value);
-      const parsed = parseDate(value);
-      if (parsed) {
-        setTempEndDate(parsed);
-        setSelectedPreset(""); // Clear preset selection
-      }
+  // Handle input changes
+  const handleStartInputChange = (value: string) => {
+    setStartInput(value);
+    const parsed = parseDate(value);
+    if (parsed) {
+      setWorkingStartDate(parsed);
+      setSelectedPreset("");
     }
   };
 
+  const handleEndInputChange = (value: string) => {
+    setEndInput(value);
+    const parsed = parseDate(value);
+    if (parsed) {
+      setWorkingEndDate(parsed);
+      setSelectedPreset("");
+    }
+  };
+
+  // Handle apply
   const handleApply = () => {
-    onDateChange(tempStartDate, tempEndDate);
+    console.log("Apply clicked with dates:", workingStartDate, workingEndDate); // Debug log
+    onDateChange(workingStartDate, workingEndDate);
     onClose();
   };
 
+  // Handle cancel
   const handleCancel = () => {
-    setTempStartDate(selectedStartDate);
-    setTempEndDate(selectedEndDate);
-    setIsSelectingRange(false);
-    setHoverDate(null);
+    console.log("Cancel clicked"); // Debug log
     onClose();
   };
 
-  const renderCalendarDays = (monthDate: Date): JSX.Element[] => {
+  // Render calendar month
+  const renderCalendarMonth = (monthDate: Date, isLeft: boolean) => {
     const daysInMonth = getDaysInMonth(monthDate);
     const firstDay = getFirstDayOfMonth(monthDate);
     const days: JSX.Element[] = [];
@@ -391,16 +373,13 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             display: "flex",
             width: "40px",
             height: "40px",
-            padding: "10px 8px",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <div
+          <span
             style={{
-              width: "24px",
               color: "#414651",
-              textAlign: "center",
               fontFamily: "Public Sans",
               fontSize: "14px",
               fontWeight: "500",
@@ -408,78 +387,61 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             }}
           >
             {day}
-          </div>
+          </span>
         </div>,
       );
     });
 
-    // Previous month's trailing days (disabled)
-    const prevMonth = new Date(
-      monthDate.getFullYear(),
-      monthDate.getMonth() - 1,
-    );
-    const prevMonthDays = getDaysInMonth(prevMonth);
-    for (let i = firstDay - 1; i >= 0; i--) {
-      const day = prevMonthDays - i;
+    // Empty cells for days before month starts
+    for (let i = 0; i < firstDay; i++) {
       days.push(
-        <div
-          key={`prev-${day}`}
-          style={{
-            display: "flex",
-            width: "40px",
-            height: "40px",
-            padding: "10px 8px",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "default",
-          }}
-        >
-          <div
-            style={{
-              width: "24px",
-              color: "#717680",
-              textAlign: "center",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: "400",
-              lineHeight: "20px",
-            }}
-          >
-            {day}
-          </div>
-        </div>,
+        <div key={`empty-${i}`} style={{ width: "40px", height: "40px" }} />,
       );
     }
 
-    // Current month days
+    // Month days
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(monthDate.getFullYear(), monthDate.getMonth(), day);
-      const isSelected = isDateSelected(date);
-      const isInRange = isDateInRange(date);
-      const isStart = isRangeStart(date);
-      const isEnd = isRangeEnd(date);
+
+      // Determine visual state
+      let isSelected = false;
+      let isInRange = false;
+      let isRangeStart = false;
+      let isRangeEnd = false;
+
+      if (isSelectingRange && rangeStart && hoverDate) {
+        const tempStart = hoverDate < rangeStart ? hoverDate : rangeStart;
+        const tempEnd = hoverDate > rangeStart ? hoverDate : rangeStart;
+        isSelected = isSameDate(date, tempStart) || isSameDate(date, tempEnd);
+        isInRange = isDateInRange(date, tempStart, tempEnd);
+        isRangeStart = isSameDate(date, tempStart);
+        isRangeEnd = isSameDate(date, tempEnd);
+      } else {
+        isSelected =
+          isSameDate(date, workingStartDate) ||
+          isSameDate(date, workingEndDate);
+        isInRange = isDateInRange(date, workingStartDate, workingEndDate);
+        isRangeStart = isSameDate(date, workingStartDate);
+        isRangeEnd = isSameDate(date, workingEndDate);
+      }
 
       days.push(
         <div
-          key={`current-${day}`}
-          onClick={(e) => {
-            e.stopPropagation();
-            handleDateClick(date);
-          }}
+          key={`day-${day}`}
+          onClick={() => handleDateClick(date)}
           onMouseEnter={() => handleDateHover(date)}
           style={{
             display: "flex",
             width: "40px",
             height: "40px",
-            padding: "10px 8px",
             justifyContent: "center",
             alignItems: "center",
             borderRadius:
-              isStart && !isEnd
-                ? "9999px 0 0 9999px"
-                : isEnd && !isStart
-                  ? "0 9999px 9999px 0"
-                  : "9999px",
+              isRangeStart && !isRangeEnd
+                ? "20px 0 0 20px"
+                : isRangeEnd && !isRangeStart
+                  ? "0 20px 20px 0"
+                  : "20px",
             background: isSelected
               ? "#344698"
               : isInRange
@@ -487,18 +449,22 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 : "transparent",
             cursor: "pointer",
             position: "relative",
+            color: isSelected ? "#FFF" : "#414651",
+            fontFamily: "Public Sans",
+            fontSize: "14px",
+            fontWeight: "500",
+            lineHeight: "20px",
           }}
         >
           {/* Range connectors */}
           {isInRange && !isSelected && (
             <>
-              {/* Left connector */}
-              {!isStart && (
+              {!isRangeStart && (
                 <div
                   style={{
                     position: "absolute",
                     left: "-20px",
-                    top: "0px",
+                    top: "0",
                     width: "40px",
                     height: "40px",
                     background: "#F5F5F5",
@@ -506,13 +472,12 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   }}
                 />
               )}
-              {/* Right connector */}
-              {!isEnd && (
+              {!isRangeEnd && (
                 <div
                   style={{
                     position: "absolute",
                     right: "-20px",
-                    top: "0px",
+                    top: "0",
                     width: "40px",
                     height: "40px",
                     background: "#F5F5F5",
@@ -522,54 +487,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               )}
             </>
           )}
-
-          <div
-            style={{
-              width: "24px",
-              color: isSelected ? "#FFF" : "#414651",
-              textAlign: "center",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: "500",
-              lineHeight: "20px",
-            }}
-          >
-            {day}
-          </div>
-        </div>,
-      );
-    }
-
-    // Next month's leading days (disabled)
-    const totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
-    const remainingCells = totalCells - (firstDay + daysInMonth);
-    for (let day = 1; day <= remainingCells; day++) {
-      days.push(
-        <div
-          key={`next-${day}`}
-          style={{
-            display: "flex",
-            width: "40px",
-            height: "40px",
-            padding: "10px 8px",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "default",
-          }}
-        >
-          <div
-            style={{
-              width: "24px",
-              color: "#717680",
-              textAlign: "center",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: "400",
-              lineHeight: "20px",
-            }}
-          >
-            {day}
-          </div>
+          {day}
         </div>,
       );
     }
@@ -594,6 +512,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     ];
     return `${months[date.getMonth()]} ${date.getFullYear()}`;
   };
+
+  const leftMonth = currentMonth;
+  const rightMonth = getNextMonth(currentMonth);
 
   return createPortal(
     <div
@@ -626,19 +547,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         }}
       >
         {presets.map((preset) => (
-          <div
+          <button
             key={preset}
             onClick={() => handlePresetClick(preset)}
-            onMouseEnter={(e) => {
-              if (selectedPreset !== preset) {
-                (e.target as HTMLElement).style.background = "#F9FAFB";
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (selectedPreset !== preset) {
-                (e.target as HTMLElement).style.background = "transparent";
-              }
-            }}
             style={{
               display: "flex",
               padding: "8px 12px",
@@ -646,23 +557,29 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               alignSelf: "stretch",
               borderRadius: "6px",
               background: selectedPreset === preset ? "#F5F5F5" : "transparent",
+              border: "none",
               cursor: "pointer",
               transition: "background-color 0.15s ease",
+              color: selectedPreset === preset ? "#252B37" : "#414651",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "500",
+              lineHeight: "20px",
+              textAlign: "left",
+            }}
+            onMouseEnter={(e) => {
+              if (selectedPreset !== preset) {
+                e.currentTarget.style.background = "#F9FAFB";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (selectedPreset !== preset) {
+                e.currentTarget.style.background = "transparent";
+              }
             }}
           >
-            <div
-              style={{
-                color: selectedPreset === preset ? "#252B37" : "#414651",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight: "500",
-                lineHeight: "20px",
-                pointerEvents: "none",
-              }}
-            >
-              {preset}
-            </div>
-          </div>
+            {preset}
+          </button>
         ))}
       </div>
 
@@ -675,12 +592,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         }}
       >
         {/* Calendar months */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-start",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "flex-start" }}>
           {/* Left month */}
           <div
             style={{
@@ -720,7 +632,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   }}
                 >
                   <button
-                    onClick={() => navigateMonth("prev", true)}
+                    onClick={handlePrevMonth}
                     style={{
                       display: "flex",
                       width: "32px",
@@ -763,15 +675,13 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 {/* Calendar grid */}
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    alignContent: "flex-start",
-                    gap: "4px 0px",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(7, 1fr)",
+                    gap: "0px",
                     alignSelf: "stretch",
-                    flexWrap: "wrap",
                   }}
                 >
-                  {renderCalendarDays(leftMonth)}
+                  {renderCalendarMonth(leftMonth, true)}
                 </div>
               </div>
             </div>
@@ -829,7 +739,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                     {getMonthName(rightMonth)}
                   </div>
                   <button
-                    onClick={() => navigateMonth("next", false)}
+                    onClick={handleNextMonth}
                     style={{
                       display: "flex",
                       width: "32px",
@@ -858,15 +768,13 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 {/* Calendar grid */}
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    alignContent: "flex-start",
-                    gap: "4px 0px",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(7, 1fr)",
+                    gap: "0px",
                     alignSelf: "stretch",
-                    flexWrap: "wrap",
                   }}
                 >
-                  {renderCalendarDays(rightMonth)}
+                  {renderCalendarMonth(rightMonth, false)}
                 </div>
               </div>
             </div>
@@ -878,7 +786,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           style={{
             display: "flex",
             padding: "16px",
-            alignItems: "flex-start",
+            alignItems: "center",
             gap: "12px",
             alignSelf: "stretch",
             borderTop: "1px solid #E9EAEB",
@@ -918,9 +826,8 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 <input
                   type="text"
                   value={startInput}
-                  onChange={(e) => handleInputChange(e.target.value, true)}
+                  onChange={(e) => handleStartInputChange(e.target.value)}
                   onClick={(e) => e.stopPropagation()}
-                  onFocus={(e) => e.stopPropagation()}
                   style={{
                     flex: "1 0 0",
                     border: "none",
@@ -973,9 +880,8 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 <input
                   type="text"
                   value={endInput}
-                  onChange={(e) => handleInputChange(e.target.value, false)}
+                  onChange={(e) => handleEndInputChange(e.target.value)}
                   onClick={(e) => e.stopPropagation()}
-                  onFocus={(e) => e.stopPropagation()}
                   style={{
                     flex: "1 0 0",
                     border: "none",
@@ -993,23 +899,12 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           </div>
 
           {/* Action buttons */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-start",
-              gap: "12px",
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
               onClick={handleCancel}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.background = "#F5F5F5";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.background = "#FFF";
-              }}
               style={{
                 display: "flex",
+                height: "40px",
                 padding: "10px 16px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -1021,33 +916,27 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
                 transition: "background-color 0.15s ease",
-                minWidth: "70px",
+                color: "#414651",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: "600",
+                lineHeight: "20px",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#F5F5F5";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "#FFF";
               }}
             >
-              <div
-                style={{
-                  color: "#414651",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  lineHeight: "20px",
-                  pointerEvents: "none",
-                }}
-              >
-                Cancel
-              </div>
+              Cancel
             </button>
 
             <button
               onClick={handleApply}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.background = "#2A3A7C";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.background = "#344698";
-              }}
               style={{
                 display: "flex",
+                height: "40px",
                 padding: "10px 16px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -1059,21 +948,20 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
                 transition: "background-color 0.15s ease",
-                minWidth: "70px",
+                color: "#FFF",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: "600",
+                lineHeight: "20px",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#2A3A7C";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "#344698";
               }}
             >
-              <div
-                style={{
-                  color: "#FFF",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: "600",
-                  lineHeight: "20px",
-                  pointerEvents: "none",
-                }}
-              >
-                Apply
-              </div>
+              Apply
             </button>
           </div>
         </div>
