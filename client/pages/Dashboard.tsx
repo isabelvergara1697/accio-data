@@ -538,9 +538,10 @@ export default function Dashboard() {
         style={{
           display: "flex",
           width: "100%",
+          height: "100vh",
           background: "#FAFAFA",
           position: "relative",
-          minHeight: "100vh",
+          overflow: "hidden",
         }}
       >
         {/* Mobile Menu Overlay - Only show when mobile menu is open and no drawers are active */}
