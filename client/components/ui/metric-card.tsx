@@ -95,7 +95,6 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           : {
               flex: "1 1 0",
               minWidth: "200px",
-              maxWidth: "300px",
             }),
         padding: "16px 12px 12px 16px",
         flexDirection: "column",
