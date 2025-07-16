@@ -210,11 +210,11 @@ export const MetricCard: React.FC<MetricCardProps> = ({
         <div
           style={{
             height: "56px",
-            flex: "1 0 0",
+            flex: "1 1 auto",
             position: "relative",
-            // Responsive width constraints based on breakpoint
-            minWidth: isMobile ? "100px" : "120px",
-            maxWidth: isMobile ? "150px" : "200px",
+            minWidth: "80px",
+            width: "100%",
+            // Ensure chart takes full available width across all breakpoints
           }}
         >
           <MiniChart
