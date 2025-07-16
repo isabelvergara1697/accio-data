@@ -659,7 +659,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
         zIndex: 50,
         width: isMobile
-          ? "100%" // Full width on mobile to match other buttons
+          ? triggerRef.current
+            ? `${triggerRef.current.getBoundingClientRect().width}px`
+            : "100%"
           : isTablet
             ? "380px" // Fixed width for tablet
             : "auto", // Auto width for desktop
