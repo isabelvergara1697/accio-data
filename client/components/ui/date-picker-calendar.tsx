@@ -131,6 +131,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
       if (isMobile) {
         // On mobile, align calendar with trigger button (same width and position)
         left = triggerRect.left;
+      } else if (window.innerWidth < 1024) {
+        // On tablet, center calendar relative to trigger
+        left = triggerRect.left + (triggerRect.width - 360) / 2;
       } else {
         // On desktop, align right edge of calendar with right edge of trigger
         left = triggerRect.right - calendarRect.width;
