@@ -419,7 +419,13 @@ export default function Dashboard() {
   );
 
   const renderDateButton = () => (
-    <div data-date-picker style={{ position: "relative" }}>
+    <div
+      data-date-picker
+      style={{
+        position: "relative",
+        ...(isMobile ? { alignSelf: "stretch" } : {}),
+      }}
+    >
       <button
         ref={dateButtonRef}
         className="dashboard-button"
