@@ -206,16 +206,14 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           </div>
         </div>
 
-        {/* Chart section with proper container */}
+        {/* Chart section with dynamic container */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            minWidth: "80px",
-            maxWidth: "120px",
             height: "56px",
-            flex: "0 0 auto", // Prevent chart from growing/shrinking
+            flex: "1 0 0", // Allow chart to grow/shrink with container
           }}
         >
           <MiniChart
