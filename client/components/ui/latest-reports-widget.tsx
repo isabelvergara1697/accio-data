@@ -83,12 +83,7 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
         borderRadius: "9999px",
         border: `1px solid ${config.borderColor}`,
         background: config.bgColor,
-        transition: "all 0.15s ease-in-out",
-        transform: isHovered ? "scale(1.05)" : "scale(1)",
-        cursor: "pointer",
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div
         style={{
