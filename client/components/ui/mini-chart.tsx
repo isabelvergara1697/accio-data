@@ -49,25 +49,26 @@ export const MiniChart: React.FC<MiniChartProps> = ({
   const currentVariation = chartVariations[variant];
   const uniqueId = `gradient-${backgroundColor.replace("#", "")}-${variant}-${Math.random().toString(36).substr(2, 9)}`;
 
+  // Calculate circle position as percentages for CSS positioning
+  const circleLeftPercent = (currentVariation.markerX / 103) * 100;
+  const circleTopPercent = (currentVariation.markerY / 56) * 100;
+
   return (
     <div
       style={{
         width: "100%",
         height: "56px",
         position: "relative",
-        overflow: "hidden",
+        overflow: "visible",
         minWidth: "80px",
       }}
     >
-      {/* Chart SVG - responsive and stretches to fit */}
+      {/* Chart SVG - fully responsive */}
       <svg
         style={{
           width: "100%",
           height: "100%",
           display: "block",
-          position: "absolute",
-          top: 0,
-          left: 0,
         }}
         viewBox="0 0 103 56"
         preserveAspectRatio="none"
@@ -95,45 +96,41 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         />
       </svg>
 
-      {/* Circle overlay - maintains aspect ratio and perfect circles */}
-      <svg
+      {/* CSS-positioned circle overlay - always perfect circles */}
+      <div
         style={{
-          width: "100%",
-          height: "100%",
-          display: "block",
           position: "absolute",
-          top: 0,
-          left: 0,
+          left: `${circleLeftPercent}%`,
+          top: `${circleTopPercent}%`,
+          transform: "translate(-50%, -50%)",
           pointerEvents: "none",
         }}
-        viewBox="0 0 103 56"
-        preserveAspectRatio="xMidYMid meet"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Marker dots with proper aspect ratio to maintain perfect circles */}
-        <g>
-          {/* Outer ring */}
-          <circle
-            cx={currentVariation.markerX}
-            cy={currentVariation.markerY}
-            r="4"
-            fill="none"
-            stroke={lineColor}
-            strokeWidth="1"
-            opacity="0.2"
-          />
-          {/* Inner dot */}
-          <circle
-            cx={currentVariation.markerX}
-            cy={currentVariation.markerY}
-            r="2.5"
-            fill="#FFF"
-            stroke={lineColor}
-            strokeWidth="1"
-          />
-        </g>
-      </svg>
+        {/* Outer ring */}
+        <div
+          style={{
+            position: "absolute",
+            width: "8px",
+            height: "8px",
+            border: `1px solid ${lineColor}`,
+            borderRadius: "50%",
+            opacity: 0.2,
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        />
+        {/* Inner dot */}
+        <div
+          style={{
+            width: "5px",
+            height: "5px",
+            backgroundColor: "#FFF",
+            border: `1px solid ${lineColor}`,
+            borderRadius: "50%",
+          }}
+        />
+      </div>
     </div>
   );
 };
