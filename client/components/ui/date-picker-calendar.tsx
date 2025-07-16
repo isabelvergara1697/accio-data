@@ -637,7 +637,6 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
   const leftMonth = currentMonth;
   const rightMonth = getNextMonth(currentMonth);
-  const currentPresets = isMobile ? mobilePresets : presets;
 
   return createPortal(
     <div
@@ -652,10 +651,8 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         width: isMobileDevice
           ? triggerRef.current
             ? `${triggerRef.current.getBoundingClientRect().width}px`
-            : "343px" // Mobile: match button width exactly
-          : isTablet
-            ? "400px" // Tablet: fixed 400px width
-            : "auto", // Desktop: auto width for dual months
+            : "343px"
+          : "342px", // Fixed width matching Figma design
         alignItems: "flex-start",
         borderRadius: "8px",
         border: "1px solid #D5D7DA",
@@ -730,7 +727,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           flex: "1 0 0",
         }}
       >
-        {/* Calendar content */}
+        {/* Calendar content - matches Figma design exactly */}
         <div
           style={{
             display: "flex",
@@ -741,7 +738,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
             alignSelf: "stretch",
           }}
         >
-          {/* Calendar */}
+          {/* Calendar section */}
           <div
             style={{
               display: "flex",
@@ -830,7 +827,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               </button>
             </div>
 
-            {/* Input fields */}
+            {/* Input fields - positioned after month header */}
             <div
               style={{
                 display: "flex",
@@ -862,31 +859,32 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                     boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  <input
-                    type="text"
-                    value={startInput}
-                    onChange={(e) => {
-                      e.stopPropagation();
-                      handleStartInputChange(e.target.value);
-                    }}
-                    onClick={(e) => e.stopPropagation()}
+                  <div
                     style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
                       flex: "1 0 0",
-                      border: "none",
-                      outline: "none",
-                      background: "transparent",
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                      lineHeight: "24px",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      WebkitLineClamp: 1,
-                      WebkitBoxOrient: "vertical",
-                      display: "-webkit-box",
                     }}
-                  />
+                  >
+                    <div
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 1,
+                        flex: "1 0 0",
+                        overflow: "hidden",
+                        color: "#181D27",
+                        textOverflow: "ellipsis",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        fontWeight: "400",
+                        lineHeight: "24px",
+                      }}
+                    >
+                      {startInput}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -924,75 +922,74 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                     boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  <input
-                    type="text"
-                    value={endInput}
-                    onChange={(e) => {
-                      e.stopPropagation();
-                      handleEndInputChange(e.target.value);
-                    }}
-                    onClick={(e) => e.stopPropagation()}
+                  <div
                     style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
                       flex: "1 0 0",
-                      border: "none",
-                      outline: "none",
-                      background: "transparent",
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "16px",
-                      fontWeight: "400",
-                      lineHeight: "24px",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      WebkitLineClamp: 1,
-                      WebkitBoxOrient: "vertical",
-                      display: "-webkit-box",
                     }}
-                  />
+                  >
+                    <div
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 1,
+                        flex: "1 0 0",
+                        overflow: "hidden",
+                        color: "#181D27",
+                        textOverflow: "ellipsis",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        fontWeight: "400",
+                        lineHeight: "24px",
+                      }}
+                    >
+                      {endInput}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Mobile preset buttons above calendar grid */}
-            {isMobile && (
-              <div
-                style={{
-                  display: "flex",
-                  padding: "4px 8px 0px 8px",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  alignSelf: "stretch",
-                }}
-              >
-                {mobilePresets.map((preset) => (
-                  <button
-                    key={preset}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handlePresetClick(preset);
-                    }}
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      background: "transparent",
-                      border: "none",
-                      cursor: "pointer",
-                      color: "#273572",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      lineHeight: "20px",
-                    }}
-                  >
-                    {preset}
-                  </button>
-                ))}
-              </div>
-            )}
+            {/* Preset actions - positioned above calendar grid matching Figma */}
+            <div
+              style={{
+                display: "flex",
+                padding: "4px 8px 0px 8px",
+                justifyContent: "space-between",
+                alignItems: "center",
+                alignSelf: "stretch",
+              }}
+            >
+              {mobilePresets.map((preset) => (
+                <button
+                  key={preset}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePresetClick(preset);
+                  }}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    color: "#273572",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    lineHeight: "20px",
+                  }}
+                >
+                  {preset}
+                </button>
+              ))}
+            </div>
 
-            {/* Calendar grid */}
+            {/* Calendar grid - matches Figma design exactly */}
             <div
               style={{
                 display: "flex",
@@ -1007,113 +1004,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               {renderCalendarMonth(leftMonth)}
             </div>
           </div>
-
-          {/* Desktop only: dual month layout */}
-          {!isMobile && (
-            <div
-              style={{
-                display: "flex",
-                width: "328px",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  padding: "16px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "12px",
-                  alignSelf: "stretch",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    alignSelf: "stretch",
-                  }}
-                >
-                  {/* Month header */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      alignSelf: "stretch",
-                    }}
-                  >
-                    <div style={{ width: "32px", height: "32px" }} />
-                    <div
-                      style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                        lineHeight: "20px",
-                      }}
-                    >
-                      {getMonthName(rightMonth)}
-                    </div>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleNextMonth();
-                      }}
-                      style={{
-                        display: "flex",
-                        width: "32px",
-                        height: "32px",
-                        padding: "6px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        borderRadius: "6px",
-                        border: "none",
-                        background: "transparent",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M9 18L15 12L9 6"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.67"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-
-                  {/* Calendar grid */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      alignContent: "flex-start",
-                      gap: "0px",
-                      alignSelf: "stretch",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    {renderCalendarMonth(rightMonth)}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
 
-        {/* Bottom panel with action buttons */}
+        {/* Bottom panel with action buttons - matching Figma design */}
         <div
           style={{
             display: "flex",
