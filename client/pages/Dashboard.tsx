@@ -977,7 +977,10 @@ export default function Dashboard() {
                 alignSelf: "stretch",
               }}
             >
-              <LatestReportsWidget isMobile={isMobile} />
+              <LatestReportsWidget
+                isMobile={isMobile}
+                windowWidth={windowWidth}
+              />
             </div>
           </div>
         </div>
