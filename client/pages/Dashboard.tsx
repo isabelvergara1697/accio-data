@@ -590,7 +590,8 @@ export default function Dashboard() {
             flexDirection: "column",
             background: "#FAFAFA",
             position: "relative",
-            minHeight: "100vh",
+            height: "100vh",
+            overflow: "auto",
           }}
         >
           {/* Desktop Top Navigation Bar */}
