@@ -791,6 +791,166 @@ export default function Dashboard() {
               </div>
             </div>
 
+            {/* Quick Overview Section */}
+            <div
+              style={{
+                display: "flex",
+                padding: isMobile ? "0px 16px" : "0px 32px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                alignSelf: "stretch",
+              }}
+            >
+              {/* Section label */}
+              <div
+                style={{
+                  display: "flex",
+                  width: "280px",
+                  minWidth: "240px",
+                  maxWidth: "280px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: "600",
+                      lineHeight: "24px",
+                    }}
+                  >
+                    Quick Overview
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "16px",
+                      height: "16px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        width: "16px",
+                        height: "16px",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <g clipPath="url(#clip0_help_circle)">
+                        <path
+                          d="M6.06016 6.00016C6.2169 5.55461 6.52626 5.1789 6.93347 4.93958C7.34067 4.70027 7.81943 4.61279 8.28495 4.69264C8.75047 4.77249 9.17271 5.01451 9.47688 5.37585C9.78106 5.73718 9.94753 6.19451 9.94683 6.66683C9.94683 8.00016 7.94683 8.66683 7.94683 8.66683M8.00016 11.3335H8.00683M14.6668 8.00016C14.6668 11.6821 11.6821 14.6668 8.00016 14.6668C4.31826 14.6668 1.3335 11.6821 1.3335 8.00016C1.3335 4.31826 4.31826 1.3335 8.00016 1.3335C11.6821 1.3335 14.6668 4.31826 14.6668 8.00016Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_help_circle">
+                          <rect width="16" height="16" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Metric cards group */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  ...(isMobile
+                    ? {
+                        flexDirection: "column",
+                      }
+                    : {
+                        flexDirection: "row",
+                      }),
+                }}
+              >
+                <MetricCard
+                  label="[Metric]"
+                  value="347"
+                  trend={{
+                    direction: "up",
+                    percentage: "100%",
+                  }}
+                  chart={{
+                    trend: "positive",
+                    backgroundColor: "#344698",
+                    lineColor: "#344698",
+                  }}
+                  isMobile={isMobile}
+                />
+
+                <MetricCard
+                  label="[Metric]"
+                  value="482"
+                  trend={{
+                    direction: "down",
+                    percentage: "50%",
+                  }}
+                  chart={{
+                    trend: "positive",
+                    backgroundColor: "#344698",
+                    lineColor: "#344698",
+                  }}
+                  isMobile={isMobile}
+                />
+
+                <MetricCard
+                  label="[Metric]"
+                  value="391"
+                  trend={{
+                    direction: "up",
+                    percentage: "100%",
+                  }}
+                  chart={{
+                    trend: "positive",
+                    backgroundColor: "#344698",
+                    lineColor: "#344698",
+                  }}
+                  isMobile={isMobile}
+                />
+
+                <MetricCard
+                  label="[Metric]"
+                  value="482"
+                  trend={{
+                    direction: "down",
+                    percentage: "50%",
+                  }}
+                  chart={{
+                    trend: "positive",
+                    backgroundColor: "#344698",
+                    lineColor: "#344698",
+                  }}
+                  isMobile={isMobile}
+                />
+              </div>
+            </div>
+
             {/* Dashboard Content */}
             <div
               style={{
