@@ -416,98 +416,100 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           }}
         >
           {/* Order Column */}
-          <div
-            style={{
-              display: "flex",
-              width: "77px",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-            }}
-          >
-            {/* Header */}
+          {!isMobile && (
             <div
               style={{
                 display: "flex",
-                height: "36px",
-                padding: "6px 12px",
-                alignItems: "center",
-                gap: "12px",
-                borderBottom: "1px solid #E9EAEB",
-                background: "#FFF",
+                width: "77px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
               }}
             >
+              {/* Header */}
               <div
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  gap: "4px",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#717680",
-                    fontFamily: "Public Sans",
-                    fontSize: "12px",
-                    fontWeight: "600",
-                    lineHeight: "18px",
-                  }}
-                >
-                  Order
-                </div>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.66663 10.0001L7.99996 13.3334L11.3333 10.0001M4.66663 6.00008L7.99996 2.66675L11.3333 6.00008"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-            {/* Data cells */}
-            {mockReportsData.map((report, index) => (
-              <div
-                key={index}
-                style={{
-                  display: "flex",
-                  height: "52px",
+                  height: "36px",
                   padding: "6px 12px",
                   alignItems: "center",
-                  alignSelf: "stretch",
-                  borderBottom:
-                    index < mockReportsData.length - 1
-                      ? "1px solid #E9EAEB"
-                      : "none",
-                  background:
-                    hoveredRowIndex === index ? "#F9FAFB" : "transparent",
-                  transition: "background-color 0.2s ease-in-out",
-                  cursor: "pointer",
+                  gap: "12px",
+                  borderBottom: "1px solid #E9EAEB",
+                  background: "#FFF",
                 }}
-                onMouseEnter={() => setHoveredRowIndex(index)}
-                onMouseLeave={() => setHoveredRowIndex(null)}
               >
                 <div
                   style={{
-                    color: "#535862",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: "400",
-                    lineHeight: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
                   }}
                 >
-                  {report.order}
+                  <div
+                    style={{
+                      color: "#717680",
+                      fontFamily: "Public Sans",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      lineHeight: "18px",
+                    }}
+                  >
+                    Order
+                  </div>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.66663 10.0001L7.99996 13.3334L11.3333 10.0001M4.66663 6.00008L7.99996 2.66675L11.3333 6.00008"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
               </div>
-            ))}
-          </div>
+              {/* Data cells */}
+              {mockReportsData.map((report, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: "flex",
+                    height: "52px",
+                    padding: "6px 12px",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    borderBottom:
+                      index < mockReportsData.length - 1
+                        ? "1px solid #E9EAEB"
+                        : "none",
+                    background:
+                      hoveredRowIndex === index ? "#F9FAFB" : "transparent",
+                    transition: "background-color 0.2s ease-in-out",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={() => setHoveredRowIndex(index)}
+                  onMouseLeave={() => setHoveredRowIndex(null)}
+                >
+                  <div
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: "400",
+                      lineHeight: "20px",
+                    }}
+                  >
+                    {report.order}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* Status Column */}
           <div
@@ -710,90 +712,92 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           </div>
 
           {/* Progress Column */}
-          <div
-            style={{
-              display: "flex",
-              width: "120px",
-              minWidth: "120px",
-              flexDirection: "column",
-              alignItems: "flex-start",
-            }}
-          >
-            {/* Header */}
+          {!isMobile && (
             <div
               style={{
                 display: "flex",
-                height: "36px",
-                padding: "6px 12px",
-                alignItems: "center",
-                gap: "12px",
-                alignSelf: "stretch",
-                borderBottom: "1px solid #E9EAEB",
-                background: "#FFF",
+                width: "120px",
+                minWidth: "120px",
+                flexDirection: "column",
+                alignItems: "flex-start",
               }}
             >
+              {/* Header */}
               <div
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  gap: "4px",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#717680",
-                    fontFamily: "Public Sans",
-                    fontSize: "12px",
-                    fontWeight: "600",
-                    lineHeight: "18px",
-                  }}
-                >
-                  Progress
-                </div>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.66675 10.0001L8.00008 13.3334L11.3334 10.0001M4.66675 6.00008L8.00008 2.66675L11.3334 6.00008"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-            {/* Data cells */}
-            {mockReportsData.map((report, index) => (
-              <div
-                key={index}
-                style={{
-                  display: "flex",
-                  height: "52px",
+                  height: "36px",
                   padding: "6px 12px",
                   alignItems: "center",
                   gap: "12px",
                   alignSelf: "stretch",
-                  borderBottom:
-                    index < mockReportsData.length - 1
-                      ? "1px solid #E9EAEB"
-                      : "none",
-                  background:
-                    hoveredRowIndex === index ? "#F9FAFB" : "transparent",
-                  transition: "background-color 0.2s ease-in-out",
-                  cursor: "pointer",
+                  borderBottom: "1px solid #E9EAEB",
+                  background: "#FFF",
                 }}
-                onMouseEnter={() => setHoveredRowIndex(index)}
-                onMouseLeave={() => setHoveredRowIndex(null)}
               >
-                <ProgressBar percentage={report.progress} />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#717680",
+                      fontFamily: "Public Sans",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      lineHeight: "18px",
+                    }}
+                  >
+                    Progress
+                  </div>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.66675 10.0001L8.00008 13.3334L11.3334 10.0001M4.66675 6.00008L8.00008 2.66675L11.3334 6.00008"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
               </div>
-            ))}
-          </div>
+              {/* Data cells */}
+              {mockReportsData.map((report, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: "flex",
+                    height: "52px",
+                    padding: "6px 12px",
+                    alignItems: "center",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                    borderBottom:
+                      index < mockReportsData.length - 1
+                        ? "1px solid #E9EAEB"
+                        : "none",
+                    background:
+                      hoveredRowIndex === index ? "#F9FAFB" : "transparent",
+                    transition: "background-color 0.2s ease-in-out",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={() => setHoveredRowIndex(index)}
+                  onMouseLeave={() => setHoveredRowIndex(null)}
+                >
+                  <ProgressBar percentage={report.progress} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
