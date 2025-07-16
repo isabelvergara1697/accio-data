@@ -17,37 +17,31 @@ export const MiniChart: React.FC<MiniChartProps> = ({
   lineColor = "#344698",
   variant = "default",
 }) => {
-  // Chart path variations - contained within a safe area to prevent overflow
+  // Optimized chart path variations that look good at all sizes
   const chartVariations = {
     default: {
-      // Smooth curved line that starts low and ends high, with safe margins
-      line: "M10 42 Q25 32, 45 25 T80 12",
-      // Simple area fill that follows the line
-      area: "M10 42 Q25 32, 45 25 T80 12 L80 48 L10 48 Z",
-      // Marker position along the curve (percentage-based for better scaling)
-      markerX: 80, // 80% of viewBox width
+      line: "M8 45 Q25 35, 45 25 T85 12",
+      area: "M8 45 Q25 35, 45 25 T85 12 L85 52 L8 52 Z",
+      markerX: 85,
       markerY: 12,
     },
     variant1: {
-      // Different curve pattern
-      line: "M10 32 Q30 42, 50 17 T80 22",
-      area: "M10 32 Q30 42, 50 17 T80 22 L80 48 L10 48 Z",
-      markerX: 80,
-      markerY: 22,
+      line: "M8 32 Q30 45, 50 18 T85 25",
+      area: "M8 32 Q30 45, 50 18 T85 25 L85 52 L8 52 Z",
+      markerX: 85,
+      markerY: 25,
     },
     variant2: {
-      // Another variation
-      line: "M10 37 Q25 17, 55 32 T80 15",
-      area: "M10 37 Q25 17, 55 32 T80 15 L80 48 L10 48 Z",
-      markerX: 80,
+      line: "M8 40 Q25 18, 55 35 T85 15",
+      area: "M8 40 Q25 18, 55 35 T85 15 L85 52 L8 52 Z",
+      markerX: 85,
       markerY: 15,
     },
     variant3: {
-      // Fourth variation
-      line: "M10 27 Q35 37, 60 22 T80 17",
-      area: "M10 27 Q35 37, 60 22 T80 17 L80 48 L10 48 Z",
-      markerX: 80,
-      markerY: 17,
+      line: "M8 28 Q35 42, 60 22 T85 18",
+      area: "M8 28 Q35 42, 60 22 T85 18 L85 52 L8 52 Z",
+      markerX: 85,
+      markerY: 18,
     },
   };
 
@@ -57,20 +51,20 @@ export const MiniChart: React.FC<MiniChartProps> = ({
   return (
     <div
       style={{
-        height: "56px",
         width: "100%",
+        height: "56px",
         position: "relative",
-        overflow: "hidden", // Prevent any overflow
+        overflow: "hidden",
       }}
     >
       <svg
         style={{
           width: "100%",
           height: "100%",
-          display: "block", // Remove any default spacing
+          display: "block",
         }}
-        viewBox="0 0 100 56"
-        preserveAspectRatio="none" // Allow stretching to fit container
+        viewBox="0 0 100 60"
+        preserveAspectRatio="none"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -105,9 +99,10 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
+          vectorEffect="non-scaling-stroke"
         />
 
-        {/* Marker dot as SVG element for better scaling */}
+        {/* Marker dot */}
         <g
           transform={`translate(${currentVariation.markerX}, ${currentVariation.markerY})`}
         >
@@ -115,20 +110,22 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           <circle
             cx="0"
             cy="0"
-            r="9"
+            r="8"
             fill="none"
             stroke={lineColor}
             strokeWidth="2"
             opacity="0.2"
+            vectorEffect="non-scaling-stroke"
           />
           {/* Inner dot */}
           <circle
             cx="0"
             cy="0"
-            r="5"
+            r="4"
             fill="#FFF"
             stroke={lineColor}
             strokeWidth="2"
+            vectorEffect="non-scaling-stroke"
           />
         </g>
       </svg>
