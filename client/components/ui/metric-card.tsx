@@ -23,6 +23,8 @@ interface MetricCardProps {
     backgroundColor?: string;
     /** Line color */
     lineColor?: string;
+    /** Chart variation pattern */
+    variant?: "default" | "variant1" | "variant2" | "variant3";
   };
   /** Whether this is mobile view */
   isMobile?: boolean;
