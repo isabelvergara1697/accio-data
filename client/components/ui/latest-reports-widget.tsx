@@ -33,8 +33,6 @@ interface LatestReportsWidgetProps {
 }
 
 const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
-
   const statusConfig = {
     completed: {
       text: "Completed",
