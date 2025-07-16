@@ -100,28 +100,32 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
   );
 };
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ percentage }) => {
+const ProgressBar: React.FC<ProgressBarProps & { isCompact?: boolean }> = ({
+  percentage,
+  isCompact = false,
+}) => {
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
-        gap: "12px",
+        gap: isCompact ? "8px" : "12px",
         flex: "1 0 0",
       }}
     >
       <div
         style={{
-          height: "8px",
+          height: "6px",
           flex: "1 0 0",
           position: "relative",
+          minWidth: isCompact ? "40px" : "60px",
         }}
       >
         {/* Background */}
         <div
           style={{
             width: "100%",
-            height: "8px",
+            height: "6px",
             borderRadius: "9999px",
             background: "#D5D7DA",
             position: "absolute",
@@ -133,7 +137,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ percentage }) => {
         <div
           style={{
             width: `${percentage}%`,
-            height: "8px",
+            height: "6px",
             borderRadius: "9999px",
             background: "#344698",
             position: "absolute",
@@ -146,9 +150,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ percentage }) => {
         style={{
           color: "#414651",
           fontFamily: "Public Sans",
-          fontSize: "14px",
+          fontSize: isCompact ? "12px" : "14px",
           fontWeight: "500",
-          lineHeight: "20px",
+          lineHeight: isCompact ? "16px" : "20px",
+          minWidth: "32px",
         }}
       >
         {percentage}%
@@ -617,9 +622,9 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              flex: "1 1 auto",
-              minWidth: "120px",
-              maxWidth: "none",
+              flex: isDesktop ? "0 0 160px" : "1 1 auto",
+              minWidth: isDesktop ? "160px" : "120px",
+              maxWidth: isDesktop ? "160px" : "none",
             }}
           >
             {/* Header */}
@@ -714,9 +719,11 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     }}
                     title={report.requester.name}
                   >
-                    {windowWidth < 380
-                      ? truncateText(report.requester.name, 15)
-                      : report.requester.name}
+                    {isDesktop
+                      ? truncateText(report.requester.name, 18)
+                      : windowWidth < 380
+                        ? truncateText(report.requester.name, 15)
+                        : report.requester.name}
                   </div>
                   <div
                     style={{
@@ -733,9 +740,11 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     }}
                     title={report.requester.email}
                   >
-                    {windowWidth < 480
-                      ? truncateText(report.requester.email, 20)
-                      : report.requester.email}
+                    {isDesktop
+                      ? truncateText(report.requester.email, 22)
+                      : windowWidth < 480
+                        ? truncateText(report.requester.email, 20)
+                        : report.requester.email}
                   </div>
                 </div>
               </div>
@@ -747,8 +756,16 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             <div
               style={{
                 display: "flex",
-                width: windowWidth >= 768 ? "140px" : "120px",
-                minWidth: windowWidth >= 768 ? "140px" : "120px",
+                width: isDesktop
+                  ? "120px"
+                  : windowWidth >= 768
+                    ? "140px"
+                    : "120px",
+                minWidth: isDesktop
+                  ? "120px"
+                  : windowWidth >= 768
+                    ? "140px"
+                    : "120px",
                 flexDirection: "column",
                 alignItems: "flex-start",
               }}
@@ -824,7 +841,10 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                   onMouseEnter={() => setHoveredRowIndex(index)}
                   onMouseLeave={() => setHoveredRowIndex(null)}
                 >
-                  <ProgressBar percentage={report.progress} />
+                  <ProgressBar
+                    percentage={report.progress}
+                    isCompact={isDesktop}
+                  />
                 </div>
               ))}
             </div>
