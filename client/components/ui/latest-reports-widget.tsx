@@ -753,10 +753,10 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     }}
                     title={report.requester.name}
                   >
-                    {isDesktop
-                      ? truncateText(report.requester.name, 18)
+                    {isDesktop && report.requester.name.length > 14
+                      ? truncateText(report.requester.name, 14)
                       : windowWidth < 380
-                        ? truncateText(report.requester.name, 15)
+                        ? truncateText(report.requester.name, 12)
                         : report.requester.name}
                   </div>
                   <div
