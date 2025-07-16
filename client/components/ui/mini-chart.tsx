@@ -142,8 +142,8 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           height: "19px",
           flexShrink: 0,
           position: "absolute",
-          left: "76px",
-          top: "12px",
+          left: currentVariation.markerPosition.left,
+          top: currentVariation.markerPosition.top,
         }}
       >
         {/* Ring */}
