@@ -385,6 +385,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           border: "1px solid #E9EAEB",
           background: "#FFF",
           boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+          overflow: "hidden",
         }}
       >
         <div
@@ -393,6 +394,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             alignItems: "flex-start",
             flex: "1 0 0",
             alignSelf: "stretch",
+            overflow: "hidden",
+            maxWidth: "100%",
           }}
         >
           {/* Order Column */}
@@ -675,7 +678,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           <div
             style={{
               display: "flex",
-              width: "107px",
+              width: "100px",
+              minWidth: "100px",
               flexDirection: "column",
               alignItems: "flex-start",
             }}
