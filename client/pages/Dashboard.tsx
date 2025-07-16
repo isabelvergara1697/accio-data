@@ -144,6 +144,7 @@ export default function Dashboard() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
+      setWindowWidth(width);
       setIsDesktop(width >= 1024);
       setIsMobile(width < 768);
     };
