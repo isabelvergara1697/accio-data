@@ -664,8 +664,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       index < mockReportsData.length - 1
                         ? "1px solid #E9EAEB"
                         : "none",
-                    background:
-                      hoveredRowIndex === index ? "#F9FAFB" : "transparent",
+                    background: hoveredRowIndex === index ? "#F9FAFB" : "#FFF",
                     transition: "background-color 0.15s ease-in-out",
                     cursor: "pointer",
                   }}
