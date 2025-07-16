@@ -199,6 +199,9 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
   if (!isOpen) return null;
 
+  // Check if tablet
+  const isTablet = !isMobile && window.innerWidth < 1024;
+
   // Preset options
   const presets = [
     "This week",
