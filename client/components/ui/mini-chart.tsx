@@ -97,20 +97,22 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           <circle
             cx={currentVariation.markerX}
             cy={currentVariation.markerY}
-            r="9"
+            r="4"
             fill="none"
             stroke={lineColor}
-            strokeWidth="2"
+            strokeWidth="1"
             opacity="0.2"
+            vectorEffect="non-scaling-stroke"
           />
           {/* Inner dot */}
           <circle
             cx={currentVariation.markerX}
             cy={currentVariation.markerY}
-            r="5.5"
+            r="2.5"
             fill="#FFF"
             stroke={lineColor}
-            strokeWidth="2"
+            strokeWidth="1"
+            vectorEffect="non-scaling-stroke"
           />
         </g>
       </svg>
