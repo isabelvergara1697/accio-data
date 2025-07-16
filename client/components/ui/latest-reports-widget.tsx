@@ -805,21 +805,15 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       fontSize: "14px",
                       fontWeight: "500",
                       lineHeight: "20px",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                      maxWidth: "100%",
                     }}
-                    title={report.requester.name}
                   >
-                    {isDesktop && report.requester.name.length > 14
-                      ? truncateText(report.requester.name, 14)
-                      : windowWidth < 380
-                        ? truncateText(report.requester.name, 12)
-                        : report.requester.name}
+                    {report.requester.name}
                   </div>
                   <div
                     style={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 1,
                       alignSelf: "stretch",
                       overflow: "hidden",
                       color: "#535862",
@@ -828,16 +822,9 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                       fontSize: "14px",
                       fontWeight: "400",
                       lineHeight: "20px",
-                      whiteSpace: "nowrap",
-                      maxWidth: "100%",
                     }}
-                    title={report.requester.email}
                   >
-                    {isDesktop && report.requester.email.length > 18
-                      ? truncateText(report.requester.email, 18)
-                      : windowWidth < 480
-                        ? truncateText(report.requester.email, 16)
-                        : report.requester.email}
+                    {report.requester.email}
                   </div>
                 </div>
               </div>
