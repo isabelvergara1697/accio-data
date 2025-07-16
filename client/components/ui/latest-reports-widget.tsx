@@ -247,13 +247,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         borderRadius: "12px",
         border: "1px solid #E9EAEB",
         background: "#FDFDFD",
-        transition: "all 0.2s ease-in-out",
-        boxShadow: isWidgetHovered
-          ? "0px 4px 6px -1px rgba(10, 13, 18, 0.10), 0px 2px 4px -1px rgba(10, 13, 18, 0.06)"
-          : "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
       }}
-      onMouseEnter={() => setIsWidgetHovered(true)}
-      onMouseLeave={() => setIsWidgetHovered(false)}
     >
       {/* Header */}
       <div
