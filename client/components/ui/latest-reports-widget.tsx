@@ -334,13 +334,19 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
               boxShadow:
                 "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
               cursor: "pointer",
-              transition: "background-color 0.2s ease-in-out",
+              transition: "all 0.15s ease-in-out",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#F5F5F5";
+              e.currentTarget.style.transform = "translateY(-1px)";
+              e.currentTarget.style.boxShadow =
+                "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 2px 4px 0px rgba(10, 13, 18, 0.08)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "#FFF";
+              e.currentTarget.style.transform = "translateY(0px)";
+              e.currentTarget.style.boxShadow =
+                "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)";
             }}
           >
             <div
@@ -367,13 +373,15 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
               border: "none",
               background: "transparent",
               cursor: "pointer",
-              transition: "background-color 0.2s ease-in-out",
+              transition: "all 0.15s ease-in-out",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#F5F5F5";
+              e.currentTarget.style.transform = "scale(1.05)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.transform = "scale(1)";
             }}
           >
             <svg
@@ -511,8 +519,12 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                         : "none",
                     background:
                       hoveredRowIndex === index ? "#F9FAFB" : "transparent",
-                    transition: "background-color 0.2s ease-in-out",
+                    transition: "all 0.2s ease-in-out",
                     cursor: "pointer",
+                    boxShadow:
+                      hoveredRowIndex === index
+                        ? "0px 1px 2px 0px rgba(10, 13, 18, 0.06), 0px 1px 3px 0px rgba(10, 13, 18, 0.10)"
+                        : "none",
                   }}
                   onMouseEnter={() => setHoveredRowIndex(index)}
                   onMouseLeave={() => setHoveredRowIndex(null)}
@@ -836,8 +848,12 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                         : "none",
                     background:
                       hoveredRowIndex === index ? "#F9FAFB" : "transparent",
-                    transition: "background-color 0.2s ease-in-out",
+                    transition: "all 0.2s ease-in-out",
                     cursor: "pointer",
+                    boxShadow:
+                      hoveredRowIndex === index
+                        ? "0px 1px 2px 0px rgba(10, 13, 18, 0.06), 0px 1px 3px 0px rgba(10, 13, 18, 0.10)"
+                        : "none",
                   }}
                   onMouseEnter={() => setHoveredRowIndex(index)}
                   onMouseLeave={() => setHoveredRowIndex(null)}
