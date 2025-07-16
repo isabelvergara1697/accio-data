@@ -102,7 +102,7 @@ export const MiniChart: React.FC<MiniChartProps> = ({
             </linearGradient>
           </defs>
           <path
-            d="M103 0C86.2658 1.51637 85.2295 37.8191 68.6667 42C55.0086 45.4477 48.0926 25.8771 34.3333 28C19.4094 30.3026 14.6336 50.6959 0 56H103V0Z"
+            d={currentVariation.path}
             fill={`url(#gradient-${backgroundColor.replace("#", "")})`}
           />
         </svg>
