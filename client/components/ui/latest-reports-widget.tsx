@@ -782,11 +782,11 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         </div>
       </div>
 
-      {/* Drag and Drop Button - positioned within widget bounds */}
+      {/* Drag and Drop Button - positioned correctly */}
       <div
         style={{
           position: "absolute",
-          right: "8px",
+          right: "12px",
           top: "50%",
           transform: "translateY(-50%)",
           zIndex: 10,
@@ -795,27 +795,28 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         <button
           style={{
             display: "flex",
-            width: "24px",
-            height: "24px",
-            padding: "4px",
+            width: "32px",
+            height: "32px",
+            padding: "8px",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: "6px",
-            border: "none",
-            background: "transparent",
+            borderRadius: "8px",
+            border: "1px solid #E9EAEB",
+            background: "#FFFFFF",
             cursor: "grab",
             transition: "all 0.15s ease-in-out",
             transform: "rotate(90deg)",
+            boxShadow: "none",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.background = "#F9FAFB";
             e.currentTarget.style.border = "1px solid #E9EAEB";
             e.currentTarget.style.boxShadow =
-              "0px 1px 2px 0px rgba(10, 13, 18, 0.05)";
+              "0px 1px 2px 0px rgba(10, 13, 18, 0.05), 0px 1px 3px 0px rgba(10, 13, 18, 0.10)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.border = "none";
+            e.currentTarget.style.background = "#FFFFFF";
+            e.currentTarget.style.border = "1px solid #E9EAEB";
             e.currentTarget.style.boxShadow = "none";
           }}
         >
