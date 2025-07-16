@@ -665,7 +665,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
         width: isMobileDevice
           ? triggerRef.current?.getBoundingClientRect().width
             ? `${triggerRef.current.getBoundingClientRect().width}px`
-            : "100%" // Mobile: match button width or full container width
+            : "calc(100vw - 32px)" // Mobile: match container width minus padding
           : isTablet
             ? "400px" // Tablet: fixed 400px width
             : "auto", // Desktop: auto width for dual months
