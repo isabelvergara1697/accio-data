@@ -370,6 +370,8 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
     for (let day = 1; day <= daysInMonth; day++) {
       const isSelected = isDateSelected(monthDate, monthDate, day);
       const isInRange = isDateInRange(monthDate, monthDate, day);
+      const isStart = isRangeStart(monthDate, day);
+      const isEnd = isRangeEnd(monthDate, day);
 
       days.push(
         <div
@@ -394,30 +396,36 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
           }}
         >
           {/* Range connectors */}
-          {isInRange && !isSelected && (
+          {(isInRange || isSelected) && (
             <>
-              <div
-                style={{
-                  position: "absolute",
-                  left: "-20px",
-                  top: "0px",
-                  width: "40px",
-                  height: "40px",
-                  background: "#F5F5F5",
-                  zIndex: -1,
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  right: "-20px",
-                  top: "0px",
-                  width: "40px",
-                  height: "40px",
-                  background: "#F5F5F5",
-                  zIndex: -1,
-                }}
-              />
+              {/* Left connector - show if not range start and in range */}
+              {!isStart && (isInRange || isEnd) && (
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "-20px",
+                    top: "0px",
+                    width: "40px",
+                    height: "40px",
+                    background: "#F5F5F5",
+                    zIndex: -1,
+                  }}
+                />
+              )}
+              {/* Right connector - show if not range end and in range */}
+              {!isEnd && (isInRange || isStart) && (
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "-20px",
+                    top: "0px",
+                    width: "40px",
+                    height: "40px",
+                    background: "#F5F5F5",
+                    zIndex: -1,
+                  }}
+                />
+              )}
             </>
           )}
 
