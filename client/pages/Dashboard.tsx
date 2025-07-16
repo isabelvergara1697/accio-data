@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import AlertNotification from "../components/ui/alert-notification";
 import CustomizeDrawer from "../components/ui/customize-drawer";
 import DatePickerCalendar from "../components/ui/date-picker-calendar";
+import { MetricCard } from "../components/ui/metric-card";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
