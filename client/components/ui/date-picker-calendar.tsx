@@ -712,6 +712,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                       fontSize: "14px",
                       fontWeight: "600",
                       lineHeight: "20px",
+                      letterSpacing: "-0.01em",
                     }}
                   >
                     {getMonthName(leftMonth)}
@@ -782,6 +783,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                       fontSize: "14px",
                       fontWeight: "600",
                       lineHeight: "20px",
+                      letterSpacing: "-0.01em",
                     }}
                   >
                     {getMonthName(rightMonth)}
