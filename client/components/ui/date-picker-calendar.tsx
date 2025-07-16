@@ -743,7 +743,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
               width: "328px",
               flexDirection: "column",
               alignItems: "center",
-              borderRight: !isMobile ? "1px solid #E9EAEB" : "none",
+              borderRight: "none",
             }}
           >
             <div
