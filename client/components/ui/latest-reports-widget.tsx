@@ -774,10 +774,10 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     }}
                     title={report.requester.email}
                   >
-                    {isDesktop
-                      ? truncateText(report.requester.email, 22)
+                    {isDesktop && report.requester.email.length > 18
+                      ? truncateText(report.requester.email, 18)
                       : windowWidth < 480
-                        ? truncateText(report.requester.email, 20)
+                        ? truncateText(report.requester.email, 16)
                         : report.requester.email}
                   </div>
                 </div>
