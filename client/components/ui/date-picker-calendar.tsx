@@ -1320,7 +1320,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 cursor: "pointer",
                 transition: "background-color 0.15s ease",
                 height: "40px",
-                flex: isMobile ? "1 0 0" : "auto",
+                flex: "1 0 0",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#2A3A7C";
