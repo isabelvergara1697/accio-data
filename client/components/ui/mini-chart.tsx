@@ -49,21 +49,17 @@ export const MiniChart: React.FC<MiniChartProps> = ({
   const currentVariation = chartVariations[variant];
   const uniqueId = `gradient-${backgroundColor.replace("#", "")}-${variant}-${Math.random().toString(36).substr(2, 9)}`;
 
-  // Calculate circle position as percentages for CSS positioning
-  const circleLeftPercent = (currentVariation.markerX / 103) * 100;
-  const circleTopPercent = (currentVariation.markerY / 56) * 100;
-
   return (
     <div
       style={{
         width: "100%",
         height: "56px",
         position: "relative",
-        overflow: "visible",
+        overflow: "hidden",
         minWidth: "80px",
       }}
     >
-      {/* Chart SVG - fully responsive */}
+      {/* Single SVG with scaling paths and fixed-size circles */}
       <svg
         style={{
           width: "100%",
@@ -96,38 +92,40 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         />
       </svg>
 
-      {/* CSS-positioned circle overlay - always perfect circles */}
+      {/* Absolutely positioned perfect circles that scale with container */}
       <div
         style={{
           position: "absolute",
-          left: `${circleLeftPercent}%`,
-          top: `${circleTopPercent}%`,
+          left: `${(currentVariation.markerX / 103) * 100}%`,
+          top: `${(currentVariation.markerY / 56) * 100}%`,
           transform: "translate(-50%, -50%)",
           pointerEvents: "none",
         }}
       >
-        {/* Outer ring */}
+        {/* Outer ring - always circular regardless of container stretch */}
         <div
           style={{
             position: "absolute",
-            width: "8px",
-            height: "8px",
-            border: `1px solid ${lineColor}`,
-            borderRadius: "50%",
-            opacity: 0.2,
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
+            width: "8px",
+            height: "8px",
+            borderRadius: "50%",
+            border: `1px solid ${lineColor}`,
+            opacity: 0.2,
+            boxSizing: "border-box",
           }}
         />
-        {/* Inner dot */}
+        {/* Inner dot - always circular regardless of container stretch */}
         <div
           style={{
             width: "5px",
             height: "5px",
+            borderRadius: "50%",
             backgroundColor: "#FFF",
             border: `1px solid ${lineColor}`,
-            borderRadius: "50%",
+            boxSizing: "border-box",
           }}
         />
       </div>
