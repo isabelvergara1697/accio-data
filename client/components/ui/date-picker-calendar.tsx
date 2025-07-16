@@ -846,7 +846,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                 </div>
 
                 {/* Mobile: Input fields after month header */}
-                {isMobile && (
+                {isMobileDevice && (
                   <div
                     style={{
                       display: "flex",
