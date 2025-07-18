@@ -20,37 +20,46 @@ export const downloadWidgetAsImage = async (
     } = options;
 
     // Find the widget element by data attribute
-    const widgetElement = document.querySelector(
+    let widgetElement = document.querySelector(
       `[data-widget-container="true"][data-widget-id="${widgetId}"]`,
     ) as HTMLElement;
 
     if (!widgetElement) {
-      // Fallback: try to find by any widget container near the ID
+      // Fallback: try to find by any widget container that might match
       const allWidgets = document.querySelectorAll(
         '[data-widget-container="true"]',
       );
-      let foundWidget: HTMLElement | null = null;
 
-      allWidgets.forEach((widget) => {
-        const widgetContent = widget.textContent || "";
-        if (widgetContent.includes(widgetId) || widget.id === widgetId) {
-          foundWidget = widget as HTMLElement;
+      for (const widget of allWidgets) {
+        const widgetDataId = widget.getAttribute("data-widget-id");
+        const widgetTitle = widget
+          .querySelector("[data-widget-title]")
+          ?.getAttribute("data-widget-title");
+
+        // Check if this is the widget we're looking for
+        if (
+          widgetDataId === widgetId ||
+          widget.id === widgetId ||
+          (widgetTitle &&
+            filename.includes(widgetTitle.toLowerCase().replace(/\s+/g, "-")))
+        ) {
+          widgetElement = widget as HTMLElement;
+          break;
         }
-      });
-
-      if (!foundWidget) {
-        console.error(`Widget with ID "${widgetId}" not found`);
-        throw new Error(`Widget not found: ${widgetId}`);
       }
 
-      // Use found widget
-      return downloadElementAsImage(
-        foundWidget,
-        filename,
-        format,
-        quality,
-        scale,
-      );
+      if (!widgetElement) {
+        console.error(
+          `Widget with ID "${widgetId}" not found. Available widgets:`,
+          Array.from(allWidgets).map((w) => ({
+            id: w.getAttribute("data-widget-id"),
+            title: w
+              .querySelector("[data-widget-title]")
+              ?.getAttribute("data-widget-title"),
+          })),
+        );
+        throw new Error(`Widget not found: ${widgetId}`);
+      }
     }
 
     return downloadElementAsImage(
