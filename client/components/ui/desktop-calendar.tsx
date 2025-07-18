@@ -577,14 +577,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                 height: "40px",
                 background: "#F5F5F5",
                 zIndex: 0,
-                borderRadius:
-                  isRangeStart && isRangeEnd
-                    ? "20px"
-                    : isRangeStart
-                      ? "20px 0 0 20px"
-                      : isRangeEnd
-                        ? "0 20px 20px 0"
-                        : "0",
+                borderRadius: `${isTopEdge && isLeftEdge ? "20px" : "0"} ${isTopEdge && isRightEdge ? "20px" : "0"} ${isBottomEdge && isRightEdge ? "20px" : "0"} ${isBottomEdge && isLeftEdge ? "20px" : "0"}`,
               }}
             />
           )}
