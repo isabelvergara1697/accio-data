@@ -355,6 +355,9 @@ export default function Dashboard() {
       ...prevSizes,
       [widgetId]: newSize,
     }));
+
+    // Optional: Show a brief notification about the resize
+    console.log(`✅ Widget ${widgetId} resized to ${newSize}`);
   };
 
   const getUserMenuStyles = () => {
@@ -1093,9 +1096,11 @@ export default function Dashboard() {
                       }
                     : {
                         gridTemplateColumns:
-                          "repeat(auto-fit, minmax(500px, 1fr))",
+                          "repeat(auto-fit, minmax(240px, 1fr))",
                         gap: "16px",
                         width: "100%",
+                        alignItems: "start",
+                        justifyItems: "start",
                       }),
                 }}
               >
