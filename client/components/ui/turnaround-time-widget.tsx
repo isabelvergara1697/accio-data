@@ -275,7 +275,7 @@ const BarChart: React.FC<BarChartProps> = ({
       <div
         style={{
           display: "flex",
-          height: "373px", // Fixed height to ensure consistency across breakpoints
+          height: "100%", // Use full available height
           width: "100%",
           minWidth: isMobile ? "400px" : "auto",
           padding: "0px 8px",
@@ -291,6 +291,7 @@ const BarChart: React.FC<BarChartProps> = ({
             width: "100%",
             height: "100%",
             position: "relative",
+            justifyContent: "space-between", // Distribute space between chart and labels
           }}
         >
           {/* Y-axis grid lines */}
@@ -300,7 +301,7 @@ const BarChart: React.FC<BarChartProps> = ({
               top: 0,
               left: 0,
               right: 0,
-              height: "373px",
+              height: "calc(100% - 30px)", // Match chart content height
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
@@ -323,11 +324,10 @@ const BarChart: React.FC<BarChartProps> = ({
             style={{
               display: "flex",
               width: "100%",
-              height: "373px",
+              height: "calc(100% - 30px)", // Leave space for month labels
               justifyContent: "space-between",
               alignItems: "flex-end",
               gap: "4px",
-              marginBottom: "27px",
               position: "relative",
             }}
           >
@@ -434,6 +434,8 @@ const BarChart: React.FC<BarChartProps> = ({
               alignItems: "center",
               width: "100%",
               gap: dimensions.barSpacing,
+              height: "30px", // Fixed height for month labels
+              paddingTop: "8px", // Add some spacing above the labels
             }}
           >
             {mockChartData.map((data) => (
