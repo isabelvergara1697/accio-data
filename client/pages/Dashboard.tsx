@@ -1404,6 +1404,7 @@ export default function Dashboard() {
                       }
                       size={widgetSizes[widgetId]}
                       onResize={handleWidgetResize}
+                      onRemove={handleRemoveCustomWidget}
                       isMobile={isMobile}
                       isTablet={!isMobile && !isDesktop}
                       windowWidth={windowWidth}
