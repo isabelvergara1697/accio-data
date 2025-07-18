@@ -139,6 +139,9 @@ export default function Dashboard() {
     new Date(2025, 0, 10),
   ); // Jan 10, 2025
   const [selectedEndDate, setSelectedEndDate] = useState(new Date(2025, 0, 16)); // Jan 16, 2025
+  const [customizeButtonHovered, setCustomizeButtonHovered] = useState(false);
+  const [defaultButtonHovered, setDefaultButtonHovered] = useState(false);
+  const [dateButtonHovered, setDateButtonHovered] = useState(false);
   const dateButtonRef = useRef<HTMLButtonElement>(null);
 
   // Handle window resize for responsive behavior
