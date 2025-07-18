@@ -454,6 +454,41 @@ export default function Dashboard() {
         return newOrder;
       });
     }
+    // Handle reordering within custom widgets
+    else if (isSourceInCustomRow && isTargetInCustomRow) {
+      setCustomWidgets((prevOrder) => {
+        const newOrder = [...prevOrder];
+        const sourceIndex = newOrder.indexOf(sourceId);
+        const targetIndex = newOrder.indexOf(targetId);
+
+        if (sourceIndex === -1 || targetIndex === -1) return prevOrder;
+
+        // Remove source widget
+        newOrder.splice(sourceIndex, 1);
+
+        // Find new target index after removal
+        const newTargetIndex = newOrder.indexOf(targetId);
+
+        // Insert source widget at appropriate position
+        if (side === "left") {
+          newOrder.splice(newTargetIndex, 0, sourceId);
+        } else {
+          newOrder.splice(newTargetIndex + 1, 0, sourceId);
+        }
+
+        console.log("📋 New custom row order:", newOrder);
+        return newOrder;
+      });
+    }
+    // Handle moving between any row and custom row (simplified for now)
+    else if (isSourceInCustomRow && !isTargetInCustomRow) {
+      // Remove from custom row and move to target row
+      // For simplicity, we'll prevent cross-row moves for custom widgets
+      console.log("Cross-row moves not supported for custom widgets yet");
+    } else if (!isSourceInCustomRow && isTargetInCustomRow) {
+      // Move to custom row
+      console.log("Moving to custom row not supported yet");
+    }
   };
 
   // Handle widget resizing
