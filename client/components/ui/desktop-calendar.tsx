@@ -1034,7 +1034,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
               }}
               style={{
                 display: "flex",
-                padding: "12px",
+                padding: "8px 12px",
                 justifyContent: "center",
                 alignItems: "center",
                 gap: "4px",
@@ -1049,6 +1049,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                 fontSize: "14px",
                 fontWeight: "600",
                 lineHeight: "20px",
+                height: "40px",
               }}
             >
               Apply
