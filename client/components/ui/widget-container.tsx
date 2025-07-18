@@ -314,9 +314,8 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
             position: "relative",
           }}
         >
-          {/* Header */}
-          {!isDragging && (
-            <div
+                    {/* Header */}
+          <div
               style={{
                 display: "flex",
                 height: "52px",
