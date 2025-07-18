@@ -812,7 +812,22 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                           color: "#414651",
                           cursor: "pointer",
                         }}
-                        onSelect={onDownloadChart}
+                        onSelect={async () => {
+                          try {
+                            await downloadWidgetAsImage(id, {
+                              filename: `${title.toLowerCase().replace(/\s+/g, "-")}-${Date.now()}`,
+                              format: "jpg",
+                              quality: 0.9,
+                              scale: 2,
+                            });
+                          } catch (error) {
+                            console.error("Failed to download widget:", error);
+                            alert(
+                              "Failed to download widget. Please try again.",
+                            );
+                          }
+                          if (onDownloadChart) onDownloadChart();
+                        }}
                       >
                         <svg
                           width="16"
