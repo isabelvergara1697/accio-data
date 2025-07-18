@@ -216,7 +216,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     return "none";
   };
 
-  const getWidgetBackground = () => {
+    const getWidgetBackground = () => {
     if (isDragging) return "#ECEEF9";
     if (isDragOver) return "#ECEEF9";
     return "#FDFDFD";
@@ -318,7 +318,8 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
             position: "relative",
           }}
         >
-          {/* Header */}
+                    {/* Header */}
+          {!isDragging && (
           <div
             style={{
               display: "flex",
