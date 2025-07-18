@@ -378,10 +378,9 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           transform: "none",
           zIndex: isDragging ? 1000 : "auto",
           ...getWidgetDimensions(size),
-          // Flexible sizing for 2x2 grid
-          flexShrink: 1,
-          flexGrow: isMobile ? 0 : getWidgetDimensions(size).flexGrow,
-          minWidth: isMobile ? "100%" : getWidgetDimensions(size).minWidth,
+          // Fixed sizing for resize functionality
+          flexShrink: 0,
+          flexGrow: 0,
         }}
         onMouseEnter={() => setIsWidgetHovered(true)}
         onMouseLeave={() => {
