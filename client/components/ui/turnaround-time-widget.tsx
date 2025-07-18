@@ -164,12 +164,16 @@ const BarChart: React.FC<BarChartProps> = ({
 
     if (containerRect) {
       setHoveredBar(index);
-      // Calculate tooltip position, ensuring it stays within container bounds
+      // Calculate tooltip position with improved boundary detection
+      const tooltipWidth = 120; // Estimated tooltip width
       const tooltipX = Math.min(
-        Math.max(rect.left - containerRect.left + rect.width / 2, 80), // Min 80px from left
-        containerRect.width - 80, // Max 80px from right
+        Math.max(
+          rect.left - containerRect.left + rect.width / 2,
+          tooltipWidth / 2,
+        ), // Min half tooltip width from left
+        containerRect.width - tooltipWidth / 2, // Max half tooltip width from right
       );
-      const tooltipY = Math.max(rect.top - containerRect.top - 10, 10); // Min 10px from top
+      const tooltipY = Math.max(rect.top - containerRect.top - 15, 15); // Min 15px from top
 
       setTooltip({
         x: tooltipX,
@@ -239,6 +243,8 @@ const BarChart: React.FC<BarChartProps> = ({
             zIndex: 1000,
             pointerEvents: "none",
             whiteSpace: "nowrap",
+            opacity: hoveredBar !== null ? 1 : 0,
+            transition: "opacity 0.2s ease",
           }}
         >
           <div style={{ fontWeight: "600", color: "#FFF" }}>
@@ -319,9 +325,13 @@ const BarChart: React.FC<BarChartProps> = ({
                   flex: "1 1 0",
                   minWidth: dimensions.barMinWidth,
                   position: "relative",
+                  padding: "0 2px", // Add padding for easier hover targeting
+                  cursor: "pointer",
                 }}
-                onMouseEnter={(e) => handleBarHover(index, e)}
-                onMouseLeave={handleBarLeave}
+                onMouseEnter={(e) =>
+                  !isMobile && !isTablet && handleBarHover(index, e)
+                }
+                onMouseLeave={() => !isMobile && !isTablet && handleBarLeave()}
                 onClick={(e) => handleBarClick(index, e)}
               >
                 {/* Hover indicator line */}
