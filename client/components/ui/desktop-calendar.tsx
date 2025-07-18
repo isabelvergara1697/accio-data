@@ -953,10 +953,11 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           style={{
             display: "flex",
             padding: "16px",
-            alignItems: "flex-start",
             gap: "12px",
             alignSelf: "stretch",
             borderTop: "1px solid #E9EAEB",
+            justifyContent: "flex-start",
+            flexDirection: "row",
           }}
         >
           {/* Input fields */}
