@@ -500,14 +500,8 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           }}
           onMouseEnter={() => handleDateHover(date)}
           style={{
-            width: "40px",
-            height: "40px",
-            borderRadius: "9999px",
-            background: isSelected
-              ? "#344698"
-              : isInRange
-                ? "#F5F5F5"
-                : "transparent",
+            width: "32px",
+            height: "32px",
             cursor: "pointer",
             position: "relative",
             display: "flex",
