@@ -236,6 +236,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
             position: "relative",
             minWidth: "80px",
             width: "100%",
+            overflow: "hidden", // Mask chart overflow to prevent UI breaking
             // Ensure chart takes full available width across all breakpoints
           }}
         >
