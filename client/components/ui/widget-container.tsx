@@ -929,17 +929,24 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                 <div
                   style={{
                     position: "absolute",
-                    right: "-4px",
-                    top: "10%",
-                    bottom: "10%",
-                    width: "8px",
+                    right: "-6px",
+                    top: "20%",
+                    bottom: "20%",
+                    width: "12px",
                     cursor: "ew-resize",
                     zIndex: 1001,
                     background:
                       isResizing && resizeHandle === "right"
-                        ? "rgba(52, 71, 154, 0.3)"
-                        : "transparent",
-                    borderRadius: "4px",
+                        ? "rgba(52, 71, 154, 0.4)"
+                        : isBorderHovered
+                          ? "rgba(52, 71, 154, 0.2)"
+                          : "transparent",
+                    borderRadius: "6px",
+                    transition: "all 0.2s ease-in-out",
+                    border:
+                      isResizing && resizeHandle === "right"
+                        ? "1px solid #34479A"
+                        : "none",
                   }}
                   onMouseDown={(e) => handleResizeStart(e, "right")}
                   onMouseEnter={() => setIsBorderHovered(true)}
