@@ -369,7 +369,7 @@ const BarChart: React.FC<BarChartProps> = ({
                     <div
                       style={{
                         position: "absolute",
-                        top: `${373 - data.value - 6}px`,
+                        top: `calc(100% - ${data.value}px - 6px)`,
                         left: "50%",
                         transform: "translateX(-50%)",
                         width: "6px",
