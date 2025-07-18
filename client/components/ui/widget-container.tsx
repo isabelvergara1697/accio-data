@@ -850,10 +850,13 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   zIndex: 1001,
                   background:
                     isResizing && resizeHandle === "top"
-                      ? "rgba(52, 71, 154, 0.2)"
+                      ? "rgba(52, 71, 154, 0.3)"
                       : "transparent",
+                  borderRadius: "4px",
                 }}
                 onMouseDown={(e) => handleResizeStart(e, "top")}
+                onMouseEnter={() => setIsBorderHovered(true)}
+                onMouseLeave={() => setIsBorderHovered(false)}
               />
 
               {/* Bottom resize handle */}
@@ -868,10 +871,13 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   zIndex: 1001,
                   background:
                     isResizing && resizeHandle === "bottom"
-                      ? "rgba(52, 71, 154, 0.2)"
+                      ? "rgba(52, 71, 154, 0.3)"
                       : "transparent",
+                  borderRadius: "4px",
                 }}
                 onMouseDown={(e) => handleResizeStart(e, "bottom")}
+                onMouseEnter={() => setIsBorderHovered(true)}
+                onMouseLeave={() => setIsBorderHovered(false)}
               />
 
               {/* Left resize handle */}
@@ -886,10 +892,13 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   zIndex: 1001,
                   background:
                     isResizing && resizeHandle === "left"
-                      ? "rgba(52, 71, 154, 0.2)"
+                      ? "rgba(52, 71, 154, 0.3)"
                       : "transparent",
+                  borderRadius: "4px",
                 }}
                 onMouseDown={(e) => handleResizeStart(e, "left")}
+                onMouseEnter={() => setIsBorderHovered(true)}
+                onMouseLeave={() => setIsBorderHovered(false)}
               />
 
               {/* Right resize handle */}
@@ -904,10 +913,13 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   zIndex: 1001,
                   background:
                     isResizing && resizeHandle === "right"
-                      ? "rgba(52, 71, 154, 0.2)"
+                      ? "rgba(52, 71, 154, 0.3)"
                       : "transparent",
+                  borderRadius: "4px",
                 }}
                 onMouseDown={(e) => handleResizeStart(e, "right")}
+                onMouseEnter={() => setIsBorderHovered(true)}
+                onMouseLeave={() => setIsBorderHovered(false)}
               />
 
               {/* Corner resize handles */}
@@ -922,10 +934,13 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   zIndex: 1001,
                   background:
                     isResizing && resizeHandle === "top-left"
-                      ? "rgba(52, 71, 154, 0.2)"
+                      ? "rgba(52, 71, 154, 0.3)"
                       : "transparent",
+                  borderRadius: "6px",
                 }}
                 onMouseDown={(e) => handleResizeStart(e, "top-left")}
+                onMouseEnter={() => setIsBorderHovered(true)}
+                onMouseLeave={() => setIsBorderHovered(false)}
               />
 
               <div
@@ -939,10 +954,13 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   zIndex: 1001,
                   background:
                     isResizing && resizeHandle === "top-right"
-                      ? "rgba(52, 71, 154, 0.2)"
+                      ? "rgba(52, 71, 154, 0.3)"
                       : "transparent",
+                  borderRadius: "6px",
                 }}
                 onMouseDown={(e) => handleResizeStart(e, "top-right")}
+                onMouseEnter={() => setIsBorderHovered(true)}
+                onMouseLeave={() => setIsBorderHovered(false)}
               />
 
               <div
@@ -956,10 +974,13 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   zIndex: 1001,
                   background:
                     isResizing && resizeHandle === "bottom-left"
-                      ? "rgba(52, 71, 154, 0.2)"
+                      ? "rgba(52, 71, 154, 0.3)"
                       : "transparent",
+                  borderRadius: "6px",
                 }}
                 onMouseDown={(e) => handleResizeStart(e, "bottom-left")}
+                onMouseEnter={() => setIsBorderHovered(true)}
+                onMouseLeave={() => setIsBorderHovered(false)}
               />
 
               <div
@@ -973,10 +994,13 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   zIndex: 1001,
                   background:
                     isResizing && resizeHandle === "bottom-right"
-                      ? "rgba(52, 71, 154, 0.2)"
+                      ? "rgba(52, 71, 154, 0.3)"
                       : "transparent",
+                  borderRadius: "6px",
                 }}
                 onMouseDown={(e) => handleResizeStart(e, "bottom-right")}
+                onMouseEnter={() => setIsBorderHovered(true)}
+                onMouseLeave={() => setIsBorderHovered(false)}
               />
             </>
           )}
