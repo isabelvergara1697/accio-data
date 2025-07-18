@@ -164,17 +164,45 @@ const BarChart: React.FC<BarChartProps> = ({
 
     if (containerRect) {
       setHoveredBar(index);
+      // Calculate tooltip position, ensuring it stays within container bounds
+      const tooltipX = Math.min(
+        Math.max(rect.left - containerRect.left + rect.width / 2, 80), // Min 80px from left
+        containerRect.width - 80, // Max 80px from right
+      );
+      const tooltipY = Math.max(rect.top - containerRect.top - 10, 10); // Min 10px from top
+
       setTooltip({
-        x: rect.left - containerRect.left + rect.width / 2,
-        y: rect.top - containerRect.top - 10,
+        x: tooltipX,
+        y: tooltipY,
         data: mockChartData[index],
       });
     }
   };
 
+  const handleBarClick = (
+    index: number,
+    event: React.MouseEvent<HTMLDivElement>,
+  ) => {
+    // For mobile/tablet - use click instead of hover
+    if (isMobile || isTablet) {
+      handleBarHover(index, event);
+    }
+  };
+
   const handleBarLeave = () => {
-    setHoveredBar(null);
-    setTooltip(null);
+    // Only clear on desktop hover
+    if (!isMobile && !isTablet) {
+      setHoveredBar(null);
+      setTooltip(null);
+    }
+  };
+
+  const handleContainerClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    // Clear tooltip when clicking outside bars on mobile/tablet
+    if ((isMobile || isTablet) && event.target === event.currentTarget) {
+      setHoveredBar(null);
+      setTooltip(null);
+    }
   };
 
   return (
@@ -190,6 +218,7 @@ const BarChart: React.FC<BarChartProps> = ({
         position: "relative",
         overflow: dimensions.overflow,
       }}
+      onClick={handleContainerClick}
     >
       {/* Tooltip */}
       {tooltip && (
@@ -293,6 +322,7 @@ const BarChart: React.FC<BarChartProps> = ({
                 }}
                 onMouseEnter={(e) => handleBarHover(index, e)}
                 onMouseLeave={handleBarLeave}
+                onClick={(e) => handleBarClick(index, e)}
               >
                 {/* Hover indicator line */}
                 {hoveredBar === index && (
@@ -332,7 +362,7 @@ const BarChart: React.FC<BarChartProps> = ({
                   style={{
                     height: `${data.value}px`,
                     width: "100%",
-                    maxWidth: "32px",
+                    maxWidth: isMobile ? "28px" : isTablet ? "30px" : "100%",
                     borderRadius: "4px",
                     background: hoveredBar === index ? "#B3BCE5" : "#8D9BD8",
                     transition: "background-color 0.2s ease",
