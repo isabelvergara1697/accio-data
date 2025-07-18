@@ -320,13 +320,9 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
     });
   };
 
-  // Handle date clicks
-  const handleDateClick = (date: Date, event?: React.MouseEvent) => {
-    if (event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
+  // Handle date clicks - simplified version
+  const handleDateClick = (date: Date) => {
+    console.log("Date clicked:", date); // Debug log
     setSelectedPreset(""); // Clear preset when manually selecting
 
     if (!isSelectingRange) {
@@ -338,6 +334,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       setHoverDate(null);
       setStartInput(formatDate(date));
       setEndInput(formatDate(date));
+      console.log("Started range selection:", date); // Debug log
     } else {
       // Complete selection
       if (rangeStart) {
@@ -348,6 +345,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
         setWorkingEndDate(end);
         setStartInput(formatDate(start));
         setEndInput(formatDate(end));
+        console.log("Completed range selection:", start, end); // Debug log
       }
 
       setIsSelectingRange(false);
@@ -365,6 +363,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
 
   // Handle apply
   const handleApply = () => {
+    console.log("Apply clicked:", workingStartDate, workingEndDate); // Debug log
     onDateChange(workingStartDate, workingEndDate);
     onClose();
   };
@@ -455,9 +454,9 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
     // Month days
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(monthDate.getFullYear(), monthDate.getMonth(), day);
-      const dayIndex = (firstDay + day - 1) % 7; // Position in current week
-      const isLastInRow = dayIndex === 6; // Sunday (last column)
-      const isFirstInRow = dayIndex === 0; // Monday (first column)
+      const dayIndex = (firstDay + day - 1) % 7;
+      const isLastInRow = dayIndex === 6;
+      const isFirstInRow = dayIndex === 0;
 
       // Determine visual state
       let isSelected = false;
@@ -481,14 +480,13 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
         isRangeEnd = isSameDate(date, workingEndDate);
       }
 
-      // Range connectors logic - only connect when there are consecutive dates
-      const needsLeftConnector = isInRange && !isRangeStart && !isFirstInRow;
-      const needsRightConnector = isInRange && !isRangeEnd && !isLastInRow;
-
       days.push(
         <div
           key={`day-${day}`}
-          onClick={(e) => handleDateClick(date, e)}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleDateClick(date);
+          }}
           onMouseEnter={() => handleDateHover(date)}
           style={{
             width: "40px",
@@ -504,31 +502,17 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            userSelect: "none",
-            zIndex: 1,
+            zIndex: 10,
           }}
         >
-          {/* Range background connectors */}
-          {needsLeftConnector && (
+          {/* Simple range background for in-range dates */}
+          {isInRange && !isSelected && (
             <div
               style={{
                 position: "absolute",
-                left: "-20px",
-                top: "0px",
-                width: "20px",
-                height: "40px",
-                background: "#F5F5F5",
-                zIndex: -1,
-              }}
-            />
-          )}
-          {needsRightConnector && (
-            <div
-              style={{
-                position: "absolute",
-                right: "-20px",
-                top: "0px",
-                width: "20px",
+                top: "0",
+                left: isRangeStart || isFirstInRow ? "20px" : "-20px",
+                right: isRangeEnd || isLastInRow ? "20px" : "-20px",
                 height: "40px",
                 background: "#F5F5F5",
                 zIndex: -1,
@@ -608,7 +592,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
         background: "#FFF",
         boxShadow:
           "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
-        zIndex: 50,
+        zIndex: 9999,
       }}
     >
       {/* Left sidebar with presets */}
@@ -664,7 +648,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
         ))}
       </div>
 
-      {/* Trailing content */}
+      {/* Calendar content */}
       <div
         style={{
           display: "flex",
@@ -915,6 +899,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                   border: "1px solid #D5D7DA",
                   background: "#FFF",
                   boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  height: "40px",
                 }}
               >
                 <div
@@ -969,6 +954,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                   border: "1px solid #D5D7DA",
                   background: "#FFF",
                   boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                  height: "40px",
                 }}
               >
                 <div
