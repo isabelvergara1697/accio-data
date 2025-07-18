@@ -504,56 +504,129 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             zIndex: 10,
           }}
         >
-          {/* Range background for in-range dates */}
-          {isInRange && (
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left: isFirstInRow ? "0" : "-100px",
-                right: isLastInRow ? "0" : "-100px",
-                height: "40px",
-                background: "#E8ECFA",
-                zIndex: 0,
-                borderRadius:
-                  isRangeStart && isRangeEnd
-                    ? "20px"
-                    : isRangeStart
-                      ? "20px 0 0 20px"
-                      : isRangeEnd
-                        ? "0 20px 20px 0"
-                        : "0",
-              }}
-            />
+          {/* SVG range highlighting system */}
+          {isInRange && !isSelected && (
+            <>
+              {/* Gray background for in-range dates */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                  width: "40px",
+                  height: "40px",
+                  background: "#F5F5F5",
+                  zIndex: 0,
+                }}
+              />
+
+              {/* Left connector */}
+              {!isFirstInRow && (
+                <svg
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    left: "-20px",
+                    width: "20px",
+                    height: "40px",
+                    zIndex: 1,
+                  }}
+                  viewBox="0 0 20 40"
+                  fill="none"
+                >
+                  <rect x="0" y="0" width="20" height="40" fill="#F5F5F5" />
+                </svg>
+              )}
+
+              {/* Right connector */}
+              {!isLastInRow && (
+                <svg
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    right: "-20px",
+                    width: "20px",
+                    height: "40px",
+                    zIndex: 1,
+                  }}
+                  viewBox="0 0 20 40"
+                  fill="none"
+                >
+                  <rect x="0" y="0" width="20" height="40" fill="#F5F5F5" />
+                </svg>
+              )}
+            </>
           )}
 
-          {/* Selected date circle */}
+          {/* Selected date styling with SVG connectors */}
+          {isSelected && (
+            <>
+              {/* Selected date circle */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "50%",
+                  background: "#344698",
+                  zIndex: 2,
+                }}
+              />
+
+              {/* Range start - right connector */}
+              {isRangeStart && !isRangeEnd && !isLastInRow && (
+                <svg
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    right: "-20px",
+                    width: "20px",
+                    height: "40px",
+                    zIndex: 1,
+                  }}
+                  viewBox="0 0 20 40"
+                  fill="none"
+                >
+                  <rect x="0" y="0" width="20" height="40" fill="#F5F5F5" />
+                </svg>
+              )}
+
+              {/* Range end - left connector */}
+              {isRangeEnd && !isRangeStart && !isFirstInRow && (
+                <svg
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    left: "-20px",
+                    width: "20px",
+                    height: "40px",
+                    zIndex: 1,
+                  }}
+                  viewBox="0 0 20 40"
+                  fill="none"
+                >
+                  <rect x="0" y="0" width="20" height="40" fill="#F5F5F5" />
+                </svg>
+              )}
+            </>
+          )}
+
+          {/* Date text */}
           <div
             style={{
-              width: "40px",
-              height: "40px",
-              borderRadius: "50%",
-              background: isSelected ? "#344698" : "transparent",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              color: isSelected ? "#FFF" : isInRange ? "#344698" : "#414651",
+              textAlign: "center",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: isSelected ? "600" : "500",
+              lineHeight: "20px",
               position: "relative",
-              zIndex: 1,
+              zIndex: 3,
             }}
           >
-            <div
-              style={{
-                color: isSelected ? "#FFF" : isInRange ? "#344698" : "#414651",
-                textAlign: "center",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight:
-                  isSelected || isRangeStart || isRangeEnd ? "600" : "500",
-                lineHeight: "20px",
-              }}
-            >
-              {day}
-            </div>
+            {day}
           </div>
         </div>,
       );
