@@ -173,4 +173,13 @@
       min-height: 100dvh !important;
     }
   }
+
+  /* Universal hover state for light elements */
+  .hover-light {
+    transition: background-color 0.15s ease;
+  }
+
+  .hover-light:hover {
+    background-color: #f5f5f5;
+  }
 }
