@@ -128,9 +128,9 @@ const BarChart: React.FC<BarChartProps> = ({
   const getChartDimensions = () => {
     if (isMobile) {
       return {
-        width: Math.max(400, mockChartData.length * 40), // Min width for horizontal scroll
+        width: Math.max(400, mockChartData.length * 20), // Min width for horizontal scroll
         containerWidth: "100%",
-        barMinWidth: "16px",
+        barMinWidth: "8px",
         barSpacing: "2px",
         overflow: "auto" as const,
       };
@@ -138,7 +138,7 @@ const BarChart: React.FC<BarChartProps> = ({
       return {
         width: "100%",
         containerWidth: "100%",
-        barMinWidth: "20px",
+        barMinWidth: "8px",
         barSpacing: "4px",
         overflow: "hidden" as const,
       };
@@ -146,7 +146,7 @@ const BarChart: React.FC<BarChartProps> = ({
       return {
         width: "100%",
         containerWidth: "100%",
-        barMinWidth: "24px",
+        barMinWidth: "8px",
         barSpacing: "6px",
         overflow: "hidden" as const,
       };
@@ -362,8 +362,8 @@ const BarChart: React.FC<BarChartProps> = ({
                   style={{
                     height: `${data.value}px`,
                     width: "100%",
-                    maxWidth: "40px",
-                    minWidth: "16px",
+                    maxWidth: "10px",
+                    minWidth: "8px",
                     borderRadius: "4px",
                     background: hoveredBar === index ? "#B3BCE5" : "#8D9BD8",
                     transition: "background-color 0.2s ease",
