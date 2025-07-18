@@ -225,6 +225,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
   const [isWidgetHovered, setIsWidgetHovered] = React.useState(false);
   const [isDragButtonHovered, setIsDragButtonHovered] = React.useState(false);
   const [isMenuHovered, setIsMenuHovered] = React.useState(false);
+  const [isBorderHovered, setIsBorderHovered] = React.useState(false);
 
   // Determine which columns to show based on width
   const showOrderColumn = windowWidth >= 640;
@@ -232,17 +233,40 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
 
   // Determine widget state and styling
   const getWidgetBorder = () => {
-    if (isDragButtonHovered) return "1px solid #34479A"; // Brand color when drag button is hovered
+    if (isDragButtonHovered || isBorderHovered) return "1px solid #34479A"; // Brand color when drag button or border is hovered
     if (isWidgetHovered) return "1px solid #D5D7DA"; // Primary border on widget hover
     return "1px solid #E9EAEB"; // Default secondary border
   };
 
   const getWidgetShadow = () => {
-    if (isDragButtonHovered)
+    if (isDragButtonHovered || isBorderHovered)
       return "0px 4px 6px -1px rgba(10, 13, 18, 0.10), 0px 2px 4px -2px rgba(10, 13, 18, 0.06)"; // Stronger shadows
     if (isWidgetHovered)
       return "0px 1px 3px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px -1px rgba(10, 13, 18, 0.10)"; // Medium shadows
     return "none"; // No shadows in default state
+  };
+
+  // Handle border hover detection
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const threshold = 8; // 8px threshold for border detection
+
+    const isNearLeftBorder = x <= threshold;
+    const isNearRightBorder = x >= rect.width - threshold;
+    const isNearTopBorder = y <= threshold;
+    const isNearBottomBorder = y >= rect.height - threshold;
+    const isNearCorner =
+      (isNearLeftBorder || isNearRightBorder) &&
+      (isNearTopBorder || isNearBottomBorder);
+    const isNearBorder =
+      isNearLeftBorder ||
+      isNearRightBorder ||
+      isNearTopBorder ||
+      isNearBottomBorder;
+
+    setIsBorderHovered(isNearBorder);
   };
 
   return (
@@ -264,6 +288,12 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
       onMouseLeave={() => {
         setIsWidgetHovered(false);
         setIsDragButtonHovered(false);
+        setIsBorderHovered(false);
+      }}
+      onMouseMove={handleMouseMove}
+      style={{
+        ...style,
+        cursor: isBorderHovered ? "ew-resize" : "default",
       }}
     >
       {/* Heading and content */}
@@ -620,16 +650,9 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M2 4H3.33333H14M5.33333 4V2.66667C5.33333 2.31304 5.47381 1.9739 5.72386 1.72386C5.9739 1.47381 6.31304 1.33333 6.66667 1.33333H9.33333C9.68696 1.33333 10.0261 1.47381 10.2761 1.72386C10.5262 1.9739 10.6667 2.31304 10.6667 2.66667V4M12.6667 4V13.3333C12.6667 13.687 12.5262 14.0261 12.2761 14.2761C12.0261 14.5262 11.687 14.6667 11.3333 14.6667H4.66667C4.31304 14.6667 3.9739 14.5262 3.72386 14.2761C3.47381 14.0261 3.33333 13.687 3.33333 13.3333V4H12.6667Z"
+                      d="M9 3H15M3 6H21M19 6L18.2987 16.5193C18.1935 18.0975 18.1409 18.8867 17.8 19.485C17.4999 20.0118 17.0472 20.4353 16.5017 20.6997C15.882 21 15.0911 21 13.5093 21H10.4907C8.90891 21 8.11803 21 7.49834 20.6997C6.95276 20.4353 6.50009 20.0118 6.19998 19.485C5.85911 18.8867 5.8065 18.0975 5.70129 16.5193L5 6"
                       stroke="currentColor"
-                      strokeWidth="1.33333"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M6.66663 7.33325V11.3333M9.33329 7.33325V11.3333"
-                      stroke="currentColor"
-                      strokeWidth="1.33333"
+                      strokeWidth="1.33"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
