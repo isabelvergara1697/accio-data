@@ -8,6 +8,7 @@ import { LatestReportsWidget } from "../components/ui/latest-reports-widget";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
+import DesktopCalendar from "../components/ui/desktop-calendar";
 
 // Add styles for mobile responsiveness and scroll behavior
 const dashboardStyles = `
@@ -992,15 +993,26 @@ export default function Dashboard() {
         onClose={() => setCustomizeDrawerOpen(false)}
       />
 
-      {/* Date Picker Calendar */}
-      <DatePickerCalendar
-        isOpen={datePickerOpen}
-        onClose={() => setDatePickerOpen(false)}
-        triggerRef={dateButtonRef}
-        selectedStartDate={selectedStartDate}
-        selectedEndDate={selectedEndDate}
-        onDateChange={handleDateChange}
-      />
+      {/* Date Picker Calendar - Desktop uses DesktopCalendar, Mobile/Tablet uses DatePickerCalendar */}
+      {isDesktop ? (
+        <DesktopCalendar
+          isOpen={datePickerOpen}
+          onClose={() => setDatePickerOpen(false)}
+          triggerRef={dateButtonRef}
+          selectedStartDate={selectedStartDate}
+          selectedEndDate={selectedEndDate}
+          onDateChange={handleDateChange}
+        />
+      ) : (
+        <DatePickerCalendar
+          isOpen={datePickerOpen}
+          onClose={() => setDatePickerOpen(false)}
+          triggerRef={dateButtonRef}
+          selectedStartDate={selectedStartDate}
+          selectedEndDate={selectedEndDate}
+          onDateChange={handleDateChange}
+        />
+      )}
     </>
   );
 }
