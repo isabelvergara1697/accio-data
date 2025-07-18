@@ -8,6 +8,7 @@ import { LatestReportsWidget } from "../components/ui/latest-reports-widget";
 import { TurnaroundTimeWidget } from "../components/ui/turnaround-time-widget";
 import { OrdersByStatusWidget } from "../components/ui/orders-by-status-widget";
 import { RevenueOverviewWidget } from "../components/ui/revenue-overview-widget";
+import { AssignedTasksWidget } from "../components/ui/assigned-tasks-widget";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
@@ -131,6 +132,11 @@ export default function Dashboard() {
     "revenue-overview",
   ]);
 
+  // Third row widgets
+  const [thirdRowWidgets, setThirdRowWidgets] = useState<string[]>([
+    "assigned-tasks",
+  ]);
+
   // Widget sizes state - using flex-based sizes for 2x2 grid
   const [widgetSizes, setWidgetSizes] = useState<
     Record<string, "xs" | "sm" | "md" | "lg" | "xl">
@@ -139,6 +145,7 @@ export default function Dashboard() {
     "turnaround-time": "md",
     "orders-by-status": "md",
     "revenue-overview": "md",
+    "assigned-tasks": "md",
   });
 
   // Initial widget configuration
@@ -147,6 +154,7 @@ export default function Dashboard() {
     { id: "turnaround-time", title: "Turnaround Time", position: 1 },
     { id: "orders-by-status", title: "Orders by Status", position: 2 },
     { id: "revenue-overview", title: "Revenue Overview", position: 3 },
+    { id: "assigned-tasks", title: "Assigned Tasks", position: 4 },
   ];
   const [showNotification, setShowNotification] = useState(false);
   const [orderNotification, setOrderNotification] = useState<{
@@ -1194,6 +1202,49 @@ export default function Dashboard() {
                         key={widgetId}
                         id={widgetId}
                         position={index + widgetOrder.length}
+                        size={widgetSizes[widgetId]}
+                        onResize={handleWidgetResize}
+                        isMobile={isMobile}
+                        isTablet={!isMobile && !isDesktop}
+                        windowWidth={windowWidth}
+                      />
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+
+              {/* Third Row - Assigned Tasks Widget */}
+              <div
+                style={{
+                  display: "flex",
+                  ...(isMobile
+                    ? {
+                        flexDirection: "column",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }
+                    : {
+                        // Flexible row layout for third row
+                        flexDirection: "row",
+                        gap: "16px",
+                        width: "100%",
+                        alignItems: "flex-start",
+                        justifyContent: "flex-start",
+                        overflow: "hidden",
+                        minWidth: 0,
+                      }),
+                }}
+              >
+                {thirdRowWidgets.map((widgetId, index) => {
+                  if (widgetId === "assigned-tasks") {
+                    return (
+                      <AssignedTasksWidget
+                        key={widgetId}
+                        id={widgetId}
+                        position={
+                          index + widgetOrder.length + secondRowWidgets.length
+                        }
                         size={widgetSizes[widgetId]}
                         onResize={handleWidgetResize}
                         isMobile={isMobile}
