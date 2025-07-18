@@ -469,6 +469,38 @@ export default function Dashboard() {
     console.log(`✅ Widget ${widgetId} resized to ${newSize}`);
   };
 
+  // Handle adding custom widgets
+  const handleAddCustomWidget = (widgetType: string) => {
+    if (customWidgets.length >= 2) {
+      console.log("Maximum of 2 custom widgets allowed");
+      return;
+    }
+
+    const widgetId = `custom-${Date.now()}`;
+    setCustomWidgets((prev) => [...prev, widgetId]);
+    setCustomWidgetTypes((prev) => ({ ...prev, [widgetId]: widgetType }));
+    setWidgetSizes((prev) => ({ ...prev, [widgetId]: "md" }));
+
+    console.log(`✅ Added custom widget: ${widgetId} of type: ${widgetType}`);
+  };
+
+  // Handle removing custom widgets
+  const handleRemoveCustomWidget = (widgetId: string) => {
+    setCustomWidgets((prev) => prev.filter((id) => id !== widgetId));
+    setCustomWidgetTypes((prev) => {
+      const newTypes = { ...prev };
+      delete newTypes[widgetId];
+      return newTypes;
+    });
+    setWidgetSizes((prev) => {
+      const newSizes = { ...prev };
+      delete newSizes[widgetId];
+      return newSizes;
+    });
+
+    console.log(`✅ Removed custom widget: ${widgetId}`);
+  };
+
   const getUserMenuStyles = () => {
     if (userMenuHovered || userMenuOpen) {
       return {
