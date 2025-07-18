@@ -469,6 +469,8 @@ const BarChart: React.FC<BarChartProps> = ({
 };
 
 export const TurnaroundTimeWidget: React.FC<TurnaroundTimeWidgetProps> = ({
+  id,
+  position = 0,
   isMobile = false,
   isTablet = false,
   windowWidth = 1024,
@@ -500,7 +502,9 @@ export const TurnaroundTimeWidget: React.FC<TurnaroundTimeWidgetProps> = ({
 
   return (
     <WidgetContainer
+      id={id}
       title="Turnaround Time"
+      position={position}
       helpTooltip="View turnaround time metrics and trends"
       onSeeAllClick={() => console.log("See All Turnaround Time clicked")}
       onDownloadChart={() => console.log("Download Turnaround Chart clicked")}
