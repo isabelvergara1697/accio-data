@@ -552,57 +552,53 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             alignItems: "center",
           }}
         >
-          {/* Range background - continuous background approach */}
+          {/* Range background - individual cell approach with connectors */}
           {isInRange && (
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left:
-                  isRangeStart && !isRangeEnd
-                    ? "20px"
-                    : isRangeEnd && !isRangeStart
-                      ? "-20px"
-                      : isRangeStart && isRangeEnd
-                        ? "0"
-                        : "-20px",
-                right:
-                  isRangeStart && !isRangeEnd
-                    ? "-20px"
-                    : isRangeEnd && !isRangeStart
-                      ? "20px"
-                      : isRangeStart && isRangeEnd
-                        ? "0"
-                        : "-20px",
-                height: "40px",
-                background: "#F5F5F5",
-                zIndex: 0,
-                borderRadius:
-                  isRangeStart && isRangeEnd
-                    ? "20px"
-                    : isRangeStart
-                      ? "20px 0 0 20px"
-                      : isRangeEnd
-                        ? "0 20px 20px 0"
-                        : "0",
-              }}
-            />
-          )}
+            <>
+              {/* Main cell background - always rounded */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "20px",
+                  background: isSelected ? "#344698" : "#F5F5F5",
+                  zIndex: 0,
+                }}
+              />
 
-          {/* Selected date circle overlay */}
-          {isSelected && (
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left: "0",
-                width: "40px",
-                height: "40px",
-                borderRadius: "50%",
-                background: "#344698",
-                zIndex: 1,
-              }}
-            />
+              {/* Left connector for seamless row connection */}
+              {!isFirstInRow && !isRangeStart && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    left: "-20px",
+                    width: "20px",
+                    height: "40px",
+                    background: "#F5F5F5",
+                    zIndex: -1,
+                  }}
+                />
+              )}
+
+              {/* Right connector for seamless row connection */}
+              {!isLastInRow && !isRangeEnd && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    right: "-20px",
+                    width: "20px",
+                    height: "40px",
+                    background: "#F5F5F5",
+                    zIndex: -1,
+                  }}
+                />
+              )}
+            </>
           )}
 
           {/* Date text */}
