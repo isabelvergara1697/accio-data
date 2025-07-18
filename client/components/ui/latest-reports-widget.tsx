@@ -26,6 +26,10 @@ interface ReportData {
 }
 
 interface LatestReportsWidgetProps {
+  /** Widget unique identifier */
+  id: string;
+  /** Widget position in the layout */
+  position?: number;
   /** Whether this is mobile view */
   isMobile?: boolean;
   /** Whether this is tablet view */
