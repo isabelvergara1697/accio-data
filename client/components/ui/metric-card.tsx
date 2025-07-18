@@ -118,11 +118,16 @@ export const MetricCard: React.FC<MetricCardProps> = ({
         alignItems: "flex-start",
         gap: "12px",
         borderRadius: "12px",
-        border: "1px solid #E9EAEB",
-        background: "#FFF",
-        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+        border: getCardBorder(),
+        background: getCardBackground(),
+        boxShadow: getCardShadow(),
         position: "relative",
+        cursor: "pointer",
+        transition: "all 0.2s ease-in-out",
+        overflow: "hidden", // Add overflow masking
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div
         style={{
