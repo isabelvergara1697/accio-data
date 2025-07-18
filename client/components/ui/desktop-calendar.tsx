@@ -510,17 +510,22 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             zIndex: 10,
           }}
         >
-          {/* Simple range background for in-range dates */}
-          {isInRange && !isSelected && (
+          {/* Range background for in-range dates */}
+          {isInRange && (
             <div
               style={{
                 position: "absolute",
                 top: "0",
-                left: isRangeStart || isFirstInRow ? "20px" : "-20px",
-                right: isRangeEnd || isLastInRow ? "20px" : "-20px",
-                height: "40px",
+                left: isRangeStart || isFirstInRow ? "16px" : "-16px",
+                right: isRangeEnd || isLastInRow ? "16px" : "-16px",
+                height: "32px",
                 background: "#F5F5F5",
-                zIndex: -1,
+                zIndex: 0,
+                borderRadius: isRangeStart
+                  ? "16px 0 0 16px"
+                  : isRangeEnd
+                    ? "0 16px 16px 0"
+                    : "0",
               }}
             />
           )}
