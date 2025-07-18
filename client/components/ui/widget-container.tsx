@@ -241,7 +241,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           transition: "all 0.2s ease-in-out",
           cursor: isBorderHovered ? "ew-resize" : "default",
           opacity: isDragging ? 0.3 : 1,
-          transform: isDragging ? "rotate(2deg) scale(1.02)" : "none",
+          transform: isDragging ? "rotate(2deg)" : "none",
           zIndex: isDragging ? 1000 : "auto",
         }}
         onMouseEnter={() => setIsWidgetHovered(true)}
