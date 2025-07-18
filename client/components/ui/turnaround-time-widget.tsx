@@ -439,6 +439,12 @@ export const TurnaroundTimeWidget: React.FC<TurnaroundTimeWidgetProps> = ({
   isTablet = false,
   windowWidth = 1024,
 }) => {
+  console.log("TurnaroundTimeWidget rendering:", {
+    isMobile,
+    isTablet,
+    windowWidth,
+  });
+
   return (
     <WidgetContainer
       title="Turnaround Time"
@@ -450,6 +456,17 @@ export const TurnaroundTimeWidget: React.FC<TurnaroundTimeWidgetProps> = ({
       isTablet={isTablet}
       windowWidth={windowWidth}
     >
+      <div
+        style={{
+          padding: "20px",
+          background: "red",
+          color: "white",
+          fontSize: "16px",
+        }}
+      >
+        DEBUG: Widget content is rendering! isMobile: {isMobile.toString()},
+        isTablet: {isTablet.toString()}, windowWidth: {windowWidth}
+      </div>
       <BarChart
         isMobile={isMobile}
         isTablet={isTablet}
