@@ -5,6 +5,7 @@ import CustomizeDrawer from "../components/ui/customize-drawer";
 import DatePickerCalendar from "../components/ui/date-picker-calendar";
 import { MetricCard } from "../components/ui/metric-card";
 import { LatestReportsWidget } from "../components/ui/latest-reports-widget";
+import { TurnaroundTimeWidget } from "../components/ui/turnaround-time-widget";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
@@ -983,7 +984,7 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Latest Reports Widget Section */}
+            {/* Widgets Section */}
             <div
               style={{
                 display: "flex",
@@ -994,10 +995,32 @@ export default function Dashboard() {
                 alignSelf: "stretch",
               }}
             >
-              <LatestReportsWidget
-                isMobile={isMobile}
-                windowWidth={windowWidth}
-              />
+              <div
+                style={{
+                  display: isMobile ? "flex" : "grid",
+                  ...(isMobile
+                    ? {
+                        flexDirection: "column",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }
+                    : {
+                        gridTemplateColumns:
+                          "repeat(auto-fit, minmax(500px, 1fr))",
+                        gap: "16px",
+                        width: "100%",
+                      }),
+                }}
+              >
+                <LatestReportsWidget
+                  isMobile={isMobile}
+                  windowWidth={windowWidth}
+                />
+                <TurnaroundTimeWidget
+                  isMobile={isMobile}
+                  windowWidth={windowWidth}
+                />
+              </div>
             </div>
           </div>
         </div>
