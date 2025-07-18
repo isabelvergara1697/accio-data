@@ -14,7 +14,6 @@ import SetNewPassword from "./pages/SetNewPassword";
 import PasswordResetSuccess from "./pages/PasswordResetSuccess";
 import ActivateAccount from "./pages/ActivateAccount";
 import NotFound from "./pages/NotFound";
-import WidgetDemo from "./pages/WidgetDemo";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +35,6 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/document-library" element={<DocumentLibrary />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="/widget-demo" element={<WidgetDemo />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
