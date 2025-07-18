@@ -399,8 +399,8 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           key={`header-${index}`}
           style={{
             display: "flex",
-            width: "32px",
-            height: "32px",
+            width: "40px",
+            height: "40px",
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -435,8 +435,8 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           key={`prev-${i}`}
           style={{
             display: "flex",
-            width: "32px",
-            height: "32px",
+            width: "40px",
+            height: "40px",
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -494,8 +494,8 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           }}
           onMouseEnter={() => handleDateHover(date)}
           style={{
-            width: "32px",
-            height: "32px",
+            width: "40px",
+            height: "40px",
             cursor: "pointer",
             position: "relative",
             display: "flex",
@@ -565,8 +565,8 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           key={`next-${day}`}
           style={{
             display: "flex",
-            width: "32px",
-            height: "32px",
+            width: "40px",
+            height: "40px",
             justifyContent: "center",
             alignItems: "center",
           }}
@@ -618,7 +618,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           padding: "12px",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "2px",
+          gap: "4px 0px",
           alignSelf: "stretch",
           borderRight: "1px solid #E9EAEB",
         }}
@@ -691,7 +691,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             <div
               style={{
                 display: "flex",
-                padding: "16px 20px",
+                padding: "20px 24px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "16px",
@@ -765,7 +765,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                     display: "flex",
                     alignItems: "flex-start",
                     alignContent: "flex-start",
-                    gap: "2px",
+                    gap: "4px 0px",
                     alignSelf: "stretch",
                     flexWrap: "wrap",
                   }}
@@ -788,7 +788,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             <div
               style={{
                 display: "flex",
-                padding: "16px 20px",
+                padding: "20px 24px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "16px",
@@ -862,7 +862,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                     display: "flex",
                     alignItems: "flex-start",
                     alignContent: "flex-start",
-                    gap: "2px",
+                    gap: "4px 0px",
                     alignSelf: "stretch",
                     flexWrap: "wrap",
                   }}
