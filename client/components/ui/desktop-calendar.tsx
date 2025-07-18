@@ -552,29 +552,80 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             alignItems: "center",
           }}
         >
-          {/* Range background with CSS clip-path for rounded corners */}
+          {/* Range background with manual corner masking */}
           {isInRange && (
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left: isLeftEdge ? "0" : "-20px",
-                right: isRightEdge ? "0" : "-20px",
-                height: "40px",
-                background: "#F5F5F5",
-                zIndex: 0,
-                clipPath: `polygon(
-                  ${isTopEdge && isLeftEdge ? "20px 0" : "0 0"},
-                  ${isTopEdge && isRightEdge ? "calc(100% - 20px) 0" : "100% 0"},
-                  ${isTopEdge && isRightEdge ? "100% 20px" : "100% 0"},
-                  ${isBottomEdge && isRightEdge ? "100% calc(100% - 20px)" : "100% 100%"},
-                  ${isBottomEdge && isRightEdge ? "calc(100% - 20px) 100%" : "100% 100%"},
-                  ${isBottomEdge && isLeftEdge ? "20px 100%" : "0 100%"},
-                  ${isBottomEdge && isLeftEdge ? "0 calc(100% - 20px)" : "0 100%"},
-                  ${isTopEdge && isLeftEdge ? "0 20px" : "0 0"}
-                )`,
-              }}
-            />
+            <>
+              {/* Main background rectangle */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "0",
+                  left: isLeftEdge ? "0" : "-20px",
+                  right: isRightEdge ? "0" : "-20px",
+                  height: "40px",
+                  background: "#F5F5F5",
+                  zIndex: 0,
+                }}
+              />
+
+              {/* Corner masks using border-radius to cut out corners */}
+              {isTopEdge && isLeftEdge && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                    width: "20px",
+                    height: "20px",
+                    background: "#FFF",
+                    borderRadius: "0 0 20px 0",
+                    zIndex: 1,
+                  }}
+                />
+              )}
+              {isTopEdge && isRightEdge && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    right: "0",
+                    width: "20px",
+                    height: "20px",
+                    background: "#FFF",
+                    borderRadius: "0 0 0 20px",
+                    zIndex: 1,
+                  }}
+                />
+              )}
+              {isBottomEdge && isLeftEdge && (
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "0",
+                    left: "0",
+                    width: "20px",
+                    height: "20px",
+                    background: "#FFF",
+                    borderRadius: "0 20px 0 0",
+                    zIndex: 1,
+                  }}
+                />
+              )}
+              {isBottomEdge && isRightEdge && (
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "0",
+                    right: "0",
+                    width: "20px",
+                    height: "20px",
+                    background: "#FFF",
+                    borderRadius: "20px 0 0 0",
+                    zIndex: 1,
+                  }}
+                />
+              )}
+            </>
           )}
 
           {/* Selected date circle */}
