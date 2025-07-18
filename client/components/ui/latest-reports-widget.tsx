@@ -217,6 +217,8 @@ const mockReportsData: ReportData[] = [
 ];
 
 export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
+  id,
+  position = 0,
   isMobile = false,
   isTablet = false,
   windowWidth = 1024,
@@ -227,7 +229,9 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
 
   return (
     <WidgetContainer
+      id={id}
       title="Latest Reports"
+      position={position}
       helpTooltip="View recent activity and reports"
       onSeeAllClick={() => console.log("See All Reports clicked")}
       onDownloadChart={() => console.log("Download Chart clicked")}
