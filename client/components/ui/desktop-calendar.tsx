@@ -608,15 +608,14 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           {/* Date text */}
           <div
             style={{
-              width: "24px",
               color: isSelected ? "#FFF" : "#414651",
               textAlign: "center",
               fontFamily: "Public Sans",
               fontSize: "14px",
-              fontWeight: "500",
+              fontWeight: isSelected ? "600" : "500",
               lineHeight: "20px",
               position: "relative",
-              zIndex: 1,
+              zIndex: 2,
             }}
           >
             {day}
