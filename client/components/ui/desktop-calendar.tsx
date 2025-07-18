@@ -691,7 +691,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             <div
               style={{
                 display: "flex",
-                padding: "20px 24px",
+                padding: "16px 20px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "16px",
@@ -788,7 +788,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             <div
               style={{
                 display: "flex",
-                padding: "20px 24px",
+                padding: "16px 20px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "16px",
