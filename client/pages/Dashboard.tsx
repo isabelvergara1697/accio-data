@@ -129,10 +129,6 @@ export default function Dashboard() {
   // Second row widgets
   const [secondRowWidgets, setSecondRowWidgets] = useState<string[]>([
     "orders-by-status",
-  ]);
-
-  // Third row widgets
-  const [thirdRowWidgets, setThirdRowWidgets] = useState<string[]>([
     "assigned-tasks",
   ]);
 
