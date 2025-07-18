@@ -223,7 +223,28 @@ export default function CustomizeDrawer({
 
   const handleCardClick = (cardId: string) => {
     console.log("Widget card clicked:", cardId);
-    // Add widget selection logic here
+
+    if (customWidgetCount >= 2) {
+      alert(
+        "Maximum of 2 custom widgets allowed. Please remove a widget before adding a new one.",
+      );
+      return;
+    }
+
+    if (onAddWidget) {
+      // Map card IDs to widget types
+      const widgetTypeMap: Record<string, string> = {
+        "chart-breakout": "chart",
+        "presentation-chart": "activity",
+        "bar-chart-square-up": "stats",
+        "pie-chart": "stats",
+        "bar-chart": "chart",
+      };
+
+      const widgetType = widgetTypeMap[cardId] || "stats";
+      onAddWidget(widgetType);
+      onClose(); // Close drawer after adding widget
+    }
   };
 
   const modalContent = !isOpen ? null : (
