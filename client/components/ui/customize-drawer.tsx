@@ -4,6 +4,8 @@ import { createPortal } from "react-dom";
 export interface CustomizeDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  onAddWidget?: (widgetType: string) => void;
+  customWidgetCount?: number;
 }
 
 interface WidgetCard {
