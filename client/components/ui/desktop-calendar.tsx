@@ -552,34 +552,84 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             alignItems: "center",
           }}
         >
-          {/* Range background - unified approach */}
+          {/* Range background with proper rounded corners */}
           {isInRange && (
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left:
-                  isRangeStart && !isRangeEnd
-                    ? "20px"
-                    : isRangeEnd && !isRangeStart
-                      ? "-20px"
-                      : isRangeStart && isRangeEnd
-                        ? "0"
-                        : "-20px",
-                right:
-                  isRangeStart && !isRangeEnd
-                    ? "-20px"
-                    : isRangeEnd && !isRangeStart
-                      ? "20px"
-                      : isRangeStart && isRangeEnd
-                        ? "0"
-                        : "-20px",
-                height: "40px",
-                background: "#F5F5F5",
-                zIndex: 0,
-                borderRadius: `${isTopEdge && isLeftEdge ? "20px" : "0"} ${isTopEdge && isRightEdge ? "20px" : "0"} ${isBottomEdge && isRightEdge ? "20px" : "0"} ${isBottomEdge && isLeftEdge ? "20px" : "0"}`,
-              }}
-            />
+            <>
+              {/* Base rectangular background that extends to connect with adjacent cells */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "0",
+                  left: isLeftEdge ? "0" : "-20px",
+                  right: isRightEdge ? "0" : "-20px",
+                  height: "40px",
+                  background: "#F5F5F5",
+                  zIndex: 0,
+                }}
+              />
+
+              {/* Corner cutouts to create rounded appearance */}
+              {isTopEdge && isLeftEdge && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-1px",
+                    left: "-1px",
+                    width: "21px",
+                    height: "21px",
+                    background: "transparent",
+                    borderRadius: "0 0 20px 0",
+                    boxShadow: "0 20px 0 0 #FFF",
+                    zIndex: 1,
+                  }}
+                />
+              )}
+              {isTopEdge && isRightEdge && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-1px",
+                    right: "-1px",
+                    width: "21px",
+                    height: "21px",
+                    background: "transparent",
+                    borderRadius: "0 0 0 20px",
+                    boxShadow: "-20px 20px 0 0 #FFF",
+                    zIndex: 1,
+                  }}
+                />
+              )}
+              {isBottomEdge && isLeftEdge && (
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "-1px",
+                    left: "-1px",
+                    width: "21px",
+                    height: "21px",
+                    background: "transparent",
+                    borderRadius: "0 20px 0 0",
+                    boxShadow: "0 -20px 0 0 #FFF",
+                    zIndex: 1,
+                  }}
+                />
+              )}
+              {isBottomEdge && isRightEdge && (
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "-1px",
+                    right: "-1px",
+                    width: "21px",
+                    height: "21px",
+                    background: "transparent",
+                    borderRadius: "20px 0 0 0",
+                    boxShadow: "-20px -20px 0 0 #FFF",
+                    zIndex: 1,
+                  }}
+                />
+              )}
+            </>
           )}
 
           {/* Selected date circle */}
