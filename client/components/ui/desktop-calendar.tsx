@@ -474,9 +474,9 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
         isRangeEnd = isSameDate(date, workingEndDate);
       }
 
-      // Range connectors only for in-range dates and not at row ends
-      const needsLeftConnector = isInRange && !isRangeStart && !isFirstInRow;
-      const needsRightConnector = isInRange && !isRangeEnd && !isLastInRow;
+      // Range connectors logic - ensure continuous background between dates
+      const needsLeftConnector = isInRange && !isRangeStart;
+      const needsRightConnector = isInRange && !isRangeEnd;
 
       days.push(
         <div
