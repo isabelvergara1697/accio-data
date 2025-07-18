@@ -86,15 +86,15 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/plain", id);
 
-    // Create drag image from actual widget content BEFORE setting drag state
+    // Create improved drag image from actual widget content BEFORE setting drag state
     const widgetElement = e.currentTarget.closest(
       "[data-widget-container]",
     ) as HTMLElement;
     if (widgetElement) {
       const rect = widgetElement.getBoundingClientRect();
-      const scale = 0.8;
+      const scale = 0.75; // Slightly smaller for better visual
 
-      // Clone the actual widget to preserve its content for drag image
+      // Create a high-quality drag image container
       const dragImageContainer = document.createElement("div");
       dragImageContainer.style.position = "absolute";
       dragImageContainer.style.top = "-9999px";
@@ -103,8 +103,16 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       dragImageContainer.style.height = rect.height * scale + "px";
       dragImageContainer.style.pointerEvents = "none";
       dragImageContainer.style.overflow = "hidden";
+      dragImageContainer.style.backgroundColor = "#FDFDFD";
+      dragImageContainer.style.border = "1px solid #34479A";
+      dragImageContainer.style.borderRadius = "12px";
+      dragImageContainer.style.boxShadow =
+        "0px 8px 25px -5px rgba(10, 13, 18, 0.1), 0px 8px 10px -6px rgba(10, 13, 18, 0.1)";
+      dragImageContainer.style.fontFamily =
+        "'Public Sans', -apple-system, sans-serif";
+      dragImageContainer.style.zIndex = "9999";
 
-      // Clone the widget content
+      // Clone the widget content with better handling
       const clone = widgetElement.cloneNode(true) as HTMLElement;
       clone.style.transform = `scale(${scale})`;
       clone.style.transformOrigin = "top left";
@@ -112,23 +120,35 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       clone.style.height = rect.height + "px";
       clone.style.margin = "0";
       clone.style.position = "relative";
+      clone.style.background = "transparent";
+      clone.style.border = "none";
+      clone.style.borderRadius = "12px";
+      clone.style.overflow = "hidden";
+
+      // Remove any hover states from the clone
+      const hoverElements = clone.querySelectorAll(
+        "[data-dragging], [data-hover]",
+      );
+      hoverElements.forEach((el) => {
+        (el as HTMLElement).style.background = "transparent";
+        (el as HTMLElement).style.border = "none";
+      });
 
       dragImageContainer.appendChild(clone);
       document.body.appendChild(dragImageContainer);
 
-      // Set the drag image
-      e.dataTransfer.setDragImage(
-        dragImageContainer,
-        (rect.width * scale) / 2,
-        (rect.height * scale) / 2,
-      );
+      // Set the drag image with better positioning
+      const offsetX = (rect.width * scale) / 2;
+      const offsetY = Math.min((rect.height * scale) / 3, 50); // Use top third or max 50px
 
-      // Clean up
+      e.dataTransfer.setDragImage(dragImageContainer, offsetX, offsetY);
+
+      // Clean up after a short delay to ensure drag image is captured
       setTimeout(() => {
         if (document.body.contains(dragImageContainer)) {
           document.body.removeChild(dragImageContainer);
         }
-      }, 1);
+      }, 100);
     }
 
     // Set dragging state AFTER creating drag image
