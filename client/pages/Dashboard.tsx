@@ -1152,7 +1152,7 @@ export default function Dashboard() {
                 })}
               </div>
 
-              {/* Second Row - Orders by Status Widget */}
+              {/* Second Row - Orders by Status and Assigned Tasks Widgets */}
               <div
                 style={{
                   display: "flex",
@@ -1163,7 +1163,7 @@ export default function Dashboard() {
                         alignSelf: "stretch",
                       }
                     : {
-                        // Flexible row layout for new row
+                        // Flexible row layout for second row
                         flexDirection: "row",
                         gap: "16px",
                         width: "100%",
@@ -1189,42 +1189,12 @@ export default function Dashboard() {
                       />
                     );
                   }
-
-                  return null;
-                })}
-              </div>
-
-              {/* Third Row - Assigned Tasks Widget */}
-              <div
-                style={{
-                  display: "flex",
-                  ...(isMobile
-                    ? {
-                        flexDirection: "column",
-                        gap: "16px",
-                        alignSelf: "stretch",
-                      }
-                    : {
-                        // Flexible row layout for third row
-                        flexDirection: "row",
-                        gap: "16px",
-                        width: "100%",
-                        alignItems: "flex-start",
-                        justifyContent: "flex-start",
-                        overflow: "hidden",
-                        minWidth: 0,
-                      }),
-                }}
-              >
-                {thirdRowWidgets.map((widgetId, index) => {
                   if (widgetId === "assigned-tasks") {
                     return (
                       <AssignedTasksWidget
                         key={widgetId}
                         id={widgetId}
-                        position={
-                          index + widgetOrder.length + secondRowWidgets.length
-                        }
+                        position={index + widgetOrder.length}
                         size={widgetSizes[widgetId]}
                         onResize={handleWidgetResize}
                         isMobile={isMobile}
