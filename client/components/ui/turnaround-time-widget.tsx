@@ -254,7 +254,7 @@ const BarChart: React.FC<BarChartProps> = ({
         style={{
           display: "flex",
           height: "400px",
-          width: dimensions.width,
+          width: "100%",
           minWidth: isMobile ? "400px" : "auto",
           padding: "0px 8px",
           justifyContent: "center",
