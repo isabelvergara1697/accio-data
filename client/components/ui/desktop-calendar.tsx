@@ -558,33 +558,61 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             alignItems: "center",
           }}
         >
-          {/* Range background connectors */}
-          {isInRange && !isFirstInRow && (
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left: "-20px",
-                width: "20px",
-                height: "40px",
-                background: "#F5F5F5",
-                zIndex: -1,
-              }}
-            />
-          )}
-          {isInRange && !isLastInRow && (
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                right: "-20px",
-                width: "20px",
-                height: "40px",
-                background: "#F5F5F5",
-                zIndex: -1,
-              }}
-            />
-          )}
+          {/* Range background connectors - only when connecting to adjacent range dates */}
+          {isInRange &&
+            !isFirstInRow &&
+            (() => {
+              const leftDate = new Date(
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate() - 1,
+              );
+              const isLeftInRange = isDateInRange(
+                leftDate,
+                rangeStartDate,
+                rangeEndDate,
+              );
+              return isLeftInRange ? (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    left: "-20px",
+                    width: "20px",
+                    height: "40px",
+                    background: "#F5F5F5",
+                    zIndex: -1,
+                  }}
+                />
+              ) : null;
+            })()}
+          {isInRange &&
+            !isLastInRow &&
+            (() => {
+              const rightDate = new Date(
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate() + 1,
+              );
+              const isRightInRange = isDateInRange(
+                rightDate,
+                rangeStartDate,
+                rangeEndDate,
+              );
+              return isRightInRange ? (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "0",
+                    right: "-20px",
+                    width: "20px",
+                    height: "40px",
+                    background: "#F5F5F5",
+                    zIndex: -1,
+                  }}
+                />
+              ) : null;
+            })()}
 
           {/* Date text */}
           <div
