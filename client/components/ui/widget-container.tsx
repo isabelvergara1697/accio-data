@@ -711,6 +711,24 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           >
             {children}
           </div>
+
+          {/* Drag Overlay - blue overlay that appears during drag */}
+          {isDragging && (
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: "#ECEEF9",
+                border: "1px solid #34479A",
+                borderRadius: "12px",
+                zIndex: 1000,
+                pointerEvents: "none",
+              }}
+            />
+          )}
         </div>
       </div>
     </>
