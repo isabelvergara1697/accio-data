@@ -276,33 +276,27 @@ export default function Dashboard() {
     return {};
   };
 
-    const renderCustomizeButton = () => {
-    const [isHovered, setIsHovered] = React.useState(false);
-
-    return (
-      <button
-        className="dashboard-button"
-        onClick={handleOpenCustomizeDrawer}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        style={{
-          display: "flex",
-          minHeight: "36px",
-          padding: "6px 8px",
-          justifyContent: isMobile ? "flex-start" : "center",
-          alignItems: "center",
-          gap: "4px",
-          borderRadius: "8px",
-          border: "1px solid #D5D7DA",
-          background: isHovered ? "#F8F9FA" : "#FFF",
-          boxShadow:
-            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-          cursor: "pointer",
-          transition: "background-color 0.2s ease-in-out",
-          ...(isMobile ? { alignSelf: "stretch" } : {}),
-        }}
-            >
-        <svg
+  const renderCustomizeButton = () => (
+    <button
+      className="dashboard-button"
+      onClick={handleOpenCustomizeDrawer}
+      style={{
+        display: "flex",
+        minHeight: "36px",
+        padding: "6px 8px",
+        justifyContent: isMobile ? "flex-start" : "center",
+        alignItems: "center",
+        gap: "4px",
+        borderRadius: "8px",
+        border: "1px solid #D5D7DA",
+        background: "#FFF",
+        boxShadow:
+          "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+        cursor: "pointer",
+        ...(isMobile ? { alignSelf: "stretch" } : {}),
+      }}
+    >
+      <svg
         width="16"
         height="16"
         viewBox="0 0 16 16"
