@@ -1010,19 +1010,11 @@ export default function Dashboard() {
               </div>
               <div
                 style={{
-                  display: isMobile ? "flex" : "grid",
-                  ...(isMobile
-                    ? {
-                        flexDirection: "column",
-                        gap: "16px",
-                        alignSelf: "stretch",
-                      }
-                    : {
-                        gridTemplateColumns:
-                          "repeat(auto-fit, minmax(500px, 1fr))",
-                        gap: "16px",
-                        width: "100%",
-                      }),
+                  display: "flex",
+                  flexDirection: isMobile ? "column" : "row",
+                  gap: "16px",
+                  width: "100%",
+                  flexWrap: "wrap",
                 }}
               >
                 <LatestReportsWidget
