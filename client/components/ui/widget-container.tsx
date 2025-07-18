@@ -241,13 +241,39 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       return { width: "100%", height: fixedHeight };
     }
 
-    // Desktop/tablet dimensions - only width varies, height is fixed at 480px
+    // Desktop/tablet dimensions - flexible width system that adapts to grid
+    // Uses flex-grow values to determine relative sizes within the 2x2 grid
     const dimensions = {
-      xs: { width: "252px", height: fixedHeight },
-      sm: { width: "300px", height: fixedHeight },
-      md: { width: "400px", height: fixedHeight },
-      lg: { width: "500px", height: fixedHeight },
-      xl: { width: "600px", height: fixedHeight },
+      xs: {
+        width: "100%",
+        height: fixedHeight,
+        flexGrow: 0.8,
+        minWidth: "252px",
+      },
+      sm: {
+        width: "100%",
+        height: fixedHeight,
+        flexGrow: 1,
+        minWidth: "300px",
+      },
+      md: {
+        width: "100%",
+        height: fixedHeight,
+        flexGrow: 1.2,
+        minWidth: "400px",
+      },
+      lg: {
+        width: "100%",
+        height: fixedHeight,
+        flexGrow: 1.5,
+        minWidth: "500px",
+      },
+      xl: {
+        width: "100%",
+        height: fixedHeight,
+        flexGrow: 2,
+        minWidth: "600px",
+      },
     };
     return dimensions[widgetSize];
   };
@@ -377,8 +403,10 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           transform: "none",
           zIndex: isDragging ? 1000 : "auto",
           ...getWidgetDimensions(size),
-          flexShrink: 0,
-          flexGrow: 0,
+          // Flexible sizing for 2x2 grid
+          flexShrink: 1,
+          flexGrow: isMobile ? 0 : getWidgetDimensions(size).flexGrow,
+          minWidth: isMobile ? "100%" : getWidgetDimensions(size).minWidth,
         }}
         onMouseEnter={() => setIsWidgetHovered(true)}
         onMouseLeave={() => {
