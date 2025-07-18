@@ -87,23 +87,14 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
-        flex: "1 0 0",
-        alignSelf: "stretch",
+        flex: "1",
+        minWidth: isMobile ? "100%" : "450px",
+        maxWidth: isMobile ? "100%" : "800px",
         borderRadius: "12px",
-        border: getWidgetBorder(),
+        border: "1px solid #E9EAEB",
         background: "#FDFDFD",
         position: "relative",
-        boxShadow: getWidgetShadow(),
-        transition: "all 0.2s ease-in-out",
-        cursor: isBorderHovered ? "ew-resize" : "default",
       }}
-      onMouseEnter={() => setIsWidgetHovered(true)}
-      onMouseLeave={() => {
-        setIsWidgetHovered(false);
-        setIsDragButtonHovered(false);
-        setIsBorderHovered(false);
-      }}
-      onMouseMove={handleMouseMove}
     >
       {/* Heading and content */}
       <div
