@@ -262,6 +262,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
               height: "36px",
               alignItems: "center",
               alignSelf: "stretch",
+              minWidth: isMobile ? "320px" : "auto", // Ensure minimum width on mobile
               borderBottom: "1px solid #E9EAEB",
               background: "#FFF",
             }}
