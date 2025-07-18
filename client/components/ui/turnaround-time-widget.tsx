@@ -133,6 +133,8 @@ const BarChart: React.FC<BarChartProps> = ({
         barMinWidth: "8px",
         barSpacing: "2px",
         overflow: "auto" as const,
+        scrollbarWidth: "thin" as const,
+        scrollbarColor: "#D5D7DA transparent" as const,
       };
     } else if (isTablet) {
       return {
@@ -223,6 +225,9 @@ const BarChart: React.FC<BarChartProps> = ({
         overflow: dimensions.overflow,
         height: "100%", // Ensure full height usage
         minHeight: isMobile ? "400px" : "356px", // Consistent minimum height
+        scrollbarWidth: isMobile ? "thin" : "auto",
+        scrollbarColor: isMobile ? "#D5D7DA #F8F9FA" : "auto",
+        WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
       }}
       onClick={handleContainerClick}
     >
