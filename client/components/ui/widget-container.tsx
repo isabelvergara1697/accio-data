@@ -77,14 +77,14 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     e.dataTransfer.setData("text/plain", id);
     setIsDragging(true);
 
-    // Create a scaled drag image to maintain proper proportions
+    // Create drag image with exact same size as original widget
     const widgetElement = e.currentTarget.closest(
       "[data-widget-container]",
     ) as HTMLElement;
     if (widgetElement) {
-      // Create a temporary scaled version for drag image
+      // Create a temporary clone for drag image at original size
       const clone = widgetElement.cloneNode(true) as HTMLElement;
-      clone.style.transform = "scale(0.8)";
+      clone.style.transform = "scale(1.0)";
       clone.style.transformOrigin = "top left";
       clone.style.position = "absolute";
       clone.style.top = "-9999px";
@@ -95,11 +95,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       document.body.appendChild(clone);
 
       const rect = widgetElement.getBoundingClientRect();
-      e.dataTransfer.setDragImage(
-        clone,
-        (rect.width * 0.8) / 2,
-        (rect.height * 0.8) / 2,
-      );
+      e.dataTransfer.setDragImage(clone, rect.width / 2, rect.height / 2);
 
       // Clean up the clone after a short delay
       setTimeout(() => {
