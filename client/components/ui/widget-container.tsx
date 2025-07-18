@@ -76,7 +76,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/plain", id);
 
-    // Create scaled drag image BEFORE setting drag state
+    // Create drag image from actual widget content BEFORE setting drag state
     const widgetElement = e.currentTarget.closest(
       "[data-widget-container]",
     ) as HTMLElement;
@@ -84,35 +84,39 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       const rect = widgetElement.getBoundingClientRect();
       const scale = 0.8;
 
-      // Create container with explicit scaled dimensions and blue styling
-      const dragImage = document.createElement("div");
-      dragImage.style.position = "absolute";
-      dragImage.style.top = "-9999px";
-      dragImage.style.left = "-9999px";
-      dragImage.style.width = rect.width * scale + "px";
-      dragImage.style.height = rect.height * scale + "px";
-      dragImage.style.pointerEvents = "none";
-      dragImage.style.overflow = "hidden";
-      dragImage.style.transform = "none";
-      dragImage.style.background = "#ECEEF9";
-      dragImage.style.border = "1px solid #34479A";
-      dragImage.style.borderRadius = "12px";
-      dragImage.style.boxShadow =
-        "0px 4px 6px -1px rgba(10, 13, 18, 0.10), 0px 2px 4px -2px rgba(10, 13, 18, 0.06)";
+      // Clone the actual widget to preserve its content for drag image
+      const dragImageContainer = document.createElement("div");
+      dragImageContainer.style.position = "absolute";
+      dragImageContainer.style.top = "-9999px";
+      dragImageContainer.style.left = "-9999px";
+      dragImageContainer.style.width = rect.width * scale + "px";
+      dragImageContainer.style.height = rect.height * scale + "px";
+      dragImageContainer.style.pointerEvents = "none";
+      dragImageContainer.style.overflow = "hidden";
 
-      document.body.appendChild(dragImage);
+      // Clone the widget content
+      const clone = widgetElement.cloneNode(true) as HTMLElement;
+      clone.style.transform = `scale(${scale})`;
+      clone.style.transformOrigin = "top left";
+      clone.style.width = rect.width + "px";
+      clone.style.height = rect.height + "px";
+      clone.style.margin = "0";
+      clone.style.position = "relative";
+
+      dragImageContainer.appendChild(clone);
+      document.body.appendChild(dragImageContainer);
 
       // Set the drag image
       e.dataTransfer.setDragImage(
-        dragImage,
+        dragImageContainer,
         (rect.width * scale) / 2,
         (rect.height * scale) / 2,
       );
 
       // Clean up
       setTimeout(() => {
-        if (document.body.contains(dragImage)) {
-          document.body.removeChild(dragImage);
+        if (document.body.contains(dragImageContainer)) {
+          document.body.removeChild(dragImageContainer);
         }
       }, 1);
     }
