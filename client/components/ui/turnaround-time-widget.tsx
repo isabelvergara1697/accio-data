@@ -166,21 +166,29 @@ const BarChart: React.FC<BarChartProps> = ({
 
     if (containerRect) {
       setHoveredBar(index);
-      // Calculate tooltip position with improved boundary detection
+      // Calculate tooltip position with improved boundary detection for tall bars
       const tooltipWidth = 120; // Estimated tooltip width
+      const tooltipHeight = 50; // Estimated tooltip height
+      const data = mockChartData[index];
+
+      // Calculate horizontal position
       const tooltipX = Math.min(
         Math.max(
           rect.left - containerRect.left + rect.width / 2,
-          tooltipWidth / 2,
-        ), // Min half tooltip width from left
-        containerRect.width - tooltipWidth / 2, // Max half tooltip width from right
+          tooltipWidth / 2 + 10, // Add 10px buffer
+        ),
+        containerRect.width - tooltipWidth / 2 - 10, // Add 10px buffer
       );
-      const tooltipY = Math.max(rect.top - containerRect.top - 15, 15); // Min 15px from top
+
+      // For tall bars, position tooltip above the bar but ensure it stays within bounds
+      const barTopY = rect.top - containerRect.top;
+      const proposedY = barTopY - tooltipHeight - 10; // 10px gap above bar
+      const tooltipY = Math.max(proposedY, tooltipHeight + 10); // Ensure minimum distance from container top
 
       setTooltip({
         x: tooltipX,
         y: tooltipY,
-        data: mockChartData[index],
+        data: data,
       });
     }
   };
@@ -225,7 +233,7 @@ const BarChart: React.FC<BarChartProps> = ({
         position: "relative",
         overflow: dimensions.overflow,
         height: "100%", // Ensure full height usage
-        minHeight: isMobile ? "400px" : "356px", // Consistent minimum height
+        minHeight: "400px", // Consistent minimum height across all breakpoints
         scrollbarWidth: isMobile ? "thin" : "auto",
         scrollbarColor: isMobile ? "#D5D7DA #F8F9FA" : "auto",
         WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
@@ -267,7 +275,7 @@ const BarChart: React.FC<BarChartProps> = ({
       <div
         style={{
           display: "flex",
-          height: "356px", // Fixed height to ensure consistency across breakpoints
+          height: "373px", // Fixed height to ensure consistency across breakpoints
           width: "100%",
           minWidth: isMobile ? "400px" : "auto",
           padding: "0px 8px",
