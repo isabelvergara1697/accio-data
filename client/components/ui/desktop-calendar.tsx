@@ -677,6 +677,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
         boxShadow:
           "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
         zIndex: 9999,
+        justifyContent: "flex-start",
       }}
     >
       {/* Left sidebar with presets */}
