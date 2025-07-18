@@ -109,7 +109,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
 
   // Drag and drop event handlers
   const handleDragStart = (e: React.DragEvent) => {
-    console.log("���� DRAG START for widget:", id, "Event:", e);
+    console.log("🚀 DRAG START for widget:", id, "Event:", e);
     console.log("Target element:", e.target);
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/plain", id);
@@ -291,14 +291,19 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
         }}
         onMouseMove={handleMouseMove}
       >
-        {/* Drag Drop Bar - shown when in drag mode */}
+        {/* Drag Drop Bar - floating overlay, doesn't affect layout */}
         {(isDragOver || isDragTarget || isDragging || isDragButtonHovered) && (
           <div
             style={{
+              position: "absolute",
+              top: "0",
+              left: "0",
+              right: "0",
               width: "100%",
               height: "4px",
-              background: "#34479A",
+              background: "#D5D7DA", // Grey color as per design
               borderRadius: "12px 12px 0 0",
+              zIndex: 10,
             }}
           />
         )}
