@@ -241,14 +241,49 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       return { width: "100%", height: fixedHeight };
     }
 
-    // Desktop/tablet dimensions - flexible width system that adapts to grid
-    // Uses flex-grow values to determine relative sizes within the 2x2 grid
+    // Desktop/tablet dimensions - flexible system that adapts to container and other widgets
+    // Uses flex-basis for initial size and flex-grow/shrink for adaptation
     const dimensions = {
-      xs: { width: "252px", height: fixedHeight },
-      sm: { width: "300px", height: fixedHeight },
-      md: { width: "400px", height: fixedHeight },
-      lg: { width: "500px", height: fixedHeight },
-      xl: { width: "600px", height: fixedHeight },
+      xs: {
+        height: fixedHeight,
+        flexBasis: "252px",
+        flexGrow: 1,
+        flexShrink: 1,
+        minWidth: "252px",
+        maxWidth: "calc(100% - 268px)", // Ensure space for other widget (252px + 16px gap)
+      },
+      sm: {
+        height: fixedHeight,
+        flexBasis: "300px",
+        flexGrow: 1.2,
+        flexShrink: 1,
+        minWidth: "252px",
+        maxWidth: "calc(100% - 268px)",
+      },
+      md: {
+        height: fixedHeight,
+        flexBasis: "400px",
+        flexGrow: 1.5,
+        flexShrink: 1,
+        minWidth: "252px",
+        maxWidth: "calc(100% - 268px)",
+      },
+      lg: {
+        height: fixedHeight,
+        flexBasis: "500px",
+        flexGrow: 2,
+        flexShrink: 1,
+        minWidth: "252px",
+        maxWidth: "calc(100% - 268px)",
+      },
+      xl: {
+        height: fixedHeight,
+        flexBasis: "600px",
+        flexGrow: 2.5,
+        flexShrink: 1,
+        minWidth: "252px",
+        maxWidth: "calc(100% - 268px)",
+      },
     };
     return dimensions[widgetSize];
   };
@@ -378,9 +413,12 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           transform: "none",
           zIndex: isDragging ? 1000 : "auto",
           ...getWidgetDimensions(size),
-          // Fixed sizing for resize functionality
-          flexShrink: 0,
-          flexGrow: 0,
+          // Flexible sizing that adapts to container and other widgets
+          flexShrink: isMobile ? 0 : getWidgetDimensions(size).flexShrink,
+          flexGrow: isMobile ? 0 : getWidgetDimensions(size).flexGrow,
+          flexBasis: isMobile ? "auto" : getWidgetDimensions(size).flexBasis,
+          minWidth: isMobile ? "100%" : getWidgetDimensions(size).minWidth,
+          maxWidth: isMobile ? "100%" : getWidgetDimensions(size).maxWidth,
         }}
         onMouseEnter={() => setIsWidgetHovered(true)}
         onMouseLeave={() => {
