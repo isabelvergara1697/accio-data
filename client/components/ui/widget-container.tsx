@@ -275,7 +275,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           transition: "all 0.2s ease-in-out",
           cursor: isBorderHovered ? "ew-resize" : "default",
           opacity: isDragging ? 0.3 : 1,
-          transform: isDragging ? "rotate(2deg)" : "none",
+          transform: "none",
           zIndex: isDragging ? 1000 : "auto",
         }}
         onMouseEnter={() => setIsWidgetHovered(true)}
@@ -712,7 +712,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
               maxHeight: "480px",
             }}
           >
-            {children}
+            {!isDragging && children}
           </div>
         </div>
       </div>
