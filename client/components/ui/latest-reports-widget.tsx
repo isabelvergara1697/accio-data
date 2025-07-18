@@ -353,6 +353,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                 padding: "6px 12px",
                 alignItems: "center",
                 gap: "4px",
+                minWidth: 0, // Allow shrinking
               }}
             >
               <div
