@@ -444,6 +444,8 @@ export default function Dashboard() {
         ref={dateButtonRef}
         className="dashboard-button"
         onClick={handleOpenDatePicker}
+        onMouseEnter={() => setDateButtonHovered(true)}
+        onMouseLeave={() => setDateButtonHovered(false)}
         style={{
           display: "flex",
           minHeight: "36px",
@@ -453,10 +455,15 @@ export default function Dashboard() {
           gap: "4px",
           borderRadius: "8px",
           border: "1px solid #D5D7DA",
-          background: datePickerOpen ? "#F5F5F5" : "#FFF",
+          background: datePickerOpen
+            ? "#F5F5F5"
+            : dateButtonHovered
+              ? "#F8F9FA"
+              : "#FFF",
           boxShadow:
             "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
           cursor: "pointer",
+          transition: "background-color 0.2s ease-in-out",
           ...(isMobile ? { alignSelf: "stretch", width: "100%" } : {}),
         }}
       >
