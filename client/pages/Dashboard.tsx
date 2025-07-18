@@ -997,24 +997,19 @@ export default function Dashboard() {
             >
               <div
                 style={{
-                  padding: "10px",
-                  background: "yellow",
-                  color: "black",
-                  fontSize: "14px",
-                }}
-              >
-                DEBUG: Dashboard Widgets Section - isMobile:{" "}
-                {isMobile.toString()}, isTablet:{" "}
-                {(!isMobile && !isDesktop).toString()}, isDesktop:{" "}
-                {isDesktop.toString()}, windowWidth: {windowWidth}
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: isMobile ? "column" : "row",
-                  gap: "16px",
-                  width: "100%",
-                  flexWrap: "wrap",
+                  display: isMobile ? "flex" : "grid",
+                  ...(isMobile
+                    ? {
+                        flexDirection: "column",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }
+                    : {
+                        gridTemplateColumns:
+                          "repeat(auto-fit, minmax(500px, 1fr))",
+                        gap: "16px",
+                        width: "100%",
+                      }),
                 }}
               >
                 <LatestReportsWidget
