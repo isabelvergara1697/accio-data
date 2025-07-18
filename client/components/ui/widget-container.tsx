@@ -75,9 +75,8 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     console.log("🚀 DRAG START for widget:", id);
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/plain", id);
-    setIsDragging(true);
 
-    // Create scaled drag image with explicit dimensions
+    // Create scaled drag image BEFORE setting drag state
     const widgetElement = e.currentTarget.closest(
       "[data-widget-container]",
     ) as HTMLElement;
@@ -85,7 +84,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       const rect = widgetElement.getBoundingClientRect();
       const scale = 0.8;
 
-      // Create container with explicit scaled dimensions
+      // Create container with explicit scaled dimensions and blue styling
       const dragImage = document.createElement("div");
       dragImage.style.position = "absolute";
       dragImage.style.top = "-9999px";
@@ -95,18 +94,12 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       dragImage.style.pointerEvents = "none";
       dragImage.style.overflow = "hidden";
       dragImage.style.transform = "none";
-      dragImage.style.background = "#fff";
-      dragImage.style.border = "1px solid #ccc";
-      dragImage.style.borderRadius = "8px";
+      dragImage.style.background = "#ECEEF9";
+      dragImage.style.border = "1px solid #34479A";
+      dragImage.style.borderRadius = "12px";
+      dragImage.style.boxShadow =
+        "0px 4px 6px -1px rgba(10, 13, 18, 0.10), 0px 2px 4px -2px rgba(10, 13, 18, 0.06)";
 
-      // Clone and scale the content
-      const clone = widgetElement.cloneNode(true) as HTMLElement;
-      clone.style.transform = `scale(${scale})`;
-      clone.style.transformOrigin = "top left";
-      clone.style.width = rect.width + "px";
-      clone.style.height = rect.height + "px";
-
-      dragImage.appendChild(clone);
       document.body.appendChild(dragImage);
 
       // Set the drag image
@@ -123,6 +116,9 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
         }
       }, 1);
     }
+
+    // Set dragging state AFTER creating drag image
+    setIsDragging(true);
   };
 
   const handleDragEnd = () => {
