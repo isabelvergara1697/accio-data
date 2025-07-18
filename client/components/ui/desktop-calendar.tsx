@@ -504,126 +504,66 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             zIndex: 10,
           }}
         >
-          {/* SVG range highlighting system */}
-          {isInRange && !isSelected && (
-            <>
-              {/* Gray background for in-range dates */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  width: "40px",
-                  height: "40px",
-                  background: "#F5F5F5",
-                  zIndex: 0,
-                }}
+          {/* Range connectors - matching mobile implementation */}
+          {isInRange && !isRangeStart && !isFirstInRow && (
+            <svg
+              style={{
+                width: "40px",
+                height: "40px",
+                position: "absolute",
+                left: "-20px",
+                top: "0px",
+                zIndex: -1,
+              }}
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M40 0H0C11.0457 0 20 8.95435 20 20C20 31.0457 11.0457 40 0 40H40C28.9543 40 20 31.0457 20 20C20 8.95435 28.9543 0 40 0Z"
+                fill="#F5F5F5"
               />
-
-              {/* Left connector */}
-              {!isFirstInRow && (
-                <svg
-                  style={{
-                    position: "absolute",
-                    top: "0",
-                    left: "-20px",
-                    width: "20px",
-                    height: "40px",
-                    zIndex: 1,
-                  }}
-                  viewBox="0 0 20 40"
-                  fill="none"
-                >
-                  <rect x="0" y="0" width="20" height="40" fill="#F5F5F5" />
-                </svg>
-              )}
-
-              {/* Right connector */}
-              {!isLastInRow && (
-                <svg
-                  style={{
-                    position: "absolute",
-                    top: "0",
-                    right: "-20px",
-                    width: "20px",
-                    height: "40px",
-                    zIndex: 1,
-                  }}
-                  viewBox="0 0 20 40"
-                  fill="none"
-                >
-                  <rect x="0" y="0" width="20" height="40" fill="#F5F5F5" />
-                </svg>
-              )}
-            </>
+            </svg>
           )}
-
-          {/* Selected date styling with SVG connectors */}
-          {isSelected && (
-            <>
-              {/* Selected date circle */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  background: "#344698",
-                  zIndex: 2,
-                }}
+          {isInRange && !isRangeEnd && !isLastInRow && (
+            <svg
+              style={{
+                width: "40px",
+                height: "40px",
+                position: "absolute",
+                left: "20px",
+                top: "0px",
+                zIndex: -1,
+              }}
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M20 20C20 31.0457 28.9543 40 40 40H0C11.0457 40 20 31.0457 20 20ZM0 0C11.0457 0 20 8.95435 20 20C20 8.95435 28.9543 0 40 0H0Z"
+                fill="#F5F5F5"
               />
-
-              {/* Range start - right connector */}
-              {isRangeStart && !isRangeEnd && !isLastInRow && (
-                <svg
-                  style={{
-                    position: "absolute",
-                    top: "0",
-                    right: "-20px",
-                    width: "20px",
-                    height: "40px",
-                    zIndex: 1,
-                  }}
-                  viewBox="0 0 20 40"
-                  fill="none"
-                >
-                  <rect x="0" y="0" width="20" height="40" fill="#F5F5F5" />
-                </svg>
-              )}
-
-              {/* Range end - left connector */}
-              {isRangeEnd && !isRangeStart && !isFirstInRow && (
-                <svg
-                  style={{
-                    position: "absolute",
-                    top: "0",
-                    left: "-20px",
-                    width: "20px",
-                    height: "40px",
-                    zIndex: 1,
-                  }}
-                  viewBox="0 0 20 40"
-                  fill="none"
-                >
-                  <rect x="0" y="0" width="20" height="40" fill="#F5F5F5" />
-                </svg>
-              )}
-            </>
+            </svg>
           )}
 
           {/* Date text */}
           <div
             style={{
-              color: isSelected ? "#FFF" : isInRange ? "#344698" : "#414651",
+              width: "24px",
+              color: isSelected ? "#FFF" : "#414651",
               textAlign: "center",
               fontFamily: "Public Sans",
               fontSize: "14px",
-              fontWeight: isSelected ? "600" : "500",
+              fontWeight: "500",
               lineHeight: "20px",
               position: "relative",
-              zIndex: 3,
+              zIndex: 1,
             }}
           >
             {day}
