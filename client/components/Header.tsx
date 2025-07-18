@@ -77,6 +77,8 @@ export const Header: React.FC<HeaderProps> = ({
         justifyContent: "space-between",
         padding: "20px 32px 32px",
         zIndex: 20,
+        background:
+          "linear-gradient(180deg, #FAFAFA 0%, rgba(250, 250, 250, 0) 100%)",
       }}
     >
       {/* Search Bar */}
