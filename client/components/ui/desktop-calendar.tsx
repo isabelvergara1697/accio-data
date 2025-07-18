@@ -746,6 +746,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           style={{
             display: "flex",
             alignItems: "flex-start",
+            padding: "2px 0",
           }}
         >
           {/* Left calendar */}
