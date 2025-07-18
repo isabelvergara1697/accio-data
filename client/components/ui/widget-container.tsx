@@ -497,6 +497,8 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
             position: "relative",
             minHeight: "400px",
+            height: "480px", // Fixed height for all breakpoints
+            maxHeight: "480px", // Ensure height consistency
           }}
         >
           {children}
