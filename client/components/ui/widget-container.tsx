@@ -398,15 +398,14 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const threshold = 8;
+    const threshold = 12; // Increased threshold for easier targeting
 
-    const isNearBorder =
-      x <= threshold ||
-      x >= rect.width - threshold ||
-      y <= threshold ||
-      y >= rect.height - threshold;
+    // Only consider left and right borders for horizontal resizing
+    const isNearResizableBorder =
+      x <= threshold || // Near left border
+      x >= rect.width - threshold; // Near right border
 
-    setIsBorderHovered(isNearBorder);
+    setIsBorderHovered(isNearResizableBorder);
   };
 
   return (
