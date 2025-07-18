@@ -36,14 +36,16 @@ const ordersData: OrdersData[] = [
 interface PieChartProps {
   data: OrdersData[];
   size: number;
-  onSegmentHover?: (
-    segment: OrdersData | null,
-    event?: React.MouseEvent,
-  ) => void;
+  onSegmentHover?: (segment: OrdersData | null, index: number | null) => void;
+  hoveredSegmentIndex?: number | null;
 }
 
-const PieChart: React.FC<PieChartProps> = ({ data, size, onSegmentHover }) => {
-  const [hoveredSegment, setHoveredSegment] = useState<number | null>(null);
+const PieChart: React.FC<PieChartProps> = ({
+  data,
+  size,
+  onSegmentHover,
+  hoveredSegmentIndex,
+}) => {
   const total = data.reduce((sum, item) => sum + item.value, 0);
   const centerX = size / 2;
   const centerY = size / 2;
@@ -112,7 +114,7 @@ const PieChart: React.FC<PieChartProps> = ({ data, size, onSegmentHover }) => {
           innerRadius,
         );
 
-        const isHovered = hoveredSegment === index;
+        const isHovered = hoveredSegmentIndex === index;
 
         const pathElement = (
           <g key={index}>
@@ -125,13 +127,11 @@ const PieChart: React.FC<PieChartProps> = ({ data, size, onSegmentHover }) => {
                 cursor: "pointer",
                 transition: "all 0.2s ease-in-out",
               }}
-              onMouseEnter={(e) => {
-                setHoveredSegment(index);
-                onSegmentHover?.(segment, e);
+              onMouseEnter={() => {
+                onSegmentHover?.(segment, index);
               }}
               onMouseLeave={() => {
-                setHoveredSegment(null);
-                onSegmentHover?.(null);
+                onSegmentHover?.(null, null);
               }}
             />
             {/* Dark overlay when hovered */}
@@ -157,9 +157,18 @@ const PieChart: React.FC<PieChartProps> = ({ data, size, onSegmentHover }) => {
   );
 };
 
-const Legend: React.FC<{ data: OrdersData[]; compact?: boolean }> = ({
+interface LegendProps {
+  data: OrdersData[];
+  compact?: boolean;
+  onLegendHover?: (segment: OrdersData | null, index: number | null) => void;
+  hoveredSegmentIndex?: number | null;
+}
+
+const Legend: React.FC<LegendProps> = ({
   data,
   compact = false,
+  onLegendHover,
+  hoveredSegmentIndex,
 }) => {
   return (
     <div
@@ -170,51 +179,66 @@ const Legend: React.FC<{ data: OrdersData[]; compact?: boolean }> = ({
         gap: compact ? "2px" : "4px",
       }}
     >
-      {data.map((item, index) => (
-        <div
-          key={index}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            alignSelf: "stretch",
-          }}
-        >
+      {data.map((item, index) => {
+        const isHovered = hoveredSegmentIndex === index;
+
+        return (
           <div
+            key={index}
             style={{
               display: "flex",
-              paddingTop: compact ? "4px" : "6px",
-              alignItems: "flex-start",
-              gap: "10px",
+              alignItems: "center",
+              gap: "8px",
+              alignSelf: "stretch",
+              cursor: "pointer",
+              padding: "2px 0",
+              borderRadius: "4px",
+              backgroundColor: isHovered
+                ? "rgba(52, 71, 154, 0.08)"
+                : "transparent",
+              transition: "background-color 0.2s ease-in-out",
             }}
+            onMouseEnter={() => onLegendHover?.(item, index)}
+            onMouseLeave={() => onLegendHover?.(null, null)}
           >
             <div
               style={{
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                backgroundColor: item.color,
-                border: "0.5px solid rgba(0, 0, 0, 0.1)",
-                flexShrink: 0,
+                display: "flex",
+                paddingTop: compact ? "4px" : "6px",
+                alignItems: "flex-start",
+                gap: "10px",
               }}
-            />
+            >
+              <div
+                style={{
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
+                  backgroundColor: item.color,
+                  border: "0.5px solid rgba(0, 0, 0, 0.1)",
+                  flexShrink: 0,
+                }}
+              />
+            </div>
+            <div
+              style={{
+                color: isHovered ? "#34479A" : "#535862",
+                fontFamily: "Public Sans",
+                fontSize: compact ? "12px" : "14px",
+                fontWeight: isHovered ? "600" : "400",
+                lineHeight: compact ? "16px" : "20px",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                transition:
+                  "color 0.2s ease-in-out, font-weight 0.2s ease-in-out",
+              }}
+            >
+              {item.label}
+            </div>
           </div>
-          <div
-            style={{
-              color: "#535862",
-              fontFamily: "Public Sans",
-              fontSize: compact ? "12px" : "14px",
-              fontWeight: "400",
-              lineHeight: compact ? "16px" : "20px",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {item.label}
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
@@ -229,10 +253,9 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
   windowWidth = 1024,
 }) => {
   const [hoveredSegment, setHoveredSegment] = useState<OrdersData | null>(null);
-  const [tooltipPosition, setTooltipPosition] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
+  const [hoveredSegmentIndex, setHoveredSegmentIndex] = useState<number | null>(
+    null,
+  );
   // Determine chart size and layout based on widget size
   const getChartLayout = () => {
     if (isMobile) {
@@ -359,27 +382,21 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
               <PieChart
                 data={ordersData}
                 size={chartSize}
-                onSegmentHover={(segment, event) => {
+                hoveredSegmentIndex={hoveredSegmentIndex}
+                onSegmentHover={(segment, index) => {
                   setHoveredSegment(segment);
-                  if (event && segment) {
-                    const rect = event.currentTarget.getBoundingClientRect();
-                    setTooltipPosition({
-                      x: event.clientX - rect.left,
-                      y: event.clientY - rect.top,
-                    });
-                  } else {
-                    setTooltipPosition(null);
-                  }
+                  setHoveredSegmentIndex(index);
                 }}
               />
 
-              {/* Tooltip */}
-              {hoveredSegment && tooltipPosition && (
+              {/* Tooltip - Always centered on pie chart */}
+              {hoveredSegment && (
                 <div
                   style={{
                     position: "absolute",
-                    left: tooltipPosition.x + 10,
-                    top: tooltipPosition.y - 10,
+                    left: "50%",
+                    top: "50%",
+                    transform: "translate(-50%, -50%)",
                     backgroundColor: "#0A0D12",
                     color: "#FFF",
                     padding: "8px 12px",
@@ -392,6 +409,7 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
                     pointerEvents: "none",
                     zIndex: 1000,
                     whiteSpace: "nowrap",
+                    textAlign: "center",
                   }}
                 >
                   <div style={{ fontFamily: "Public Sans" }}>
@@ -428,7 +446,15 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
                   }),
                 }}
               >
-                <Legend data={ordersData} compact={compact} />
+                <Legend
+                  data={ordersData}
+                  compact={compact}
+                  hoveredSegmentIndex={hoveredSegmentIndex}
+                  onLegendHover={(segment, index) => {
+                    setHoveredSegment(segment);
+                    setHoveredSegmentIndex(index);
+                  }}
+                />
               </div>
             )}
           </div>
