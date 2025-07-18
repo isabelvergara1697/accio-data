@@ -232,22 +232,27 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     return "#FDFDFD";
   };
 
-  // Get widget dimensions based on size - only width changes, height is fixed
+  // Get widget dimensions based on size - width changes, height varies per size
   const getWidgetDimensions = (widgetSize: WidgetSize) => {
-    const fixedHeight = "400px"; // Fixed height for all sizes on all breakpoints
-
     if (isMobile) {
-      // On mobile, widgets should take full width with fixed height
-      return { width: "100%", height: fixedHeight };
+      // On mobile, widgets should take full width but heights vary by size
+      const dimensions = {
+        xs: { width: "100%", height: "280px" },
+        sm: { width: "100%", height: "320px" },
+        md: { width: "100%", height: "400px" },
+        lg: { width: "100%", height: "480px" },
+        xl: { width: "100%", height: "560px" },
+      };
+      return dimensions[widgetSize];
     }
 
-    // Desktop/tablet dimensions - only width varies, height is fixed
+    // Desktop/tablet dimensions - both width and height vary by size
     const dimensions = {
-      xs: { width: "240px", height: fixedHeight },
-      sm: { width: "300px", height: fixedHeight },
-      md: { width: "400px", height: fixedHeight },
-      lg: { width: "500px", height: fixedHeight },
-      xl: { width: "600px", height: fixedHeight },
+      xs: { width: "240px", height: "300px" },
+      sm: { width: "300px", height: "360px" },
+      md: { width: "400px", height: "480px" },
+      lg: { width: "500px", height: "600px" },
+      xl: { width: "600px", height: "720px" },
     };
     return dimensions[widgetSize];
   };
