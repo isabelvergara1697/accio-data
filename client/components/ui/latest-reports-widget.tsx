@@ -283,6 +283,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         position: "relative",
         boxShadow: getWidgetShadow(),
         transition: "all 0.2s ease-in-out",
+        cursor: isBorderHovered ? "ew-resize" : "default",
       }}
       onMouseEnter={() => setIsWidgetHovered(true)}
       onMouseLeave={() => {
@@ -291,10 +292,6 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
         setIsBorderHovered(false);
       }}
       onMouseMove={handleMouseMove}
-      style={{
-        ...style,
-        cursor: isBorderHovered ? "ew-resize" : "default",
-      }}
     >
       {/* Heading and content */}
       <div
