@@ -214,6 +214,7 @@ const BarChart: React.FC<BarChartProps> = ({
   return (
     <div
       ref={containerRef}
+      className={isMobile ? "turnaround-chart-container" : ""}
       style={{
         display: "flex",
         padding: "16px 12px",
@@ -456,6 +457,31 @@ export const TurnaroundTimeWidget: React.FC<TurnaroundTimeWidgetProps> = ({
   isTablet = false,
   windowWidth = 1024,
 }) => {
+  // Add custom styles for mobile scrollbar
+  React.useEffect(() => {
+    if (isMobile) {
+      const style = document.createElement("style");
+      style.textContent = `
+        .turnaround-chart-container::-webkit-scrollbar {
+          height: 6px;
+        }
+        .turnaround-chart-container::-webkit-scrollbar-track {
+          background: #F8F9FA;
+          border-radius: 3px;
+        }
+        .turnaround-chart-container::-webkit-scrollbar-thumb {
+          background: #D5D7DA;
+          border-radius: 3px;
+        }
+        .turnaround-chart-container::-webkit-scrollbar-thumb:hover {
+          background: #A4A7AE;
+        }
+      `;
+      document.head.appendChild(style);
+      return () => document.head.removeChild(style);
+    }
+  }, [isMobile]);
+
   return (
     <WidgetContainer
       title="Turnaround Time"
