@@ -809,7 +809,8 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
               background: "#FFF",
               boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
               position: "relative",
-              overflow: "auto", // Enable scrolling when content exceeds container
+              overflow: "auto", // Enable both horizontal and vertical scrolling when content exceeds container
+              minWidth: 0, // Allow content to shrink below its natural size
             }}
           >
             {children}
