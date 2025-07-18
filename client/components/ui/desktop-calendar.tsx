@@ -496,12 +496,6 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           style={{
             width: "40px",
             height: "40px",
-            borderRadius: "9999px",
-            background: isSelected
-              ? "#344698"
-              : isInRange
-                ? "#F5F5F5"
-                : "transparent",
             cursor: "pointer",
             position: "relative",
             display: "flex",
@@ -509,66 +503,70 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             alignItems: "center",
           }}
         >
-          {/* Range connectors - matching mobile implementation */}
-          {isInRange && !isRangeStart && !isFirstInRow && (
-            <svg
+          {/* Range background - unified approach */}
+          {isInRange && (
+            <div
               style={{
-                width: "40px",
-                height: "40px",
                 position: "absolute",
-                left: "-20px",
-                top: "0px",
-                zIndex: -1,
+                top: "0",
+                left:
+                  isRangeStart && !isRangeEnd
+                    ? "20px"
+                    : isRangeEnd && !isRangeStart
+                      ? "-20px"
+                      : isRangeStart && isRangeEnd
+                        ? "0"
+                        : "-20px",
+                right:
+                  isRangeStart && !isRangeEnd
+                    ? "-20px"
+                    : isRangeEnd && !isRangeStart
+                      ? "20px"
+                      : isRangeStart && isRangeEnd
+                        ? "0"
+                        : "-20px",
+                height: "40px",
+                background: "#F5F5F5",
+                zIndex: 0,
+                borderRadius:
+                  isRangeStart && isRangeEnd
+                    ? "20px"
+                    : isRangeStart
+                      ? "20px 0 0 20px"
+                      : isRangeEnd
+                        ? "0 20px 20px 0"
+                        : "0",
               }}
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M40 0H0C11.0457 0 20 8.95435 20 20C20 31.0457 11.0457 40 0 40H40C28.9543 40 20 31.0457 20 20C20 8.95435 28.9543 0 40 0Z"
-                fill="#F5F5F5"
-              />
-            </svg>
+            />
           )}
-          {isInRange && !isRangeEnd && !isLastInRow && (
-            <svg
+
+          {/* Selected date circle */}
+          {isSelected && (
+            <div
               style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
                 width: "40px",
                 height: "40px",
-                position: "absolute",
-                left: "20px",
-                top: "0px",
-                zIndex: -1,
+                borderRadius: "50%",
+                background: "#344698",
+                zIndex: 1,
               }}
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M20 20C20 31.0457 28.9543 40 40 40H0C11.0457 40 20 31.0457 20 20ZM0 0C11.0457 0 20 8.95435 20 20C20 8.95435 28.9543 0 40 0H0Z"
-                fill="#F5F5F5"
-              />
-            </svg>
+            />
           )}
 
           {/* Date text */}
           <div
             style={{
-              width: "24px",
               color: isSelected ? "#FFF" : "#414651",
               textAlign: "center",
               fontFamily: "Public Sans",
               fontSize: "14px",
-              fontWeight: "500",
+              fontWeight: isSelected ? "600" : "500",
               lineHeight: "20px",
               position: "relative",
-              zIndex: 1,
+              zIndex: 2,
             }}
           >
             {day}
