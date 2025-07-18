@@ -147,9 +147,9 @@ const widgetCards: WidgetCard[] = [
   },
   {
     id: "bar-chart",
-    title: "Widget Title",
+    title: "Analytics Dashboard",
     description:
-      "Lorem ipsum dolor sit amet, consec adipiscing elit. Suspendisse vulputate volutpat mauris, a rhoncus nisi aliquet.",
+      "Visualize your analytics data with customizable charts and detailed performance breakdowns.",
     icon: (
       <svg
         width="20"
