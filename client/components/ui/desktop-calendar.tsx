@@ -591,6 +591,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
   return createPortal(
     <div
       ref={calendarRef}
+      data-date-picker
       onMouseDown={(e) => e.stopPropagation()}
       onClick={(e) => e.stopPropagation()}
       style={{
