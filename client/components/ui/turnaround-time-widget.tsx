@@ -221,6 +221,8 @@ const BarChart: React.FC<BarChartProps> = ({
         alignSelf: "stretch",
         position: "relative",
         overflow: dimensions.overflow,
+        height: "100%", // Ensure full height usage
+        minHeight: isMobile ? "400px" : "356px", // Consistent minimum height
       }}
       onClick={handleContainerClick}
     >
@@ -259,7 +261,7 @@ const BarChart: React.FC<BarChartProps> = ({
       <div
         style={{
           display: "flex",
-          height: "400px",
+          height: "356px", // Fixed height to ensure consistency across breakpoints
           width: "100%",
           minWidth: isMobile ? "400px" : "auto",
           padding: "0px 8px",
