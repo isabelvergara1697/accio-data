@@ -9,6 +9,7 @@ import { TurnaroundTimeWidget } from "../components/ui/turnaround-time-widget";
 import { OrdersByStatusWidget } from "../components/ui/orders-by-status-widget";
 
 import { AssignedTasksWidget } from "../components/ui/assigned-tasks-widget";
+import { BasicWidget } from "../components/ui/basic-widget";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
