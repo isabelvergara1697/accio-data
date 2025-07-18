@@ -545,12 +545,6 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           style={{
             width: "40px",
             height: "40px",
-            borderRadius: "9999px",
-            background: isSelected
-              ? "#344698"
-              : isInRange
-                ? "#F5F5F5"
-                : "transparent",
             cursor: "pointer",
             position: "relative",
             display: "flex",
@@ -558,61 +552,58 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             alignItems: "center",
           }}
         >
-          {/* Range background connectors - only when connecting to adjacent range dates */}
-          {isInRange &&
-            !isFirstInRow &&
-            (() => {
-              const leftDate = new Date(
-                date.getFullYear(),
-                date.getMonth(),
-                date.getDate() - 1,
-              );
-              const isLeftInRange = isDateInRange(
-                leftDate,
-                rangeStartDate,
-                rangeEndDate,
-              );
-              return isLeftInRange ? (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "0",
-                    left: "-20px",
-                    width: "20px",
-                    height: "40px",
-                    background: "#F5F5F5",
-                    zIndex: -1,
-                  }}
-                />
-              ) : null;
-            })()}
-          {isInRange &&
-            !isLastInRow &&
-            (() => {
-              const rightDate = new Date(
-                date.getFullYear(),
-                date.getMonth(),
-                date.getDate() + 1,
-              );
-              const isRightInRange = isDateInRange(
-                rightDate,
-                rangeStartDate,
-                rangeEndDate,
-              );
-              return isRightInRange ? (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "0",
-                    right: "-20px",
-                    width: "20px",
-                    height: "40px",
-                    background: "#F5F5F5",
-                    zIndex: -1,
-                  }}
-                />
-              ) : null;
-            })()}
+          {/* Range background - continuous background approach */}
+          {isInRange && (
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                left:
+                  isRangeStart && !isRangeEnd
+                    ? "20px"
+                    : isRangeEnd && !isRangeStart
+                      ? "-20px"
+                      : isRangeStart && isRangeEnd
+                        ? "0"
+                        : "-20px",
+                right:
+                  isRangeStart && !isRangeEnd
+                    ? "-20px"
+                    : isRangeEnd && !isRangeStart
+                      ? "20px"
+                      : isRangeStart && isRangeEnd
+                        ? "0"
+                        : "-20px",
+                height: "40px",
+                background: "#F5F5F5",
+                zIndex: 0,
+                borderRadius:
+                  isRangeStart && isRangeEnd
+                    ? "20px"
+                    : isRangeStart
+                      ? "20px 0 0 20px"
+                      : isRangeEnd
+                        ? "0 20px 20px 0"
+                        : "0",
+              }}
+            />
+          )}
+
+          {/* Selected date circle overlay */}
+          {isSelected && (
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                background: "#344698",
+                zIndex: 1,
+              }}
+            />
+          )}
 
           {/* Date text */}
           <div
