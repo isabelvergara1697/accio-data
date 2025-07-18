@@ -1334,6 +1334,53 @@ export default function Dashboard() {
                   return null;
                 })}
               </div>
+
+              {/* Third Row - Custom Widgets */}
+              {customWidgets.length > 0 && (
+                <div
+                  style={{
+                    display: "flex",
+                    ...(isMobile
+                      ? {
+                          flexDirection: "column",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                        }
+                      : {
+                          // Flexible row layout for custom widgets
+                          flexDirection: "row",
+                          gap: "16px",
+                          width: "100%",
+                          alignItems: "flex-start",
+                          justifyContent: "flex-start",
+                          overflow: "hidden",
+                          minWidth: 0,
+                        }),
+                  }}
+                >
+                  {customWidgets.map((widgetId, index) => (
+                    <BasicWidget
+                      key={widgetId}
+                      id={widgetId}
+                      position={
+                        index + widgetOrder.length + secondRowWidgets.length
+                      }
+                      size={widgetSizes[widgetId]}
+                      onResize={handleWidgetResize}
+                      isMobile={isMobile}
+                      isTablet={!isMobile && !isDesktop}
+                      windowWidth={windowWidth}
+                      widgetType={
+                        customWidgetTypes[widgetId] as
+                          | "chart"
+                          | "stats"
+                          | "activity"
+                          | "notes"
+                      }
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
