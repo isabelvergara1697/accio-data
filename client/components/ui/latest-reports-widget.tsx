@@ -232,7 +232,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
       isTablet={isTablet}
       windowWidth={windowWidth}
     >
-      {/* Table */}
+      {/* Table Container with proper overflow handling */}
       <div
         style={{
           display: "flex",
@@ -240,25 +240,77 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           alignItems: "flex-start",
           alignSelf: "stretch",
           flex: "1 0 0",
+          overflow: "hidden",
+          minWidth: 0, // Allow flex item to shrink below content size
         }}
       >
-        {/* Table Header */}
         <div
           style={{
             display: "flex",
-            height: "36px",
-            alignItems: "center",
+            flexDirection: "column",
+            alignItems: "flex-start",
             alignSelf: "stretch",
-            borderBottom: "1px solid #E9EAEB",
-            background: "#FFF",
+            flex: "1 0 0",
+            overflow: isMobile ? "auto" : "hidden",
+            minWidth: isMobile ? "100%" : "auto",
           }}
         >
-          {/* Order Header */}
-          {showOrderColumn && (
+          {/* Table Header */}
+          <div
+            style={{
+              display: "flex",
+              height: "36px",
+              alignItems: "center",
+              alignSelf: "stretch",
+              borderBottom: "1px solid #E9EAEB",
+              background: "#FFF",
+            }}
+          >
+            {/* Order Header */}
+            {showOrderColumn && (
+              <div
+                style={{
+                  display: "flex",
+                  width: "77px",
+                  padding: "6px 12px",
+                  alignItems: "center",
+                  gap: "4px",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#717680",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: "600",
+                    lineHeight: "18px",
+                  }}
+                >
+                  Order
+                </div>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            )}
+
+            {/* Status Header */}
             <div
               style={{
                 display: "flex",
-                width: "77px",
+                width: "120px",
                 padding: "6px 12px",
                 alignItems: "center",
                 gap: "4px",
@@ -273,7 +325,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                   lineHeight: "18px",
                 }}
               >
-                Order
+                Status
               </div>
               <svg
                 width="16"
@@ -291,90 +343,12 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                 />
               </svg>
             </div>
-          )}
 
-          {/* Status Header */}
-          <div
-            style={{
-              display: "flex",
-              width: "120px",
-              padding: "6px 12px",
-              alignItems: "center",
-              gap: "4px",
-            }}
-          >
-            <div
-              style={{
-                color: "#717680",
-                fontFamily: "Public Sans",
-                fontSize: "12px",
-                fontWeight: "600",
-                lineHeight: "18px",
-              }}
-            >
-              Status
-            </div>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
-                stroke="#A4A7AE"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-
-          {/* Requester Header */}
-          <div
-            style={{
-              display: "flex",
-              flex: "1 0 0",
-              padding: "6px 12px",
-              alignItems: "center",
-              gap: "4px",
-            }}
-          >
-            <div
-              style={{
-                color: "#717680",
-                fontFamily: "Public Sans",
-                fontSize: "12px",
-                fontWeight: "600",
-                lineHeight: "18px",
-              }}
-            >
-              Requester
-            </div>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
-                stroke="#A4A7AE"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-
-          {/* Progress Header */}
-          {showProgressColumn && (
+            {/* Requester Header */}
             <div
               style={{
                 display: "flex",
-                width: "107px",
+                flex: "1 0 0",
                 padding: "6px 12px",
                 alignItems: "center",
                 gap: "4px",
@@ -389,7 +363,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                   lineHeight: "18px",
                 }}
               >
-                Progress
+                Requester
               </div>
               <svg
                 width="16"
@@ -399,7 +373,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4.66669 9.99984L8.00002 13.3332L11.3334 9.99984M4.66669 5.99984L8.00002 2.6665L11.3334 5.99984"
+                  d="M4.66666 9.99984L7.99999 13.3332L11.3333 9.99984M4.66666 5.99984L7.99999 2.6665L11.3333 5.99984"
                   stroke="#A4A7AE"
                   strokeWidth="1.5"
                   strokeLinecap="round"
@@ -407,129 +381,174 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                 />
               </svg>
             </div>
-          )}
-        </div>
 
-        {/* Table Rows */}
-        {mockReportsData.map((report, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              height: "52px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              borderBottom:
-                index < mockReportsData.length - 1
-                  ? "1px solid #E9EAEB"
-                  : "none",
-              background: "#FFF",
-              cursor: "pointer",
-              position: "relative",
-            }}
-          >
-            {/* Order Cell */}
-            {showOrderColumn && (
-              <div
-                style={{
-                  display: "flex",
-                  width: "77px",
-                  padding: "6px 12px",
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#535862",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: "400",
-                    lineHeight: "20px",
-                  }}
-                >
-                  {report.order}
-                </div>
-              </div>
-            )}
-
-            {/* Status Cell */}
-            <div
-              style={{
-                display: "flex",
-                width: "120px",
-                padding: "6px 12px",
-                alignItems: "center",
-              }}
-            >
-              <StatusBadge status={report.status} />
-            </div>
-
-            {/* Requester Cell */}
-            <div
-              style={{
-                display: "flex",
-                flex: "1 0 0",
-                padding: "6px 12px",
-                alignItems: "center",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  flex: "1 0 0",
-                  alignSelf: "stretch",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#181D27",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    lineHeight: "20px",
-                  }}
-                >
-                  {report.requester.name}
-                </div>
-                <div
-                  style={{
-                    display: "-webkit-box",
-                    WebkitBoxOrient: "vertical",
-                    WebkitLineClamp: 1,
-                    alignSelf: "stretch",
-                    overflow: "hidden",
-                    color: "#535862",
-                    textOverflow: "ellipsis",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: "400",
-                    lineHeight: "20px",
-                  }}
-                >
-                  {report.requester.email}
-                </div>
-              </div>
-            </div>
-
-            {/* Progress Cell */}
+            {/* Progress Header */}
             {showProgressColumn && (
               <div
                 style={{
                   display: "flex",
                   width: "107px",
-                  height: "52px",
                   padding: "6px 12px",
                   alignItems: "center",
-                  gap: "12px",
+                  gap: "4px",
                 }}
               >
-                <ProgressBar percentage={report.progress} />
+                <div
+                  style={{
+                    color: "#717680",
+                    fontFamily: "Public Sans",
+                    fontSize: "12px",
+                    fontWeight: "600",
+                    lineHeight: "18px",
+                  }}
+                >
+                  Progress
+                </div>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.66669 9.99984L8.00002 13.3332L11.3334 9.99984M4.66669 5.99984L8.00002 2.6665L11.3334 5.99984"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
             )}
           </div>
-        ))}
+
+          {/* Table Rows */}
+          {mockReportsData.map((report, index) => (
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                height: "52px",
+                alignItems: "center",
+                alignSelf: "stretch",
+                minWidth: isMobile ? "320px" : "auto", // Ensure minimum width on mobile
+                borderBottom:
+                  index < mockReportsData.length - 1
+                    ? "1px solid #E9EAEB"
+                    : "none",
+                background: "#FFF",
+                cursor: "pointer",
+                position: "relative",
+              }}
+            >
+              {/* Order Cell */}
+              {showOrderColumn && (
+                <div
+                  style={{
+                    display: "flex",
+                    width: "77px",
+                    padding: "6px 12px",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: "400",
+                      lineHeight: "20px",
+                    }}
+                  >
+                    {report.order}
+                  </div>
+                </div>
+              )}
+
+              {/* Status Cell */}
+              <div
+                style={{
+                  display: "flex",
+                  width: "120px",
+                  padding: "6px 12px",
+                  alignItems: "center",
+                }}
+              >
+                <StatusBadge status={report.status} />
+              </div>
+
+              {/* Requester Cell */}
+              <div
+                style={{
+                  display: "flex",
+                  flex: "1 0 0",
+                  padding: "6px 12px",
+                  alignItems: "center",
+                  minWidth: 0, // Allow truncation
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    flex: "1 0 0",
+                    alignSelf: "stretch",
+                    minWidth: 0, // Allow truncation
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      lineHeight: "20px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                      width: "100%",
+                    }}
+                  >
+                    {report.requester.name}
+                  </div>
+                  <div
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: "400",
+                      lineHeight: "20px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                      width: "100%",
+                    }}
+                  >
+                    {report.requester.email}
+                  </div>
+                </div>
+              </div>
+
+              {/* Progress Cell */}
+              {showProgressColumn && (
+                <div
+                  style={{
+                    display: "flex",
+                    width: "107px",
+                    height: "52px",
+                    padding: "6px 12px",
+                    alignItems: "center",
+                    gap: "12px",
+                  }}
+                >
+                  <ProgressBar percentage={report.progress} />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </WidgetContainer>
   );
