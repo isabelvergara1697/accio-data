@@ -606,33 +606,18 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             </svg>
           )}
 
-          {/* Selected date circle */}
-          {isSelected && (
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left: "0",
-                width: "40px",
-                height: "40px",
-                borderRadius: "50%",
-                background: "#344698",
-                zIndex: 1,
-              }}
-            />
-          )}
-
           {/* Date text */}
           <div
             style={{
+              width: "24px",
               color: isSelected ? "#FFF" : "#414651",
               textAlign: "center",
               fontFamily: "Public Sans",
               fontSize: "14px",
-              fontWeight: isSelected ? "600" : "500",
+              fontWeight: "500",
               lineHeight: "20px",
               position: "relative",
-              zIndex: 2,
+              zIndex: 1,
             }}
           >
             {day}
