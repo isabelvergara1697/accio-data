@@ -7,6 +7,7 @@ import { MetricCard } from "../components/ui/metric-card";
 import { LatestReportsWidget } from "../components/ui/latest-reports-widget";
 import { TurnaroundTimeWidget } from "../components/ui/turnaround-time-widget";
 import { OrdersByStatusWidget } from "../components/ui/orders-by-status-widget";
+import { RevenueOverviewWidget } from "../components/ui/revenue-overview-widget";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
@@ -127,6 +128,7 @@ export default function Dashboard() {
   // Second row widgets
   const [secondRowWidgets, setSecondRowWidgets] = useState<string[]>([
     "orders-by-status",
+    "revenue-overview",
   ]);
 
   // Widget sizes state - using flex-based sizes for 2x2 grid
@@ -136,6 +138,7 @@ export default function Dashboard() {
     "latest-reports": "md",
     "turnaround-time": "md",
     "orders-by-status": "md",
+    "revenue-overview": "md",
   });
 
   // Initial widget configuration
@@ -143,6 +146,7 @@ export default function Dashboard() {
     { id: "latest-reports", title: "Latest Reports", position: 0 },
     { id: "turnaround-time", title: "Turnaround Time", position: 1 },
     { id: "orders-by-status", title: "Orders by Status", position: 2 },
+    { id: "revenue-overview", title: "Revenue Overview", position: 3 },
   ];
   const [showNotification, setShowNotification] = useState(false);
   const [orderNotification, setOrderNotification] = useState<{
@@ -1173,6 +1177,20 @@ export default function Dashboard() {
                   if (widgetId === "orders-by-status") {
                     return (
                       <OrdersByStatusWidget
+                        key={widgetId}
+                        id={widgetId}
+                        position={index + widgetOrder.length}
+                        size={widgetSizes[widgetId]}
+                        onResize={handleWidgetResize}
+                        isMobile={isMobile}
+                        isTablet={!isMobile && !isDesktop}
+                        windowWidth={windowWidth}
+                      />
+                    );
+                  }
+                  if (widgetId === "revenue-overview") {
+                    return (
+                      <RevenueOverviewWidget
                         key={widgetId}
                         id={widgetId}
                         position={index + widgetOrder.length}
