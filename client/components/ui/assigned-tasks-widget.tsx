@@ -147,6 +147,16 @@ export const AssignedTasksWidget: React.FC<AssignedTasksWidgetProps> = ({
         alignSelf: "stretch",
         borderRadius: "12px",
         cursor: "pointer",
+        background: hoveredTask === task.id ? "#F5F5F5" : "transparent",
+        border:
+          hoveredTask === task.id
+            ? "1px solid #D5D7DA"
+            : "1px solid transparent",
+        boxShadow:
+          hoveredTask === task.id
+            ? "0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
+            : "none",
+        transition: "all 0.2s ease-in-out",
       }}
       onMouseEnter={() => setHoveredTask(task.id)}
       onMouseLeave={() => setHoveredTask(null)}
