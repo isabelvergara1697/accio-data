@@ -232,27 +232,22 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     return "#FDFDFD";
   };
 
-  // Get widget dimensions based on size
+  // Get widget dimensions based on size - only width changes, height is fixed
   const getWidgetDimensions = (widgetSize: WidgetSize) => {
+    const fixedHeight = "400px"; // Fixed height for all sizes on all breakpoints
+
     if (isMobile) {
-      // On mobile, widgets should take full width but vary in height
-      const dimensions = {
-        xs: { width: "100%", height: "280px" },
-        sm: { width: "100%", height: "320px" },
-        md: { width: "100%", height: "400px" },
-        lg: { width: "100%", height: "480px" },
-        xl: { width: "100%", height: "560px" },
-      };
-      return dimensions[widgetSize];
+      // On mobile, widgets should take full width with fixed height
+      return { width: "100%", height: fixedHeight };
     }
 
-    // Desktop/tablet dimensions
+    // Desktop/tablet dimensions - only width varies, height is fixed
     const dimensions = {
-      xs: { width: "240px", height: "300px" },
-      sm: { width: "300px", height: "360px" },
-      md: { width: "400px", height: "480px" },
-      lg: { width: "500px", height: "600px" },
-      xl: { width: "600px", height: "720px" },
+      xs: { width: "240px", height: fixedHeight },
+      sm: { width: "300px", height: fixedHeight },
+      md: { width: "400px", height: fixedHeight },
+      lg: { width: "500px", height: fixedHeight },
+      xl: { width: "600px", height: fixedHeight },
     };
     return dimensions[widgetSize];
   };
@@ -274,34 +269,23 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     return currentSize;
   };
 
-  // Handle resize functionality
+  // Handle resize functionality - only horizontal resizing
   const handleResizeStart = (e: React.MouseEvent, handle: string) => {
     e.preventDefault();
     e.stopPropagation();
     setIsResizing(true);
     setResizeHandle(handle);
 
-    const startY = e.clientY;
     const startX = e.clientX;
     let hasResized = false;
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
-      const deltaY = moveEvent.clientY - startY;
       const deltaX = moveEvent.clientX - startX;
 
-      // Determine resize direction based on movement and handle
+      // Determine resize direction based on movement and handle - only horizontal
       let direction: "increase" | "decrease" | null = null;
 
-      // For vertical handles (top/bottom)
-      if (handle.includes("top")) {
-        if (deltaY < -50) direction = "increase";
-        else if (deltaY > 50) direction = "decrease";
-      } else if (handle.includes("bottom")) {
-        if (deltaY > 50) direction = "increase";
-        else if (deltaY < -50) direction = "decrease";
-      }
-
-      // For horizontal handles (left/right)
+      // For horizontal handles only (left/right)
       if (handle.includes("left")) {
         if (deltaX < -50) direction = "increase";
         else if (deltaX > 50) direction = "decrease";
@@ -311,11 +295,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       }
 
       // Only resize if movement is significant enough and we haven't resized yet
-      if (
-        direction &&
-        !hasResized &&
-        (Math.abs(deltaY) > 50 || Math.abs(deltaX) > 50)
-      ) {
+      if (direction && !hasResized && Math.abs(deltaX) > 50) {
         const newSize = getSizeChange(size, direction);
         if (newSize !== size && onResize) {
           onResize(id, newSize);
@@ -835,175 +815,55 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
             {children}
           </div>
 
-          {/* Resize Handles - appear on hover */}
-          {(isWidgetHovered || isResizing) && !isDragging && (
-            <>
-              {/* Top resize handle */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-4px",
-                  left: "10%",
-                  right: "10%",
-                  height: "8px",
-                  cursor: "ns-resize",
-                  zIndex: 1001,
-                  background:
-                    isResizing && resizeHandle === "top"
-                      ? "rgba(52, 71, 154, 0.3)"
-                      : "transparent",
-                  borderRadius: "4px",
-                }}
-                onMouseDown={(e) => handleResizeStart(e, "top")}
-                onMouseEnter={() => setIsBorderHovered(true)}
-                onMouseLeave={() => setIsBorderHovered(false)}
-              />
+          {/* Resize Handles - appear on hover (desktop only, width only) */}
+          {(isWidgetHovered || isResizing) &&
+            !isDragging &&
+            !isMobile &&
+            !isTablet && (
+              <>
+                {/* Left resize handle */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "-4px",
+                    top: "10%",
+                    bottom: "10%",
+                    width: "8px",
+                    cursor: "ew-resize",
+                    zIndex: 1001,
+                    background:
+                      isResizing && resizeHandle === "left"
+                        ? "rgba(52, 71, 154, 0.3)"
+                        : "transparent",
+                    borderRadius: "4px",
+                  }}
+                  onMouseDown={(e) => handleResizeStart(e, "left")}
+                  onMouseEnter={() => setIsBorderHovered(true)}
+                  onMouseLeave={() => setIsBorderHovered(false)}
+                />
 
-              {/* Bottom resize handle */}
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "-4px",
-                  left: "10%",
-                  right: "10%",
-                  height: "8px",
-                  cursor: "ns-resize",
-                  zIndex: 1001,
-                  background:
-                    isResizing && resizeHandle === "bottom"
-                      ? "rgba(52, 71, 154, 0.3)"
-                      : "transparent",
-                  borderRadius: "4px",
-                }}
-                onMouseDown={(e) => handleResizeStart(e, "bottom")}
-                onMouseEnter={() => setIsBorderHovered(true)}
-                onMouseLeave={() => setIsBorderHovered(false)}
-              />
-
-              {/* Left resize handle */}
-              <div
-                style={{
-                  position: "absolute",
-                  left: "-4px",
-                  top: "10%",
-                  bottom: "10%",
-                  width: "8px",
-                  cursor: "ew-resize",
-                  zIndex: 1001,
-                  background:
-                    isResizing && resizeHandle === "left"
-                      ? "rgba(52, 71, 154, 0.3)"
-                      : "transparent",
-                  borderRadius: "4px",
-                }}
-                onMouseDown={(e) => handleResizeStart(e, "left")}
-                onMouseEnter={() => setIsBorderHovered(true)}
-                onMouseLeave={() => setIsBorderHovered(false)}
-              />
-
-              {/* Right resize handle */}
-              <div
-                style={{
-                  position: "absolute",
-                  right: "-4px",
-                  top: "10%",
-                  bottom: "10%",
-                  width: "8px",
-                  cursor: "ew-resize",
-                  zIndex: 1001,
-                  background:
-                    isResizing && resizeHandle === "right"
-                      ? "rgba(52, 71, 154, 0.3)"
-                      : "transparent",
-                  borderRadius: "4px",
-                }}
-                onMouseDown={(e) => handleResizeStart(e, "right")}
-                onMouseEnter={() => setIsBorderHovered(true)}
-                onMouseLeave={() => setIsBorderHovered(false)}
-              />
-
-              {/* Corner resize handles */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-4px",
-                  left: "-4px",
-                  width: "12px",
-                  height: "12px",
-                  cursor: "nw-resize",
-                  zIndex: 1001,
-                  background:
-                    isResizing && resizeHandle === "top-left"
-                      ? "rgba(52, 71, 154, 0.3)"
-                      : "transparent",
-                  borderRadius: "6px",
-                }}
-                onMouseDown={(e) => handleResizeStart(e, "top-left")}
-                onMouseEnter={() => setIsBorderHovered(true)}
-                onMouseLeave={() => setIsBorderHovered(false)}
-              />
-
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-4px",
-                  right: "-4px",
-                  width: "12px",
-                  height: "12px",
-                  cursor: "ne-resize",
-                  zIndex: 1001,
-                  background:
-                    isResizing && resizeHandle === "top-right"
-                      ? "rgba(52, 71, 154, 0.3)"
-                      : "transparent",
-                  borderRadius: "6px",
-                }}
-                onMouseDown={(e) => handleResizeStart(e, "top-right")}
-                onMouseEnter={() => setIsBorderHovered(true)}
-                onMouseLeave={() => setIsBorderHovered(false)}
-              />
-
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "-4px",
-                  left: "-4px",
-                  width: "12px",
-                  height: "12px",
-                  cursor: "sw-resize",
-                  zIndex: 1001,
-                  background:
-                    isResizing && resizeHandle === "bottom-left"
-                      ? "rgba(52, 71, 154, 0.3)"
-                      : "transparent",
-                  borderRadius: "6px",
-                }}
-                onMouseDown={(e) => handleResizeStart(e, "bottom-left")}
-                onMouseEnter={() => setIsBorderHovered(true)}
-                onMouseLeave={() => setIsBorderHovered(false)}
-              />
-
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "-4px",
-                  right: "-4px",
-                  width: "12px",
-                  height: "12px",
-                  cursor: "se-resize",
-                  zIndex: 1001,
-                  background:
-                    isResizing && resizeHandle === "bottom-right"
-                      ? "rgba(52, 71, 154, 0.3)"
-                      : "transparent",
-                  borderRadius: "6px",
-                }}
-                onMouseDown={(e) => handleResizeStart(e, "bottom-right")}
-                onMouseEnter={() => setIsBorderHovered(true)}
-                onMouseLeave={() => setIsBorderHovered(false)}
-              />
-            </>
-          )}
+                {/* Right resize handle */}
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "-4px",
+                    top: "10%",
+                    bottom: "10%",
+                    width: "8px",
+                    cursor: "ew-resize",
+                    zIndex: 1001,
+                    background:
+                      isResizing && resizeHandle === "right"
+                        ? "rgba(52, 71, 154, 0.3)"
+                        : "transparent",
+                    borderRadius: "4px",
+                  }}
+                  onMouseDown={(e) => handleResizeStart(e, "right")}
+                  onMouseEnter={() => setIsBorderHovered(true)}
+                  onMouseLeave={() => setIsBorderHovered(false)}
+                />
+              </>
+            )}
 
           {/* Drag Overlay - blue overlay that appears during drag */}
           {isDragging && (
