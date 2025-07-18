@@ -37,6 +37,8 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   chart = {},
   isMobile = false,
 }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
   const {
     trend: chartTrend = "positive",
     backgroundColor = "#344698",
