@@ -1087,7 +1087,7 @@ export default function Dashboard() {
             >
               <div
                 style={{
-                  display: isMobile ? "flex" : "grid",
+                  display: "flex",
                   ...(isMobile
                     ? {
                         flexDirection: "column",
@@ -1095,12 +1095,11 @@ export default function Dashboard() {
                         alignSelf: "stretch",
                       }
                     : {
-                        gridTemplateColumns:
-                          "repeat(auto-fit, minmax(240px, 1fr))",
+                        flexWrap: "wrap",
                         gap: "16px",
                         width: "100%",
-                        alignItems: "start",
-                        justifyItems: "start",
+                        alignItems: "flex-start",
+                        alignContent: "flex-start",
                       }),
                 }}
               >
