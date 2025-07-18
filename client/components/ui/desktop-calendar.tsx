@@ -932,7 +932,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                     display: "flex",
                     alignItems: "flex-start",
                     alignContent: "flex-start",
-                    gap: "4px 0px",
+                    gap: "0px",
                     alignSelf: "stretch",
                     flexWrap: "wrap",
                     justifyContent: "center",
