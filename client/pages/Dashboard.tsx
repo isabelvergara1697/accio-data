@@ -997,6 +997,19 @@ export default function Dashboard() {
             >
               <div
                 style={{
+                  padding: "10px",
+                  background: "yellow",
+                  color: "black",
+                  fontSize: "14px",
+                }}
+              >
+                DEBUG: Dashboard Widgets Section - isMobile:{" "}
+                {isMobile.toString()}, isTablet:{" "}
+                {(!isMobile && !isDesktop).toString()}, isDesktop:{" "}
+                {isDesktop.toString()}, windowWidth: {windowWidth}
+              </div>
+              <div
+                style={{
                   display: isMobile ? "flex" : "grid",
                   ...(isMobile
                     ? {
