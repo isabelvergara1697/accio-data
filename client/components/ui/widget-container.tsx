@@ -109,24 +109,36 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
 
   // Drag and drop event handlers
   const handleDragStart = (e: React.DragEvent) => {
-    console.log("Drag start for widget:", id);
+    console.log("🚀 DRAG START for widget:", id, "Event:", e);
+    console.log("Target element:", e.target);
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/plain", id);
     startDrag(widgetInfo);
     setShowDragPlaceholder(true);
+    console.log("✅ Drag start setup complete");
   };
 
   const handleDragEnd = () => {
-    console.log("Drag end for widget:", id);
+    console.log("🏁 DRAG END for widget:", id);
     endDrag();
     setShowDragPlaceholder(false);
     setIsDragOver(false);
+    console.log("✅ Drag end cleanup complete");
   };
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
     e.dataTransfer.dropEffect = "move";
+    console.log(
+      "📍 DRAG OVER widget:",
+      id,
+      "isDragging:",
+      isDragging,
+      "isGlobalDragging:",
+      isGlobalDragging,
+    );
     if (!isDragging && isGlobalDragging) {
+      console.log("✅ Setting drag over state for:", id);
       setIsDragOver(true);
       setDropTarget(id);
     }
