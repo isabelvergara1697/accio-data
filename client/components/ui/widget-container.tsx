@@ -88,7 +88,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       tempContainer.style.top = "-9999px";
       tempContainer.style.left = "-9999px";
       tempContainer.style.pointerEvents = "none";
-      tempContainer.style.transform = "scale(0.6)";
+      tempContainer.style.transform = "scale(0.4)";
       tempContainer.style.transformOrigin = "top left";
 
       // Clone the widget and add to temp container
@@ -99,8 +99,8 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       const rect = widgetElement.getBoundingClientRect();
       e.dataTransfer.setDragImage(
         tempContainer,
-        (rect.width * 0.6) / 2,
-        (rect.height * 0.6) / 2,
+        (rect.width * 0.4) / 2,
+        (rect.height * 0.4) / 2,
       );
 
       // Clean up after drag starts
