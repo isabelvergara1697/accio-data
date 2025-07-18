@@ -1018,6 +1018,7 @@ export default function Dashboard() {
                 />
                 <TurnaroundTimeWidget
                   isMobile={isMobile}
+                  isTablet={!isMobile && !isDesktop}
                   windowWidth={windowWidth}
                 />
               </div>
