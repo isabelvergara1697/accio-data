@@ -77,7 +77,18 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     e.dataTransfer.setData("text/plain", id);
     setIsDragging(true);
 
-    // Use default drag image to prevent any scaling issues
+    // Create ghost image of the entire widget container
+    const widgetElement = e.currentTarget.closest(
+      "[data-widget-container]",
+    ) as HTMLElement;
+    if (widgetElement) {
+      const rect = widgetElement.getBoundingClientRect();
+      e.dataTransfer.setDragImage(
+        widgetElement,
+        rect.width / 2,
+        rect.height / 2,
+      );
+    }
   };
 
   const handleDragEnd = () => {
@@ -230,7 +241,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           transition: "all 0.2s ease-in-out",
           cursor: isBorderHovered ? "ew-resize" : "default",
           opacity: isDragging ? 0.3 : 1,
-          transform: "none",
+          transform: isDragging ? "rotate(2deg)" : "none",
           zIndex: isDragging ? 1000 : "auto",
         }}
         onMouseEnter={() => setIsWidgetHovered(true)}
