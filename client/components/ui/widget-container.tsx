@@ -587,7 +587,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   <div
                     style={{
                       position: "absolute",
-                      bottom: "30px",
+                      top: "30px",
                       left: "50%",
                       transform: "translateX(-50%)",
                       padding: "8px 12px",
