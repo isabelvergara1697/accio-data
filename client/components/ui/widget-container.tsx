@@ -244,9 +244,6 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
 
       {/* Main Widget Container */}
       <div
-        draggable={isDragButtonHovered}
-        onDragStart={handleDragStart}
-        onDragEnd={handleDragEnd}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
@@ -325,7 +322,10 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   zIndex: 10,
                 }}
               >
-                <button
+                <div
+                  draggable={true}
+                  onDragStart={handleDragStart}
+                  onDragEnd={handleDragEnd}
                   style={{
                     display: "flex",
                     width: "20px",
@@ -344,10 +344,10 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   onMouseEnter={() => setIsDragButtonHovered(true)}
                   onMouseLeave={() => setIsDragButtonHovered(false)}
                   onMouseDown={(e) => {
-                    e.currentTarget.style.cursor = "grabbing";
+                    (e.currentTarget as HTMLElement).style.cursor = "grabbing";
                   }}
                   onMouseUp={(e) => {
-                    e.currentTarget.style.cursor = "grab";
+                    (e.currentTarget as HTMLElement).style.cursor = "grab";
                   }}
                 >
                   <svg
@@ -400,7 +400,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                       strokeLinejoin="round"
                     />
                   </svg>
-                </button>
+                </div>
 
                 {/* Tooltip */}
                 {isDragButtonHovered && (
