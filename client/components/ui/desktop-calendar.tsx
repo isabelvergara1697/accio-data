@@ -527,8 +527,8 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           {/* Selected date circle */}
           <div
             style={{
-              width: "32px",
-              height: "32px",
+              width: "40px",
+              height: "40px",
               borderRadius: "50%",
               background: isSelected ? "#344698" : "transparent",
               display: "flex",
