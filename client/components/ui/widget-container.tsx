@@ -6,6 +6,8 @@ import {
   DropdownMenuTrigger,
 } from "./dropdown-menu";
 
+type WidgetSize = "xs" | "sm" | "md" | "lg" | "xl";
+
 interface WidgetContainerProps {
   /** Widget unique identifier */
   id: string;
@@ -13,6 +15,8 @@ interface WidgetContainerProps {
   title: string;
   /** Widget position in the layout */
   position?: number;
+  /** Widget size */
+  size?: WidgetSize;
   /** Optional help icon tooltip */
   helpTooltip?: string;
   /** Children content to render inside the widget */
@@ -23,6 +27,8 @@ interface WidgetContainerProps {
   onDownloadChart?: () => void;
   /** Optional remove widget click handler */
   onRemoveWidget?: () => void;
+  /** Optional resize handler */
+  onResize?: (id: string, newSize: WidgetSize) => void;
   /** Whether this is mobile view */
   isMobile?: boolean;
   /** Whether this is tablet view */
@@ -35,11 +41,13 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
   id,
   title,
   position = 0,
+  size = "md",
   helpTooltip,
   children,
   onSeeAllClick,
   onDownloadChart,
   onRemoveWidget,
+  onResize,
   isMobile = false,
   isTablet = false,
   windowWidth = 1024,
@@ -53,6 +61,8 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
   const [draggedOverSide, setDraggedOverSide] = React.useState<
     "left" | "right" | null
   >(null);
+  const [isResizing, setIsResizing] = React.useState(false);
+  const [resizeHandle, setResizeHandle] = React.useState<string | null>(null);
 
   // Add props for reordering
   const [widgets, setWidgets] = React.useState<
@@ -222,8 +232,95 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     return "#FDFDFD";
   };
 
-  // Handle border hover detection
+  // Get widget dimensions based on size
+  const getWidgetDimensions = (widgetSize: WidgetSize) => {
+    const dimensions = {
+      xs: { width: "200px", height: "300px" },
+      sm: { width: "252px", height: "360px" },
+      md: { width: "400px", height: "480px" },
+      lg: { width: "600px", height: "600px" },
+      xl: { width: "800px", height: "720px" },
+    };
+    return dimensions[widgetSize];
+  };
+
+  // Get next/previous size for resizing
+  const getSizeChange = (
+    currentSize: WidgetSize,
+    direction: "increase" | "decrease",
+  ): WidgetSize => {
+    const sizes: WidgetSize[] = ["xs", "sm", "md", "lg", "xl"];
+    const currentIndex = sizes.indexOf(currentSize);
+
+    if (direction === "increase" && currentIndex < sizes.length - 1) {
+      return sizes[currentIndex + 1];
+    }
+    if (direction === "decrease" && currentIndex > 0) {
+      return sizes[currentIndex - 1];
+    }
+    return currentSize;
+  };
+
+  // Handle resize functionality
+  const handleResizeStart = (e: React.MouseEvent, handle: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsResizing(true);
+    setResizeHandle(handle);
+
+    const startY = e.clientY;
+    const startX = e.clientX;
+
+    const handleMouseMove = (moveEvent: MouseEvent) => {
+      const deltaY = moveEvent.clientY - startY;
+      const deltaX = moveEvent.clientX - startX;
+
+      // Determine resize direction based on movement and handle
+      let direction: "increase" | "decrease" = "increase";
+
+      if (handle.includes("top")) {
+        direction =
+          deltaY < -30 ? "increase" : deltaY > 30 ? "decrease" : direction;
+      } else if (handle.includes("bottom")) {
+        direction =
+          deltaY > 30 ? "increase" : deltaY < -30 ? "decrease" : direction;
+      } else if (handle.includes("left")) {
+        direction =
+          deltaX < -30 ? "increase" : deltaX > 30 ? "decrease" : direction;
+      } else if (handle.includes("right")) {
+        direction =
+          deltaX > 30 ? "increase" : deltaX < -30 ? "decrease" : direction;
+      }
+
+      // Only resize if movement is significant enough
+      if (Math.abs(deltaY) > 30 || Math.abs(deltaX) > 30) {
+        const newSize = getSizeChange(size, direction);
+        if (newSize !== size && onResize) {
+          onResize(id, newSize);
+        }
+        handleResizeEnd();
+      }
+    };
+
+    const handleMouseUp = () => {
+      handleResizeEnd();
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
+
+  const handleResizeEnd = () => {
+    setIsResizing(false);
+    setResizeHandle(null);
+    document.removeEventListener("mousemove", () => {});
+    document.removeEventListener("mouseup", () => {});
+  };
+
+  // Handle border hover detection for resize handles
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isResizing || isDragging) return;
+
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
