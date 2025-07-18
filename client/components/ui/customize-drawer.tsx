@@ -173,6 +173,8 @@ const widgetCards: WidgetCard[] = [
 export default function CustomizeDrawer({
   isOpen,
   onClose,
+  onAddWidget,
+  customWidgetCount = 0,
 }: CustomizeDrawerProps) {
   // Responsive detection
   const [isDesktop, setIsDesktop] = useState(true);
