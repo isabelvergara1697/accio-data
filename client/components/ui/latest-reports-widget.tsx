@@ -221,14 +221,6 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
   const showOrderColumn = windowWidth >= 640;
   const showProgressColumn = windowWidth >= 480;
 
-  console.log("LatestReportsWidget rendering:", {
-    isMobile,
-    isTablet,
-    windowWidth,
-    showOrderColumn,
-    showProgressColumn,
-  });
-
   return (
     <WidgetContainer
       title="Latest Reports"
@@ -240,18 +232,6 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
       isTablet={isTablet}
       windowWidth={windowWidth}
     >
-      <div
-        style={{
-          padding: "20px",
-          background: "blue",
-          color: "white",
-          fontSize: "16px",
-        }}
-      >
-        DEBUG: Latest Reports Widget content is rendering! isMobile:{" "}
-        {isMobile.toString()}, isTablet: {isTablet.toString()}, windowWidth:{" "}
-        {windowWidth}
-      </div>
       {/* Table Container with proper overflow handling */}
       <div
         style={{
