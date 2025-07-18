@@ -321,7 +321,12 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
   };
 
   // Handle date clicks
-  const handleDateClick = (date: Date) => {
+  const handleDateClick = (date: Date, event?: React.MouseEvent) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     setSelectedPreset(""); // Clear preset when manually selecting
 
     if (!isSelectingRange) {
@@ -331,6 +336,8 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       setWorkingStartDate(date);
       setWorkingEndDate(date);
       setHoverDate(null);
+      setStartInput(formatDate(date));
+      setEndInput(formatDate(date));
     } else {
       // Complete selection
       if (rangeStart) {
@@ -481,7 +488,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       days.push(
         <div
           key={`day-${day}`}
-          onClick={() => handleDateClick(date)}
+          onClick={(e) => handleDateClick(date, e)}
           onMouseEnter={() => handleDateHover(date)}
           style={{
             width: "40px",
@@ -497,6 +504,8 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            userSelect: "none",
+            zIndex: 1,
           }}
         >
           {/* Range background connectors */}
