@@ -618,7 +618,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           padding: "12px",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "4px 0px",
+          gap: "4px",
           alignSelf: "stretch",
           borderRight: "1px solid #E9EAEB",
         }}
@@ -632,18 +632,18 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             }}
             style={{
               display: "flex",
-              padding: "8px 12px",
+              padding: "10px 12px",
               alignItems: "center",
               alignSelf: "stretch",
-              borderRadius: "6px",
-              background: selectedPreset === preset ? "#F5F5F5" : "transparent",
+              borderRadius: "8px",
+              background: selectedPreset === preset ? "#E8ECFA" : "transparent",
               border: "none",
               cursor: "pointer",
-              transition: "background-color 0.15s ease",
-              color: selectedPreset === preset ? "#252B37" : "#717680",
+              transition: "all 0.15s ease",
+              color: selectedPreset === preset ? "#344698" : "#717680",
               fontFamily: "Public Sans",
               fontSize: "14px",
-              fontWeight: "400",
+              fontWeight: selectedPreset === preset ? "600" : "400",
               lineHeight: "20px",
               textAlign: "left",
             }}
