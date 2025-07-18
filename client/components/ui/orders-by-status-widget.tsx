@@ -191,12 +191,6 @@ const Legend: React.FC<LegendProps> = ({
               gap: "8px",
               alignSelf: "stretch",
               cursor: "pointer",
-              padding: "2px 0",
-              borderRadius: "4px",
-              backgroundColor: isHovered
-                ? "rgba(52, 71, 154, 0.08)"
-                : "transparent",
-              transition: "background-color 0.2s ease-in-out",
             }}
             onMouseEnter={() => onLegendHover?.(item, index)}
             onMouseLeave={() => onLegendHover?.(null, null)}
@@ -214,24 +208,24 @@ const Legend: React.FC<LegendProps> = ({
                   width: "8px",
                   height: "8px",
                   borderRadius: "50%",
-                  backgroundColor: item.color,
+                  backgroundColor: isHovered ? "#181D27" : item.color,
                   border: "0.5px solid rgba(0, 0, 0, 0.1)",
                   flexShrink: 0,
+                  transition: "background-color 0.2s ease-in-out",
                 }}
               />
             </div>
             <div
               style={{
-                color: isHovered ? "#34479A" : "#535862",
+                color: isHovered ? "#181D27" : "#535862",
                 fontFamily: "Public Sans",
                 fontSize: compact ? "12px" : "14px",
-                fontWeight: isHovered ? "600" : "400",
+                fontWeight: "400",
                 lineHeight: compact ? "16px" : "20px",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
-                transition:
-                  "color 0.2s ease-in-out, font-weight 0.2s ease-in-out",
+                transition: "color 0.2s ease-in-out",
               }}
             >
               {item.label}
