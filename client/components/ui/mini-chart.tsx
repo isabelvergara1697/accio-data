@@ -59,7 +59,7 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         minWidth: "80px",
       }}
     >
-      {/* Single SVG with scaling paths and fixed-size circles */}
+      {/* Single SVG with consistent scaling and aspect ratio */}
       <svg
         style={{
           width: "100%",
@@ -67,7 +67,7 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           display: "block",
         }}
         viewBox="0 0 103 56"
-        preserveAspectRatio="none"
+        preserveAspectRatio="xMidYMid meet"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
