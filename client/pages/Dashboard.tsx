@@ -301,10 +301,8 @@ export default function Dashboard() {
           transition: "background-color 0.2s ease-in-out",
           ...(isMobile ? { alignSelf: "stretch" } : {}),
         }}
-      >
-    );
-  };
-      <svg
+            >
+        <svg
         width="16"
         height="16"
         viewBox="0 0 16 16"
