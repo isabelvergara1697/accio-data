@@ -51,6 +51,21 @@ export const MetricCard: React.FC<MetricCardProps> = ({
       ? trend.color || "#079455"
       : trend.color || "#D92D20";
 
+  // Hover state styling functions
+  const getCardBorder = () => {
+    return isHovered ? "1px solid #D5D7DA" : "1px solid #E9EAEB";
+  };
+
+  const getCardShadow = () => {
+    return isHovered
+      ? "0px 1px 3px 0px rgba(10, 13, 18, 0.10), 0px 1px 2px -1px rgba(10, 13, 18, 0.10)"
+      : "0px 1px 2px 0px rgba(10, 13, 18, 0.05)";
+  };
+
+  const getCardBackground = () => {
+    return isHovered ? "#FAFBFC" : "#FFF";
+  };
+
   const trendIcon =
     trend.direction === "up" ? (
       <svg
