@@ -364,18 +364,14 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                   }}
                   onMouseEnter={() => setIsDragButtonHovered(true)}
                   onMouseLeave={() => setIsDragButtonHovered(false)}
-                  onClick={() => {
-                    console.log("Drag button clicked - testing states");
-                    // Test visual states
-                    setShowDragPlaceholder(!showDragPlaceholder);
-                    setIsDragOver(!isDragOver);
-                  }}
                   onMouseDown={(e) => {
-                    console.log("Drag button mouse down");
+                    console.log(
+                      "🖱️ Drag button mouse down - preparing for drag",
+                    );
                     (e.currentTarget as HTMLElement).style.cursor = "grabbing";
                   }}
                   onMouseUp={(e) => {
-                    console.log("Drag button mouse up");
+                    console.log("🖱️ Drag button mouse up");
                     (e.currentTarget as HTMLElement).style.cursor = "grab";
                   }}
                 >
