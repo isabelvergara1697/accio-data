@@ -10,6 +10,7 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
 import DesktopCalendar from "../components/ui/desktop-calendar";
+import { DragDropProvider, WidgetInfo } from "../contexts/DragDropContext";
 
 // Add styles for mobile responsiveness and scroll behavior
 const dashboardStyles = `
@@ -115,6 +116,12 @@ const dashboardStyles = `
 export default function Dashboard() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+
+  // Initial widget configuration
+  const initialWidgets: WidgetInfo[] = [
+    { id: "latest-reports", title: "Latest Reports", position: 0 },
+    { id: "turnaround-time", title: "Turnaround Time", position: 1 },
+  ];
   const [showNotification, setShowNotification] = useState(false);
   const [orderNotification, setOrderNotification] = useState<{
     show: boolean;
@@ -508,7 +515,7 @@ export default function Dashboard() {
   );
 
   return (
-    <>
+    <DragDropProvider initialWidgets={initialWidgets}>
       <style dangerouslySetInnerHTML={{ __html: dashboardStyles }} />
 
       {/* Success Notification - Positioned at the very top */}
@@ -1013,11 +1020,15 @@ export default function Dashboard() {
                 }}
               >
                 <LatestReportsWidget
+                  id="latest-reports"
+                  position={0}
                   isMobile={isMobile}
                   isTablet={!isMobile && !isDesktop}
                   windowWidth={windowWidth}
                 />
                 <TurnaroundTimeWidget
+                  id="turnaround-time"
+                  position={1}
                   isMobile={isMobile}
                   isTablet={!isMobile && !isDesktop}
                   windowWidth={windowWidth}
@@ -1054,6 +1065,6 @@ export default function Dashboard() {
           onDateChange={handleDateChange}
         />
       )}
-    </>
+    </DragDropProvider>
   );
 }
