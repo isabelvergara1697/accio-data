@@ -256,21 +256,6 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             position: "relative",
           }}
         >
-          {/* Debug test */}
-          <div
-            style={{
-              position: "absolute",
-              top: "10px",
-              right: "10px",
-              background: "blue",
-              color: "white",
-              padding: "4px",
-              fontSize: "12px",
-              zIndex: 9999,
-            }}
-          >
-            Table Debug: {showOrderColumn ? "Full" : "Minimal"}
-          </div>
           {/* Table Header */}
           <div
             style={{
