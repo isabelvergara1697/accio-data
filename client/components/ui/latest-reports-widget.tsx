@@ -242,6 +242,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
           flex: "1 0 0",
           overflow: "hidden",
           minWidth: 0, // Allow flex item to shrink below content size
+          height: "100%", // Use full available height
         }}
       >
         <div
@@ -251,9 +252,10 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             alignItems: "flex-start",
             alignSelf: "stretch",
             flex: "1 0 0",
-            overflow: isMobile ? "auto" : "hidden",
+            overflow: isMobile || isTablet ? "auto" : "hidden", // Add scroll for tablet
             minWidth: isMobile ? "100%" : "auto",
             position: "relative",
+            height: "100%", // Use full available height
           }}
         >
           {/* Table Header */}
