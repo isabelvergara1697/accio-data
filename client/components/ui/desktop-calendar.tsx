@@ -496,8 +496,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
         <div
           key={`day-${day}`}
           onClick={(e) => {
-            e.stopPropagation();
-            handleDateClick(date);
+            handleDateClick(date, e);
           }}
           onMouseEnter={() => handleDateHover(date)}
           style={{
