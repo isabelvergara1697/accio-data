@@ -120,7 +120,7 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
   };
 
   // Position calendar
-  useEffect(() => {
+  const updatePosition = () => {
     if (isOpen && triggerRef.current && calendarRef.current) {
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const calendarRect = calendarRef.current.getBoundingClientRect();
@@ -139,7 +139,25 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
 
       setPosition({ top, left });
     }
+  };
+
+  useEffect(() => {
+    updatePosition();
   }, [isOpen, triggerRef]);
+
+  // Recalculate position on window resize
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleResize = () => {
+      updatePosition();
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isOpen]);
 
   // Handle outside clicks
   useEffect(() => {
