@@ -109,7 +109,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
 
   // Drag and drop event handlers
   const handleDragStart = (e: React.DragEvent) => {
-    console.log("🚀 DRAG START for widget:", id, "Event:", e);
+    console.log("���� DRAG START for widget:", id, "Event:", e);
     console.log("Target element:", e.target);
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/plain", id);
@@ -159,12 +159,16 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     const sourceId = e.dataTransfer.getData("text/plain");
-    console.log("Drop on widget:", id, "from:", sourceId);
+    console.log("🎯 DROP on widget:", id, "from:", sourceId);
     if (sourceId && sourceId !== id) {
+      console.log("✅ Reordering widgets:", sourceId, "->", id);
       reorderWidgets(sourceId, id);
+    } else {
+      console.log("❌ No reorder needed - same widget or invalid source");
     }
     setIsDragOver(false);
     setDropTarget(null);
+    console.log("✅ Drop cleanup complete");
   };
 
   // Determine widget state and styling
