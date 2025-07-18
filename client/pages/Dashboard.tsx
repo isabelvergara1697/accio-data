@@ -7,7 +7,7 @@ import { MetricCard } from "../components/ui/metric-card";
 import { LatestReportsWidget } from "../components/ui/latest-reports-widget";
 import { TurnaroundTimeWidget } from "../components/ui/turnaround-time-widget";
 import { OrdersByStatusWidget } from "../components/ui/orders-by-status-widget";
-import { RevenueOverviewWidget } from "../components/ui/revenue-overview-widget";
+
 import { AssignedTasksWidget } from "../components/ui/assigned-tasks-widget";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
@@ -129,7 +129,6 @@ export default function Dashboard() {
   // Second row widgets
   const [secondRowWidgets, setSecondRowWidgets] = useState<string[]>([
     "orders-by-status",
-    "revenue-overview",
   ]);
 
   // Third row widgets
@@ -144,7 +143,6 @@ export default function Dashboard() {
     "latest-reports": "md",
     "turnaround-time": "md",
     "orders-by-status": "md",
-    "revenue-overview": "md",
     "assigned-tasks": "md",
   });
 
@@ -153,8 +151,7 @@ export default function Dashboard() {
     { id: "latest-reports", title: "Latest Reports", position: 0 },
     { id: "turnaround-time", title: "Turnaround Time", position: 1 },
     { id: "orders-by-status", title: "Orders by Status", position: 2 },
-    { id: "revenue-overview", title: "Revenue Overview", position: 3 },
-    { id: "assigned-tasks", title: "Assigned Tasks", position: 4 },
+    { id: "assigned-tasks", title: "Assigned Tasks", position: 3 },
   ];
   const [showNotification, setShowNotification] = useState(false);
   const [orderNotification, setOrderNotification] = useState<{
@@ -1196,20 +1193,7 @@ export default function Dashboard() {
                       />
                     );
                   }
-                  if (widgetId === "revenue-overview") {
-                    return (
-                      <RevenueOverviewWidget
-                        key={widgetId}
-                        id={widgetId}
-                        position={index + widgetOrder.length}
-                        size={widgetSizes[widgetId]}
-                        onResize={handleWidgetResize}
-                        isMobile={isMobile}
-                        isTablet={!isMobile && !isDesktop}
-                        windowWidth={windowWidth}
-                      />
-                    );
-                  }
+
                   return null;
                 })}
               </div>
