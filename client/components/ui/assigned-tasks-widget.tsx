@@ -331,12 +331,14 @@ export const AssignedTasksWidget: React.FC<AssignedTasksWidgetProps> = ({
       title="Assigned Tasks"
       position={position}
       size={size}
+      helpTooltip="View and manage tasks assigned to you"
+      onSeeAllClick={() => console.log("See All Tasks clicked")}
+      onDownloadChart={() => console.log("Download Tasks Chart clicked")}
+      onRemoveWidget={() => console.log("Remove Tasks Widget clicked")}
       onResize={onResize}
       isMobile={isMobile}
       isTablet={isTablet}
       windowWidth={windowWidth}
-      helpTooltip="View and manage tasks assigned to you"
-      onSeeAllClick={() => console.log("See All Tasks clicked")}
     >
       <div
         style={{
