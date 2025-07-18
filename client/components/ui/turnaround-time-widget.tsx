@@ -304,7 +304,7 @@ const BarChart: React.FC<BarChartProps> = ({
               height: "373px",
               justifyContent: "space-between",
               alignItems: "flex-end",
-              gap: dimensions.barSpacing,
+              gap: "4px",
               marginBottom: "27px",
               position: "relative",
             }}
