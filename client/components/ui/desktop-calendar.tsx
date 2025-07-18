@@ -530,20 +530,32 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             />
           )}
 
+          {/* Selected date circle */}
           <div
             style={{
-              width: "24px",
-              color: isSelected ? "#FFF" : "#414651",
-              textAlign: "center",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: "500",
-              lineHeight: "20px",
+              width: "32px",
+              height: "32px",
+              borderRadius: "50%",
+              background: isSelected ? "#344698" : "transparent",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
               position: "relative",
               zIndex: 1,
             }}
           >
-            {day}
+            <div
+              style={{
+                color: isSelected ? "#FFF" : "#414651",
+                textAlign: "center",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: "500",
+                lineHeight: "20px",
+              }}
+            >
+              {day}
+            </div>
           </div>
         </div>,
       );
