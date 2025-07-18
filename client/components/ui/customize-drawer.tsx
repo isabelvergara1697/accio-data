@@ -110,9 +110,9 @@ const widgetCards: WidgetCard[] = [
   },
   {
     id: "pie-chart",
-    title: "Widget Title",
+    title: "Data Overview",
     description:
-      "Lorem ipsum dolor sit amet, consec adipiscing elit. Suspendisse vulputate volutpat mauris, a rhoncus nisi aliquet.",
+      "Get a comprehensive overview of your data with visual summaries and key insights.",
     icon: (
       <svg
         width="20"
