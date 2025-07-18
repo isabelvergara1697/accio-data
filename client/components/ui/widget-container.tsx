@@ -325,7 +325,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     return currentSize;
   };
 
-  // Handle resize functionality - only horizontal resizing
+  // Handle resize functionality - improved for smoother experience
   const handleResizeStart = (e: React.MouseEvent, handle: string) => {
     e.preventDefault();
     e.stopPropagation();
@@ -333,30 +333,45 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     setResizeHandle(handle);
 
     const startX = e.clientX;
-    let hasResized = false;
+    let lastResizeAt = 0;
+    let accumulatedDelta = 0;
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
       const deltaX = moveEvent.clientX - startX;
+      accumulatedDelta = deltaX;
 
-      // Determine resize direction based on movement and handle - only horizontal
+      // Lower threshold for better responsiveness (25px instead of 50px)
+      const threshold = 25;
+
+      // Determine resize direction based on movement and handle
       let direction: "increase" | "decrease" | null = null;
 
       // For horizontal handles only (left/right)
       if (handle.includes("left")) {
-        if (deltaX < -50) direction = "increase";
-        else if (deltaX > 50) direction = "decrease";
+        if (deltaX < -threshold) direction = "increase";
+        else if (deltaX > threshold) direction = "decrease";
       } else if (handle.includes("right")) {
-        if (deltaX > 50) direction = "increase";
-        else if (deltaX < -50) direction = "decrease";
+        if (deltaX > threshold) direction = "increase";
+        else if (deltaX < -threshold) direction = "decrease";
       }
 
-      // Only resize if movement is significant enough and we haven't resized yet
-      if (direction && !hasResized && Math.abs(deltaX) > 50) {
+      // Allow multiple resizes per drag with debouncing
+      const now = Date.now();
+      if (direction && now - lastResizeAt > 150) {
+        // 150ms debounce
         const newSize = getSizeChange(size, direction);
         if (newSize !== size && onResize) {
           onResize(id, newSize);
-          hasResized = true;
-          setTimeout(() => handleResizeEnd(), 100); // Small delay to prevent flickering
+          lastResizeAt = now;
+
+          // Reset accumulated delta after successful resize
+          // This allows for continuous resizing in the same direction
+          const newStartX = moveEvent.clientX;
+          setTimeout(() => {
+            if (moveEvent.clientX === newStartX) {
+              accumulatedDelta = 0;
+            }
+          }, 50);
         }
       }
     };
