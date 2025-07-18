@@ -52,8 +52,28 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
   const [isDragOver, setIsDragOver] = React.useState(false);
   const [showDragPlaceholder, setShowDragPlaceholder] = React.useState(false);
 
+  // Use drag drop context with fallback for when provider is not available
+  let dragDropContext;
+  try {
+    dragDropContext = useDragDrop();
+  } catch (error) {
+    // Fallback when DragDropProvider is not available
+    dragDropContext = {
+      state: {
+        isDragging: false,
+        draggedWidget: null,
+        dropTarget: null,
+        widgets: [],
+      },
+      startDrag: () => {},
+      endDrag: () => {},
+      setDropTarget: () => {},
+      reorderWidgets: () => {},
+    };
+  }
+
   const { state, startDrag, endDrag, setDropTarget, reorderWidgets } =
-    useDragDrop();
+    dragDropContext;
 
   const widgetInfo: WidgetInfo = {
     id,
