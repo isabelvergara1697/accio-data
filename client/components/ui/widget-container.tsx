@@ -83,7 +83,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     ) as HTMLElement;
     if (widgetElement) {
       const rect = widgetElement.getBoundingClientRect();
-      const scale = 0.5;
+      const scale = 0.8;
 
       // Create container with explicit scaled dimensions
       const dragImage = document.createElement("div");
