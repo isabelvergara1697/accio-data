@@ -52,28 +52,50 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
   const [isDragOver, setIsDragOver] = React.useState(false);
   const [showDragPlaceholder, setShowDragPlaceholder] = React.useState(false);
 
-  // Use drag drop context with fallback for when provider is not available
-  let dragDropContext;
+  // Local drag state for testing
+  const [localDragState, setLocalDragState] = React.useState({
+    isDragging: false,
+    draggedWidget: null,
+    dropTarget: null,
+  });
+
+  // Try to use context, fallback to local state
+  let state, startDrag, endDrag, setDropTarget, reorderWidgets;
   try {
-    dragDropContext = useDragDrop();
+    const context = useDragDrop();
+    state = context.state;
+    startDrag = context.startDrag;
+    endDrag = context.endDrag;
+    setDropTarget = context.setDropTarget;
+    reorderWidgets = context.reorderWidgets;
   } catch (error) {
-    // Fallback when DragDropProvider is not available
-    dragDropContext = {
-      state: {
+    console.log("DragDropProvider not available, using local state");
+    state = localDragState;
+    startDrag = (widget: WidgetInfo) => {
+      console.log("Local startDrag:", widget);
+      setLocalDragState((prev) => ({
+        ...prev,
+        isDragging: true,
+        draggedWidget: widget,
+      }));
+    };
+    endDrag = () => {
+      console.log("Local endDrag");
+      setLocalDragState((prev) => ({
+        ...prev,
         isDragging: false,
         draggedWidget: null,
         dropTarget: null,
-        widgets: [],
-      },
-      startDrag: () => {},
-      endDrag: () => {},
-      setDropTarget: () => {},
-      reorderWidgets: () => {},
+      }));
+    };
+    setDropTarget = (targetId: string | null) => {
+      console.log("Local setDropTarget:", targetId);
+      setLocalDragState((prev) => ({ ...prev, dropTarget: targetId }));
+    };
+    reorderWidgets = (sourceId: string, targetId: string) => {
+      console.log("Local reorderWidgets:", sourceId, "->", targetId);
     };
   }
-
-  const { state, startDrag, endDrag, setDropTarget, reorderWidgets } =
-    dragDropContext;
 
   const widgetInfo: WidgetInfo = {
     id,
