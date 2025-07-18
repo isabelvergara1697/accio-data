@@ -283,6 +283,8 @@ export default function Dashboard() {
     <button
       className="dashboard-button"
       onClick={handleOpenCustomizeDrawer}
+      onMouseEnter={() => setCustomizeButtonHovered(true)}
+      onMouseLeave={() => setCustomizeButtonHovered(false)}
       style={{
         display: "flex",
         minHeight: "36px",
@@ -292,10 +294,11 @@ export default function Dashboard() {
         gap: "4px",
         borderRadius: "8px",
         border: "1px solid #D5D7DA",
-        background: "#FFF",
+        background: customizeButtonHovered ? "#F8F9FA" : "#FFF",
         boxShadow:
           "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
         cursor: "pointer",
+        transition: "background-color 0.2s ease-in-out",
         ...(isMobile ? { alignSelf: "stretch" } : {}),
       }}
     >
