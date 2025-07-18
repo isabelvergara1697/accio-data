@@ -1095,12 +1095,13 @@ export default function Dashboard() {
                         alignSelf: "stretch",
                       }
                     : {
-                        // 2x2 grid that adapts to widget sizes
-                        gridTemplateColumns: "1fr 1fr",
-                        gridTemplateRows: "1fr",
+                        // Flexible grid that adapts to widget sizes
+                        gridTemplateColumns:
+                          "minmax(252px, 1fr) minmax(252px, 1fr)",
+                        gridTemplateRows: "auto",
                         gap: "16px",
                         width: "100%",
-                        alignItems: "stretch",
+                        alignItems: "start",
                         justifyItems: "stretch",
                       }),
                 }}
