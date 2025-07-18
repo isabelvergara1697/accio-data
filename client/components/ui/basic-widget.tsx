@@ -10,6 +10,8 @@ interface BasicWidgetProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   /** Optional resize handler */
   onResize?: (id: string, newSize: "xs" | "sm" | "md" | "lg" | "xl") => void;
+  /** Optional remove handler */
+  onRemove?: (id: string) => void;
   /** Whether this is mobile view */
   isMobile?: boolean;
   /** Whether this is tablet view */
