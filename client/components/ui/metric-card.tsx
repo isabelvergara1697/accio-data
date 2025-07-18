@@ -63,7 +63,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   };
 
   const getCardBackground = () => {
-    return isHovered ? "#F9FAFB" : "#FFF";
+    return isHovered ? "#F8F9FA" : "#FFF";
   };
 
   const trendIcon =
