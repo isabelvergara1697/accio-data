@@ -46,6 +46,9 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
   const [startInput, setStartInput] = useState("");
   const [endInput, setEndInput] = useState("");
 
+  // Button hover states
+  const [cancelButtonHovered, setCancelButtonHovered] = useState(false);
+
   // Initialize when calendar opens
   useEffect(() => {
     if (isOpen) {
