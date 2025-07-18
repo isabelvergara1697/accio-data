@@ -77,30 +77,17 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     e.dataTransfer.setData("text/plain", id);
     setIsDragging(true);
 
-    // Create drag image with exact same size as original widget
+    // Use original widget element directly for exact size match
     const widgetElement = e.currentTarget.closest(
       "[data-widget-container]",
     ) as HTMLElement;
     if (widgetElement) {
-      // Create a temporary clone for drag image at original size
-      const clone = widgetElement.cloneNode(true) as HTMLElement;
-      clone.style.transform = "scale(1.0)";
-      clone.style.transformOrigin = "top left";
-      clone.style.position = "absolute";
-      clone.style.top = "-9999px";
-      clone.style.left = "-9999px";
-      clone.style.pointerEvents = "none";
-      clone.style.opacity = "0.9";
-
-      document.body.appendChild(clone);
-
       const rect = widgetElement.getBoundingClientRect();
-      e.dataTransfer.setDragImage(clone, rect.width / 2, rect.height / 2);
-
-      // Clean up the clone after a short delay
-      setTimeout(() => {
-        document.body.removeChild(clone);
-      }, 0);
+      e.dataTransfer.setDragImage(
+        widgetElement,
+        rect.width / 2,
+        rect.height / 2,
+      );
     }
   };
 
