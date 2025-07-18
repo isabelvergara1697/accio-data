@@ -560,6 +560,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                 }}
               >
                 <DropdownMenuItem
+                  className="hover-light"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -571,7 +572,6 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     lineHeight: "20px",
                     color: "#414651",
                     cursor: "pointer",
-                    transition: "all 0.2s ease-in-out",
                   }}
                   onSelect={() => {
                     console.log("Download Chart clicked");
