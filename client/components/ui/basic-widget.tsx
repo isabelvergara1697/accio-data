@@ -34,6 +34,7 @@ export const BasicWidget: React.FC<BasicWidgetProps> = ({
   position,
   size,
   onResize,
+  onRemove,
   isMobile,
   isTablet,
   windowWidth,
