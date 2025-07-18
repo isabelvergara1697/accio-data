@@ -641,10 +641,10 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
               border: "none",
               cursor: "pointer",
               transition: "background-color 0.15s ease",
-              color: selectedPreset === preset ? "#252B37" : "#414651",
+              color: selectedPreset === preset ? "#252B37" : "#717680",
               fontFamily: "Public Sans",
               fontSize: "14px",
-              fontWeight: "500",
+              fontWeight: "400",
               lineHeight: "20px",
               textAlign: "left",
             }}
