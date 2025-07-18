@@ -6,6 +6,7 @@ import DatePickerCalendar from "../components/ui/date-picker-calendar";
 import { MetricCard } from "../components/ui/metric-card";
 import { LatestReportsWidget } from "../components/ui/latest-reports-widget";
 import { TurnaroundTimeWidget } from "../components/ui/turnaround-time-widget";
+import { OrdersByStatusWidget } from "../components/ui/orders-by-status-widget";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
@@ -123,18 +124,25 @@ export default function Dashboard() {
     "turnaround-time",
   ]);
 
+  // Second row widgets
+  const [secondRowWidgets, setSecondRowWidgets] = useState<string[]>([
+    "orders-by-status",
+  ]);
+
   // Widget sizes state - using flex-based sizes for 2x2 grid
   const [widgetSizes, setWidgetSizes] = useState<
     Record<string, "xs" | "sm" | "md" | "lg" | "xl">
   >({
     "latest-reports": "md",
     "turnaround-time": "md",
+    "orders-by-status": "md",
   });
 
   // Initial widget configuration
   const initialWidgets: WidgetInfo[] = [
     { id: "latest-reports", title: "Latest Reports", position: 0 },
     { id: "turnaround-time", title: "Turnaround Time", position: 1 },
+    { id: "orders-by-status", title: "Orders by Status", position: 2 },
   ];
   const [showNotification, setShowNotification] = useState(false);
   const [orderNotification, setOrderNotification] = useState<{
@@ -1127,6 +1135,47 @@ export default function Dashboard() {
                         key={widgetId}
                         id={widgetId}
                         position={index}
+                        size={widgetSizes[widgetId]}
+                        onResize={handleWidgetResize}
+                        isMobile={isMobile}
+                        isTablet={!isMobile && !isDesktop}
+                        windowWidth={windowWidth}
+                      />
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+
+              {/* Second Row - Orders by Status Widget */}
+              <div
+                style={{
+                  display: "flex",
+                  ...(isMobile
+                    ? {
+                        flexDirection: "column",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }
+                    : {
+                        // Flexible row layout for new row
+                        flexDirection: "row",
+                        gap: "16px",
+                        width: "100%",
+                        alignItems: "flex-start",
+                        justifyContent: "flex-start",
+                        overflow: "hidden",
+                        minWidth: 0,
+                      }),
+                }}
+              >
+                {secondRowWidgets.map((widgetId, index) => {
+                  if (widgetId === "orders-by-status") {
+                    return (
+                      <OrdersByStatusWidget
+                        key={widgetId}
+                        id={widgetId}
+                        position={index + widgetOrder.length}
                         size={widgetSizes[widgetId]}
                         onResize={handleWidgetResize}
                         isMobile={isMobile}
