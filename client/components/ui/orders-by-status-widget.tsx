@@ -250,17 +250,31 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
   const [hoveredSegmentIndex, setHoveredSegmentIndex] = useState<number | null>(
     null,
   );
-  // Determine chart size and layout based on widget size
+  // Determine chart size and layout based on breakpoint to match Figma designs
   const getChartLayout = () => {
     if (isMobile) {
+      // Mobile: Vertical layout, smaller chart, legend below
       return {
-        chartSize: 200,
+        chartSize: 160,
         showLegend: true,
         direction: "column" as const,
-        compact: true,
+        compact: false,
+        gap: "12px",
       };
     }
 
+    if (isTablet) {
+      // Tablet: Horizontal layout, medium chart, legend on right
+      return {
+        chartSize: 240,
+        showLegend: true,
+        direction: "row" as const,
+        compact: false,
+        gap: "16px",
+      };
+    }
+
+    // Desktop: Responsive based on widget size
     switch (size) {
       case "xs": // ~252px - Very compact: Small chart, no legend
         return {
@@ -268,6 +282,7 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
           showLegend: false,
           direction: "column" as const,
           compact: true,
+          gap: "8px",
         };
       case "sm": // ~300px - Compact: Small chart, compact legend
         return {
@@ -275,6 +290,7 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
           showLegend: true,
           direction: "column" as const,
           compact: true,
+          gap: "12px",
         };
       case "md": // ~400px - Medium: Medium chart, side legend
         return {
@@ -282,6 +298,7 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
           showLegend: true,
           direction: "row" as const,
           compact: false,
+          gap: "16px",
         };
       case "lg": // ~500px - Large: Large chart, side legend
         return {
@@ -289,6 +306,7 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
           showLegend: true,
           direction: "row" as const,
           compact: false,
+          gap: "16px",
         };
       case "xl": // ~600px - Extra Large: Large chart, side legend with more space
         return {
@@ -296,6 +314,7 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
           showLegend: true,
           direction: "row" as const,
           compact: false,
+          gap: "20px",
         };
       default:
         return {
@@ -303,11 +322,12 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
           showLegend: true,
           direction: "row" as const,
           compact: false,
+          gap: "16px",
         };
     }
   };
 
-  const { chartSize, showLegend, direction, compact } = getChartLayout();
+  const { chartSize, showLegend, direction, compact, gap } = getChartLayout();
 
   return (
     <WidgetContainer
@@ -355,7 +375,7 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              gap: direction === "row" ? "16px" : "12px",
+              gap: gap,
               flexDirection: direction,
               height: "100%",
               width: "100%",
@@ -430,13 +450,14 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "4px",
+                  gap: compact ? "2px" : "4px",
                   flexShrink: direction === "row" ? 0 : 1,
                   minWidth: 0,
                   overflow: "hidden",
                   ...(direction === "column" && {
                     alignSelf: "stretch",
-                    paddingTop: "8px",
+                    alignItems: "center",
+                    width: "100%",
                   }),
                 }}
               >
