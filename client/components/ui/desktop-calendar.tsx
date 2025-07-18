@@ -499,52 +499,32 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             alignItems: "center",
           }}
         >
-          {/* Range connectors */}
+          {/* Range background connectors */}
           {needsLeftConnector && (
-            <svg
+            <div
               style={{
-                width: "40px",
-                height: "40px",
                 position: "absolute",
                 left: "-20px",
                 top: "0px",
+                width: "20px",
+                height: "40px",
+                background: "#F5F5F5",
                 zIndex: -1,
               }}
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M40 0H0C11.0457 0 20 8.95435 20 20C20 31.0457 11.0457 40 0 40H40C28.9543 40 20 31.0457 20 20C20 8.95435 28.9543 0 40 0Z"
-                fill="#F5F5F5"
-              />
-            </svg>
+            />
           )}
           {needsRightConnector && (
-            <svg
+            <div
               style={{
-                width: "40px",
-                height: "40px",
                 position: "absolute",
-                left: "20px",
+                right: "-20px",
                 top: "0px",
+                width: "20px",
+                height: "40px",
+                background: "#F5F5F5",
                 zIndex: -1,
               }}
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M20 20C20 31.0457 28.9543 40 40 40H0C11.0457 40 20 31.0457 20 20ZM0 0C11.0457 0 20 8.95435 20 20C20 8.95435 28.9543 0 40 0H0Z"
-                fill="#F5F5F5"
-              />
-            </svg>
+            />
           )}
 
           <div
