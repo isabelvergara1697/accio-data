@@ -362,7 +362,8 @@ const BarChart: React.FC<BarChartProps> = ({
                   style={{
                     height: `${data.value}px`,
                     width: "100%",
-                    maxWidth: isMobile ? "28px" : isTablet ? "30px" : "100%",
+                    maxWidth: "40px",
+                    minWidth: "16px",
                     borderRadius: "4px",
                     background: hoveredBar === index ? "#B3BCE5" : "#8D9BD8",
                     transition: "background-color 0.2s ease",
