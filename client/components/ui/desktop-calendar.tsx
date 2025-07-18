@@ -469,21 +469,70 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       let isInRange = false;
       let isRangeStart = false;
       let isRangeEnd = false;
+      let rangeStartDate, rangeEndDate;
 
       if (isSelectingRange && rangeStart && hoverDate) {
         const tempStart = hoverDate < rangeStart ? hoverDate : rangeStart;
         const tempEnd = hoverDate > rangeStart ? hoverDate : rangeStart;
+        rangeStartDate = tempStart;
+        rangeEndDate = tempEnd;
         isSelected = isSameDate(date, tempStart) || isSameDate(date, tempEnd);
         isInRange = isDateInRange(date, tempStart, tempEnd);
         isRangeStart = isSameDate(date, tempStart);
         isRangeEnd = isSameDate(date, tempEnd);
       } else {
+        rangeStartDate = workingStartDate;
+        rangeEndDate = workingEndDate;
         isSelected =
           isSameDate(date, workingStartDate) ||
           isSameDate(date, workingEndDate);
         isInRange = isDateInRange(date, workingStartDate, workingEndDate);
         isRangeStart = isSameDate(date, workingStartDate);
         isRangeEnd = isSameDate(date, workingEndDate);
+      }
+
+      // Determine edge positions for rounded corners
+      let isTopEdge = false;
+      let isBottomEdge = false;
+      let isLeftEdge = false;
+      let isRightEdge = false;
+
+      if (isInRange) {
+        // Check if this date is at the top edge of the range (no range date in row above)
+        const dateAbove = new Date(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate() - 7,
+        );
+        isTopEdge = !isDateInRange(dateAbove, rangeStartDate, rangeEndDate);
+
+        // Check if this date is at the bottom edge of the range (no range date in row below)
+        const dateBelow = new Date(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate() + 7,
+        );
+        isBottomEdge = !isDateInRange(dateBelow, rangeStartDate, rangeEndDate);
+
+        // Check if this date is at the left edge of the range (no range date to the left or at start of row)
+        const dateLeft = new Date(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate() - 1,
+        );
+        isLeftEdge =
+          isFirstInRow ||
+          !isDateInRange(dateLeft, rangeStartDate, rangeEndDate);
+
+        // Check if this date is at the right edge of the range (no range date to the right or at end of row)
+        const dateRight = new Date(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate() + 1,
+        );
+        isRightEdge =
+          isLastInRow ||
+          !isDateInRange(dateRight, rangeStartDate, rangeEndDate);
       }
 
       days.push(
