@@ -41,9 +41,9 @@ const widgetCards: WidgetCard[] = [
   },
   {
     id: "presentation-chart",
-    title: "Widget Title",
+    title: "Recent Activity",
     description:
-      "Lorem ipsum dolor sit amet, consec adipiscing elit. Suspendisse vulputate volutpat mauris, a rhoncus nisi aliquet.",
+      "Stay updated with the latest activities, notifications, and system events in real-time.",
     icon: (
       <svg
         width="20"
