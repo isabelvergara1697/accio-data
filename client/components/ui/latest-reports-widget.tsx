@@ -595,6 +595,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                   Download Chart
                 </DropdownMenuItem>
                 <DropdownMenuItem
+                  className="hover-light"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -604,9 +605,8 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
                     fontSize: "14px",
                     fontWeight: "500",
                     lineHeight: "20px",
-                    color: "#C11574",
+                    color: "#414651",
                     cursor: "pointer",
-                    transition: "all 0.2s ease-in-out",
                   }}
                   onSelect={() => {
                     console.log("Remove Widget clicked");
