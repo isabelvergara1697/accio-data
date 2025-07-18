@@ -123,7 +123,7 @@ export default function Dashboard() {
     "turnaround-time",
   ]);
 
-  // Widget sizes state
+  // Widget sizes state - using flex-based sizes for 2x2 grid
   const [widgetSizes, setWidgetSizes] = useState<
     Record<string, "xs" | "sm" | "md" | "lg" | "xl">
   >({
@@ -1087,7 +1087,7 @@ export default function Dashboard() {
             >
               <div
                 style={{
-                  display: "flex",
+                  display: isMobile ? "flex" : "grid",
                   ...(isMobile
                     ? {
                         flexDirection: "column",
@@ -1095,11 +1095,13 @@ export default function Dashboard() {
                         alignSelf: "stretch",
                       }
                     : {
-                        flexWrap: "wrap",
+                        // 2x2 grid that adapts to widget sizes
+                        gridTemplateColumns: "1fr 1fr",
+                        gridTemplateRows: "1fr",
                         gap: "16px",
                         width: "100%",
-                        alignItems: "flex-start",
-                        alignContent: "flex-start",
+                        alignItems: "stretch",
+                        justifyItems: "stretch",
                       }),
                 }}
               >
