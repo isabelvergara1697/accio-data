@@ -234,12 +234,25 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
 
   // Get widget dimensions based on size
   const getWidgetDimensions = (widgetSize: WidgetSize) => {
+    if (isMobile) {
+      // On mobile, widgets should take full width but vary in height
+      const dimensions = {
+        xs: { width: "100%", height: "280px" },
+        sm: { width: "100%", height: "320px" },
+        md: { width: "100%", height: "400px" },
+        lg: { width: "100%", height: "480px" },
+        xl: { width: "100%", height: "560px" },
+      };
+      return dimensions[widgetSize];
+    }
+
+    // Desktop/tablet dimensions
     const dimensions = {
-      xs: { width: "200px", height: "300px" },
-      sm: { width: "252px", height: "360px" },
+      xs: { width: "240px", height: "300px" },
+      sm: { width: "300px", height: "360px" },
       md: { width: "400px", height: "480px" },
-      lg: { width: "600px", height: "600px" },
-      xl: { width: "800px", height: "720px" },
+      lg: { width: "500px", height: "600px" },
+      xl: { width: "600px", height: "720px" },
     };
     return dimensions[widgetSize];
   };
@@ -270,35 +283,45 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
 
     const startY = e.clientY;
     const startX = e.clientX;
+    let hasResized = false;
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
       const deltaY = moveEvent.clientY - startY;
       const deltaX = moveEvent.clientX - startX;
 
       // Determine resize direction based on movement and handle
-      let direction: "increase" | "decrease" = "increase";
+      let direction: "increase" | "decrease" | null = null;
 
+      // For vertical handles (top/bottom)
       if (handle.includes("top")) {
-        direction =
-          deltaY < -30 ? "increase" : deltaY > 30 ? "decrease" : direction;
+        if (deltaY < -50) direction = "increase";
+        else if (deltaY > 50) direction = "decrease";
       } else if (handle.includes("bottom")) {
-        direction =
-          deltaY > 30 ? "increase" : deltaY < -30 ? "decrease" : direction;
-      } else if (handle.includes("left")) {
-        direction =
-          deltaX < -30 ? "increase" : deltaX > 30 ? "decrease" : direction;
-      } else if (handle.includes("right")) {
-        direction =
-          deltaX > 30 ? "increase" : deltaX < -30 ? "decrease" : direction;
+        if (deltaY > 50) direction = "increase";
+        else if (deltaY < -50) direction = "decrease";
       }
 
-      // Only resize if movement is significant enough
-      if (Math.abs(deltaY) > 30 || Math.abs(deltaX) > 30) {
+      // For horizontal handles (left/right)
+      if (handle.includes("left")) {
+        if (deltaX < -50) direction = "increase";
+        else if (deltaX > 50) direction = "decrease";
+      } else if (handle.includes("right")) {
+        if (deltaX > 50) direction = "increase";
+        else if (deltaX < -50) direction = "decrease";
+      }
+
+      // Only resize if movement is significant enough and we haven't resized yet
+      if (
+        direction &&
+        !hasResized &&
+        (Math.abs(deltaY) > 50 || Math.abs(deltaX) > 50)
+      ) {
         const newSize = getSizeChange(size, direction);
         if (newSize !== size && onResize) {
           onResize(id, newSize);
+          hasResized = true;
+          setTimeout(() => handleResizeEnd(), 100); // Small delay to prevent flickering
         }
-        handleResizeEnd();
       }
     };
 
@@ -368,16 +391,14 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           background: getWidgetBackground(),
           position: "relative",
           boxShadow: getWidgetShadow(),
-          transition: "all 0.2s ease-in-out",
-          cursor: isBorderHovered ? "ew-resize" : "default",
+          transition: isResizing ? "none" : "all 0.2s ease-in-out",
+          cursor: isBorderHovered && !isResizing ? "move" : "default",
           opacity: isDragging ? 0.3 : 1,
           transform: "none",
           zIndex: isDragging ? 1000 : "auto",
           ...getWidgetDimensions(size),
-          minWidth: getWidgetDimensions(size).width,
-          maxWidth: getWidgetDimensions(size).width,
-          minHeight: getWidgetDimensions(size).height,
-          maxHeight: getWidgetDimensions(size).height,
+          flexShrink: 0,
+          flexGrow: 0,
         }}
         onMouseEnter={() => setIsWidgetHovered(true)}
         onMouseLeave={() => {
