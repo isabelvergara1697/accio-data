@@ -409,9 +409,7 @@ export const BasicWidget: React.FC<BasicWidgetProps> = ({
       onDownloadChart={() =>
         console.log(`Download ${config.title} Chart clicked`)
       }
-      onRemoveWidget={() =>
-        console.log(`Remove ${config.title} Widget clicked`)
-      }
+      onRemoveWidget={() => onRemove && onRemove(id)}
       onResize={onResize}
       isMobile={isMobile}
       isTablet={isTablet}
