@@ -1081,6 +1081,8 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                 e.stopPropagation();
                 handleCancel();
               }}
+              onMouseEnter={() => setCancelButtonHovered(true)}
+              onMouseLeave={() => setCancelButtonHovered(false)}
               style={{
                 display: "flex",
                 padding: "8px 12px",
@@ -1089,7 +1091,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                 gap: "4px",
                 borderRadius: "8px",
                 border: "1px solid #D5D7DA",
-                background: "#FFF",
+                background: cancelButtonHovered ? "#F8F9FA" : "#FFF",
                 boxShadow:
                   "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
@@ -1099,6 +1101,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                 fontWeight: "600",
                 lineHeight: "20px",
                 height: "40px",
+                transition: "background-color 0.2s ease-in-out",
               }}
             >
               Cancel
