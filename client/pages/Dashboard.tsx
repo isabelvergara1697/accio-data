@@ -133,6 +133,12 @@ export default function Dashboard() {
     "assigned-tasks",
   ]);
 
+  // Custom widgets that can be added by users (limited to 2)
+  const [customWidgets, setCustomWidgets] = useState<string[]>([]);
+  const [customWidgetTypes, setCustomWidgetTypes] = useState<
+    Record<string, string>
+  >({});
+
   // Widget sizes state - using flex-based sizes for 2x2 grid
   const [widgetSizes, setWidgetSizes] = useState<
     Record<string, "xs" | "sm" | "md" | "lg" | "xl">
