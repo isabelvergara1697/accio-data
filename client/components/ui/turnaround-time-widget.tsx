@@ -116,6 +116,8 @@ const BarChart: React.FC<BarChartProps> = ({
   isTablet = false,
   windowWidth = 1024,
 }) => {
+  console.log("BarChart rendering:", { isMobile, isTablet, windowWidth });
+
   const [hoveredBar, setHoveredBar] = useState<number | null>(null);
   const [tooltip, setTooltip] = useState<{
     x: number;
