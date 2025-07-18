@@ -363,8 +363,6 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          flex: "1 0 0",
-          alignSelf: "stretch",
           borderRadius: "12px",
           border: getWidgetBorder(),
           background: getWidgetBackground(),
@@ -375,6 +373,11 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           opacity: isDragging ? 0.3 : 1,
           transform: "none",
           zIndex: isDragging ? 1000 : "auto",
+          ...getWidgetDimensions(size),
+          minWidth: getWidgetDimensions(size).width,
+          maxWidth: getWidgetDimensions(size).width,
+          minHeight: getWidgetDimensions(size).height,
+          maxHeight: getWidgetDimensions(size).height,
         }}
         onMouseEnter={() => setIsWidgetHovered(true)}
         onMouseLeave={() => {
@@ -805,13 +808,157 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
               background: "#FFF",
               boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
               position: "relative",
-              minHeight: "400px",
-              height: "480px",
-              maxHeight: "480px",
+              overflow: "hidden",
             }}
           >
             {children}
           </div>
+
+          {/* Resize Handles - appear on hover */}
+          {(isWidgetHovered || isResizing) && !isDragging && (
+            <>
+              {/* Top resize handle */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-4px",
+                  left: "10%",
+                  right: "10%",
+                  height: "8px",
+                  cursor: "ns-resize",
+                  zIndex: 1001,
+                  background:
+                    isResizing && resizeHandle === "top"
+                      ? "rgba(52, 71, 154, 0.2)"
+                      : "transparent",
+                }}
+                onMouseDown={(e) => handleResizeStart(e, "top")}
+              />
+
+              {/* Bottom resize handle */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "-4px",
+                  left: "10%",
+                  right: "10%",
+                  height: "8px",
+                  cursor: "ns-resize",
+                  zIndex: 1001,
+                  background:
+                    isResizing && resizeHandle === "bottom"
+                      ? "rgba(52, 71, 154, 0.2)"
+                      : "transparent",
+                }}
+                onMouseDown={(e) => handleResizeStart(e, "bottom")}
+              />
+
+              {/* Left resize handle */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "-4px",
+                  top: "10%",
+                  bottom: "10%",
+                  width: "8px",
+                  cursor: "ew-resize",
+                  zIndex: 1001,
+                  background:
+                    isResizing && resizeHandle === "left"
+                      ? "rgba(52, 71, 154, 0.2)"
+                      : "transparent",
+                }}
+                onMouseDown={(e) => handleResizeStart(e, "left")}
+              />
+
+              {/* Right resize handle */}
+              <div
+                style={{
+                  position: "absolute",
+                  right: "-4px",
+                  top: "10%",
+                  bottom: "10%",
+                  width: "8px",
+                  cursor: "ew-resize",
+                  zIndex: 1001,
+                  background:
+                    isResizing && resizeHandle === "right"
+                      ? "rgba(52, 71, 154, 0.2)"
+                      : "transparent",
+                }}
+                onMouseDown={(e) => handleResizeStart(e, "right")}
+              />
+
+              {/* Corner resize handles */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-4px",
+                  left: "-4px",
+                  width: "12px",
+                  height: "12px",
+                  cursor: "nw-resize",
+                  zIndex: 1001,
+                  background:
+                    isResizing && resizeHandle === "top-left"
+                      ? "rgba(52, 71, 154, 0.2)"
+                      : "transparent",
+                }}
+                onMouseDown={(e) => handleResizeStart(e, "top-left")}
+              />
+
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-4px",
+                  right: "-4px",
+                  width: "12px",
+                  height: "12px",
+                  cursor: "ne-resize",
+                  zIndex: 1001,
+                  background:
+                    isResizing && resizeHandle === "top-right"
+                      ? "rgba(52, 71, 154, 0.2)"
+                      : "transparent",
+                }}
+                onMouseDown={(e) => handleResizeStart(e, "top-right")}
+              />
+
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "-4px",
+                  left: "-4px",
+                  width: "12px",
+                  height: "12px",
+                  cursor: "sw-resize",
+                  zIndex: 1001,
+                  background:
+                    isResizing && resizeHandle === "bottom-left"
+                      ? "rgba(52, 71, 154, 0.2)"
+                      : "transparent",
+                }}
+                onMouseDown={(e) => handleResizeStart(e, "bottom-left")}
+              />
+
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "-4px",
+                  right: "-4px",
+                  width: "12px",
+                  height: "12px",
+                  cursor: "se-resize",
+                  zIndex: 1001,
+                  background:
+                    isResizing && resizeHandle === "bottom-right"
+                      ? "rgba(52, 71, 154, 0.2)"
+                      : "transparent",
+                }}
+                onMouseDown={(e) => handleResizeStart(e, "bottom-right")}
+              />
+            </>
+          )}
 
           {/* Drag Overlay - blue overlay that appears during drag */}
           {isDragging && (
