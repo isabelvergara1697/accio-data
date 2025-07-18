@@ -431,6 +431,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
 
       <div
         data-widget-container="true"
+        data-widget-id={id}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
