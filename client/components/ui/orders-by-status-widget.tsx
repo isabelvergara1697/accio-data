@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { WidgetContainer } from "./widget-container";
 
 interface OrdersData {
@@ -33,10 +33,17 @@ const ordersData: OrdersData[] = [
   { label: "Archived", value: 5, color: "#A4A7AE" },
 ];
 
-const PieChart: React.FC<{ data: OrdersData[]; size: number }> = ({
-  data,
-  size,
-}) => {
+interface PieChartProps {
+  data: OrdersData[];
+  size: number;
+  onSegmentHover?: (
+    segment: OrdersData | null,
+    event?: React.MouseEvent,
+  ) => void;
+}
+
+const PieChart: React.FC<PieChartProps> = ({ data, size, onSegmentHover }) => {
+  const [hoveredSegment, setHoveredSegment] = useState<number | null>(null);
   const total = data.reduce((sum, item) => sum + item.value, 0);
   const centerX = size / 2;
   const centerY = size / 2;
@@ -105,14 +112,42 @@ const PieChart: React.FC<{ data: OrdersData[]; size: number }> = ({
           innerRadius,
         );
 
+        const isHovered = hoveredSegment === index;
+
         const pathElement = (
-          <path
-            key={index}
-            d={path}
-            fill={segment.color}
-            stroke="rgba(0, 0, 0, 0.1)"
-            strokeWidth="0.5"
-          />
+          <g key={index}>
+            <path
+              d={path}
+              fill={segment.color}
+              stroke="rgba(0, 0, 0, 0.1)"
+              strokeWidth="0.5"
+              style={{
+                cursor: "pointer",
+                transition: "all 0.2s ease-in-out",
+              }}
+              onMouseEnter={(e) => {
+                setHoveredSegment(index);
+                onSegmentHover?.(segment, e);
+              }}
+              onMouseLeave={() => {
+                setHoveredSegment(null);
+                onSegmentHover?.(null);
+              }}
+            />
+            {/* Dark overlay when hovered */}
+            {isHovered && (
+              <path
+                d={path}
+                fill="rgba(0, 0, 0, 0.4)"
+                stroke="rgba(0, 0, 0, 0.1)"
+                strokeWidth="0.5"
+                style={{
+                  pointerEvents: "none",
+                  transition: "opacity 0.2s ease-in-out",
+                }}
+              />
+            )}
+          </g>
         );
 
         currentAngle += angle;
@@ -193,6 +228,11 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
   isTablet = false,
   windowWidth = 1024,
 }) => {
+  const [hoveredSegment, setHoveredSegment] = useState<OrdersData | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
   // Determine chart size and layout based on widget size
   const getChartLayout = () => {
     if (isMobile) {
@@ -313,9 +353,62 @@ export const OrdersByStatusWidget: React.FC<OrdersByStatusWidgetProps> = ({
                 justifyContent: "center",
                 alignItems: "center",
                 flexShrink: 0,
+                position: "relative",
               }}
             >
-              <PieChart data={ordersData} size={chartSize} />
+              <PieChart
+                data={ordersData}
+                size={chartSize}
+                onSegmentHover={(segment, event) => {
+                  setHoveredSegment(segment);
+                  if (event && segment) {
+                    const rect = event.currentTarget.getBoundingClientRect();
+                    setTooltipPosition({
+                      x: event.clientX - rect.left,
+                      y: event.clientY - rect.top,
+                    });
+                  } else {
+                    setTooltipPosition(null);
+                  }
+                }}
+              />
+
+              {/* Tooltip */}
+              {hoveredSegment && tooltipPosition && (
+                <div
+                  style={{
+                    position: "absolute",
+                    left: tooltipPosition.x + 10,
+                    top: tooltipPosition.y - 10,
+                    backgroundColor: "#0A0D12",
+                    color: "#FFF",
+                    padding: "8px 12px",
+                    borderRadius: "8px",
+                    fontSize: "12px",
+                    fontWeight: "600",
+                    lineHeight: "18px",
+                    boxShadow:
+                      "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                    pointerEvents: "none",
+                    zIndex: 1000,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  <div style={{ fontFamily: "Public Sans" }}>
+                    {hoveredSegment.label} - {hoveredSegment.value}
+                  </div>
+                  <div
+                    style={{
+                      color: "#D5D7DA",
+                      fontSize: "12px",
+                      fontWeight: "500",
+                      marginTop: "2px",
+                    }}
+                  >
+                    See All
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Legend */}
