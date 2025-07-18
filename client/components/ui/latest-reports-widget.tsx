@@ -30,6 +30,10 @@ interface LatestReportsWidgetProps {
   id: string;
   /** Widget position in the layout */
   position?: number;
+  /** Widget size */
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  /** Optional resize handler */
+  onResize?: (id: string, newSize: "xs" | "sm" | "md" | "lg" | "xl") => void;
   /** Whether this is mobile view */
   isMobile?: boolean;
   /** Whether this is tablet view */
@@ -219,6 +223,8 @@ const mockReportsData: ReportData[] = [
 export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
   id,
   position = 0,
+  size = "md",
+  onResize,
   isMobile = false,
   isTablet = false,
   windowWidth = 1024,
@@ -232,10 +238,12 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
       id={id}
       title="Latest Reports"
       position={position}
+      size={size}
       helpTooltip="View recent activity and reports"
       onSeeAllClick={() => console.log("See All Reports clicked")}
       onDownloadChart={() => console.log("Download Chart clicked")}
       onRemoveWidget={() => console.log("Remove Widget clicked")}
+      onResize={onResize}
       isMobile={isMobile}
       isTablet={isTablet}
       windowWidth={windowWidth}
