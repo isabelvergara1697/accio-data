@@ -343,8 +343,10 @@ export default function Dashboard() {
     // Determine which rows the source and target widgets are in
     const isSourceInFirstRow = widgetOrder.includes(sourceId);
     const isSourceInSecondRow = secondRowWidgets.includes(sourceId);
+    const isSourceInCustomRow = customWidgets.includes(sourceId);
     const isTargetInFirstRow = widgetOrder.includes(targetId);
     const isTargetInSecondRow = secondRowWidgets.includes(targetId);
+    const isTargetInCustomRow = customWidgets.includes(targetId);
 
     // Handle reordering within the first row
     if (isSourceInFirstRow && isTargetInFirstRow) {
