@@ -123,6 +123,14 @@ export default function Dashboard() {
     "turnaround-time",
   ]);
 
+  // Widget sizes state
+  const [widgetSizes, setWidgetSizes] = useState<
+    Record<string, "xs" | "sm" | "md" | "lg" | "xl">
+  >({
+    "latest-reports": "md",
+    "turnaround-time": "md",
+  });
+
   // Initial widget configuration
   const initialWidgets: WidgetInfo[] = [
     { id: "latest-reports", title: "Latest Reports", position: 0 },
@@ -335,6 +343,18 @@ export default function Dashboard() {
       console.log("📋 New widget order:", newOrder);
       return newOrder;
     });
+  };
+
+  // Handle widget resizing
+  const handleWidgetResize = (
+    widgetId: string,
+    newSize: "xs" | "sm" | "md" | "lg" | "xl",
+  ) => {
+    console.log(`📏 Resizing widget ${widgetId} to ${newSize}`);
+    setWidgetSizes((prevSizes) => ({
+      ...prevSizes,
+      [widgetId]: newSize,
+    }));
   };
 
   const getUserMenuStyles = () => {
@@ -1086,6 +1106,8 @@ export default function Dashboard() {
                         key={widgetId}
                         id={widgetId}
                         position={index}
+                        size={widgetSizes[widgetId]}
+                        onResize={handleWidgetResize}
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
@@ -1098,6 +1120,8 @@ export default function Dashboard() {
                         key={widgetId}
                         id={widgetId}
                         position={index}
+                        size={widgetSizes[widgetId]}
+                        onResize={handleWidgetResize}
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
