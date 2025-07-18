@@ -696,27 +696,29 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
           )}
 
           {/* Content */}
-          <div
-            style={{
-              display: "flex",
-              padding: "12px 20px 16px 20px",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "20px",
-              flex: "1 0 0",
-              alignSelf: "stretch",
-              borderRadius: "12px",
-              border: "1px solid #E9EAEB",
-              background: "#FFF",
-              boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-              position: "relative",
-              minHeight: "400px",
-              height: "480px",
-              maxHeight: "480px",
-            }}
-          >
-            {!isDragging && children}
-          </div>
+          {!isDragging && (
+            <div
+              style={{
+                display: "flex",
+                padding: "12px 20px 16px 20px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "20px",
+                flex: "1 0 0",
+                alignSelf: "stretch",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
+                background: "#FFF",
+                boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                position: "relative",
+                minHeight: "400px",
+                height: "480px",
+                maxHeight: "480px",
+              }}
+            >
+              {children}
+            </div>
+          )}
         </div>
       </div>
     </>
