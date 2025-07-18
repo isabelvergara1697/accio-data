@@ -480,14 +480,109 @@ export default function Dashboard() {
         return newOrder;
       });
     }
-    // Handle moving between any row and custom row (simplified for now)
-    else if (isSourceInCustomRow && !isTargetInCustomRow) {
-      // Remove from custom row and move to target row
-      // For simplicity, we'll prevent cross-row moves for custom widgets
-      console.log("Cross-row moves not supported for custom widgets yet");
-    } else if (!isSourceInCustomRow && isTargetInCustomRow) {
-      // Move to custom row
-      console.log("Moving to custom row not supported yet");
+    // Handle moving from custom row to other rows
+    else if (isSourceInCustomRow && isTargetInFirstRow) {
+      // Remove from custom row
+      setCustomWidgets((prevOrder) => {
+        const newOrder = prevOrder.filter((id) => id !== sourceId);
+        console.log("📋 Removed from custom row:", newOrder);
+        return newOrder;
+      });
+
+      // Add to first row at appropriate position
+      setWidgetOrder((prevOrder) => {
+        const newOrder = [...prevOrder];
+        const targetIndex = newOrder.indexOf(targetId);
+
+        if (targetIndex === -1) return prevOrder;
+
+        // Insert source widget at appropriate position
+        if (side === "left") {
+          newOrder.splice(targetIndex, 0, sourceId);
+        } else {
+          newOrder.splice(targetIndex + 1, 0, sourceId);
+        }
+
+        console.log("📋 Added to first row:", newOrder);
+        return newOrder;
+      });
+    } else if (isSourceInCustomRow && isTargetInSecondRow) {
+      // Remove from custom row
+      setCustomWidgets((prevOrder) => {
+        const newOrder = prevOrder.filter((id) => id !== sourceId);
+        console.log("📋 Removed from custom row:", newOrder);
+        return newOrder;
+      });
+
+      // Add to second row at appropriate position
+      setSecondRowWidgets((prevOrder) => {
+        const newOrder = [...prevOrder];
+        const targetIndex = newOrder.indexOf(targetId);
+
+        if (targetIndex === -1) return prevOrder;
+
+        // Insert source widget at appropriate position
+        if (side === "left") {
+          newOrder.splice(targetIndex, 0, sourceId);
+        } else {
+          newOrder.splice(targetIndex + 1, 0, sourceId);
+        }
+
+        console.log("📋 Added to second row:", newOrder);
+        return newOrder;
+      });
+    }
+    // Handle moving from other rows to custom row
+    else if (isSourceInFirstRow && isTargetInCustomRow) {
+      // Remove from first row
+      setWidgetOrder((prevOrder) => {
+        const newOrder = prevOrder.filter((id) => id !== sourceId);
+        console.log("📋 Removed from first row:", newOrder);
+        return newOrder;
+      });
+
+      // Add to custom row at appropriate position
+      setCustomWidgets((prevOrder) => {
+        const newOrder = [...prevOrder];
+        const targetIndex = newOrder.indexOf(targetId);
+
+        if (targetIndex === -1) return prevOrder;
+
+        // Insert source widget at appropriate position
+        if (side === "left") {
+          newOrder.splice(targetIndex, 0, sourceId);
+        } else {
+          newOrder.splice(targetIndex + 1, 0, sourceId);
+        }
+
+        console.log("📋 Added to custom row:", newOrder);
+        return newOrder;
+      });
+    } else if (isSourceInSecondRow && isTargetInCustomRow) {
+      // Remove from second row
+      setSecondRowWidgets((prevOrder) => {
+        const newOrder = prevOrder.filter((id) => id !== sourceId);
+        console.log("📋 Removed from second row:", newOrder);
+        return newOrder;
+      });
+
+      // Add to custom row at appropriate position
+      setCustomWidgets((prevOrder) => {
+        const newOrder = [...prevOrder];
+        const targetIndex = newOrder.indexOf(targetId);
+
+        if (targetIndex === -1) return prevOrder;
+
+        // Insert source widget at appropriate position
+        if (side === "left") {
+          newOrder.splice(targetIndex, 0, sourceId);
+        } else {
+          newOrder.splice(targetIndex + 1, 0, sourceId);
+        }
+
+        console.log("📋 Added to custom row:", newOrder);
+        return newOrder;
+      });
     }
   };
 
