@@ -244,36 +244,11 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     // Desktop/tablet dimensions - flexible width system that adapts to grid
     // Uses flex-grow values to determine relative sizes within the 2x2 grid
     const dimensions = {
-      xs: {
-        width: "100%",
-        height: fixedHeight,
-        flexGrow: 0.8,
-        minWidth: "252px",
-      },
-      sm: {
-        width: "100%",
-        height: fixedHeight,
-        flexGrow: 1,
-        minWidth: "300px",
-      },
-      md: {
-        width: "100%",
-        height: fixedHeight,
-        flexGrow: 1.2,
-        minWidth: "400px",
-      },
-      lg: {
-        width: "100%",
-        height: fixedHeight,
-        flexGrow: 1.5,
-        minWidth: "500px",
-      },
-      xl: {
-        width: "100%",
-        height: fixedHeight,
-        flexGrow: 2,
-        minWidth: "600px",
-      },
+      xs: { width: "252px", height: fixedHeight },
+      sm: { width: "300px", height: fixedHeight },
+      md: { width: "400px", height: fixedHeight },
+      lg: { width: "500px", height: fixedHeight },
+      xl: { width: "600px", height: fixedHeight },
     };
     return dimensions[widgetSize];
   };
