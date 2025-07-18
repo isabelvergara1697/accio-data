@@ -167,22 +167,31 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
-      if (
-        calendarRef.current &&
-        !calendarRef.current.contains(target) &&
-        triggerRef.current &&
-        !triggerRef.current.contains(target)
-      ) {
-        onClose();
+
+      // Check if the click is inside the calendar
+      if (calendarRef.current && calendarRef.current.contains(target)) {
+        return; // Don't close if clicking inside calendar
       }
+
+      // Check if the click is on the trigger button
+      if (triggerRef.current && triggerRef.current.contains(target)) {
+        return; // Don't close if clicking on trigger
+      }
+
+      // Close calendar if clicking outside
+      onClose();
     };
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside, {
+        capture: true,
+      });
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside, {
+        capture: true,
+      });
     };
   }, [isOpen, onClose, triggerRef]);
 
