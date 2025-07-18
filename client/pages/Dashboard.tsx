@@ -117,6 +117,12 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // Widget management state
+  const [widgetOrder, setWidgetOrder] = useState<string[]>([
+    "latest-reports",
+    "turnaround-time",
+  ]);
+
   // Initial widget configuration
   const initialWidgets: WidgetInfo[] = [
     { id: "latest-reports", title: "Latest Reports", position: 0 },
@@ -163,6 +169,25 @@ export default function Dashboard() {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Listen for widget reorder events
+  useEffect(() => {
+    const handleWidgetReorderEvent = (event: CustomEvent) => {
+      const { sourceId, targetId, side } = event.detail;
+      handleWidgetReorder(sourceId, targetId, side);
+    };
+
+    window.addEventListener(
+      "widget-reorder",
+      handleWidgetReorderEvent as EventListener,
+    );
+    return () => {
+      window.removeEventListener(
+        "widget-reorder",
+        handleWidgetReorderEvent as EventListener,
+      );
+    };
   }, []);
 
   // Close user menu when clicking outside
@@ -275,6 +300,41 @@ export default function Dashboard() {
 
   const handleSignOut = () => {
     navigate("/login");
+  };
+
+  // Handle widget reordering
+  const handleWidgetReorder = (
+    sourceId: string,
+    targetId: string,
+    side: "left" | "right",
+  ) => {
+    console.log(
+      `🔄 Dashboard reordering: ${sourceId} to ${side} of ${targetId}`,
+    );
+
+    setWidgetOrder((prevOrder) => {
+      const newOrder = [...prevOrder];
+      const sourceIndex = newOrder.indexOf(sourceId);
+      const targetIndex = newOrder.indexOf(targetId);
+
+      if (sourceIndex === -1 || targetIndex === -1) return prevOrder;
+
+      // Remove source widget
+      newOrder.splice(sourceIndex, 1);
+
+      // Find new target index after removal
+      const newTargetIndex = newOrder.indexOf(targetId);
+
+      // Insert source widget at appropriate position
+      if (side === "left") {
+        newOrder.splice(newTargetIndex, 0, sourceId);
+      } else {
+        newOrder.splice(newTargetIndex + 1, 0, sourceId);
+      }
+
+      console.log("📋 New widget order:", newOrder);
+      return newOrder;
+    });
   };
 
   const getUserMenuStyles = () => {
@@ -1019,20 +1079,33 @@ export default function Dashboard() {
                       }),
                 }}
               >
-                <LatestReportsWidget
-                  id="latest-reports"
-                  position={0}
-                  isMobile={isMobile}
-                  isTablet={!isMobile && !isDesktop}
-                  windowWidth={windowWidth}
-                />
-                <TurnaroundTimeWidget
-                  id="turnaround-time"
-                  position={1}
-                  isMobile={isMobile}
-                  isTablet={!isMobile && !isDesktop}
-                  windowWidth={windowWidth}
-                />
+                {widgetOrder.map((widgetId, index) => {
+                  if (widgetId === "latest-reports") {
+                    return (
+                      <LatestReportsWidget
+                        key={widgetId}
+                        id={widgetId}
+                        position={index}
+                        isMobile={isMobile}
+                        isTablet={!isMobile && !isDesktop}
+                        windowWidth={windowWidth}
+                      />
+                    );
+                  }
+                  if (widgetId === "turnaround-time") {
+                    return (
+                      <TurnaroundTimeWidget
+                        key={widgetId}
+                        id={widgetId}
+                        position={index}
+                        isMobile={isMobile}
+                        isTablet={!isMobile && !isDesktop}
+                        windowWidth={windowWidth}
+                      />
+                    );
+                  }
+                  return null;
+                })}
               </div>
             </div>
           </div>
