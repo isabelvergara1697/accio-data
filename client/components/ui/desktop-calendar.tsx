@@ -510,16 +510,19 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
               style={{
                 position: "absolute",
                 top: "0",
-                left: isRangeStart || isFirstInRow ? "20px" : "-20px",
-                right: isRangeEnd || isLastInRow ? "20px" : "-20px",
+                left: isFirstInRow ? "0" : "-100px",
+                right: isLastInRow ? "0" : "-100px",
                 height: "40px",
-                background: "#F5F5F5",
+                background: "#E8ECFA",
                 zIndex: 0,
-                borderRadius: isRangeStart
-                  ? "20px 0 0 20px"
-                  : isRangeEnd
-                    ? "0 20px 20px 0"
-                    : "0",
+                borderRadius:
+                  isRangeStart && isRangeEnd
+                    ? "20px"
+                    : isRangeStart
+                      ? "20px 0 0 20px"
+                      : isRangeEnd
+                        ? "0 20px 20px 0"
+                        : "0",
               }}
             />
           )}
@@ -540,11 +543,12 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           >
             <div
               style={{
-                color: isSelected ? "#FFF" : "#414651",
+                color: isSelected ? "#FFF" : isInRange ? "#344698" : "#414651",
                 textAlign: "center",
                 fontFamily: "Public Sans",
                 fontSize: "14px",
-                fontWeight: "500",
+                fontWeight:
+                  isSelected || isRangeStart || isRangeEnd ? "600" : "500",
                 lineHeight: "20px",
               }}
             >
