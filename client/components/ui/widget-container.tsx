@@ -5,6 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./dropdown-menu";
+import { downloadWidgetAsImage } from "../../utils/download-widget";
 
 type WidgetSize = "xs" | "sm" | "md" | "lg" | "xl";
 
