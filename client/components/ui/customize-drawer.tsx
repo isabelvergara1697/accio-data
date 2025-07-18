@@ -87,9 +87,9 @@ const widgetCards: WidgetCard[] = [
   },
   {
     id: "bar-chart-square-up",
-    title: "Widget Title",
+    title: "Key Statistics",
     description:
-      "Lorem ipsum dolor sit amet, consec adipiscing elit. Suspendisse vulputate volutpat mauris, a rhoncus nisi aliquet.",
+      "Monitor important statistics and KPIs with trend indicators and performance metrics.",
     icon: (
       <svg
         width="20"
