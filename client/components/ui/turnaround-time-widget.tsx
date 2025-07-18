@@ -6,6 +6,10 @@ interface TurnaroundTimeWidgetProps {
   id: string;
   /** Widget position in the layout */
   position?: number;
+  /** Widget size */
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  /** Optional resize handler */
+  onResize?: (id: string, newSize: "xs" | "sm" | "md" | "lg" | "xl") => void;
   /** Whether this is mobile view */
   isMobile?: boolean;
   /** Whether this is tablet view */
@@ -471,6 +475,8 @@ const BarChart: React.FC<BarChartProps> = ({
 export const TurnaroundTimeWidget: React.FC<TurnaroundTimeWidgetProps> = ({
   id,
   position = 0,
+  size = "md",
+  onResize,
   isMobile = false,
   isTablet = false,
   windowWidth = 1024,
@@ -505,10 +511,12 @@ export const TurnaroundTimeWidget: React.FC<TurnaroundTimeWidgetProps> = ({
       id={id}
       title="Turnaround Time"
       position={position}
+      size={size}
       helpTooltip="View turnaround time metrics and trends"
       onSeeAllClick={() => console.log("See All Turnaround Time clicked")}
       onDownloadChart={() => console.log("Download Turnaround Chart clicked")}
       onRemoveWidget={() => console.log("Remove Turnaround Widget clicked")}
+      onResize={onResize}
       isMobile={isMobile}
       isTablet={isTablet}
       windowWidth={windowWidth}
