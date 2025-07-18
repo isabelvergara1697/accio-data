@@ -1343,6 +1343,8 @@ export default function Dashboard() {
       <CustomizeDrawer
         isOpen={customizeDrawerOpen}
         onClose={() => setCustomizeDrawerOpen(false)}
+        onAddWidget={handleAddCustomWidget}
+        customWidgetCount={customWidgets.length}
       />
 
       {/* Date Picker Calendar - Desktop uses DesktopCalendar, Mobile/Tablet uses DatePickerCalendar */}
