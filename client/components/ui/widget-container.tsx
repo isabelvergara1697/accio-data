@@ -243,7 +243,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
 
     // Desktop/tablet dimensions - only width varies, height is fixed at 480px
     const dimensions = {
-      xs: { width: "240px", height: fixedHeight },
+      xs: { width: "252px", height: fixedHeight },
       sm: { width: "300px", height: fixedHeight },
       md: { width: "400px", height: fixedHeight },
       lg: { width: "500px", height: fixedHeight },
