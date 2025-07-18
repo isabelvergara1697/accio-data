@@ -330,7 +330,10 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
   };
 
   // Handle date clicks - simplified version
-  const handleDateClick = (date: Date) => {
+  const handleDateClick = (date: Date, event: React.MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+
     console.log("Date clicked:", date); // Debug log
     setSelectedPreset(""); // Clear preset when manually selecting
 
