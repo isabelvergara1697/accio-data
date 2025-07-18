@@ -77,39 +77,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     e.dataTransfer.setData("text/plain", id);
     setIsDragging(true);
 
-    // Create a properly scaled drag image using canvas
-    const widgetElement = e.currentTarget.closest(
-      "[data-widget-container]",
-    ) as HTMLElement;
-    if (widgetElement) {
-      // Create a temporary container for the scaled widget
-      const tempContainer = document.createElement("div");
-      tempContainer.style.position = "absolute";
-      tempContainer.style.top = "-9999px";
-      tempContainer.style.left = "-9999px";
-      tempContainer.style.pointerEvents = "none";
-      tempContainer.style.transform = "scale(0.15)";
-      tempContainer.style.transformOrigin = "top left";
-
-      // Clone the widget and add to temp container
-      const clone = widgetElement.cloneNode(true) as HTMLElement;
-      tempContainer.appendChild(clone);
-      document.body.appendChild(tempContainer);
-
-      const rect = widgetElement.getBoundingClientRect();
-      e.dataTransfer.setDragImage(
-        tempContainer,
-        (rect.width * 0.15) / 2,
-        (rect.height * 0.15) / 2,
-      );
-
-      // Clean up after drag starts
-      setTimeout(() => {
-        if (document.body.contains(tempContainer)) {
-          document.body.removeChild(tempContainer);
-        }
-      }, 1);
-    }
+    // Use browser default drag image for appropriate sizing
   };
 
   const handleDragEnd = () => {
