@@ -399,12 +399,10 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
           key={`header-${index}`}
           style={{
             display: "flex",
-            width: "40px",
-            height: "40px",
-            padding: "10px 8px",
+            width: "32px",
+            height: "32px",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: "9999px",
           }}
         >
           <div
