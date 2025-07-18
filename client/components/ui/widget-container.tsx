@@ -377,7 +377,11 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     };
 
     const handleMouseUp = () => {
-      handleResizeEnd();
+      // Clean up event listeners properly using the actual function references
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+      setIsResizing(false);
+      setResizeHandle(null);
     };
 
     document.addEventListener("mousemove", handleMouseMove);
@@ -387,8 +391,6 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
   const handleResizeEnd = () => {
     setIsResizing(false);
     setResizeHandle(null);
-    document.removeEventListener("mousemove", () => {});
-    document.removeEventListener("mouseup", () => {});
   };
 
   // Handle border hover detection for resize handles
