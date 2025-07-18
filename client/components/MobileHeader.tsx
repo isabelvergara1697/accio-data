@@ -75,7 +75,8 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         padding: "12px 8px 12px 16px",
         justifyContent: "space-between",
         alignItems: "center",
-        background: "#FFF",
+        background:
+          "linear-gradient(180deg, #FAFAFA 0%, rgba(250, 250, 250, 0) 100%)",
         borderBottom: "1px solid #E9EAEB",
       }}
     >
