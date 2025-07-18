@@ -860,11 +860,12 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
             <div
               style={{
                 display: "flex",
-                padding: "20px 24px",
+                padding: "32px 16px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "16px",
                 alignSelf: "stretch",
+                justifyContent: "flex-start",
               }}
             >
               <div
