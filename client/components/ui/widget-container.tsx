@@ -77,38 +77,75 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     e.dataTransfer.setData("text/plain", id);
     setIsDragging(true);
 
-    // Create custom drag image at same size as original widget
+    // Create canvas-based drag image for reliable scaling
     const widgetElement = e.currentTarget.closest(
       "[data-widget-container]",
     ) as HTMLElement;
     if (widgetElement) {
-      // Create a temporary container for the drag image
-      const tempContainer = document.createElement("div");
-      tempContainer.style.position = "absolute";
-      tempContainer.style.top = "-9999px";
-      tempContainer.style.left = "-9999px";
-      tempContainer.style.pointerEvents = "none";
-      tempContainer.style.transform = "scale(0.5)";
-      tempContainer.style.transformOrigin = "top left";
+      try {
+        const rect = widgetElement.getBoundingClientRect();
+        const scale = 0.5;
 
-      // Clone the widget and add to temp container
-      const clone = widgetElement.cloneNode(true) as HTMLElement;
-      tempContainer.appendChild(clone);
-      document.body.appendChild(tempContainer);
+        // Create a canvas for the drag image
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
 
-      const rect = widgetElement.getBoundingClientRect();
-      e.dataTransfer.setDragImage(
-        tempContainer,
-        (rect.width * 0.5) / 2,
-        (rect.height * 0.5) / 2,
-      );
+        if (ctx) {
+          // Set canvas size to scaled dimensions
+          canvas.width = rect.width * scale;
+          canvas.height = rect.height * scale;
 
-      // Clean up after drag starts
-      setTimeout(() => {
-        if (document.body.contains(tempContainer)) {
-          document.body.removeChild(tempContainer);
+          // Create a temporary image element
+          const tempDiv = document.createElement("div");
+          tempDiv.style.position = "absolute";
+          tempDiv.style.top = "-10000px";
+          tempDiv.style.left = "-10000px";
+          tempDiv.style.width = rect.width + "px";
+          tempDiv.style.height = rect.height + "px";
+
+          // Clone and add to temp div
+          const clone = widgetElement.cloneNode(true) as HTMLElement;
+          tempDiv.appendChild(clone);
+          document.body.appendChild(tempDiv);
+
+          // Convert to blob and create drag image
+          const svgData = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}">
+              <foreignObject width="${rect.width}" height="${rect.height}" transform="scale(${scale})">
+                ${tempDiv.innerHTML}
+              </foreignObject>
+            </svg>
+          `;
+
+          const img = new Image();
+          img.onload = () => {
+            ctx.drawImage(img, 0, 0);
+            e.dataTransfer.setDragImage(
+              canvas,
+              canvas.width / 2,
+              canvas.height / 2,
+            );
+          };
+
+          img.src = "data:image/svg+xml;base64," + btoa(svgData);
+
+          // Clean up
+          setTimeout(() => {
+            if (document.body.contains(tempDiv)) {
+              document.body.removeChild(tempDiv);
+            }
+          }, 100);
         }
-      }, 1);
+      } catch (error) {
+        console.log("Canvas drag image failed, using fallback");
+        // Fallback to simpler approach
+        const rect = widgetElement.getBoundingClientRect();
+        e.dataTransfer.setDragImage(
+          widgetElement,
+          rect.width / 4,
+          rect.height / 4,
+        );
+      }
     }
   };
 
