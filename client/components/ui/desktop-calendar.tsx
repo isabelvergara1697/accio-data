@@ -481,9 +481,9 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
         isRangeEnd = isSameDate(date, workingEndDate);
       }
 
-      // Range connectors logic - ensure continuous background between dates
-      const needsLeftConnector = isInRange && !isRangeStart;
-      const needsRightConnector = isInRange && !isRangeEnd;
+      // Range connectors logic - only connect when there are consecutive dates
+      const needsLeftConnector = isInRange && !isRangeStart && !isFirstInRow;
+      const needsRightConnector = isInRange && !isRangeEnd && !isLastInRow;
 
       days.push(
         <div
