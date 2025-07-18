@@ -333,29 +333,118 @@ export default function Dashboard() {
       `🔄 Dashboard reordering: ${sourceId} to ${side} of ${targetId}`,
     );
 
-    setWidgetOrder((prevOrder) => {
-      const newOrder = [...prevOrder];
-      const sourceIndex = newOrder.indexOf(sourceId);
-      const targetIndex = newOrder.indexOf(targetId);
+    // Determine which rows the source and target widgets are in
+    const isSourceInFirstRow = widgetOrder.includes(sourceId);
+    const isSourceInSecondRow = secondRowWidgets.includes(sourceId);
+    const isTargetInFirstRow = widgetOrder.includes(targetId);
+    const isTargetInSecondRow = secondRowWidgets.includes(targetId);
 
-      if (sourceIndex === -1 || targetIndex === -1) return prevOrder;
+    // Handle reordering within the first row
+    if (isSourceInFirstRow && isTargetInFirstRow) {
+      setWidgetOrder((prevOrder) => {
+        const newOrder = [...prevOrder];
+        const sourceIndex = newOrder.indexOf(sourceId);
+        const targetIndex = newOrder.indexOf(targetId);
 
-      // Remove source widget
-      newOrder.splice(sourceIndex, 1);
+        if (sourceIndex === -1 || targetIndex === -1) return prevOrder;
 
-      // Find new target index after removal
-      const newTargetIndex = newOrder.indexOf(targetId);
+        // Remove source widget
+        newOrder.splice(sourceIndex, 1);
 
-      // Insert source widget at appropriate position
-      if (side === "left") {
-        newOrder.splice(newTargetIndex, 0, sourceId);
-      } else {
-        newOrder.splice(newTargetIndex + 1, 0, sourceId);
-      }
+        // Find new target index after removal
+        const newTargetIndex = newOrder.indexOf(targetId);
 
-      console.log("📋 New widget order:", newOrder);
-      return newOrder;
-    });
+        // Insert source widget at appropriate position
+        if (side === "left") {
+          newOrder.splice(newTargetIndex, 0, sourceId);
+        } else {
+          newOrder.splice(newTargetIndex + 1, 0, sourceId);
+        }
+
+        console.log("📋 New first row order:", newOrder);
+        return newOrder;
+      });
+    }
+    // Handle reordering within the second row
+    else if (isSourceInSecondRow && isTargetInSecondRow) {
+      setSecondRowWidgets((prevOrder) => {
+        const newOrder = [...prevOrder];
+        const sourceIndex = newOrder.indexOf(sourceId);
+        const targetIndex = newOrder.indexOf(targetId);
+
+        if (sourceIndex === -1 || targetIndex === -1) return prevOrder;
+
+        // Remove source widget
+        newOrder.splice(sourceIndex, 1);
+
+        // Find new target index after removal
+        const newTargetIndex = newOrder.indexOf(targetId);
+
+        // Insert source widget at appropriate position
+        if (side === "left") {
+          newOrder.splice(newTargetIndex, 0, sourceId);
+        } else {
+          newOrder.splice(newTargetIndex + 1, 0, sourceId);
+        }
+
+        console.log("📋 New second row order:", newOrder);
+        return newOrder;
+      });
+    }
+    // Handle moving between rows (first to second)
+    else if (isSourceInFirstRow && isTargetInSecondRow) {
+      // Remove from first row
+      setWidgetOrder((prevOrder) => {
+        const newOrder = prevOrder.filter((id) => id !== sourceId);
+        console.log("📋 Removed from first row:", newOrder);
+        return newOrder;
+      });
+
+      // Add to second row at appropriate position
+      setSecondRowWidgets((prevOrder) => {
+        const newOrder = [...prevOrder];
+        const targetIndex = newOrder.indexOf(targetId);
+
+        if (targetIndex === -1) return prevOrder;
+
+        // Insert source widget at appropriate position
+        if (side === "left") {
+          newOrder.splice(targetIndex, 0, sourceId);
+        } else {
+          newOrder.splice(targetIndex + 1, 0, sourceId);
+        }
+
+        console.log("📋 Added to second row:", newOrder);
+        return newOrder;
+      });
+    }
+    // Handle moving between rows (second to first)
+    else if (isSourceInSecondRow && isTargetInFirstRow) {
+      // Remove from second row
+      setSecondRowWidgets((prevOrder) => {
+        const newOrder = prevOrder.filter((id) => id !== sourceId);
+        console.log("📋 Removed from second row:", newOrder);
+        return newOrder;
+      });
+
+      // Add to first row at appropriate position
+      setWidgetOrder((prevOrder) => {
+        const newOrder = [...prevOrder];
+        const targetIndex = newOrder.indexOf(targetId);
+
+        if (targetIndex === -1) return prevOrder;
+
+        // Insert source widget at appropriate position
+        if (side === "left") {
+          newOrder.splice(targetIndex, 0, sourceId);
+        } else {
+          newOrder.splice(targetIndex + 1, 0, sourceId);
+        }
+
+        console.log("📋 Added to first row:", newOrder);
+        return newOrder;
+      });
+    }
   };
 
   // Handle widget resizing
