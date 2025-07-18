@@ -644,6 +644,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
                 }}
               >
                 <div
+                  data-widget-title={title}
                   style={{
                     display: "-webkit-box",
                     WebkitBoxOrient: "vertical",
