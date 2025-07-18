@@ -407,7 +407,6 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
         >
           <div
             style={{
-              width: "24px",
               color: "#414651",
               textAlign: "center",
               fontFamily: "Public Sans",
