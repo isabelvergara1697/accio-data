@@ -1014,6 +1014,7 @@ export default function Dashboard() {
               >
                 <LatestReportsWidget
                   isMobile={isMobile}
+                  isTablet={!isMobile && !isDesktop}
                   windowWidth={windowWidth}
                 />
                 <TurnaroundTimeWidget
