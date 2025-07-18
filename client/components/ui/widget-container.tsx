@@ -276,7 +276,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
         onMouseMove={handleMouseMove}
       >
         {/* Drag Drop Bar - shown when in drag mode */}
-        {(isDragOver || isDragTarget || isDragging) && (
+        {(isDragOver || isDragTarget || isDragging || isDragButtonHovered) && (
           <div
             style={{
               width: "100%",
