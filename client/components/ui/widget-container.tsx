@@ -217,6 +217,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
   };
 
   const getWidgetBackground = () => {
+    if (isDragging) return "#ECEEF9";
     if (isDragOver) return "#ECEEF9";
     return "#FDFDFD";
   };
