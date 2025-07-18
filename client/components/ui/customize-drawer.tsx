@@ -18,9 +18,9 @@ interface WidgetCard {
 const widgetCards: WidgetCard[] = [
   {
     id: "chart-breakout",
-    title: "Widget Title",
+    title: "Performance Chart",
     description:
-      "Lorem ipsum dolor sit amet, consec adipiscing elit. Suspendisse vulputate volutpat mauris, a rhoncus nisi aliquet.",
+      "Track performance metrics and trends over time with interactive charts and visual indicators.",
     icon: (
       <svg
         width="20"
