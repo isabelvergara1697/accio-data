@@ -937,6 +937,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
                     gap: "4px 0px",
                     alignSelf: "stretch",
                     flexWrap: "wrap",
+                    justifyContent: "center",
                   }}
                 >
                   {renderCalendarMonth(rightMonth)}
