@@ -496,6 +496,7 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
             background: "#FFF",
             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
             position: "relative",
+            minHeight: "300px", // Ensure minimum height for debugging
           }}
         >
           {children}
