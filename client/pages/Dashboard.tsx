@@ -1101,6 +1101,8 @@ export default function Dashboard() {
                         width: "100%",
                         alignItems: "flex-start",
                         justifyContent: "flex-start",
+                        overflow: "hidden", // Prevent widgets from overflowing container
+                        minWidth: 0, // Allow flex items to shrink below their natural size
                       }),
                 }}
               >
