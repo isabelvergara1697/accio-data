@@ -220,6 +220,22 @@ const BarChart: React.FC<BarChartProps> = ({
       }}
       onClick={handleContainerClick}
     >
+      {/* Debug test */}
+      <div
+        style={{
+          position: "absolute",
+          top: "10px",
+          left: "10px",
+          background: "red",
+          color: "white",
+          padding: "4px",
+          fontSize: "12px",
+          zIndex: 9999,
+        }}
+      >
+        Chart Debug: {isMobile ? "Mobile" : isTablet ? "Tablet" : "Desktop"}
+      </div>
+
       {/* Tooltip */}
       {tooltip && (
         <div
