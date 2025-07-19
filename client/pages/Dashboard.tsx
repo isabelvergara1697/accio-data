@@ -460,6 +460,28 @@ export default function Dashboard() {
     navigate("/login");
   };
 
+  // Save current widget state to the dashboard configuration
+  const saveCurrentStateToConfig = () => {
+    console.log(`💾 Saving current state to ${currentDashboardView} view`);
+
+    const currentConfig = {
+      firstRow: [...widgetOrder],
+      secondRow: [...secondRowWidgets],
+      customWidgets: [...customWidgets],
+      customWidgetTypes: { ...customWidgetTypes },
+      widgetSizes: { ...widgetSizes },
+    };
+
+    dashboardConfigurations.current[
+      currentDashboardView as keyof typeof dashboardConfigurations.current
+    ] = currentConfig;
+
+    console.log(
+      `✅ Saved configuration for ${currentDashboardView}:`,
+      currentConfig,
+    );
+  };
+
   // Handle widget reordering
   const handleWidgetReorder = (
     sourceId: string,
