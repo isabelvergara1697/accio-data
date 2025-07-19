@@ -784,6 +784,9 @@ export default function Dashboard() {
     setCustomWidgetTypes((prev) => ({ ...prev, [widgetId]: widgetType }));
     setWidgetSizes((prev) => ({ ...prev, [widgetId]: "md" }));
 
+    // Save changes to current dashboard view
+    setTimeout(() => saveCurrentStateToConfig(), 0);
+
     console.log(`✅ Added custom widget: ${widgetId} of type: ${widgetType}`);
 
     // Scroll to the custom widgets section after a brief delay
