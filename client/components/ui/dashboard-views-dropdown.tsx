@@ -161,7 +161,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
           display: "flex",
           minHeight: "36px",
           padding: "6px 8px",
-          justifyContent: isMobile ? "flex-start" : "center",
+          justifyContent: isMobile ? "space-between" : "center",
           alignItems: "center",
           gap: "4px",
           borderRadius: "8px",
