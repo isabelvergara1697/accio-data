@@ -246,7 +246,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
             height: "56px",
             flex: "1 1 auto",
             position: "relative",
-            minWidth: "80px",
+            minWidth: "120px", // Ensure adequate minimum space for chart
             maxWidth: "100%",
             width: "100%",
             overflow: "hidden",
