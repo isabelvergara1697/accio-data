@@ -557,7 +557,53 @@ export default function CustomizeDrawer({
               alignSelf: "stretch",
             }}
           >
-            {widgetCards.map((card) => (
+                        {/* Available Widgets Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                }}
+              >
+                <div
+                  style={{
+                    height: "1px",
+                    flex: "1 0 0",
+                    background: "#E9EAEB",
+                  }}
+                />
+                <div
+                  style={{
+                    color: "#535862",
+                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    lineHeight: "18px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.5px",
+                  }}
+                >
+                  Available to Add
+                </div>
+                <div
+                  style={{
+                    height: "1px",
+                    flex: "1 0 0",
+                    background: "#E9EAEB",
+                  }}
+                />
+              </div>
+
+              {availableWidgets.map((card) => (
               <div
                 key={card.id}
                 className="widget-card"
