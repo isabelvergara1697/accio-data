@@ -57,7 +57,7 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         position: "relative",
         overflow: "hidden",
         minWidth: "80px",
-        // Remove maxWidth constraint to allow flexible sizing
+        maxWidth: "140px", // Reasonable max width for tablet
         aspectRatio: "103/56", // Maintain proper aspect ratio
       }}
     >
