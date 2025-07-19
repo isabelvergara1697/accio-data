@@ -148,18 +148,6 @@ export default function Dashboard() {
         "assigned-tasks": "md",
       },
     },
-    analytics: {
-      firstRow: ["orders-by-status", "assigned-tasks"],
-      secondRow: ["latest-reports", "turnaround-time"],
-      customWidgets: [],
-      customWidgetTypes: {},
-      widgetSizes: {
-        "latest-reports": "md",
-        "turnaround-time": "md",
-        "orders-by-status": "md",
-        "assigned-tasks": "md",
-      },
-    },
   });
 
   // Analytics placeholder widgets data
