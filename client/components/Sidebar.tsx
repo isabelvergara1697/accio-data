@@ -540,14 +540,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <aside
-      className={`transition-all duration-300 lg:translate-x-0 ${
-        mobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+      className={`transition-all duration-300 ${
+        !isMobile
+          ? "translate-x-0"
+          : mobileMenuOpen
+            ? "translate-x-0"
+            : "-translate-x-full"
       }`}
       style={{
         display: "flex",
-        width: isDesktop ? "296px" : mobileMenuOpen ? "75vw" : "296px",
+        width: !isMobile ? "296px" : mobileMenuOpen ? "75vw" : "296px",
         height: "100vh",
-        padding: isDesktop
+        padding: !isMobile
           ? "8px 0px 24px 8px"
           : mobileMenuOpen
             ? "0px"
