@@ -990,6 +990,9 @@ export default function Dashboard() {
     const currentConfig = {
       firstRow: [...widgetOrder],
       secondRow: [...secondRowWidgets],
+      customWidgets: [...customWidgets],
+      customWidgetTypes: { ...customWidgetTypes },
+      widgetSizes: { ...widgetSizes },
     };
 
     const newView = {
