@@ -107,12 +107,11 @@ export const Header: React.FC<HeaderProps> = ({
       >
         <svg
           style={{
-            width: isDesktop ? "20px" : "18px",
-            height: isDesktop ? "20px" : "18px",
+            ...searchIconSize.style,
             flexShrink: 0,
           }}
-          width={isDesktop ? "20" : "18"}
-          height={isDesktop ? "20" : "18"}
+          width={searchIconSize.width}
+          height={searchIconSize.height}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
