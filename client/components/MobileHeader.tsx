@@ -67,16 +67,23 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   onOpenNotificationModal,
 }) => {
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
-  const isTablet = !isMobile && !isDesktop;
 
-  // Responsive icon sizes for mobile header
-  const plusIconSize = useResponsiveSVG(isMobile ? 18 : 20, isMobile, isTablet);
-  const notificationIconSize = useResponsiveSVG(
-    isMobile ? 20 : 24,
-    isMobile,
-    isTablet,
-  );
-  const menuIconSize = useResponsiveSVG(24, isMobile, isTablet);
+  // Enhanced responsive icon sizes for mobile header
+  const plusIconSize = useIconSizeEnhanced(isMobile ? 16 : 20, {
+    containerAware: true,
+    minSize: 14,
+    maxSize: 22,
+  });
+  const notificationIconSize = useIconSizeEnhanced(isMobile ? 18 : 24, {
+    containerAware: true,
+    minSize: 16,
+    maxSize: 26,
+  });
+  const menuIconSize = useIconSizeEnhanced(22, {
+    containerAware: true,
+    minSize: 18,
+    maxSize: 26,
+  });
 
   if (isDesktop) return null;
 
