@@ -140,10 +140,26 @@ export default function Dashboard() {
     default: {
       firstRow: ["latest-reports", "turnaround-time"],
       secondRow: ["orders-by-status", "assigned-tasks"],
+      customWidgets: [],
+      customWidgetTypes: {},
+      widgetSizes: {
+        "latest-reports": "md",
+        "turnaround-time": "md",
+        "orders-by-status": "md",
+        "assigned-tasks": "md",
+      },
     },
     analytics: {
       firstRow: ["orders-by-status", "assigned-tasks"],
       secondRow: ["latest-reports", "turnaround-time"],
+      customWidgets: [],
+      customWidgetTypes: {},
+      widgetSizes: {
+        "latest-reports": "md",
+        "turnaround-time": "md",
+        "orders-by-status": "md",
+        "assigned-tasks": "md",
+      },
     },
   });
 
