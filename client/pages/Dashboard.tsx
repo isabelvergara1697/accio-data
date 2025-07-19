@@ -1261,6 +1261,7 @@ export default function Dashboard() {
                         ...helpIconSize.style,
                         flexShrink: 0,
                       }}
+                      className={helpIconSize.className}
                     >
                       <g clipPath="url(#clip0_help_circle)">
                         <path
