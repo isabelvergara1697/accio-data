@@ -765,6 +765,9 @@ export default function Dashboard() {
       [widgetId]: newSize,
     }));
 
+    // Save changes to current dashboard view
+    setTimeout(() => saveCurrentStateToConfig(), 0);
+
     // Optional: Show a brief notification about the resize
     console.log(`✅ Widget ${widgetId} resized to ${newSize}`);
   };
