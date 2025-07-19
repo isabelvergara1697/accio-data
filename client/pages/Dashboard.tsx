@@ -643,19 +643,41 @@ export default function Dashboard() {
     // Scroll to the custom widgets section after a brief delay
     setTimeout(() => {
       if (customWidgetsRef.current) {
-        const offsetTop = customWidgetsRef.current.offsetTop;
-        const headerHeight = isDesktop ? 80 : 64; // Account for fixed header
-        const notificationHeight =
-          showNotification || orderNotification?.show ? 60 : 0;
-        const scrollPosition =
-          offsetTop - headerHeight - notificationHeight - 32; // 32px padding
+        // Get the main content container (the scrollable container)
+        const mainContent = document.querySelector(
+          'div[style*="overflow: auto"]',
+        ) as HTMLElement;
 
-        window.scrollTo({
-          top: scrollPosition,
-          behavior: "smooth",
-        });
+        if (mainContent) {
+          // Calculate position relative to the scrollable container
+          const containerRect = mainContent.getBoundingClientRect();
+          const widgetRect = customWidgetsRef.current.getBoundingClientRect();
+          const scrollTop = mainContent.scrollTop;
+
+          // Calculate the target scroll position
+          const targetScrollTop =
+            scrollTop + (widgetRect.top - containerRect.top) - 100; // 100px padding from top
+
+          mainContent.scrollTo({
+            top: Math.max(0, targetScrollTop),
+            behavior: "smooth",
+          });
+        } else {
+          // Fallback to window scroll if main container not found
+          const offsetTop = customWidgetsRef.current.offsetTop;
+          const headerHeight = isDesktop ? 80 : 64;
+          const notificationHeight =
+            showNotification || orderNotification?.show ? 60 : 0;
+          const scrollPosition =
+            offsetTop - headerHeight - notificationHeight - 32;
+
+          window.scrollTo({
+            top: scrollPosition,
+            behavior: "smooth",
+          });
+        }
       }
-    }, 100); // Small delay to ensure the widget is rendered
+    }, 150); // Slightly longer delay to ensure DOM is updated
   };
 
   // Handle removing custom widgets
@@ -1326,10 +1348,12 @@ export default function Dashboard() {
                           maxWidth: "100%",
                         }
                       : {
-                          // Tablet: 2x2 grid for better chart visibility
+                          // Tablet: 2x2 grid with proper sizing
                           gridTemplateColumns: "repeat(2, 1fr)",
                           gridTemplateRows: "repeat(2, 1fr)",
-                          gap: "16px", // Explicit gap for tablet
+                          gap: "16px",
+                          width: "100%",
+                          maxWidth: "100%",
                         }),
                 }}
               >
