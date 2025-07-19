@@ -247,11 +247,9 @@ export const MetricCard: React.FC<MetricCardProps> = ({
             flex: "1 1 auto",
             position: "relative",
             minWidth: "80px",
-            maxWidth: "120px",
             width: "100%",
-            overflow: "hidden",
-            marginLeft: "auto", // Push to right without flex conflicts
-            // Chart fills available space and scales with container
+            overflow: "hidden", // Mask chart overflow to prevent UI breaking
+            // Ensure chart takes full available width across all breakpoints
           }}
         >
           <MiniChart
