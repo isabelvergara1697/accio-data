@@ -440,9 +440,12 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           }}
         >
           <svg
-            style={{ width: "24px", height: "24px" }}
-            width="24"
-            height="24"
+            style={{
+              width: isMobile ? "20px" : "24px",
+              height: isMobile ? "20px" : "24px",
+            }}
+            width={isMobile ? "20" : "24"}
+            height={isMobile ? "20" : "24"}
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
