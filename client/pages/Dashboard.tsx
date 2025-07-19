@@ -1395,7 +1395,11 @@ export default function Dashboard() {
                               gap: "12px",
                               alignSelf: "stretch",
                             }
-                          : { alignItems: "center", gap: "12px" }),
+                          : {
+                              alignItems: "center",
+                              gap: "12px",
+                              justifyContent: "stretch",
+                            }),
                       }}
                     >
                       {renderCustomizeButton()}
