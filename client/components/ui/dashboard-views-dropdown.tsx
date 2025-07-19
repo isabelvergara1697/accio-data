@@ -253,10 +253,9 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
             zIndex: 1000,
             ...(isMobile
               ? {
-                  left: "16px",
-                  right: "16px",
-                  width: "calc(100vw - 32px)",
-                  maxWidth: "343px",
+                  left: "0",
+                  right: "0",
+                  width: "100%",
                 }
               : {}),
           }}
