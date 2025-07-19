@@ -99,19 +99,15 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       const titleElement = widgetElement.querySelector(
         "[data-widget-title]",
       ) as HTMLElement;
-      const widgetTitle =
-        titleElement?.textContent ||
-        children?.props?.title ||
-        title ||
-        "Widget";
+      const widgetTitle = title || titleElement?.textContent || "Widget";
 
       // Create a clean drag preview container
       const dragPreview = document.createElement("div");
       dragPreview.style.position = "absolute";
       dragPreview.style.top = "-9999px";
       dragPreview.style.left = "-9999px";
-      dragPreview.style.width = Math.min(rect.width, 320) + "px"; // Max width for consistency
-      dragPreview.style.height = Math.min(rect.height, 200) + "px"; // Max height for consistency
+      dragPreview.style.width = "280px"; // Fixed width for all widgets
+      dragPreview.style.height = "120px"; // Fixed height for all widgets
       dragPreview.style.transform = `scale(${scale})`;
       dragPreview.style.transformOrigin = "top left";
       dragPreview.style.backgroundColor = "#FFFFFF";
@@ -168,8 +164,8 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       document.body.appendChild(dragPreview);
 
       // Set drag image with proper centering
-      const dragWidth = Math.min(rect.width, 320) * scale;
-      const dragHeight = Math.min(rect.height, 200) * scale;
+      const dragWidth = 280 * scale;
+      const dragHeight = 120 * scale;
       const offsetX = dragWidth / 2;
       const offsetY = dragHeight / 2;
 
