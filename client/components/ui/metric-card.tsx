@@ -125,7 +125,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           ? { width: "100%" }
           : {
               flex: "1 1 0",
-              minWidth: "200px",
+              minWidth: "240px", // Slightly larger minimum for tablet charts
               maxWidth: "100%",
             }),
         padding: "16px 12px 12px 16px",
