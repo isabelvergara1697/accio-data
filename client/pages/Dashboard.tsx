@@ -15,6 +15,7 @@ import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
 import DesktopCalendar from "../components/ui/desktop-calendar";
 import { DragDropProvider, WidgetInfo } from "../contexts/DragDropContext";
+import { useResponsiveSVG } from "../hooks/use-responsive-svg";
 
 // Add styles for mobile responsiveness and scroll behavior
 const dashboardStyles = `
@@ -185,6 +186,11 @@ export default function Dashboard() {
   const [defaultButtonHovered, setDefaultButtonHovered] = useState(false);
   const [dateButtonHovered, setDateButtonHovered] = useState(false);
   const dateButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Responsive icon sizing
+  const isTablet = !isMobile && !isDesktop;
+  const iconSize = useResponsiveSVG(16, isMobile, isTablet);
+  const helpIconSize = useResponsiveSVG(16, isMobile, isTablet);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
