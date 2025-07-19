@@ -1,5 +1,7 @@
 import React from "react";
 import { MiniChart } from "./mini-chart";
+import { useResponsiveSVG } from "../../hooks/use-responsive-svg";
+import { useMobile } from "../../hooks/use-mobile";
 
 interface MetricCardProps {
   /** The metric label/title */
@@ -38,6 +40,11 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   isMobile = false,
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
+  const mobile = useMobile();
+  const isTablet = !mobile && window.innerWidth < 1024;
+
+  // Responsive icon sizes for trend arrows
+  const trendIconSize = useResponsiveSVG(14, mobile, isTablet);
 
   const {
     trend: chartTrend = "positive",
@@ -69,12 +76,12 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   const trendIcon =
     trend.direction === "up" ? (
       <svg
-        width="14"
-        height="14"
+        width={trendIconSize.width}
+        height={trendIconSize.height}
         viewBox="0 0 14 14"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ width: "14px", height: "14px" }}
+        style={trendIconSize.style}
       >
         <path
           d="M6.99984 11.0832V2.9165M6.99984 2.9165L2.9165 6.99984M6.99984 2.9165L11.0832 6.99984"
@@ -86,12 +93,12 @@ export const MetricCard: React.FC<MetricCardProps> = ({
       </svg>
     ) : (
       <svg
-        width="16"
-        height="16"
+        width={trendIconSize.width}
+        height={trendIconSize.height}
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ width: "16px", height: "16px" }}
+        style={trendIconSize.style}
       >
         <path
           d="M8.00016 3.3335V12.6668M8.00016 12.6668L12.6668 8.00016M8.00016 12.6668L3.3335 8.00016"
