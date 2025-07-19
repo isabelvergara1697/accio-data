@@ -5,7 +5,10 @@ import QuickOrderDrawer from "./ui/quick-order-drawer";
 import SSNOrderDrawer from "./ui/ssn-order-drawer";
 import NotificationModal from "./ui/notification-modal";
 import { formatContactText } from "../lib/order-utils";
-import { useResponsiveSVG } from "../hooks/use-responsive-svg";
+import {
+  useResponsiveSVGEnhanced,
+  useIconSizeEnhanced,
+} from "../hooks/use-responsive-svg-enhanced";
 
 interface MobileHeaderProps {
   isDesktop: boolean;
