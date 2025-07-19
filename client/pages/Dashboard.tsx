@@ -126,6 +126,27 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // Dashboard view states
+  const [dashboardViewsDropdownOpen, setDashboardViewsDropdownOpen] =
+    useState(false);
+  const [currentDashboardView, setCurrentDashboardView] = useState("default");
+  const [dashboardViews, setDashboardViews] = useState([
+    { id: "default", name: "Default", isDefault: true },
+    { id: "analytics", name: "Analytics", isDefault: false },
+  ]);
+
+  // Define widget orders for different views - must be defined before use
+  const dashboardConfigurations = {
+    default: {
+      firstRow: ["latest-reports", "turnaround-time"],
+      secondRow: ["orders-by-status", "assigned-tasks"],
+    },
+    analytics: {
+      firstRow: ["orders-by-status", "assigned-tasks"],
+      secondRow: ["latest-reports", "turnaround-time"],
+    },
+  };
+
   // Widget management state - initialize based on current view
   const getCurrentConfiguration = () => {
     return (
@@ -181,25 +202,7 @@ export default function Dashboard() {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
-  const [dashboardViewsDropdownOpen, setDashboardViewsDropdownOpen] =
-    useState(false);
-  const [currentDashboardView, setCurrentDashboardView] = useState("default");
-  const [dashboardViews, setDashboardViews] = useState([
-    { id: "default", name: "Default", isDefault: true },
-    { id: "analytics", name: "Analytics", isDefault: false },
-  ]);
 
-  // Define widget orders for different views
-  const dashboardConfigurations = {
-    default: {
-      firstRow: ["latest-reports", "turnaround-time"],
-      secondRow: ["orders-by-status", "assigned-tasks"],
-    },
-    analytics: {
-      firstRow: ["orders-by-status", "assigned-tasks"],
-      secondRow: ["latest-reports", "turnaround-time"],
-    },
-  };
   // Drawer states to coordinate with mobile menu
   const [quickOrderDrawerOpen, setQuickOrderDrawerOpen] = useState(false);
   const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
