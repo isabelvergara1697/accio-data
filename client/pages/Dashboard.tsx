@@ -195,11 +195,19 @@ export default function Dashboard() {
     containerAware: true,
     minSize: 12,
     maxSize: 20,
+    breakpoints: {
+      mobile: 768,
+      tablet: 1200, // Match Dashboard breakpoint
+    },
   });
   const helpIconSize = useIconSizeEnhanced(16, {
     containerAware: true,
     minSize: 12,
     maxSize: 18,
+    breakpoints: {
+      mobile: 768,
+      tablet: 1200, // Match Dashboard breakpoint
+    },
   });
 
   // Handle window resize for responsive behavior
