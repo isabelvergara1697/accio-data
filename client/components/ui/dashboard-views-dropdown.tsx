@@ -148,7 +148,9 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
       ref={dropdownRef}
       style={{
         position: "relative",
-        display: "contents",
+        display: "inline-flex",
+        minWidth: "fit-content",
+        ...(isMobile ? { alignSelf: "stretch", width: "100%" } : {}),
       }}
     >
       {/* Dropdown Button */}
