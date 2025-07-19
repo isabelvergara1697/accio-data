@@ -39,11 +39,13 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   isMobile = false,
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
-  const mobile = useIsMobile();
-  const isTablet = !mobile && window.innerWidth < 1024;
 
-  // Responsive icon sizes for trend arrows
-  const trendIconSize = useResponsiveSVG(14, mobile, isTablet);
+  // Enhanced responsive icon sizes for trend arrows
+  const trendIconSize = useIconSizeEnhanced(14, {
+    containerAware: true,
+    minSize: 10,
+    maxSize: 16,
+  });
 
   const {
     trend: chartTrend = "positive",
