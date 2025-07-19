@@ -190,10 +190,17 @@ export default function Dashboard() {
   const [dateButtonHovered, setDateButtonHovered] = useState(false);
   const dateButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Responsive icon sizing
-  const isTablet = !isMobile && !isDesktop;
-  const iconSize = useResponsiveSVG(16, isMobile, isTablet);
-  const helpIconSize = useResponsiveSVG(16, isMobile, isTablet);
+  // Enhanced responsive icon sizing with container awareness
+  const iconSize = useIconSizeEnhanced(16, {
+    containerAware: true,
+    minSize: 12,
+    maxSize: 20,
+  });
+  const helpIconSize = useIconSizeEnhanced(16, {
+    containerAware: true,
+    minSize: 12,
+    maxSize: 18,
+  });
 
   // Handle window resize for responsive behavior
   useEffect(() => {
