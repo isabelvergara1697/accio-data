@@ -207,7 +207,7 @@ export default function Dashboard() {
     const handleResize = () => {
       const width = window.innerWidth;
       setWindowWidth(width);
-      setIsDesktop(width >= 1024);
+      setIsDesktop(width >= 1200);
       setIsMobile(width < 768);
     };
 
