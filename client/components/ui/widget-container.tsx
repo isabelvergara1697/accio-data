@@ -248,71 +248,16 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       ) as HTMLElement;
       const widgetTitle = title || titleElement?.textContent || "Widget";
 
-      // Create a clean drag preview container
-      const dragPreview = document.createElement("div");
-      dragPreview.style.position = "absolute";
-      dragPreview.style.top = "-9999px";
-      dragPreview.style.left = "-9999px";
-      dragPreview.style.width = "280px"; // Fixed width for all widgets
-      dragPreview.style.height = "120px"; // Fixed height for all widgets
+      // Create widget-specific drag preview that resembles the actual widget
+      const dragPreview = createWidgetDragPreview(widgetTitle, rect);
       dragPreview.style.transform = `scale(${scale})`;
-      dragPreview.style.transformOrigin = "top left";
-      dragPreview.style.backgroundColor = "#FFFFFF";
-      dragPreview.style.border = "2px solid #344698";
-      dragPreview.style.borderRadius = "12px";
-      dragPreview.style.boxShadow =
-        "0px 8px 20px rgba(52, 70, 152, 0.15), 0px 4px 8px rgba(10, 13, 18, 0.1)";
-      dragPreview.style.fontFamily = "'Public Sans', -apple-system, sans-serif";
-      dragPreview.style.pointerEvents = "none";
-      dragPreview.style.display = "flex";
-      dragPreview.style.flexDirection = "column";
-      dragPreview.style.justifyContent = "center";
-      dragPreview.style.alignItems = "center";
-      dragPreview.style.padding = "16px";
-      dragPreview.style.overflow = "hidden";
-
-      // Add drag icon
-      const dragIcon = document.createElement("div");
-      dragIcon.innerHTML = `
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 6.00067L21 6.00067M8 12.0007L21 12.0007M8 18.0007L21 18.0007M3.5 6H3.51M3.5 12H3.51M3.5 18H3.51" stroke="#344698" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      `;
-      dragIcon.style.marginBottom = "8px";
-      dragIcon.style.opacity = "0.7";
-
-      // Add widget title
-      const titleDiv = document.createElement("div");
-      titleDiv.textContent = widgetTitle;
-      titleDiv.style.fontSize = "14px";
-      titleDiv.style.fontWeight = "600";
-      titleDiv.style.color = "#344698";
-      titleDiv.style.textAlign = "center";
-      titleDiv.style.lineHeight = "1.4";
-      titleDiv.style.maxWidth = "100%";
-      titleDiv.style.overflow = "hidden";
-      titleDiv.style.textOverflow = "ellipsis";
-      titleDiv.style.whiteSpace = "nowrap";
-
-      // Add subtle widget type indicator
-      const typeIndicator = document.createElement("div");
-      typeIndicator.textContent = "Drag to reorder";
-      typeIndicator.style.fontSize = "11px";
-      typeIndicator.style.color = "#717680";
-      typeIndicator.style.marginTop = "4px";
-      typeIndicator.style.textAlign = "center";
-
-      // Assemble the drag preview
-      dragPreview.appendChild(dragIcon);
-      dragPreview.appendChild(titleDiv);
-      dragPreview.appendChild(typeIndicator);
 
       // Add to document
       document.body.appendChild(dragPreview);
 
       // Set drag image with proper centering
-      const dragWidth = 280 * scale;
-      const dragHeight = 120 * scale;
+      const dragWidth = Math.min(rect.width, 350) * scale;
+      const dragHeight = Math.min(rect.height, 250) * scale;
       const offsetX = dragWidth / 2;
       const offsetY = dragHeight / 2;
 
