@@ -260,12 +260,11 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             >
               <svg
                 style={{
-                  width: isMobile ? "20px" : "24px",
-                  height: isMobile ? "20px" : "24px",
+                  ...notificationIconSize.style,
                   flexShrink: 0,
                 }}
-                width={isMobile ? "20" : "24"}
-                height={isMobile ? "20" : "24"}
+                width={notificationIconSize.width}
+                height={notificationIconSize.height}
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
