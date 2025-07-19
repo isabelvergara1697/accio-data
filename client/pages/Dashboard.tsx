@@ -1311,6 +1311,7 @@ export default function Dashboard() {
                           // Tablet: 2x2 grid for better chart visibility
                           gridTemplateColumns: "repeat(2, 1fr)",
                           gridTemplateRows: "repeat(2, 1fr)",
+                          gap: "16px", // Explicit gap for tablet
                         }),
                 }}
               >
