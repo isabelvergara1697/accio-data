@@ -515,7 +515,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                                 ? {
                                     right: "auto",
                                     left: "0",
-                                    maxWidth: "calc(100vw - 32px)",
+                                    width: "100%",
                                   }
                                 : {}),
                             }}
