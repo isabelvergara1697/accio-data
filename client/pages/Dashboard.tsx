@@ -747,6 +747,8 @@ export default function Dashboard() {
         }
 
         console.log("📋 Added to custom row:", newOrder);
+        // Save changes to current dashboard view
+        setTimeout(() => saveCurrentStateToConfig(), 0);
         return newOrder;
       });
     }
