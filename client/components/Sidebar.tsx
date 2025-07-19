@@ -184,9 +184,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
     );
   };
 
-    const ChevronIcon = ({
+  const ChevronIcon = ({
     isOpen,
-    isMobile: chevronIsMobile = false
+    isMobile: chevronIsMobile = false,
   }: {
     isOpen: boolean;
     isMobile?: boolean;
@@ -207,16 +207,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <path
+          d="M6 9.93274L12 15.9327L18 9.93274"
+          stroke="#A4A7AE"
+          strokeWidth="1.67"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
     );
-      <path
-        d="M6 9.93274L12 15.9327L18 9.93274"
-        stroke="#A4A7AE"
-        strokeWidth="1.67"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
+  };
 
   const getHoverStyles = (item: string) => {
     if (hoveredItem === item && item !== currentPage) {
