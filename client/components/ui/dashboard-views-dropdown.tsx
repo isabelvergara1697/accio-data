@@ -12,6 +12,8 @@ interface DashboardViewsDropdownProps {
   onViewChange: (viewId: string) => void;
   onSaveDashboard: (viewName: string) => void;
   onCreateNewView: () => void;
+  onDeleteDashboard: (viewId: string) => void;
+  onRenameDashboard: (viewId: string, newName: string) => void;
   isOpen: boolean;
   onToggle: () => void;
   onClose: () => void;
@@ -24,6 +26,8 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
   onViewChange,
   onSaveDashboard,
   onCreateNewView,
+  onDeleteDashboard,
+  onRenameDashboard,
   isOpen,
   onToggle,
   onClose,
@@ -34,8 +38,12 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
   const [showInfo, setShowInfo] = useState(true);
   const [showNameInput, setShowNameInput] = useState(false);
   const [dashboardName, setDashboardName] = useState("");
+  const [showSubmenu, setShowSubmenu] = useState<string | null>(null);
+  const [isRenaming, setIsRenaming] = useState<string | null>(null);
+  const [renameValue, setRenameValue] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const renameInputRef = useRef<HTMLInputElement>(null);
 
   const currentViewData = views.find((view) => view.id === currentView);
 
@@ -68,15 +76,29 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
   }, [showNameInput]);
 
   const handleSaveClick = () => {
+    if (views.length >= 3) {
+      alert("Maximum 3 dashboards allowed");
+      return;
+    }
     if (showNameInput) {
       // Save with the entered name
-      onSaveDashboard(dashboardName);
-      setShowNameInput(false);
-      setDashboardName("");
+      if (dashboardName.trim()) {
+        onSaveDashboard(dashboardName);
+        setShowNameInput(false);
+        setDashboardName("");
+      }
     } else {
       // Show input field
       setShowNameInput(true);
       setDashboardName("My Dashboard");
+    }
+  };
+
+  const handleConfirmSave = () => {
+    if (dashboardName.trim()) {
+      onSaveDashboard(dashboardName);
+      setShowNameInput(false);
+      setDashboardName("");
     }
   };
 
@@ -88,6 +110,32 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
     } else if (e.key === "Escape") {
       handleCancelInput();
     }
+  };
+
+  const handleRenameKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && renameValue.trim()) {
+      if (isRenaming) {
+        onRenameDashboard(isRenaming, renameValue);
+        setIsRenaming(null);
+        setRenameValue("");
+        setShowSubmenu(null);
+      }
+    } else if (e.key === "Escape") {
+      setIsRenaming(null);
+      setRenameValue("");
+      setShowSubmenu(null);
+    }
+  };
+
+  const handleDeleteDashboard = (viewId: string) => {
+    onDeleteDashboard(viewId);
+    setShowSubmenu(null);
+  };
+
+  const handleRename = (viewId: string, currentName: string) => {
+    setIsRenaming(viewId);
+    setRenameValue(currentName);
+    setShowSubmenu(null);
   };
 
   const handleCancelInput = () => {
