@@ -147,6 +147,80 @@ export default function Dashboard() {
     },
   });
 
+  // Analytics placeholder widgets data
+  const getAnalyticsPlaceholderData = () => ({
+    "orders-by-status": {
+      chartData: [
+        { name: "Pending", value: 45, color: "#FFC107" },
+        { name: "In Progress", value: 30, color: "#17A2B8" },
+        { name: "Completed", value: 25, color: "#28A745" },
+      ],
+      title: "Orders by Status (Analytics View)",
+    },
+    "assigned-tasks": {
+      tasks: [
+        {
+          id: 1,
+          title: "Review Analytics Dashboard",
+          assignee: "John Doe",
+          status: "In Progress",
+          priority: "High",
+        },
+        {
+          id: 2,
+          title: "Update Performance Metrics",
+          assignee: "Jane Smith",
+          status: "Pending",
+          priority: "Medium",
+        },
+        {
+          id: 3,
+          title: "Generate Monthly Reports",
+          assignee: "Mike Johnson",
+          status: "Completed",
+          priority: "Low",
+        },
+      ],
+      title: "Assigned Tasks (Analytics View)",
+    },
+    "latest-reports": {
+      reports: [
+        {
+          id: 1,
+          title: "Q4 Performance Analysis",
+          type: "Financial",
+          date: "2025-01-15",
+          status: "Ready",
+        },
+        {
+          id: 2,
+          title: "Customer Satisfaction Survey",
+          type: "Customer",
+          date: "2025-01-14",
+          status: "Pending",
+        },
+        {
+          id: 3,
+          title: "Operational Efficiency Review",
+          type: "Operations",
+          date: "2025-01-13",
+          status: "In Review",
+        },
+      ],
+      title: "Latest Reports (Analytics View)",
+    },
+    "turnaround-time": {
+      avgTime: "2.4 hours",
+      improvement: "+15%",
+      chartData: [2.8, 2.5, 2.3, 2.4, 2.1, 2.4],
+      title: "Turnaround Time (Analytics View)",
+    },
+  });
+
+  // Check if current view is analytics
+  const isAnalyticsView = currentDashboardView === "analytics";
+  const analyticsData = getAnalyticsPlaceholderData();
+
   // Widget management state - initialize based on current view
   const getCurrentConfiguration = () => {
     return (
@@ -864,6 +938,62 @@ export default function Dashboard() {
     setDashboardViewsDropdownOpen(false);
   };
 
+  const handleDeleteDashboard = (viewId: string) => {
+    console.log("Deleting dashboard view:", viewId);
+
+    // Prevent deleting default views
+    const viewToDelete = dashboardViews.find((view) => view.id === viewId);
+    if (viewToDelete?.isDefault) {
+      console.warn("Cannot delete default dashboard view");
+      return;
+    }
+
+    // Remove from dashboardConfigurations
+    delete dashboardConfigurations.current[
+      viewId as keyof typeof dashboardConfigurations.current
+    ];
+
+    // Remove from views list
+    setDashboardViews((prev) => prev.filter((view) => view.id !== viewId));
+
+    // If we're deleting the current view, switch to default
+    if (currentDashboardView === viewId) {
+      setCurrentDashboardView("default");
+      const defaultConfig = dashboardConfigurations.current.default;
+      setWidgetOrder(defaultConfig.firstRow);
+      setSecondRowWidgets(defaultConfig.secondRow);
+    }
+
+    console.log("✅ Dashboard view deleted successfully:", viewId);
+  };
+
+  const handleRenameDashboard = (viewId: string, newName: string) => {
+    console.log("Renaming dashboard view:", viewId, "to:", newName);
+
+    // Prevent renaming default views
+    const viewToRename = dashboardViews.find((view) => view.id === viewId);
+    if (viewToRename?.isDefault) {
+      console.warn("Cannot rename default dashboard view");
+      return;
+    }
+
+    // Update the view name
+    setDashboardViews((prev) =>
+      prev.map((view) =>
+        view.id === viewId
+          ? { ...view, name: newName.trim() || view.name }
+          : view,
+      ),
+    );
+
+    console.log(
+      "✅ Dashboard view renamed successfully:",
+      viewId,
+      "to:",
+      newName,
+    );
+  };
+
   const renderDashboardViewsDropdown = () => (
     <div data-dashboard-views>
       <DashboardViewsDropdown
@@ -872,6 +1002,8 @@ export default function Dashboard() {
         onViewChange={handleViewChange}
         onSaveDashboard={handleSaveDashboard}
         onCreateNewView={handleCreateNewView}
+        onDeleteDashboard={handleDeleteDashboard}
+        onRenameDashboard={handleRenameDashboard}
         isOpen={dashboardViewsDropdownOpen}
         onToggle={() =>
           setDashboardViewsDropdownOpen(!dashboardViewsDropdownOpen)
