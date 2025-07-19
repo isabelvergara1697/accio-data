@@ -150,80 +150,6 @@ export default function Dashboard() {
     },
   });
 
-  // Analytics placeholder widgets data
-  const getAnalyticsPlaceholderData = () => ({
-    "orders-by-status": {
-      chartData: [
-        { name: "Pending", value: 45, color: "#FFC107" },
-        { name: "In Progress", value: 30, color: "#17A2B8" },
-        { name: "Completed", value: 25, color: "#28A745" },
-      ],
-      title: "Orders by Status (Analytics View)",
-    },
-    "assigned-tasks": {
-      tasks: [
-        {
-          id: 1,
-          title: "Review Analytics Dashboard",
-          assignee: "John Doe",
-          status: "In Progress",
-          priority: "High",
-        },
-        {
-          id: 2,
-          title: "Update Performance Metrics",
-          assignee: "Jane Smith",
-          status: "Pending",
-          priority: "Medium",
-        },
-        {
-          id: 3,
-          title: "Generate Monthly Reports",
-          assignee: "Mike Johnson",
-          status: "Completed",
-          priority: "Low",
-        },
-      ],
-      title: "Assigned Tasks (Analytics View)",
-    },
-    "latest-reports": {
-      reports: [
-        {
-          id: 1,
-          title: "Q4 Performance Analysis",
-          type: "Financial",
-          date: "2025-01-15",
-          status: "Ready",
-        },
-        {
-          id: 2,
-          title: "Customer Satisfaction Survey",
-          type: "Customer",
-          date: "2025-01-14",
-          status: "Pending",
-        },
-        {
-          id: 3,
-          title: "Operational Efficiency Review",
-          type: "Operations",
-          date: "2025-01-13",
-          status: "In Review",
-        },
-      ],
-      title: "Latest Reports (Analytics View)",
-    },
-    "turnaround-time": {
-      avgTime: "2.4 hours",
-      improvement: "+15%",
-      chartData: [2.8, 2.5, 2.3, 2.4, 2.1, 2.4],
-      title: "Turnaround Time (Analytics View)",
-    },
-  });
-
-  // Check if current view is analytics
-  const isAnalyticsView = currentDashboardView === "analytics";
-  const analyticsData = getAnalyticsPlaceholderData();
-
   // Widget management state - initialize based on current view
   const getCurrentConfiguration = () => {
     return (
@@ -813,7 +739,7 @@ export default function Dashboard() {
           const targetScrollTop =
             scrollTop + (widgetRect.top - containerRect.top) - 100; // 100px padding from top
 
-          console.log("��� Scrolling to position:", targetScrollTop);
+          console.log("����� Scrolling to position:", targetScrollTop);
           mainContent.scrollTo({
             top: Math.max(0, targetScrollTop),
             behavior: "smooth",
