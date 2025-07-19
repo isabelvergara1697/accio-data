@@ -1658,13 +1658,6 @@ export default function Dashboard() {
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
-                        {...(isAnalyticsView && {
-                          title: analyticsData["turnaround-time"].title,
-                          avgTime: analyticsData["turnaround-time"].avgTime,
-                          improvement:
-                            analyticsData["turnaround-time"].improvement,
-                          chartData: analyticsData["turnaround-time"].chartData,
-                        })}
                       />
                     );
                   }
