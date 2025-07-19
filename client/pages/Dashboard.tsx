@@ -126,17 +126,23 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Widget management state
-  const [widgetOrder, setWidgetOrder] = useState<string[]>([
-    "latest-reports",
-    "turnaround-time",
-  ]);
+  // Widget management state - initialize based on current view
+  const getCurrentConfiguration = () => {
+    return (
+      dashboardConfigurations[
+        currentDashboardView as keyof typeof dashboardConfigurations
+      ] || dashboardConfigurations.default
+    );
+  };
+
+  const [widgetOrder, setWidgetOrder] = useState<string[]>(
+    getCurrentConfiguration().firstRow,
+  );
 
   // Second row widgets
-  const [secondRowWidgets, setSecondRowWidgets] = useState<string[]>([
-    "orders-by-status",
-    "assigned-tasks",
-  ]);
+  const [secondRowWidgets, setSecondRowWidgets] = useState<string[]>(
+    getCurrentConfiguration().secondRow,
+  );
 
   // Custom widgets that can be added by users (limited to 2)
   const [customWidgets, setCustomWidgets] = useState<string[]>([]);
@@ -180,9 +186,20 @@ export default function Dashboard() {
   const [currentDashboardView, setCurrentDashboardView] = useState("default");
   const [dashboardViews, setDashboardViews] = useState([
     { id: "default", name: "Default", isDefault: true },
-    { id: "custom-1", name: "My Custom View", isDefault: false },
-    { id: "analytics", name: "Analytics View", isDefault: false },
+    { id: "analytics", name: "Analytics", isDefault: false },
   ]);
+
+  // Define widget orders for different views
+  const dashboardConfigurations = {
+    default: {
+      firstRow: ["latest-reports", "turnaround-time"],
+      secondRow: ["orders-by-status", "assigned-tasks"],
+    },
+    analytics: {
+      firstRow: ["orders-by-status", "assigned-tasks"],
+      secondRow: ["latest-reports", "turnaround-time"],
+    },
+  };
   // Drawer states to coordinate with mobile menu
   const [quickOrderDrawerOpen, setQuickOrderDrawerOpen] = useState(false);
   const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
@@ -796,20 +813,40 @@ export default function Dashboard() {
     console.log(`Switching to dashboard view: ${viewId}`);
     setCurrentDashboardView(viewId);
     setDashboardViewsDropdownOpen(false);
-    // Here you would implement the logic to load the selected view
+
+    // Load the widget configuration for the selected view
+    const config =
+      dashboardConfigurations[viewId as keyof typeof dashboardConfigurations] ||
+      dashboardConfigurations.default;
+    setWidgetOrder(config.firstRow);
+    setSecondRowWidgets(config.secondRow);
   };
 
-  const handleSaveDashboard = () => {
-    console.log("Saving current dashboard state...");
-    // Here you would implement the logic to save the current dashboard configuration
+  const handleSaveDashboard = (viewName: string) => {
+    console.log("Saving current dashboard state with name:", viewName);
+
+    // Save current widget configuration
+    const currentConfig = {
+      firstRow: [...widgetOrder],
+      secondRow: [...secondRowWidgets],
+    };
+
     const newView = {
       id: `custom-${Date.now()}`,
-      name: `Custom View ${dashboardViews.length}`,
+      name: viewName.trim() || `Custom View ${dashboardViews.length}`,
       isDefault: false,
     };
+
+    // Update dashboardConfigurations with the new view
+    dashboardConfigurations[
+      newView.id as keyof typeof dashboardConfigurations
+    ] = currentConfig;
+
     setDashboardViews((prev) => [...prev, newView]);
+    setCurrentDashboardView(newView.id);
     setDashboardViewsDropdownOpen(false);
-    // Show success notification or modal
+
+    console.log("✅ Dashboard view saved successfully:", newView);
   };
 
   const handleCreateNewView = () => {
