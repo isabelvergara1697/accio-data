@@ -69,7 +69,7 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           display: "block",
         }}
         viewBox="0 0 103 56"
-        preserveAspectRatio="none"
+        preserveAspectRatio="xMidYMid meet"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
