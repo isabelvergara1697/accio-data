@@ -642,13 +642,16 @@ export default function Dashboard() {
 
     // Scroll to the custom widgets section after a brief delay
     setTimeout(() => {
+      console.log("🎯 Attempting autoscroll to new widget");
       if (customWidgetsRef.current) {
+        console.log("✅ customWidgetsRef found");
         // Get the main content container (the scrollable container)
         const mainContent = document.querySelector(
           'div[style*="overflow: auto"]',
         ) as HTMLElement;
 
         if (mainContent) {
+          console.log("✅ Main content container found");
           // Calculate position relative to the scrollable container
           const containerRect = mainContent.getBoundingClientRect();
           const widgetRect = customWidgetsRef.current.getBoundingClientRect();
@@ -658,11 +661,15 @@ export default function Dashboard() {
           const targetScrollTop =
             scrollTop + (widgetRect.top - containerRect.top) - 100; // 100px padding from top
 
+          console.log("📍 Scrolling to position:", targetScrollTop);
           mainContent.scrollTo({
             top: Math.max(0, targetScrollTop),
             behavior: "smooth",
           });
         } else {
+          console.log(
+            "⚠️ Main content container not found, using window scroll",
+          );
           // Fallback to window scroll if main container not found
           const offsetTop = customWidgetsRef.current.offsetTop;
           const headerHeight = isDesktop ? 80 : 64;
@@ -671,11 +678,14 @@ export default function Dashboard() {
           const scrollPosition =
             offsetTop - headerHeight - notificationHeight - 32;
 
+          console.log("📍 Window scrolling to position:", scrollPosition);
           window.scrollTo({
             top: scrollPosition,
             behavior: "smooth",
           });
         }
+      } else {
+        console.log("❌ customWidgetsRef not found");
       }
     }, 150); // Slightly longer delay to ensure DOM is updated
   };
