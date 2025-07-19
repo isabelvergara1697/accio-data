@@ -44,9 +44,12 @@ export const SearchInput: React.FC<SearchInputProps> = ({
         }}
       >
         <svg
-          style={{ width: "16px", height: "16px" }}
-          width="16"
-          height="16"
+          style={{
+            width: isMobile ? "14px" : "16px",
+            height: isMobile ? "14px" : "16px",
+          }}
+          width={isMobile ? "14" : "16"}
+          height={isMobile ? "14" : "16"}
           viewBox="0 0 16 16"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
