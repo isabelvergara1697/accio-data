@@ -132,7 +132,6 @@ export default function Dashboard() {
   const [currentDashboardView, setCurrentDashboardView] = useState("default");
   const [dashboardViews, setDashboardViews] = useState([
     { id: "default", name: "Default", isDefault: true },
-    { id: "analytics", name: "Analytics", isDefault: false },
   ]);
 
   // Define widget orders for different views - use useRef to make it mutable
