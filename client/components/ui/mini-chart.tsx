@@ -53,10 +53,9 @@ export const MiniChart: React.FC<MiniChartProps> = ({
     <div
       style={{
         width: "100%",
-        height: "56px",
+        height: "100%",
         position: "relative",
         overflow: "hidden",
-        minWidth: "103px", // Match the SVG viewBox width for proper scaling
       }}
     >
       {/* Single SVG with consistent scaling and aspect ratio */}
