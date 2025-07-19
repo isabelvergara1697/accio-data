@@ -1,7 +1,6 @@
 import React from "react";
 import { MiniChart } from "./mini-chart";
-import { useResponsiveSVG } from "../../hooks/use-responsive-svg";
-import { useIsMobile } from "../../hooks/use-mobile";
+import { useIconSizeEnhanced } from "../../hooks/use-responsive-svg-enhanced";
 
 interface MetricCardProps {
   /** The metric label/title */
