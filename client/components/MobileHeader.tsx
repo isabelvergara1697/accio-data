@@ -465,6 +465,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className={menuIconSize.className}
           >
             <path
               d="M3 12H15M3 6H21M3 18H21"
