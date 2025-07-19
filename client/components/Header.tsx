@@ -90,7 +90,7 @@ export const Header: React.FC<HeaderProps> = ({
       style={{
         position: "fixed",
         top: showNotification ? "60px" : 0,
-        left: !isMobile ? "296px" : "0",
+        left: isDesktop ? "296px" : "0",
         right: 0,
         height: "80px",
         display: "flex",
