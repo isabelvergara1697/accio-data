@@ -148,11 +148,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
       ref={dropdownRef}
       style={{
         position: "relative",
-        display: "flex",
-        // Ensure wrapper behaves like direct button elements
-        ...(isMobile
-          ? { alignSelf: "stretch", width: "100%", flex: "1 0 0" }
-          : { flex: "0 0 auto" }),
+        display: "contents",
       }}
     >
       {/* Dropdown Button */}
