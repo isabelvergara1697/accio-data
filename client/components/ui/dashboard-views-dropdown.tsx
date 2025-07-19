@@ -741,6 +741,41 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                             background: "transparent",
                           }}
                         />
+                        {/* Check Button */}
+                        <button
+                          onClick={handleConfirmSave}
+                          disabled={!dashboardName.trim()}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "16px",
+                            height: "16px",
+                            background: "transparent",
+                            border: "none",
+                            cursor: dashboardName.trim()
+                              ? "pointer"
+                              : "not-allowed",
+                            padding: "0",
+                            opacity: dashboardName.trim() ? 1 : 0.5,
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                              stroke="#344698"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
                         {/* Cancel Button */}
                         <button
                           onClick={handleCancelInput}
