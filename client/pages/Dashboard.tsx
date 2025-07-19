@@ -1238,14 +1238,13 @@ export default function Dashboard() {
                     }}
                   >
                     <svg
-                      width="16"
-                      height="16"
+                      width={helpIconSize.width}
+                      height={helpIconSize.height}
                       viewBox="0 0 16 16"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                       style={{
-                        width: "16px",
-                        height: "16px",
+                        ...helpIconSize.style,
                         flexShrink: 0,
                       }}
                     >
