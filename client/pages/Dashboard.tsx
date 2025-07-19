@@ -1297,12 +1297,20 @@ export default function Dashboard() {
                     : isDesktop
                       ? {
                           gridTemplateColumns: "repeat(4, 1fr)",
+                          maxWidth: "100%",
                         }
-                      : {
-                          // Tablet: 2x2 grid
-                          gridTemplateColumns: "repeat(2, 1fr)",
-                          gridTemplateRows: "repeat(2, 1fr)",
-                        }),
+                      : windowWidth >= 1024
+                        ? {
+                            // Large tablet: 4 columns with better spacing
+                            gridTemplateColumns: "repeat(4, 1fr)",
+                            gap: "12px",
+                            maxWidth: "100%",
+                          }
+                        : {
+                            // Tablet: 2x2 grid
+                            gridTemplateColumns: "repeat(2, 1fr)",
+                            gridTemplateRows: "repeat(2, 1fr)",
+                          }),
                 }}
               >
                 <MetricCard
