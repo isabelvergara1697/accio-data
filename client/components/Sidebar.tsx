@@ -366,7 +366,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               </div>
             )}
 
-            {hasChevron && <ChevronIcon isOpen={isOpen} />}
+            {hasChevron && <ChevronIcon isOpen={isOpen} isMobile={isMobile} />}
           </div>
         </div>
 
