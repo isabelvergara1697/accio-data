@@ -943,12 +943,43 @@ export default function Dashboard() {
       dashboardConfigurations.current[
         viewId as keyof typeof dashboardConfigurations.current
       ] || dashboardConfigurations.current.default;
-    setWidgetOrder(config.firstRow);
-    setSecondRowWidgets(config.secondRow);
+
+    setWidgetOrder(config.firstRow || []);
+    setSecondRowWidgets(config.secondRow || []);
+
+    // Load custom widgets if they exist
+    if (config.customWidgets) {
+      setCustomWidgets(config.customWidgets);
+    } else {
+      setCustomWidgets([]);
+    }
+
+    // Load custom widget types if they exist
+    if (config.customWidgetTypes) {
+      setCustomWidgetTypes(config.customWidgetTypes);
+    } else {
+      setCustomWidgetTypes({});
+    }
+
+    // Load widget sizes if they exist
+    if (config.widgetSizes) {
+      setWidgetSizes(config.widgetSizes);
+    } else {
+      // Reset to default sizes
+      setWidgetSizes({
+        "latest-reports": "md",
+        "turnaround-time": "md",
+        "orders-by-status": "md",
+        "assigned-tasks": "md",
+      });
+    }
 
     console.log(`✅ Switched to ${viewId} view:`, {
       firstRow: config.firstRow,
       secondRow: config.secondRow,
+      customWidgets: config.customWidgets,
+      customWidgetTypes: config.customWidgetTypes,
+      widgetSizes: config.widgetSizes,
     });
   };
 
