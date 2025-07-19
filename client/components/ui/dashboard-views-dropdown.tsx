@@ -153,6 +153,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
     >
       {/* Dropdown Button */}
       <button
+        className="dashboard-button"
         onClick={onToggle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
