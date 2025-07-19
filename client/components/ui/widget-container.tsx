@@ -7,151 +7,75 @@ import {
 } from "./dropdown-menu";
 import { downloadWidgetAsImage } from "../../utils/download-widget";
 
-// Helper function to create widget-specific drag previews
-const createWidgetDragPreview = (title: string, rect: DOMRect) => {
-  const container = document.createElement("div");
-  container.style.position = "absolute";
-  container.style.top = "-9999px";
-  container.style.left = "-9999px";
-  container.style.width = Math.min(rect.width, 350) + "px";
-  container.style.height = Math.min(rect.height, 250) + "px";
-  container.style.transformOrigin = "top left";
-  container.style.backgroundColor = "#FFFFFF";
-  container.style.border = "1px solid #E9EAEB";
-  container.style.borderRadius = "12px";
-  container.style.boxShadow =
+// Helper function to capture actual widget appearance for drag preview
+const createWidgetDragPreview = (widgetElement: HTMLElement) => {
+  // Clone the actual widget element to preserve its exact appearance
+  const clone = widgetElement.cloneNode(true) as HTMLElement;
+
+  // Get the widget's current dimensions
+  const rect = widgetElement.getBoundingClientRect();
+
+  // Style the clone for drag preview
+  clone.style.position = "absolute";
+  clone.style.top = "-9999px";
+  clone.style.left = "-9999px";
+  clone.style.width = rect.width + "px";
+  clone.style.height = rect.height + "px";
+  clone.style.transformOrigin = "top left";
+  clone.style.pointerEvents = "none";
+  clone.style.zIndex = "9999";
+  clone.style.opacity = "1";
+  clone.style.transform = "none"; // Reset any transforms
+
+  // Remove any hover effects, drag states, and interactive elements from the clone
+  const removeInteractiveElements = (element: HTMLElement) => {
+    // Remove drag buttons and tooltips
+    const dragButtons = element.querySelectorAll('[draggable="true"]');
+    dragButtons.forEach((btn) => btn.remove());
+
+    // Remove tooltips
+    const tooltips = element.querySelectorAll(
+      'div[style*="position: absolute"][style*="top:"]',
+    );
+    tooltips.forEach((tooltip) => {
+      if (tooltip.textContent?.includes("Drag to move")) {
+        tooltip.remove();
+      }
+    });
+
+    // Remove any drag overlay
+    const dragOverlays = element.querySelectorAll(
+      'div[style*="background"][style*="#ECEEF9"]',
+    );
+    dragOverlays.forEach((overlay) => overlay.remove());
+
+    // Remove resize handles
+    const resizeHandles = element.querySelectorAll(
+      'div[style*="cursor: ew-resize"]',
+    );
+    resizeHandles.forEach((handle) => handle.remove());
+
+    // Reset any hover states by removing hover-related styles
+    const allElements = element.querySelectorAll("*");
+    allElements.forEach((el: Element) => {
+      const htmlEl = el as HTMLElement;
+      // Remove any hover/active states
+      htmlEl.style.removeProperty("background-color");
+      if (htmlEl.style.background?.includes("rgba(52, 71, 154")) {
+        htmlEl.style.background = "transparent";
+      }
+    });
+  };
+
+  removeInteractiveElements(clone);
+
+  // Ensure the clone maintains the original styling
+  clone.style.border = "1px solid #E9EAEB";
+  clone.style.backgroundColor = "#FDFDFD";
+  clone.style.boxShadow =
     "0px 8px 25px -5px rgba(10, 13, 18, 0.15), 0px 8px 10px -6px rgba(10, 13, 18, 0.1)";
-  container.style.fontFamily = "'Public Sans', -apple-system, sans-serif";
-  container.style.pointerEvents = "none";
-  container.style.overflow = "hidden";
-  container.style.display = "flex";
-  container.style.flexDirection = "column";
 
-  // Widget header
-  const header = document.createElement("div");
-  header.style.display = "flex";
-  header.style.justifyContent = "space-between";
-  header.style.alignItems = "center";
-  header.style.padding = "16px";
-  header.style.borderBottom = "1px solid #F2F4F7";
-
-  const titleElement = document.createElement("div");
-  titleElement.textContent = title;
-  titleElement.style.fontSize = "16px";
-  titleElement.style.fontWeight = "600";
-  titleElement.style.color = "#414651";
-  titleElement.style.lineHeight = "24px";
-
-  const menuIcon = document.createElement("div");
-  menuIcon.innerHTML = `
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M3.33333 10H16.6667M3.33333 5H16.6667M3.33333 15H16.6667" stroke="#A4A7AE" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `;
-
-  header.appendChild(titleElement);
-  header.appendChild(menuIcon);
-
-  // Widget content based on type
-  const content = document.createElement("div");
-  content.style.flex = "1";
-  content.style.padding = "16px";
-  content.style.display = "flex";
-  content.style.alignItems = "center";
-  content.style.justifyContent = "center";
-
-  if (
-    title.toLowerCase().includes("report") ||
-    title.toLowerCase().includes("latest")
-  ) {
-    // Table-like widget
-    content.innerHTML = `
-      <div style="width: 100%; opacity: 0.6;">
-        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; color: #8E9297;">
-          <span>Order</span><span>Status</span><span>Progress</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px; color: #414651;">
-          <span>123456</span><span style="color: #17B26A;">Completed</span><span>100%</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px; color: #414651;">
-          <span>654321</span><span style="color: #F79009;">Pending</span><span>75%</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; font-size: 14px; color: #414651;">
-          <span>987654</span><span style="color: #17B26A;">Completed</span><span>100%</span>
-        </div>
-      </div>
-    `;
-  } else if (
-    title.toLowerCase().includes("turnaround") ||
-    title.toLowerCase().includes("time") ||
-    title.toLowerCase().includes("chart")
-  ) {
-    // Chart widget
-    content.innerHTML = `
-      <div style="width: 100%; height: 80px; opacity: 0.6; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 8px;">
-        <div style="width: 12px; height: 30px; background: #344698; border-radius: 2px;"></div>
-        <div style="width: 12px; height: 45px; background: #344698; border-radius: 2px;"></div>
-        <div style="width: 12px; height: 60px; background: #344698; border-radius: 2px;"></div>
-        <div style="width: 12px; height: 35px; background: #344698; border-radius: 2px;"></div>
-        <div style="width: 12px; height: 55px; background: #344698; border-radius: 2px;"></div>
-        <div style="width: 12px; height: 40px; background: #344698; border-radius: 2px;"></div>
-        <div style="width: 12px; height: 50px; background: #344698; border-radius: 2px;"></div>
-      </div>
-    `;
-  } else if (
-    title.toLowerCase().includes("status") ||
-    title.toLowerCase().includes("orders")
-  ) {
-    // Pie chart widget
-    content.innerHTML = `
-      <div style="width: 80px; height: 80px; opacity: 0.6; position: relative;">
-        <svg width="80" height="80" viewBox="0 0 80 80">
-          <circle cx="40" cy="40" r="35" fill="none" stroke="#E9EAEB" stroke-width="8"/>
-          <circle cx="40" cy="40" r="35" fill="none" stroke="#344698" stroke-width="8" stroke-dasharray="110 220" stroke-dashoffset="0" transform="rotate(-90 40 40)"/>
-          <circle cx="40" cy="40" r="35" fill="none" stroke="#17B26A" stroke-width="8" stroke-dasharray="66 220" stroke-dashoffset="-110" transform="rotate(-90 40 40)"/>
-          <circle cx="40" cy="40" r="35" fill="none" stroke="#F79009" stroke-width="8" stroke-dasharray="44 220" stroke-dashoffset="-176" transform="rotate(-90 40 40)"/>
-        </svg>
-      </div>
-    `;
-  } else if (
-    title.toLowerCase().includes("task") ||
-    title.toLowerCase().includes("assign")
-  ) {
-    // Task list widget
-    content.innerHTML = `
-      <div style="width: 100%; opacity: 0.6;">
-        <div style="display: flex; align-items: center; margin-bottom: 8px; font-size: 14px; color: #414651;">
-          <div style="width: 16px; height: 16px; background: #17B26A; border-radius: 3px; margin-right: 8px; position: relative;">
-            <div style="position: absolute; top: 2px; left: 4px; width: 6px; height: 3px; border-left: 2px solid white; border-bottom: 2px solid white; transform: rotate(-45deg);"></div>
-          </div>
-          <span>Review flagged reports</span>
-        </div>
-        <div style="display: flex; align-items: center; margin-bottom: 8px; font-size: 14px; color: #414651;">
-          <div style="width: 16px; height: 16px; border: 2px solid #D5D7DA; border-radius: 3px; margin-right: 8px;"></div>
-          <span>Follow up on pending cases</span>
-        </div>
-        <div style="display: flex; align-items: center; font-size: 14px; color: #414651;">
-          <div style="width: 16px; height: 16px; border: 2px solid #D5D7DA; border-radius: 3px; margin-right: 8px;"></div>
-          <span>Send reminder emails</span>
-        </div>
-      </div>
-    `;
-  } else {
-    // Default widget with placeholder content
-    content.innerHTML = `
-      <div style="display: flex; flex-direction: column; align-items: center; opacity: 0.6;">
-        <div style="width: 60px; height: 40px; background: linear-gradient(135deg, #344698 0%, #5A67D8 100%); border-radius: 8px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center;">
-          <div style="width: 24px; height: 24px; background: white; border-radius: 4px; opacity: 0.9;"></div>
-        </div>
-        <div style="font-size: 12px; color: #8E9297;">Widget Content</div>
-      </div>
-    `;
-  }
-
-  container.appendChild(header);
-  container.appendChild(content);
-
-  return container;
+  return clone;
 };
 
 type WidgetSize = "xs" | "sm" | "md" | "lg" | "xl";
@@ -234,30 +158,24 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/plain", id);
 
-    // Create a clean, simplified drag image instead of cloning complex DOM
+    // Capture the actual widget element for drag preview
     const widgetElement = e.currentTarget.closest(
       "[data-widget-container]",
     ) as HTMLElement;
     if (widgetElement) {
       const rect = widgetElement.getBoundingClientRect();
-      const scale = 0.75; // Clean scale for drag preview
+      const scale = 0.8; // Optimal scale for drag preview visibility
 
-      // Get widget title for the drag preview
-      const titleElement = widgetElement.querySelector(
-        "[data-widget-title]",
-      ) as HTMLElement;
-      const widgetTitle = title || titleElement?.textContent || "Widget";
-
-      // Create widget-specific drag preview that resembles the actual widget
-      const dragPreview = createWidgetDragPreview(widgetTitle, rect);
+      // Create exact copy of the widget for drag preview
+      const dragPreview = createWidgetDragPreview(widgetElement);
       dragPreview.style.transform = `scale(${scale})`;
 
       // Add to document
       document.body.appendChild(dragPreview);
 
-      // Set drag image with proper centering
-      const dragWidth = Math.min(rect.width, 350) * scale;
-      const dragHeight = Math.min(rect.height, 250) * scale;
+      // Set drag image with proper centering based on actual widget size
+      const dragWidth = rect.width * scale;
+      const dragHeight = rect.height * scale;
       const offsetX = dragWidth / 2;
       const offsetY = dragHeight / 2;
 
