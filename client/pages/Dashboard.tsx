@@ -135,8 +135,8 @@ export default function Dashboard() {
     { id: "analytics", name: "Analytics", isDefault: false },
   ]);
 
-  // Define widget orders for different views - must be defined before use
-  const dashboardConfigurations = {
+  // Define widget orders for different views - use useRef to make it mutable
+  const dashboardConfigurations = useRef({
     default: {
       firstRow: ["latest-reports", "turnaround-time"],
       secondRow: ["orders-by-status", "assigned-tasks"],
@@ -145,24 +145,24 @@ export default function Dashboard() {
       firstRow: ["orders-by-status", "assigned-tasks"],
       secondRow: ["latest-reports", "turnaround-time"],
     },
-  };
+  });
 
   // Widget management state - initialize based on current view
   const getCurrentConfiguration = () => {
     return (
-      dashboardConfigurations[
-        currentDashboardView as keyof typeof dashboardConfigurations
-      ] || dashboardConfigurations.default
+      dashboardConfigurations.current[
+        currentDashboardView as keyof typeof dashboardConfigurations.current
+      ] || dashboardConfigurations.current.default
     );
   };
 
   const [widgetOrder, setWidgetOrder] = useState<string[]>(
-    getCurrentConfiguration().firstRow,
+    dashboardConfigurations.current.default.firstRow,
   );
 
   // Second row widgets
   const [secondRowWidgets, setSecondRowWidgets] = useState<string[]>(
-    getCurrentConfiguration().secondRow,
+    dashboardConfigurations.current.default.secondRow,
   );
 
   // Custom widgets that can be added by users (limited to 2)
