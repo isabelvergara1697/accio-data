@@ -853,6 +853,9 @@ export default function Dashboard() {
       return newSizes;
     });
 
+    // Save changes to current dashboard view
+    setTimeout(() => saveCurrentStateToConfig(), 0);
+
     console.log(`✅ Removed custom widget: ${widgetId}`);
   };
 
