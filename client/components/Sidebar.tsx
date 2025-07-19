@@ -71,11 +71,17 @@ export const Sidebar: React.FC<SidebarProps> = ({
     section,
     isOpen,
     isActive = false,
+    isMobile: iconIsMobile = false,
+    isTablet = false,
   }: {
     section: string;
     isOpen: boolean;
     isActive?: boolean;
+    isMobile?: boolean;
+    isTablet?: boolean;
   }) => {
+    // Determine icon size based on device
+    const iconSize = iconIsMobile ? 18 : isTablet ? 20 : 21;
     const icons = {
       dashboard: (
         <svg
