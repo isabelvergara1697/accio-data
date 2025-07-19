@@ -57,8 +57,8 @@ export const MiniChart: React.FC<MiniChartProps> = ({
         position: "relative",
         overflow: "hidden",
         minWidth: "80px",
-        flex: "1 1 auto", // Allow flexible scaling
-        maxWidth: "100%", // Fill available space
+        maxWidth: "120px", // Constrain max width to prevent over-stretching
+        aspectRatio: "103/56", // Maintain proper aspect ratio
       }}
     >
       {/* Single SVG with consistent scaling and aspect ratio */}
