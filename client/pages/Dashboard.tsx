@@ -189,6 +189,7 @@ export default function Dashboard() {
   const [defaultButtonHovered, setDefaultButtonHovered] = useState(false);
   const [dateButtonHovered, setDateButtonHovered] = useState(false);
   const dateButtonRef = useRef<HTMLButtonElement>(null);
+  const customWidgetsRef = useRef<HTMLDivElement>(null);
 
   // Enhanced responsive icon sizing with container awareness
   const iconSize = useIconSizeEnhanced(16, {
@@ -474,7 +475,7 @@ export default function Dashboard() {
           newOrder.splice(targetIndex + 1, 0, sourceId);
         }
 
-        console.log("📋 Added to first row:", newOrder);
+        console.log("���� Added to first row:", newOrder);
         return newOrder;
       });
     }
@@ -638,6 +639,23 @@ export default function Dashboard() {
     setWidgetSizes((prev) => ({ ...prev, [widgetId]: "md" }));
 
     console.log(`✅ Added custom widget: ${widgetId} of type: ${widgetType}`);
+
+    // Scroll to the custom widgets section after a brief delay
+    setTimeout(() => {
+      if (customWidgetsRef.current) {
+        const offsetTop = customWidgetsRef.current.offsetTop;
+        const headerHeight = isDesktop ? 80 : 64; // Account for fixed header
+        const notificationHeight =
+          showNotification || orderNotification?.show ? 60 : 0;
+        const scrollPosition =
+          offsetTop - headerHeight - notificationHeight - 32; // 32px padding
+
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100); // Small delay to ensure the widget is rendered
   };
 
   // Handle removing custom widgets
@@ -1504,6 +1522,7 @@ export default function Dashboard() {
               {/* Third Row - Custom Widgets */}
               {customWidgets.length > 0 && (
                 <div
+                  ref={customWidgetsRef}
                   style={{
                     display: "flex",
                     ...(isMobile
