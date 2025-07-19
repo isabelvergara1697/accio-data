@@ -1644,11 +1644,6 @@ export default function Dashboard() {
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
-                        {...(isAnalyticsView && {
-                          title: analyticsData["latest-reports"].title,
-                          placeholderData:
-                            analyticsData["latest-reports"].reports,
-                        })}
                       />
                     );
                   }
