@@ -101,6 +101,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         style={trendIconSize.style}
+        className={trendIconSize.className}
       >
         <path
           d="M8.00016 3.3335V12.6668M8.00016 12.6668L12.6668 8.00016M8.00016 12.6668L3.3335 8.00016"
