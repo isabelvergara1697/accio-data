@@ -126,8 +126,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
       ),
       screening: (
         <svg
-          width="20"
-          height="21"
+          width={iconSize}
+          height={iconSize}
           viewBox="0 0 20 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
