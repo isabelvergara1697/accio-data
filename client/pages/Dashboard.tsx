@@ -699,7 +699,7 @@ export default function Dashboard() {
           });
         } else {
           console.log(
-            "⚠️ Main content container not found, using window scroll",
+            "⚠�� Main content container not found, using window scroll",
           );
           // Fallback to window scroll if main container not found
           const offsetTop = customWidgetsRef.current.offsetTop;
@@ -819,10 +819,16 @@ export default function Dashboard() {
 
     // Load the widget configuration for the selected view
     const config =
-      dashboardConfigurations[viewId as keyof typeof dashboardConfigurations] ||
-      dashboardConfigurations.default;
+      dashboardConfigurations.current[
+        viewId as keyof typeof dashboardConfigurations.current
+      ] || dashboardConfigurations.current.default;
     setWidgetOrder(config.firstRow);
     setSecondRowWidgets(config.secondRow);
+
+    console.log(`✅ Switched to ${viewId} view:`, {
+      firstRow: config.firstRow,
+      secondRow: config.secondRow,
+    });
   };
 
   const handleSaveDashboard = (viewName: string) => {
@@ -841,8 +847,8 @@ export default function Dashboard() {
     };
 
     // Update dashboardConfigurations with the new view
-    dashboardConfigurations[
-      newView.id as keyof typeof dashboardConfigurations
+    dashboardConfigurations.current[
+      newView.id as keyof typeof dashboardConfigurations.current
     ] = currentConfig;
 
     setDashboardViews((prev) => [...prev, newView]);
