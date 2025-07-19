@@ -45,6 +45,10 @@ export const MetricCard: React.FC<MetricCardProps> = ({
     containerAware: true,
     minSize: 10,
     maxSize: 16,
+    breakpoints: {
+      mobile: 768,
+      tablet: 1200, // Match Dashboard breakpoint
+    },
   });
 
   const {
@@ -244,16 +248,13 @@ export const MetricCard: React.FC<MetricCardProps> = ({
         <div
           style={{
             height: "56px",
-            flex: "1 1 auto",
+            flex: "0 0 auto", // Don't flex, use natural width
             position: "relative",
-            minWidth: "120px", // Ensure adequate minimum space for chart
-            maxWidth: "100%",
-            width: "100%",
+            width: "103px", // Fixed width matching chart viewBox
             overflow: "hidden",
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-end",
-            // Ensure chart takes proper space and aligns correctly
           }}
         >
           <MiniChart
