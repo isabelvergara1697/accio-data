@@ -149,9 +149,10 @@ export const MetricCard: React.FC<MetricCardProps> = ({
         style={{
           display: "flex",
           alignItems: "flex-end",
-          gap: "24px",
+          gap: "16px", // Reduce gap to give more space to content
           alignSelf: "stretch",
           position: "relative",
+          width: "100%",
         }}
       >
         {/* Number and badge section */}
