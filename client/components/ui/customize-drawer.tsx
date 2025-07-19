@@ -303,11 +303,10 @@ export default function CustomizeDrawer({
     if (onAddWidget) {
       // Map card IDs to widget types
       const widgetTypeMap: Record<string, string> = {
-        "chart-breakout": "chart",
-        "presentation-chart": "activity",
-        "bar-chart-square-up": "stats",
-        "pie-chart": "stats",
-        "bar-chart": "chart",
+        "performance-trends": "chart",
+        "system-activity": "activity",
+        "revenue-analytics": "stats",
+        "kpi-dashboard": "stats",
       };
 
       const widgetType = widgetTypeMap[cardId] || "stats";
@@ -315,6 +314,108 @@ export default function CustomizeDrawer({
       onClose(); // Close drawer after adding widget
     }
   };
+
+  const renderWidgetCard = (card: WidgetCard) => (
+    <div
+      key={card.id}
+      className="widget-card"
+      style={{
+        display: "flex",
+        padding: isDesktop ? "16px" : "12px",
+        alignItems: "flex-start",
+        gap: "12px",
+        alignSelf: "stretch",
+        borderRadius: "12px",
+        border: card.canAdd ? "1px solid #E9EAEB" : "1px solid #F2F4F7",
+        background: card.canAdd
+          ? hoveredCard === card.id
+            ? "#F9FAFB"
+            : "#FFF"
+          : "#FAFAFA",
+        boxShadow: card.canAdd
+          ? "0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
+          : "0px 1px 1px 0px rgba(10, 13, 18, 0.02)",
+        cursor: card.canAdd ? "pointer" : "default",
+        transition: "background-color 0.2s ease",
+        opacity: card.canAdd ? 1 : 0.7,
+      }}
+      onMouseEnter={() => card.canAdd && setHoveredCard(card.id)}
+      onMouseLeave={() => setHoveredCard(null)}
+      onClick={() => card.canAdd && handleCardClick(card.id)}
+    >
+      <div
+        className="widget-icon"
+        style={{
+          display: "flex",
+          width: isDesktop ? "40px" : "32px",
+          height: isDesktop ? "40px" : "32px",
+          padding: isDesktop ? "10px" : "8px",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "10px",
+          borderRadius: isDesktop ? "8px" : "6px",
+          border: card.canAdd ? "1px solid #D5D7DA" : "1px solid #E9EAEB",
+          background: card.canAdd ? "#FFF" : "#F8F9FA",
+          boxShadow: card.canAdd
+            ? "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
+            : "0px 1px 1px 0px rgba(10, 13, 18, 0.02)",
+        }}
+      >
+        {React.cloneElement(card.icon as React.ReactElement, {
+          width: isDesktop ? "20" : "18",
+          height: isDesktop ? "20" : "18",
+          style: {
+            width: isDesktop ? "20px" : "18px",
+            height: isDesktop ? "20px" : "18px",
+          },
+        })}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "2px",
+          flex: "1 0 0",
+          alignSelf: "stretch",
+        }}
+      >
+        <div
+          style={{
+            alignSelf: "stretch",
+            color: card.canAdd ? "#414651" : "#717680",
+            fontFamily:
+              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+            fontSize: "16px",
+            fontStyle: "normal",
+            fontWeight: 600,
+            lineHeight: "24px",
+          }}
+        >
+          {card.title}
+        </div>
+        <div
+          style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 4,
+            alignSelf: "stretch",
+            overflow: "hidden",
+            color: card.canAdd ? "#535862" : "#8E9297",
+            textOverflow: "ellipsis",
+            fontFamily:
+              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+            fontSize: "14px",
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "20px",
+          }}
+        >
+          {card.description}
+        </div>
+      </div>
+    </div>
+  );
 
   const modalContent = !isOpen ? null : (
     <>
@@ -504,7 +605,7 @@ export default function CustomizeDrawer({
                     lineHeight: "20px",
                   }}
                 >
-                  Monitor key metrics with our ready-to-use widgets.
+                  Add new widgets or view existing dashboard components.
                 </p>
               </div>
             </div>
@@ -551,13 +652,13 @@ export default function CustomizeDrawer({
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "24px",
+              gap: "32px",
               alignItems: "center",
               flex: "1 0 0",
               alignSelf: "stretch",
             }}
           >
-                        {/* Available Widgets Section */}
+            {/* Available Widgets Section */}
             <div
               style={{
                 display: "flex",
@@ -584,7 +685,8 @@ export default function CustomizeDrawer({
                 <div
                   style={{
                     color: "#535862",
-                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontWeight: 600,
                     lineHeight: "18px",
@@ -603,99 +705,58 @@ export default function CustomizeDrawer({
                 />
               </div>
 
-              {availableWidgets.map((card) => (
+              {availableWidgets.map(renderWidgetCard)}
+            </div>
+
+            {/* Reference Widgets Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+                alignSelf: "stretch",
+              }}
+            >
               <div
-                key={card.id}
-                className="widget-card"
                 style={{
                   display: "flex",
-                  padding: isDesktop ? "16px" : "12px",
-                  alignItems: "flex-start",
-                  gap: "12px",
+                  alignItems: "center",
+                  gap: "8px",
                   alignSelf: "stretch",
-                  borderRadius: "12px",
-                  border: "1px solid #E9EAEB",
-                  background: hoveredCard === card.id ? "#F9FAFB" : "#FFF",
-                  boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
-                  transition: "background-color 0.2s ease",
                 }}
-                onMouseEnter={() => setHoveredCard(card.id)}
-                onMouseLeave={() => setHoveredCard(null)}
-                onClick={() => handleCardClick(card.id)}
               >
                 <div
-                  className="widget-icon"
                   style={{
-                    display: "flex",
-                    width: isDesktop ? "40px" : "32px",
-                    height: isDesktop ? "40px" : "32px",
-                    padding: isDesktop ? "10px" : "8px",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "10px",
-                    borderRadius: isDesktop ? "8px" : "6px",
-                    border: "1px solid #D5D7DA",
-                    background: "#FFF",
-                    boxShadow:
-                      "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                    height: "1px",
+                    flex: "1 0 0",
+                    background: "#E9EAEB",
+                  }}
+                />
+                <div
+                  style={{
+                    color: "#535862",
+                    fontFamily:
+                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    lineHeight: "18px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.5px",
                   }}
                 >
-                  {React.cloneElement(card.icon as React.ReactElement, {
-                    width: isDesktop ? "20" : "18",
-                    height: isDesktop ? "20" : "18",
-                    style: {
-                      width: isDesktop ? "20px" : "18px",
-                      height: isDesktop ? "20px" : "18px",
-                    },
-                  })}
+                  Already on Dashboard
                 </div>
                 <div
                   style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "2px",
+                    height: "1px",
                     flex: "1 0 0",
-                    alignSelf: "stretch",
+                    background: "#E9EAEB",
                   }}
-                >
-                  <div
-                    style={{
-                      alignSelf: "stretch",
-                      color: "#414651",
-                      fontFamily:
-                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                      fontSize: "16px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "24px",
-                    }}
-                  >
-                    {card.title}
-                  </div>
-                  <div
-                    style={{
-                      display: "-webkit-box",
-                      WebkitBoxOrient: "vertical",
-                      WebkitLineClamp: 4,
-                      alignSelf: "stretch",
-                      overflow: "hidden",
-                      color: "#535862",
-                      textOverflow: "ellipsis",
-                      fontFamily:
-                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                    }}
-                  >
-                    {card.description}
-                  </div>
-                </div>
+                />
               </div>
-            ))}
+
+              {referenceWidgets.map(renderWidgetCard)}
+            </div>
           </div>
         </div>
       </div>
