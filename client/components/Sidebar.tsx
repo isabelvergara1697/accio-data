@@ -184,21 +184,30 @@ export const Sidebar: React.FC<SidebarProps> = ({
     );
   };
 
-  const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
-    <svg
-      style={{
-        width: "24px",
-        height: "24px",
-        position: "relative",
-        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-        transition: "transform 0.2s ease",
-      }}
-      width="24"
-      height="25"
-      viewBox="0 0 24 25"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    const ChevronIcon = ({
+    isOpen,
+    isMobile: chevronIsMobile = false
+  }: {
+    isOpen: boolean;
+    isMobile?: boolean;
+  }) => {
+    const size = chevronIsMobile ? 20 : 24;
+    return (
+      <svg
+        style={{
+          width: `${size}px`,
+          height: `${size}px`,
+          position: "relative",
+          transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+          transition: "transform 0.2s ease",
+        }}
+        width={size}
+        height={size}
+        viewBox="0 0 24 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+    );
       <path
         d="M6 9.93274L12 15.9327L18 9.93274"
         stroke="#A4A7AE"
