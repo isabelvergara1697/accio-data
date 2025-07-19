@@ -65,13 +65,23 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenNotificationModal,
 }) => {
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
-  const mobile = useIsMobile();
-  const isTablet = !mobile && !isDesktop;
 
-  // Responsive icon sizes
-  const searchIconSize = useResponsiveSVG(20, mobile, isTablet);
-  const plusIconSize = useResponsiveSVG(20, mobile, isTablet);
-  const notificationIconSize = useResponsiveSVG(24, mobile, isTablet);
+  // Enhanced responsive icon sizes with container awareness
+  const searchIconSize = useIconSizeEnhanced(20, {
+    containerAware: true,
+    minSize: 16,
+    maxSize: 24,
+  });
+  const plusIconSize = useIconSizeEnhanced(20, {
+    containerAware: true,
+    minSize: 16,
+    maxSize: 22,
+  });
+  const notificationIconSize = useIconSizeEnhanced(24, {
+    containerAware: true,
+    minSize: 18,
+    maxSize: 26,
+  });
 
   if (!isDesktop) return null;
 
