@@ -838,7 +838,12 @@ const DatePickerCalendar: React.FC<DatePickerCalendarProps> = ({
                   cursor: "pointer",
                 }}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <svg
+                  width={isMobile ? "20" : "24"}
+                  height={isMobile ? "20" : "24"}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
                   <path
                     d="M9 18L15 12L9 6"
                     stroke="#A4A7AE"
