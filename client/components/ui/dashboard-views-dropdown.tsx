@@ -269,7 +269,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
               alignSelf: "stretch",
             }}
           >
-            {/* Current Selected View */}
+            {/* Dashboard Views */}
             {views.map((view) => (
               <div
                 key={view.id}
@@ -280,69 +280,372 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                   alignSelf: "stretch",
                 }}
               >
-                <div
-                  onClick={() => {
-                    if (view.id !== currentView) {
-                      onViewChange(view.id);
-                    }
-                  }}
-                  onMouseEnter={() => setHoveredItem(view.id)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                  style={{
-                    display: "flex",
-                    padding: "8px 10px 8px 8px",
-                    alignItems: "center",
-                    gap: "8px",
-                    flex: "1 0 0",
-                    borderRadius: "6px",
-                    background:
-                      view.id === currentView
-                        ? "#F5F5F5"
-                        : hoveredItem === view.id
-                          ? "#FAFAFA"
-                          : "transparent",
-                    cursor: view.id === currentView ? "default" : "pointer",
-                    transition: "background-color 0.2s ease-in-out",
-                  }}
-                >
+                {isRenaming === view.id ? (
+                  /* Rename Input */
                   <div
                     style={{
                       display: "flex",
+                      padding: "6px 8px",
                       alignItems: "center",
                       gap: "8px",
                       flex: "1 0 0",
+                      borderRadius: "6px",
+                      border: "2px solid #34479A",
+                      background: "#FFF",
                     }}
                   >
-                    <div
+                    <input
+                      ref={renameInputRef}
+                      type="text"
+                      value={renameValue}
+                      onChange={(e) => setRenameValue(e.target.value)}
+                      onKeyDown={handleRenameKeyPress}
                       style={{
+                        flex: "1 0 0",
+                        border: "none",
+                        outline: "none",
+                        background: "transparent",
                         color: "#181D27",
                         fontFamily: "Public Sans",
                         fontSize: "14px",
-                        fontWeight: view.id === currentView ? "500" : "400",
+                        fontWeight: "400",
                         lineHeight: "20px",
                       }}
+                    />
+                    <button
+                      onClick={() => {
+                        if (renameValue.trim()) {
+                          onRenameDashboard(view.id, renameValue);
+                          setIsRenaming(null);
+                          setRenameValue("");
+                        }
+                      }}
+                      style={{
+                        background: "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: "2px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
                     >
-                      {view.name}
-                    </div>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                          stroke="#344698"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setIsRenaming(null);
+                        setRenameValue("");
+                      }}
+                      style={{
+                        background: "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: "2px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9.91671 4.08334L4.08337 9.91668M4.08337 4.08334L9.91671 9.91668"
+                          stroke="#A4A7AE"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
                   </div>
-                  {view.id === currentView && (
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                ) : (
+                  /* Normal View Display */
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "40px",
+                      padding: "8px",
+                      alignItems: "center",
+                      gap: "8px",
+                      flex: "1 0 0",
+                      borderRadius: "6px",
+                      background:
+                        view.id === currentView
+                          ? "#F5F5F5"
+                          : hoveredItem === view.id
+                            ? "#F5F5F5"
+                            : "transparent",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      onClick={() => {
+                        if (view.id !== currentView) {
+                          onViewChange(view.id);
+                        }
+                      }}
+                      onMouseEnter={() => setHoveredItem(view.id)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        flex: "1 0 0",
+                        cursor: view.id === currentView ? "default" : "pointer",
+                      }}
                     >
-                      <path
-                        d="M20 6L9 17L4 12"
-                        stroke="#344698"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  )}
-                </div>
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: view.id === currentView ? "500" : "400",
+                          lineHeight: "20px",
+                        }}
+                      >
+                        {view.name}
+                      </div>
+                    </div>
+                    {view.id === currentView && (
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20 6L9 17L4 12"
+                          stroke="#344698"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+                    {!view.isDefault && (
+                      <div style={{ position: "relative" }}>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowSubmenu(
+                              showSubmenu === view.id ? null : view.id,
+                            );
+                          }}
+                          style={{
+                            display: "flex",
+                            padding: "4px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "6px",
+                            background: "#F5F5F5",
+                            border: "none",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.00004 8.66666C8.36823 8.66666 8.66671 8.36818 8.66671 7.99999C8.66671 7.6318 8.36823 7.33332 8.00004 7.33332C7.63185 7.33332 7.33337 7.6318 7.33337 7.99999C7.33337 8.36818 7.63185 8.66666 8.00004 8.66666Z"
+                              stroke="#717680"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M8.00004 3.99999C8.36823 3.99999 8.66671 3.70151 8.66671 3.33332C8.66671 2.96513 8.36823 2.66666 8.00004 2.66666C7.63185 2.66666 7.33337 2.96513 7.33337 3.33332C7.33337 3.70151 7.63185 3.99999 8.00004 3.99999Z"
+                              stroke="#717680"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="M8.00004 13.3333C8.36823 13.3333 8.66671 13.0348 8.66671 12.6667C8.66671 12.2985 8.36823 12 8.00004 12C7.63185 12 7.33337 12.2985 7.33337 12.6667C7.33337 13.0348 7.63185 13.3333 8.00004 13.3333Z"
+                              stroke="#717680"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                        {/* Submenu */}
+                        {showSubmenu === view.id && (
+                          <div
+                            style={{
+                              position: "absolute",
+                              top: "100%",
+                              right: "0",
+                              marginTop: "4px",
+                              display: "flex",
+                              width: "220px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              borderRadius: "8px",
+                              border: "1px solid rgba(0, 0, 0, 0.08)",
+                              background: "#FFF",
+                              boxShadow:
+                                "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                              zIndex: 1001,
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "4px 0px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              {/* Rename Option */}
+                              <div
+                                onClick={() => handleRename(view.id, view.name)}
+                                style={{
+                                  display: "flex",
+                                  padding: "1px 6px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "8px 10px",
+                                    alignItems: "center",
+                                    gap: "12px",
+                                    flex: "1 0 0",
+                                    borderRadius: "6px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "8px",
+                                      flex: "1 0 0",
+                                    }}
+                                  >
+                                    <svg
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M2.87604 18.1156C2.92198 17.7021 2.94496 17.4954 3.00751 17.3022C3.06301 17.1307 3.14143 16.9676 3.24064 16.8171C3.35246 16.6475 3.49955 16.5005 3.79373 16.2063L17 3C18.1046 1.89543 19.8955 1.89543 21 3C22.1046 4.10457 22.1046 5.89543 21 7L7.79373 20.2063C7.49955 20.5005 7.35245 20.6475 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.055 6.29786 21.078 5.88437 21.124L2.5 21.5L2.87604 18.1156Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                    <div
+                                      style={{
+                                        flex: "1 0 0",
+                                        color: "#414651",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontWeight: "600",
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      Rename Dashboard
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {/* Delete Option */}
+                              <div
+                                onClick={() => handleDeleteDashboard(view.id)}
+                                style={{
+                                  display: "flex",
+                                  padding: "1px 6px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "8px 10px",
+                                    alignItems: "center",
+                                    gap: "12px",
+                                    flex: "1 0 0",
+                                    borderRadius: "6px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "8px",
+                                      flex: "1 0 0",
+                                    }}
+                                  >
+                                    <svg
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M9 3H15M3 6H21M19 6L18.2987 16.5193C18.1935 18.0975 18.1409 18.8867 17.8 19.485C17.4999 20.0118 17.0472 20.4353 16.5017 20.6997C15.882 21 15.0911 21 13.5093 21H10.4907C8.90891 21 8.11803 21 7.49834 20.6997C6.95276 20.4353 6.50009 20.0118 6.19998 19.485C5.85911 18.8867 5.8065 18.0975 5.70129 16.5193L5 6"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.5"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                    <div
+                                      style={{
+                                        flex: "1 0 0",
+                                        color: "#414651",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontWeight: "600",
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      Delete Dashboard
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
 
