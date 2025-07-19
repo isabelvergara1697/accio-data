@@ -991,7 +991,7 @@ export default function Dashboard() {
         <div
           className={isMobile ? "mobile-container" : ""}
           style={{
-            marginLeft: isDesktop ? "296px" : "0",
+            marginLeft: !isMobile ? "296px" : "0",
             flex: "1 1 auto",
             display: "flex",
             flexDirection: "column",
