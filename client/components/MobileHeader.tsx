@@ -85,7 +85,8 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
     maxSize: 26,
   });
 
-  if (isDesktop) return null;
+  // Show mobile header only on mobile and small tablet (<1024px)
+  if (!isMobile && window.innerWidth >= 1024) return null;
 
   return (
     <div
