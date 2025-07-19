@@ -86,9 +86,13 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
       setShowNameInput(false);
       setDashboardName("");
     } else if (e.key === "Escape") {
-      setShowNameInput(false);
-      setDashboardName("");
+      handleCancelInput();
     }
+  };
+
+  const handleCancelInput = () => {
+    setShowNameInput(false);
+    setDashboardName("");
   };
 
   return (
@@ -386,6 +390,36 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                             background: "transparent",
                           }}
                         />
+                        {/* Cancel Button */}
+                        <button
+                          onClick={handleCancelInput}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "16px",
+                            height: "16px",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            padding: "0",
+                          }}
+                        >
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9.91671 4.08334L4.08337 9.91668M4.08337 4.08334L9.91671 9.91668"
+                              stroke="#A4A7AE"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
                       </div>
                     </div>
                   </div>
