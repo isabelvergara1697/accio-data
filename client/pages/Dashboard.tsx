@@ -551,6 +551,8 @@ export default function Dashboard() {
         }
 
         console.log("📋 New second row order:", newOrder);
+        // Save changes to current dashboard view
+        setTimeout(() => saveCurrentStateToConfig(), 0);
         return newOrder;
       });
     }
