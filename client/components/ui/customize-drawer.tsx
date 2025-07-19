@@ -526,7 +526,14 @@ export default function CustomizeDrawer({
                       "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  {card.icon}
+                  {React.cloneElement(card.icon as React.ReactElement, {
+                    width: isDesktop ? "20" : "18",
+                    height: isDesktop ? "20" : "18",
+                    style: {
+                      width: isDesktop ? "20px" : "18px",
+                      height: isDesktop ? "20px" : "18px",
+                    },
+                  })}
                 </div>
                 <div
                   style={{
