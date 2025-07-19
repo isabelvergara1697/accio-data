@@ -10,7 +10,7 @@ interface DashboardViewsDropdownProps {
   currentView: string;
   views: DashboardView[];
   onViewChange: (viewId: string) => void;
-  onSaveDashboard: () => void;
+  onSaveDashboard: (viewName: string) => void;
   onCreateNewView: () => void;
   isOpen: boolean;
   onToggle: () => void;
@@ -32,7 +32,10 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [showInfo, setShowInfo] = useState(true);
+  const [showNameInput, setShowNameInput] = useState(false);
+  const [dashboardName, setDashboardName] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const currentViewData = views.find((view) => view.id === currentView);
 
@@ -43,6 +46,8 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
         !dropdownRef.current.contains(event.target as Node)
       ) {
         onClose();
+        setShowNameInput(false);
+        setDashboardName("");
       }
     };
 
@@ -54,6 +59,37 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen, onClose]);
+
+  // Focus input when it becomes visible
+  useEffect(() => {
+    if (showNameInput && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [showNameInput]);
+
+  const handleSaveClick = () => {
+    if (showNameInput) {
+      // Save with the entered name
+      onSaveDashboard(dashboardName);
+      setShowNameInput(false);
+      setDashboardName("");
+    } else {
+      // Show input field
+      setShowNameInput(true);
+      setDashboardName("My Dashboard");
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && dashboardName.trim()) {
+      onSaveDashboard(dashboardName);
+      setShowNameInput(false);
+      setDashboardName("");
+    } else if (e.key === "Escape") {
+      setShowNameInput(false);
+      setDashboardName("");
+    }
+  };
 
   return (
     <div
@@ -276,76 +312,157 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
               />
             </div>
 
-            {/* Save Dashboard Button */}
-            <div
-              style={{
-                display: "flex",
-                height: "38px",
-                padding: "1px 6px",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                alignSelf: "stretch",
-              }}
-            >
-              <button
-                onClick={onSaveDashboard}
-                onMouseEnter={() => setHoveredItem("save")}
-                onMouseLeave={() => setHoveredItem(null)}
+            {/* Save Dashboard Section */}
+            {showNameInput ? (
+              /* Input Field for Dashboard Name */
+              <div
                 style={{
                   display: "flex",
-                  minHeight: "36px",
-                  padding: "6px 8px",
+                  height: "42px",
+                  padding: "1px 6px",
                   justifyContent: "center",
                   alignItems: "center",
-                  gap: "4px",
                   alignSelf: "stretch",
-                  borderRadius: "8px",
-                  border: "1px solid #D5D7DA",
-                  background: hoveredItem === "save" ? "#F8F9FA" : "#FFF",
-                  boxShadow:
-                    "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
-                  transition: "background-color 0.2s ease-in-out",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
-                    padding: "0px 2px",
-                    justifyContent: "center",
-                    alignItems: "center",
+                    width: "220px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "6px",
                   }}
                 >
                   <div
                     style={{
-                      color: "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      lineHeight: "20px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "6px",
+                      alignSelf: "stretch",
                     }}
                   >
-                    Save Dashboard
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "6px 8px",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        borderRadius: "8px",
+                        border: "2px solid #34479A",
+                        background: "#FFF",
+                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "2px 0px",
+                          alignItems: "center",
+                          gap: "8px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <input
+                          ref={inputRef}
+                          type="text"
+                          value={dashboardName}
+                          onChange={(e) => setDashboardName(e.target.value)}
+                          onKeyDown={handleKeyPress}
+                          placeholder="Dashboard name"
+                          style={{
+                            flex: "1 0 0",
+                            overflow: "hidden",
+                            color: "#181D27",
+                            textOverflow: "ellipsis",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: "400",
+                            lineHeight: "20px",
+                            border: "none",
+                            outline: "none",
+                            background: "transparent",
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              </div>
+            ) : (
+              /* Save Dashboard Button */
+              <div
+                style={{
+                  display: "flex",
+                  height: "38px",
+                  padding: "1px 6px",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  alignSelf: "stretch",
+                }}
+              >
+                <button
+                  onClick={handleSaveClick}
+                  onMouseEnter={() => setHoveredItem("save")}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: hoveredItem === "save" ? "#F8F9FA" : "#FFF",
+                    boxShadow:
+                      "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                    transition: "background-color 0.2s ease-in-out",
+                  }}
                 >
-                  <path
-                    d="M5.16667 2V4.26667C5.16667 4.64004 5.16667 4.82672 5.23933 4.96933C5.30324 5.09477 5.40523 5.19676 5.53067 5.26067C5.67328 5.33333 5.85997 5.33333 6.23333 5.33333H10.7667C11.14 5.33333 11.3267 5.33333 11.4693 5.26067C11.5948 5.19676 11.6968 5.09477 11.7607 4.96933C11.8333 4.82672 11.8333 4.64004 11.8333 4.26667V2.66667M11.8333 14V9.73333C11.8333 9.35997 11.8333 9.17328 11.7607 9.03067C11.6968 8.90523 11.5948 8.80324 11.4693 8.73933C11.3267 8.66667 11.14 8.66667 10.7667 8.66667H6.23333C5.85997 8.66667 5.67328 8.66667 5.53067 8.73933C5.40523 8.80324 5.30324 8.90523 5.23933 9.03067C5.16667 9.17328 5.16667 9.35997 5.16667 9.73333V14M14.5 6.21699V10.8C14.5 11.9201 14.5 12.4802 14.282 12.908C14.0903 13.2843 13.7843 13.5903 13.408 13.782C12.9802 14 12.4201 14 11.3 14H5.7C4.5799 14 4.01984 14 3.59202 13.782C3.21569 13.5903 2.90973 13.2843 2.71799 12.908C2.5 12.4802 2.5 11.9201 2.5 10.8V5.2C2.5 4.0799 2.5 3.51984 2.71799 3.09202C2.90973 2.71569 3.21569 2.40973 3.59202 2.21799C4.01984 2 4.5799 2 5.7 2H10.283C10.6091 2 10.7722 2 10.9256 2.03684C11.0617 2.0695 11.1918 2.12337 11.311 2.19648C11.4456 2.27894 11.5609 2.39424 11.7915 2.62484L13.8752 4.7085C14.1058 4.9391 14.2211 5.0544 14.3035 5.18895C14.3766 5.30825 14.4305 5.43831 14.4632 5.57436C14.5 5.72781 14.5 5.89087 14.5 6.21699Z"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0px 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Save Dashboard
+                    </div>
+                  </div>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.16667 2V4.26667C5.16667 4.64004 5.16667 4.82672 5.23933 4.96933C5.30324 5.09477 5.40523 5.19676 5.53067 5.26067C5.67328 5.33333 5.85997 5.33333 6.23333 5.33333H10.7667C11.14 5.33333 11.3267 5.33333 11.4693 5.26067C11.5948 5.19676 11.6968 5.09477 11.7607 4.96933C11.8333 4.82672 11.8333 4.64004 11.8333 4.26667V2.66667M11.8333 14V9.73333C11.8333 9.35997 11.8333 9.17328 11.7607 9.03067C11.6968 8.90523 11.5948 8.80324 11.4693 8.73933C11.3267 8.66667 11.14 8.66667 10.7667 8.66667H6.23333C5.85997 8.66667 5.67328 8.66667 5.53067 8.73933C5.40523 8.80324 5.30324 8.90523 5.23933 9.03067C5.16667 9.17328 5.16667 9.35997 5.16667 9.73333V14M14.5 6.21699V10.8C14.5 11.9201 14.5 12.4802 14.282 12.908C14.0903 13.2843 13.7843 13.5903 13.408 13.782C12.9802 14 12.4201 14 11.3 14H5.7C4.5799 14 4.01984 14 3.59202 13.782C3.21569 13.5903 2.90973 13.2843 2.71799 12.908C2.5 12.4802 2.5 11.9201 2.5 10.8V5.2C2.5 4.0799 2.5 3.51984 2.71799 3.09202C2.90973 2.71569 3.21569 2.40973 3.59202 2.21799C4.01984 2 4.5799 2 5.7 2H10.283C10.6091 2 10.7722 2 10.9256 2.03684C11.0617 2.0695 11.1918 2.12337 11.311 2.19648C11.4456 2.27894 11.5609 2.39424 11.7915 2.62484L13.8752 4.7085C14.1058 4.9391 14.2211 5.0544 14.3035 5.18895C14.3766 5.30825 14.4305 5.43831 14.4632 5.57436C14.5 5.72781 14.5 5.89087 14.5 6.21699Z"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            )}
 
             {/* Info Section */}
             {showInfo && (
