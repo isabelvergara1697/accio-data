@@ -122,6 +122,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           : {
               flex: "1 1 0",
               minWidth: "200px",
+              maxWidth: "100%",
             }),
         padding: "16px 12px 12px 16px",
         flexDirection: "column",
@@ -135,6 +136,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
         cursor: "pointer",
         transition: "all 0.2s ease-in-out",
         overflow: "hidden", // Add overflow masking
+        boxSizing: "border-box", // Ensure padding is included in width calculations
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
