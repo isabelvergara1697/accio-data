@@ -162,8 +162,8 @@ export const MetricCard: React.FC<MetricCardProps> = ({
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "12px",
-            flex: "0 0 auto", // Don't expand, use natural width
-            minWidth: "120px", // Ensure adequate space for numbers
+            flex: "1 1 auto", // Take remaining space
+            minWidth: "100px", // Ensure adequate space for numbers
             position: "relative",
           }}
         >
@@ -246,17 +246,14 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           </div>
         </div>
 
-        {/* Chart section - allow SVG to scale naturally */}
+        {/* Chart section - fixed responsive dimensions */}
         <div
           style={{
             height: "56px",
-            flex: "1 1 auto", // Take remaining space
+            width: "120px", // Fixed width for consistency
             position: "relative",
-            minWidth: "103px", // Match SVG viewBox width
             overflow: "hidden",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center", // Center the chart
+            flexShrink: 0, // Don't shrink
           }}
         >
           <MiniChart
