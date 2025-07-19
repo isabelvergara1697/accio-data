@@ -683,10 +683,11 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                 <div
                   style={{
                     display: "flex",
-                    width: "220px",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     gap: "6px",
+                    alignSelf: "stretch",
+                    width: "100%",
                   }}
                 >
                   <div
