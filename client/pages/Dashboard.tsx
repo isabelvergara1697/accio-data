@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import AlertNotification from "../components/ui/alert-notification";
 import CustomizeDrawer from "../components/ui/customize-drawer";
 import DatePickerCalendar from "../components/ui/date-picker-calendar";
+import { DashboardViewsDropdown } from "../components/ui/dashboard-views-dropdown";
 import { MetricCard } from "../components/ui/metric-card";
 import { LatestReportsWidget } from "../components/ui/latest-reports-widget";
 import { TurnaroundTimeWidget } from "../components/ui/turnaround-time-widget";
@@ -174,7 +175,14 @@ export default function Dashboard() {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
-  const [defaultDropdownOpen, setDefaultDropdownOpen] = useState(false);
+  const [dashboardViewsDropdownOpen, setDashboardViewsDropdownOpen] =
+    useState(false);
+  const [currentDashboardView, setCurrentDashboardView] = useState("default");
+  const [dashboardViews, setDashboardViews] = useState([
+    { id: "default", name: "Default", isDefault: true },
+    { id: "custom-1", name: "My Custom View", isDefault: false },
+    { id: "analytics", name: "Analytics View", isDefault: false },
+  ]);
   // Drawer states to coordinate with mobile menu
   const [quickOrderDrawerOpen, setQuickOrderDrawerOpen] = useState(false);
   const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
@@ -186,7 +194,7 @@ export default function Dashboard() {
   ); // Jan 10, 2025
   const [selectedEndDate, setSelectedEndDate] = useState(new Date(2025, 0, 16)); // Jan 16, 2025
   const [customizeButtonHovered, setCustomizeButtonHovered] = useState(false);
-  const [defaultButtonHovered, setDefaultButtonHovered] = useState(false);
+
   const [dateButtonHovered, setDateButtonHovered] = useState(false);
   const dateButtonRef = useRef<HTMLButtonElement>(null);
   const customWidgetsRef = useRef<HTMLDivElement>(null);
@@ -250,22 +258,25 @@ export default function Dashboard() {
       if (userMenuOpen && !target.closest("[data-user-menu]")) {
         setUserMenuOpen(false);
       }
-      if (defaultDropdownOpen && !target.closest("[data-dropdown]")) {
-        setDefaultDropdownOpen(false);
+      if (
+        dashboardViewsDropdownOpen &&
+        !target.closest("[data-dashboard-views]")
+      ) {
+        setDashboardViewsDropdownOpen(false);
       }
       if (datePickerOpen && !target.closest("[data-date-picker]")) {
         setDatePickerOpen(false);
       }
     };
 
-    if (userMenuOpen || defaultDropdownOpen || datePickerOpen) {
+    if (userMenuOpen || dashboardViewsDropdownOpen || datePickerOpen) {
       document.addEventListener("click", handleClickOutside, true);
     }
 
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
     };
-  }, [userMenuOpen, defaultDropdownOpen, datePickerOpen]);
+  }, [userMenuOpen, dashboardViewsDropdownOpen, datePickerOpen]);
 
   // Check for activation success parameter
   useEffect(() => {
@@ -780,99 +791,48 @@ export default function Dashboard() {
     </button>
   );
 
-  const renderDefaultButton = () => (
-    <div
-      className={`dashboard-dropdown ${defaultDropdownOpen ? "open" : ""}`}
-      data-dropdown
-      style={{
-        position: "relative",
-        ...(isMobile ? { alignSelf: "stretch" } : {}),
-      }}
-    >
-      <button
-        className="dashboard-button"
-        onClick={() => setDefaultDropdownOpen(!defaultDropdownOpen)}
-        onMouseEnter={() => setDefaultButtonHovered(true)}
-        onMouseLeave={() => setDefaultButtonHovered(false)}
-        style={{
-          display: "flex",
-          minHeight: "36px",
-          padding: "6px 8px",
-          justifyContent: isMobile ? "space-between" : "center",
-          alignItems: "center",
-          gap: "4px",
-          borderRadius: "8px",
-          border: "1px solid #D5D7DA",
-          background: defaultButtonHovered ? "#F8F9FA" : "#FFF",
-          boxShadow:
-            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-          cursor: "pointer",
-          transition: "background-color 0.2s ease-in-out",
-          ...(isMobile ? { alignSelf: "stretch", width: "100%" } : {}),
-        }}
-      >
-        <svg
-          width={iconSize.width}
-          height={iconSize.height}
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          style={iconSize.style}
-          className={iconSize.className}
-        >
-          <path
-            d="M8 8L14 8M8 2L8 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z"
-            stroke="#A4A7AE"
-            strokeWidth="1.66667"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-        <div
-          style={{
-            display: "flex",
-            padding: "0px 2px",
-            justifyContent: isMobile ? "flex-start" : "center",
-            alignItems: "center",
-            ...(isMobile ? { flex: "1 0 0" } : {}),
-          }}
-        >
-          <div
-            style={{
-              color: "#414651",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: "600",
-              lineHeight: "20px",
-              textAlign: isMobile ? "left" : "center",
-            }}
-          >
-            Default
-          </div>
-        </div>
-        <svg
-          width={iconSize.width}
-          height={iconSize.height}
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          style={iconSize.style}
-          className={iconSize.className}
-        >
-          <path
-            d="M4 6L8 10L12 6"
-            stroke="#A4A7AE"
-            strokeWidth="1.66667"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </button>
-      <div className="dashboard-dropdown-content">
-        <button className="dashboard-dropdown-item">Grid View</button>
-        <button className="dashboard-dropdown-item">List View</button>
-        <button className="dashboard-dropdown-item">Card View</button>
-      </div>
+  // Dashboard views handlers
+  const handleViewChange = (viewId: string) => {
+    console.log(`Switching to dashboard view: ${viewId}`);
+    setCurrentDashboardView(viewId);
+    setDashboardViewsDropdownOpen(false);
+    // Here you would implement the logic to load the selected view
+  };
+
+  const handleSaveDashboard = () => {
+    console.log("Saving current dashboard state...");
+    // Here you would implement the logic to save the current dashboard configuration
+    const newView = {
+      id: `custom-${Date.now()}`,
+      name: `Custom View ${dashboardViews.length}`,
+      isDefault: false,
+    };
+    setDashboardViews((prev) => [...prev, newView]);
+    setDashboardViewsDropdownOpen(false);
+    // Show success notification or modal
+  };
+
+  const handleCreateNewView = () => {
+    console.log("Creating new dashboard view...");
+    // Here you would implement the logic to create a new view
+    setDashboardViewsDropdownOpen(false);
+  };
+
+  const renderDashboardViewsDropdown = () => (
+    <div data-dashboard-views>
+      <DashboardViewsDropdown
+        currentView={currentDashboardView}
+        views={dashboardViews}
+        onViewChange={handleViewChange}
+        onSaveDashboard={handleSaveDashboard}
+        onCreateNewView={handleCreateNewView}
+        isOpen={dashboardViewsDropdownOpen}
+        onToggle={() =>
+          setDashboardViewsDropdownOpen(!dashboardViewsDropdownOpen)
+        }
+        onClose={() => setDashboardViewsDropdownOpen(false)}
+        isMobile={isMobile}
+      />
     </div>
   );
 
@@ -1251,7 +1211,7 @@ export default function Dashboard() {
                       }}
                     >
                       {renderCustomizeButton()}
-                      {renderDefaultButton()}
+                      {renderDashboardViewsDropdown()}
                       {renderDateButton()}
                     </div>
                   </div>
