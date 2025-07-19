@@ -580,17 +580,18 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                                   </div>
                                 </div>
                               </div>
-                              {/* Delete Option */}
-                              <div
-                                onClick={() => handleDeleteDashboard(view.id)}
-                                style={{
-                                  display: "flex",
-                                  padding: "1px 6px",
-                                  alignItems: "center",
-                                  alignSelf: "stretch",
-                                  cursor: "pointer",
-                                }}
-                              >
+                                                            {/* Delete Option - Only show if more than 1 dashboard exists */}
+                              {views.length > 1 && (
+                                <div
+                                  onClick={() => handleDeleteDashboard(view.id)}
+                                  style={{
+                                    display: "flex",
+                                    padding: "1px 6px",
+                                    alignItems: "center",
+                                    alignSelf: "stretch",
+                                    cursor: "pointer",
+                                  }}
+                                >
                                 <div
                                   style={{
                                     display: "flex",
