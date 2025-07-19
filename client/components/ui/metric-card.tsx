@@ -1,7 +1,7 @@
 import React from "react";
 import { MiniChart } from "./mini-chart";
 import { useResponsiveSVG } from "../../hooks/use-responsive-svg";
-import { useMobile } from "../../hooks/use-mobile";
+import { useIsMobile } from "../../hooks/use-mobile";
 
 interface MetricCardProps {
   /** The metric label/title */
@@ -40,7 +40,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   isMobile = false,
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
-  const mobile = useMobile();
+  const mobile = useIsMobile();
   const isTablet = !mobile && window.innerWidth < 1024;
 
   // Responsive icon sizes for trend arrows
