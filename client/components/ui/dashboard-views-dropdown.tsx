@@ -192,13 +192,14 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
           style={{
             display: "flex",
             padding: "0px 2px",
-            justifyContent: isMobile ? "flex-start" : "center",
+            justifyContent: isMobile ? "center" : "center",
             alignItems: "center",
             ...(isMobile ? { flex: "1 0 0" } : {}),
           }}
         >
           <div
             style={{
+              ...(isMobile ? { flex: "1 0 0" } : {}),
               color: isOpen ? "#252B37" : "#414651",
               fontFamily: "Public Sans",
               fontSize: "14px",
