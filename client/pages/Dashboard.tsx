@@ -1370,6 +1370,21 @@ export default function Dashboard() {
                           minWidth: 0, // Allow shrinking
                         }),
                 }}
+                ref={(el) => {
+                  if (el) {
+                    console.log("📊 Metric cards layout:", {
+                      isMobile,
+                      isDesktop,
+                      windowWidth,
+                      gridTemplateColumns: isMobile
+                        ? "flex-column"
+                        : isDesktop
+                          ? "repeat(4, 1fr)"
+                          : "repeat(2, 1fr)",
+                      elementWidth: el.getBoundingClientRect().width,
+                    });
+                  }
+                }}
               >
                 <MetricCard
                   label="[Metric]"
