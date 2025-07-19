@@ -98,12 +98,12 @@ export const Header: React.FC<HeaderProps> = ({
       >
         <svg
           style={{
-            width: "20px",
-            height: "20px",
+            width: isDesktop ? "20px" : "18px",
+            height: isDesktop ? "20px" : "18px",
             flexShrink: 0,
           }}
-          width="20"
-          height="20"
+          width={isDesktop ? "20" : "18"}
+          height={isDesktop ? "20" : "18"}
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
