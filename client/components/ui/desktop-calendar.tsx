@@ -50,6 +50,17 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
   // Button hover states
   const [cancelButtonHovered, setCancelButtonHovered] = useState(false);
 
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   // Initialize when calendar opens
   useEffect(() => {
     if (isOpen) {
