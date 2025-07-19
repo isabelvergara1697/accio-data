@@ -205,9 +205,12 @@ export const Header: React.FC<HeaderProps> = ({
               Quick Create
             </span>
             <svg
-              style={{ width: "20px", height: "20px" }}
-              width="20"
-              height="20"
+              style={{
+                width: isDesktop ? "20px" : "18px",
+                height: isDesktop ? "20px" : "18px",
+              }}
+              width={isDesktop ? "20" : "18"}
+              height={isDesktop ? "20" : "18"}
               viewBox="0 0 20 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
