@@ -1699,11 +1699,6 @@ export default function Dashboard() {
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
-                        {...(isAnalyticsView && {
-                          title: analyticsData["orders-by-status"].title,
-                          chartData:
-                            analyticsData["orders-by-status"].chartData,
-                        })}
                       />
                     );
                   }
