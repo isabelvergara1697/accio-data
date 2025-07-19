@@ -572,10 +572,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
           alignItems: "flex-start",
           flex: "1 0 0",
           alignSelf: "stretch",
-          borderRadius: !isMobile ? "12px" : "0px",
-          border: !isMobile ? "1px solid #E9EAEB" : "none",
+          borderRadius: isDesktop ? "12px" : "0px",
+          border: isDesktop ? "1px solid #E9EAEB" : "none",
           background: "#FFF",
-          boxShadow: !isMobile
+          boxShadow: isDesktop
             ? "0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
             : mobileMenuOpen
               ? "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)"
