@@ -174,9 +174,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
           cursor: "pointer",
           transition: "background-color 0.2s ease-in-out",
           // Ensure button takes full width on mobile like other buttons
-          ...(isMobile
-            ? { alignSelf: "stretch", width: "100%", flex: "1 0 0" }
-            : {}),
+          ...(isMobile ? { alignSelf: "stretch", width: "100%" } : {}),
         }}
       >
         <svg
