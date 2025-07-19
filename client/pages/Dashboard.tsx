@@ -799,6 +799,7 @@ export default function Dashboard() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           style={iconSize.style}
+          className={iconSize.className}
         >
           <path
             d="M4 6L8 10L12 6"
