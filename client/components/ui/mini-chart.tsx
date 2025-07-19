@@ -70,6 +70,10 @@ export const MiniChart: React.FC<MiniChartProps> = ({
           width: "100%",
           height: "100%",
           display: "block",
+          maxWidth: "100%",
+          maxHeight: "100%",
+          minWidth: "80px",
+          minHeight: "44px",
         }}
         viewBox="0 0 103 56"
         preserveAspectRatio="xMidYMid meet"
