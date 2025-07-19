@@ -15,7 +15,10 @@ import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
 import DesktopCalendar from "../components/ui/desktop-calendar";
 import { DragDropProvider, WidgetInfo } from "../contexts/DragDropContext";
-import { useResponsiveSVG } from "../hooks/use-responsive-svg";
+import {
+  useResponsiveSVGEnhanced,
+  useIconSizeEnhanced,
+} from "../hooks/use-responsive-svg-enhanced";
 
 // Add styles for mobile responsiveness and scroll behavior
 const dashboardStyles = `
