@@ -276,12 +276,9 @@ export const Header: React.FC<HeaderProps> = ({
             }}
           >
             <svg
-              style={{
-                width: isDesktop ? "24px" : "20px",
-                height: isDesktop ? "24px" : "20px",
-              }}
-              width={isDesktop ? "24" : "20"}
-              height={isDesktop ? "24" : "20"}
+              style={notificationIconSize.style}
+              width={notificationIconSize.width}
+              height={notificationIconSize.height}
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
