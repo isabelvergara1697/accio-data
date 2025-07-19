@@ -244,13 +244,14 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           </div>
         </div>
 
-        {/* Chart section - flex sizing for responsive behavior */}
+        {/* Chart section - responsive flexible sizing */}
         <div
           style={{
             height: "56px",
-            flex: "0 0 auto", // Don't flex, use natural width
+            flex: "1 1 auto", // Allow flexible sizing
             position: "relative",
-            width: "103px", // Fixed width matching chart viewBox
+            minWidth: "80px", // Minimum chart width
+            maxWidth: "150px", // Maximum chart width for large containers
             overflow: "hidden",
             display: "flex",
             alignItems: "center",
