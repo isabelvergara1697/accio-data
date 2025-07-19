@@ -1299,18 +1299,11 @@ export default function Dashboard() {
                           gridTemplateColumns: "repeat(4, 1fr)",
                           maxWidth: "100%",
                         }
-                      : windowWidth >= 1024
-                        ? {
-                            // Large tablet: 4 columns with better spacing
-                            gridTemplateColumns: "repeat(4, 1fr)",
-                            gap: "12px",
-                            maxWidth: "100%",
-                          }
-                        : {
-                            // Tablet: 2x2 grid
-                            gridTemplateColumns: "repeat(2, 1fr)",
-                            gridTemplateRows: "repeat(2, 1fr)",
-                          }),
+                      : {
+                          // Tablet: 2x2 grid for better chart visibility
+                          gridTemplateColumns: "repeat(2, 1fr)",
+                          gridTemplateRows: "repeat(2, 1fr)",
+                        }),
                 }}
               >
                 <MetricCard
