@@ -87,74 +87,98 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/plain", id);
 
-    // Create improved drag image from actual widget content BEFORE setting drag state
+    // Create a clean, simplified drag image instead of cloning complex DOM
     const widgetElement = e.currentTarget.closest(
       "[data-widget-container]",
     ) as HTMLElement;
     if (widgetElement) {
       const rect = widgetElement.getBoundingClientRect();
-      const scale = 0.8; // Optimal scale for drag image
+      const scale = 0.75; // Clean scale for drag preview
 
-      // Create a high-quality drag image container with proper dimensions
-      const dragImageContainer = document.createElement("div");
-      dragImageContainer.style.position = "absolute";
-      dragImageContainer.style.top = "-9999px";
-      dragImageContainer.style.left = "-9999px";
-      dragImageContainer.style.width = rect.width + "px"; // Use original width
-      dragImageContainer.style.height = rect.height + "px"; // Use original height
-      dragImageContainer.style.transform = `scale(${scale})`; // Scale the entire container
-      dragImageContainer.style.transformOrigin = "top left";
-      dragImageContainer.style.pointerEvents = "none";
-      dragImageContainer.style.overflow = "visible"; // Allow shadow to show
-      dragImageContainer.style.backgroundColor = "#FDFDFD";
-      dragImageContainer.style.border = "1px solid #34479A";
-      dragImageContainer.style.borderRadius = "12px";
-      dragImageContainer.style.boxShadow =
-        "0px 8px 25px -5px rgba(10, 13, 18, 0.15), 0px 8px 10px -6px rgba(10, 13, 18, 0.1)";
-      dragImageContainer.style.fontFamily =
-        "'Public Sans', -apple-system, sans-serif";
-      dragImageContainer.style.zIndex = "9999";
+      // Get widget title for the drag preview
+      const titleElement = widgetElement.querySelector(
+        "[data-widget-title]",
+      ) as HTMLElement;
+      const widgetTitle =
+        titleElement?.textContent ||
+        children?.props?.title ||
+        title ||
+        "Widget";
 
-      // Clone the widget content without additional scaling
-      const clone = widgetElement.cloneNode(true) as HTMLElement;
-      clone.style.width = rect.width + "px";
-      clone.style.height = rect.height + "px";
-      clone.style.margin = "0";
-      clone.style.position = "relative";
-      clone.style.background = "transparent";
-      clone.style.border = "none";
-      clone.style.borderRadius = "12px";
-      clone.style.overflow = "hidden";
-      clone.style.transform = "none"; // Remove any existing transforms
+      // Create a clean drag preview container
+      const dragPreview = document.createElement("div");
+      dragPreview.style.position = "absolute";
+      dragPreview.style.top = "-9999px";
+      dragPreview.style.left = "-9999px";
+      dragPreview.style.width = Math.min(rect.width, 320) + "px"; // Max width for consistency
+      dragPreview.style.height = Math.min(rect.height, 200) + "px"; // Max height for consistency
+      dragPreview.style.transform = `scale(${scale})`;
+      dragPreview.style.transformOrigin = "top left";
+      dragPreview.style.backgroundColor = "#FFFFFF";
+      dragPreview.style.border = "2px solid #344698";
+      dragPreview.style.borderRadius = "12px";
+      dragPreview.style.boxShadow =
+        "0px 8px 20px rgba(52, 70, 152, 0.15), 0px 4px 8px rgba(10, 13, 18, 0.1)";
+      dragPreview.style.fontFamily = "'Public Sans', -apple-system, sans-serif";
+      dragPreview.style.pointerEvents = "none";
+      dragPreview.style.display = "flex";
+      dragPreview.style.flexDirection = "column";
+      dragPreview.style.justifyContent = "center";
+      dragPreview.style.alignItems = "center";
+      dragPreview.style.padding = "16px";
+      dragPreview.style.overflow = "hidden";
 
-      // Remove any hover states and unwanted elements from the clone
-      const hoverElements = clone.querySelectorAll(
-        "[data-dragging], [data-hover]",
-      );
-      hoverElements.forEach((el) => {
-        (el as HTMLElement).style.background = "transparent";
-        (el as HTMLElement).style.border = "none";
-      });
+      // Add drag icon
+      const dragIcon = document.createElement("div");
+      dragIcon.innerHTML = `
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 6.00067L21 6.00067M8 12.0007L21 12.0007M8 18.0007L21 18.0007M3.5 6H3.51M3.5 12H3.51M3.5 18H3.51" stroke="#344698" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `;
+      dragIcon.style.marginBottom = "8px";
+      dragIcon.style.opacity = "0.7";
 
-      // Remove resize handles and other interactive elements
-      const resizeHandles = clone.querySelectorAll(
-        "[data-resize-handle], .resize-handle",
-      );
-      resizeHandles.forEach((el) => el.remove());
+      // Add widget title
+      const titleDiv = document.createElement("div");
+      titleDiv.textContent = widgetTitle;
+      titleDiv.style.fontSize = "14px";
+      titleDiv.style.fontWeight = "600";
+      titleDiv.style.color = "#344698";
+      titleDiv.style.textAlign = "center";
+      titleDiv.style.lineHeight = "1.4";
+      titleDiv.style.maxWidth = "100%";
+      titleDiv.style.overflow = "hidden";
+      titleDiv.style.textOverflow = "ellipsis";
+      titleDiv.style.whiteSpace = "nowrap";
 
-      dragImageContainer.appendChild(clone);
-      document.body.appendChild(dragImageContainer);
+      // Add subtle widget type indicator
+      const typeIndicator = document.createElement("div");
+      typeIndicator.textContent = "Drag to reorder";
+      typeIndicator.style.fontSize = "11px";
+      typeIndicator.style.color = "#717680";
+      typeIndicator.style.marginTop = "4px";
+      typeIndicator.style.textAlign = "center";
 
-      // Set the drag image with proper offset (accounting for scale)
-      const offsetX = rect.width / 2;
-      const offsetY = Math.min(rect.height / 3, 40); // Use top third or max 40px
+      // Assemble the drag preview
+      dragPreview.appendChild(dragIcon);
+      dragPreview.appendChild(titleDiv);
+      dragPreview.appendChild(typeIndicator);
 
-      e.dataTransfer.setDragImage(dragImageContainer, offsetX, offsetY);
+      // Add to document
+      document.body.appendChild(dragPreview);
 
-      // Clean up after a short delay to ensure drag image is captured
+      // Set drag image with proper centering
+      const dragWidth = Math.min(rect.width, 320) * scale;
+      const dragHeight = Math.min(rect.height, 200) * scale;
+      const offsetX = dragWidth / 2;
+      const offsetY = dragHeight / 2;
+
+      e.dataTransfer.setDragImage(dragPreview, offsetX, offsetY);
+
+      // Clean up after drag image is captured
       setTimeout(() => {
-        if (document.body.contains(dragImageContainer)) {
-          document.body.removeChild(dragImageContainer);
+        if (document.body.contains(dragPreview)) {
+          document.body.removeChild(dragPreview);
         }
       }, 100);
     }
