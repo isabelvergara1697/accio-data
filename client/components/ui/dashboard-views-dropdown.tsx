@@ -502,7 +502,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                               right: "0",
                               marginTop: "4px",
                               display: "flex",
-                              width: "220px",
+                              width: isMobile ? "334px" : "220px",
                               flexDirection: "column",
                               alignItems: "flex-start",
                               borderRadius: "8px",
@@ -511,6 +511,13 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                               boxShadow:
                                 "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
                               zIndex: 1001,
+                              ...(isMobile
+                                ? {
+                                    right: "auto",
+                                    left: "0",
+                                    maxWidth: "calc(100vw - 32px)",
+                                  }
+                                : {}),
                             }}
                           >
                             <div
