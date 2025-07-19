@@ -1713,10 +1713,6 @@ export default function Dashboard() {
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
-                        {...(isAnalyticsView && {
-                          title: analyticsData["assigned-tasks"].title,
-                          tasks: analyticsData["assigned-tasks"].tasks,
-                        })}
                       />
                     );
                   }
