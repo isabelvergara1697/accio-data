@@ -560,8 +560,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
         flexShrink: 0,
         position: "fixed",
         left: 0,
-        top: showNotification && !isMobile ? "60px" : 0,
-        zIndex: mobileMenuOpen && isMobile ? 1001 : 1000,
+        top: showNotification && isDesktop ? "60px" : 0,
+        zIndex: mobileMenuOpen && !isDesktop ? 1001 : 1000,
       }}
     >
       <div
