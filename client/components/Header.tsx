@@ -6,7 +6,7 @@ import SSNOrderDrawer from "./ui/ssn-order-drawer";
 import NotificationModal from "./ui/notification-modal";
 import { formatContactText } from "../lib/order-utils";
 import { useResponsiveSVG } from "../hooks/use-responsive-svg";
-import { useMobile } from "../hooks/use-mobile";
+import { useIsMobile } from "../hooks/use-mobile";
 
 interface HeaderProps {
   isDesktop: boolean;
@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenNotificationModal,
 }) => {
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
-  const mobile = useMobile();
+  const mobile = useIsMobile();
   const isTablet = !mobile && !isDesktop;
 
   // Responsive icon sizes
