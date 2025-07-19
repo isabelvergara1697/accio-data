@@ -93,30 +93,30 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
     ) as HTMLElement;
     if (widgetElement) {
       const rect = widgetElement.getBoundingClientRect();
-      const scale = 0.75; // Slightly smaller for better visual
+      const scale = 0.8; // Optimal scale for drag image
 
-      // Create a high-quality drag image container
+      // Create a high-quality drag image container with proper dimensions
       const dragImageContainer = document.createElement("div");
       dragImageContainer.style.position = "absolute";
       dragImageContainer.style.top = "-9999px";
       dragImageContainer.style.left = "-9999px";
-      dragImageContainer.style.width = rect.width * scale + "px";
-      dragImageContainer.style.height = rect.height * scale + "px";
+      dragImageContainer.style.width = rect.width + "px"; // Use original width
+      dragImageContainer.style.height = rect.height + "px"; // Use original height
+      dragImageContainer.style.transform = `scale(${scale})`; // Scale the entire container
+      dragImageContainer.style.transformOrigin = "top left";
       dragImageContainer.style.pointerEvents = "none";
-      dragImageContainer.style.overflow = "hidden";
+      dragImageContainer.style.overflow = "visible"; // Allow shadow to show
       dragImageContainer.style.backgroundColor = "#FDFDFD";
       dragImageContainer.style.border = "1px solid #34479A";
       dragImageContainer.style.borderRadius = "12px";
       dragImageContainer.style.boxShadow =
-        "0px 8px 25px -5px rgba(10, 13, 18, 0.1), 0px 8px 10px -6px rgba(10, 13, 18, 0.1)";
+        "0px 8px 25px -5px rgba(10, 13, 18, 0.15), 0px 8px 10px -6px rgba(10, 13, 18, 0.1)";
       dragImageContainer.style.fontFamily =
         "'Public Sans', -apple-system, sans-serif";
       dragImageContainer.style.zIndex = "9999";
 
-      // Clone the widget content with better handling
+      // Clone the widget content without additional scaling
       const clone = widgetElement.cloneNode(true) as HTMLElement;
-      clone.style.transform = `scale(${scale})`;
-      clone.style.transformOrigin = "top left";
       clone.style.width = rect.width + "px";
       clone.style.height = rect.height + "px";
       clone.style.margin = "0";
@@ -125,8 +125,9 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
       clone.style.border = "none";
       clone.style.borderRadius = "12px";
       clone.style.overflow = "hidden";
+      clone.style.transform = "none"; // Remove any existing transforms
 
-      // Remove any hover states from the clone
+      // Remove any hover states and unwanted elements from the clone
       const hoverElements = clone.querySelectorAll(
         "[data-dragging], [data-hover]",
       );
@@ -135,12 +136,18 @@ export const WidgetContainer: React.FC<WidgetContainerProps> = ({
         (el as HTMLElement).style.border = "none";
       });
 
+      // Remove resize handles and other interactive elements
+      const resizeHandles = clone.querySelectorAll(
+        "[data-resize-handle], .resize-handle",
+      );
+      resizeHandles.forEach((el) => el.remove());
+
       dragImageContainer.appendChild(clone);
       document.body.appendChild(dragImageContainer);
 
-      // Set the drag image with better positioning
-      const offsetX = (rect.width * scale) / 2;
-      const offsetY = Math.min((rect.height * scale) / 3, 50); // Use top third or max 50px
+      // Set the drag image with proper offset (accounting for scale)
+      const offsetX = rect.width / 2;
+      const offsetY = Math.min(rect.height / 3, 40); // Use top third or max 40px
 
       e.dataTransfer.setDragImage(dragImageContainer, offsetX, offsetY);
 
