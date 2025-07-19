@@ -766,7 +766,7 @@ export default function Dashboard() {
           const targetScrollTop =
             scrollTop + (widgetRect.top - containerRect.top) - 100; // 100px padding from top
 
-          console.log("📍 Scrolling to position:", targetScrollTop);
+          console.log("��� Scrolling to position:", targetScrollTop);
           mainContent.scrollTo({
             top: Math.max(0, targetScrollTop),
             behavior: "smooth",
@@ -1626,7 +1626,7 @@ export default function Dashboard() {
                   if (widgetId === "latest-reports") {
                     return (
                       <LatestReportsWidget
-                        key={widgetId}
+                        key={`${widgetId}-${currentDashboardView}`}
                         id={widgetId}
                         position={index}
                         size={widgetSizes[widgetId]}
@@ -1634,13 +1634,18 @@ export default function Dashboard() {
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
+                        {...(isAnalyticsView && {
+                          title: analyticsData["latest-reports"].title,
+                          placeholderData:
+                            analyticsData["latest-reports"].reports,
+                        })}
                       />
                     );
                   }
                   if (widgetId === "turnaround-time") {
                     return (
                       <TurnaroundTimeWidget
-                        key={widgetId}
+                        key={`${widgetId}-${currentDashboardView}`}
                         id={widgetId}
                         position={index}
                         size={widgetSizes[widgetId]}
@@ -1648,6 +1653,13 @@ export default function Dashboard() {
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
+                        {...(isAnalyticsView && {
+                          title: analyticsData["turnaround-time"].title,
+                          avgTime: analyticsData["turnaround-time"].avgTime,
+                          improvement:
+                            analyticsData["turnaround-time"].improvement,
+                          chartData: analyticsData["turnaround-time"].chartData,
+                        })}
                       />
                     );
                   }
@@ -1681,7 +1693,7 @@ export default function Dashboard() {
                   if (widgetId === "orders-by-status") {
                     return (
                       <OrdersByStatusWidget
-                        key={widgetId}
+                        key={`${widgetId}-${currentDashboardView}`}
                         id={widgetId}
                         position={index + widgetOrder.length}
                         size={widgetSizes[widgetId]}
@@ -1689,13 +1701,18 @@ export default function Dashboard() {
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
+                        {...(isAnalyticsView && {
+                          title: analyticsData["orders-by-status"].title,
+                          chartData:
+                            analyticsData["orders-by-status"].chartData,
+                        })}
                       />
                     );
                   }
                   if (widgetId === "assigned-tasks") {
                     return (
                       <AssignedTasksWidget
-                        key={widgetId}
+                        key={`${widgetId}-${currentDashboardView}`}
                         id={widgetId}
                         position={index + widgetOrder.length}
                         size={widgetSizes[widgetId]}
@@ -1703,6 +1720,10 @@ export default function Dashboard() {
                         isMobile={isMobile}
                         isTablet={!isMobile && !isDesktop}
                         windowWidth={windowWidth}
+                        {...(isAnalyticsView && {
+                          title: analyticsData["assigned-tasks"].title,
+                          tasks: analyticsData["assigned-tasks"].tasks,
+                        })}
                       />
                     );
                   }
