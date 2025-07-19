@@ -20,6 +20,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
 }) => {
   const calendarRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   // Working dates (internal state before apply)
   const [workingStartDate, setWorkingStartDate] = useState(selectedStartDate);
