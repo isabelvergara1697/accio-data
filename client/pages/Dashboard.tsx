@@ -1258,6 +1258,8 @@ export default function Dashboard() {
                 alignItems: "flex-start",
                 gap: "16px",
                 alignSelf: "stretch",
+                width: "100%",
+                boxSizing: "border-box",
               }}
             >
               {/* Section label */}
@@ -1334,10 +1336,11 @@ export default function Dashboard() {
               <div
                 style={{
                   display: isMobile ? "flex" : "grid",
-                  justifyContent: "center",
+                  justifyContent: "flex-start",
                   alignItems: "flex-start",
                   gap: "16px",
                   alignSelf: "stretch",
+                  width: "100%",
                   ...(isMobile
                     ? {
                         flexDirection: "column",
@@ -1354,6 +1357,7 @@ export default function Dashboard() {
                           gap: "16px",
                           width: "100%",
                           maxWidth: "100%",
+                          minWidth: 0, // Allow shrinking
                         }),
                 }}
               >
