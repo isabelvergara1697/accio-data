@@ -301,6 +301,26 @@ export default function Dashboard() {
     };
   }, [userMenuOpen, dashboardViewsDropdownOpen, datePickerOpen]);
 
+  // Save state when component unmounts or when widget state changes
+  useEffect(() => {
+    return () => {
+      // Save current state before component unmounts
+      saveCurrentStateToConfig();
+    };
+  }, []);
+
+  // Save state when widget arrays change (in addition to individual reorder/resize events)
+  useEffect(() => {
+    const timeoutId = setTimeout(() => saveCurrentStateToConfig(), 100);
+    return () => clearTimeout(timeoutId);
+  }, [
+    widgetOrder,
+    secondRowWidgets,
+    customWidgets,
+    customWidgetTypes,
+    widgetSizes,
+  ]);
+
   // Check for activation success parameter
   useEffect(() => {
     const activated = searchParams.get("activated");
