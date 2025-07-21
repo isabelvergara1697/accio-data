@@ -227,7 +227,6 @@ export default function FormSelect({
           <div
             style={{
               padding: "6px",
-              borderBottom: "1px solid #E9EAEB",
             }}
           >
             <div
