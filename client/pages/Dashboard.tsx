@@ -1180,7 +1180,7 @@ export default function Dashboard() {
           isDesktop={isDesktop}
           isMobile={isMobile}
           mobileMenuOpen={mobileMenuOpen}
-          currentPage="Dashboard"
+          currentPage="dashboard"
           showMobileUserMenu={showMobileUserMenu}
           setShowMobileUserMenu={setShowMobileUserMenu}
           setMobileMenuOpen={setMobileMenuOpen}
