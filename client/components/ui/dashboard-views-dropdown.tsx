@@ -746,15 +746,16 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            width: "16px",
-                            height: "16px",
+                            width: "20px",
+                            height: "20px",
                             background: "transparent",
                             border: "none",
                             cursor: dashboardName.trim()
                               ? "pointer"
                               : "not-allowed",
-                            padding: "0",
+                            padding: "2px",
                             opacity: dashboardName.trim() ? 1 : 0.5,
+                            flexShrink: 0,
                           }}
                         >
                           <svg
@@ -780,12 +781,13 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            width: "16px",
-                            height: "16px",
+                            width: "20px",
+                            height: "20px",
                             background: "transparent",
                             border: "none",
                             cursor: "pointer",
-                            padding: "0",
+                            padding: "2px",
+                            flexShrink: 0,
                           }}
                         >
                           <svg
