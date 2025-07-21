@@ -669,9 +669,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
               <div
                 style={{
                   display: "flex",
-                  height: "42px",
                   padding: "1px 6px",
-                  justifyContent: "center",
                   alignItems: "center",
                   alignSelf: "stretch",
                 }}
@@ -679,135 +677,103 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "6px",
+                    padding: "6px 8px",
+                    alignItems: "center",
+                    gap: "8px",
                     alignSelf: "stretch",
-                    width: "100%",
+                    flex: "1 0 0",
+                    borderRadius: "8px",
+                    border: "2px solid #34479A",
+                    background: "#FFF",
+                    boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  <div
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={dashboardName}
+                    onChange={(e) => setDashboardName(e.target.value)}
+                    onKeyDown={handleKeyPress}
+                    placeholder="Dashboard name"
+                    style={{
+                      flex: "1 0 0",
+                      overflow: "hidden",
+                      color: "#181D27",
+                      textOverflow: "ellipsis",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: "400",
+                      lineHeight: "20px",
+                      border: "none",
+                      outline: "none",
+                      background: "transparent",
+                    }}
+                  />
+                  {/* Check Button */}
+                  <button
+                    onClick={handleConfirmSave}
+                    disabled={!dashboardName.trim()}
                     style={{
                       display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "6px",
-                      alignSelf: "stretch",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "20px",
+                      height: "20px",
+                      background: "transparent",
+                      border: "none",
+                      cursor: dashboardName.trim() ? "pointer" : "not-allowed",
+                      padding: "2px",
+                      opacity: dashboardName.trim() ? 1 : 0.5,
+                      flexShrink: 0,
                     }}
                   >
-                    <div
-                      style={{
-                        display: "flex",
-                        padding: "6px 8px",
-                        alignItems: "center",
-                        gap: "8px",
-                        alignSelf: "stretch",
-                        borderRadius: "8px",
-                        border: "2px solid #34479A",
-                        background: "#FFF",
-                        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                      }}
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <div
-                        style={{
-                          display: "flex",
-                          padding: "2px 0px",
-                          alignItems: "center",
-                          gap: "8px",
-                          flex: "1 0 0",
-                        }}
-                      >
-                        <input
-                          ref={inputRef}
-                          type="text"
-                          value={dashboardName}
-                          onChange={(e) => setDashboardName(e.target.value)}
-                          onKeyDown={handleKeyPress}
-                          placeholder="Dashboard name"
-                          style={{
-                            flex: "1 0 0",
-                            overflow: "hidden",
-                            color: "#181D27",
-                            textOverflow: "ellipsis",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: "400",
-                            lineHeight: "20px",
-                            border: "none",
-                            outline: "none",
-                            background: "transparent",
-                          }}
-                        />
-                        {/* Check Button */}
-                        <button
-                          onClick={handleConfirmSave}
-                          disabled={!dashboardName.trim()}
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: "20px",
-                            height: "20px",
-                            background: "transparent",
-                            border: "none",
-                            cursor: dashboardName.trim()
-                              ? "pointer"
-                              : "not-allowed",
-                            padding: "2px",
-                            opacity: dashboardName.trim() ? 1 : 0.5,
-                            flexShrink: 0,
-                          }}
-                        >
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M13.3334 4L6.00008 11.3333L2.66675 8"
-                              stroke="#344698"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </button>
-                        {/* Cancel Button */}
-                        <button
-                          onClick={handleCancelInput}
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: "20px",
-                            height: "20px",
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                            padding: "2px",
-                            flexShrink: 0,
-                          }}
-                        >
-                          <svg
-                            width="14"
-                            height="14"
-                            viewBox="0 0 14 14"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M9.91671 4.08334L4.08337 9.91668M4.08337 4.08334L9.91671 9.91668"
-                              stroke="#A4A7AE"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                      <path
+                        d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                        stroke="#344698"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  {/* Cancel Button */}
+                  <button
+                    onClick={handleCancelInput}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "20px",
+                      height: "20px",
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: "2px",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.91671 4.08334L4.08337 9.91668M4.08337 4.08334L9.91671 9.91668"
+                        stroke="#A4A7AE"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
                 </div>
               </div>
             ) : (
