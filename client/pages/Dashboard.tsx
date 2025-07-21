@@ -864,6 +864,10 @@ export default function Dashboard() {
   // Dashboard views handlers
   const handleViewChange = (viewId: string) => {
     console.log(`Switching to dashboard view: ${viewId}`);
+
+    // Save current state before switching views
+    saveCurrentStateToConfig();
+
     setCurrentDashboardView(viewId);
     setDashboardViewsDropdownOpen(false);
 
