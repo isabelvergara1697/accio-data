@@ -663,24 +663,6 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
               </div>
             ))}
 
-            {/* Divider */}
-            <div
-              style={{
-                display: "flex",
-                padding: "4px 0px",
-                alignItems: "center",
-                alignSelf: "stretch",
-              }}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  height: "1px",
-                  background: "#E9EAEB",
-                }}
-              />
-            </div>
-
             {/* Save Dashboard Section */}
             {showNameInput ? (
               /* Input Field for Dashboard Name */
@@ -898,6 +880,24 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                 </button>
               </div>
             )}
+
+            {/* Divider */}
+            <div
+              style={{
+                display: "flex",
+                padding: "4px 0px",
+                alignItems: "center",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "1px",
+                  background: "#E9EAEB",
+                }}
+              />
+            </div>
 
             {/* Info Section */}
             {showInfo && (
