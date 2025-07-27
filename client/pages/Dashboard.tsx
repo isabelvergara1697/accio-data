@@ -1029,7 +1029,12 @@ export default function Dashboard() {
   };
 
   const renderDashboardViewsDropdown = () => (
-    <div data-dashboard-views>
+    <div
+      data-dashboard-views
+      style={{
+        ...(isMobile ? { alignSelf: "stretch", width: "100%" } : {}),
+      }}
+    >
       <DashboardViewsDropdown
         currentView={currentDashboardView}
         views={dashboardViews}
