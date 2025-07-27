@@ -1903,6 +1903,114 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </>
           )}
         </div>
+
+        {/* Desktop-only bottom section */}
+        {isDesktop && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            {/* Divider */}
+            <div
+              style={{
+                display: "flex",
+                padding: "0px 20px",
+                alignItems: "center",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "1px",
+                  background: "#E9EAEB",
+                }}
+              />
+            </div>
+
+            {/* Bottom button */}
+            <div
+              style={{
+                display: "flex",
+                padding: "16px 20px",
+                alignItems: "center",
+                alignSelf: "stretch",
+              }}
+            >
+              <button
+                style={{
+                  display: "flex",
+                  padding: "8px 12px",
+                  alignItems: "center",
+                  gap: "12px",
+                  flex: "1 0 0",
+                  borderRadius: "6px",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#F5F5F5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    flex: "1 0 0",
+                  }}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 13.3333V10M10 6.66667H10.0083M18.3333 10C18.3333 14.6024 14.6024 18.3333 10 18.3333C5.39763 18.3333 1.66667 14.6024 1.66667 10C1.66667 5.39763 5.39763 1.66667 10 1.66667C14.6024 1.66667 18.3333 5.39763 18.3333 10Z"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontWeight: 600,
+                        fontSize: "14px",
+                        color: "rgba(65,70,81,1)",
+                      }}
+                    >
+                      Help & Support
+                    </span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </aside>
   );
