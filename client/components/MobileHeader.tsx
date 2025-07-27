@@ -69,19 +69,19 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
 
   // Enhanced responsive icon sizes for mobile header
-  const plusIconSize = useIconSizeEnhanced(isMobile ? 16 : 20, {
-    containerAware: true,
-    minSize: 14,
-    maxSize: 22,
-  });
-  const notificationIconSize = useIconSizeEnhanced(isMobile ? 18 : 24, {
-    containerAware: true,
-    minSize: 16,
-    maxSize: 26,
-  });
-  const menuIconSize = useIconSizeEnhanced(22, {
+  const plusIconSize = useIconSizeEnhanced(isMobile ? 20 : 20, {
     containerAware: true,
     minSize: 18,
+    maxSize: 22,
+  });
+  const notificationIconSize = useIconSizeEnhanced(isMobile ? 24 : 24, {
+    containerAware: true,
+    minSize: 20,
+    maxSize: 26,
+  });
+  const menuIconSize = useIconSizeEnhanced(24, {
+    containerAware: true,
+    minSize: 20,
     maxSize: 26,
   });
 
