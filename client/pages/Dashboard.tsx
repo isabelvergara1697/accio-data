@@ -222,11 +222,11 @@ export default function Dashboard() {
   const dateButtonRef = useRef<HTMLButtonElement>(null);
   const customWidgetsRef = useRef<HTMLDivElement>(null);
 
-  // Enhanced responsive icon sizing with container awareness
+  // Enhanced responsive icon sizing with container awareness - fixed at 16px for dashboard buttons
   const iconSize = useIconSizeEnhanced(16, {
-    containerAware: true,
-    minSize: 12,
-    maxSize: 20,
+    containerAware: false,
+    minSize: 16,
+    maxSize: 16,
     breakpoints: {
       mobile: 768,
       tablet: 1200, // Match Dashboard breakpoint
