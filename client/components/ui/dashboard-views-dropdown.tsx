@@ -150,8 +150,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
         position: "relative",
         ...(isMobile
           ? { alignSelf: "stretch", width: "100%", display: "block" }
-          : { display: "inline-flex", minWidth: "fit-content" }
-        ),
+          : { display: "inline-flex", minWidth: "fit-content" }),
       }}
     >
       {/* Dropdown Button */}
@@ -175,13 +174,15 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
           cursor: "pointer",
           transition: "background-color 0.2s ease-in-out",
           // Ensure button takes full width on mobile like other buttons
-          ...(isMobile ? {
-            alignSelf: "stretch",
-            width: "100%",
-            flexGrow: 1,
-            minWidth: 0,
-            maxWidth: "none"
-          } : {}),
+          ...(isMobile
+            ? {
+                alignSelf: "stretch",
+                width: "100%",
+                flexGrow: 1,
+                minWidth: 0,
+                maxWidth: "none",
+              }
+            : {}),
         }}
       >
         <svg
