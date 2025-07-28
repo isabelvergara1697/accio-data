@@ -41,6 +41,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const navigate = useNavigate();
   const location = useLocation();
   const [openAccordions, setOpenAccordions] = useState<string[]>([]);
+  const [allExpanded, setAllExpanded] = useState(false);
 
   // Keep accordions open for related pages
   useEffect(() => {
@@ -548,6 +549,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
     );
   };
 
+  const toggleExpandCollapseAll = () => {
+    if (allExpanded) {
+      // Collapse all
+      setOpenAccordions([]);
+      setAllExpanded(false);
+    } else {
+      // Expand all
+      setOpenAccordions(["tools", "screening", "reporting", "support"]);
+      setAllExpanded(true);
+    }
+  };
+
   return (
     <aside
       className={`transition-all duration-300 ${
@@ -598,6 +611,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               : "none",
           position: "relative",
           width: isDesktop && isCollapsed ? "80px" : "auto",
+          overflow: allExpanded && isDesktop && !isCollapsed ? "hidden" : "visible",
         }}
       >
         <div
@@ -610,6 +624,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
             flex: "1 0 0",
             alignSelf: "stretch",
             position: "relative",
+            overflow: allExpanded && isDesktop && !isCollapsed ? "auto" : "visible",
+            maxHeight: allExpanded && isDesktop && !isCollapsed ? "calc(100vh - 200px)" : "none",
           }}
         >
           {/* Logo Header */}
@@ -683,6 +699,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     cursor: "pointer",
                   }}
                   onClick={() => setIsCollapsed?.(true)}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F5F5F5";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFF";
+                  }}
                 >
                   <svg
                     width="16"
@@ -717,6 +739,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     cursor: "pointer",
                   }}
                   onClick={() => setIsCollapsed?.(false)}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F5F5F5";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFF";
+                  }}
                 >
                   <svg
                     width="16"
@@ -1996,6 +2024,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   cursor: "pointer",
                   position: "relative",
                 }}
+                onClick={toggleExpandCollapseAll}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#F5F5F5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#FFF";
+                }}
               >
                 <div
                   style={{
@@ -2026,7 +2061,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         color: "rgba(65,70,81,1)",
                       }}
                     >
-                      Expand All
+                      {allExpanded ? "Collapse All" : "Expand All"}
                     </span>
                   </div>
                 </div>
@@ -2037,13 +2072,43 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M4.66666 10L8 13.3334L11.3333 10M4.66666 6.00002L8 2.66669L11.3333 6.00002"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                  {allExpanded ? (
+                    // Collapse All icon - chevron-selector-inverse (pointing inward)
+                    <>
+                      <path
+                        d="M11.3333 13.3333L7.99992 9.99992L4.66659 13.3333"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M11.3333 2.66667L7.99992 6L4.66659 2.66667"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </>
+                  ) : (
+                    // Expand All icon - chevron-selector-vertical (up/down)
+                    <>
+                      <path
+                        d="M4.66666 10L8 13.3334L11.3333 10"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M4.66666 6.00002L8 2.66669L11.3333 6.00002"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </>
+                  )}
                 </svg>
               </button>
             </div>
