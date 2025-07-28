@@ -611,7 +611,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
               : "none",
           position: "relative",
           width: isDesktop && isCollapsed ? "80px" : "auto",
-          overflow: allExpanded && isDesktop && !isCollapsed ? "hidden" : "visible",
+          overflow:
+            allExpanded && isDesktop && !isCollapsed ? "hidden" : "visible",
         }}
       >
         <div
@@ -624,8 +625,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
             flex: "1 0 0",
             alignSelf: "stretch",
             position: "relative",
-            overflow: allExpanded && isDesktop && !isCollapsed ? "auto" : "visible",
-            maxHeight: allExpanded && isDesktop && !isCollapsed ? "calc(100vh - 200px)" : "none",
+            overflow:
+              allExpanded && isDesktop && !isCollapsed ? "auto" : "visible",
+            maxHeight:
+              allExpanded && isDesktop && !isCollapsed
+                ? "calc(100vh - 200px)"
+                : "none",
           }}
         >
           {/* Logo Header */}
