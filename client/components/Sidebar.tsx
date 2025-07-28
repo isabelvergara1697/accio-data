@@ -620,42 +620,45 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: isDesktop && isCollapsed ? "center" : "space-between",
                 alignItems: "center",
                 alignSelf: "stretch",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  width: "139px",
-                  alignItems: "flex-start",
-                  position: "relative",
-                }}
-              >
+              {/* Logo - Hidden when collapsed */}
+              {!(isDesktop && isCollapsed) && (
                 <div
                   style={{
+                    display: "flex",
                     width: "139px",
-                    height: "32px",
-                    flexShrink: 0,
+                    alignItems: "flex-start",
                     position: "relative",
                   }}
                 >
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5f38048a89d8ad952ff6b9682276a562665736e?width=274"
+                  <div
                     style={{
-                      width: "137px",
-                      height: "24px",
+                      width: "139px",
+                      height: "32px",
                       flexShrink: 0,
-                      fill: "#34479A",
-                      position: "absolute",
-                      left: "1px",
-                      top: "4px",
+                      position: "relative",
                     }}
-                    alt="Union"
-                  />
+                  >
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5f38048a89d8ad952ff6b9682276a562665736e?width=274"
+                      style={{
+                        width: "137px",
+                        height: "24px",
+                        flexShrink: 0,
+                        fill: "#34479A",
+                        position: "absolute",
+                        left: "1px",
+                        top: "4px",
+                      }}
+                      alt="Union"
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
               {/* Desktop-only secondary button next to logo */}
               {isDesktop && !isCollapsed && (
                 <button
