@@ -1276,6 +1276,7 @@ export default function Resources() {
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
           showMobileUserMenu={showMobileUserMenu}
+          sidebarCollapsed={sidebarCollapsed}
         />
 
         <MobileHeader
