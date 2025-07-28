@@ -894,6 +894,7 @@ export default function Resources() {
   );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   // Tab and content state
   const [currentTab, setCurrentTab] = useState("onboarding");
@@ -1247,13 +1248,15 @@ export default function Resources() {
         setUserMenuHovered={setUserMenuHovered}
         handleSignOut={handleSignOut}
         getUserMenuStyles={getUserMenuStyles}
+        isCollapsed={sidebarCollapsed}
+        setIsCollapsed={setSidebarCollapsed}
       />
 
       {/* Main Content */}
       <div
         className={isMobile ? "mobile-container" : ""}
         style={{
-          marginLeft: isDesktop ? "296px" : "0",
+          marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
           flex: "1 1 auto",
           display: "flex",
           flexDirection: "column",
