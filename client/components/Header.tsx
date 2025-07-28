@@ -20,6 +20,7 @@ interface HeaderProps {
   getUserMenuStyles: () => object;
   showMobileUserMenu?: boolean;
   showNotification?: boolean;
+  sidebarCollapsed?: boolean;
   onOrderNotification?: (notification: {
     title: string;
     description: string;
@@ -50,6 +51,7 @@ export const Header: React.FC<HeaderProps> = ({
   getUserMenuStyles,
   showMobileUserMenu = false,
   showNotification = false,
+  sidebarCollapsed = false,
   onOrderNotification,
   quickOrderDrawerOpen = false,
   setQuickOrderDrawerOpen,
@@ -90,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({
       style={{
         position: "fixed",
         top: showNotification ? "60px" : 0,
-        left: isDesktop ? "296px" : "0",
+        left: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
         right: 0,
         height: "80px",
         display: "flex",
