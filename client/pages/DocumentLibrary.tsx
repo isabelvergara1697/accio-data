@@ -456,6 +456,7 @@ export default function DocumentLibrary() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   // Handle window resize for responsive behavior
   useEffect(() => {
@@ -542,13 +543,15 @@ export default function DocumentLibrary() {
         setUserMenuHovered={setUserMenuHovered}
         handleSignOut={handleSignOut}
         getUserMenuStyles={getUserMenuStyles}
+        isCollapsed={sidebarCollapsed}
+        setIsCollapsed={setSidebarCollapsed}
       />
 
       {/* Main Content */}
       <div
         className={isMobile ? "mobile-container" : ""}
         style={{
-          marginLeft: isDesktop ? "296px" : "0",
+          marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
           flex: "1 0 0",
           display: "flex",
           flexDirection: "column",
