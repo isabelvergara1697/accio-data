@@ -571,6 +571,7 @@ export default function DocumentLibrary() {
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
           showMobileUserMenu={showMobileUserMenu}
+          sidebarCollapsed={sidebarCollapsed}
         />
 
         <MobileHeader
