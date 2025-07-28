@@ -1250,6 +1250,7 @@ export default function Dashboard() {
             getUserMenuStyles={getUserMenuStyles}
             showMobileUserMenu={showMobileUserMenu}
             showNotification={showNotification || orderNotification?.show}
+            sidebarCollapsed={sidebarCollapsed}
             onOrderNotification={(notification) => {
               setOrderNotification({
                 show: true,
