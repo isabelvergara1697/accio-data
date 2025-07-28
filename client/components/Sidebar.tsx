@@ -646,26 +646,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   />
                 </div>
               </div>
-              {/* Desktop-only info button next to logo */}
+              {/* Desktop-only secondary button next to logo */}
               {isDesktop && (
                 <button
                   style={{
                     display: "flex",
-                    width: "32px",
-                    height: "32px",
-                    padding: "6px",
+                    padding: "8px",
                     justifyContent: "center",
                     alignItems: "center",
-                    borderRadius: "50%",
-                    background: "#F5F5F5",
-                    border: "1px solid #E9EAEB",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#E9EAEB";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#F5F5F5";
                   }}
                 >
                   <svg
@@ -676,9 +669,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M8 10.6667V8M8 5.33333H8.00667M13.3333 8C13.3333 10.9455 10.9455 13.3333 8 13.3333C5.05448 13.3333 2.66667 10.9455 2.66667 8C2.66667 5.05448 5.05448 2.66667 8 2.66667C10.9455 2.66667 13.3333 5.05448 13.3333 8Z"
-                      stroke="#535862"
-                      strokeWidth="1.33333"
+                      d="M2 2V14M14 8H4.66667M4.66667 8L9.33333 12.6667M4.66667 8L9.33333 3.33333"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
@@ -1911,104 +1904,89 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div
             style={{
               display: "flex",
+              padding: "16px 0",
               flexDirection: "column",
               alignItems: "flex-start",
+              gap: "12px",
               alignSelf: "stretch",
+              borderTop: "1px solid #F5F5F5",
               position: "relative",
             }}
           >
-            {/* Divider */}
+            {/* Expand All Button */}
             <div
               style={{
                 display: "flex",
-                padding: "0px 20px",
-                alignItems: "center",
+                padding: "0 16px",
+                flexDirection: "column",
+                alignItems: "flex-start",
                 alignSelf: "stretch",
-              }}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  height: "1px",
-                  background: "#E9EAEB",
-                }}
-              />
-            </div>
-
-            {/* Bottom button */}
-            <div
-              style={{
-                display: "flex",
-                padding: "16px 20px",
-                alignItems: "center",
-                alignSelf: "stretch",
+                position: "relative",
               }}
             >
               <button
                 style={{
                   display: "flex",
-                  padding: "8px 12px",
+                  padding: "6px",
+                  justifyContent: "center",
                   alignItems: "center",
-                  gap: "12px",
-                  flex: "1 0 0",
-                  borderRadius: "6px",
-                  background: "transparent",
-                  border: "none",
+                  gap: "4px",
+                  borderRadius: "8px",
+                  border: "1px solid #D5D7DA",
+                  background: "#FFF",
+                  boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#F5F5F5";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
+                  position: "relative",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
+                    padding: "0 2px",
+                    justifyContent: "center",
                     alignItems: "center",
-                    gap: "8px",
-                    flex: "1 0 0",
+                    position: "relative",
                   }}
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8 10.6667V8M8 5.33333H8.00667M13.3333 8C13.3333 10.9455 10.9455 13.3333 8 13.3333C5.05448 13.3333 2.66667 10.9455 2.66667 8C2.66667 5.05448 5.05448 2.66667 8 2.66667C10.9455 2.66667 13.3333 5.05448 13.3333 8Z"
-                      stroke="#A4A7AE"
-                      strokeWidth="1.33333"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
                   <div
                     style={{
-                      flex: "1 0 0",
                       color: "#414651",
                       fontFamily: "Public Sans",
-                      fontSize: "14px",
+                      fontSize: "12px",
+                      fontStyle: "normal",
                       fontWeight: 600,
-                      lineHeight: "20px",
+                      lineHeight: "18px",
+                      position: "relative",
                     }}
                   >
                     <span
                       style={{
                         fontFamily:
                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 600,
-                        fontSize: "14px",
+                        fontWeight: 700,
+                        fontSize: "12px",
                         color: "rgba(65,70,81,1)",
                       }}
                     >
-                      Help & Support
+                      Expand All
                     </span>
                   </div>
                 </div>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.66666 10L8 13.3334L11.3333 10M4.66666 6.00002L8 2.66669L11.3333 6.00002"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </button>
             </div>
           </div>
