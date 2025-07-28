@@ -205,6 +205,7 @@ export default function Dashboard() {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   // Drawer states to coordinate with mobile menu
   const [quickOrderDrawerOpen, setQuickOrderDrawerOpen] = useState(false);
@@ -1220,13 +1221,15 @@ export default function Dashboard() {
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
           showNotification={showNotification || orderNotification?.show}
+          isCollapsed={sidebarCollapsed}
+          setIsCollapsed={setSidebarCollapsed}
         />
 
         {/* Main Content */}
         <div
           className={isMobile ? "mobile-container" : ""}
           style={{
-            marginLeft: isDesktop ? "296px" : "0",
+            marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
             flex: "1 1 auto",
             display: "flex",
             flexDirection: "column",
