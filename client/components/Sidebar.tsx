@@ -294,7 +294,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 gap: isDesktop && isCollapsed ? "0px" : "8px",
                 flex: "1 0 0",
                 position: "relative",
-                justifyContent: isDesktop && isCollapsed ? "center" : "flex-start",
+                justifyContent:
+                  isDesktop && isCollapsed ? "center" : "flex-start",
               }}
             >
               <NavIcon
@@ -373,7 +374,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
               </div>
             )}
 
-            {hasChevron && !(isDesktop && isCollapsed) && <ChevronIcon isOpen={isOpen} isMobile={isMobile} />}
+            {hasChevron && !(isDesktop && isCollapsed) && (
+              <ChevronIcon isOpen={isOpen} isMobile={isMobile} />
+            )}
           </div>
         </div>
 
@@ -557,8 +560,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
       style={{
         display: "flex",
         width: isDesktop
-          ? (isCollapsed ? "80px" : "296px")
-          : mobileMenuOpen ? "75vw" : "296px",
+          ? isCollapsed
+            ? "80px"
+            : "296px"
+          : mobileMenuOpen
+            ? "75vw"
+            : "296px",
         height: "100vh",
         padding: isDesktop
           ? "8px 0px 24px 8px"
@@ -620,7 +627,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <div
               style={{
                 display: "flex",
-                justifyContent: isDesktop && isCollapsed ? "center" : "space-between",
+                justifyContent:
+                  isDesktop && isCollapsed ? "center" : "space-between",
                 alignItems: "center",
                 alignSelf: "stretch",
               }}
