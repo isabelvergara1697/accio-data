@@ -16,6 +16,8 @@ interface SidebarProps {
   handleSignOut?: () => void;
   getUserMenuStyles?: () => object;
   showNotification?: boolean;
+  isCollapsed?: boolean;
+  setIsCollapsed?: (collapsed: boolean) => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -33,6 +35,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   handleSignOut,
   getUserMenuStyles,
   showNotification = false,
+  isCollapsed = false,
+  setIsCollapsed,
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -287,9 +291,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "8px",
+                gap: isDesktop && isCollapsed ? "0px" : "8px",
                 flex: "1 0 0",
                 position: "relative",
+                justifyContent: isDesktop && isCollapsed ? "center" : "flex-start",
               }}
             >
               <NavIcon
@@ -299,35 +304,37 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 isMobile={isMobile}
                 isTablet={!isMobile && !isDesktop}
               />
-              <div
-                style={{
-                  color: isActive
-                    ? "#273572"
-                    : "var(--colors-text-text-secondary-700, #414651)",
-                  fontFamily:
-                    "var(--Font-family-font-family-body, 'Public Sans')",
-                  fontSize: "var(--Font-size-text-sm, 14px)",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "var(--Line-height-text-sm, 20px)",
-                  position: "relative",
-                }}
-              >
-                <span
+              {!(isDesktop && isCollapsed) && (
+                <div
                   style={{
+                    color: isActive
+                      ? "#273572"
+                      : "var(--colors-text-text-secondary-700, #414651)",
                     fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      "var(--Font-family-font-family-body, 'Public Sans')",
+                    fontSize: "var(--Font-size-text-sm, 14px)",
+                    fontStyle: "normal",
                     fontWeight: 600,
-                    fontSize: "14px",
-                    color: isActive ? "#273572" : "rgba(65,70,81,1)",
+                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                    position: "relative",
                   }}
                 >
-                  {label}
-                </span>
-              </div>
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 600,
+                      fontSize: "14px",
+                      color: isActive ? "#273572" : "rgba(65,70,81,1)",
+                    }}
+                  >
+                    {label}
+                  </span>
+                </div>
+              )}
             </div>
 
-            {badge && (
+            {badge && !(isDesktop && isCollapsed) && (
               <div
                 style={{
                   display: "flex",
@@ -366,7 +373,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               </div>
             )}
 
-            {hasChevron && <ChevronIcon isOpen={isOpen} isMobile={isMobile} />}
+            {hasChevron && !(isDesktop && isCollapsed) && <ChevronIcon isOpen={isOpen} isMobile={isMobile} />}
           </div>
         </div>
 
@@ -549,7 +556,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
       }`}
       style={{
         display: "flex",
-        width: isDesktop ? "296px" : mobileMenuOpen ? "75vw" : "296px",
+        width: isDesktop
+          ? (isCollapsed ? "80px" : "296px")
+          : mobileMenuOpen ? "75vw" : "296px",
         height: "100vh",
         padding: isDesktop
           ? "8px 0px 24px 8px"
@@ -581,6 +590,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               ? "0px 20px 24px -4px rgba(10, 13, 18, 0.08), 0px 8px 8px -4px rgba(10, 13, 18, 0.03), 0px 3px 3px -1.5px rgba(10, 13, 18, 0.04)"
               : "none",
           position: "relative",
+          width: isDesktop && isCollapsed ? "80px" : "auto",
         }}
       >
         <div
@@ -647,7 +657,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </div>
               </div>
               {/* Desktop-only secondary button next to logo */}
-              {isDesktop && (
+              {isDesktop && !isCollapsed && (
                 <button
                   style={{
                     display: "flex",
@@ -661,6 +671,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                   }}
+                  onClick={() => setIsCollapsed?.(true)}
                 >
                   <svg
                     width="16"
@@ -671,6 +682,40 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   >
                     <path
                       d="M2 2V14M14 8H4.66667M4.66667 8L9.33333 12.6667M4.66667 8L9.33333 3.33333"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              )}
+              {/* Collapsed state expand button */}
+              {isDesktop && isCollapsed && (
+                <button
+                  style={{
+                    display: "flex",
+                    padding: "8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setIsCollapsed?.(false)}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14 14V2M2 8H11.3333M11.3333 8L6.66667 3.33333M11.3333 8L6.66667 12.6667"
                       stroke="#A4A7AE"
                       strokeWidth="1.66667"
                       strokeLinecap="round"
@@ -1901,7 +1946,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Desktop-only bottom section */}
-        {isDesktop && (
+        {isDesktop && !isCollapsed && (
           <div
             style={{
               display: "flex",
