@@ -378,7 +378,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Sub-menu */}
-        {hasChevron && isOpen && (
+        {hasChevron && isOpen && !(isDesktop && isCollapsed) && (
           <div
             style={{
               display: "flex",
