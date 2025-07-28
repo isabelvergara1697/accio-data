@@ -1640,7 +1640,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <div
                 style={{
                   display: "flex",
-                  padding: "0px 16px",
+                  padding: isDesktop && isCollapsed ? "0px 8px" : "0px 16px",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   alignSelf: "stretch",
