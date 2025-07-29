@@ -1080,6 +1080,8 @@ const InvitesAndOrders: React.FC = () => {
                                   setShowDownloadDropdown(
                                     !showDownloadDropdown,
                                   );
+                                } else if (action.icon === "information") {
+                                  setShowInformationDrawer(true);
                                 } else {
                                   console.log(`${action.label} clicked`);
                                 }
