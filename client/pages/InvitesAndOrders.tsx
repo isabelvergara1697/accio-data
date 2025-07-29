@@ -2687,7 +2687,7 @@ const InvitesAndOrders: React.FC = () => {
                                   overflow: "hidden",
                                 }}
                               >
-                                {getStatusBadge(invite.status)}
+                                <StatusBadge status={invite.status} />
                               </div>
                             </div>
 
