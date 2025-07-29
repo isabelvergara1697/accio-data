@@ -1489,14 +1489,14 @@ const InvitesAndOrders: React.FC = () => {
                                               fontFamily: "Public Sans",
                                               fontSize: "14px",
                                               fontStyle: "normal",
-                                              fontWeight: 700,
+                                              fontWeight: 600,
                                               lineHeight: "20px",
                                             }}
                                           >
                                             <span
                                               style={{
                                                 fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                                fontWeight: 700,
+                                                fontWeight: 600,
                                                 fontSize: "14px",
                                                 color: "rgba(65,70,81,1)",
                                               }}
