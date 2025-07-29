@@ -42,6 +42,8 @@ const InvitesAndOrders: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
+  const [sortField, setSortField] = useState<keyof InviteData | null>(null);
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
   // Window resize handler
   useEffect(() => {
@@ -393,6 +395,33 @@ const InvitesAndOrders: React.FC = () => {
       }
     };
   };
+
+  const handleSort = (field: keyof InviteData) => {
+    if (sortField === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortField(field);
+      setSortDirection('asc');
+    }
+  };
+
+  const sortedData = React.useMemo(() => {
+    if (!sortField) return invitesData;
+
+    return [...invitesData].sort((a, b) => {
+      const aValue = a[sortField];
+      const bValue = b[sortField];
+
+      let comparison = 0;
+      if (aValue < bValue) {
+        comparison = -1;
+      } else if (aValue > bValue) {
+        comparison = 1;
+      }
+
+      return sortDirection === 'desc' ? comparison * -1 : comparison;
+    });
+  }, [invitesData, sortField, sortDirection]);
 
   return (
     <div
