@@ -8,6 +8,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "../components/ui/tooltip";
+import InformationDrawer from "../components/ui/information-drawer";
 
 interface InviteData {
   id: string;
