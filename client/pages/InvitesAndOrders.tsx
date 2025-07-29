@@ -48,8 +48,8 @@ const TruncatedText: React.FC<{
 
   useEffect(() => {
     checkTruncation();
-    window.addEventListener('resize', checkTruncation);
-    return () => window.removeEventListener('resize', checkTruncation);
+    window.addEventListener("resize", checkTruncation);
+    return () => window.removeEventListener("resize", checkTruncation);
   }, [checkTruncation, text]);
 
   const textElement = (
@@ -66,7 +66,8 @@ const TruncatedText: React.FC<{
     >
       <span
         style={{
-          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+          fontFamily:
+            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
           fontWeight: 400,
           fontSize: "14px",
           color: "rgba(24,29,39,1)",
@@ -80,9 +81,7 @@ const TruncatedText: React.FC<{
   if (isTruncated) {
     return (
       <Tooltip>
-        <TooltipTrigger asChild>
-          {textElement}
-        </TooltipTrigger>
+        <TooltipTrigger asChild>{textElement}</TooltipTrigger>
         <TooltipContent
           side="top"
           align="start"
@@ -128,7 +127,9 @@ const InvitesAndOrders: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
   const [sortField, setSortField] = useState<keyof InviteData | null>(null);
-  const [sortDirection, setSortDirection] = useState<"asc" | "desc" | null>(null);
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc" | null>(
+    null,
+  );
   const [hoveredRowId, setHoveredRowId] = useState<string | null>(null);
 
   // Window resize handler
@@ -311,7 +312,8 @@ const InvitesAndOrders: React.FC = () => {
     const colors = colorMap[config.color as keyof typeof colorMap];
 
     // Badge with flex: 1 for longer statuses like "Waiting for Recruitee" and "Expires Today"
-    const needsFlexGrow = status === "waiting-for-recruitee" || status === "expires-today";
+    const needsFlexGrow =
+      status === "waiting-for-recruitee" || status === "expires-today";
 
     const badgeElement = (
       <div
@@ -363,9 +365,7 @@ const InvitesAndOrders: React.FC = () => {
 
     return (
       <Tooltip>
-        <TooltipTrigger asChild>
-          {badgeElement}
-        </TooltipTrigger>
+        <TooltipTrigger asChild>{badgeElement}</TooltipTrigger>
         <TooltipContent
           side="top"
           align="center"
@@ -1258,7 +1258,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: sortField === "status" ? "#34479A" : "#717680",
+                                  color:
+                                    sortField === "status"
+                                      ? "#34479A"
+                                      : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -1273,7 +1276,10 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: sortField === "status" ? "#34479A" : "rgba(113,118,128,1)",
+                                    color:
+                                      sortField === "status"
+                                        ? "#34479A"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   Status
@@ -1288,7 +1294,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    if (sortField === "status" && sortDirection === "asc") {
+                                    if (
+                                      sortField === "status" &&
+                                      sortDirection === "asc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1315,7 +1324,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "status" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "status" &&
+                                        sortDirection === "asc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1324,7 +1338,10 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (sortField === "status" && sortDirection === "desc") {
+                                    if (
+                                      sortField === "status" &&
+                                      sortDirection === "desc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1352,7 +1369,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "status" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "status" &&
+                                        sortDirection === "desc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1387,7 +1409,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: sortField === "firstName" ? "#34479A" : "#717680",
+                                  color:
+                                    sortField === "firstName"
+                                      ? "#34479A"
+                                      : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -1402,7 +1427,10 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: sortField === "firstName" ? "#34479A" : "rgba(113,118,128,1)",
+                                    color:
+                                      sortField === "firstName"
+                                        ? "#34479A"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   First Name
@@ -1417,7 +1445,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    if (sortField === "firstName" && sortDirection === "asc") {
+                                    if (
+                                      sortField === "firstName" &&
+                                      sortDirection === "asc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1444,7 +1475,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "firstName" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "firstName" &&
+                                        sortDirection === "asc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1453,7 +1489,10 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (sortField === "firstName" && sortDirection === "desc") {
+                                    if (
+                                      sortField === "firstName" &&
+                                      sortDirection === "desc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1481,7 +1520,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "firstName" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "firstName" &&
+                                        sortDirection === "desc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1516,7 +1560,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: sortField === "lastName" ? "#34479A" : "#717680",
+                                  color:
+                                    sortField === "lastName"
+                                      ? "#34479A"
+                                      : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -1531,7 +1578,10 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: sortField === "lastName" ? "#34479A" : "rgba(113,118,128,1)",
+                                    color:
+                                      sortField === "lastName"
+                                        ? "#34479A"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   Last Name
@@ -1546,7 +1596,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    if (sortField === "lastName" && sortDirection === "asc") {
+                                    if (
+                                      sortField === "lastName" &&
+                                      sortDirection === "asc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1573,7 +1626,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "lastName" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "lastName" &&
+                                        sortDirection === "asc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1582,7 +1640,10 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (sortField === "lastName" && sortDirection === "desc") {
+                                    if (
+                                      sortField === "lastName" &&
+                                      sortDirection === "desc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1610,7 +1671,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "lastName" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "lastName" &&
+                                        sortDirection === "desc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1645,7 +1711,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: sortField === "email" ? "#34479A" : "#717680",
+                                  color:
+                                    sortField === "email"
+                                      ? "#34479A"
+                                      : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -1660,7 +1729,10 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: sortField === "email" ? "#34479A" : "rgba(113,118,128,1)",
+                                    color:
+                                      sortField === "email"
+                                        ? "#34479A"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   Invitation Email
@@ -1675,7 +1747,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    if (sortField === "email" && sortDirection === "asc") {
+                                    if (
+                                      sortField === "email" &&
+                                      sortDirection === "asc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1702,7 +1777,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "email" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "email" &&
+                                        sortDirection === "asc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1711,7 +1791,10 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (sortField === "email" && sortDirection === "desc") {
+                                    if (
+                                      sortField === "email" &&
+                                      sortDirection === "desc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1739,7 +1822,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "email" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "email" &&
+                                        sortDirection === "desc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1776,7 +1864,10 @@ const InvitesAndOrders: React.FC = () => {
                               <div
                                 style={{
                                   flex: "1 0 0",
-                                  color: sortField === "completion" ? "#34479A" : "#717680",
+                                  color:
+                                    sortField === "completion"
+                                      ? "#34479A"
+                                      : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -1791,7 +1882,10 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: sortField === "completion" ? "#34479A" : "rgba(113,118,128,1)",
+                                    color:
+                                      sortField === "completion"
+                                        ? "#34479A"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   Completed
@@ -1806,7 +1900,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    if (sortField === "completion" && sortDirection === "asc") {
+                                    if (
+                                      sortField === "completion" &&
+                                      sortDirection === "asc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1833,7 +1930,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "completion" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "completion" &&
+                                        sortDirection === "asc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1842,7 +1944,10 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (sortField === "completion" && sortDirection === "desc") {
+                                    if (
+                                      sortField === "completion" &&
+                                      sortDirection === "desc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1870,7 +1975,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "completion" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "completion" &&
+                                        sortDirection === "desc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1905,7 +2015,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: sortField === "lastEmail" ? "#34479A" : "#717680",
+                                  color:
+                                    sortField === "lastEmail"
+                                      ? "#34479A"
+                                      : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -1920,7 +2033,10 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: sortField === "lastEmail" ? "#34479A" : "rgba(113,118,128,1)",
+                                    color:
+                                      sortField === "lastEmail"
+                                        ? "#34479A"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   Last Email
@@ -1935,7 +2051,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    if (sortField === "lastEmail" && sortDirection === "asc") {
+                                    if (
+                                      sortField === "lastEmail" &&
+                                      sortDirection === "asc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1962,7 +2081,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "lastEmail" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "lastEmail" &&
+                                        sortDirection === "asc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -1971,7 +2095,10 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (sortField === "lastEmail" && sortDirection === "desc") {
+                                    if (
+                                      sortField === "lastEmail" &&
+                                      sortDirection === "desc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -1999,7 +2126,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "lastEmail" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "lastEmail" &&
+                                        sortDirection === "desc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -2034,7 +2166,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: sortField === "i9Filled" ? "#34479A" : "#717680",
+                                  color:
+                                    sortField === "i9Filled"
+                                      ? "#34479A"
+                                      : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -2049,7 +2184,10 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: sortField === "i9Filled" ? "#34479A" : "rgba(113,118,128,1)",
+                                    color:
+                                      sortField === "i9Filled"
+                                        ? "#34479A"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   I-9 Filled
@@ -2064,7 +2202,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    if (sortField === "i9Filled" && sortDirection === "asc") {
+                                    if (
+                                      sortField === "i9Filled" &&
+                                      sortDirection === "asc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -2091,7 +2232,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "i9Filled" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "i9Filled" &&
+                                        sortDirection === "asc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -2100,7 +2246,10 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (sortField === "i9Filled" && sortDirection === "desc") {
+                                    if (
+                                      sortField === "i9Filled" &&
+                                      sortDirection === "desc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -2128,7 +2277,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "i9Filled" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "i9Filled" &&
+                                        sortDirection === "desc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -2163,7 +2317,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: sortField === "activated" ? "#34479A" : "#717680",
+                                  color:
+                                    sortField === "activated"
+                                      ? "#34479A"
+                                      : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -2178,7 +2335,10 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: sortField === "activated" ? "#34479A" : "rgba(113,118,128,1)",
+                                    color:
+                                      sortField === "activated"
+                                        ? "#34479A"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   Activate
@@ -2193,7 +2353,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    if (sortField === "activated" && sortDirection === "asc") {
+                                    if (
+                                      sortField === "activated" &&
+                                      sortDirection === "asc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -2220,7 +2383,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "activated" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "activated" &&
+                                        sortDirection === "asc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -2229,7 +2397,10 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (sortField === "activated" && sortDirection === "desc") {
+                                    if (
+                                      sortField === "activated" &&
+                                      sortDirection === "desc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -2257,7 +2428,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "activated" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "activated" &&
+                                        sortDirection === "desc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -2292,7 +2468,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: sortField === "ews" ? "#34479A" : "#717680",
+                                  color:
+                                    sortField === "ews" ? "#34479A" : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -2307,7 +2484,10 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: sortField === "ews" ? "#34479A" : "rgba(113,118,128,1)",
+                                    color:
+                                      sortField === "ews"
+                                        ? "#34479A"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   EWS
@@ -2322,7 +2502,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    if (sortField === "ews" && sortDirection === "asc") {
+                                    if (
+                                      sortField === "ews" &&
+                                      sortDirection === "asc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -2349,7 +2532,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "ews" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "ews" &&
+                                        sortDirection === "asc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -2358,7 +2546,10 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
                                 <button
                                   onClick={() => {
-                                    if (sortField === "ews" && sortDirection === "desc") {
+                                    if (
+                                      sortField === "ews" &&
+                                      sortDirection === "desc"
+                                    ) {
                                       setSortField(null);
                                       setSortDirection(null);
                                     } else {
@@ -2386,7 +2577,12 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <path
                                       d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={sortField === "ews" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      stroke={
+                                        sortField === "ews" &&
+                                        sortDirection === "desc"
+                                          ? "#34479A"
+                                          : "#A4A7AE"
+                                      }
                                       strokeWidth="1.5"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -2424,7 +2620,10 @@ const InvitesAndOrders: React.FC = () => {
                               alignItems: "flex-start",
                               alignSelf: "stretch",
                               position: "relative",
-                              background: hoveredRowId === invite.id ? "#F5F5F5" : "transparent",
+                              background:
+                                hoveredRowId === invite.id
+                                  ? "#F5F5F5"
+                                  : "transparent",
                               transition: "background-color 0.15s ease",
                               cursor: "pointer",
                             }}
