@@ -1095,7 +1095,7 @@ const InvitesAndOrders: React.FC = () => {
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
                                 background:
-                                  hoveredButton === action.icon
+                                  hoveredButton === action.icon || (action.icon === "download" && showDownloadDropdown)
                                     ? "#F5F5F5"
                                     : "#FFF",
                                 boxShadow:
