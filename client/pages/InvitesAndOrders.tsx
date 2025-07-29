@@ -43,7 +43,7 @@ const InvitesAndOrders: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
   const [sortField, setSortField] = useState<keyof InviteData | null>(null);
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
   // Window resize handler
   useEffect(() => {
@@ -398,10 +398,10 @@ const InvitesAndOrders: React.FC = () => {
 
   const handleSort = (field: keyof InviteData) => {
     if (sortField === field) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
       setSortField(field);
-      setSortDirection('asc');
+      setSortDirection("asc");
     }
   };
 
@@ -419,7 +419,7 @@ const InvitesAndOrders: React.FC = () => {
         comparison = 1;
       }
 
-      return sortDirection === 'desc' ? comparison * -1 : comparison;
+      return sortDirection === "desc" ? comparison * -1 : comparison;
     });
   }, [invitesData, sortField, sortDirection]);
 
@@ -1132,7 +1132,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 cursor: "pointer",
                               }}
-                              onClick={() => handleSort('status')}
+                              onClick={() => handleSort("status")}
                             >
                               <div
                                 style={{
@@ -1197,7 +1197,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 cursor: "pointer",
                               }}
-                              onClick={() => handleSort('firstName')}
+                              onClick={() => handleSort("firstName")}
                             >
                               <div
                                 style={{
@@ -1262,7 +1262,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 cursor: "pointer",
                               }}
-                              onClick={() => handleSort('lastName')}
+                              onClick={() => handleSort("lastName")}
                             >
                               <div
                                 style={{
@@ -1327,7 +1327,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 cursor: "pointer",
                               }}
-                              onClick={() => handleSort('email')}
+                              onClick={() => handleSort("email")}
                             >
                               <div
                                 style={{
@@ -1405,7 +1405,7 @@ const InvitesAndOrders: React.FC = () => {
                                   position: "relative",
                                   cursor: "pointer",
                                 }}
-                                onClick={() => handleSort('completion')}
+                                onClick={() => handleSort("completion")}
                               >
                                 <span
                                   style={{
@@ -1459,7 +1459,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 cursor: "pointer",
                               }}
-                              onClick={() => handleSort('lastEmail')}
+                              onClick={() => handleSort("lastEmail")}
                             >
                               <div
                                 style={{
@@ -1524,7 +1524,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 cursor: "pointer",
                               }}
-                              onClick={() => handleSort('i9Filled')}
+                              onClick={() => handleSort("i9Filled")}
                             >
                               <div
                                 style={{
@@ -1589,7 +1589,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 cursor: "pointer",
                               }}
-                              onClick={() => handleSort('activated')}
+                              onClick={() => handleSort("activated")}
                             >
                               <div
                                 style={{
@@ -1654,7 +1654,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 cursor: "pointer",
                               }}
-                              onClick={() => handleSort('ews')}
+                              onClick={() => handleSort("ews")}
                             >
                               <div
                                 style={{
