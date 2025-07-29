@@ -1506,9 +1506,18 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
+                                overflow: "hidden",
+                                minWidth: 0,
                               }}
                             >
-                              {getStatusBadge(invite.status)}
+                              <div
+                                style={{
+                                  maxWidth: "100%",
+                                  overflow: "hidden",
+                                }}
+                              >
+                                {getStatusBadge(invite.status)}
+                              </div>
                             </div>
 
                             {/* First Name Cell */}
