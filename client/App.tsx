@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import DocumentLibrary from "./pages/DocumentLibrary";
 import Resources from "./pages/Resources";
+import InvitesAndOrders from "./pages/InvitesAndOrders";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
