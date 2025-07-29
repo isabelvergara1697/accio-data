@@ -385,7 +385,15 @@ const InvitesAndOrders: React.FC = () => {
         isMobile={isMobile}
         mobileMenuOpen={mobileMenuOpen}
         currentPage="invites-orders"
+        showMobileUserMenu={showMobileUserMenu}
+        setShowMobileUserMenu={setShowMobileUserMenu}
         setMobileMenuOpen={setMobileMenuOpen}
+        userMenuOpen={userMenuOpen}
+        setUserMenuOpen={setUserMenuOpen}
+        userMenuHovered={userMenuHovered}
+        setUserMenuHovered={setUserMenuHovered}
+        handleSignOut={handleSignOut}
+        getUserMenuStyles={getUserMenuStyles}
         showNotification={showNotification}
         isCollapsed={sidebarCollapsed}
         setIsCollapsed={setSidebarCollapsed}
