@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
-import { useMobile } from "../hooks/use-mobile";
+import { MobileHeader } from "../components/MobileHeader";
 
 interface InviteData {
   id: string;
