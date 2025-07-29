@@ -1321,44 +1321,38 @@ const InvitesAndOrders: React.FC = () => {
                                                 strokeWidth="1.5"
                                               />
                                             </svg>
-                                            <div
+                                            <svg
                                               style={{
-                                                display: "inline-flex",
-                                                padding: "2px 3px",
-                                                alignItems: "flex-start",
-                                                gap: "8px",
-                                                borderRadius: "2px",
-                                                background: "#079455",
                                                 position: "absolute",
                                                 left: "-5px",
                                                 top: "8px",
                                                 width: "26px",
                                                 height: "16px",
                                               }}
+                                              width="26"
+                                              height="16"
+                                              viewBox="0 0 26 16"
+                                              fill="none"
+                                              xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <div
-                                                style={{
-                                                  color: "#FFF",
-                                                  textAlign: "center",
-                                                  fontFamily: "Inter",
-                                                  fontSize: "10px",
-                                                  fontStyle: "normal",
-                                                  fontWeight: 700,
-                                                  lineHeight: "normal",
-                                                }}
+                                              <rect
+                                                width="26"
+                                                height="16"
+                                                rx="2"
+                                                fill="#079455"
+                                              />
+                                              <text
+                                                x="13"
+                                                y="11.5"
+                                                textAnchor="middle"
+                                                fill="#FFFFFF"
+                                                fontSize="10"
+                                                fontFamily="Inter, -apple-system, Roboto, Helvetica, sans-serif"
+                                                fontWeight="700"
                                               >
-                                                <span
-                                                  style={{
-                                                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                                                    fontWeight: 700,
-                                                    fontSize: "10px",
-                                                    color: "rgba(255,255,255,1)",
-                                                  }}
-                                                >
-                                                  XLS
-                                                </span>
-                                              </div>
-                                            </div>
+                                                XLS
+                                              </text>
+                                            </svg>
                                           </div>
                                           <div
                                             style={{
