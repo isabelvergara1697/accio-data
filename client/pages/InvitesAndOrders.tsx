@@ -998,6 +998,15 @@ const InvitesAndOrders: React.FC = () => {
                     </div>
                   </div>
 
+                  {/* Internal Divider */}
+                  <div
+                    style={{
+                      height: "1px",
+                      alignSelf: "stretch",
+                      background: "#E9EAEB",
+                    }}
+                  />
+
                   {/* Table Content */}
                   <div
                     style={{
