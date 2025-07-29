@@ -133,6 +133,7 @@ const InvitesAndOrders: React.FC = () => {
   const [hoveredRowId, setHoveredRowId] = useState<string | null>(null);
   const [showDownloadDropdown, setShowDownloadDropdown] = useState(false);
   const [hoveredButton, setHoveredButton] = useState<string | null>(null);
+  const [hoveredPaginationButton, setHoveredPaginationButton] = useState<string | null>(null);
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
 
   // Window resize handler
