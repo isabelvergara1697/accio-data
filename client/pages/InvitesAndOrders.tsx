@@ -309,8 +309,9 @@ const InvitesAndOrders: React.FC = () => {
     };
 
     const colors = colorMap[config.color as keyof typeof colorMap];
+    const isLongText = config.label.length > 12;
 
-    return (
+    const badgeElement = (
       <div
         style={{
           display: "flex",
@@ -320,6 +321,8 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
+          maxWidth: "100%",
+          minWidth: "fit-content",
         }}
       >
         <div
@@ -332,10 +335,15 @@ const InvitesAndOrders: React.FC = () => {
             fontWeight: 500,
             lineHeight: "18px",
             position: "relative",
-            maxWidth: "100%",
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
+            ...(isLongText && {
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 1,
+              flex: "1 0 0",
+            }),
           }}
         >
           <span
@@ -352,6 +360,38 @@ const InvitesAndOrders: React.FC = () => {
         </div>
       </div>
     );
+
+    if (isLongText) {
+      return (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            {badgeElement}
+          </TooltipTrigger>
+          <TooltipContent
+            side="top"
+            align="center"
+            sideOffset={5}
+            style={{
+              maxWidth: "200px",
+              wordWrap: "break-word",
+              backgroundColor: "#0A0D12",
+              color: "#FFF",
+              padding: "8px 12px",
+              borderRadius: "8px",
+              fontSize: "12px",
+              fontWeight: 600,
+              lineHeight: "18px",
+              boxShadow:
+                "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+            }}
+          >
+            {config.label}
+          </TooltipContent>
+        </Tooltip>
+      );
+    }
+
+    return badgeElement;
   };
 
   const ProgressBar = ({ percentage }: { percentage: number }) => (
