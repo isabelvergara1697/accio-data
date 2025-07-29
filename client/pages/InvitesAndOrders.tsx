@@ -385,11 +385,13 @@ const InvitesAndOrders: React.FC = () => {
   };
 
   const handleSelectItem = (id: string) => {
-    if (selectedItems.includes(id)) {
-      setSelectedItems(selectedItems.filter((item) => item !== id));
-    } else {
-      setSelectedItems([...selectedItems, id]);
-    }
+    return (checked: boolean) => {
+      if (checked) {
+        setSelectedItems([...selectedItems, id]);
+      } else {
+        setSelectedItems(selectedItems.filter((item) => item !== id));
+      }
+    };
   };
 
   return (
