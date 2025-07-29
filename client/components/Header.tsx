@@ -94,14 +94,14 @@ export const Header: React.FC<HeaderProps> = ({
         top: showNotification ? "60px" : 0,
         left: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
         right: 0,
-        height: "80px",
+        height: "72px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "20px 32px 32px",
+        padding: "0 32px",
         zIndex: 20,
         background:
-          "linear-gradient(180deg, #FAFAFA 0%, rgba(250, 250, 250, 0) 100%)", // Keep gradient for desktop
+          "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
       }}
     >
       {/* Search Bar */}
@@ -110,31 +110,29 @@ export const Header: React.FC<HeaderProps> = ({
           display: "flex",
           alignItems: "center",
           gap: "8px",
-          flex: "1",
-          minWidth: "200px",
-          maxWidth: "600px",
+          flex: "1 0 0",
           borderRadius: "8px",
           border: "1px solid #D5D7DA",
           background: "#FFF",
-          padding: "10px 12px",
-          boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+          padding: "10px 14px",
+          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
           marginRight: "16px",
         }}
       >
         <svg
           style={{
-            ...searchIconSize.style,
+            width: "24px",
+            height: "24px",
             flexShrink: 0,
           }}
-          width={searchIconSize.width}
-          height={searchIconSize.height}
-          viewBox="0 0 20 20"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className={searchIconSize.className}
         >
           <path
-            d="M17.5 17.5L14.5834 14.5833M16.6667 9.58333C16.6667 13.4954 13.4954 16.6667 9.58333 16.6667C5.67132 16.6667 2.5 13.4954 2.5 9.58333C2.5 5.67132 5.67132 2.5 9.58333 2.5C13.4954 2.5 16.6667 5.67132 16.6667 9.58333Z"
+            d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
             stroke="#A4A7AE"
             strokeWidth="1.66667"
             strokeLinecap="round"
@@ -150,17 +148,17 @@ export const Header: React.FC<HeaderProps> = ({
             outline: "none",
             background: "transparent",
             fontFamily: "Public Sans",
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: 400,
             color: "#717680",
-            lineHeight: "20px",
+            lineHeight: "24px",
           }}
         />
         <div
           style={{
             display: "flex",
-            padding: "2px 6px",
-            alignItems: "center",
+            padding: "1px 4px",
+            alignItems: "flex-start",
             borderRadius: "4px",
             border: "1px solid #E9EAEB",
             background: "#FAFAFA",
@@ -172,6 +170,7 @@ export const Header: React.FC<HeaderProps> = ({
               fontSize: "12px",
               fontWeight: 500,
               color: "#717680",
+              lineHeight: "18px",
             }}
           >
             ⌘K
@@ -184,7 +183,7 @@ export const Header: React.FC<HeaderProps> = ({
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "16px",
+          gap: "20px",
           flexShrink: 0,
         }}
       >
@@ -278,6 +277,7 @@ export const Header: React.FC<HeaderProps> = ({
             }}
             style={{
               display: "flex",
+              width: "40px",
               padding: "8px",
               justifyContent: "center",
               alignItems: "center",
@@ -294,13 +294,16 @@ export const Header: React.FC<HeaderProps> = ({
             }}
           >
             <svg
-              style={notificationIconSize.style}
-              width={notificationIconSize.width}
-              height={notificationIconSize.height}
+              style={{
+                width: "24px",
+                height: "24px",
+                flexShrink: 0,
+              }}
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className={notificationIconSize.className}
             >
               <path
                 d="M9.35419 21C10.0593 21.6224 10.9856 22 12 22C13.0145 22 13.9407 21.6224 14.6458 21M18 8C18 6.4087 17.3679 4.88258 16.2427 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.8826 2.63214 7.75738 3.75736C6.63216 4.88258 6.00002 6.4087 6.00002 8C6.00002 11.0902 5.22049 13.206 4.34968 14.6054C3.61515 15.7859 3.24788 16.3761 3.26134 16.5408C3.27626 16.7231 3.31488 16.7926 3.46179 16.9016C3.59448 17 4.19261 17 5.38887 17H18.6112C19.8074 17 20.4056 17 20.5382 16.9016C20.6852 16.7926 20.7238 16.7231 20.7387 16.5408C20.7522 16.3761 20.3849 15.7859 19.6504 14.6054C18.7795 13.206 18 11.0902 18 8Z"
@@ -316,13 +319,13 @@ export const Header: React.FC<HeaderProps> = ({
           <div
             style={{
               position: "absolute",
-              top: "4px",
-              right: "4px",
+              top: "6px",
+              right: "6px",
               width: "8px",
               height: "8px",
               background: "#17B26A",
               borderRadius: "50%",
-              border: "1.5px solid #FFF",
+              border: "1.5px solid #DCFAE6",
             }}
           />
         </div>
@@ -330,11 +333,23 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Divider */}
         <div
           style={{
-            width: "1px",
-            height: "24px",
-            background: "#E9EAEB",
+            display: "flex",
+            width: "16px",
+            padding: "16px 8px",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            alignSelf: "stretch",
           }}
-        />
+        >
+          <div
+            style={{
+              width: "1px",
+              height: "40px",
+              background: "#E9EAEB",
+            }}
+          />
+        </div>
 
         {/* User Menu */}
         <div
@@ -363,8 +378,7 @@ export const Header: React.FC<HeaderProps> = ({
             <div
               style={{
                 display: "flex",
-                minWidth: "120px",
-                maxWidth: "180px",
+                width: "200px",
                 alignItems: "center",
                 gap: "8px",
                 overflow: "hidden",
