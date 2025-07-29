@@ -2854,27 +2854,43 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "200px",
-                                flex: "0 0 200px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
+                                alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
-                                minWidth: 0,
                               }}
                             >
-                              <TruncatedText
-                                text={invite.email}
+                              <div
                                 style={{
+                                  display: "-webkit-box",
+                                  WebkitBoxOrient: "vertical",
+                                  WebkitLineClamp: 1,
+                                  flex: "1 0 0",
+                                  overflow: "hidden",
                                   color: "#181D27",
+                                  textOverflow: "ellipsis",
                                   fontFamily: "Public Sans",
                                   fontSize: "14px",
                                   fontStyle: "normal",
                                   fontWeight: 500,
                                   lineHeight: "20px",
+                                  position: "relative",
                                 }}
-                              />
+                                title={invite.email}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: "rgba(24,29,39,1)",
+                                  }}
+                                >
+                                  {invite.email}
+                                </span>
+                              </div>
                             </div>
 
                             {/* Completion Cell */}
