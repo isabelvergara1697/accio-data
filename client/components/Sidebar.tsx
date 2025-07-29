@@ -422,7 +422,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         (currentPage === "document-library" &&
                           item === "Document Library") ||
                         (currentPage === "resources" && item === "Resources") ||
-                        (currentPage === "invites-orders" && item === "Invites & Orders")
+                        (currentPage === "invites-orders" &&
+                          item === "Invites & Orders")
                           ? "#ECEEF9"
                           : "#FFF",
                       position: "relative",
@@ -436,7 +437,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         (currentPage === "document-library" &&
                           item === "Document Library") ||
                         (currentPage === "resources" && item === "Resources") ||
-                        (currentPage === "invites-orders" && item === "Invites & Orders")
+                        (currentPage === "invites-orders" &&
+                          item === "Invites & Orders")
                       ) &&
                       setHoveredItem(
                         `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
@@ -630,7 +632,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
         }}
       >
         <div
-          className={allExpanded && isDesktop && !isCollapsed ? "sidebar-scroll" : ""}
+          className={
+            allExpanded && isDesktop && !isCollapsed ? "sidebar-scroll" : ""
+          }
           style={{
             display: "flex",
             paddingTop: "16px",

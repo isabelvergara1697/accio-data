@@ -8,7 +8,15 @@ interface InviteData {
   firstName: string;
   lastName: string;
   email: string;
-  status: "waiting" | "unsolicited" | "canceled" | "expired" | "waiting-for-recruitee" | "expires-today" | "reviewed" | "archived";
+  status:
+    | "waiting"
+    | "unsolicited"
+    | "canceled"
+    | "expired"
+    | "waiting-for-recruitee"
+    | "expires-today"
+    | "reviewed"
+    | "archived";
   completion: number;
   lastEmail: string;
   i9Filled: boolean;
@@ -27,7 +35,9 @@ const InvitesAndOrders: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState<"invites" | "orders" | "hired">("invites");
+  const [activeTab, setActiveTab] = useState<"invites" | "orders" | "hired">(
+    "invites",
+  );
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
@@ -188,7 +198,10 @@ const InvitesAndOrders: React.FC = () => {
       unsolicited: { label: "Unsolicited", color: "purple" },
       canceled: { label: "Canceled", color: "green" },
       expired: { label: "Expired", color: "gray" },
-      "waiting-for-recruitee": { label: "Waiting for Recruitee", color: "orange" },
+      "waiting-for-recruitee": {
+        label: "Waiting for Recruitee",
+        color: "orange",
+      },
       "expires-today": { label: "Expires Today", color: "blue" },
       reviewed: { label: "Reviewed", color: "pink" },
       archived: { label: "Archived", color: "gray" },
@@ -232,7 +245,8 @@ const InvitesAndOrders: React.FC = () => {
         >
           <span
             style={{
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontWeight: 400,
               fontSize: "12px",
               color: colors.text,
@@ -293,7 +307,8 @@ const InvitesAndOrders: React.FC = () => {
       >
         <span
           style={{
-            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+            fontFamily:
+              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
             fontWeight: 400,
             fontSize: "14px",
             color: "rgba(65,70,81,1)",
@@ -517,7 +532,8 @@ const InvitesAndOrders: React.FC = () => {
                     >
                       <span
                         style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontWeight: 700,
                           fontSize: "24px",
                           color: "rgba(24,29,39,1)",
@@ -540,13 +556,16 @@ const InvitesAndOrders: React.FC = () => {
                     >
                       <span
                         style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontWeight: 400,
                           fontSize: "16px",
                           color: "rgba(83,88,98,1)",
                         }}
                       >
-                        Track pending invites and submitted orders in one place. Use filters and tools to sort, review, and manage activity easily.
+                        Track pending invites and submitted orders in one place.
+                        Use filters and tools to sort, review, and manage
+                        activity easily.
                       </span>
                     </div>
                   </div>
@@ -566,7 +585,8 @@ const InvitesAndOrders: React.FC = () => {
                         alignItems: "flex-start",
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         position: "relative",
                       }}
                     >
@@ -577,7 +597,9 @@ const InvitesAndOrders: React.FC = () => {
                       ].map((tab) => (
                         <div
                           key={tab.key}
-                          onClick={() => setActiveTab(tab.key as typeof activeTab)}
+                          onClick={() =>
+                            setActiveTab(tab.key as typeof activeTab)
+                          }
                           style={{
                             display: "flex",
                             minHeight: "40px",
@@ -585,15 +607,20 @@ const InvitesAndOrders: React.FC = () => {
                             justifyContent: "center",
                             alignItems: "center",
                             gap: "6px",
-                            borderRight: tab.key !== "hired" ? "1px solid #D5D7DA" : "none",
-                            background: activeTab === tab.key ? "#ECEEF9" : "#FFF",
+                            borderRight:
+                              tab.key !== "hired"
+                                ? "1px solid #D5D7DA"
+                                : "none",
+                            background:
+                              activeTab === tab.key ? "#ECEEF9" : "#FFF",
                             cursor: "pointer",
                             position: "relative",
                           }}
                         >
                           <div
                             style={{
-                              color: activeTab === tab.key ? "#273572" : "#414651",
+                              color:
+                                activeTab === tab.key ? "#273572" : "#414651",
                               fontFamily: "Public Sans",
                               fontSize: "14px",
                               fontStyle: "normal",
@@ -604,10 +631,14 @@ const InvitesAndOrders: React.FC = () => {
                           >
                             <span
                               style={{
-                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                 fontWeight: 700,
                                 fontSize: "14px",
-                                color: activeTab === tab.key ? "rgba(39,53,114,1)" : "rgba(65,70,81,1)",
+                                color:
+                                  activeTab === tab.key
+                                    ? "rgba(39,53,114,1)"
+                                    : "rgba(65,70,81,1)",
                               }}
                             >
                               {tab.label}
@@ -619,14 +650,19 @@ const InvitesAndOrders: React.FC = () => {
                               padding: "2px 8px",
                               alignItems: "center",
                               borderRadius: "9999px",
-                              border: activeTab === tab.key ? "1px solid #B3BCE5" : "1px solid #E9EAEB",
-                              background: activeTab === tab.key ? "#ECEEF9" : "#FAFAFA",
+                              border:
+                                activeTab === tab.key
+                                  ? "1px solid #B3BCE5"
+                                  : "1px solid #E9EAEB",
+                              background:
+                                activeTab === tab.key ? "#ECEEF9" : "#FAFAFA",
                               position: "relative",
                             }}
                           >
                             <div
                               style={{
-                                color: activeTab === tab.key ? "#273572" : "#414651",
+                                color:
+                                  activeTab === tab.key ? "#273572" : "#414651",
                                 textAlign: "center",
                                 fontFamily: "Public Sans",
                                 fontSize: "12px",
@@ -638,10 +674,14 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 400,
                                   fontSize: "12px",
-                                  color: activeTab === tab.key ? "rgba(39,53,114,1)" : "rgba(65,70,81,1)",
+                                  color:
+                                    activeTab === tab.key
+                                      ? "rgba(39,53,114,1)"
+                                      : "rgba(65,70,81,1)",
                                 }}
                               >
                                 {tab.count}
@@ -768,7 +808,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "18px",
                                   color: "rgba(24,29,39,1)",
@@ -809,7 +850,8 @@ const InvitesAndOrders: React.FC = () => {
                               borderRadius: "8px",
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               position: "relative",
                             }}
@@ -928,7 +970,8 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <span
                                   style={{
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 700,
                                     fontSize: "14px",
                                     color: "rgba(65,70,81,1)",
@@ -1007,7 +1050,9 @@ const InvitesAndOrders: React.FC = () => {
                           >
                             <input
                               type="checkbox"
-                              checked={selectedItems.length === invitesData.length}
+                              checked={
+                                selectedItems.length === invitesData.length
+                              }
                               onChange={handleSelectAll}
                               style={{
                                 width: "16px",
@@ -1046,7 +1091,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
@@ -1084,7 +1130,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
@@ -1122,7 +1169,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
@@ -1160,7 +1208,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
@@ -1198,7 +1247,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
@@ -1236,7 +1286,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
@@ -1274,7 +1325,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
@@ -1312,7 +1364,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
@@ -1350,7 +1403,8 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
@@ -1456,7 +1510,8 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <span
                                   style={{
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 400,
                                     fontSize: "14px",
                                     color: "rgba(24,29,39,1)",
@@ -1492,7 +1547,8 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <span
                                   style={{
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 400,
                                     fontSize: "14px",
                                     color: "rgba(24,29,39,1)",
@@ -1534,7 +1590,8 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <span
                                   style={{
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 400,
                                     fontSize: "14px",
                                     color: "rgba(24,29,39,1)",
@@ -1586,7 +1643,8 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <span
                                   style={{
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 400,
                                     fontSize: "14px",
                                     color: "rgba(24,29,39,1)",
@@ -1704,7 +1762,8 @@ const InvitesAndOrders: React.FC = () => {
                         >
                           <span
                             style={{
-                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                               fontWeight: 400,
                               fontSize: "14px",
                               color: "rgba(65,70,81,1)",
@@ -1733,7 +1792,8 @@ const InvitesAndOrders: React.FC = () => {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                           }}
                         >
@@ -1764,15 +1824,21 @@ const InvitesAndOrders: React.FC = () => {
                               justifyContent: "center",
                               alignItems: "center",
                               borderRadius: "8px",
-                              background: page === currentPage ? "#F5F5F5" : "transparent",
+                              background:
+                                page === currentPage
+                                  ? "#F5F5F5"
+                                  : "transparent",
                               cursor: page !== "..." ? "pointer" : "default",
                               position: "relative",
                             }}
-                            onClick={() => typeof page === "number" && setCurrentPage(page)}
+                            onClick={() =>
+                              typeof page === "number" && setCurrentPage(page)
+                            }
                           >
                             <div
                               style={{
-                                color: page === currentPage ? "#414651" : "#717680",
+                                color:
+                                  page === currentPage ? "#414651" : "#717680",
                                 textAlign: "center",
                                 fontFamily: "Public Sans",
                                 fontSize: "14px",
@@ -1784,10 +1850,14 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <span
                                 style={{
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontWeight: 400,
                                   fontSize: "14px",
-                                  color: page === currentPage ? "rgba(65,70,81,1)" : "rgba(113,118,128,1)",
+                                  color:
+                                    page === currentPage
+                                      ? "rgba(65,70,81,1)"
+                                      : "rgba(113,118,128,1)",
                                 }}
                               >
                                 {page}
@@ -1805,7 +1875,8 @@ const InvitesAndOrders: React.FC = () => {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                           }}
                         >
@@ -1849,7 +1920,8 @@ const InvitesAndOrders: React.FC = () => {
                         >
                           <span
                             style={{
-                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                               fontWeight: 400,
                               fontSize: "14px",
                               color: "rgba(65,70,81,1)",
