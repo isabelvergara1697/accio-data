@@ -1383,7 +1383,7 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "130px",
+                              width: "118px",
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
@@ -1836,12 +1836,11 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "200px",
-                              flex: "0 0 200px",
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
                               gap: "12px",
+                              flex: "1 0 0",
                               borderBottom: "1px solid #E9EAEB",
                               background: "#FFF",
                               position: "relative",
@@ -2292,11 +2291,11 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "80px",
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
                               gap: "12px",
+                              flex: "1 0 0",
                               borderBottom: "1px solid #E9EAEB",
                               background: "#FFF",
                               position: "relative",
@@ -2328,13 +2327,12 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "i9Filled"
                                         ? "#34479A"
                                         : "rgba(113,118,128,1)",
-                                    whiteSpace: "nowrap",
                                   }}
                                 >
                                   I-9 Filled
@@ -2800,7 +2798,7 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "130px",
+                                width: "118px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
@@ -2879,7 +2877,7 @@ const InvitesAndOrders: React.FC = () => {
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
-                                alignSelf: "stretch",
+                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
