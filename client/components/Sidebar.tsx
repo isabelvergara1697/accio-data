@@ -50,6 +50,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
       if (!openAccordions.includes("support")) {
         setOpenAccordions((prev) => [...prev, "support"]);
       }
+    } else if (currentPath === "/invites-orders") {
+      if (!openAccordions.includes("screening")) {
+        setOpenAccordions((prev) => [...prev, "screening"]);
+      }
     }
   }, [location.pathname, openAccordions]);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
