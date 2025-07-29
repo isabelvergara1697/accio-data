@@ -17,13 +17,46 @@ interface InviteData {
 }
 
 const InvitesAndOrders: React.FC = () => {
-  const { isMobile, isDesktop } = useMobile();
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [userMenuHovered, setUserMenuHovered] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isTablet, setIsTablet] = useState(
+    window.innerWidth >= 768 && window.innerWidth < 1024,
+  );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState<"invites" | "orders" | "hired">("invites");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
+
+  // Window resize handler
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsDesktop(width >= 1024);
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleSignOut = () => {
+    console.log("Sign out");
+  };
+
+  const getUserMenuStyles = () => {
+    return {
+      position: "absolute" as const,
+      right: "0px",
+      top: "100%",
+      zIndex: 1000,
+    };
+  };
 
   // Sample data for invites
   const invitesData: InviteData[] = [
