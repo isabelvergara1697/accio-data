@@ -1,0 +1,1745 @@
+import React, { useState } from "react";
+import { Sidebar } from "../components/Sidebar";
+import { Header } from "../components/Header";
+import { useMobile } from "../hooks/use-mobile";
+
+interface InviteData {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  status: "waiting" | "unsolicited" | "canceled" | "expired" | "waiting-for-recruitee" | "expires-today" | "reviewed" | "archived";
+  completion: number;
+  lastEmail: string;
+  i9Filled: boolean;
+  activated: boolean;
+  ews: boolean;
+}
+
+const InvitesAndOrders: React.FC = () => {
+  const { isMobile, isDesktop } = useMobile();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [activeTab, setActiveTab] = useState<"invites" | "orders" | "hired">("invites");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const [showNotification] = useState(false);
+
+  // Sample data for invites
+  const invitesData: InviteData[] = [
+    {
+      id: "1",
+      firstName: "Isabella",
+      lastName: "Young",
+      email: "isabella.miller@example.com",
+      status: "waiting",
+      completion: 80,
+      lastEmail: "07/19/22",
+      i9Filled: true,
+      activated: true,
+      ews: true,
+    },
+    {
+      id: "2",
+      firstName: "Ava",
+      lastName: "Lewis",
+      email: "ava.jones@example.com",
+      status: "unsolicited",
+      completion: 60,
+      lastEmail: "09/05/23",
+      i9Filled: true,
+      activated: false,
+      ews: false,
+    },
+    {
+      id: "3",
+      firstName: "Emma",
+      lastName: "Walker",
+      email: "emma.garcia@example.com",
+      status: "canceled",
+      completion: 80,
+      lastEmail: "02/14/25",
+      i9Filled: false,
+      activated: true,
+      ews: true,
+    },
+    {
+      id: "4",
+      firstName: "Sophia",
+      lastName: "Mitchell",
+      email: "sophia.williams@example.com",
+      status: "expired",
+      completion: 60,
+      lastEmail: "08/15/25",
+      i9Filled: true,
+      activated: true,
+      ews: false,
+    },
+    {
+      id: "5",
+      firstName: "Noah",
+      lastName: "Clark",
+      email: "noah.davis@example.com",
+      status: "waiting-for-recruitee",
+      completion: 60,
+      lastEmail: "12/01/24",
+      i9Filled: true,
+      activated: true,
+      ews: true,
+    },
+    {
+      id: "6",
+      firstName: "Mason",
+      lastName: "Carter",
+      email: "mason.johnson@example.com",
+      status: "expires-today",
+      completion: 40,
+      lastEmail: "11/30/23",
+      i9Filled: false,
+      activated: false,
+      ews: true,
+    },
+    {
+      id: "7",
+      firstName: "Oliver",
+      lastName: "Harris",
+      email: "liam.smith@example.com",
+      status: "reviewed",
+      completion: 70,
+      lastEmail: "05/22/24",
+      i9Filled: false,
+      activated: false,
+      ews: true,
+    },
+    {
+      id: "8",
+      firstName: "Liam",
+      lastName: "Anderson",
+      email: "oliver.brown@example.com",
+      status: "archived",
+      completion: 10,
+      lastEmail: "03/10/23",
+      i9Filled: true,
+      activated: true,
+      ews: false,
+    },
+    {
+      id: "9",
+      firstName: "Noah",
+      lastName: "Mitchell",
+      email: "noah.davis@example.com",
+      status: "waiting-for-recruitee",
+      completion: 80,
+      lastEmail: "02/14/25",
+      i9Filled: false,
+      activated: true,
+      ews: true,
+    },
+    {
+      id: "10",
+      firstName: "Mason",
+      lastName: "Carter",
+      email: "mason.johnson@example.com",
+      status: "reviewed",
+      completion: 60,
+      lastEmail: "03/10/23",
+      i9Filled: true,
+      activated: true,
+      ews: false,
+    },
+  ];
+
+  const getStatusBadge = (status: InviteData["status"]) => {
+    const statusConfig = {
+      waiting: { label: "Waiting", color: "green" },
+      unsolicited: { label: "Unsolicited", color: "purple" },
+      canceled: { label: "Canceled", color: "green" },
+      expired: { label: "Expired", color: "gray" },
+      "waiting-for-recruitee": { label: "Waiting for Recruitee", color: "orange" },
+      "expires-today": { label: "Expires Today", color: "blue" },
+      reviewed: { label: "Reviewed", color: "pink" },
+      archived: { label: "Archived", color: "gray" },
+    };
+
+    const config = statusConfig[status];
+    const colorMap = {
+      green: { bg: "#ECFDF3", border: "#ABEFC6", text: "#067647" },
+      purple: { bg: "#F4F3FF", border: "#D9D6FE", text: "#5925DC" },
+      gray: { bg: "#FAFAFA", border: "#E9EAEB", text: "#414651" },
+      orange: { bg: "#FEF6EE", border: "#F9DBAF", text: "#B93815" },
+      blue: { bg: "#EFF8FF", border: "#B2DDFF", text: "#175CD3" },
+      pink: { bg: "#FDF2FA", border: "#FCCEEE", text: "#C11574" },
+    };
+
+    const colors = colorMap[config.color as keyof typeof colorMap];
+
+    return (
+      <div
+        style={{
+          display: "flex",
+          padding: "2px 8px",
+          alignItems: "center",
+          borderRadius: "9999px",
+          border: `1px solid ${colors.border}`,
+          background: colors.bg,
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            color: colors.text,
+            textAlign: "center",
+            fontFamily: "Public Sans",
+            fontSize: "12px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "18px",
+            position: "relative",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontWeight: 400,
+              fontSize: "12px",
+              color: colors.text,
+            }}
+          >
+            {config.label}
+          </span>
+        </div>
+      </div>
+    );
+  };
+
+  const ProgressBar = ({ percentage }: { percentage: number }) => (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+        flex: "1 0 0",
+        alignSelf: "stretch",
+        position: "relative",
+      }}
+    >
+      <div style={{ height: "8px", flex: "1 0 0", position: "relative" }}>
+        <div
+          style={{
+            width: "100%",
+            height: "8px",
+            borderRadius: "9999px",
+            background: "#D5D7DA",
+            position: "absolute",
+            left: "0px",
+            top: "0px",
+          }}
+        />
+        <div
+          style={{
+            width: `${percentage}%`,
+            height: "8px",
+            borderRadius: "9999px",
+            background: "#344698",
+            position: "absolute",
+            left: "0px",
+            top: "0px",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          color: "#414651",
+          fontFamily: "Public Sans",
+          fontSize: "14px",
+          fontStyle: "normal",
+          fontWeight: 500,
+          lineHeight: "20px",
+          position: "relative",
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+            fontWeight: 400,
+            fontSize: "14px",
+            color: "rgba(65,70,81,1)",
+          }}
+        >
+          {percentage}%
+        </span>
+      </div>
+    </div>
+  );
+
+  const CheckIcon = () => (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13.3334 4L6.00002 11.3333L2.66669 8"
+        stroke="#A4A7AE"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
+  const ActionDotsIcon = () => (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+        stroke="#A4A7AE"
+        strokeWidth="1.66667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+        stroke="#A4A7AE"
+        strokeWidth="1.66667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+        stroke="#A4A7AE"
+        strokeWidth="1.66667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
+  const handleSelectAll = () => {
+    if (selectedItems.length === invitesData.length) {
+      setSelectedItems([]);
+    } else {
+      setSelectedItems(invitesData.map((item) => item.id));
+    }
+  };
+
+  const handleSelectItem = (id: string) => {
+    if (selectedItems.includes(id)) {
+      setSelectedItems(selectedItems.filter((item) => item !== id));
+    } else {
+      setSelectedItems([...selectedItems, id]);
+    }
+  };
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        minHeight: "100vh",
+        background: "#FAFAFA",
+        position: "relative",
+      }}
+    >
+      <Sidebar
+        isDesktop={isDesktop}
+        isMobile={isMobile}
+        mobileMenuOpen={mobileMenuOpen}
+        currentPage="invites-orders"
+        setMobileMenuOpen={setMobileMenuOpen}
+        showNotification={showNotification}
+        isCollapsed={sidebarCollapsed}
+        setIsCollapsed={setSidebarCollapsed}
+      />
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flex: "1 0 0",
+          alignSelf: "stretch",
+          marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
+          position: "relative",
+        }}
+      >
+        <Header
+          isDesktop={isDesktop}
+          isMobile={isMobile}
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+          showNotification={showNotification}
+          sidebarCollapsed={sidebarCollapsed}
+        />
+
+        <main
+          style={{
+            display: "flex",
+            paddingBottom: "24px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "32px",
+            flex: "1 0 0",
+            alignSelf: "stretch",
+            borderRadius: "40px 0 0 0",
+            background: "#FAFAFA",
+            position: "relative",
+          }}
+        >
+          {/* Header section */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "24px",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                padding: "0 32px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "20px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-end",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      minWidth: "320px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "4px",
+                      alignSelf: "stretch",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "24px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "32px",
+                        position: "relative",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 700,
+                          fontSize: "24px",
+                          color: "rgba(24,29,39,1)",
+                        }}
+                      >
+                        Invites & Orders
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                        position: "relative",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 400,
+                          fontSize: "16px",
+                          color: "rgba(83,88,98,1)",
+                        }}
+                      >
+                        Track pending invites and submitted orders in one place. Use filters and tools to sort, review, and manage activity easily.
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Tab Navigation */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        position: "relative",
+                      }}
+                    >
+                      {[
+                        { key: "invites", label: "Invites", count: "456" },
+                        { key: "orders", label: "Orders", count: "200" },
+                        { key: "hired", label: "Hired", count: "587" },
+                      ].map((tab) => (
+                        <div
+                          key={tab.key}
+                          onClick={() => setActiveTab(tab.key as typeof activeTab)}
+                          style={{
+                            display: "flex",
+                            minHeight: "40px",
+                            padding: "8px 16px 8px 14px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "6px",
+                            borderRight: tab.key !== "hired" ? "1px solid #D5D7DA" : "none",
+                            background: activeTab === tab.key ? "#ECEEF9" : "#FFF",
+                            cursor: "pointer",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: activeTab === tab.key ? "#273572" : "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontWeight: 700,
+                                fontSize: "14px",
+                                color: activeTab === tab.key ? "rgba(39,53,114,1)" : "rgba(65,70,81,1)",
+                              }}
+                            >
+                              {tab.label}
+                            </span>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "2px 8px",
+                              alignItems: "center",
+                              borderRadius: "9999px",
+                              border: activeTab === tab.key ? "1px solid #B3BCE5" : "1px solid #E9EAEB",
+                              background: activeTab === tab.key ? "#ECEEF9" : "#FAFAFA",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: activeTab === tab.key ? "#273572" : "#414651",
+                                textAlign: "center",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 400,
+                                  fontSize: "12px",
+                                  color: activeTab === tab.key ? "rgba(39,53,114,1)" : "rgba(65,70,81,1)",
+                                }}
+                              >
+                                {tab.count}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Table Section */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "24px",
+              flex: "1 0 0",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                padding: "0 32px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "20px",
+                flex: "1 0 0",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  flex: "1 0 0",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                    alignSelf: "stretch",
+                    borderRadius: "12px 12px 0 0",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    position: "relative",
+                  }}
+                >
+                  {/* Table Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "16px 16px 12px 16px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Top Actions */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "18px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "28px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "18px",
+                                  color: "rgba(24,29,39,1)",
+                                }}
+                              >
+                                Invites
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                          position: "relative",
+                        }}
+                      >
+                        {[
+                          { icon: "filters", label: "Filters" },
+                          { icon: "customize", label: "Customize" },
+                          { icon: "views", label: "Views" },
+                          { icon: "download", label: "Download" },
+                          { icon: "information", label: "Information" },
+                        ].map((action) => (
+                          <button
+                            key={action.label}
+                            style={{
+                              display: "flex",
+                              minHeight: "36px",
+                              padding: "6px 8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "0 2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 700,
+                                    fontSize: "14px",
+                                    color: "rgba(65,70,81,1)",
+                                  }}
+                                >
+                                  {action.label}
+                                </span>
+                              </div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Table Content */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "12px 16px 16px 16px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      alignSelf: "stretch",
+                      borderRadius: "0px 0px 12px 12px",
+                      borderRight: "1px solid #E9EAEB",
+                      borderBottom: "1px solid #E9EAEB",
+                      borderLeft: "1px solid #E9EAEB",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Table */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Table Container */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                          flex: "1 0 0",
+                          position: "relative",
+                        }}
+                      >
+                        {/* Table Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Checkbox Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "40px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={selectedItems.length === invitesData.length}
+                              onChange={handleSelectAll}
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "4px",
+                                border: "1px solid #D5D7DA",
+                                cursor: "pointer",
+                              }}
+                            />
+                          </div>
+
+                          {/* Status Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "82px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Status
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* First Name Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "108px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                First Name
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Last Name Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "108px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Last Name
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Invitation Email Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flex: "1 0 0",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Invitation Email
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Completed Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "113px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Completed
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Last Email Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "105px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Last Email
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* I-9 Filled Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "80px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                I-9 Filled
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Activate Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "80px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Activate
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* EWS Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "60px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                EWS
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Actions Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "48px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          />
+                        </div>
+
+                        {/* Table Rows */}
+                        {invitesData.map((invite) => (
+                          <div
+                            key={invite.id}
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Checkbox Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "40px",
+                                height: "52px",
+                                padding: "12px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                gap: "12px",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <input
+                                type="checkbox"
+                                checked={selectedItems.includes(invite.id)}
+                                onChange={() => handleSelectItem(invite.id)}
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  borderRadius: "4px",
+                                  border: "1px solid #D5D7DA",
+                                  cursor: "pointer",
+                                }}
+                              />
+                            </div>
+
+                            {/* Status Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "82px",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              {getStatusBadge(invite.status)}
+                            </div>
+
+                            {/* First Name Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "108px",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: "rgba(24,29,39,1)",
+                                  }}
+                                >
+                                  {invite.firstName}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Last Name Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "108px",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: "rgba(24,29,39,1)",
+                                  }}
+                                >
+                                  {invite.lastName}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Email Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flex: "1 0 0",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "-webkit-box",
+                                  WebkitBoxOrient: "vertical",
+                                  WebkitLineClamp: 1,
+                                  flex: "1 0 0",
+                                  overflow: "hidden",
+                                  color: "#181D27",
+                                  textOverflow: "ellipsis",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: "rgba(24,29,39,1)",
+                                  }}
+                                >
+                                  {invite.email}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Completion Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "113px",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <ProgressBar percentage={invite.completion} />
+                            </div>
+
+                            {/* Last Email Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "105px",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: "rgba(24,29,39,1)",
+                                  }}
+                                >
+                                  {invite.lastEmail}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* I-9 Filled Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "80px",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                gap: "4px",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              {invite.i9Filled && <CheckIcon />}
+                            </div>
+
+                            {/* Activate Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "80px",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                gap: "4px",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              {invite.activated && <CheckIcon />}
+                            </div>
+
+                            {/* EWS Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "60px",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                gap: "4px",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              {invite.ews && <CheckIcon />}
+                            </div>
+
+                            {/* Actions Cell */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "48px",
+                                height: "52px",
+                                padding: "12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <ActionDotsIcon />
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Pagination */}
+                    <div
+                      style={{
+                        display: "flex",
+                        paddingTop: "12px",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        alignSelf: "stretch",
+                        borderTop: "1px solid #E9EAEB",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 400,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Showing 10 of 456
+                          </span>
+                        </div>
+                      </div>
+
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                          position: "relative",
+                        }}
+                      >
+                        {/* Pagination Controls */}
+                        <button
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M19 12H5M5 12L12 19M5 12L12 5"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+
+                        {[1, 2, 3, "...", 8, 9, 10].map((page, index) => (
+                          <div
+                            key={index}
+                            style={{
+                              display: "flex",
+                              width: "32px",
+                              height: "32px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              background: page === currentPage ? "#F5F5F5" : "transparent",
+                              cursor: page !== "..." ? "pointer" : "default",
+                              position: "relative",
+                            }}
+                            onClick={() => typeof page === "number" && setCurrentPage(page)}
+                          >
+                            <div
+                              style={{
+                                color: page === currentPage ? "#414651" : "#717680",
+                                textAlign: "center",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 400,
+                                  fontSize: "14px",
+                                  color: page === currentPage ? "rgba(65,70,81,1)" : "rgba(113,118,128,1)",
+                                }}
+                              >
+                                {page}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
+
+                        <button
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M5 12H19M19 12L12 5M19 12L12 19"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                          gap: "12px",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 400,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Go to
+                          </span>
+                        </div>
+                        <input
+                          type="text"
+                          defaultValue="1010"
+                          style={{
+                            display: "flex",
+                            width: "72px",
+                            padding: "6px 8px",
+                            alignItems: "center",
+                            gap: "8px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            color: "#717680",
+                            textAlign: "center",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default InvitesAndOrders;
