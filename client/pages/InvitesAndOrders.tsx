@@ -3313,6 +3313,12 @@ const InvitesAndOrders: React.FC = () => {
           </div>
         </main>
       </div>
+
+      {/* Information Drawer */}
+      <InformationDrawer
+        isOpen={showInformationDrawer}
+        onClose={() => setShowInformationDrawer(false)}
+      />
     </div>
   );
 };
