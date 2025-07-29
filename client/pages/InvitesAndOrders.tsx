@@ -60,12 +60,13 @@ const InvitesAndOrders: React.FC = () => {
   };
 
   const getUserMenuStyles = () => {
-    return {
-      position: "absolute" as const,
-      right: "0px",
-      top: "100%",
-      zIndex: 1000,
-    };
+    if (userMenuHovered || userMenuOpen) {
+      return {
+        border: "1px solid #E9EAEB",
+        background: "#F5F5F5",
+      };
+    }
+    return {};
   };
 
   // Sample data for invites
