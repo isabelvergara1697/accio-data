@@ -417,7 +417,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       background:
                         (currentPage === "document-library" &&
                           item === "Document Library") ||
-                        (currentPage === "resources" && item === "Resources")
+                        (currentPage === "resources" && item === "Resources") ||
+                        (currentPage === "invites-orders" && item === "Invites & Orders")
                           ? "#ECEEF9"
                           : "#FFF",
                       position: "relative",
