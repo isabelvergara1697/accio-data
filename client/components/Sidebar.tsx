@@ -431,7 +431,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       !(
                         (currentPage === "document-library" &&
                           item === "Document Library") ||
-                        (currentPage === "resources" && item === "Resources")
+                        (currentPage === "resources" && item === "Resources") ||
+                        (currentPage === "invites-orders" && item === "Invites & Orders")
                       ) &&
                       setHoveredItem(
                         `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
