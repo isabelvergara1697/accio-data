@@ -285,7 +285,8 @@ const InvitesAndOrders: React.FC = () => {
 
   // Component for status badges with dynamic truncation detection
   const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({ status }) => {
-    const textRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const textRef = useRef<HTMLSpanElement>(null);
     const [isTruncated, setIsTruncated] = useState(false);
 
     const statusConfig = {
@@ -316,20 +317,38 @@ const InvitesAndOrders: React.FC = () => {
     const colors = colorMap[config.color as keyof typeof colorMap];
 
     const checkTruncation = useCallback(() => {
-      if (textRef.current) {
-        const element = textRef.current;
-        setIsTruncated(element.scrollWidth > element.offsetWidth);
+      if (containerRef.current && textRef.current) {
+        // Create a temporary element to measure the actual text width
+        const tempSpan = document.createElement('span');
+        tempSpan.style.fontFamily = "Public Sans, -apple-system, Roboto, Helvetica, sans-serif";
+        tempSpan.style.fontSize = "12px";
+        tempSpan.style.fontWeight = "400";
+        tempSpan.style.visibility = 'hidden';
+        tempSpan.style.position = 'absolute';
+        tempSpan.style.whiteSpace = 'nowrap';
+        tempSpan.textContent = config.label;
+
+        document.body.appendChild(tempSpan);
+        const textWidth = tempSpan.offsetWidth;
+        document.body.removeChild(tempSpan);
+
+        // Calculate available space (container width minus padding)
+        const containerWidth = containerRef.current.offsetWidth;
+        const availableWidth = containerWidth - 16; // 16px total padding (8px left + 8px right)
+
+        setIsTruncated(textWidth > availableWidth);
       }
-    }, []);
+    }, [config.label]);
 
     useEffect(() => {
       checkTruncation();
       window.addEventListener("resize", checkTruncation);
       return () => window.removeEventListener("resize", checkTruncation);
-    }, [checkTruncation, config.label]);
+    }, [checkTruncation]);
 
     const badgeElement = (
       <div
+        ref={containerRef}
         style={{
           display: "flex",
           padding: "2px 8px",
@@ -343,37 +362,24 @@ const InvitesAndOrders: React.FC = () => {
           minWidth: 0,
         }}
       >
-        <div
+        <span
           ref={textRef}
           style={{
-            display: "-webkit-box",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 1,
-            flex: "1 0 0",
             overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+            width: "100%",
             color: colors.text,
             textAlign: "left",
-            textOverflow: "ellipsis",
-            fontFamily: "Public Sans",
+            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
             fontSize: "12px",
             fontStyle: "normal",
-            fontWeight: 500,
+            fontWeight: 400,
             lineHeight: "18px",
-            position: "relative",
           }}
         >
-          <span
-            style={{
-              fontFamily:
-                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-              fontWeight: 400,
-              fontSize: "12px",
-              color: colors.text,
-            }}
-          >
-            {config.label}
-          </span>
-        </div>
+          {config.label}
+        </span>
       </div>
     );
 
