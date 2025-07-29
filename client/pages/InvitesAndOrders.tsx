@@ -345,9 +345,9 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          flex: "1 0 0",
           maxWidth: "100%",
           minWidth: 0,
+          width: "fit-content",
         }}
       >
         <span
@@ -356,14 +356,13 @@ const InvitesAndOrders: React.FC = () => {
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
-            width: "100%",
             color: colors.text,
-            textAlign: "left",
             fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
             fontSize: "12px",
             fontStyle: "normal",
-            fontWeight: 400,
+            fontWeight: 500,
             lineHeight: "18px",
+            display: "block",
           }}
         >
           {config.label}
