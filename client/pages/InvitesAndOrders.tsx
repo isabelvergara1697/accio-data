@@ -283,7 +283,11 @@ const InvitesAndOrders: React.FC = () => {
     },
   ];
 
-  const getStatusBadge = (status: InviteData["status"]) => {
+  // Component for status badges with dynamic truncation detection
+  const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({ status }) => {
+    const textRef = useRef<HTMLDivElement>(null);
+    const [isTruncated, setIsTruncated] = useState(false);
+
     const statusConfig = {
       waiting: { label: "Waiting", color: "blue-light" },
       unsolicited: { label: "Unsolicited", color: "gray-blue" },
@@ -311,9 +315,18 @@ const InvitesAndOrders: React.FC = () => {
 
     const colors = colorMap[config.color as keyof typeof colorMap];
 
-    // For longer statuses that need truncation and tooltips
-    const needsTruncation =
-      status === "waiting-for-recruitee" || status === "expires-today";
+    const checkTruncation = useCallback(() => {
+      if (textRef.current) {
+        const element = textRef.current;
+        setIsTruncated(element.scrollWidth > element.offsetWidth);
+      }
+    }, []);
+
+    useEffect(() => {
+      checkTruncation();
+      window.addEventListener("resize", checkTruncation);
+      return () => window.removeEventListener("resize", checkTruncation);
+    }, [checkTruncation, config.label]);
 
     const badgeElement = (
       <div
@@ -325,12 +338,13 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          flex: needsTruncation ? "1 0 0" : "initial",
+          flex: "1 0 0",
           maxWidth: "100%",
           minWidth: 0,
         }}
       >
         <div
+          ref={textRef}
           style={{
             display: "-webkit-box",
             WebkitBoxOrient: "vertical",
@@ -363,8 +377,7 @@ const InvitesAndOrders: React.FC = () => {
       </div>
     );
 
-    // Only show tooltip for statuses that need truncation
-    if (needsTruncation) {
+    if (isTruncated) {
       return (
         <Tooltip>
           <TooltipTrigger asChild>{badgeElement}</TooltipTrigger>
