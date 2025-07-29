@@ -1352,26 +1352,52 @@ const InvitesAndOrders: React.FC = () => {
                           >
                             <div
                               style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontStyle: "normal",
-                                fontWeight: 600,
-                                lineHeight: "18px",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                                flex: "1 0 0",
                                 position: "relative",
                               }}
                             >
-                              <span
+                              <div
                                 style={{
-                                  fontFamily:
-                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 600,
+                                  flex: "1 0 0",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
                                   fontSize: "12px",
-                                  color: "rgba(113,118,128,1)",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
                                 }}
                               >
-                                Completed
-                              </span>
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: "12px",
+                                    color: "rgba(113,118,128,1)",
+                                  }}
+                                >
+                                  Completed
+                                </span>
+                              </div>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
                             </div>
                           </div>
 
