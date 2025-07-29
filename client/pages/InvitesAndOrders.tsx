@@ -1718,11 +1718,16 @@ const InvitesAndOrders: React.FC = () => {
                         {sortedData.map((invite) => (
                           <div
                             key={invite.id}
+                            onMouseEnter={() => setHoveredRowId(invite.id)}
+                            onMouseLeave={() => setHoveredRowId(null)}
                             style={{
                               display: "flex",
                               alignItems: "flex-start",
                               alignSelf: "stretch",
                               position: "relative",
+                              background: hoveredRowId === invite.id ? "#F5F5F5" : "transparent",
+                              transition: "background-color 0.15s ease",
+                              cursor: "pointer",
                             }}
                           >
                             {/* Checkbox Cell */}
