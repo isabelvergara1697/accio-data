@@ -403,11 +403,28 @@ const InvitesAndOrders: React.FC = () => {
       >
         <Header
           isDesktop={isDesktop}
-          isMobile={isMobile}
-          mobileMenuOpen={mobileMenuOpen}
-          setMobileMenuOpen={setMobileMenuOpen}
-          showNotification={showNotification}
+          userMenuOpen={userMenuOpen}
+          setUserMenuOpen={setUserMenuOpen}
+          userMenuHovered={userMenuHovered}
+          setUserMenuHovered={setUserMenuHovered}
+          handleSignOut={handleSignOut}
+          getUserMenuStyles={getUserMenuStyles}
+          showMobileUserMenu={showMobileUserMenu}
           sidebarCollapsed={sidebarCollapsed}
+        />
+
+        <MobileHeader
+          isDesktop={isDesktop}
+          isMobile={isMobile}
+          setMobileMenuOpen={setMobileMenuOpen}
+          userMenuOpen={userMenuOpen}
+          setUserMenuOpen={setUserMenuOpen}
+          userMenuHovered={userMenuHovered}
+          setUserMenuHovered={setUserMenuHovered}
+          handleSignOut={handleSignOut}
+          getUserMenuStyles={getUserMenuStyles}
+          showMobileUserMenu={showMobileUserMenu}
+          setShowMobileUserMenu={setShowMobileUserMenu}
         />
 
         <main
