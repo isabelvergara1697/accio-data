@@ -2668,11 +2668,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "80px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 gap: "4px",
+                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
@@ -2684,11 +2684,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "80px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 gap: "4px",
+                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
@@ -2700,11 +2700,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "60px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 gap: "4px",
+                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
