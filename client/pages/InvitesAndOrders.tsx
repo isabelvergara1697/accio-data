@@ -447,11 +447,11 @@ const InvitesAndOrders: React.FC = () => {
           handleSignOut={handleSignOut}
           getUserMenuStyles={getUserMenuStyles}
           showMobileUserMenu={showMobileUserMenu}
-          setShowMobileUserMenu={setShowMobileUserMenu}
         />
 
         <main
           style={{
+            marginTop: isDesktop ? "80px" : "64px",
             display: "flex",
             paddingBottom: "24px",
             flexDirection: "column",
