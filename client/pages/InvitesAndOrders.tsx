@@ -44,6 +44,7 @@ const InvitesAndOrders: React.FC = () => {
   const [showNotification] = useState(false);
   const [sortField, setSortField] = useState<keyof InviteData | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+  const [hoveredRowId, setHoveredRowId] = useState<string | null>(null);
 
   // Window resize handler
   useEffect(() => {
