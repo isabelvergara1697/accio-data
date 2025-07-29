@@ -1036,7 +1036,7 @@ const InvitesAndOrders: React.FC = () => {
                       height: "1px",
                       alignSelf: "stretch",
                       background: "#E9EAEB",
-                      margin: "16px 0 0 0",
+                      margin: "12px 0 0 0",
                     }}
                   />
 
@@ -1044,7 +1044,7 @@ const InvitesAndOrders: React.FC = () => {
                   <div
                     style={{
                       display: "flex",
-                      padding: "0 16px 16px 16px",
+                      padding: "12px 16px 16px 16px",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
