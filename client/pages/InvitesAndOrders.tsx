@@ -1275,7 +1275,7 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
                           )}
                         </div>
-                        ))})
+                        ))}
                       </div>
                     </div>
                   </div>
