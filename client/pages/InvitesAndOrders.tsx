@@ -1325,7 +1325,9 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 position: "relative",
+                                cursor: "pointer",
                               }}
+                              onClick={() => handleSort('email')}
                             >
                               <div
                                 style={{
