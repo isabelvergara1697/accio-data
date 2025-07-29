@@ -133,7 +133,9 @@ const InvitesAndOrders: React.FC = () => {
   const [hoveredRowId, setHoveredRowId] = useState<string | null>(null);
   const [showDownloadDropdown, setShowDownloadDropdown] = useState(false);
   const [hoveredButton, setHoveredButton] = useState<string | null>(null);
-  const [hoveredPaginationButton, setHoveredPaginationButton] = useState<string | null>(null);
+  const [hoveredPaginationButton, setHoveredPaginationButton] = useState<
+    string | null
+  >(null);
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
 
   // Window resize handler
@@ -152,7 +154,10 @@ const InvitesAndOrders: React.FC = () => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (downloadDropdownRef.current && !downloadDropdownRef.current.contains(event.target as Node)) {
+      if (
+        downloadDropdownRef.current &&
+        !downloadDropdownRef.current.contains(event.target as Node)
+      ) {
         setShowDownloadDropdown(false);
       }
     };
@@ -300,7 +305,9 @@ const InvitesAndOrders: React.FC = () => {
   ];
 
   // Component for status badges with dynamic truncation detection
-  const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({ status }) => {
+  const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({
+    status,
+  }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLSpanElement>(null);
     const [isTruncated, setIsTruncated] = useState(false);
@@ -350,7 +357,9 @@ const InvitesAndOrders: React.FC = () => {
       };
     }, [checkTruncation]);
 
-    const isLongText = config.label === "Waiting for Recruitee" || config.label === "Expires Today";
+    const isLongText =
+      config.label === "Waiting for Recruitee" ||
+      config.label === "Expires Today";
 
     const badgeElement = (
       <div
@@ -372,18 +381,20 @@ const InvitesAndOrders: React.FC = () => {
         <div
           ref={textRef}
           style={{
-            ...(isLongText ? {
-              display: "-webkit-box",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 1,
-              flex: "1 0 0",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            } : {
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            }),
+            ...(isLongText
+              ? {
+                  display: "-webkit-box",
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: 1,
+                  flex: "1 0 0",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }
+              : {
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }),
             color: colors.text,
             textAlign: "center",
             fontFamily: "Public Sans",
@@ -396,7 +407,8 @@ const InvitesAndOrders: React.FC = () => {
         >
           <span
             style={{
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontWeight: 400,
               fontSize: "12px",
               color: colors.text,
@@ -1057,11 +1069,16 @@ const InvitesAndOrders: React.FC = () => {
                           { icon: "download", label: "Download" },
                           { icon: "information", label: "Information" },
                         ].map((action) => (
-                          <div key={action.label} style={{ position: "relative" }}>
+                          <div
+                            key={action.label}
+                            style={{ position: "relative" }}
+                          >
                             <button
                               onClick={() => {
                                 if (action.icon === "download") {
-                                  setShowDownloadDropdown(!showDownloadDropdown);
+                                  setShowDownloadDropdown(
+                                    !showDownloadDropdown,
+                                  );
                                 } else {
                                   console.log(`${action.label} clicked`);
                                 }
@@ -1077,226 +1094,235 @@ const InvitesAndOrders: React.FC = () => {
                                 gap: "4px",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
-                                background: hoveredButton === action.icon
-                                  ? "#F5F5F5"
-                                  : "#FFF",
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                background:
+                                  hoveredButton === action.icon
+                                    ? "#F5F5F5"
+                                    : "#FFF",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 position: "relative",
                                 transition: "all 0.2s ease",
                               }}
-                          >
-                            {action.icon === "filters" && (
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M3.33333 14L3.33333 10M3.33333 10C4.06971 10 4.66667 9.40305 4.66667 8.66667C4.66667 7.93029 4.06971 7.33333 3.33333 7.33333C2.59695 7.33333 2 7.93029 2 8.66667C2 9.40305 2.59695 10 3.33333 10ZM3.33333 4.66667V2M8 14V10M8 4.66667V2M8 4.66667C7.26362 4.66667 6.66667 5.26362 6.66667 6C6.66667 6.73638 7.26362 7.33333 8 7.33333C8.73638 7.33333 9.33333 6.73638 9.33333 6C9.33333 5.26362 8.73638 4.66667 8 4.66667ZM12.6667 14V11.3333M12.6667 11.3333C13.403 11.3333 14 10.7364 14 10C14 9.26362 13.403 8.66667 12.6667 8.66667C11.9303 8.66667 11.3333 9.26362 11.3333 10C11.3333 10.7364 11.9303 11.3333 12.6667 11.3333ZM12.6667 6V2"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            )}
-                            {action.icon === "customize" && (
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                                <path
-                                  d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            )}
-                            {action.icon === "views" && (
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            )}
-                            {action.icon === "download" && (
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            )}
-                            {action.icon === "information" && (
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M8 9.33333V7M8 4.66667H8.00667M6.6 12.8L7.57333 14.0978C7.71808 14.2908 7.79045 14.3873 7.87918 14.4218C7.95689 14.452 8.04311 14.452 8.12082 14.4218C8.20955 14.3873 8.28192 14.2908 8.42667 14.0978L9.4 12.8C9.59543 12.5394 9.69315 12.4091 9.81234 12.3097C9.97126 12.177 10.1589 12.0832 10.3603 12.0357C10.5114 12 10.6743 12 11 12C11.9319 12 12.3978 12 12.7654 11.8478C13.2554 11.6448 13.6448 11.2554 13.8478 10.7654C14 10.3978 14 9.93188 14 9V5.2C14 4.07989 14 3.51984 13.782 3.09202C13.5903 2.71569 13.2843 2.40973 12.908 2.21799C12.4802 2 11.9201 2 10.8 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V9C2 9.93188 2 10.3978 2.15224 10.7654C2.35523 11.2554 2.74458 11.6448 3.23463 11.8478C3.60218 12 4.06812 12 5 12C5.32572 12 5.48858 12 5.63967 12.0357C5.84113 12.0832 6.02874 12.177 6.18766 12.3097C6.30685 12.4091 6.40457 12.5394 6.6 12.8Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            )}
-                            <div
-                              style={{
-                                display: "flex",
-                                padding: "0 2px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                position: "relative",
-                              }}
                             >
+                              {action.icon === "filters" && (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M3.33333 14L3.33333 10M3.33333 10C4.06971 10 4.66667 9.40305 4.66667 8.66667C4.66667 7.93029 4.06971 7.33333 3.33333 7.33333C2.59695 7.33333 2 7.93029 2 8.66667C2 9.40305 2.59695 10 3.33333 10ZM3.33333 4.66667V2M8 14V10M8 4.66667V2M8 4.66667C7.26362 4.66667 6.66667 5.26362 6.66667 6C6.66667 6.73638 7.26362 7.33333 8 7.33333C8.73638 7.33333 9.33333 6.73638 9.33333 6C9.33333 5.26362 8.73638 4.66667 8 4.66667ZM12.6667 14V11.3333M12.6667 11.3333C13.403 11.3333 14 10.7364 14 10C14 9.26362 13.403 8.66667 12.6667 8.66667C11.9303 8.66667 11.3333 9.26362 11.3333 10C11.3333 10.7364 11.9303 11.3333 12.6667 11.3333ZM12.6667 6V2"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
+                              {action.icon === "customize" && (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                  <path
+                                    d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
+                              {action.icon === "views" && (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
+                              {action.icon === "download" && (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
+                              {action.icon === "information" && (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M8 9.33333V7M8 4.66667H8.00667M6.6 12.8L7.57333 14.0978C7.71808 14.2908 7.79045 14.3873 7.87918 14.4218C7.95689 14.452 8.04311 14.452 8.12082 14.4218C8.20955 14.3873 8.28192 14.2908 8.42667 14.0978L9.4 12.8C9.59543 12.5394 9.69315 12.4091 9.81234 12.3097C9.97126 12.177 10.1589 12.0832 10.3603 12.0357C10.5114 12 10.6743 12 11 12C11.9319 12 12.3978 12 12.7654 11.8478C13.2554 11.6448 13.6448 11.2554 13.8478 10.7654C14 10.3978 14 9.93188 14 9V5.2C14 4.07989 14 3.51984 13.782 3.09202C13.5903 2.71569 13.2843 2.40973 12.908 2.21799C12.4802 2 11.9201 2 10.8 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V9C2 9.93188 2 10.3978 2.15224 10.7654C2.35523 11.2554 2.74458 11.6448 3.23463 11.8478C3.60218 12 4.06812 12 5 12C5.32572 12 5.48858 12 5.63967 12.0357C5.84113 12.0832 6.02874 12.177 6.18766 12.3097C6.30685 12.4091 6.40457 12.5394 6.6 12.8Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
                               <div
                                 style={{
-                                  color: "#414651",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "20px",
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
                                   position: "relative",
                                 }}
                               >
-                                <span
+                                <div
                                   style={{
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    color: "#414651",
+                                    fontFamily: "Public Sans",
                                     fontSize: "14px",
-                                    color: "rgba(65,70,81,1)",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                    position: "relative",
                                   }}
                                 >
-                                  {action.label}
-                                </span>
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    {action.label}
+                                  </span>
+                                </div>
                               </div>
-                            </div>
-                          </button>
-                          {action.icon === "download" && showDownloadDropdown && (
-                            <div
-                              ref={downloadDropdownRef}
-                              style={{
-                                position: "absolute",
-                                top: "calc(100% + 8px)",
-                                left: "0",
-                                background: "#FFF",
-                                border: "1px solid #E9EAEB",
-                                borderRadius: "8px",
-                                boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)",
-                                zIndex: 1000,
-                                minWidth: "200px",
-                                padding: "8px 0",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  padding: "8px 16px",
-                                  cursor: "pointer",
-                                  color: "#414651",
-                                  fontSize: "14px",
-                                  fontFamily: "Public Sans",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.backgroundColor = "#F5F5F5";
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.backgroundColor = "transparent";
-                                }}
-                                onClick={() => {
-                                  console.log("Download CSV");
-                                  setShowDownloadDropdown(false);
-                                }}
-                              >
-                                Download as CSV
-                              </div>
-                              <div
-                                style={{
-                                  padding: "8px 16px",
-                                  cursor: "pointer",
-                                  color: "#414651",
-                                  fontSize: "14px",
-                                  fontFamily: "Public Sans",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.backgroundColor = "#F5F5F5";
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.backgroundColor = "transparent";
-                                }}
-                                onClick={() => {
-                                  console.log("Download Excel");
-                                  setShowDownloadDropdown(false);
-                                }}
-                              >
-                                Download as Excel
-                              </div>
-                              <div
-                                style={{
-                                  padding: "8px 16px",
-                                  cursor: "pointer",
-                                  color: "#414651",
-                                  fontSize: "14px",
-                                  fontFamily: "Public Sans",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.backgroundColor = "#F5F5F5";
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.backgroundColor = "transparent";
-                                }}
-                                onClick={() => {
-                                  console.log("Download PDF");
-                                  setShowDownloadDropdown(false);
-                                }}
-                              >
-                                Download as PDF
-                              </div>
-                            </div>
-                          )}
-                        </div>
+                            </button>
+                            {action.icon === "download" &&
+                              showDownloadDropdown && (
+                                <div
+                                  ref={downloadDropdownRef}
+                                  style={{
+                                    position: "absolute",
+                                    top: "calc(100% + 8px)",
+                                    left: "0",
+                                    background: "#FFF",
+                                    border: "1px solid #E9EAEB",
+                                    borderRadius: "8px",
+                                    boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)",
+                                    zIndex: 1000,
+                                    minWidth: "200px",
+                                    padding: "8px 0",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      padding: "8px 16px",
+                                      cursor: "pointer",
+                                      color: "#414651",
+                                      fontSize: "14px",
+                                      fontFamily: "Public Sans",
+                                      transition: "background-color 0.2s ease",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.backgroundColor =
+                                        "#F5F5F5";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.backgroundColor =
+                                        "transparent";
+                                    }}
+                                    onClick={() => {
+                                      console.log("Download CSV");
+                                      setShowDownloadDropdown(false);
+                                    }}
+                                  >
+                                    Download as CSV
+                                  </div>
+                                  <div
+                                    style={{
+                                      padding: "8px 16px",
+                                      cursor: "pointer",
+                                      color: "#414651",
+                                      fontSize: "14px",
+                                      fontFamily: "Public Sans",
+                                      transition: "background-color 0.2s ease",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.backgroundColor =
+                                        "#F5F5F5";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.backgroundColor =
+                                        "transparent";
+                                    }}
+                                    onClick={() => {
+                                      console.log("Download Excel");
+                                      setShowDownloadDropdown(false);
+                                    }}
+                                  >
+                                    Download as Excel
+                                  </div>
+                                  <div
+                                    style={{
+                                      padding: "8px 16px",
+                                      cursor: "pointer",
+                                      color: "#414651",
+                                      fontSize: "14px",
+                                      fontFamily: "Public Sans",
+                                      transition: "background-color 0.2s ease",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.backgroundColor =
+                                        "#F5F5F5";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.backgroundColor =
+                                        "transparent";
+                                    }}
+                                    onClick={() => {
+                                      console.log("Download PDF");
+                                      setShowDownloadDropdown(false);
+                                    }}
+                                  >
+                                    Download as PDF
+                                  </div>
+                                </div>
+                              )}
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -2662,7 +2688,8 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <span
                                   style={{
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 400,
                                     fontSize: "14px",
                                     color: "rgba(24,29,39,1)",
@@ -2844,7 +2871,9 @@ const InvitesAndOrders: React.FC = () => {
                       >
                         {/* Pagination Controls */}
                         <button
-                          onMouseEnter={() => setHoveredPaginationButton("prev")}
+                          onMouseEnter={() =>
+                            setHoveredPaginationButton("prev")
+                          }
                           onMouseLeave={() => setHoveredPaginationButton(null)}
                           style={{
                             display: "flex",
@@ -2853,7 +2882,10 @@ const InvitesAndOrders: React.FC = () => {
                             alignItems: "center",
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
-                            background: hoveredPaginationButton === "prev" ? "#F5F5F5" : "#FFF",
+                            background:
+                              hoveredPaginationButton === "prev"
+                                ? "#F5F5F5"
+                                : "#FFF",
                             boxShadow:
                               "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
@@ -2880,8 +2912,13 @@ const InvitesAndOrders: React.FC = () => {
                         {[1, 2, 3, "...", 8, 9, 10].map((page, index) => (
                           <div
                             key={index}
-                            onMouseEnter={() => page !== "..." && setHoveredPaginationButton(`page-${index}`)}
-                            onMouseLeave={() => setHoveredPaginationButton(null)}
+                            onMouseEnter={() =>
+                              page !== "..." &&
+                              setHoveredPaginationButton(`page-${index}`)
+                            }
+                            onMouseLeave={() =>
+                              setHoveredPaginationButton(null)
+                            }
                             style={{
                               display: "flex",
                               width: "32px",
@@ -2892,9 +2929,10 @@ const InvitesAndOrders: React.FC = () => {
                               background:
                                 page === currentPage
                                   ? "#F5F5F5"
-                                  : hoveredPaginationButton === `page-${index}` && page !== "..."
-                                  ? "#F5F5F5"
-                                  : "transparent",
+                                  : hoveredPaginationButton ===
+                                        `page-${index}` && page !== "..."
+                                    ? "#F5F5F5"
+                                    : "transparent",
                               cursor: page !== "..." ? "pointer" : "default",
                               position: "relative",
                               transition: "background-color 0.2s ease",
@@ -2935,7 +2973,9 @@ const InvitesAndOrders: React.FC = () => {
                         ))}
 
                         <button
-                          onMouseEnter={() => setHoveredPaginationButton("next")}
+                          onMouseEnter={() =>
+                            setHoveredPaginationButton("next")
+                          }
                           onMouseLeave={() => setHoveredPaginationButton(null)}
                           style={{
                             display: "flex",
@@ -2944,7 +2984,10 @@ const InvitesAndOrders: React.FC = () => {
                             alignItems: "center",
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
-                            background: hoveredPaginationButton === "next" ? "#F5F5F5" : "#FFF",
+                            background:
+                              hoveredPaginationButton === "next"
+                                ? "#F5F5F5"
+                                : "#FFF",
                             boxShadow:
                               "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
