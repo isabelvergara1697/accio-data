@@ -2338,6 +2338,23 @@ const InvitesAndOrders: React.FC = () => {
                                   I-9 Filled
                                 </span>
                               </div>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                style={{ cursor: "pointer" }}
+                                onClick={() => handleSort("i9Filled")}
+                              >
+                                <path
+                                  d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
                             </div>
                           </div>
 
@@ -2392,6 +2409,23 @@ const InvitesAndOrders: React.FC = () => {
                                   Activate
                                 </span>
                               </div>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                style={{ cursor: "pointer" }}
+                                onClick={() => handleSort("activated")}
+                              >
+                                <path
+                                  d="M4.66663 10L7.99996 13.3334L11.3333 10M4.66663 6.00002L7.99996 2.66669L11.3333 6.00002"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
                             </div>
                           </div>
 
@@ -2444,6 +2478,23 @@ const InvitesAndOrders: React.FC = () => {
                                   EWS
                                 </span>
                               </div>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                style={{ cursor: "pointer" }}
+                                onClick={() => handleSort("ews")}
+                              >
+                                <path
+                                  d="M4.66663 10L7.99996 13.3334L11.3333 10M4.66663 6.00002L7.99996 2.66669L11.3333 6.00002"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
                             </div>
                           </div>
 
