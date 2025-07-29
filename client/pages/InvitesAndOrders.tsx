@@ -704,6 +704,25 @@ const InvitesAndOrders: React.FC = () => {
             </div>
           </div>
 
+          {/* Divider */}
+          <div
+            style={{
+              display: "flex",
+              padding: "0 32px",
+              alignItems: "center",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                height: "1px",
+                flex: "1 0 0",
+                background: "#E9EAEB",
+              }}
+            />
+          </div>
+
           {/* Table Section */}
           <div
             style={{
