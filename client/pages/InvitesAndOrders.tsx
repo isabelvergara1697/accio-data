@@ -535,7 +535,7 @@ const InvitesAndOrders: React.FC = () => {
                         style={{
                           fontFamily:
                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 700,
+                          fontWeight: 600,
                           fontSize: "24px",
                           color: "rgba(24,29,39,1)",
                         }}
@@ -634,7 +634,7 @@ const InvitesAndOrders: React.FC = () => {
                               style={{
                                 fontFamily:
                                   "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                fontWeight: 700,
+                                fontWeight: 600,
                                 fontSize: "14px",
                                 color:
                                   activeTab === tab.key
@@ -811,7 +811,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "18px",
                                   color: "rgba(24,29,39,1)",
                                 }}
@@ -973,7 +973,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     fontSize: "14px",
                                     color: "rgba(65,70,81,1)",
                                   }}
@@ -1094,7 +1094,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
                                 }}
@@ -1133,7 +1133,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
                                 }}
@@ -1172,7 +1172,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
                                 }}
@@ -1211,7 +1211,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
                                 }}
@@ -1250,7 +1250,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
                                 }}
@@ -1289,7 +1289,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
                                 }}
@@ -1328,7 +1328,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
                                 }}
@@ -1367,7 +1367,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
                                 }}
@@ -1406,7 +1406,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
                                 }}
