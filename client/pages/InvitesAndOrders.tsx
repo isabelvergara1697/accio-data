@@ -2338,103 +2338,6 @@ const InvitesAndOrders: React.FC = () => {
                                   I-9 Filled
                                 </span>
                               </div>
-                              <div
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  gap: "1px",
-                                }}
-                              >
-                                <button
-                                  onClick={() => {
-                                    if (
-                                      sortField === "i9Filled" &&
-                                      sortDirection === "asc"
-                                    ) {
-                                      setSortField(null);
-                                      setSortDirection(null);
-                                    } else {
-                                      setSortField("i9Filled");
-                                      setSortDirection("asc");
-                                    }
-                                  }}
-                                  style={{
-                                    background: "none",
-                                    border: "none",
-                                    padding: 0,
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                  }}
-                                >
-                                  <svg
-                                    width="10"
-                                    height="6"
-                                    viewBox="0 0 10 6"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={
-                                        sortField === "i9Filled" &&
-                                        sortDirection === "asc"
-                                          ? "#34479A"
-                                          : "#A4A7AE"
-                                      }
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
-                                <button
-                                  onClick={() => {
-                                    if (
-                                      sortField === "i9Filled" &&
-                                      sortDirection === "desc"
-                                    ) {
-                                      setSortField(null);
-                                      setSortDirection(null);
-                                    } else {
-                                      setSortField("i9Filled");
-                                      setSortDirection("desc");
-                                    }
-                                  }}
-                                  style={{
-                                    background: "none",
-                                    border: "none",
-                                    padding: 0,
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                  }}
-                                >
-                                  <svg
-                                    width="10"
-                                    height="6"
-                                    viewBox="0 0 10 6"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    style={{ transform: "rotate(180deg)" }}
-                                  >
-                                    <path
-                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={
-                                        sortField === "i9Filled" &&
-                                        sortDirection === "desc"
-                                          ? "#34479A"
-                                          : "#A4A7AE"
-                                      }
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
-                              </div>
                             </div>
                           </div>
 
@@ -2442,11 +2345,11 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "80px",
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
                               gap: "12px",
+                              flex: "1 0 0",
                               borderBottom: "1px solid #E9EAEB",
                               background: "#FFF",
                               position: "relative",
@@ -2478,7 +2381,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "activated"
@@ -2489,103 +2392,6 @@ const InvitesAndOrders: React.FC = () => {
                                   Activate
                                 </span>
                               </div>
-                              <div
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  gap: "1px",
-                                }}
-                              >
-                                <button
-                                  onClick={() => {
-                                    if (
-                                      sortField === "activated" &&
-                                      sortDirection === "asc"
-                                    ) {
-                                      setSortField(null);
-                                      setSortDirection(null);
-                                    } else {
-                                      setSortField("activated");
-                                      setSortDirection("asc");
-                                    }
-                                  }}
-                                  style={{
-                                    background: "none",
-                                    border: "none",
-                                    padding: 0,
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                  }}
-                                >
-                                  <svg
-                                    width="10"
-                                    height="6"
-                                    viewBox="0 0 10 6"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={
-                                        sortField === "activated" &&
-                                        sortDirection === "asc"
-                                          ? "#34479A"
-                                          : "#A4A7AE"
-                                      }
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
-                                <button
-                                  onClick={() => {
-                                    if (
-                                      sortField === "activated" &&
-                                      sortDirection === "desc"
-                                    ) {
-                                      setSortField(null);
-                                      setSortDirection(null);
-                                    } else {
-                                      setSortField("activated");
-                                      setSortDirection("desc");
-                                    }
-                                  }}
-                                  style={{
-                                    background: "none",
-                                    border: "none",
-                                    padding: 0,
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                  }}
-                                >
-                                  <svg
-                                    width="10"
-                                    height="6"
-                                    viewBox="0 0 10 6"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    style={{ transform: "rotate(180deg)" }}
-                                  >
-                                    <path
-                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={
-                                        sortField === "activated" &&
-                                        sortDirection === "desc"
-                                          ? "#34479A"
-                                          : "#A4A7AE"
-                                      }
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
-                              </div>
                             </div>
                           </div>
 
@@ -2593,11 +2399,11 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "60px",
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
                               gap: "12px",
+                              flex: "1 0 0",
                               borderBottom: "1px solid #E9EAEB",
                               background: "#FFF",
                               position: "relative",
@@ -2627,7 +2433,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "ews"
@@ -2637,103 +2443,6 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   EWS
                                 </span>
-                              </div>
-                              <div
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  gap: "1px",
-                                }}
-                              >
-                                <button
-                                  onClick={() => {
-                                    if (
-                                      sortField === "ews" &&
-                                      sortDirection === "asc"
-                                    ) {
-                                      setSortField(null);
-                                      setSortDirection(null);
-                                    } else {
-                                      setSortField("ews");
-                                      setSortDirection("asc");
-                                    }
-                                  }}
-                                  style={{
-                                    background: "none",
-                                    border: "none",
-                                    padding: 0,
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                  }}
-                                >
-                                  <svg
-                                    width="10"
-                                    height="6"
-                                    viewBox="0 0 10 6"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={
-                                        sortField === "ews" &&
-                                        sortDirection === "asc"
-                                          ? "#34479A"
-                                          : "#A4A7AE"
-                                      }
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
-                                <button
-                                  onClick={() => {
-                                    if (
-                                      sortField === "ews" &&
-                                      sortDirection === "desc"
-                                    ) {
-                                      setSortField(null);
-                                      setSortDirection(null);
-                                    } else {
-                                      setSortField("ews");
-                                      setSortDirection("desc");
-                                    }
-                                  }}
-                                  style={{
-                                    background: "none",
-                                    border: "none",
-                                    padding: 0,
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                  }}
-                                >
-                                  <svg
-                                    width="10"
-                                    height="6"
-                                    viewBox="0 0 10 6"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    style={{ transform: "rotate(180deg)" }}
-                                  >
-                                    <path
-                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                      stroke={
-                                        sortField === "ews" &&
-                                        sortDirection === "desc"
-                                          ? "#34479A"
-                                          : "#A4A7AE"
-                                      }
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
                               </div>
                             </div>
                           </div>
