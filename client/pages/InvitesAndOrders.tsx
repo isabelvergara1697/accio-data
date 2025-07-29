@@ -350,6 +350,8 @@ const InvitesAndOrders: React.FC = () => {
       };
     }, [checkTruncation]);
 
+    const isLongText = config.label === "Waiting for Recruitee" || config.label === "Expires Today";
+
     const badgeElement = (
       <div
         ref={containerRef}
@@ -357,6 +359,7 @@ const InvitesAndOrders: React.FC = () => {
           display: "flex",
           padding: "2px 8px",
           alignItems: "center",
+          ...(isLongText ? { flex: "1 0 0" } : {}),
           borderRadius: "9999px",
           border: `1px solid ${colors.border}`,
           background: colors.bg,
@@ -366,23 +369,42 @@ const InvitesAndOrders: React.FC = () => {
           width: "fit-content",
         }}
       >
-        <span
+        <div
           ref={textRef}
           style={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
+            ...(isLongText ? {
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 1,
+              flex: "1 0 0",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            } : {
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }),
             color: colors.text,
-            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+            textAlign: "center",
+            fontFamily: "Public Sans",
             fontSize: "12px",
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
-            display: "block",
+            position: "relative",
           }}
         >
-          {config.label}
-        </span>
+          <span
+            style={{
+              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontWeight: 400,
+              fontSize: "12px",
+              color: colors.text,
+            }}
+          >
+            {config.label}
+          </span>
+        </div>
       </div>
     );
 
