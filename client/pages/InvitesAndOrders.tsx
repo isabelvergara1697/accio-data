@@ -317,26 +317,10 @@ const InvitesAndOrders: React.FC = () => {
     const colors = colorMap[config.color as keyof typeof colorMap];
 
     const checkTruncation = useCallback(() => {
-      if (containerRef.current && textRef.current) {
-        // Create a temporary element to measure the actual text width
-        const tempSpan = document.createElement('span');
-        tempSpan.style.fontFamily = "Public Sans, -apple-system, Roboto, Helvetica, sans-serif";
-        tempSpan.style.fontSize = "12px";
-        tempSpan.style.fontWeight = "400";
-        tempSpan.style.visibility = 'hidden';
-        tempSpan.style.position = 'absolute';
-        tempSpan.style.whiteSpace = 'nowrap';
-        tempSpan.textContent = config.label;
-
-        document.body.appendChild(tempSpan);
-        const textWidth = tempSpan.offsetWidth;
-        document.body.removeChild(tempSpan);
-
-        // Calculate available space (container width minus padding)
-        const containerWidth = containerRef.current.offsetWidth;
-        const availableWidth = containerWidth - 16; // 16px total padding (8px left + 8px right)
-
-        setIsTruncated(textWidth > availableWidth);
+      if (textRef.current) {
+        // Check if the text is actually overflowing
+        const element = textRef.current;
+        setIsTruncated(element.scrollWidth > element.offsetWidth);
       }
     }, [config.label]);
 
