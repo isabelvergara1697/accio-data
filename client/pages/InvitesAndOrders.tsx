@@ -1698,7 +1698,7 @@ const InvitesAndOrders: React.FC = () => {
                         </div>
 
                         {/* Table Rows */}
-                        {invitesData.map((invite) => (
+                        {sortedData.map((invite) => (
                           <div
                             key={invite.id}
                             style={{
