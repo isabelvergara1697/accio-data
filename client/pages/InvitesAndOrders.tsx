@@ -136,6 +136,7 @@ const InvitesAndOrders: React.FC = () => {
   const [hoveredPaginationButton, setHoveredPaginationButton] = useState<
     string | null
   >(null);
+  const [showInformationDrawer, setShowInformationDrawer] = useState(false);
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
 
   // Window resize handler
