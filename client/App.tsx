@@ -45,4 +45,10 @@ const App = () => (
   </QueryClientProvider>
 );
 
-createRoot(document.getElementById("root")!).render(<App />);
+const container = document.getElementById("root")!;
+
+// Check if root already exists to prevent the warning
+if (!container._reactRootContainer) {
+  const root = createRoot(container);
+  root.render(<App />);
+}
