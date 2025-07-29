@@ -338,7 +338,7 @@ const InvitesAndOrders: React.FC = () => {
             flex: "1 0 0",
             overflow: "hidden",
             color: colors.text,
-            textAlign: "center",
+            textAlign: "left",
             textOverflow: "ellipsis",
             fontFamily: "Public Sans",
             fontSize: "12px",
