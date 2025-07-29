@@ -1237,88 +1237,284 @@ const InvitesAndOrders: React.FC = () => {
                                   ref={downloadDropdownRef}
                                   style={{
                                     position: "absolute",
-                                    top: "calc(100% + 8px)",
-                                    left: "0",
-                                    background: "#FFF",
-                                    border: "1px solid #E9EAEB",
+                                    top: "calc(100% + 4px)",
+                                    right: "0",
+                                    width: "170px",
                                     borderRadius: "8px",
-                                    boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)",
+                                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                                    background: "#FFF",
+                                    boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                                     zIndex: 1000,
-                                    minWidth: "200px",
-                                    padding: "8px 0",
                                   }}
                                 >
                                   <div
                                     style={{
-                                      padding: "8px 16px",
-                                      cursor: "pointer",
-                                      color: "#414651",
-                                      fontSize: "14px",
-                                      fontFamily: "Public Sans",
-                                      transition: "background-color 0.2s ease",
-                                    }}
-                                    onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor =
-                                        "#F5F5F5";
-                                    }}
-                                    onMouseLeave={(e) => {
-                                      e.currentTarget.style.backgroundColor =
-                                        "transparent";
-                                    }}
-                                    onClick={() => {
-                                      console.log("Download CSV");
-                                      setShowDownloadDropdown(false);
+                                      display: "flex",
+                                      padding: "4px 0",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      alignSelf: "stretch",
                                     }}
                                   >
-                                    Download as CSV
-                                  </div>
-                                  <div
-                                    style={{
-                                      padding: "8px 16px",
-                                      cursor: "pointer",
-                                      color: "#414651",
-                                      fontSize: "14px",
-                                      fontFamily: "Public Sans",
-                                      transition: "background-color 0.2s ease",
-                                    }}
-                                    onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor =
-                                        "#F5F5F5";
-                                    }}
-                                    onMouseLeave={(e) => {
-                                      e.currentTarget.style.backgroundColor =
-                                        "transparent";
-                                    }}
-                                    onClick={() => {
-                                      console.log("Download Excel");
-                                      setShowDownloadDropdown(false);
-                                    }}
-                                  >
-                                    Download as Excel
-                                  </div>
-                                  <div
-                                    style={{
-                                      padding: "8px 16px",
-                                      cursor: "pointer",
-                                      color: "#414651",
-                                      fontSize: "14px",
-                                      fontFamily: "Public Sans",
-                                      transition: "background-color 0.2s ease",
-                                    }}
-                                    onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor =
-                                        "#F5F5F5";
-                                    }}
-                                    onMouseLeave={(e) => {
-                                      e.currentTarget.style.backgroundColor =
-                                        "transparent";
-                                    }}
-                                    onClick={() => {
-                                      console.log("Download PDF");
-                                      setShowDownloadDropdown(false);
-                                    }}
-                                  >
-                                    Download as PDF
+                                    {/* Download XLSX Option */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 4px",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                        cursor: "pointer",
+                                      }}
+                                      onClick={() => {
+                                        console.log("Download XLSX");
+                                        setShowDownloadDropdown(false);
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          padding: "6px 6px",
+                                          alignItems: "center",
+                                          gap: "12px",
+                                          flex: "1 0 0",
+                                          borderRadius: "6px",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            flex: "1 0 0",
+                                          }}
+                                        >
+                                          {/* File type icon */}
+                                          <div
+                                            style={{
+                                              width: "24px",
+                                              height: "24px",
+                                              position: "relative",
+                                            }}
+                                          >
+                                            <svg
+                                              style={{
+                                                width: "19px",
+                                                height: "24px",
+                                                position: "absolute",
+                                                left: "4px",
+                                                top: "0px",
+                                              }}
+                                              width="20"
+                                              height="24"
+                                              viewBox="0 0 20 24"
+                                              fill="none"
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <path
+                                                d="M4.2002 0.75H12.1895L18.6504 7.20996V20C18.6504 21.7949 17.1952 23.2499 15.4004 23.25H4.2002C2.40527 23.25 0.950195 21.7949 0.950195 20V4C0.950196 2.20507 2.40527 0.75 4.2002 0.75Z"
+                                                stroke="#D5D7DA"
+                                                strokeWidth="1.5"
+                                              />
+                                              <path
+                                                d="M12.2002 0.299805V3.1998C12.2002 5.40894 13.9911 7.1998 16.2002 7.1998H19.1002"
+                                                stroke="#D5D7DA"
+                                                strokeWidth="1.5"
+                                              />
+                                            </svg>
+                                            <div
+                                              style={{
+                                                display: "inline-flex",
+                                                padding: "2px 3px",
+                                                alignItems: "flex-start",
+                                                gap: "8px",
+                                                borderRadius: "2px",
+                                                background: "#079455",
+                                                position: "absolute",
+                                                left: "-5px",
+                                                top: "8px",
+                                                width: "26px",
+                                                height: "16px",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  color: "#FFF",
+                                                  textAlign: "center",
+                                                  fontFamily: "Inter",
+                                                  fontSize: "10px",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 700,
+                                                  lineHeight: "normal",
+                                                }}
+                                              >
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                                                    fontWeight: 700,
+                                                    fontSize: "10px",
+                                                    color: "rgba(255,255,255,1)",
+                                                  }}
+                                                >
+                                                  XLS
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div
+                                            style={{
+                                              flex: "1 0 0",
+                                              color: "#414651",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 600,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontWeight: 700,
+                                                fontSize: "14px",
+                                                color: "rgba(65,70,81,1)",
+                                              }}
+                                            >
+                                              Download XLSX
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Download CSV Option */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 4px",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                        cursor: "pointer",
+                                      }}
+                                      onClick={() => {
+                                        console.log("Download CSV");
+                                        setShowDownloadDropdown(false);
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          padding: "6px 6px",
+                                          alignItems: "center",
+                                          gap: "12px",
+                                          flex: "1 0 0",
+                                          borderRadius: "6px",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            flex: "1 0 0",
+                                          }}
+                                        >
+                                          {/* File type icon */}
+                                          <div
+                                            style={{
+                                              width: "24px",
+                                              height: "24px",
+                                              position: "relative",
+                                            }}
+                                          >
+                                            <svg
+                                              style={{
+                                                width: "19px",
+                                                height: "24px",
+                                                position: "absolute",
+                                                left: "4px",
+                                                top: "0px",
+                                              }}
+                                              width="20"
+                                              height="24"
+                                              viewBox="0 0 20 24"
+                                              fill="none"
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <path
+                                                d="M4.2002 0.75H12.1895L18.6504 7.20996V20C18.6504 21.7949 17.1952 23.2499 15.4004 23.25H4.2002C2.40527 23.25 0.950195 21.7949 0.950195 20V4C0.950196 2.20507 2.40527 0.75 4.2002 0.75Z"
+                                                stroke="#D5D7DA"
+                                                strokeWidth="1.5"
+                                              />
+                                              <path
+                                                d="M12.2002 0.299805V3.1998C12.2002 5.40894 13.9911 7.1998 16.2002 7.1998H19.1002"
+                                                stroke="#D5D7DA"
+                                                strokeWidth="1.5"
+                                              />
+                                            </svg>
+                                            <div
+                                              style={{
+                                                display: "inline-flex",
+                                                padding: "2px 3px",
+                                                alignItems: "flex-start",
+                                                gap: "8px",
+                                                borderRadius: "2px",
+                                                background: "#079455",
+                                                position: "absolute",
+                                                left: "-5px",
+                                                top: "8px",
+                                                width: "28px",
+                                                height: "16px",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  color: "#FFF",
+                                                  textAlign: "center",
+                                                  fontFamily: "Inter",
+                                                  fontSize: "10px",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 700,
+                                                  lineHeight: "normal",
+                                                }}
+                                              >
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                                                    fontWeight: 700,
+                                                    fontSize: "10px",
+                                                    color: "rgba(255,255,255,1)",
+                                                  }}
+                                                >
+                                                  CSV
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div
+                                            style={{
+                                              flex: "1 0 0",
+                                              color: "#414651",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 600,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontWeight: 700,
+                                                fontSize: "14px",
+                                                color: "rgba(65,70,81,1)",
+                                              }}
+                                            >
+                                              Download CSV
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               )}
