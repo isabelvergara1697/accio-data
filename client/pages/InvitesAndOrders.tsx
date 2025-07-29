@@ -1361,7 +1361,7 @@ const InvitesAndOrders: React.FC = () => {
                                               fontFamily: "Public Sans",
                                               fontSize: "14px",
                                               fontStyle: "normal",
-                                              fontWeight: 600,
+                                              fontWeight: 700,
                                               lineHeight: "20px",
                                             }}
                                           >
