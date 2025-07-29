@@ -1455,38 +1455,32 @@ const InvitesAndOrders: React.FC = () => {
                                                 strokeWidth="1.5"
                                               />
                                             </svg>
-                                            <svg
+                                            <div
                                               style={{
                                                 position: "absolute",
-                                                left: "-3px",
-                                                top: "10px",
+                                                left: "-5px",
+                                                top: "8px",
                                                 width: "28px",
-                                                height: "12px",
+                                                height: "16px",
+                                                borderRadius: "2px",
+                                                background: "#079455",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
                                               }}
-                                              width="28"
-                                              height="12"
-                                              viewBox="0 0 28 12"
-                                              fill="none"
-                                              xmlns="http://www.w3.org/2000/svg"
                                             >
-                                              <rect
-                                                width="28"
-                                                height="12"
-                                                rx="2"
-                                                fill="#079455"
-                                              />
-                                              <text
-                                                x="14"
-                                                y="8.5"
-                                                textAnchor="middle"
-                                                fill="#FFFFFF"
-                                                fontSize="9"
-                                                fontFamily="Inter, -apple-system, Roboto, Helvetica, sans-serif"
-                                                fontWeight="700"
+                                              <span
+                                                style={{
+                                                  color: "#FFFFFF",
+                                                  fontSize: "10px",
+                                                  fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                                                  fontWeight: "700",
+                                                  lineHeight: "1",
+                                                }}
                                               >
                                                 CSV
-                                              </text>
-                                            </svg>
+                                              </span>
+                                            </div>
                                           </div>
                                           <div
                                             style={{
