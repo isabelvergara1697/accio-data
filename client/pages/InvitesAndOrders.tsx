@@ -376,11 +376,11 @@ const InvitesAndOrders: React.FC = () => {
     </svg>
   );
 
-  const handleSelectAll = () => {
-    if (selectedItems.length === invitesData.length) {
-      setSelectedItems([]);
-    } else {
+  const handleSelectAll = (checked: boolean) => {
+    if (checked) {
       setSelectedItems(invitesData.map((item) => item.id));
+    } else {
+      setSelectedItems([]);
     }
   };
 
