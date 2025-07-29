@@ -2159,9 +2159,7 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 position: "relative",
-                                cursor: "pointer",
                               }}
-                              onClick={() => handleSort("activated")}
                             >
                               <div
                                 style={{
@@ -2186,21 +2184,87 @@ const InvitesAndOrders: React.FC = () => {
                                   Activate
                                 </span>
                               </div>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  gap: "1px",
+                                }}
                               >
-                                <path
-                                  d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
-                                  stroke={sortField === "activated" && sortDirection === "asc" ? "#34479A" : sortField === "activated" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
+                                <button
+                                  onClick={() => {
+                                    if (sortField === "activated" && sortDirection === "asc") {
+                                      setSortField(null);
+                                      setSortDirection(null);
+                                    } else {
+                                      setSortField("activated");
+                                      setSortDirection("asc");
+                                    }
+                                  }}
+                                  style={{
+                                    background: "none",
+                                    border: "none",
+                                    padding: 0,
+                                    cursor: "pointer",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="10"
+                                    height="6"
+                                    viewBox="0 0 10 6"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                      stroke={sortField === "activated" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    if (sortField === "activated" && sortDirection === "desc") {
+                                      setSortField(null);
+                                      setSortDirection(null);
+                                    } else {
+                                      setSortField("activated");
+                                      setSortDirection("desc");
+                                    }
+                                  }}
+                                  style={{
+                                    background: "none",
+                                    border: "none",
+                                    padding: 0,
+                                    cursor: "pointer",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="10"
+                                    height="6"
+                                    viewBox="0 0 10 6"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    style={{ transform: "rotate(180deg)" }}
+                                  >
+                                    <path
+                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                      stroke={sortField === "activated" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
                             </div>
                           </div>
 
@@ -2224,9 +2288,7 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 position: "relative",
-                                cursor: "pointer",
                               }}
-                              onClick={() => handleSort("ews")}
                             >
                               <div
                                 style={{
@@ -2251,21 +2313,87 @@ const InvitesAndOrders: React.FC = () => {
                                   EWS
                                 </span>
                               </div>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  gap: "1px",
+                                }}
                               >
-                                <path
-                                  d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
-                                  stroke={sortField === "ews" && sortDirection === "asc" ? "#34479A" : sortField === "ews" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
+                                <button
+                                  onClick={() => {
+                                    if (sortField === "ews" && sortDirection === "asc") {
+                                      setSortField(null);
+                                      setSortDirection(null);
+                                    } else {
+                                      setSortField("ews");
+                                      setSortDirection("asc");
+                                    }
+                                  }}
+                                  style={{
+                                    background: "none",
+                                    border: "none",
+                                    padding: 0,
+                                    cursor: "pointer",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="10"
+                                    height="6"
+                                    viewBox="0 0 10 6"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                      stroke={sortField === "ews" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    if (sortField === "ews" && sortDirection === "desc") {
+                                      setSortField(null);
+                                      setSortDirection(null);
+                                    } else {
+                                      setSortField("ews");
+                                      setSortDirection("desc");
+                                    }
+                                  }}
+                                  style={{
+                                    background: "none",
+                                    border: "none",
+                                    padding: 0,
+                                    cursor: "pointer",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="10"
+                                    height="6"
+                                    viewBox="0 0 10 6"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    style={{ transform: "rotate(180deg)" }}
+                                  >
+                                    <path
+                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                      stroke={sortField === "ews" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
                             </div>
                           </div>
 
