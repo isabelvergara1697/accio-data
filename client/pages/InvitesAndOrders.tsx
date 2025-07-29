@@ -3048,6 +3048,8 @@ const InvitesAndOrders: React.FC = () => {
                       >
                         {/* Pagination Controls */}
                         <button
+                          onMouseEnter={() => setHoveredPaginationButton("prev")}
+                          onMouseLeave={() => setHoveredPaginationButton(null)}
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -3055,10 +3057,11 @@ const InvitesAndOrders: React.FC = () => {
                             alignItems: "center",
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
-                            background: "#FFF",
+                            background: hoveredPaginationButton === "prev" ? "#F5F5F5" : "#FFF",
                             boxShadow:
                               "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
+                            transition: "background-color 0.2s ease",
                           }}
                         >
                           <svg
@@ -3081,6 +3084,8 @@ const InvitesAndOrders: React.FC = () => {
                         {[1, 2, 3, "...", 8, 9, 10].map((page, index) => (
                           <div
                             key={index}
+                            onMouseEnter={() => page !== "..." && setHoveredPaginationButton(`page-${index}`)}
+                            onMouseLeave={() => setHoveredPaginationButton(null)}
                             style={{
                               display: "flex",
                               width: "32px",
@@ -3091,9 +3096,12 @@ const InvitesAndOrders: React.FC = () => {
                               background:
                                 page === currentPage
                                   ? "#F5F5F5"
+                                  : hoveredPaginationButton === `page-${index}` && page !== "..."
+                                  ? "#F5F5F5"
                                   : "transparent",
                               cursor: page !== "..." ? "pointer" : "default",
                               position: "relative",
+                              transition: "background-color 0.2s ease",
                             }}
                             onClick={() =>
                               typeof page === "number" && setCurrentPage(page)
@@ -3131,6 +3139,8 @@ const InvitesAndOrders: React.FC = () => {
                         ))}
 
                         <button
+                          onMouseEnter={() => setHoveredPaginationButton("next")}
+                          onMouseLeave={() => setHoveredPaginationButton(null)}
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -3138,10 +3148,11 @@ const InvitesAndOrders: React.FC = () => {
                             alignItems: "center",
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
-                            background: "#FFF",
+                            background: hoveredPaginationButton === "next" ? "#F5F5F5" : "#FFF",
                             boxShadow:
                               "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
+                            transition: "background-color 0.2s ease",
                           }}
                         >
                           <svg
