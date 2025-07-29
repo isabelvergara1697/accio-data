@@ -198,26 +198,27 @@ const InvitesAndOrders: React.FC = () => {
 
   const getStatusBadge = (status: InviteData["status"]) => {
     const statusConfig = {
-      waiting: { label: "Waiting", color: "green" },
-      unsolicited: { label: "Unsolicited", color: "purple" },
-      canceled: { label: "Canceled", color: "green" },
+      waiting: { label: "Waiting", color: "blue-light" },
+      unsolicited: { label: "Unsolicited", color: "gray-blue" },
+      canceled: { label: "Canceled", color: "orange" },
       expired: { label: "Expired", color: "gray" },
       "waiting-for-recruitee": {
         label: "Waiting for Recruitee",
-        color: "orange",
+        color: "error",
       },
-      "expires-today": { label: "Expires Today", color: "blue" },
+      "expires-today": { label: "Expires Today", color: "warning" },
       reviewed: { label: "Reviewed", color: "pink" },
       archived: { label: "Archived", color: "gray" },
     };
 
     const config = statusConfig[status];
     const colorMap = {
-      green: { bg: "#ECFDF3", border: "#ABEFC6", text: "#067647" },
-      purple: { bg: "#F4F3FF", border: "#D9D6FE", text: "#5925DC" },
+      "blue-light": { bg: "#F0F9FF", border: "#B9E6FE", text: "#026AA2" },
+      "gray-blue": { bg: "#F8F9FC", border: "#D5D9EB", text: "#363F72" },
       gray: { bg: "#FAFAFA", border: "#E9EAEB", text: "#414651" },
       orange: { bg: "#FEF6EE", border: "#F9DBAF", text: "#B93815" },
-      blue: { bg: "#EFF8FF", border: "#B2DDFF", text: "#175CD3" },
+      error: { bg: "#FEF3F2", border: "#FECDCA", text: "#B42318" },
+      warning: { bg: "#FFFAEB", border: "#FEDF89", text: "#B54708" },
       pink: { bg: "#FDF2FA", border: "#FCCEEE", text: "#C11574" },
     };
 
