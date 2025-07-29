@@ -614,8 +614,10 @@ const InvitesAndOrders: React.FC = () => {
                                 : "none",
                             borderTopLeftRadius: index === 0 ? "8px" : "0",
                             borderBottomLeftRadius: index === 0 ? "8px" : "0",
-                            borderTopRightRadius: index === array.length - 1 ? "8px" : "0",
-                            borderBottomRightRadius: index === array.length - 1 ? "8px" : "0",
+                            borderTopRightRadius:
+                              index === array.length - 1 ? "8px" : "0",
+                            borderBottomRightRadius:
+                              index === array.length - 1 ? "8px" : "0",
                             background:
                               activeTab === tab.key ? "#ECEEF9" : "#FFF",
                             cursor: "pointer",
