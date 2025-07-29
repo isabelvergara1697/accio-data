@@ -325,9 +325,13 @@ const InvitesAndOrders: React.FC = () => {
     }, [config.label]);
 
     useEffect(() => {
-      checkTruncation();
+      // Add a small delay to ensure DOM is fully rendered
+      const timer = setTimeout(checkTruncation, 10);
       window.addEventListener("resize", checkTruncation);
-      return () => window.removeEventListener("resize", checkTruncation);
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener("resize", checkTruncation);
+      };
     }, [checkTruncation]);
 
     const badgeElement = (
