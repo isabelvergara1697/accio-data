@@ -595,7 +595,7 @@ const InvitesAndOrders: React.FC = () => {
                         { key: "invites", label: "Invites", count: "456" },
                         { key: "orders", label: "Orders", count: "200" },
                         { key: "hired", label: "Hired", count: "587" },
-                      ].map((tab) => (
+                      ].map((tab, index, array) => (
                         <div
                           key={tab.key}
                           onClick={() =>
@@ -609,9 +609,13 @@ const InvitesAndOrders: React.FC = () => {
                             alignItems: "center",
                             gap: "6px",
                             borderRight:
-                              tab.key !== "hired"
+                              index < array.length - 1
                                 ? "1px solid #D5D7DA"
                                 : "none",
+                            borderTopLeftRadius: index === 0 ? "8px" : "0",
+                            borderBottomLeftRadius: index === 0 ? "8px" : "0",
+                            borderTopRightRadius: index === array.length - 1 ? "8px" : "0",
+                            borderBottomRightRadius: index === array.length - 1 ? "8px" : "0",
                             background:
                               activeTab === tab.key ? "#ECEEF9" : "#FFF",
                             cursor: "pointer",
