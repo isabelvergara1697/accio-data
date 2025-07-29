@@ -1095,7 +1095,9 @@ const InvitesAndOrders: React.FC = () => {
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
                                 background:
-                                  hoveredButton === action.icon || (action.icon === "download" && showDownloadDropdown)
+                                  hoveredButton === action.icon ||
+                                  (action.icon === "download" &&
+                                    showDownloadDropdown)
                                     ? "#F5F5F5"
                                     : "#FFF",
                                 boxShadow:
@@ -1243,7 +1245,8 @@ const InvitesAndOrders: React.FC = () => {
                                     borderRadius: "8px",
                                     border: "1px solid rgba(0, 0, 0, 0.08)",
                                     background: "#FFF",
-                                    boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                    boxShadow:
+                                      "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                                     zIndex: 1000,
                                   }}
                                 >
@@ -1266,10 +1269,14 @@ const InvitesAndOrders: React.FC = () => {
                                         cursor: "pointer",
                                       }}
                                       onMouseEnter={(e) => {
-                                        e.currentTarget.querySelector('.content').style.backgroundColor = "#F5F5F5";
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "#F5F5F5";
                                       }}
                                       onMouseLeave={(e) => {
-                                        e.currentTarget.querySelector('.content').style.backgroundColor = "transparent";
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "transparent";
                                       }}
                                       onClick={() => {
                                         console.log("Download XLSX");
@@ -1285,7 +1292,8 @@ const InvitesAndOrders: React.FC = () => {
                                           gap: "12px",
                                           flex: "1 0 0",
                                           borderRadius: "6px",
-                                          transition: "background-color 0.2s ease",
+                                          transition:
+                                            "background-color 0.2s ease",
                                         }}
                                       >
                                         <div
@@ -1385,7 +1393,8 @@ const InvitesAndOrders: React.FC = () => {
                                           >
                                             <span
                                               style={{
-                                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontFamily:
+                                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                                 fontWeight: 600,
                                                 fontSize: "14px",
                                                 color: "rgba(65,70,81,1)",
@@ -1408,10 +1417,14 @@ const InvitesAndOrders: React.FC = () => {
                                         cursor: "pointer",
                                       }}
                                       onMouseEnter={(e) => {
-                                        e.currentTarget.querySelector('.content').style.backgroundColor = "#F5F5F5";
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "#F5F5F5";
                                       }}
                                       onMouseLeave={(e) => {
-                                        e.currentTarget.querySelector('.content').style.backgroundColor = "transparent";
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "transparent";
                                       }}
                                       onClick={() => {
                                         console.log("Download CSV");
@@ -1427,7 +1440,8 @@ const InvitesAndOrders: React.FC = () => {
                                           gap: "12px",
                                           flex: "1 0 0",
                                           borderRadius: "6px",
-                                          transition: "background-color 0.2s ease",
+                                          transition:
+                                            "background-color 0.2s ease",
                                         }}
                                       >
                                         <div
@@ -1527,7 +1541,8 @@ const InvitesAndOrders: React.FC = () => {
                                           >
                                             <span
                                               style={{
-                                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontFamily:
+                                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                                 fontWeight: 600,
                                                 fontSize: "14px",
                                                 color: "rgba(65,70,81,1)",
