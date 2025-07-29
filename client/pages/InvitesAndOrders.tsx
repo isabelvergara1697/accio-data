@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import { Checkbox } from "../components/ui/checkbox";
 
 interface InviteData {
   id: string;
@@ -1069,19 +1070,12 @@ const InvitesAndOrders: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            <input
-                              type="checkbox"
+                            <Checkbox
                               checked={
                                 selectedItems.length === invitesData.length
                               }
-                              onChange={handleSelectAll}
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                                borderRadius: "4px",
-                                border: "1px solid #D5D7DA",
-                                cursor: "pointer",
-                              }}
+                              onCheckedChange={handleSelectAll}
+                              className="h-4 w-4 rounded border border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-[#344698] data-[state=checked]:text-white"
                             />
                           </div>
 
@@ -1695,17 +1689,10 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                               }}
                             >
-                              <input
-                                type="checkbox"
+                              <Checkbox
                                 checked={selectedItems.includes(invite.id)}
-                                onChange={() => handleSelectItem(invite.id)}
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  borderRadius: "4px",
-                                  border: "1px solid #D5D7DA",
-                                  cursor: "pointer",
-                                }}
+                                onCheckedChange={() => handleSelectItem(invite.id)}
+                                className="h-4 w-4 rounded border border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-[#344698] data-[state=checked]:text-white"
                               />
                             </div>
 
