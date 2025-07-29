@@ -1053,15 +1053,11 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 borderRadius: "8px",
-                                border: hoveredButton === action.icon
-                                  ? "1px solid #007AFF"
-                                  : "1px solid #D5D7DA",
+                                border: "1px solid #D5D7DA",
                                 background: hoveredButton === action.icon
-                                  ? "#F0F8FF"
+                                  ? "#F5F5F5"
                                   : "#FFF",
-                                boxShadow: hoveredButton === action.icon
-                                  ? "0 0 0 1px rgba(0, 122, 255, 0.3) inset, 0 -2px 0 0 rgba(0, 122, 255, 0.1) inset, 0 1px 2px 0 rgba(0, 122, 255, 0.1)"
-                                  : "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 position: "relative",
                                 transition: "all 0.2s ease",
