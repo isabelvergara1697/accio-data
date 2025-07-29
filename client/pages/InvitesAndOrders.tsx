@@ -1034,23 +1034,38 @@ const InvitesAndOrders: React.FC = () => {
                           { icon: "download", label: "Download" },
                           { icon: "information", label: "Information" },
                         ].map((action) => (
-                          <button
-                            key={action.label}
-                            style={{
-                              display: "flex",
-                              minHeight: "36px",
-                              padding: "6px 8px",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              gap: "4px",
-                              borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
-                              background: "#FFF",
-                              boxShadow:
-                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              cursor: "pointer",
-                              position: "relative",
-                            }}
+                          <div key={action.label} style={{ position: "relative" }}>
+                            <button
+                              onClick={() => {
+                                if (action.icon === "download") {
+                                  setShowDownloadDropdown(!showDownloadDropdown);
+                                } else {
+                                  console.log(`${action.label} clicked`);
+                                }
+                              }}
+                              onMouseEnter={() => setHoveredButton(action.icon)}
+                              onMouseLeave={() => setHoveredButton(null)}
+                              style={{
+                                display: "flex",
+                                minHeight: "36px",
+                                padding: "6px 8px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                gap: "4px",
+                                borderRadius: "8px",
+                                border: hoveredButton === action.icon
+                                  ? "1px solid #007AFF"
+                                  : "1px solid #D5D7DA",
+                                background: hoveredButton === action.icon
+                                  ? "#F0F8FF"
+                                  : "#FFF",
+                                boxShadow: hoveredButton === action.icon
+                                  ? "0 0 0 1px rgba(0, 122, 255, 0.3) inset, 0 -2px 0 0 rgba(0, 122, 255, 0.1) inset, 0 1px 2px 0 rgba(0, 122, 255, 0.1)"
+                                  : "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                cursor: "pointer",
+                                position: "relative",
+                                transition: "all 0.2s ease",
+                              }}
                           >
                             {action.icon === "filters" && (
                               <svg
@@ -1178,7 +1193,92 @@ const InvitesAndOrders: React.FC = () => {
                               </div>
                             </div>
                           </button>
-                        ))}
+                          {action.icon === "download" && showDownloadDropdown && (
+                            <div
+                              ref={downloadDropdownRef}
+                              style={{
+                                position: "absolute",
+                                top: "calc(100% + 8px)",
+                                left: "0",
+                                background: "#FFF",
+                                border: "1px solid #E9EAEB",
+                                borderRadius: "8px",
+                                boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)",
+                                zIndex: 1000,
+                                minWidth: "200px",
+                                padding: "8px 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  padding: "8px 16px",
+                                  cursor: "pointer",
+                                  color: "#414651",
+                                  fontSize: "14px",
+                                  fontFamily: "Public Sans",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.backgroundColor = "#F5F5F5";
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.backgroundColor = "transparent";
+                                }}
+                                onClick={() => {
+                                  console.log("Download CSV");
+                                  setShowDownloadDropdown(false);
+                                }}
+                              >
+                                Download as CSV
+                              </div>
+                              <div
+                                style={{
+                                  padding: "8px 16px",
+                                  cursor: "pointer",
+                                  color: "#414651",
+                                  fontSize: "14px",
+                                  fontFamily: "Public Sans",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.backgroundColor = "#F5F5F5";
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.backgroundColor = "transparent";
+                                }}
+                                onClick={() => {
+                                  console.log("Download Excel");
+                                  setShowDownloadDropdown(false);
+                                }}
+                              >
+                                Download as Excel
+                              </div>
+                              <div
+                                style={{
+                                  padding: "8px 16px",
+                                  cursor: "pointer",
+                                  color: "#414651",
+                                  fontSize: "14px",
+                                  fontFamily: "Public Sans",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.backgroundColor = "#F5F5F5";
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.backgroundColor = "transparent";
+                                }}
+                                onClick={() => {
+                                  console.log("Download PDF");
+                                  setShowDownloadDropdown(false);
+                                }}
+                              >
+                                Download as PDF
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        ))})
                       </div>
                     </div>
                   </div>
