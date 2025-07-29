@@ -1703,21 +1703,21 @@ const InvitesAndOrders: React.FC = () => {
                                 gap: "4px",
                                 flex: "1 0 0",
                                 position: "relative",
+                                cursor: "pointer",
                               }}
+                              onClick={() => handleSort("completion")}
                             >
                               <div
                                 style={{
                                   flex: "1 0 0",
-                                  color: "#717680",
+                                  color: sortField === "completion" ? "#34479A" : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
                                   fontWeight: 600,
                                   lineHeight: "18px",
                                   position: "relative",
-                                  cursor: "pointer",
                                 }}
-                                onClick={() => handleSort("completion")}
                               >
                                 <span
                                   style={{
@@ -1725,27 +1725,73 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: "rgba(113,118,128,1)",
+                                    color: sortField === "completion" ? "#34479A" : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   Completed
                                 </span>
                               </div>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
+                              {sortField === "completion" && sortDirection === "asc" ? (
+                                <svg
+                                  width="10"
+                                  height="6"
+                                  viewBox="0 0 10 6"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  style={{
+                                    position: "absolute",
+                                    right: "-14px",
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                  }}
+                                >
+                                  <path
+                                    d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                    stroke="#34479A"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              ) : sortField === "completion" && sortDirection === "desc" ? (
+                                <svg
+                                  width="10"
+                                  height="6"
+                                  viewBox="0 0 10 6"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  style={{
+                                    position: "absolute",
+                                    right: "-14px",
+                                    top: "50%",
+                                    transform: "translateY(-50%) rotate(180deg)",
+                                  }}
+                                >
+                                  <path
+                                    d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                    stroke="#34479A"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              ) : (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
                             </div>
                           </div>
 
@@ -1775,7 +1821,7 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: "#717680",
+                                  color: sortField === "lastEmail" ? "#34479A" : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -1790,27 +1836,73 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: "rgba(113,118,128,1)",
+                                    color: sortField === "lastEmail" ? "#34479A" : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   Last Email
                                 </span>
                               </div>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
+                              {sortField === "lastEmail" && sortDirection === "asc" ? (
+                                <svg
+                                  width="10"
+                                  height="6"
+                                  viewBox="0 0 10 6"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  style={{
+                                    position: "absolute",
+                                    right: "-14px",
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                  }}
+                                >
+                                  <path
+                                    d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                    stroke="#34479A"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              ) : sortField === "lastEmail" && sortDirection === "desc" ? (
+                                <svg
+                                  width="10"
+                                  height="6"
+                                  viewBox="0 0 10 6"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  style={{
+                                    position: "absolute",
+                                    right: "-14px",
+                                    top: "50%",
+                                    transform: "translateY(-50%) rotate(180deg)",
+                                  }}
+                                >
+                                  <path
+                                    d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                    stroke="#34479A"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              ) : (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
                             </div>
                           </div>
 
