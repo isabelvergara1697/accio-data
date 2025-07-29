@@ -2795,9 +2795,11 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
+                                minWidth: 0,
                               }}
                             >
-                              <div
+                              <TruncatedText
+                                text={invite.lastEmail}
                                 style={{
                                   color: "#181D27",
                                   fontFamily: "Public Sans",
@@ -2805,21 +2807,8 @@ const InvitesAndOrders: React.FC = () => {
                                   fontStyle: "normal",
                                   fontWeight: 500,
                                   lineHeight: "20px",
-                                  position: "relative",
                                 }}
-                              >
-                                <span
-                                  style={{
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 400,
-                                    fontSize: "14px",
-                                    color: "rgba(24,29,39,1)",
-                                  }}
-                                >
-                                  {invite.lastEmail}
-                                </span>
-                              </div>
+                              />
                             </div>
 
                             {/* I-9 Filled Cell */}
