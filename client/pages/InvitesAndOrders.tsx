@@ -1880,13 +1880,12 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "82px",
+                                width: "118px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
-                                overflow: "hidden",
                                 minWidth: 0,
                               }}
                             >
