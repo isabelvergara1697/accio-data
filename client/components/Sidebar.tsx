@@ -616,6 +616,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         }}
       >
         <div
+          className={allExpanded && isDesktop && !isCollapsed ? "sidebar-scroll" : ""}
           style={{
             display: "flex",
             paddingTop: "16px",
