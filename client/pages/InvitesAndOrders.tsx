@@ -1403,7 +1403,9 @@ const InvitesAndOrders: React.FC = () => {
                                   fontWeight: 600,
                                   lineHeight: "18px",
                                   position: "relative",
+                                  cursor: "pointer",
                                 }}
+                                onClick={() => handleSort('completion')}
                               >
                                 <span
                                   style={{
