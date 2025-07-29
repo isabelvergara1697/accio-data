@@ -47,8 +47,9 @@ const App = () => (
 
 const container = document.getElementById("root")!;
 
-// Check if root already exists to prevent the warning
-if (!container._reactRootContainer) {
+// Prevent double root creation during development hot reloads
+if (!container.hasAttribute('data-react-root')) {
+  container.setAttribute('data-react-root', 'true');
   const root = createRoot(container);
   root.render(<App />);
 }
