@@ -1332,29 +1332,29 @@ const InvitesAndOrders: React.FC = () => {
                                             <svg
                                               style={{
                                                 position: "absolute",
-                                                left: "-5px",
-                                                top: "8px",
+                                                left: "-3px",
+                                                top: "10px",
                                                 width: "26px",
-                                                height: "16px",
+                                                height: "12px",
                                               }}
                                               width="26"
-                                              height="16"
-                                              viewBox="0 0 26 16"
+                                              height="12"
+                                              viewBox="0 0 26 12"
                                               fill="none"
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
                                               <rect
                                                 width="26"
-                                                height="16"
+                                                height="12"
                                                 rx="2"
                                                 fill="#079455"
                                               />
                                               <text
                                                 x="13"
-                                                y="11.5"
+                                                y="8.5"
                                                 textAnchor="middle"
                                                 fill="#FFFFFF"
-                                                fontSize="10"
+                                                fontSize="9"
                                                 fontFamily="Inter, -apple-system, Roboto, Helvetica, sans-serif"
                                                 fontWeight="700"
                                               >
