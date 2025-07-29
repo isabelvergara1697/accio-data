@@ -759,7 +759,7 @@ const InvitesAndOrders: React.FC = () => {
                   <div
                     style={{
                       display: "flex",
-                      padding: "16px 16px 12px 16px",
+                      padding: "16px 16px 0 16px",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       gap: "16px",
@@ -1004,6 +1004,7 @@ const InvitesAndOrders: React.FC = () => {
                       height: "1px",
                       alignSelf: "stretch",
                       background: "#E9EAEB",
+                      margin: "16px 0 0 0",
                     }}
                   />
 
@@ -1011,7 +1012,7 @@ const InvitesAndOrders: React.FC = () => {
                   <div
                     style={{
                       display: "flex",
-                      padding: "12px 16px 16px 16px",
+                      padding: "0 16px 16px 16px",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
