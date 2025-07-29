@@ -1693,7 +1693,7 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <Checkbox
                                 checked={selectedItems.includes(invite.id)}
-                                onCheckedChange={() => handleSelectItem(invite.id)}
+                                onCheckedChange={handleSelectItem(invite.id)}
                                 className="h-4 w-4 rounded border border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-[#344698] data-[state=checked]:text-white"
                               />
                             </div>
