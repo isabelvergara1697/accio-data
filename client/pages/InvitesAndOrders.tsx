@@ -128,7 +128,7 @@ const InvitesAndOrders: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
   const [sortField, setSortField] = useState<keyof InviteData | null>(null);
-  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc" | null>(null);
   const [hoveredRowId, setHoveredRowId] = useState<string | null>(null);
 
   // Window resize handler
@@ -525,7 +525,12 @@ const InvitesAndOrders: React.FC = () => {
 
   const handleSort = (field: keyof InviteData) => {
     if (sortField === field) {
-      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+      if (sortDirection === "asc") {
+        setSortDirection("desc");
+      } else if (sortDirection === "desc") {
+        setSortField(null);
+        setSortDirection(null);
+      }
     } else {
       setSortField(field);
       setSortDirection("asc");
@@ -533,7 +538,7 @@ const InvitesAndOrders: React.FC = () => {
   };
 
   const sortedData = React.useMemo(() => {
-    if (!sortField) return invitesData;
+    if (!sortField || !sortDirection) return invitesData;
 
     return [...invitesData].sort((a, b) => {
       const aValue = a[sortField];
@@ -907,7 +912,7 @@ const InvitesAndOrders: React.FC = () => {
                     flexDirection: "column",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
-                    borderRadius: "12px 12px 0 0",
+                    borderRadius: "12px",
                     border: "1px solid #E9EAEB",
                     background: "#FFF",
                     position: "relative",
@@ -1237,7 +1242,7 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "118px",
+                              width: "150px",
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
@@ -1259,7 +1264,7 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: "#717680",
+                                  color: sortField === "status" ? "#34479A" : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -1274,27 +1279,73 @@ const InvitesAndOrders: React.FC = () => {
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
-                                    color: "rgba(113,118,128,1)",
+                                    color: sortField === "status" ? "#34479A" : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   Status
                                 </span>
                               </div>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
+                              {sortField === "status" && sortDirection === "asc" ? (
+                                <svg
+                                  width="10"
+                                  height="6"
+                                  viewBox="0 0 10 6"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  style={{
+                                    position: "absolute",
+                                    right: "-14px",
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                  }}
+                                >
+                                  <path
+                                    d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                    stroke="#34479A"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              ) : sortField === "status" && sortDirection === "desc" ? (
+                                <svg
+                                  width="10"
+                                  height="6"
+                                  viewBox="0 0 10 6"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  style={{
+                                    position: "absolute",
+                                    right: "-14px",
+                                    top: "50%",
+                                    transform: "translateY(-50%) rotate(180deg)",
+                                  }}
+                                >
+                                  <path
+                                    d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                    stroke="#34479A"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              ) : (
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              )}
                             </div>
                           </div>
 
@@ -1877,7 +1928,7 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "118px",
+                                width: "150px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
