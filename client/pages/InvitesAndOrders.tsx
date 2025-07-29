@@ -310,6 +310,9 @@ const InvitesAndOrders: React.FC = () => {
 
     const colors = colorMap[config.color as keyof typeof colorMap];
 
+    // Badge with flex: 1 for longer statuses like "Waiting for Recruitee" and "Expires Today"
+    const needsFlexGrow = status === "waiting-for-recruitee" || status === "expires-today";
+
     const badgeElement = (
       <div
         style={{
@@ -320,24 +323,27 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
+          flex: needsFlexGrow ? "1 0 0" : "initial",
           maxWidth: "100%",
-          width: "100%",
+          minWidth: 0,
         }}
       >
         <div
           style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 1,
+            flex: "1 0 0",
+            overflow: "hidden",
             color: colors.text,
             textAlign: "center",
+            textOverflow: "ellipsis",
             fontFamily: "Public Sans",
             fontSize: "12px",
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
             position: "relative",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-            width: "100%",
           }}
         >
           <span
@@ -1248,9 +1254,7 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 position: "relative",
-                                cursor: "pointer",
                               }}
-                              onClick={() => handleSort("status")}
                             >
                               <div
                                 style={{
@@ -1275,21 +1279,87 @@ const InvitesAndOrders: React.FC = () => {
                                   Status
                                 </span>
                               </div>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  gap: "1px",
+                                }}
                               >
-                                <path
-                                  d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
-                                  stroke={sortField === "status" && sortDirection === "asc" ? "#34479A" : sortField === "status" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
+                                <button
+                                  onClick={() => {
+                                    if (sortField === "status" && sortDirection === "asc") {
+                                      setSortField(null);
+                                      setSortDirection(null);
+                                    } else {
+                                      setSortField("status");
+                                      setSortDirection("asc");
+                                    }
+                                  }}
+                                  style={{
+                                    background: "none",
+                                    border: "none",
+                                    padding: 0,
+                                    cursor: "pointer",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="10"
+                                    height="6"
+                                    viewBox="0 0 10 6"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                      stroke={sortField === "status" && sortDirection === "asc" ? "#34479A" : "#A4A7AE"}
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    if (sortField === "status" && sortDirection === "desc") {
+                                      setSortField(null);
+                                      setSortDirection(null);
+                                    } else {
+                                      setSortField("status");
+                                      setSortDirection("desc");
+                                    }
+                                  }}
+                                  style={{
+                                    background: "none",
+                                    border: "none",
+                                    padding: 0,
+                                    cursor: "pointer",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="10"
+                                    height="6"
+                                    viewBox="0 0 10 6"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    style={{ transform: "rotate(180deg)" }}
+                                  >
+                                    <path
+                                      d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                      stroke={sortField === "status" && sortDirection === "desc" ? "#34479A" : "#A4A7AE"}
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
                             </div>
                           </div>
 
