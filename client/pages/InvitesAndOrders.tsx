@@ -1265,12 +1265,19 @@ const InvitesAndOrders: React.FC = () => {
                                         alignSelf: "stretch",
                                         cursor: "pointer",
                                       }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.querySelector('.content').style.backgroundColor = "#F5F5F5";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.querySelector('.content').style.backgroundColor = "transparent";
+                                      }}
                                       onClick={() => {
                                         console.log("Download XLSX");
                                         setShowDownloadDropdown(false);
                                       }}
                                     >
                                       <div
+                                        className="content"
                                         style={{
                                           display: "flex",
                                           padding: "6px 6px",
@@ -1278,6 +1285,7 @@ const InvitesAndOrders: React.FC = () => {
                                           gap: "12px",
                                           flex: "1 0 0",
                                           borderRadius: "6px",
+                                          transition: "background-color 0.2s ease",
                                         }}
                                       >
                                         <div
