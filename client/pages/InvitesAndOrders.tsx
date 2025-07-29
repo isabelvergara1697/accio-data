@@ -2315,6 +2315,7 @@ const InvitesAndOrders: React.FC = () => {
                                       sortField === "i9Filled"
                                         ? "#34479A"
                                         : "rgba(113,118,128,1)",
+                                    whiteSpace: "nowrap",
                                   }}
                                 >
                                   I-9 Filled
