@@ -48,8 +48,8 @@ const App = () => (
 const container = document.getElementById("root")!;
 
 // Prevent double root creation during development hot reloads
-if (!container.hasAttribute('data-react-root')) {
-  container.setAttribute('data-react-root', 'true');
+if (!container.hasAttribute("data-react-root")) {
+  container.setAttribute("data-react-root", "true");
   const root = createRoot(container);
   root.render(<App />);
 }
