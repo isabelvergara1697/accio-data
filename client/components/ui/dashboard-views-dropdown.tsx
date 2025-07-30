@@ -688,12 +688,13 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                     padding: "6px 8px",
                     alignItems: "center",
                     gap: "8px",
-                    alignSelf: "stretch",
                     flex: "1 0 0",
                     borderRadius: "8px",
                     border: "2px solid #34479A",
                     background: "#FFF",
                     boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+                    minWidth: 0,
+                    maxWidth: "100%",
                   }}
                 >
                   <input
@@ -702,7 +703,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                     value={dashboardName}
                     onChange={(e) => setDashboardName(e.target.value)}
                     onKeyDown={handleKeyPress}
-                    placeholder="Dashboard name"
+                    placeholder="Dashboard view name"
                     style={{
                       flex: "1 0 0",
                       overflow: "hidden",
@@ -715,6 +716,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
                       border: "none",
                       outline: "none",
                       background: "transparent",
+                      minWidth: 0,
                     }}
                   />
                   {/* Check Button */}
