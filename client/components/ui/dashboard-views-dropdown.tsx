@@ -90,7 +90,7 @@ export const DashboardViewsDropdown: React.FC<DashboardViewsDropdownProps> = ({
     } else {
       // Show input field
       setShowNameInput(true);
-      setDashboardName("My Dashboard");
+      setDashboardName("");
     }
   };
 
