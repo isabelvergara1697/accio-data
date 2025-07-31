@@ -121,7 +121,7 @@ const InvitesAndOrders: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState<"invites" | "orders" | "hired">(
+  const [activeTab, setActiveTab] = useState<"invites" | "orders">(
     "invites",
   );
   const [currentPage, setCurrentPage] = useState(1);
