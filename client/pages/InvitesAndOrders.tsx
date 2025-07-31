@@ -146,15 +146,9 @@ const InvitesAndOrders: React.FC = () => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      const desktop = width >= 1024;
-      const mobile = width < 768;
-      const tablet = width >= 768 && width < 1024;
-
-      console.log('Breakpoint debug:', { width, desktop, mobile, tablet });
-
-      setIsDesktop(desktop);
-      setIsMobile(mobile);
-      setIsTablet(tablet);
+      setIsDesktop(width >= 1024);
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 1024);
     };
 
     // Call immediately on mount to set initial values
