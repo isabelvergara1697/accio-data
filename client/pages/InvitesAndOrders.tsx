@@ -1715,7 +1715,6 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 minWidth: "88px",
                                 flexShrink: 0,
-
                               }}
                             >
                               {/* Table View Button */}
