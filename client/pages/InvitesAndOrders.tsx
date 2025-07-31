@@ -944,6 +944,7 @@ const InvitesAndOrders: React.FC = () => {
                     width: "100%",
                     maxWidth: "100%",
                     boxSizing: "border-box",
+                    overflow: "hidden",
                   }}
                 >
                   {/* Table Header */}
