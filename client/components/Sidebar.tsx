@@ -596,7 +596,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             ? "75vw"
             : "296px",
         height: "100vh",
-        padding: isDesktop
+        padding: isDesktop || (window.innerWidth >= 768 && window.innerWidth < 1024)
           ? "8px 0px 24px 8px"
           : mobileMenuOpen
             ? "0px"
