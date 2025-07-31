@@ -633,6 +633,53 @@ const InvitesAndOrders: React.FC = () => {
     });
   }, [invitesData, sortField, sortDirection]);
 
+  // Pagination constants
+  const pageSize = 10;
+  const totalPages = Math.ceil(sortedData.length / pageSize);
+
+  // Paginated data
+  const paginatedData = React.useMemo(() => {
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    return sortedData.slice(startIndex, endIndex);
+  }, [sortedData, currentPage]);
+
+  // Generate page numbers for pagination
+  const getPageNumbers = () => {
+    const pages: (number | string)[] = [];
+    const maxVisible = 5;
+    const halfVisible = Math.floor(maxVisible / 2);
+
+    if (totalPages <= maxVisible) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      let start = Math.max(1, currentPage - halfVisible);
+      let end = Math.min(totalPages, start + maxVisible - 1);
+
+      if (end - start < maxVisible - 1) {
+        start = Math.max(1, end - maxVisible + 1);
+      }
+
+      if (start > 1) {
+        pages.push(1);
+        if (start > 2) pages.push("...");
+      }
+
+      for (let i = start; i <= end; i++) {
+        pages.push(i);
+      }
+
+      if (end < totalPages) {
+        if (end < totalPages - 1) pages.push("...");
+        pages.push(totalPages);
+      }
+    }
+
+    return pages;
+  };
+
   return (
     <div
       style={{
