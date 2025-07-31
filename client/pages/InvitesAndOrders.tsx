@@ -956,6 +956,9 @@ const InvitesAndOrders: React.FC = () => {
                   flex: "1 0 0",
                   alignSelf: "stretch",
                   position: "relative",
+                  maxWidth: "100%",
+                  overflow: "hidden",
+                  boxSizing: "border-box",
                 }}
               >
                 <div
