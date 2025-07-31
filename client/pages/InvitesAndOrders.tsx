@@ -149,7 +149,6 @@ const InvitesAndOrders: React.FC = () => {
       setIsDesktop(width >= 1024);
       setIsMobile(width < 768);
       setIsTablet(width >= 768 && width < 1024);
-      setIsDesktop(width >= 1024);
     };
 
     window.addEventListener("resize", handleResize);
