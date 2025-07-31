@@ -995,7 +995,6 @@ const InvitesAndOrders: React.FC = () => {
                         flexDirection: isDesktop ? "row" : "column",
                         gap: "16px",
                         alignItems: isDesktop ? "center" : "flex-start",
-                        justifyContent: isDesktop ? "space-between" : "flex-start",
                         alignSelf: "stretch",
                         position: "relative",
                         width: "100%",
@@ -1006,40 +1005,60 @@ const InvitesAndOrders: React.FC = () => {
                     >
                       {isDesktop ? (
                         <>
-                          {/* Desktop: Title */}
+                          {/* Desktop: Title - Left aligned */}
                           <div
                             style={{
                               display: "flex",
-                              flexDirection: "column",
-                              justifyContent: "center",
                               alignItems: "flex-start",
-                              gap: "2px",
-                              flex: "0 0 auto",
+                              gap: "4px",
+                              flex: "1 0 0",
                               position: "relative",
                             }}
                           >
                             <div
                               style={{
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "18px",
-                                fontStyle: "normal",
-                                fontWeight: 600,
-                                lineHeight: "28px",
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "flex-start",
+                                gap: "2px",
+                                flex: "1 0 0",
                                 position: "relative",
                               }}
                             >
-                              <span
+                              <div
                                 style={{
-                                  fontFamily:
-                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 600,
-                                  fontSize: "18px",
-                                  color: "rgba(24,29,39,1)",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
                                 }}
                               >
-                                Invites
-                              </span>
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "18px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "28px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "18px",
+                                      color: "rgba(24,29,39,1)",
+                                    }}
+                                  >
+                                    Invites
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                           </div>
 
