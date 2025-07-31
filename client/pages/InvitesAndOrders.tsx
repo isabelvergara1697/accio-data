@@ -1225,7 +1225,10 @@ const InvitesAndOrders: React.FC = () => {
                           alignSelf: "stretch",
                           position: "relative",
                           flexWrap: isMobile ? "wrap" : "nowrap",
+                          width: "100%",
                           maxWidth: "100%",
+                          overflow: "hidden",
+                          boxSizing: "border-box",
                         }}
                       >
                         {/* Filters Button */}
