@@ -546,12 +546,14 @@ export default function InformationDrawer({
                   </div>
                   <div
                     style={{
+                      width: "74px",
                       color: "#414651",
                       fontFamily: "Public Sans",
                       fontSize: "12px",
                       fontStyle: "normal",
                       fontWeight: 400,
                       lineHeight: "18px",
+                      textAlign: "right",
                     }}
                   >
                     {row.csvLetter}
