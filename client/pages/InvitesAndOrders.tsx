@@ -3866,9 +3866,9 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: isMobile ? "60px" : "40px",
-                              height: isMobile ? "44px" : "36px",
-                              padding: isMobile ? "8px 12px" : "6px 12px",
+                              width: isMobile ? "60px" : isTablet ? "50px" : "40px",
+                              height: isMobile ? "44px" : isTablet ? "40px" : "36px",
+                              padding: isMobile ? "8px 12px" : isTablet ? "7px 12px" : "6px 12px",
                               justifyContent: "center",
                               alignItems: "center",
                               gap: "12px",
@@ -5057,9 +5057,9 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: isMobile ? "60px" : "40px",
-                                height: isMobile ? "60px" : "52px",
-                                padding: isMobile ? "12px" : "12px",
+                                width: isMobile ? "60px" : isTablet ? "50px" : "40px",
+                                height: isMobile ? "60px" : isTablet ? "56px" : "52px",
+                                padding: isMobile ? "12px" : isTablet ? "14px 12px" : "12px",
                                 justifyContent: "center",
                                 alignItems: "center",
                                 gap: "12px",
