@@ -1422,7 +1422,9 @@ const InvitesAndOrders: React.FC = () => {
                             borderRadius: "8px",
                             background: hoveredButton === "information" ? "#F5F5F5" : "transparent",
                             cursor: "pointer",
-                            minWidth: "100px",
+                            width: isTablet ? "auto" : "100px",
+                            minWidth: isTablet ? "85px" : "100px",
+                            flexShrink: 0,
                             transition: "background-color 0.2s ease",
                           }}
                         >
