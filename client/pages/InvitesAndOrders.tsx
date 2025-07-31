@@ -150,14 +150,14 @@ const InvitesAndOrders: React.FC = () => {
       const mobile = width < 768;
       const tablet = width >= 768 && width < 1024;
 
-      console.log('Resize Handler:', { width, desktop, mobile, tablet });
+      console.log("Resize Handler:", { width, desktop, mobile, tablet });
 
       setIsDesktop(desktop);
       setIsMobile(mobile);
       setIsTablet(tablet);
     };
 
-    console.log('UseEffect running, initial window width:', window.innerWidth);
+    console.log("UseEffect running, initial window width:", window.innerWidth);
     // Call immediately on mount to set initial values
     handleResize();
 
