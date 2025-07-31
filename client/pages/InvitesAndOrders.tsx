@@ -1097,8 +1097,8 @@ const InvitesAndOrders: React.FC = () => {
                               onMouseLeave={() => setHoveredButton(null)}
                               style={{
                                 display: "flex",
-                                minHeight: "36px",
-                                padding: "6px 8px",
+                                minHeight: isMobile ? "40px" : "36px",
+                                padding: isMobile ? "8px 12px" : "6px 8px",
                                 justifyContent: "center",
                                 alignItems: "center",
                                 gap: "4px",
@@ -1115,6 +1115,12 @@ const InvitesAndOrders: React.FC = () => {
                                 cursor: "pointer",
                                 position: "relative",
                                 transition: "all 0.2s ease",
+                                ...(isMobile
+                                  ? {
+                                      minWidth: action.label.length > 8 ? "auto" : "80px",
+                                      fontSize: "13px",
+                                    }
+                                  : {}),
                               }}
                             >
                               {action.icon === "filters" && (
