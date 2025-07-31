@@ -588,7 +588,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       }`}
       style={{
         display: "flex",
-        width: isDesktop
+        width: isDesktop || (window.innerWidth >= 768 && window.innerWidth < 1024)
           ? isCollapsed
             ? "80px"
             : "296px"
