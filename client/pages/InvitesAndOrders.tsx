@@ -2453,7 +2453,7 @@ const InvitesAndOrders: React.FC = () => {
                         position: "relative",
                         overflowX: isMobile ? "auto" : "visible",
                         overflowY: "hidden",
-                        ...(isMobile || isTablet
+                        ...(isMobile
                           ? {
                               scrollbarWidth: "thin",
                               scrollbarColor: "#D5D7DA #F9FAFB",
