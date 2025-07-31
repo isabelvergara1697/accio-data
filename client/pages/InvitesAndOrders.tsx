@@ -1830,7 +1830,11 @@ const InvitesAndOrders: React.FC = () => {
                                 boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 padding: "8px",
                                 position: "relative",
-                                minWidth: isMobile ? "180px" : isTablet ? "200px" : "250px",
+                                minWidth: isMobile
+                                  ? "180px"
+                                  : isTablet
+                                    ? "200px"
+                                    : "250px",
                                 maxWidth: "100%",
                               }}
                             >
