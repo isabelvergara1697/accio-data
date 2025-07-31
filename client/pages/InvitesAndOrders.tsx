@@ -164,6 +164,12 @@ const InvitesAndOrders: React.FC = () => {
       ) {
         setShowDownloadDropdown(false);
       }
+      if (
+        actionMenuRef.current &&
+        !actionMenuRef.current.contains(event.target as Node)
+      ) {
+        setShowActionMenu(null);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
