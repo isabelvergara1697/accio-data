@@ -692,7 +692,9 @@ const InvitesAndOrders: React.FC = () => {
           style={{
             marginTop: isDesktop ? "80px" : "64px",
             display: "flex",
-            paddingBottom: "24px",
+            padding: isMobile
+              ? "0 16px 24px 16px"
+              : "0 32px 24px 32px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "24px",
@@ -701,6 +703,9 @@ const InvitesAndOrders: React.FC = () => {
             borderRadius: "40px 0 0 0",
             background: "#FAFAFA",
             position: "relative",
+            boxSizing: "border-box",
+            width: "100%",
+            maxWidth: "100%",
           }}
         >
           {/* Header section */}
