@@ -121,9 +121,7 @@ const InvitesAndOrders: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState<"invites" | "orders">(
-    "invites",
-  );
+  const [activeTab, setActiveTab] = useState<"invites" | "orders">("invites");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
@@ -1110,17 +1108,20 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 borderRadius: "8px",
-                                border: action.icon === "information" ? "none" : "1px solid #D5D7DA",
+                                border:
+                                  action.icon === "information"
+                                    ? "none"
+                                    : "1px solid #D5D7DA",
                                 background:
                                   action.icon === "information"
                                     ? hoveredButton === action.icon
                                       ? "#F5F5F5"
                                       : "transparent"
                                     : hoveredButton === action.icon ||
-                                      (action.icon === "download" &&
-                                        showDownloadDropdown)
-                                    ? "#FDFDFD"
-                                    : "#FFF",
+                                        (action.icon === "download" &&
+                                          showDownloadDropdown)
+                                      ? "#FDFDFD"
+                                      : "#FFF",
                                 boxShadow:
                                   action.icon === "information"
                                     ? "none"
@@ -1257,7 +1258,10 @@ const InvitesAndOrders: React.FC = () => {
                                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                       fontWeight: 600,
                                       fontSize: "14px",
-                                      color: action.icon === "information" ? "rgba(83,88,98,1)" : "rgba(65,70,81,1)",
+                                      color:
+                                        action.icon === "information"
+                                          ? "rgba(83,88,98,1)"
+                                          : "rgba(65,70,81,1)",
                                     }}
                                   >
                                     {action.label}
