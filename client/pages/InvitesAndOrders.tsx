@@ -995,9 +995,11 @@ const InvitesAndOrders: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: (isDesktop && !isTablet) ? "row" : "column",
+                        flexDirection:
+                          isDesktop && !isTablet ? "row" : "column",
                         gap: "16px",
-                        alignItems: (isDesktop && !isTablet) ? "center" : "flex-start",
+                        alignItems:
+                          isDesktop && !isTablet ? "center" : "flex-start",
                         alignSelf: "stretch",
                         position: "relative",
                         width: "100%",
@@ -1006,7 +1008,7 @@ const InvitesAndOrders: React.FC = () => {
                         boxSizing: "border-box",
                       }}
                     >
-                      {(isDesktop && !isTablet) ? (
+                      {isDesktop && !isTablet ? (
                         <>
                           {/* Desktop: Title - Left aligned */}
                           <div
@@ -1815,7 +1817,8 @@ const InvitesAndOrders: React.FC = () => {
                               gap: isMobile ? "8px" : "12px",
                               alignSelf: "stretch",
                               position: "relative",
-                              flexWrap: (isMobile || isTablet) ? "wrap" : "nowrap",
+                              flexWrap:
+                                isMobile || isTablet ? "wrap" : "nowrap",
                               width: "100%",
                               maxWidth: "100%",
                               overflow: "visible",
