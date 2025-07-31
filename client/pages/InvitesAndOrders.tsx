@@ -1612,6 +1612,13 @@ const InvitesAndOrders: React.FC = () => {
                         position: "relative",
                         overflowX: isMobile || isTablet ? "auto" : "visible",
                         overflowY: "hidden",
+                        ...(isMobile || isTablet
+                          ? {
+                              scrollbarWidth: "thin",
+                              scrollbarColor: "#D5D7DA #F9FAFB",
+                              WebkitOverflowScrolling: "touch",
+                            }
+                          : {}),
                       }}
                     >
                       {/* Table Container */}
