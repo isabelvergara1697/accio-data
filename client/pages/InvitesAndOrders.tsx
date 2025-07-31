@@ -2451,7 +2451,7 @@ const InvitesAndOrders: React.FC = () => {
                         alignItems: "flex-start",
                         alignSelf: "stretch",
                         position: "relative",
-                        overflowX: isMobile || isTablet ? "auto" : "visible",
+                        overflowX: isMobile ? "auto" : "visible",
                         overflowY: "hidden",
                         ...(isMobile || isTablet
                           ? {
