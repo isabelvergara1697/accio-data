@@ -703,6 +703,322 @@ const InvitesAndOrders: React.FC = () => {
             position: "relative",
           }}
         >
+          {/* Tablet Header - Show only on tablet */}
+          {isTablet && (
+            <div
+              style={{
+                display: "flex",
+                padding: "32px 32px 0",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              {/* Row 1: Title + View Toggle */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                {/* Title */}
+                <div
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                    position: "relative",
+                  }}
+                >
+                  Invites
+                </div>
+
+                {/* View Toggle */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                    minWidth: "88px",
+                    flexShrink: 0,
+                  }}
+                >
+                  {/* Table View Button */}
+                  <button
+                    onClick={() => setTableView("table")}
+                    style={{
+                      display: "flex",
+                      minHeight: "40px",
+                      padding: "8px 12px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "6px",
+                      borderRight: "1px solid #D5D7DA",
+                      background:
+                        tableView === "table" ? "#ECEEF9" : "#FFF",
+                      borderTopLeftRadius: "8px",
+                      borderBottomLeftRadius: "8px",
+                      cursor: "pointer",
+                      position: "relative",
+                      border: "none",
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 9L21 9M9 3L9 21M7.8 3H16.2C17.8802 3 18.7202 3 19.362 3.32698C19.9265 3.6146 20.3854 4.07354 20.673 4.63803C21 5.27976 21 6.11984 21 7.8V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V7.8C3 6.11984 3 5.27976 3.32698 4.63803C3.6146 4.07354 4.07354 3.6146 4.63803 3.32698C5.27976 3 6.11984 3 7.8 3Z"
+                        stroke={
+                          tableView === "table"
+                            ? "#6366F1"
+                            : "#A4A7AE"
+                        }
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Rows View Button */}
+                  <button
+                    onClick={() => setTableView("rows")}
+                    style={{
+                      display: "flex",
+                      minHeight: "40px",
+                      padding: "8px 12px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "6px",
+                      background:
+                        tableView === "rows" ? "#ECEEF9" : "#FFF",
+                      borderTopRightRadius: "8px",
+                      borderBottomRightRadius: "8px",
+                      cursor: "pointer",
+                      position: "relative",
+                      border: "none",
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 12L21 12M3 6L21 6M3 18L21 18"
+                        stroke={
+                          tableView === "rows"
+                            ? "#6366F1"
+                            : "#A4A7AE"
+                        }
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* Row 2: Search + Action Buttons */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                  flexWrap: "wrap",
+                }}
+              >
+                {/* Search Input */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    flex: "1 0 0",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    padding: "8px",
+                    position: "relative",
+                    minWidth: "200px",
+                    maxWidth: "100%",
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.33333 12.6667C10.2789 12.6667 12.6667 10.2789 12.6667 7.33333C12.6667 4.38781 10.2789 2 7.33333 2C4.38781 2 2 4.38781 2 7.33333C2 10.2789 4.38781 12.6667 7.33333 12.6667Z"
+                      stroke="#535862"
+                      strokeWidth="1.33333"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M14 14L11.1 11.1"
+                      stroke="#535862"
+                      strokeWidth="1.33333"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Search by Name, SSN, State.."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    style={{
+                      border: "none",
+                      outline: "none",
+                      background: "transparent",
+                      flex: "1",
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                    }}
+                  />
+                </div>
+
+                {/* Action Buttons */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    flexShrink: 0,
+                  }}
+                >
+                  <button
+                    style={{
+                      display: "flex",
+                      minHeight: "40px",
+                      padding: "10px 16px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "8px",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2 8H8M8 8H14M8 8V2M8 8V14"
+                        stroke="#535862"
+                        strokeWidth="1.33333"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Filters
+                  </button>
+
+                  <button
+                    style={{
+                      display: "flex",
+                      minHeight: "40px",
+                      padding: "10px 16px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "8px",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 2L8 8L6 6L2 10"
+                        stroke="#535862"
+                        strokeWidth="1.33333"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Customize
+                  </button>
+
+                  <button
+                    style={{
+                      display: "flex",
+                      minHeight: "40px",
+                      padding: "10px 16px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "8px",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Default
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Header section */}
           <div
             style={{
