@@ -3310,8 +3310,8 @@ const InvitesAndOrders: React.FC = () => {
                           defaultValue="1010"
                           style={{
                             display: "flex",
-                            width: "72px",
-                            padding: "6px 8px",
+                            width: isMobile ? "80px" : "72px",
+                            padding: isMobile ? "8px 12px" : "6px 8px",
                             alignItems: "center",
                             gap: "8px",
                             borderRadius: "8px",
