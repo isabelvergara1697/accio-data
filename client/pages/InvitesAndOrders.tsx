@@ -746,48 +746,14 @@ const InvitesAndOrders: React.FC = () => {
                     position: "relative",
                   }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      minWidth: isMobile ? "auto" : "320px",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: isMobile ? "2px" : "4px",
-                      alignSelf: "stretch",
-                      position: "relative",
-                    }}
-                  >
-                    <h1
-                      className="page-title"
-                      style={{ alignSelf: "stretch", position: "relative" }}
-                    >
+                  <div className="page-title-group">
+                    <h1 className="page-title">
                       Invites & Orders
                     </h1>
-                    <div
-                      style={{
-                        alignSelf: "stretch",
-                        color: "#535862",
-                        fontFamily: "Public Sans",
-                        fontSize: "16px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "24px",
-                        position: "relative",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "16px",
-                          color: "rgba(83,88,98,1)",
-                        }}
-                      >
-                        Track pending invites and submitted orders in one place.
-                        Use filters and tools to sort, review, and manage
-                        activity easily.
-                      </span>
+                    <div className="page-subtitle supporting-text">
+                      Track pending invites and submitted orders in one place.
+                      Use filters and tools to sort, review, and manage
+                      activity easily.
                     </div>
                   </div>
 
