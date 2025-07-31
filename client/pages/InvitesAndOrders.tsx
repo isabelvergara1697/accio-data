@@ -5715,15 +5715,17 @@ const InvitesAndOrders: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: "12px 16px",
+                        padding: isMobile ? "16px" : "12px 16px",
                         justifyContent: "space-between",
                         alignItems: "center",
                         alignSelf: "stretch",
                         borderTop: "1px solid #E9EAEB",
                         position: "relative",
                         background: "#FFF",
-                        minHeight: "48px",
+                        minHeight: isMobile ? "64px" : "48px",
                         borderRadius: "0px 0px 12px 12px",
+                        flexWrap: isMobile ? "wrap" : "nowrap",
+                        gap: isMobile ? "12px" : "0",
                       }}
                     >
                       <div
