@@ -1045,7 +1045,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   fontSize: "18px",
                                   color: "rgba(24,29,39,1)",
                                 }}
@@ -1567,7 +1567,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   lineHeight: "18px",
                                   position: "relative",
                                 }}
@@ -1576,7 +1576,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: isTablet ? 600 : 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "status"
@@ -1718,7 +1718,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   lineHeight: "18px",
                                   position: "relative",
                                 }}
@@ -1727,7 +1727,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: isTablet ? 600 : 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "firstName"
@@ -1869,7 +1869,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   lineHeight: "18px",
                                   position: "relative",
                                 }}
@@ -1878,7 +1878,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: isTablet ? 600 : 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "lastName"
@@ -2020,7 +2020,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   lineHeight: "18px",
                                   position: "relative",
                                 }}
@@ -2029,7 +2029,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: isTablet ? 600 : 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "email"
@@ -2173,7 +2173,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   lineHeight: "18px",
                                   position: "relative",
                                 }}
@@ -2182,7 +2182,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: isTablet ? 600 : 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "completion"
@@ -2324,7 +2324,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   lineHeight: "18px",
                                   position: "relative",
                                 }}
@@ -2333,7 +2333,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: isTablet ? 600 : 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "lastEmail"
@@ -2475,7 +2475,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   lineHeight: "18px",
                                   position: "relative",
                                 }}
@@ -2484,7 +2484,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: isTablet ? 600 : 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "i9Filled"
@@ -2546,7 +2546,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   lineHeight: "18px",
                                   position: "relative",
                                 }}
@@ -2555,7 +2555,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: isTablet ? 600 : 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "activated"
@@ -2615,7 +2615,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
+                                  fontWeight: isTablet ? 600 : 700,
                                   lineHeight: "18px",
                                   position: "relative",
                                 }}
@@ -2624,7 +2624,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
+                                    fontWeight: isTablet ? 600 : 700,
                                     fontSize: "12px",
                                     color:
                                       sortField === "ews"
@@ -3066,7 +3066,7 @@ const InvitesAndOrders: React.FC = () => {
                                                 color: "#414651",
                                                 fontFamily: "Public Sans",
                                                 fontSize: "14px",
-                                                fontWeight: 600,
+                                                fontWeight: isTablet ? 600 : 700,
                                                 lineHeight: "20px",
                                               }}
                                             >
@@ -3153,7 +3153,7 @@ const InvitesAndOrders: React.FC = () => {
                                                 color: "#414651",
                                                 fontFamily: "Public Sans",
                                                 fontSize: "14px",
-                                                fontWeight: 600,
+                                                fontWeight: isTablet ? 600 : 700,
                                                 lineHeight: "20px",
                                               }}
                                             >
@@ -3240,7 +3240,7 @@ const InvitesAndOrders: React.FC = () => {
                                                 color: "#414651",
                                                 fontFamily: "Public Sans",
                                                 fontSize: "14px",
-                                                fontWeight: 600,
+                                                fontWeight: isTablet ? 600 : 700,
                                                 lineHeight: "20px",
                                               }}
                                             >
@@ -3327,7 +3327,7 @@ const InvitesAndOrders: React.FC = () => {
                                                 color: "#414651",
                                                 fontFamily: "Public Sans",
                                                 fontSize: "14px",
-                                                fontWeight: 600,
+                                                fontWeight: isTablet ? 600 : 700,
                                                 lineHeight: "20px",
                                               }}
                                             >
