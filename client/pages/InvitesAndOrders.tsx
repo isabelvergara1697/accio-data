@@ -703,10 +703,10 @@ const InvitesAndOrders: React.FC = () => {
             position: "relative",
           }}
         >
-          {/* Header section */}
+          {/* Header section - Hide on tablet */}
           <div
             style={{
-              display: "flex",
+              display: isTablet ? "none" : "flex",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "24px",
