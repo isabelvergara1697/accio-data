@@ -3182,8 +3182,8 @@ const InvitesAndOrders: React.FC = () => {
                             }
                             style={{
                               display: "flex",
-                              width: "32px",
-                              height: "32px",
+                              width: isMobile ? "40px" : "32px",
+                              height: isMobile ? "40px" : "32px",
                               justifyContent: "center",
                               alignItems: "center",
                               borderRadius: "8px",
