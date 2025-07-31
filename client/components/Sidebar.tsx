@@ -580,7 +580,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside
       className={`transition-all duration-300 ${
-        isDesktop
+        isDesktop || (window.innerWidth >= 768 && window.innerWidth < 1024)
           ? "translate-x-0"
           : mobileMenuOpen
             ? "translate-x-0"
