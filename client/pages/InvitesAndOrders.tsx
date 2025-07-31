@@ -3815,7 +3815,7 @@ const InvitesAndOrders: React.FC = () => {
                   <div
                     style={{
                       display: "flex",
-                      padding: "12px 16px 16px 16px",
+                      padding: "12px 0 0 0",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
