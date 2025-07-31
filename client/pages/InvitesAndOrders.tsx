@@ -752,30 +752,9 @@ const InvitesAndOrders: React.FC = () => {
                       position: "relative",
                     }}
                   >
-                    <div
-                      style={{
-                        alignSelf: "stretch",
-                        color: "#181D27",
-                        fontFamily: "Public Sans",
-                        fontSize: isDesktop ? "24px" : "20px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        lineHeight: isDesktop ? "32px" : "30px",
-                        position: "relative",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 600,
-                          fontSize: isDesktop ? "24px" : "20px",
-                          color: "rgba(24,29,39,1)",
-                        }}
-                      >
-                        Invites & Orders
-                      </span>
-                    </div>
+                    <h1 className="page-title" style={{ alignSelf: "stretch", position: "relative" }}>
+                      Invites & Orders
+                    </h1>
                     <div
                       style={{
                         alignSelf: "stretch",
