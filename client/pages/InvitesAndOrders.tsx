@@ -3240,7 +3240,7 @@ const InvitesAndOrders: React.FC = () => {
                           onMouseLeave={() => setHoveredPaginationButton(null)}
                           style={{
                             display: "flex",
-                            padding: "8px",
+                            padding: isMobile ? "12px" : "8px",
                             justifyContent: "center",
                             alignItems: "center",
                             borderRadius: "8px",
