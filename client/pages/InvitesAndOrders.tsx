@@ -3847,7 +3847,7 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "130px",
+                              width: "118px",
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
@@ -4755,70 +4755,63 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "90px",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
                               position: "relative",
                             }}
                           >
                             <div
                               style={{
                                 display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
                                 alignItems: "center",
-                                gap: "4px",
+                                gap: "12px",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
-                                  color:
-                                    sortField === "i9Filled"
-                                      ? "#34479A"
-                                      : "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
                                   position: "relative",
                                 }}
                               >
-                                <span
+                                <div
                                   style={{
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
-                                    fontSize: "12px",
                                     color:
                                       sortField === "i9Filled"
                                         ? "#34479A"
-                                        : "rgba(113,118,128,1)",
+                                        : "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
                                   }}
                                 >
-                                  I-9 Filled
-                                </span>
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "12px",
+                                      color:
+                                        sortField === "i9Filled"
+                                          ? "#34479A"
+                                          : "rgba(113,118,128,1)",
+                                    }}
+                                  >
+                                    I-9 Filled
+                                  </span>
+                                </div>
                               </div>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                style={{ cursor: "pointer" }}
-                                onClick={() => handleSort("i9Filled")}
-                              >
-                                <path
-                                  d="M4.66666 10L7.99999 13.3334L11.3333 10M4.66666 6.00002L7.99999 2.66669L11.3333 6.00002"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
                             </div>
                           </div>
 
@@ -4826,70 +4819,80 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "80px",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
                               position: "relative",
                             }}
                           >
                             <div
                               style={{
                                 display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
                                 alignItems: "center",
-                                gap: "4px",
+                                gap: "12px",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
-                                  color:
-                                    sortField === "activated"
-                                      ? "#34479A"
-                                      : "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
                                   position: "relative",
                                 }}
                               >
-                                <span
+                                <div
                                   style={{
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
-                                    fontSize: "12px",
                                     color:
                                       sortField === "activated"
                                         ? "#34479A"
-                                        : "rgba(113,118,128,1)",
+                                        : "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
                                   }}
                                 >
-                                  Activate
-                                </span>
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "12px",
+                                      color:
+                                        sortField === "activated"
+                                          ? "#34479A"
+                                          : "rgba(113,118,128,1)",
+                                    }}
+                                  >
+                                    Activate
+                                  </span>
+                                </div>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  style={{ cursor: "pointer" }}
+                                  onClick={() => handleSort("activated")}
+                                >
+                                  <path
+                                    d="M4.66663 10L7.99996 13.3334L11.3333 10M4.66663 6.00002L7.99996 2.66669L11.3333 6.00002"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
                               </div>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                style={{ cursor: "pointer" }}
-                                onClick={() => handleSort("activated")}
-                              >
-                                <path
-                                  d="M4.66663 10L7.99996 13.3334L11.3333 10M4.66663 6.00002L7.99996 2.66669L11.3333 6.00002"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
                             </div>
                           </div>
 
@@ -4897,68 +4900,78 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "60px",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
                               position: "relative",
                             }}
                           >
                             <div
                               style={{
                                 display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
                                 alignItems: "center",
-                                gap: "4px",
+                                gap: "12px",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
-                                  color:
-                                    sortField === "ews" ? "#34479A" : "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
                                   position: "relative",
                                 }}
                               >
-                                <span
+                                <div
                                   style={{
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 600,
-                                    fontSize: "12px",
                                     color:
-                                      sortField === "ews"
-                                        ? "#34479A"
-                                        : "rgba(113,118,128,1)",
+                                      sortField === "ews" ? "#34479A" : "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
                                   }}
                                 >
-                                  EWS
-                                </span>
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "12px",
+                                      color:
+                                        sortField === "ews"
+                                          ? "#34479A"
+                                          : "rgba(113,118,128,1)",
+                                    }}
+                                  >
+                                    EWS
+                                  </span>
+                                </div>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  style={{ cursor: "pointer" }}
+                                  onClick={() => handleSort("ews")}
+                                >
+                                  <path
+                                    d="M4.66663 10L7.99996 13.3334L11.3333 10M4.66663 6.00002L7.99996 2.66669L11.3333 6.00002"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
                               </div>
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                style={{ cursor: "pointer" }}
-                                onClick={() => handleSort("ews")}
-                              >
-                                <path
-                                  d="M4.66663 10L7.99996 13.3334L11.3333 10M4.66663 6.00002L7.99996 2.66669L11.3333 6.00002"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
                             </div>
                           </div>
 
@@ -5022,7 +5035,7 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "130px",
+                                width: "118px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
@@ -5184,11 +5197,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "90px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 gap: "4px",
+                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
@@ -5200,11 +5213,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "80px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 gap: "4px",
+                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
@@ -5216,11 +5229,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "60px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 gap: "4px",
+                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
