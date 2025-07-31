@@ -3840,6 +3840,7 @@ const InvitesAndOrders: React.FC = () => {
                         scrollbarWidth: "thin",
                         scrollbarColor: "#D5D7DA #F9FAFB",
                         WebkitOverflowScrolling: "touch",
+                        padding: "0 16px",
                       }}
                     >
                       {/* Table Content */}
