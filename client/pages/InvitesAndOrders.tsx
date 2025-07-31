@@ -1813,7 +1813,7 @@ const InvitesAndOrders: React.FC = () => {
                               gap: isMobile ? "8px" : "12px",
                               alignSelf: "stretch",
                               position: "relative",
-                              flexWrap: isMobile ? "wrap" : "nowrap",
+                              flexWrap: (isMobile || isTablet) ? "wrap" : "nowrap",
                               width: "100%",
                               maxWidth: "100%",
                               overflow: "visible",
