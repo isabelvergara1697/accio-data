@@ -1621,12 +1621,12 @@ const InvitesAndOrders: React.FC = () => {
                         </>
                       ) : (
                         <>
-                          {/* Tablet/Mobile: Title + View Toggle Row */}
+                          {/* Tablet/Mobile: Title + View Toggle + Search Row */}
                           <div
                             style={{
                               display: "flex",
                               alignItems: "center",
-                              gap: isTablet ? "12px" : "16px",
+                              gap: "10px",
                               alignSelf: "stretch",
                               position: "relative",
                             }}
@@ -1639,7 +1639,6 @@ const InvitesAndOrders: React.FC = () => {
                                 justifyContent: "center",
                                 alignItems: "flex-start",
                                 gap: "2px",
-                                flex: "1 0 0",
                                 position: "relative",
                               }}
                             >
