@@ -1082,7 +1082,7 @@ const InvitesAndOrders: React.FC = () => {
                           { icon: "customize", label: "Customize" },
                           { icon: "views", label: "Views" },
                           { icon: "download", label: "Download" },
-                          { icon: "information", label: "Information" },
+                          { icon: "information", label: "Key Stats" },
                         ].map((action) => (
                           <div
                             key={action.label}
