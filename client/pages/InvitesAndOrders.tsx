@@ -3083,7 +3083,7 @@ const InvitesAndOrders: React.FC = () => {
                                     padding: "4px",
                                     borderRadius: "4px",
                                     transition: "background-color 0.2s ease",
-                                    background: showActionMenu === invite.id ? "#F5F5F5" : "transparent",
+                                    background: showActionMenu === invite.id ? "#FDFDFD" : "transparent",
                                   }}
                                   onClick={(e) => {
                                     e.stopPropagation();
