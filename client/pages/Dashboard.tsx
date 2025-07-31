@@ -1389,7 +1389,10 @@ export default function Dashboard() {
                             }),
                       }}
                     >
-                      <h1 className="page-title" style={{ alignSelf: "stretch" }}>
+                      <h1
+                        className="page-title"
+                        style={{ alignSelf: "stretch" }}
+                      >
                         Dashboard
                       </h1>
                       <div

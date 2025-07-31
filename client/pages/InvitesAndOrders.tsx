@@ -752,7 +752,10 @@ const InvitesAndOrders: React.FC = () => {
                       position: "relative",
                     }}
                   >
-                    <h1 className="page-title" style={{ alignSelf: "stretch", position: "relative" }}>
+                    <h1
+                      className="page-title"
+                      style={{ alignSelf: "stretch", position: "relative" }}
+                    >
                       Invites & Orders
                     </h1>
                     <div

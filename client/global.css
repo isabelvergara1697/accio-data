@@ -288,9 +288,14 @@
   /* Global page title responsive styling */
   .page-title,
   h1.page-title {
-    font-family: "Public Sans", -apple-system, Roboto, Helvetica, sans-serif;
+    font-family:
+      "Public Sans",
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
     font-weight: 600;
-    color: #181D27;
+    color: #181d27;
 
     /* Desktop styles (default) */
     font-size: 24px;
