@@ -533,7 +533,7 @@ export default function InformationDrawer({
                   </div>
                   <div
                     style={{
-                      width: "203px",
+                      width: "146px",
                       color: "#414651",
                       fontFamily: "Public Sans",
                       fontSize: "12px",
