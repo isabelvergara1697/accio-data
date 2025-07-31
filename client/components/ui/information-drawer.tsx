@@ -226,7 +226,6 @@ export default function InformationDrawer({
               <div
                 style={{
                   display: "flex",
-                  justifyContent: "space-between",
                   alignItems: "center",
                   alignSelf: "stretch",
                 }}
