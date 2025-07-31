@@ -5947,8 +5947,16 @@ const InvitesAndOrders: React.FC = () => {
                           </span>
                         </div>
                         <input
-                          type="text"
-                          defaultValue="1010"
+                          type="number"
+                          value={currentPage}
+                          onChange={(e) => {
+                            const page = parseInt(e.target.value);
+                            if (page >= 1 && page <= totalPages) {
+                              setCurrentPage(page);
+                            }
+                          }}
+                          min={1}
+                          max={totalPages}
                           style={{
                             display: "flex",
                             width: isMobile ? "80px" : "72px",
