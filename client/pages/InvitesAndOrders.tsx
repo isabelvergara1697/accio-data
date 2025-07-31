@@ -659,7 +659,7 @@ const InvitesAndOrders: React.FC = () => {
           flexDirection: "column",
           flex: "1 0 0",
           alignSelf: "stretch",
-          marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
+          marginLeft: (isDesktop || isTablet) ? (sidebarCollapsed ? "80px" : "296px") : "0",
           position: "relative",
         }}
       >
