@@ -736,7 +736,7 @@ const InvitesAndOrders: React.FC = () => {
                     flexDirection: "column",
                     justifyContent: "flex-end",
                     alignItems: "flex-start",
-                    gap: "20px",
+                    gap: isMobile ? "16px" : "20px",
                     alignSelf: "stretch",
                     position: "relative",
                   }}
@@ -744,10 +744,10 @@ const InvitesAndOrders: React.FC = () => {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: "320px",
+                      minWidth: isMobile ? "auto" : "320px",
                       flexDirection: "column",
                       alignItems: "flex-start",
-                      gap: "4px",
+                      gap: isMobile ? "2px" : "4px",
                       alignSelf: "stretch",
                       position: "relative",
                     }}
@@ -757,10 +757,10 @@ const InvitesAndOrders: React.FC = () => {
                         alignSelf: "stretch",
                         color: "#181D27",
                         fontFamily: "Public Sans",
-                        fontSize: "24px",
+                        fontSize: isDesktop ? "24px" : "20px",
                         fontStyle: "normal",
                         fontWeight: 600,
-                        lineHeight: "32px",
+                        lineHeight: isDesktop ? "32px" : "30px",
                         position: "relative",
                       }}
                     >
@@ -768,8 +768,8 @@ const InvitesAndOrders: React.FC = () => {
                         style={{
                           fontFamily:
                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 600,
-                          fontSize: "24px",
+                          fontWeight: isDesktop ? 600 : 700,
+                          fontSize: isDesktop ? "24px" : "20px",
                           color: "rgba(24,29,39,1)",
                         }}
                       >
@@ -808,9 +808,10 @@ const InvitesAndOrders: React.FC = () => {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
+                      alignItems: isMobile ? "flex-start" : "center",
                       gap: "12px",
                       position: "relative",
+                      ...(isMobile ? { alignSelf: "stretch" } : {}),
                     }}
                   >
                     <div
