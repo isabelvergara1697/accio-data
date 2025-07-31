@@ -701,11 +701,13 @@ const InvitesAndOrders: React.FC = () => {
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "24px",
-            flex: "1 0 0",
+            flex: "1 1 auto",
             alignSelf: "stretch",
             borderRadius: "40px 0 0 0",
             background: "#FAFAFA",
             position: "relative",
+            minWidth: 0,
+            minHeight: 0,
           }}
         >
           {/* Header section */}
