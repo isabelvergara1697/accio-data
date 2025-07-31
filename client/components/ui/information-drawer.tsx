@@ -145,16 +145,7 @@ export default function InformationDrawer({
                     lineHeight: "24px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "16px",
-                      color: "rgba(24,29,39,1)",
-                    }}
-                  >
-                    Key Info
-                  </span>
+                  Key Info
                 </div>
                 <div
                   style={{
@@ -167,16 +158,7 @@ export default function InformationDrawer({
                     lineHeight: "20px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      color: "rgba(83,88,98,1)",
-                    }}
-                  >
-                    Quick reference for report symbols, colors, and codes.
-                  </span>
+                  Quick reference for report symbols, colors, and codes.
                 </div>
               </div>
             </div>
@@ -260,16 +242,7 @@ export default function InformationDrawer({
                     lineHeight: "18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "12px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    Icon
-                  </span>
+                  Icon
                 </div>
                 <div
                   style={{
@@ -282,16 +255,7 @@ export default function InformationDrawer({
                     lineHeight: "18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "12px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    Description
-                  </span>
+                  Description
                 </div>
                 <div
                   style={{
@@ -305,16 +269,7 @@ export default function InformationDrawer({
                     lineHeight: "18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "12px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    CSV Letter
-                  </span>
+                  CSV Letter
                 </div>
               </div>
 
@@ -525,89 +480,17 @@ export default function InformationDrawer({
                   csvLetter: "R",
                 },
                 {
-                  icon: (
-                    <div
-                      style={{
-                        width: "28px",
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "18px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "12px",
-                          color: "rgba(65,70,81,1)",
-                        }}
-                      >
-                        D
-                      </span>
-                    </div>
-                  ),
+                  icon: "D",
                   description: "Applicant has received Adverse Action Notice",
                   csvLetter: "D",
                 },
                 {
-                  icon: (
-                    <div
-                      style={{
-                        width: "28px",
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "18px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "12px",
-                          color: "rgba(65,70,81,1)",
-                        }}
-                      >
-                        D
-                      </span>
-                    </div>
-                  ),
+                  icon: "D",
                   description: "Applicant has received Pre-Adverse Action Notice",
                   csvLetter: "D",
                 },
                 {
-                  icon: (
-                    <div
-                      style={{
-                        width: "28px",
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "18px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "12px",
-                          color: "rgba(65,70,81,1)",
-                        }}
-                      >
-                        D
-                      </span>
-                    </div>
-                  ),
+                  icon: "D",
                   description: "Adverse Notice is in the Client Activation Queue",
                   csvLetter: "D",
                 },
@@ -629,7 +512,24 @@ export default function InformationDrawer({
                       gap: "10px",
                     }}
                   >
-                    {row.icon}
+                    {typeof row.icon === "string" ? (
+                      <div
+                        style={{
+                          width: "28px",
+                          color: "#414651",
+                          textAlign: "center",
+                          fontFamily: "Public Sans",
+                          fontSize: "12px",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        {row.icon}
+                      </div>
+                    ) : (
+                      row.icon
+                    )}
                   </div>
                   <div
                     style={{
@@ -642,16 +542,7 @@ export default function InformationDrawer({
                       lineHeight: "18px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.description}
-                    </span>
+                    {row.description}
                   </div>
                   <div
                     style={{
@@ -663,16 +554,7 @@ export default function InformationDrawer({
                       lineHeight: "18px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.csvLetter}
-                    </span>
+                    {row.csvLetter}
                   </div>
                 </div>
               ))}
@@ -730,16 +612,7 @@ export default function InformationDrawer({
                     lineHeight: "18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "12px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    Status
-                  </span>
+                  Status
                 </div>
                 <div
                   style={{
@@ -752,16 +625,7 @@ export default function InformationDrawer({
                     lineHeight: "18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "12px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    Description
-                  </span>
+                  Description
                 </div>
               </div>
 
@@ -799,16 +663,7 @@ export default function InformationDrawer({
                       lineHeight: "18px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.status}
-                    </span>
+                    {row.status}
                   </div>
                   <div
                     style={{
@@ -821,16 +676,7 @@ export default function InformationDrawer({
                       lineHeight: "18px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.description}
-                    </span>
+                    {row.description}
                   </div>
                 </div>
               ))}
@@ -847,16 +693,7 @@ export default function InformationDrawer({
                   lineHeight: "18px",
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 400,
-                    fontSize: "12px",
-                    color: "rgba(65,70,81,1)",
-                  }}
-                >
-                  Note that statuses with an asterisk (*) are computed statuses.
-                </span>
+                Note that statuses with an asterisk (*) are computed statuses.
               </div>
             </div>
 
@@ -912,16 +749,7 @@ export default function InformationDrawer({
                     lineHeight: "18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "12px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    Status
-                  </span>
+                  Status
                 </div>
                 <div
                   style={{
@@ -934,16 +762,7 @@ export default function InformationDrawer({
                     lineHeight: "18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "12px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    Description
-                  </span>
+                  Description
                 </div>
               </div>
 
@@ -973,16 +792,7 @@ export default function InformationDrawer({
                       lineHeight: "18px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.status}
-                    </span>
+                    {row.status}
                   </div>
                   <div
                     style={{
@@ -995,16 +805,7 @@ export default function InformationDrawer({
                       lineHeight: "18px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.description}
-                    </span>
+                    {row.description}
                   </div>
                 </div>
               ))}
@@ -1062,16 +863,7 @@ export default function InformationDrawer({
                     lineHeight: "18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "12px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    CSV Status Code
-                  </span>
+                  CSV Status Code
                 </div>
                 <div
                   style={{
@@ -1084,16 +876,7 @@ export default function InformationDrawer({
                     lineHeight: "18px",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "12px",
-                      color: "rgba(113,118,128,1)",
-                    }}
-                  >
-                    Description
-                  </span>
+                  Description
                 </div>
               </div>
 
@@ -1132,16 +915,7 @@ export default function InformationDrawer({
                       lineHeight: "18px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.code}
-                    </span>
+                    {row.code}
                   </div>
                   <div
                     style={{
@@ -1154,16 +928,7 @@ export default function InformationDrawer({
                       lineHeight: "18px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.description}
-                    </span>
+                    {row.description}
                   </div>
                 </div>
               ))}
