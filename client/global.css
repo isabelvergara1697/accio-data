@@ -311,18 +311,12 @@
     }
   }
 
-  /* Global font weight enforcement - maximum 600 */
-  * {
+  /* Prevent any font weights above 600 in the platform */
+  h1, h2, h3, h4, h5, h6,
+  .font-semibold, .font-bold,
+  button, .button,
+  .text-heading, .heading {
     font-weight: 600 !important;
-  }
-
-  /* Override for specific lighter weights */
-  input, textarea, select, placeholder, .text-light {
-    font-weight: 400 !important;
-  }
-
-  /* Override for medium weights */
-  .text-medium {
-    font-weight: 500 !important;
+    max-font-weight: 600;
   }
 }
