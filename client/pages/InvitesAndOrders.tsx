@@ -1071,7 +1071,8 @@ const InvitesAndOrders: React.FC = () => {
                             position: "relative",
                           }}
                         >
-                          {/* View Toggle */}
+                          {/* View Toggle - Only on tablet/mobile */}
+                          {!isDesktop && (
                           <div
                             style={{
                               display: "flex",
@@ -1158,6 +1159,7 @@ const InvitesAndOrders: React.FC = () => {
                               </svg>
                             </button>
                           </div>
+                          )}
 
                           {/* Search Input */}
                           <div
