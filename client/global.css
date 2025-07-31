@@ -370,14 +370,14 @@
 
     /* Desktop spacing */
     gap: 20px;
-    padding: 32px 32px 0;
+    padding: 0;
   }
 
   /* Tablet responsive container */
   @media (min-width: 768px) and (max-width: 1023px) {
     .page-header-container {
       gap: 20px;
-      padding: 32px 32px 0;
+      padding: 0;
     }
   }
 
@@ -385,7 +385,7 @@
   @media (max-width: 767px) {
     .page-header-container {
       gap: 16px;
-      padding: 16px 16px 0;
+      padding: 0;
     }
   }
 
