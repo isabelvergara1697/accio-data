@@ -1007,8 +1007,8 @@ const InvitesAndOrders: React.FC = () => {
                       <div
                         style={{
                           display: "flex",
-                          alignItems: isDesktop ? "center" : "flex-end",
-                          gap: isDesktop ? "16px" : "4px",
+                          alignItems: "center",
+                          gap: "16px",
                           alignSelf: "stretch",
                           position: "relative",
                         }}
