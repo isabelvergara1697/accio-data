@@ -1155,6 +1155,8 @@ const InvitesAndOrders: React.FC = () => {
                               gap: "6px",
                               flex: "1 0 0",
                               position: "relative",
+                              maxWidth: isTablet ? "300px" : "100%",
+                              minWidth: "200px",
                             }}
                           >
                             <div
