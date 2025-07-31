@@ -3835,7 +3835,7 @@ const InvitesAndOrders: React.FC = () => {
                         position: "relative",
                         width: "100%",
                         maxWidth: "100%",
-                        overflowX: isMobile || isTablet ? "auto" : "visible",
+                        overflowX: "auto",
                         overflowY: "visible",
                         ...(isMobile || isTablet
                           ? {
