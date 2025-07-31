@@ -3809,7 +3809,7 @@ const InvitesAndOrders: React.FC = () => {
                           alignSelf: "stretch",
                           flex: "1 0 0",
                           position: "relative",
-                          minWidth: isMobile ? "800px" : "100%",
+                          minWidth: isMobile || isTablet ? "1000px" : "100%",
                           width: "100%",
                           maxWidth: "100%",
                           boxSizing: "border-box",
