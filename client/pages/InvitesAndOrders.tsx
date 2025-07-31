@@ -1008,7 +1008,7 @@ const InvitesAndOrders: React.FC = () => {
                         boxSizing: "border-box",
                       }}
                     >
-                      {isDesktop && !isTablet ? (
+                      {console.log('Breakpoint Debug:', { isDesktop, isTablet, isMobile, condition: isDesktop && !isTablet, windowWidth: typeof window !== 'undefined' ? window.innerWidth : 'SSR' }) || (isDesktop && !isTablet) ? (
                         <>
                           {/* Desktop: Title - Left aligned */}
                           <div
