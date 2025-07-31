@@ -936,13 +936,16 @@ const InvitesAndOrders: React.FC = () => {
             <div
               style={{
                 display: "flex",
-                padding: isMobile ? "0 16px" : "0 32px",
+                padding: isMobile ? "0 16px" : isTablet ? "0 24px" : "0 32px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "20px",
                 flex: "1 0 0",
                 alignSelf: "stretch",
                 position: "relative",
+                maxWidth: "100%",
+                overflow: "hidden",
+                boxSizing: "border-box",
               }}
             >
               <div
