@@ -1841,6 +1841,7 @@ const InvitesAndOrders: React.FC = () => {
                               alignSelf: "stretch",
                               position: "relative",
                               flexWrap: "wrap",
+                              justifyContent: "flex-start",
                               width: "100%",
                               maxWidth: "100%",
                               overflow: "visible",
