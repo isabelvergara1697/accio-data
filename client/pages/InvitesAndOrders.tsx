@@ -1068,7 +1068,7 @@ const InvitesAndOrders: React.FC = () => {
                             display: "flex",
                             alignItems: "flex-start",
                             gap: "10px",
-                            flex: "1 0 0",
+                            flex: isDesktop ? "0 0 auto" : "1 0 0",
                             position: "relative",
                           }}
                         >
