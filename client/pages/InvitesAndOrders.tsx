@@ -1022,7 +1022,7 @@ const InvitesAndOrders: React.FC = () => {
                             justifyContent: "center",
                             alignItems: "flex-start",
                             gap: "2px",
-                            flex: "1 0 0",
+                            flex: isDesktop ? "0 0 auto" : "1 0 0",
                             position: "relative",
                           }}
                         >
