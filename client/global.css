@@ -294,20 +294,126 @@
       Roboto,
       Helvetica,
       sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     color: #181d27;
+    margin: 0;
+    padding: 0;
 
     /* Desktop styles (default) */
     font-size: 24px;
     line-height: 32px;
   }
 
-  /* Tablet and mobile responsive styles */
-  @media (max-width: 1023px) {
+  /* Tablet responsive styles - matches Figma tablet design */
+  @media (min-width: 768px) and (max-width: 1023px) {
     .page-title,
     h1.page-title {
       font-size: 20px;
       line-height: 30px;
+      font-weight: 700;
+    }
+  }
+
+  /* Mobile responsive styles - matches Figma mobile design */
+  @media (max-width: 767px) {
+    .page-title,
+    h1.page-title {
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 700;
+    }
+  }
+
+  /* Page subtitle/supporting text styling */
+  .page-subtitle,
+  .supporting-text {
+    font-family:
+      "Public Sans",
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
+    font-weight: 400;
+    color: #535862;
+    margin: 0;
+    padding: 0;
+
+    /* Desktop styles (default) */
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  /* Tablet responsive styles for subtitles */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .page-subtitle,
+    .supporting-text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  /* Mobile responsive styles for subtitles */
+  @media (max-width: 767px) {
+    .page-subtitle,
+    .supporting-text {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  /* Responsive page header container */
+  .page-header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    /* Desktop spacing */
+    gap: 20px;
+    padding: 32px 32px 0;
+  }
+
+  /* Tablet responsive container */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .page-header-container {
+      gap: 20px;
+      padding: 32px 32px 0;
+    }
+  }
+
+  /* Mobile responsive container */
+  @media (max-width: 767px) {
+    .page-header-container {
+      gap: 16px;
+      padding: 16px 16px 0;
+    }
+  }
+
+  /* Title and subtitle grouping */
+  .page-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    /* Desktop spacing */
+    gap: 4px;
+    min-width: 320px;
+  }
+
+  /* Tablet responsive title group */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .page-title-group {
+      gap: 4px;
+      min-width: auto;
+    }
+  }
+
+  /* Mobile responsive title group */
+  @media (max-width: 767px) {
+    .page-title-group {
+      gap: 2px;
+      min-width: auto;
     }
   }
 }
