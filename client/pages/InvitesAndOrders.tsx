@@ -1125,7 +1125,10 @@ const InvitesAndOrders: React.FC = () => {
                                 transition: "all 0.2s ease",
                                 ...(isMobile
                                   ? {
-                                      minWidth: action.label.length > 8 ? "auto" : "80px",
+                                      minWidth:
+                                        action.label.length > 8
+                                          ? "auto"
+                                          : "80px",
                                       fontSize: "13px",
                                     }
                                   : {}),
@@ -1601,7 +1604,9 @@ const InvitesAndOrders: React.FC = () => {
                   <div
                     style={{
                       display: "flex",
-                      padding: isMobile ? "8px 8px 16px 8px" : "12px 16px 16px 16px",
+                      padding: isMobile
+                        ? "8px 8px 16px 8px"
+                        : "12px 16px 16px 16px",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
@@ -3083,11 +3088,18 @@ const InvitesAndOrders: React.FC = () => {
                                     padding: "4px",
                                     borderRadius: "4px",
                                     transition: "background-color 0.2s ease",
-                                    background: showActionMenu === invite.id ? "#FDFDFD" : "transparent",
+                                    background:
+                                      showActionMenu === invite.id
+                                        ? "#FDFDFD"
+                                        : "transparent",
                                   }}
                                   onClick={(e) => {
                                     e.stopPropagation();
-                                    setShowActionMenu(showActionMenu === invite.id ? null : invite.id);
+                                    setShowActionMenu(
+                                      showActionMenu === invite.id
+                                        ? null
+                                        : invite.id,
+                                    );
                                   }}
                                 >
                                   <ActionDotsIcon />
@@ -3106,7 +3118,8 @@ const InvitesAndOrders: React.FC = () => {
                                       borderRadius: "8px",
                                       border: "1px solid rgba(0, 0, 0, 0.08)",
                                       background: "#FFF",
-                                      boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                      boxShadow:
+                                        "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                                       zIndex: 1000,
                                     }}
                                   >
@@ -3129,15 +3142,28 @@ const InvitesAndOrders: React.FC = () => {
                                           cursor: "pointer",
                                         }}
                                         onMouseEnter={(e) => {
-                                          const content = e.currentTarget.querySelector(".content") as HTMLElement;
-                                          if (content) content.style.backgroundColor = "#F5F5F5";
+                                          const content =
+                                            e.currentTarget.querySelector(
+                                              ".content",
+                                            ) as HTMLElement;
+                                          if (content)
+                                            content.style.backgroundColor =
+                                              "#F5F5F5";
                                         }}
                                         onMouseLeave={(e) => {
-                                          const content = e.currentTarget.querySelector(".content") as HTMLElement;
-                                          if (content) content.style.backgroundColor = "transparent";
+                                          const content =
+                                            e.currentTarget.querySelector(
+                                              ".content",
+                                            ) as HTMLElement;
+                                          if (content)
+                                            content.style.backgroundColor =
+                                              "transparent";
                                         }}
                                         onClick={() => {
-                                          console.log("Invite Summary clicked for:", invite.id);
+                                          console.log(
+                                            "Invite Summary clicked for:",
+                                            invite.id,
+                                          );
                                           setShowActionMenu(null);
                                         }}
                                       >
@@ -3150,7 +3176,8 @@ const InvitesAndOrders: React.FC = () => {
                                             gap: "12px",
                                             flex: "1 0 0",
                                             borderRadius: "6px",
-                                            transition: "background-color 0.2s ease",
+                                            transition:
+                                              "background-color 0.2s ease",
                                           }}
                                         >
                                           <div
@@ -3202,15 +3229,28 @@ const InvitesAndOrders: React.FC = () => {
                                           cursor: "pointer",
                                         }}
                                         onMouseEnter={(e) => {
-                                          const content = e.currentTarget.querySelector(".content") as HTMLElement;
-                                          if (content) content.style.backgroundColor = "#F5F5F5";
+                                          const content =
+                                            e.currentTarget.querySelector(
+                                              ".content",
+                                            ) as HTMLElement;
+                                          if (content)
+                                            content.style.backgroundColor =
+                                              "#F5F5F5";
                                         }}
                                         onMouseLeave={(e) => {
-                                          const content = e.currentTarget.querySelector(".content") as HTMLElement;
-                                          if (content) content.style.backgroundColor = "transparent";
+                                          const content =
+                                            e.currentTarget.querySelector(
+                                              ".content",
+                                            ) as HTMLElement;
+                                          if (content)
+                                            content.style.backgroundColor =
+                                              "transparent";
                                         }}
                                         onClick={() => {
-                                          console.log("Manage Invitation clicked for:", invite.id);
+                                          console.log(
+                                            "Manage Invitation clicked for:",
+                                            invite.id,
+                                          );
                                           setShowActionMenu(null);
                                         }}
                                       >
@@ -3223,7 +3263,8 @@ const InvitesAndOrders: React.FC = () => {
                                             gap: "12px",
                                             flex: "1 0 0",
                                             borderRadius: "6px",
-                                            transition: "background-color 0.2s ease",
+                                            transition:
+                                              "background-color 0.2s ease",
                                           }}
                                         >
                                           <div
@@ -3275,15 +3316,28 @@ const InvitesAndOrders: React.FC = () => {
                                           cursor: "pointer",
                                         }}
                                         onMouseEnter={(e) => {
-                                          const content = e.currentTarget.querySelector(".content") as HTMLElement;
-                                          if (content) content.style.backgroundColor = "#F5F5F5";
+                                          const content =
+                                            e.currentTarget.querySelector(
+                                              ".content",
+                                            ) as HTMLElement;
+                                          if (content)
+                                            content.style.backgroundColor =
+                                              "#F5F5F5";
                                         }}
                                         onMouseLeave={(e) => {
-                                          const content = e.currentTarget.querySelector(".content") as HTMLElement;
-                                          if (content) content.style.backgroundColor = "transparent";
+                                          const content =
+                                            e.currentTarget.querySelector(
+                                              ".content",
+                                            ) as HTMLElement;
+                                          if (content)
+                                            content.style.backgroundColor =
+                                              "transparent";
                                         }}
                                         onClick={() => {
-                                          console.log("HTML clicked for:", invite.id);
+                                          console.log(
+                                            "HTML clicked for:",
+                                            invite.id,
+                                          );
                                           setShowActionMenu(null);
                                         }}
                                       >
@@ -3296,7 +3350,8 @@ const InvitesAndOrders: React.FC = () => {
                                             gap: "12px",
                                             flex: "1 0 0",
                                             borderRadius: "6px",
-                                            transition: "background-color 0.2s ease",
+                                            transition:
+                                              "background-color 0.2s ease",
                                           }}
                                         >
                                           <div
@@ -3348,15 +3403,28 @@ const InvitesAndOrders: React.FC = () => {
                                           cursor: "pointer",
                                         }}
                                         onMouseEnter={(e) => {
-                                          const content = e.currentTarget.querySelector(".content") as HTMLElement;
-                                          if (content) content.style.backgroundColor = "#F5F5F5";
+                                          const content =
+                                            e.currentTarget.querySelector(
+                                              ".content",
+                                            ) as HTMLElement;
+                                          if (content)
+                                            content.style.backgroundColor =
+                                              "#F5F5F5";
                                         }}
                                         onMouseLeave={(e) => {
-                                          const content = e.currentTarget.querySelector(".content") as HTMLElement;
-                                          if (content) content.style.backgroundColor = "transparent";
+                                          const content =
+                                            e.currentTarget.querySelector(
+                                              ".content",
+                                            ) as HTMLElement;
+                                          if (content)
+                                            content.style.backgroundColor =
+                                              "transparent";
                                         }}
                                         onClick={() => {
-                                          console.log("PDF clicked for:", invite.id);
+                                          console.log(
+                                            "PDF clicked for:",
+                                            invite.id,
+                                          );
                                           setShowActionMenu(null);
                                         }}
                                       >
@@ -3369,7 +3437,8 @@ const InvitesAndOrders: React.FC = () => {
                                             gap: "12px",
                                             flex: "1 0 0",
                                             borderRadius: "6px",
-                                            transition: "background-color 0.2s ease",
+                                            transition:
+                                              "background-color 0.2s ease",
                                           }}
                                         >
                                           <div

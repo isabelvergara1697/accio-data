@@ -68,7 +68,8 @@ export default function InformationDrawer({
             right: 0,
             backgroundColor: "#FFF",
             borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
-            boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+            boxShadow:
+              "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
             overflowY: "auto",
             transform: isOpen ? "translateX(0)" : "translateX(100%)",
             transition: "transform 0.3s ease",
@@ -306,7 +307,8 @@ export default function InformationDrawer({
                       </svg>
                     </div>
                   ),
-                  description: "Report contains discrepancies or derogatory information.",
+                  description:
+                    "Report contains discrepancies or derogatory information.",
                   csvLetter: "H",
                 },
                 {
@@ -476,7 +478,8 @@ export default function InformationDrawer({
                       </svg>
                     </div>
                   ),
-                  description: "Report contains components registered for rescreening",
+                  description:
+                    "Report contains components registered for rescreening",
                   csvLetter: "R",
                 },
                 {
@@ -486,12 +489,14 @@ export default function InformationDrawer({
                 },
                 {
                   icon: "PA",
-                  description: "Applicant has received Pre-Adverse Action Notice",
+                  description:
+                    "Applicant has received Pre-Adverse Action Notice",
                   csvLetter: "",
                 },
                 {
                   icon: "CA",
-                  description: "Adverse Notice is in the Client Activation Queue",
+                  description:
+                    "Adverse Notice is in the Client Activation Queue",
                   csvLetter: "",
                 },
               ].map((row, index) => (
@@ -621,17 +626,58 @@ export default function InformationDrawer({
 
               {/* Status Rows */}
               {[
-                { status: "Archived*", description: "Report has been archived. (Hidden from report list)" },
-                { status: "Canceled", description: "Report has been canceled." },
-                { status: "Completed", description: "Report is finished; complete information is available." },
-                { status: "Incomplete", description: "Report is still being processed." },
-                { status: "Negative/Pass", description: "Donor tested negative for illegal use of one or more drugs." },
-                { status: "Pending", description: "Report is being processed; partial information may be available." },
-                { status: "Positive/Fail", description: "Donor tested positive for illegal use of one or more substances." },
-                { status: "Positive/Fail", description: "Status set by the client. Generally used to track which reports have been disposed by you." },
-                { status: "Requires Review*", description: "Report requires review for final evaluation." },
-                { status: "Under Review", description: "Report is being finalized; partial information may be available." },
-                { status: "Waiting*", description: "Report has not been ordered because information is required from the applicant." },
+                {
+                  status: "Archived*",
+                  description:
+                    "Report has been archived. (Hidden from report list)",
+                },
+                {
+                  status: "Canceled",
+                  description: "Report has been canceled.",
+                },
+                {
+                  status: "Completed",
+                  description:
+                    "Report is finished; complete information is available.",
+                },
+                {
+                  status: "Incomplete",
+                  description: "Report is still being processed.",
+                },
+                {
+                  status: "Negative/Pass",
+                  description:
+                    "Donor tested negative for illegal use of one or more drugs.",
+                },
+                {
+                  status: "Pending",
+                  description:
+                    "Report is being processed; partial information may be available.",
+                },
+                {
+                  status: "Positive/Fail",
+                  description:
+                    "Donor tested positive for illegal use of one or more substances.",
+                },
+                {
+                  status: "Positive/Fail",
+                  description:
+                    "Status set by the client. Generally used to track which reports have been disposed by you.",
+                },
+                {
+                  status: "Requires Review*",
+                  description: "Report requires review for final evaluation.",
+                },
+                {
+                  status: "Under Review",
+                  description:
+                    "Report is being finalized; partial information may be available.",
+                },
+                {
+                  status: "Waiting*",
+                  description:
+                    "Report has not been ordered because information is required from the applicant.",
+                },
               ].map((row, index) => (
                 <div
                   key={`status-${index}`}
@@ -670,7 +716,7 @@ export default function InformationDrawer({
                   </div>
                 </div>
               ))}
-              
+
               {/* Note about computed statuses */}
               <div
                 style={{
@@ -746,9 +792,20 @@ export default function InformationDrawer({
 
               {/* Color Status Rows */}
               {[
-                { status: "Red", description: "Report contains discrepancies or derogatory information." },
-                { status: "Green", description: "Report contains no discrepancies or derogatory information." },
-                { status: "Black", description: "No evaluation has been made." },
+                {
+                  status: "Red",
+                  description:
+                    "Report contains discrepancies or derogatory information.",
+                },
+                {
+                  status: "Green",
+                  description:
+                    "Report contains no discrepancies or derogatory information.",
+                },
+                {
+                  status: "Black",
+                  description: "No evaluation has been made.",
+                },
               ].map((row, index) => (
                 <div
                   key={`color-${index}`}
