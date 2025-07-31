@@ -1627,14 +1627,14 @@ const InvitesAndOrders: React.FC = () => {
                             </button>
                           </div>
                         </>
-                      ) : (
+                      ) : isMobile ? (
                         <>
-                          {/* Tablet/Mobile: Title + View Toggle + Search Row */}
+                          {/* Mobile: Title + Dots Action Button Row */}
                           <div
                             style={{
                               display: "flex",
                               alignItems: "center",
-                              gap: "10px",
+                              justifyContent: "space-between",
                               alignSelf: "stretch",
                               position: "relative",
                             }}
@@ -1675,6 +1675,279 @@ const InvitesAndOrders: React.FC = () => {
                               </div>
                             </div>
 
+                            {/* Mobile Dots Menu */}
+                            <div style={{ position: "relative" }}>
+                              <button
+                                onClick={() =>
+                                  setShowMobileDotsMenu(!showMobileDotsMenu)
+                                }
+                                style={{
+                                  display: "flex",
+                                  minHeight: "36px",
+                                  padding: "8px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: showMobileDotsMenu
+                                    ? "#FDFDFD"
+                                    : "#FFF",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                              >
+                                <ActionDotsIcon />
+                              </button>
+
+                              {/* Mobile Dots Menu Dropdown */}
+                              {showMobileDotsMenu && (
+                                <div
+                                  ref={mobileDotsMenuRef}
+                                  style={{
+                                    position: "absolute",
+                                    top: "calc(100% + 4px)",
+                                    right: "0",
+                                    width: "200px",
+                                    borderRadius: "8px",
+                                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                                    background: "#FFF",
+                                    boxShadow:
+                                      "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                    zIndex: 1000,
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "4px 0",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
+                                    {/* Customize Option */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 4px",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "#F5F5F5";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "transparent";
+                                      }}
+                                      onClick={() => {
+                                        console.log("Customize clicked");
+                                        setShowMobileDotsMenu(false);
+                                      }}
+                                    >
+                                      <div
+                                        className="content"
+                                        style={{
+                                          display: "flex",
+                                          padding: "8px 12px",
+                                          alignItems: "center",
+                                          gap: "12px",
+                                          flex: "1 0 0",
+                                          borderRadius: "6px",
+                                          transition:
+                                            "background-color 0.2s ease",
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.66667"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                          <path
+                                            d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.66667"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                        <span
+                                          style={{
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(65,70,81,1)",
+                                          }}
+                                        >
+                                          Customize
+                                        </span>
+                                      </div>
+                                    </div>
+
+                                    {/* Default Option */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 4px",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "#F5F5F5";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "transparent";
+                                      }}
+                                      onClick={() => {
+                                        console.log("Default clicked");
+                                        setShowMobileDotsMenu(false);
+                                      }}
+                                    >
+                                      <div
+                                        className="content"
+                                        style={{
+                                          display: "flex",
+                                          padding: "8px 12px",
+                                          alignItems: "center",
+                                          gap: "12px",
+                                          flex: "1 0 0",
+                                          borderRadius: "6px",
+                                          transition:
+                                            "background-color 0.2s ease",
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.66667"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                        <span
+                                          style={{
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(65,70,81,1)",
+                                          }}
+                                        >
+                                          Default
+                                        </span>
+                                      </div>
+                                    </div>
+
+                                    {/* Key Stats Option */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 4px",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "#F5F5F5";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "transparent";
+                                      }}
+                                      onClick={() => {
+                                        console.log("Key Stats clicked");
+                                        setShowInformationDrawer(true);
+                                        setShowMobileDotsMenu(false);
+                                      }}
+                                    >
+                                      <div
+                                        className="content"
+                                        style={{
+                                          display: "flex",
+                                          padding: "8px 12px",
+                                          alignItems: "center",
+                                          gap: "12px",
+                                          flex: "1 0 0",
+                                          borderRadius: "6px",
+                                          transition:
+                                            "background-color 0.2s ease",
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M8 9.33333V7M8 4.66667H8.00667M6.6 12.8L7.57333 14.0978C7.71808 14.2908 7.79045 14.3873 7.87918 14.4218C7.95689 14.452 8.04311 14.452 8.12082 14.4218C8.20955 14.3873 8.28192 14.2908 8.42667 14.0978L9.4 12.8C9.59543 12.5394 9.69315 12.4091 9.81234 12.3097C9.97126 12.177 10.1589 12.0832 10.3603 12.0357C10.5114 12 10.6743 12 11 12C11.9319 12 12.3978 12 12.7654 11.8478C13.2554 11.6448 13.6448 11.2554 13.8478 10.7654C14 10.3978 14 9.93188 14 9V5.2C14 4.07989 14 3.51984 13.782 3.09202C13.5903 2.71569 13.2843 2.40973 12.908 2.21799C12.4802 2 11.9201 2 10.8 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V9C2 9.93188 2 10.3978 2.15224 10.7654C2.35523 11.2554 2.74458 11.6448 3.23463 11.8478C3.60218 12 4.06812 12 5 12C5.32572 12 5.48858 12 5.63967 12.0357C5.84113 12.0832 6.02874 12.177 6.18766 12.3097C6.30685 12.4091 6.40457 12.5394 6.6 12.8Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.66667"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                        <span
+                                          style={{
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(83,88,98,1)",
+                                          }}
+                                        >
+                                          Key Stats
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Mobile: View Toggle + Search Row */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
                             {/* View Toggle */}
                             <div
                               style={{
@@ -1786,19 +2059,14 @@ const InvitesAndOrders: React.FC = () => {
                                 display: "flex",
                                 alignItems: "center",
                                 gap: "8px",
-                                flex: isTablet ? "0 1 300px" : "1 0 0",
+                                flex: "1 0 0",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
                                 background: "#FFF",
                                 boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 padding: "8px",
                                 position: "relative",
-                                minWidth: isMobile
-                                  ? "180px"
-                                  : isTablet
-                                    ? "200px"
-                                    : "250px",
-                                maxWidth: isTablet ? "300px" : "100%",
+                                minHeight: "40px",
                               }}
                             >
                               <svg
@@ -1837,6 +2105,224 @@ const InvitesAndOrders: React.FC = () => {
                                   whiteSpace: "nowrap",
                                 }}
                               />
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          {/* Tablet: Title + Right-aligned Toggle + Search Row */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "space-between",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Title */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "flex-start",
+                                gap: "2px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: "18px",
+                                    color: "rgba(24,29,39,1)",
+                                  }}
+                                >
+                                  Invites
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Right-aligned: View Toggle + Search */}
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "12px",
+                                position: "relative",
+                              }}
+                            >
+                              {/* View Toggle */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  position: "relative",
+                                  minWidth: "88px",
+                                  flexShrink: 0,
+                                }}
+                              >
+                                {/* Table View Button */}
+                                <button
+                                  onClick={() => setTableView("table")}
+                                  style={{
+                                    display: "flex",
+                                    minHeight: "40px",
+                                    padding: "8px 12px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "6px",
+                                    borderRight: "1px solid #D5D7DA",
+                                    background:
+                                      tableView === "table" ? "#ECEEF9" : "#FFF",
+                                    borderTopLeftRadius: "8px",
+                                    borderBottomLeftRadius: "8px",
+                                    cursor: "pointer",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M3 9L21 9M9 3L9 21M7.8 3H16.2C17.8802 3 18.7202 3 19.362 3.32698C19.9265 3.6146 20.3854 4.07354 20.673 4.63803C21 5.27976 21 6.11984 21 7.8V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V7.8C3 6.11984 3 5.27976 3.32698 4.63803C3.6146 4.07354 4.07354 3.6146 4.63803 3.32698C5.27976 3 6.11984 3 7.8 3Z"
+                                      stroke={
+                                        tableView === "table"
+                                          ? "#344698"
+                                          : "#A4A7AE"
+                                      }
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+
+                                {/* Rows View Button */}
+                                <button
+                                  onClick={() => setTableView("rows")}
+                                  style={{
+                                    display: "flex",
+                                    minHeight: "40px",
+                                    padding: "8px 12px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "6px",
+                                    background:
+                                      tableView === "rows" ? "#ECEEF9" : "#FFF",
+                                    borderTopRightRadius: "8px",
+                                    borderBottomRightRadius: "8px",
+                                    cursor: "pointer",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <svg
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M17.8 10C18.9201 10 19.4802 10 19.908 9.78201C20.2843 9.59027 20.5903 9.28431 20.782 8.90798C21 8.48016 21 7.92011 21 6.8V6.2C21 5.0799 21 4.51984 20.782 4.09202C20.5903 3.7157 20.2843 3.40973 19.908 3.21799C19.4802 3 18.9201 3 17.8 3L6.2 3C5.0799 3 4.51984 3 4.09202 3.21799C3.71569 3.40973 3.40973 3.71569 3.21799 4.09202C3 4.51984 3 5.07989 3 6.2L3 6.8C3 7.9201 3 8.48016 3.21799 8.90798C3.40973 9.28431 3.71569 9.59027 4.09202 9.78201C4.51984 10 5.07989 10 6.2 10L17.8 10Z"
+                                      stroke={
+                                        tableView === "rows"
+                                          ? "#344698"
+                                          : "#A4A7AE"
+                                      }
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                    <path
+                                      d="M17.8 21C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V17.2C21 16.0799 21 15.5198 20.782 15.092C20.5903 14.7157 20.2843 14.4097 19.908 14.218C19.4802 14 18.9201 14 17.8 14L6.2 14C5.0799 14 4.51984 14 4.09202 14.218C3.71569 14.4097 3.40973 14.7157 3.21799 15.092C3 15.5198 3 16.0799 3 17.2L3 17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8Z"
+                                      stroke={
+                                        tableView === "rows"
+                                          ? "#344698"
+                                          : "#A4A7AE"
+                                      }
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+
+                              {/* Search Input */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  width: "300px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  padding: "8px",
+                                  position: "relative",
+                                  minHeight: "40px",
+                                }}
+                              >
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                                <input
+                                  type="text"
+                                  placeholder="Search by Name, SSN, State.."
+                                  value={searchQuery}
+                                  onChange={(e) => setSearchQuery(e.target.value)}
+                                  style={{
+                                    border: "none",
+                                    outline: "none",
+                                    background: "transparent",
+                                    flex: "1 0 0",
+                                    color: "#717680",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap",
+                                  }}
+                                />
+                              </div>
                             </div>
                           </div>
 
