@@ -1711,6 +1711,8 @@ const InvitesAndOrders: React.FC = () => {
                                 boxShadow:
                                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 position: "relative",
+                                minWidth: "88px",
+                                flexShrink: 0,
                               }}
                             >
                               {/* Table View Button */}
