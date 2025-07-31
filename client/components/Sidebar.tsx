@@ -580,7 +580,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside
       className={`transition-all duration-300 ${
-        isDesktop || (window.innerWidth >= 768 && window.innerWidth < 1024)
+        isDesktop
           ? "translate-x-0"
           : mobileMenuOpen
             ? "translate-x-0"
@@ -588,7 +588,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       }`}
       style={{
         display: "flex",
-        width: isDesktop || (window.innerWidth >= 768 && window.innerWidth < 1024)
+        width: isDesktop
           ? isCollapsed
             ? "80px"
             : "296px"
@@ -596,7 +596,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             ? "75vw"
             : "296px",
         height: "100vh",
-        padding: isDesktop || (window.innerWidth >= 768 && window.innerWidth < 1024)
+        padding: isDesktop
           ? "8px 0px 24px 8px"
           : mobileMenuOpen
             ? "0px"

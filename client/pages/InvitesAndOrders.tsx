@@ -659,7 +659,7 @@ const InvitesAndOrders: React.FC = () => {
           flexDirection: "column",
           flex: "1 0 0",
           alignSelf: "stretch",
-          marginLeft: (isDesktop || isTablet) ? (sidebarCollapsed ? "80px" : "296px") : "0",
+          marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
           position: "relative",
         }}
       >
@@ -690,7 +690,7 @@ const InvitesAndOrders: React.FC = () => {
 
         <main
           style={{
-            marginTop: (isDesktop || isTablet) ? "80px" : "64px",
+            marginTop: isDesktop ? "80px" : "64px",
             display: "flex",
             paddingBottom: "24px",
             flexDirection: "column",
