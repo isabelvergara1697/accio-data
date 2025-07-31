@@ -1862,7 +1862,9 @@ const InvitesAndOrders: React.FC = () => {
                                 {/* Filters Button */}
                                 <button
                                   onClick={() => console.log("Filters clicked")}
-                                  onMouseEnter={() => setHoveredButton("filters")}
+                                  onMouseEnter={() =>
+                                    setHoveredButton("filters")
+                                  }
                                   onMouseLeave={() => setHoveredButton(null)}
                                   style={{
                                     display: "flex",
@@ -1933,10 +1935,17 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
 
                                 {/* Download Button */}
-                                <div style={{ position: "relative", flex: "1 0 0" }}>
+                                <div
+                                  style={{
+                                    position: "relative",
+                                    flex: "1 0 0",
+                                  }}
+                                >
                                   <button
                                     onClick={() =>
-                                      setShowDownloadDropdown(!showDownloadDropdown)
+                                      setShowDownloadDropdown(
+                                        !showDownloadDropdown,
+                                      )
                                     }
                                     onMouseEnter={() =>
                                       setHoveredButton("download")
@@ -2050,7 +2059,8 @@ const InvitesAndOrders: React.FC = () => {
                                           onMouseLeave={(e) => {
                                             e.currentTarget.querySelector(
                                               ".content",
-                                            ).style.backgroundColor = "transparent";
+                                            ).style.backgroundColor =
+                                              "transparent";
                                           }}
                                           onClick={() => {
                                             console.log("Download XLSX");
@@ -2099,7 +2109,8 @@ const InvitesAndOrders: React.FC = () => {
                                           onMouseLeave={(e) => {
                                             e.currentTarget.querySelector(
                                               ".content",
-                                            ).style.backgroundColor = "transparent";
+                                            ).style.backgroundColor =
+                                              "transparent";
                                           }}
                                           onClick={() => {
                                             console.log("Download CSV");
@@ -2206,7 +2217,8 @@ const InvitesAndOrders: React.FC = () => {
                                           onMouseLeave={(e) => {
                                             e.currentTarget.querySelector(
                                               ".content",
-                                            ).style.backgroundColor = "transparent";
+                                            ).style.backgroundColor =
+                                              "transparent";
                                           }}
                                           onClick={() => {
                                             console.log("Customize clicked");
@@ -2279,7 +2291,8 @@ const InvitesAndOrders: React.FC = () => {
                                           onMouseLeave={(e) => {
                                             e.currentTarget.querySelector(
                                               ".content",
-                                            ).style.backgroundColor = "transparent";
+                                            ).style.backgroundColor =
+                                              "transparent";
                                           }}
                                           onClick={() => {
                                             console.log("Default clicked");
@@ -2345,7 +2358,8 @@ const InvitesAndOrders: React.FC = () => {
                                           onMouseLeave={(e) => {
                                             e.currentTarget.querySelector(
                                               ".content",
-                                            ).style.backgroundColor = "transparent";
+                                            ).style.backgroundColor =
+                                              "transparent";
                                           }}
                                           onClick={() => {
                                             console.log("Key Stats clicked");
@@ -2405,7 +2419,9 @@ const InvitesAndOrders: React.FC = () => {
                                 {/* Filters Button */}
                                 <button
                                   onClick={() => console.log("Filters clicked")}
-                                  onMouseEnter={() => setHoveredButton("filters")}
+                                  onMouseEnter={() =>
+                                    setHoveredButton("filters")
+                                  }
                                   onMouseLeave={() => setHoveredButton(null)}
                                   style={{
                                     display: "flex",
@@ -2477,8 +2493,12 @@ const InvitesAndOrders: React.FC = () => {
 
                                 {/* Customize Button */}
                                 <button
-                                  onClick={() => console.log("Customize clicked")}
-                                  onMouseEnter={() => setHoveredButton("customize")}
+                                  onClick={() =>
+                                    console.log("Customize clicked")
+                                  }
+                                  onMouseEnter={() =>
+                                    setHoveredButton("customize")
+                                  }
                                   onMouseLeave={() => setHoveredButton(null)}
                                   style={{
                                     display: "flex",
@@ -2573,7 +2593,9 @@ const InvitesAndOrders: React.FC = () => {
                                 {/* Default Button */}
                                 <button
                                   onClick={() => console.log("Default clicked")}
-                                  onMouseEnter={() => setHoveredButton("default")}
+                                  onMouseEnter={() =>
+                                    setHoveredButton("default")
+                                  }
                                   onMouseLeave={() => setHoveredButton(null)}
                                   style={{
                                     display: "flex",
@@ -2662,7 +2684,9 @@ const InvitesAndOrders: React.FC = () => {
                                 <div style={{ position: "relative" }}>
                                   <button
                                     onClick={() =>
-                                      setShowDownloadDropdown(!showDownloadDropdown)
+                                      setShowDownloadDropdown(
+                                        !showDownloadDropdown,
+                                      )
                                     }
                                     onMouseEnter={() =>
                                       setHoveredButton("download")
@@ -2777,7 +2801,8 @@ const InvitesAndOrders: React.FC = () => {
                                           onMouseLeave={(e) => {
                                             e.currentTarget.querySelector(
                                               ".content",
-                                            ).style.backgroundColor = "transparent";
+                                            ).style.backgroundColor =
+                                              "transparent";
                                           }}
                                           onClick={() => {
                                             console.log("Download XLSX");
@@ -2826,7 +2851,8 @@ const InvitesAndOrders: React.FC = () => {
                                           onMouseLeave={(e) => {
                                             e.currentTarget.querySelector(
                                               ".content",
-                                            ).style.backgroundColor = "transparent";
+                                            ).style.backgroundColor =
+                                              "transparent";
                                           }}
                                           onClick={() => {
                                             console.log("Download CSV");
