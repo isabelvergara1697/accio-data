@@ -311,12 +311,5 @@
     }
   }
 
-  /* Prevent any font weights above 600 in the platform */
-  h1, h2, h3, h4, h5, h6,
-  .font-semibold, .font-bold,
-  button, .button,
-  .text-heading, .heading {
-    font-weight: 600 !important;
-    max-font-weight: 600;
-  }
+
 }
