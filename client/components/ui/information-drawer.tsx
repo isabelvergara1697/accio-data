@@ -481,17 +481,17 @@ export default function InformationDrawer({
                 {
                   icon: "AA",
                   description: "Applicant has received Adverse Action Notice",
-                  csvLetter: "D",
+                  csvLetter: "",
                 },
                 {
                   icon: "PA",
                   description: "Applicant has received Pre-Adverse Action Notice",
-                  csvLetter: "D",
+                  csvLetter: "",
                 },
                 {
                   icon: "CA",
                   description: "Adverse Notice is in the Client Activation Queue",
-                  csvLetter: "D",
+                  csvLetter: "",
                 },
               ].map((row, index) => (
                 <div
