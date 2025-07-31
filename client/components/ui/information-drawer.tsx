@@ -498,7 +498,6 @@ export default function InformationDrawer({
                   key={index}
                   style={{
                     display: "flex",
-                    justifyContent: "space-between",
                     alignItems: "center",
                     alignSelf: "stretch",
                   }}
