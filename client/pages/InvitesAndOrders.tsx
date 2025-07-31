@@ -137,6 +137,8 @@ const InvitesAndOrders: React.FC = () => {
   >(null);
   const [showInformationDrawer, setShowInformationDrawer] = useState(false);
   const [showActionMenu, setShowActionMenu] = useState<string | null>(null);
+  const [tableView, setTableView] = useState<"table" | "rows">("table");
+  const [searchQuery, setSearchQuery] = useState("");
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const actionMenuRef = useRef<HTMLDivElement>(null);
 
