@@ -114,6 +114,7 @@ const InvitesAndOrders: React.FC = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const [isLargeDesktop, setIsLargeDesktop] = useState(window.innerWidth >= 1440);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isTablet, setIsTablet] = useState(
     window.innerWidth >= 768 && window.innerWidth < 1024,
