@@ -1663,6 +1663,7 @@ const InvitesAndOrders: React.FC = () => {
                         </>
                       ) : (
                         <>
+                          <div style={{ background: 'red', color: 'white', padding: '10px' }}>TABLET LAYOUT TEST</div>
                           {/* Tablet/Mobile: Title + View Toggle Row */}
                           <div
                             style={{
