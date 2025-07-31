@@ -979,7 +979,7 @@ const InvitesAndOrders: React.FC = () => {
                       position: "relative",
                     }}
                   >
-                    {/* Top Section - Tablet Layout */}
+                    {/* Top Section - Responsive Layout */}
                     <div
                       style={{
                         display: "flex",
