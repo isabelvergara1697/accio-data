@@ -1656,6 +1656,22 @@ const InvitesAndOrders: React.FC = () => {
                         </>
                       ) : (
                         <>
+                          {/* TABLET DETECTION TEST */}
+                          {isTablet && (
+                            <div style={{
+                              background: "red",
+                              color: "white",
+                              padding: "10px",
+                              textAlign: "center",
+                              width: "100%",
+                              position: "fixed",
+                              top: "0",
+                              zIndex: 9999
+                            }}>
+                              TABLET LAYOUT DETECTED - WIDTH: {window.innerWidth}px
+                            </div>
+                          )}
+
                           {/* Tablet/Mobile: Title + View Toggle Row */}
                           <div
                             style={{
