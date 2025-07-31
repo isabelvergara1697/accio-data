@@ -1771,24 +1771,7 @@ const InvitesAndOrders: React.FC = () => {
                                 </svg>
                               </button>
                             </div>
-                          </div>
 
-                          {/* Tablet/Mobile: Search + Action Buttons Row */}
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              gap: isMobile ? "8px" : "12px",
-                              alignSelf: "stretch",
-                              position: "relative",
-                              flexWrap:
-                                isMobile || isTablet ? "wrap" : "nowrap",
-                              width: "100%",
-                              maxWidth: "100%",
-                              overflow: "visible",
-                              boxSizing: "border-box",
-                            }}
-                          >
                             {/* Search Input */}
                             <div
                               style={{
@@ -1847,6 +1830,23 @@ const InvitesAndOrders: React.FC = () => {
                                 }}
                               />
                             </div>
+                          </div>
+
+                          {/* Tablet/Mobile: Action Buttons Row */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              flexWrap: "wrap",
+                              width: "100%",
+                              maxWidth: "100%",
+                              overflow: "visible",
+                              boxSizing: "border-box",
+                            }}
+                          >
 
                             {/* Action Buttons - Same style as desktop */}
                             {/* Filters Button */}
