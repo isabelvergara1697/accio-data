@@ -151,6 +151,9 @@ const InvitesAndOrders: React.FC = () => {
       setIsTablet(width >= 768 && width < 1024);
     };
 
+    // Call immediately on mount to set initial values
+    handleResize();
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
