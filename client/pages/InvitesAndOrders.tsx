@@ -1295,10 +1295,10 @@ const InvitesAndOrders: React.FC = () => {
                     boxSizing: "border-box",
                   }}
                 >
-                  {/* Table Header */}
+                  {/* Table Header - Hide on tablet */}
                   <div
                     style={{
-                      display: "flex",
+                      display: isTablet ? "none" : "flex",
                       padding: "16px 16px 0 16px",
                       flexDirection: "column",
                       alignItems: "flex-start",
