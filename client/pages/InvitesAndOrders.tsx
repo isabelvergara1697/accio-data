@@ -1001,9 +1001,9 @@ const InvitesAndOrders: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: isDesktop ? "row" : "column",
+                        flexDirection: (isDesktop && !isTablet) ? "row" : "column",
                         gap: "16px",
-                        alignItems: isDesktop ? "center" : "flex-start",
+                        alignItems: (isDesktop && !isTablet) ? "center" : "flex-start",
                         alignSelf: "stretch",
                         position: "relative",
                         width: "100%",
