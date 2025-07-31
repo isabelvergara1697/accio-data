@@ -2355,9 +2355,8 @@ const InvitesAndOrders: React.FC = () => {
                                     ? "#F5F5F5"
                                     : "transparent",
                                 cursor: "pointer",
-                                width: isTablet ? "auto" : "100px",
-                                minWidth: isTablet ? "85px" : "100px",
-                                flexShrink: isTablet ? 0 : 1,
+                                minWidth: isMobile ? "85px" : "100px",
+                                flexShrink: 1,
                                 transition: "background-color 0.2s ease",
                               }}
                             >
