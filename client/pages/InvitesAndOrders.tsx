@@ -1077,7 +1077,13 @@ const InvitesAndOrders: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
                               <path
                                 d="M15.3333 15.3333L10.8792 10.8792M12.6667 7C12.6667 10.1276 10.1276 12.6667 7 12.6667C3.8724 12.6667 1.33333 10.1276 1.33333 7C1.33333 3.8724 3.8724 1.33333 7 1.33333C10.1276 1.33333 12.6667 3.8724 12.6667 7Z"
                                 stroke="#717680"
@@ -1097,7 +1103,8 @@ const InvitesAndOrders: React.FC = () => {
                                 background: "transparent",
                                 flex: "1 0 0",
                                 color: "#717680",
-                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                 fontSize: "14px",
                                 fontWeight: 400,
                                 lineHeight: "20px",
@@ -1131,18 +1138,59 @@ const InvitesAndOrders: React.FC = () => {
                                 gap: "4px",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
-                                background: hoveredButton === "filters" ? "#FDFDFD" : "#FFF",
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                background:
+                                  hoveredButton === "filters"
+                                    ? "#FDFDFD"
+                                    : "#FFF",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <svg width="16" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.83333 14L3.83333 10M3.83333 10C4.56971 10 5.16667 9.40305 5.16667 8.66667C5.16667 7.93029 4.56971 7.33333 3.83333 7.33333C3.09695 7.33333 2.5 7.93029 2.5 8.66667C2.5 9.40305 3.09695 10 3.83333 10ZM3.83333 4.66667V2M8.5 14V10M8.5 4.66667V2M8.5 4.66667C7.76362 4.66667 7.16667 5.26362 7.16667 6C7.16667 6.73638 7.76362 7.33333 8.5 7.33333C9.23638 7.33333 9.83333 6.73638 9.83333 6C9.83333 5.26362 9.23638 4.66667 8.5 4.66667ZM13.1667 14V11.3333M13.1667 11.3333C13.903 11.3333 14.5 10.7364 14.5 10C14.5 9.26362 13.903 8.66667 13.1667 8.66667C12.4303 8.66667 11.8333 9.26362 11.8333 10C11.8333 10.7364 12.4303 11.3333 13.1667 11.3333ZM13.1667 6V2" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 17 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M3.83333 14L3.83333 10M3.83333 10C4.56971 10 5.16667 9.40305 5.16667 8.66667C5.16667 7.93029 4.56971 7.33333 3.83333 7.33333C3.09695 7.33333 2.5 7.93029 2.5 8.66667C2.5 9.40305 3.09695 10 3.83333 10ZM3.83333 4.66667V2M8.5 14V10M8.5 4.66667V2M8.5 4.66667C7.76362 4.66667 7.16667 5.26362 7.16667 6C7.16667 6.73638 7.76362 7.33333 8.5 7.33333C9.23638 7.33333 9.83333 6.73638 9.83333 6C9.83333 5.26362 9.23638 4.66667 8.5 4.66667ZM13.1667 14V11.3333M13.1667 11.3333C13.903 11.3333 14.5 10.7364 14.5 10C14.5 9.26362 13.903 8.66667 13.1667 8.66667C12.4303 8.66667 11.8333 9.26362 11.8333 10C11.8333 10.7364 12.4303 11.3333 13.1667 11.3333ZM13.1667 6V2"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
-                              <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                <div style={{color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                  <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Filters</span>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Filters
+                                  </span>
                                 </div>
                               </div>
                             </button>
@@ -1161,23 +1209,82 @@ const InvitesAndOrders: React.FC = () => {
                                 gap: "4px",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
-                                background: hoveredButton === "customize" ? "#FDFDFD" : "#FFF",
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                background:
+                                  hoveredButton === "customize"
+                                    ? "#FDFDFD"
+                                    : "#FFF",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                                <path
+                                  d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
-                              <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                <div style={{color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                  <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Customize</span>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Customize
+                                  </span>
                                 </div>
                               </div>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 6L8 10L12 6"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </button>
 
@@ -1195,30 +1302,87 @@ const InvitesAndOrders: React.FC = () => {
                                 gap: "4px",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
-                                background: hoveredButton === "default" ? "#FDFDFD" : "#FFF",
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                background:
+                                  hoveredButton === "default"
+                                    ? "#FDFDFD"
+                                    : "#FFF",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
-                              <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                <div style={{color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                  <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Default</span>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Default
+                                  </span>
                                 </div>
                               </div>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 6L8 10L12 6"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </button>
 
                             {/* Download Button */}
                             <div style={{ position: "relative" }}>
                               <button
-                                onClick={() => setShowDownloadDropdown(!showDownloadDropdown)}
-                                onMouseEnter={() => setHoveredButton("download")}
+                                onClick={() =>
+                                  setShowDownloadDropdown(!showDownloadDropdown)
+                                }
+                                onMouseEnter={() =>
+                                  setHoveredButton("download")
+                                }
                                 onMouseLeave={() => setHoveredButton(null)}
                                 style={{
                                   display: "flex",
@@ -1229,18 +1393,60 @@ const InvitesAndOrders: React.FC = () => {
                                   gap: "4px",
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
-                                  background: hoveredButton === "download" || showDownloadDropdown ? "#FDFDFD" : "#FFF",
-                                  boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  background:
+                                    hoveredButton === "download" ||
+                                    showDownloadDropdown
+                                      ? "#FDFDFD"
+                                      : "#FFF",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   cursor: "pointer",
                                   transition: "background-color 0.2s ease",
                                 }}
                               >
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
                                 </svg>
-                                <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                  <div style={{color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                    <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Download</span>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "0 2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 600,
+                                        fontSize: "14px",
+                                        color: "rgba(65,70,81,1)",
+                                      }}
+                                    >
+                                      Download
+                                    </span>
                                   </div>
                                 </div>
                               </button>
@@ -1255,25 +1461,116 @@ const InvitesAndOrders: React.FC = () => {
                                     borderRadius: "8px",
                                     border: "1px solid rgba(0, 0, 0, 0.08)",
                                     background: "#FFF",
-                                    boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                    boxShadow:
+                                      "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                                     zIndex: 1000,
                                   }}
                                 >
-                                  <div style={{display: "flex", padding: "4px 0", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch"}}>
-                                    <div style={{display: "flex", padding: "1px 4px", alignItems: "center", alignSelf: "stretch", cursor: "pointer"}}
-                                         onMouseEnter={(e) => {e.currentTarget.querySelector(".content").style.backgroundColor = "#FDFDFD";}}
-                                         onMouseLeave={(e) => {e.currentTarget.querySelector(".content").style.backgroundColor = "transparent";}}
-                                         onClick={() => {console.log("Download XLSX"); setShowDownloadDropdown(false);}}>
-                                      <div className="content" style={{display: "flex", padding: "6px 6px", alignItems: "center", gap: "12px", flex: "1 0 0", borderRadius: "6px", transition: "background-color 0.2s ease"}}>
-                                        <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Download XLSX</span>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "4px 0",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 4px",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "#FDFDFD";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "transparent";
+                                      }}
+                                      onClick={() => {
+                                        console.log("Download XLSX");
+                                        setShowDownloadDropdown(false);
+                                      }}
+                                    >
+                                      <div
+                                        className="content"
+                                        style={{
+                                          display: "flex",
+                                          padding: "6px 6px",
+                                          alignItems: "center",
+                                          gap: "12px",
+                                          flex: "1 0 0",
+                                          borderRadius: "6px",
+                                          transition:
+                                            "background-color 0.2s ease",
+                                        }}
+                                      >
+                                        <span
+                                          style={{
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(65,70,81,1)",
+                                          }}
+                                        >
+                                          Download XLSX
+                                        </span>
                                       </div>
                                     </div>
-                                    <div style={{display: "flex", padding: "1px 4px", alignItems: "center", alignSelf: "stretch", cursor: "pointer"}}
-                                         onMouseEnter={(e) => {e.currentTarget.querySelector(".content").style.backgroundColor = "#FDFDFD";}}
-                                         onMouseLeave={(e) => {e.currentTarget.querySelector(".content").style.backgroundColor = "transparent";}}
-                                         onClick={() => {console.log("Download CSV"); setShowDownloadDropdown(false);}}>
-                                      <div className="content" style={{display: "flex", padding: "6px 6px", alignItems: "center", gap: "12px", flex: "1 0 0", borderRadius: "6px", transition: "background-color 0.2s ease"}}>
-                                        <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Download CSV</span>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 4px",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "#FDFDFD";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "transparent";
+                                      }}
+                                      onClick={() => {
+                                        console.log("Download CSV");
+                                        setShowDownloadDropdown(false);
+                                      }}
+                                    >
+                                      <div
+                                        className="content"
+                                        style={{
+                                          display: "flex",
+                                          padding: "6px 6px",
+                                          alignItems: "center",
+                                          gap: "12px",
+                                          flex: "1 0 0",
+                                          borderRadius: "6px",
+                                          transition:
+                                            "background-color 0.2s ease",
+                                        }}
+                                      >
+                                        <span
+                                          style={{
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(65,70,81,1)",
+                                          }}
+                                        >
+                                          Download CSV
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -1284,7 +1581,9 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Key Stats Button */}
                             <button
                               onClick={() => setShowInformationDrawer(true)}
-                              onMouseEnter={() => setHoveredButton("information")}
+                              onMouseEnter={() =>
+                                setHoveredButton("information")
+                              }
                               onMouseLeave={() => setHoveredButton(null)}
                               style={{
                                 display: "flex",
@@ -1294,17 +1593,57 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 borderRadius: "8px",
-                                background: hoveredButton === "information" ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredButton === "information"
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 9.33333V7M8 4.66667H8.00667M6.6 12.8L7.57333 14.0978C7.71808 14.2908 7.79045 14.3873 7.87918 14.4218C7.95689 14.452 8.04311 14.452 8.12082 14.4218C8.20955 14.3873 8.28192 14.2908 8.42667 14.0978L9.4 12.8C9.59543 12.5394 9.69315 12.4091 9.81234 12.3097C9.97126 12.177 10.1589 12.0832 10.3603 12.0357C10.5114 12 10.6743 12 11 12C11.9319 12 12.3978 12 12.7654 11.8478C13.2554 11.6448 13.6448 11.2554 13.8478 10.7654C14 10.3978 14 9.93188 14 9V5.2C14 4.07989 14 3.51984 13.782 3.09202C13.5903 2.71569 13.2843 2.40973 12.908 2.21799C12.4802 2 11.9201 2 10.8 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V9C2 9.93188 2 10.3978 2.15224 10.7654C2.35523 11.2554 2.74458 11.6448 3.23463 11.8478C3.60218 12 4.06812 12 5 12C5.32572 12 5.48858 12 5.63967 12.0357C5.84113 12.0832 6.02874 12.177 6.18766 12.3097C6.30685 12.4091 6.40457 12.5394 6.6 12.8Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M8 9.33333V7M8 4.66667H8.00667M6.6 12.8L7.57333 14.0978C7.71808 14.2908 7.79045 14.3873 7.87918 14.4218C7.95689 14.452 8.04311 14.452 8.12082 14.4218C8.20955 14.3873 8.28192 14.2908 8.42667 14.0978L9.4 12.8C9.59543 12.5394 9.69315 12.4091 9.81234 12.3097C9.97126 12.177 10.1589 12.0832 10.3603 12.0357C10.5114 12 10.6743 12 11 12C11.9319 12 12.3978 12 12.7654 11.8478C13.2554 11.6448 13.6448 11.2554 13.8478 10.7654C14 10.3978 14 9.93188 14 9V5.2C14 4.07989 14 3.51984 13.782 3.09202C13.5903 2.71569 13.2843 2.40973 12.908 2.21799C12.4802 2 11.9201 2 10.8 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V9C2 9.93188 2 10.3978 2.15224 10.7654C2.35523 11.2554 2.74458 11.6448 3.23463 11.8478C3.60218 12 4.06812 12 5 12C5.32572 12 5.48858 12 5.63967 12.0357C5.84113 12.0832 6.02874 12.177 6.18766 12.3097C6.30685 12.4091 6.40457 12.5394 6.6 12.8Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
-                              <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                <div style={{color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                  <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(83,88,98,1)"}}>Key Stats</span>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#535862",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(83,88,98,1)",
+                                    }}
+                                  >
+                                    Key Stats
+                                  </span>
                                 </div>
                               </div>
                             </button>
@@ -1366,7 +1705,8 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "flex-start",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 position: "relative",
                               }}
                             >
@@ -1381,7 +1721,8 @@ const InvitesAndOrders: React.FC = () => {
                                   alignItems: "center",
                                   gap: "6px",
                                   borderRight: "1px solid #D5D7DA",
-                                  background: tableView === "table" ? "#ECEEF9" : "#FFF",
+                                  background:
+                                    tableView === "table" ? "#ECEEF9" : "#FFF",
                                   borderTopLeftRadius: "8px",
                                   borderBottomLeftRadius: "8px",
                                   cursor: "pointer",
@@ -1397,7 +1738,11 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   <path
                                     d="M3 9L21 9M9 3L9 21M7.8 3H16.2C17.8802 3 18.7202 3 19.362 3.32698C19.9265 3.6146 20.3854 4.07354 20.673 4.63803C21 5.27976 21 6.11984 21 7.8V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V7.8C3 6.11984 3 5.27976 3.32698 4.63803C3.6146 4.07354 4.07354 3.6146 4.63803 3.32698C5.27976 3 6.11984 3 7.8 3Z"
-                                    stroke={tableView === "table" ? "#344698" : "#A4A7AE"}
+                                    stroke={
+                                      tableView === "table"
+                                        ? "#344698"
+                                        : "#A4A7AE"
+                                    }
                                     strokeWidth="1.66667"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -1415,7 +1760,8 @@ const InvitesAndOrders: React.FC = () => {
                                   justifyContent: "center",
                                   alignItems: "center",
                                   gap: "6px",
-                                  background: tableView === "rows" ? "#ECEEF9" : "#FFF",
+                                  background:
+                                    tableView === "rows" ? "#ECEEF9" : "#FFF",
                                   borderTopRightRadius: "8px",
                                   borderBottomRightRadius: "8px",
                                   cursor: "pointer",
@@ -1431,14 +1777,22 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   <path
                                     d="M17.8 10C18.9201 10 19.4802 10 19.908 9.78201C20.2843 9.59027 20.5903 9.28431 20.782 8.90798C21 8.48016 21 7.92011 21 6.8V6.2C21 5.0799 21 4.51984 20.782 4.09202C20.5903 3.7157 20.2843 3.40973 19.908 3.21799C19.4802 3 18.9201 3 17.8 3L6.2 3C5.0799 3 4.51984 3 4.09202 3.21799C3.71569 3.40973 3.40973 3.71569 3.21799 4.09202C3 4.51984 3 5.07989 3 6.2L3 6.8C3 7.9201 3 8.48016 3.21799 8.90798C3.40973 9.28431 3.71569 9.59027 4.09202 9.78201C4.51984 10 5.07989 10 6.2 10L17.8 10Z"
-                                    stroke={tableView === "rows" ? "#344698" : "#A4A7AE"}
+                                    stroke={
+                                      tableView === "rows"
+                                        ? "#344698"
+                                        : "#A4A7AE"
+                                    }
                                     strokeWidth="1.66667"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                   />
                                   <path
                                     d="M17.8 21C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V17.2C21 16.0799 21 15.5198 20.782 15.092C20.5903 14.7157 20.2843 14.4097 19.908 14.218C19.4802 14 18.9201 14 17.8 14L6.2 14C5.0799 14 4.51984 14 4.09202 14.218C3.71569 14.4097 3.40973 14.7157 3.21799 15.092C3 15.5198 3 16.0799 3 17.2L3 17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8Z"
-                                    stroke={tableView === "rows" ? "#344698" : "#A4A7AE"}
+                                    stroke={
+                                      tableView === "rows"
+                                        ? "#344698"
+                                        : "#A4A7AE"
+                                    }
                                     strokeWidth="1.66667"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -1505,7 +1859,8 @@ const InvitesAndOrders: React.FC = () => {
                                   background: "transparent",
                                   flex: "1 0 0",
                                   color: "#717680",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "14px",
                                   fontWeight: 400,
                                   lineHeight: "20px",
@@ -1531,21 +1886,62 @@ const InvitesAndOrders: React.FC = () => {
                                 gap: "4px",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
-                                background: hoveredButton === "filters" ? "#FDFDFD" : "#FFF",
+                                background:
+                                  hoveredButton === "filters"
+                                    ? "#FDFDFD"
+                                    : "#FFF",
                                 width: isTablet ? "auto" : "90px",
                                 minWidth: isTablet ? "80px" : "90px",
                                 flexShrink: isTablet ? 0 : 1,
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <svg width="16" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.83333 14L3.83333 10M3.83333 10C4.56971 10 5.16667 9.40305 5.16667 8.66667C5.16667 7.93029 4.56971 7.33333 3.83333 7.33333C3.09695 7.33333 2.5 7.93029 2.5 8.66667C2.5 9.40305 3.09695 10 3.83333 10ZM3.83333 4.66667V2M8.5 14V10M8.5 4.66667V2M8.5 4.66667C7.76362 4.66667 7.16667 5.26362 7.16667 6C7.16667 6.73638 7.76362 7.33333 8.5 7.33333C9.23638 7.33333 9.83333 6.73638 9.83333 6C9.83333 5.26362 9.23638 4.66667 8.5 4.66667ZM13.1667 14V11.3333M13.1667 11.3333C13.903 11.3333 14.5 10.7364 14.5 10C14.5 9.26362 13.903 8.66667 13.1667 8.66667C12.4303 8.66667 11.8333 9.26362 11.8333 10C11.8333 10.7364 12.4303 11.3333 13.1667 11.3333ZM13.1667 6V2" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 17 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M3.83333 14L3.83333 10M3.83333 10C4.56971 10 5.16667 9.40305 5.16667 8.66667C5.16667 7.93029 4.56971 7.33333 3.83333 7.33333C3.09695 7.33333 2.5 7.93029 2.5 8.66667C2.5 9.40305 3.09695 10 3.83333 10ZM3.83333 4.66667V2M8.5 14V10M8.5 4.66667V2M8.5 4.66667C7.76362 4.66667 7.16667 5.26362 7.16667 6C7.16667 6.73638 7.76362 7.33333 8.5 7.33333C9.23638 7.33333 9.83333 6.73638 9.83333 6C9.83333 5.26362 9.23638 4.66667 8.5 4.66667ZM13.1667 14V11.3333M13.1667 11.3333C13.903 11.3333 14.5 10.7364 14.5 10C14.5 9.26362 13.903 8.66667 13.1667 8.66667C12.4303 8.66667 11.8333 9.26362 11.8333 10C11.8333 10.7364 12.4303 11.3333 13.1667 11.3333ZM13.1667 6V2"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
-                              <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                <div style={{color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                  <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Filters</span>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Filters
+                                  </span>
                                 </div>
                               </div>
                             </button>
@@ -1564,26 +1960,85 @@ const InvitesAndOrders: React.FC = () => {
                                 gap: "4px",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
-                                background: hoveredButton === "customize" ? "#FDFDFD" : "#FFF",
+                                background:
+                                  hoveredButton === "customize"
+                                    ? "#FDFDFD"
+                                    : "#FFF",
                                 width: isTablet ? "auto" : "120px",
                                 minWidth: isTablet ? "100px" : "120px",
                                 flexShrink: isTablet ? 0 : 1,
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                                <path
+                                  d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
-                              <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                <div style={{color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                  <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Customize</span>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Customize
+                                  </span>
                                 </div>
                               </div>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 6L8 10L12 6"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </button>
 
@@ -1601,33 +2056,90 @@ const InvitesAndOrders: React.FC = () => {
                                 gap: "4px",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
-                                background: hoveredButton === "default" ? "#FDFDFD" : "#FFF",
+                                background:
+                                  hoveredButton === "default"
+                                    ? "#FDFDFD"
+                                    : "#FFF",
                                 width: isTablet ? "auto" : "100px",
                                 minWidth: isTablet ? "85px" : "100px",
                                 flexShrink: isTablet ? 0 : 1,
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
-                              <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                <div style={{color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                  <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Default</span>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Default
+                                  </span>
                                 </div>
                               </div>
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 6L8 10L12 6"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
                             </button>
 
                             {/* Download Button */}
                             <div style={{ position: "relative" }}>
                               <button
-                                onClick={() => setShowDownloadDropdown(!showDownloadDropdown)}
-                                onMouseEnter={() => setHoveredButton("download")}
+                                onClick={() =>
+                                  setShowDownloadDropdown(!showDownloadDropdown)
+                                }
+                                onMouseEnter={() =>
+                                  setHoveredButton("download")
+                                }
                                 onMouseLeave={() => setHoveredButton(null)}
                                 style={{
                                   display: "flex",
@@ -1638,21 +2150,63 @@ const InvitesAndOrders: React.FC = () => {
                                   gap: "4px",
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
-                                  background: hoveredButton === "download" || showDownloadDropdown ? "#FDFDFD" : "#FFF",
+                                  background:
+                                    hoveredButton === "download" ||
+                                    showDownloadDropdown
+                                      ? "#FDFDFD"
+                                      : "#FFF",
                                   width: isTablet ? "auto" : "120px",
                                   minWidth: isTablet ? "100px" : "120px",
                                   flexShrink: isTablet ? 0 : 1,
-                                  boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   cursor: "pointer",
                                   transition: "background-color 0.2s ease",
                                 }}
                               >
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
                                 </svg>
-                                <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                  <div style={{color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                    <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Download</span>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "0 2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 600,
+                                        fontSize: "14px",
+                                        color: "rgba(65,70,81,1)",
+                                      }}
+                                    >
+                                      Download
+                                    </span>
                                   </div>
                                 </div>
                               </button>
@@ -1667,25 +2221,116 @@ const InvitesAndOrders: React.FC = () => {
                                     borderRadius: "8px",
                                     border: "1px solid rgba(0, 0, 0, 0.08)",
                                     background: "#FFF",
-                                    boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                    boxShadow:
+                                      "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                                     zIndex: 1000,
                                   }}
                                 >
-                                  <div style={{display: "flex", padding: "4px 0", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch"}}>
-                                    <div style={{display: "flex", padding: "1px 4px", alignItems: "center", alignSelf: "stretch", cursor: "pointer"}}
-                                         onMouseEnter={(e) => {e.currentTarget.querySelector(".content").style.backgroundColor = "#FDFDFD";}}
-                                         onMouseLeave={(e) => {e.currentTarget.querySelector(".content").style.backgroundColor = "transparent";}}
-                                         onClick={() => {console.log("Download XLSX"); setShowDownloadDropdown(false);}}>
-                                      <div className="content" style={{display: "flex", padding: "6px 6px", alignItems: "center", gap: "12px", flex: "1 0 0", borderRadius: "6px", transition: "background-color 0.2s ease"}}>
-                                        <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Download XLSX</span>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "4px 0",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 4px",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "#FDFDFD";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "transparent";
+                                      }}
+                                      onClick={() => {
+                                        console.log("Download XLSX");
+                                        setShowDownloadDropdown(false);
+                                      }}
+                                    >
+                                      <div
+                                        className="content"
+                                        style={{
+                                          display: "flex",
+                                          padding: "6px 6px",
+                                          alignItems: "center",
+                                          gap: "12px",
+                                          flex: "1 0 0",
+                                          borderRadius: "6px",
+                                          transition:
+                                            "background-color 0.2s ease",
+                                        }}
+                                      >
+                                        <span
+                                          style={{
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(65,70,81,1)",
+                                          }}
+                                        >
+                                          Download XLSX
+                                        </span>
                                       </div>
                                     </div>
-                                    <div style={{display: "flex", padding: "1px 4px", alignItems: "center", alignSelf: "stretch", cursor: "pointer"}}
-                                         onMouseEnter={(e) => {e.currentTarget.querySelector(".content").style.backgroundColor = "#FDFDFD";}}
-                                         onMouseLeave={(e) => {e.currentTarget.querySelector(".content").style.backgroundColor = "transparent";}}
-                                         onClick={() => {console.log("Download CSV"); setShowDownloadDropdown(false);}}>
-                                      <div className="content" style={{display: "flex", padding: "6px 6px", alignItems: "center", gap: "12px", flex: "1 0 0", borderRadius: "6px", transition: "background-color 0.2s ease"}}>
-                                        <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(65,70,81,1)"}}>Download CSV</span>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "1px 4px",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "#FDFDFD";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.querySelector(
+                                          ".content",
+                                        ).style.backgroundColor = "transparent";
+                                      }}
+                                      onClick={() => {
+                                        console.log("Download CSV");
+                                        setShowDownloadDropdown(false);
+                                      }}
+                                    >
+                                      <div
+                                        className="content"
+                                        style={{
+                                          display: "flex",
+                                          padding: "6px 6px",
+                                          alignItems: "center",
+                                          gap: "12px",
+                                          flex: "1 0 0",
+                                          borderRadius: "6px",
+                                          transition:
+                                            "background-color 0.2s ease",
+                                        }}
+                                      >
+                                        <span
+                                          style={{
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(65,70,81,1)",
+                                          }}
+                                        >
+                                          Download CSV
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -1696,7 +2341,9 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Key Stats Button */}
                             <button
                               onClick={() => setShowInformationDrawer(true)}
-                              onMouseEnter={() => setHoveredButton("information")}
+                              onMouseEnter={() =>
+                                setHoveredButton("information")
+                              }
                               onMouseLeave={() => setHoveredButton(null)}
                               style={{
                                 display: "flex",
@@ -1706,7 +2353,10 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 borderRadius: "8px",
-                                background: hoveredButton === "information" ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredButton === "information"
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 cursor: "pointer",
                                 width: isTablet ? "auto" : "100px",
                                 minWidth: isTablet ? "85px" : "100px",
@@ -1714,12 +2364,49 @@ const InvitesAndOrders: React.FC = () => {
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 9.33333V7M8 4.66667H8.00667M6.6 12.8L7.57333 14.0978C7.71808 14.2908 7.79045 14.3873 7.87918 14.4218C7.95689 14.452 8.04311 14.452 8.12082 14.4218C8.20955 14.3873 8.28192 14.2908 8.42667 14.0978L9.4 12.8C9.59543 12.5394 9.69315 12.4091 9.81234 12.3097C9.97126 12.177 10.1589 12.0832 10.3603 12.0357C10.5114 12 10.6743 12 11 12C11.9319 12 12.3978 12 12.7654 11.8478C13.2554 11.6448 13.6448 11.2554 13.8478 10.7654C14 10.3978 14 9.93188 14 9V5.2C14 4.07989 14 3.51984 13.782 3.09202C13.5903 2.71569 13.2843 2.40973 12.908 2.21799C12.4802 2 11.9201 2 10.8 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V9C2 9.93188 2 10.3978 2.15224 10.7654C2.35523 11.2554 2.74458 11.6448 3.23463 11.8478C3.60218 12 4.06812 12 5 12C5.32572 12 5.48858 12 5.63967 12.0357C5.84113 12.0832 6.02874 12.177 6.18766 12.3097C6.30685 12.4091 6.40457 12.5394 6.6 12.8Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M8 9.33333V7M8 4.66667H8.00667M6.6 12.8L7.57333 14.0978C7.71808 14.2908 7.79045 14.3873 7.87918 14.4218C7.95689 14.452 8.04311 14.452 8.12082 14.4218C8.20955 14.3873 8.28192 14.2908 8.42667 14.0978L9.4 12.8C9.59543 12.5394 9.69315 12.4091 9.81234 12.3097C9.97126 12.177 10.1589 12.0832 10.3603 12.0357C10.5114 12 10.6743 12 11 12C11.9319 12 12.3978 12 12.7654 11.8478C13.2554 11.6448 13.6448 11.2554 13.8478 10.7654C14 10.3978 14 9.93188 14 9V5.2C14 4.07989 14 3.51984 13.782 3.09202C13.5903 2.71569 13.2843 2.40973 12.908 2.21799C12.4802 2 11.9201 2 10.8 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V9C2 9.93188 2 10.3978 2.15224 10.7654C2.35523 11.2554 2.74458 11.6448 3.23463 11.8478C3.60218 12 4.06812 12 5 12C5.32572 12 5.48858 12 5.63967 12.0357C5.84113 12.0832 6.02874 12.177 6.18766 12.3097C6.30685 12.4091 6.40457 12.5394 6.6 12.8Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
                               </svg>
-                              <div style={{display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center"}}>
-                                <div style={{color: "#535862", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px"}}>
-                                  <span style={{fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontWeight: 600, fontSize: "14px", color: "rgba(83,88,98,1)"}}>Key Stats</span>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#535862",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(83,88,98,1)",
+                                    }}
+                                  >
+                                    Key Stats
+                                  </span>
                                 </div>
                               </div>
                             </button>
