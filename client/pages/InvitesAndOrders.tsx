@@ -3852,7 +3852,7 @@ const InvitesAndOrders: React.FC = () => {
                           flexDirection: "column",
                           alignItems: "flex-start",
                           position: "relative",
-                          minWidth: isMobile ? "1120px" : isTablet ? "1110px" : "1080px",
+                          minWidth: isMobile ? "1120px" : isTablet ? "1110px" : isLargeDesktop ? "1200px" : "1080px",
                           width: "100%",
                         }}
                       >
