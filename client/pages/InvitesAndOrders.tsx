@@ -1457,8 +1457,7 @@ const InvitesAndOrders: React.FC = () => {
                                 boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 padding: "8px",
                                 position: "relative",
-                                maxWidth: isTablet ? "300px" : "100%",
-                                minWidth: "200px",
+                                minWidth: isMobile ? "180px" : "250px",
                               }}
                             >
                               <svg
