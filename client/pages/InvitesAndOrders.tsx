@@ -972,7 +972,8 @@ const InvitesAndOrders: React.FC = () => {
                     background: "#FFF",
                     position: "relative",
                     width: "100%",
-                    maxWidth: "100%",
+                    maxWidth: isTablet ? "744px" : "100%",
+                    margin: isTablet ? "0 auto" : "0",
                     boxSizing: "border-box",
                   }}
                 >
