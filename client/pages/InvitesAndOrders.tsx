@@ -114,7 +114,9 @@ const InvitesAndOrders: React.FC = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
-  const [isLargeDesktop, setIsLargeDesktop] = useState(window.innerWidth >= 1440);
+  const [isLargeDesktop, setIsLargeDesktop] = useState(
+    window.innerWidth >= 1440,
+  );
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isTablet, setIsTablet] = useState(
     window.innerWidth >= 768 && window.innerWidth < 1024,
@@ -3852,7 +3854,13 @@ const InvitesAndOrders: React.FC = () => {
                           flexDirection: "column",
                           alignItems: "flex-start",
                           position: "relative",
-                          minWidth: isMobile ? "1120px" : isTablet ? "1110px" : isLargeDesktop ? "1200px" : "1080px",
+                          minWidth: isMobile
+                            ? "1120px"
+                            : isTablet
+                              ? "1110px"
+                              : isLargeDesktop
+                                ? "1200px"
+                                : "1080px",
                           width: "100%",
                         }}
                       >
@@ -3869,7 +3877,11 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: isMobile ? "60px" : isTablet ? "50px" : "40px",
+                              width: isMobile
+                                ? "60px"
+                                : isTablet
+                                  ? "50px"
+                                  : "40px",
                               height: "36px",
                               padding: "6px 12px",
                               justifyContent: "center",
@@ -4044,7 +4056,9 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              ...(isLargeDesktop ? { flex: "0 1 130px", minWidth: "108px" } : { width: "108px" }),
+                              ...(isLargeDesktop
+                                ? { flex: "0 1 130px", minWidth: "108px" }
+                                : { width: "108px" }),
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
@@ -4195,7 +4209,9 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              ...(isLargeDesktop ? { flex: "0 1 130px", minWidth: "108px" } : { width: "108px" }),
+                              ...(isLargeDesktop
+                                ? { flex: "0 1 130px", minWidth: "108px" }
+                                : { width: "108px" }),
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
@@ -4346,7 +4362,9 @@ const InvitesAndOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              ...(isLargeDesktop ? { flex: "1 1 200px", minWidth: "200px" } : { width: "200px" }),
+                              ...(isLargeDesktop
+                                ? { flex: "1 1 200px", minWidth: "200px" }
+                                : { width: "200px" }),
                               height: "36px",
                               padding: "6px 12px",
                               alignItems: "center",
@@ -4976,7 +4994,9 @@ const InvitesAndOrders: React.FC = () => {
                                 <div
                                   style={{
                                     color:
-                                      sortField === "ews" ? "#34479A" : "#717680",
+                                      sortField === "ews"
+                                        ? "#34479A"
+                                        : "#717680",
                                     fontFamily: "Public Sans",
                                     fontSize: "12px",
                                     fontStyle: "normal",
@@ -5060,7 +5080,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: isMobile ? "60px" : isTablet ? "50px" : "40px",
+                                width: isMobile
+                                  ? "60px"
+                                  : isTablet
+                                    ? "50px"
+                                    : "40px",
                                 height: "52px",
                                 padding: "12px",
                                 justifyContent: "center",
@@ -5105,7 +5129,9 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                ...(isLargeDesktop ? { flex: "0 1 130px", minWidth: "108px" } : { width: "108px" }),
+                                ...(isLargeDesktop
+                                  ? { flex: "0 1 130px", minWidth: "108px" }
+                                  : { width: "108px" }),
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
@@ -5131,7 +5157,9 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                ...(isLargeDesktop ? { flex: "0 1 130px", minWidth: "108px" } : { width: "108px" }),
+                                ...(isLargeDesktop
+                                  ? { flex: "0 1 130px", minWidth: "108px" }
+                                  : { width: "108px" }),
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
@@ -5157,7 +5185,9 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                ...(isLargeDesktop ? { flex: "1 1 200px", minWidth: "200px" } : { width: "200px" }),
+                                ...(isLargeDesktop
+                                  ? { flex: "1 1 200px", minWidth: "200px" }
+                                  : { width: "200px" }),
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
@@ -5758,7 +5788,8 @@ const InvitesAndOrders: React.FC = () => {
                               color: "rgba(65,70,81,1)",
                             }}
                           >
-                            Showing {Math.min(pageSize, sortedData.length)} of {sortedData.length}
+                            Showing {Math.min(pageSize, sortedData.length)} of{" "}
+                            {sortedData.length}
                           </span>
                         </div>
                       </div>
@@ -5773,7 +5804,9 @@ const InvitesAndOrders: React.FC = () => {
                       >
                         {/* Pagination Controls */}
                         <button
-                          onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                          onClick={() =>
+                            setCurrentPage(Math.max(1, currentPage - 1))
+                          }
                           disabled={currentPage === 1}
                           onMouseEnter={() =>
                             setHoveredPaginationButton("prev")
@@ -5877,7 +5910,11 @@ const InvitesAndOrders: React.FC = () => {
                         ))}
 
                         <button
-                          onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                          onClick={() =>
+                            setCurrentPage(
+                              Math.min(totalPages, currentPage + 1),
+                            )
+                          }
                           disabled={currentPage === totalPages}
                           onMouseEnter={() =>
                             setHoveredPaginationButton("next")
