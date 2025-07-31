@@ -1778,7 +1778,7 @@ const InvitesAndOrders: React.FC = () => {
                                 display: "flex",
                                 alignItems: "center",
                                 gap: "8px",
-                                flex: "1 0 0",
+                                flex: isTablet ? "0 1 300px" : "1 0 0",
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
                                 background: "#FFF",
@@ -1790,7 +1790,7 @@ const InvitesAndOrders: React.FC = () => {
                                   : isTablet
                                     ? "200px"
                                     : "250px",
-                                maxWidth: "100%",
+                                maxWidth: isTablet ? "300px" : "100%",
                               }}
                             >
                               <svg
