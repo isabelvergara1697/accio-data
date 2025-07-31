@@ -987,8 +987,10 @@ const InvitesAndOrders: React.FC = () => {
                         gap: "16px",
                         alignSelf: "stretch",
                         position: "relative",
+                        width: "100%",
                         maxWidth: "100%",
                         overflow: "hidden",
+                        boxSizing: "border-box",
                       }}
                     >
                       {/* Title and Search Row */}
