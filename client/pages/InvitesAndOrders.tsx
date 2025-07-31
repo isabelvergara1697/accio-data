@@ -1715,6 +1715,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 minWidth: "88px",
                                 flexShrink: 0,
+                                background: "yellow", // DEBUG: to see if container exists
                               }}
                             >
                               {/* Table View Button */}
