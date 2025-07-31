@@ -5111,12 +5111,13 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
+                                width: "200px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
-                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
+                                minWidth: 0,
                               }}
                             >
                               <div
@@ -5124,7 +5125,7 @@ const InvitesAndOrders: React.FC = () => {
                                   display: "-webkit-box",
                                   WebkitBoxOrient: "vertical",
                                   WebkitLineClamp: 1,
-                                  flex: "1 0 0",
+                                  width: "100%",
                                   overflow: "hidden",
                                   color: "#181D27",
                                   textOverflow: "ellipsis",
@@ -5197,11 +5198,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
+                                width: "90px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 gap: "4px",
-                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
@@ -5213,11 +5214,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
+                                width: "90px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 gap: "4px",
-                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
@@ -5229,11 +5230,11 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
+                                width: "90px",
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
                                 gap: "4px",
-                                flex: "1 0 0",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                               }}
