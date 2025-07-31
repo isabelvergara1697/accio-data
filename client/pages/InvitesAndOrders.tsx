@@ -1037,7 +1037,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
+                                  fontWeight: 600,
                                   fontSize: "18px",
                                   color: "rgba(24,29,39,1)",
                                 }}
@@ -2463,7 +2463,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     fontSize: "12px",
                                     color:
                                       sortField === "i9Filled"
@@ -2534,7 +2534,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     fontSize: "12px",
                                     color:
                                       sortField === "activated"
@@ -2603,7 +2603,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
+                                    fontWeight: 600,
                                     fontSize: "12px",
                                     color:
                                       sortField === "ews"
