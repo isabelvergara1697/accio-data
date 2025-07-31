@@ -5754,7 +5754,7 @@ const InvitesAndOrders: React.FC = () => {
                               color: "rgba(65,70,81,1)",
                             }}
                           >
-                            Showing 10 of 456
+                            Showing {Math.min(pageSize, sortedData.length)} of {sortedData.length}
                           </span>
                         </div>
                       </div>
