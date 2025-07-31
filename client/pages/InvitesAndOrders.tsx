@@ -1813,7 +1813,7 @@ const InvitesAndOrders: React.FC = () => {
                               flexWrap: isMobile ? "wrap" : "nowrap",
                               width: "100%",
                               maxWidth: "100%",
-                              overflow: "hidden",
+                              overflow: "visible",
                               boxSizing: "border-box",
                             }}
                           >
