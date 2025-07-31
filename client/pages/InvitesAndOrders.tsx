@@ -1110,15 +1110,21 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 borderRadius: "8px",
-                                border: "1px solid #D5D7DA",
+                                border: action.icon === "information" ? "none" : "1px solid #D5D7DA",
                                 background:
-                                  hoveredButton === action.icon ||
-                                  (action.icon === "download" &&
-                                    showDownloadDropdown)
+                                  action.icon === "information"
+                                    ? hoveredButton === action.icon
+                                      ? "#F5F5F5"
+                                      : "transparent"
+                                    : hoveredButton === action.icon ||
+                                      (action.icon === "download" &&
+                                        showDownloadDropdown)
                                     ? "#FDFDFD"
                                     : "#FFF",
                                 boxShadow:
-                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  action.icon === "information"
+                                    ? "none"
+                                    : "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 position: "relative",
                                 transition: "all 0.2s ease",
