@@ -5807,7 +5807,7 @@ const InvitesAndOrders: React.FC = () => {
                           </svg>
                         </button>
 
-                        {[1, 2, 3, "...", 8, 9, 10].map((page, index) => (
+                        {getPageNumbers().map((page, index) => (
                           <div
                             key={index}
                             onMouseEnter={() =>
