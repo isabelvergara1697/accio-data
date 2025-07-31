@@ -694,9 +694,7 @@ const InvitesAndOrders: React.FC = () => {
             display: "flex",
             padding: isMobile
               ? "0 16px 24px 16px"
-              : isTablet
-                ? "0 32px 24px 32px"
-                : "0 32px 24px 32px",
+              : "0 32px 24px 32px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "24px",
