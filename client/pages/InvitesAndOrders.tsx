@@ -3837,13 +3837,9 @@ const InvitesAndOrders: React.FC = () => {
                         maxWidth: "100%",
                         overflowX: "auto",
                         overflowY: "visible",
-                        ...(isMobile || isTablet
-                          ? {
-                              scrollbarWidth: "thin",
-                              scrollbarColor: "#D5D7DA #F9FAFB",
-                              WebkitOverflowScrolling: "touch",
-                            }
-                          : {}),
+                        scrollbarWidth: "thin",
+                        scrollbarColor: "#D5D7DA #F9FAFB",
+                        WebkitOverflowScrolling: "touch",
                       }}
                     >
                       {/* Table Content */}
