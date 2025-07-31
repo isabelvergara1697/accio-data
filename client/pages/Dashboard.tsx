@@ -1389,18 +1389,9 @@ export default function Dashboard() {
                             }),
                       }}
                     >
-                      <div
-                        style={{
-                          alignSelf: "stretch",
-                          color: "#181D27",
-                          fontFamily: "Public Sans",
-                          fontSize: isDesktop ? "24px" : "20px",
-                          fontWeight: "600",
-                          lineHeight: isDesktop ? "32px" : "30px",
-                        }}
-                      >
+                      <h1 className="page-title" style={{ alignSelf: "stretch" }}>
                         Dashboard
-                      </div>
+                      </h1>
                       <div
                         style={{
                           alignSelf: "stretch",
