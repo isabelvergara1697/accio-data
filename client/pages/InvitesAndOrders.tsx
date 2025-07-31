@@ -2624,12 +2624,12 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
                           </div>
 
-                          {/* Tablet/Mobile: Action Buttons Row */}
+                          {/* Tablet: Action Buttons Row */}
                           <div
                             style={{
                               display: "flex",
                               alignItems: "center",
-                              gap: isMobile ? "8px" : "12px",
+                              gap: "12px",
                               alignSelf: "stretch",
                               position: "relative",
                               flexWrap: "wrap",
