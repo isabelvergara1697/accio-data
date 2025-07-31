@@ -5769,6 +5769,8 @@ const InvitesAndOrders: React.FC = () => {
                       >
                         {/* Pagination Controls */}
                         <button
+                          onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                          disabled={currentPage === 1}
                           onMouseEnter={() =>
                             setHoveredPaginationButton("prev")
                           }
