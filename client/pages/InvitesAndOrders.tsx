@@ -1217,9 +1217,11 @@ const InvitesAndOrders: React.FC = () => {
                         style={{
                           display: "flex",
                           alignItems: "center",
-                          gap: "12px",
+                          gap: isMobile ? "8px" : "12px",
                           alignSelf: "stretch",
                           position: "relative",
+                          flexWrap: isMobile ? "wrap" : "nowrap",
+                          maxWidth: "100%",
                         }}
                       >
                         {/* Filters Button */}
