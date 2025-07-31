@@ -5710,11 +5710,11 @@ const InvitesAndOrders: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Pagination */}
+                    {/* Pagination - moved outside scroll container */}
                     <div
                       style={{
                         display: "flex",
-                        padding: "12px 0",
+                        padding: "12px 16px",
                         justifyContent: "space-between",
                         alignItems: "center",
                         alignSelf: "stretch",
@@ -5722,6 +5722,7 @@ const InvitesAndOrders: React.FC = () => {
                         position: "relative",
                         background: "#FFF",
                         minHeight: "48px",
+                        borderRadius: "0px 0px 12px 12px",
                       }}
                     >
                       <div
