@@ -747,13 +747,11 @@ const InvitesAndOrders: React.FC = () => {
                   }}
                 >
                   <div className="page-title-group">
-                    <h1 className="page-title">
-                      Invites & Orders
-                    </h1>
+                    <h1 className="page-title">Invites & Orders</h1>
                     <div className="page-subtitle supporting-text">
                       Track pending invites and submitted orders in one place.
-                      Use filters and tools to sort, review, and manage
-                      activity easily.
+                      Use filters and tools to sort, review, and manage activity
+                      easily.
                     </div>
                   </div>
 
@@ -2422,7 +2420,11 @@ const InvitesAndOrders: React.FC = () => {
                         alignItems: "flex-start",
                         alignSelf: "stretch",
                         position: "relative",
-                        overflowX: isMobile ? "auto" : isTablet ? "auto" : "visible",
+                        overflowX: isMobile
+                          ? "auto"
+                          : isTablet
+                            ? "auto"
+                            : "visible",
                         overflowY: "hidden",
                         ...(isMobile || isTablet
                           ? {
