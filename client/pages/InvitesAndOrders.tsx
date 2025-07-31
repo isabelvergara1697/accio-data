@@ -993,8 +993,9 @@ const InvitesAndOrders: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: "column",
-                        gap: "16px",
+                        flexDirection: isDesktop ? "row" : "column",
+                        gap: isDesktop ? "16px" : "16px",
+                        alignItems: isDesktop ? "center" : "flex-start",
                         alignSelf: "stretch",
                         position: "relative",
                         width: "100%",
