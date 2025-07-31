@@ -422,7 +422,10 @@
     box-sizing: border-box !important;
     width: 100% !important;
     max-width: 100% !important;
-    overflow: hidden !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    contain: layout !important;
   }
 
   /* Force responsive padding with CSS media queries */
