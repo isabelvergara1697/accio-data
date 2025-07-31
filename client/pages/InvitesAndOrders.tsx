@@ -706,7 +706,7 @@ const InvitesAndOrders: React.FC = () => {
           {/* Header section */}
           <div
             style={{
-              display: "flex",
+              display: isTablet ? "none" : "flex",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "24px",
