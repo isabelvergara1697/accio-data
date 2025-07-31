@@ -5873,6 +5873,8 @@ const InvitesAndOrders: React.FC = () => {
                         ))}
 
                         <button
+                          onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                          disabled={currentPage === totalPages}
                           onMouseEnter={() =>
                             setHoveredPaginationButton("next")
                           }
