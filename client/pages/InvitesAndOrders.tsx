@@ -146,15 +146,9 @@ const InvitesAndOrders: React.FC = () => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      const desktop = width >= 1024;
-      const mobile = width < 768;
-      const tablet = width >= 768 && width < 1024;
-
-      console.log(`Breakpoint Detection - Width: ${width}px, Desktop: ${desktop}, Tablet: ${tablet}, Mobile: ${mobile}`);
-
-      setIsDesktop(desktop);
-      setIsMobile(mobile);
-      setIsTablet(tablet);
+      setIsDesktop(width >= 1024);
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 1024);
     };
 
     // Call immediately on mount to set initial values
@@ -1014,11 +1008,7 @@ const InvitesAndOrders: React.FC = () => {
                         boxSizing: "border-box",
                       }}
                     >
-                      {(() => {
-                        const showDesktop = isDesktop && !isTablet;
-                        console.log(`Rendering Logic - isDesktop: ${isDesktop}, isTablet: ${isTablet}, showDesktop: ${showDesktop}`);
-                        return showDesktop;
-                      })() ? (
+                      {isDesktop && !isTablet ? (
                         <>
                           {/* Desktop: Title - Left aligned */}
                           <div
