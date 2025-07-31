@@ -294,7 +294,7 @@
       Roboto,
       Helvetica,
       sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     color: #181d27;
     margin: 0;
     padding: 0;
@@ -310,7 +310,7 @@
     h1.page-title {
       font-size: 20px;
       line-height: 30px;
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 
@@ -320,7 +320,7 @@
     h1.page-title {
       font-size: 18px;
       line-height: 26px;
-      font-weight: 700;
+      font-weight: 600;
     }
   }
 
