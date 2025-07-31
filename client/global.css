@@ -310,4 +310,19 @@
       line-height: 30px;
     }
   }
+
+  /* Global font weight enforcement - maximum 600 */
+  * {
+    font-weight: 600 !important;
+  }
+
+  /* Override for specific lighter weights */
+  input, textarea, select, placeholder, .text-light {
+    font-weight: 400 !important;
+  }
+
+  /* Override for medium weights */
+  .text-medium {
+    font-weight: 500 !important;
+  }
 }
