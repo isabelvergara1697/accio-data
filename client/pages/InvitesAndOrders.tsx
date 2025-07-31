@@ -2471,7 +2471,7 @@ const InvitesAndOrders: React.FC = () => {
                           alignSelf: "stretch",
                           flex: "1 0 0",
                           position: "relative",
-                          minWidth: isMobile || isTablet ? "800px" : "auto",
+                          minWidth: isMobile ? "800px" : "auto",
                         }}
                       >
                         {/* Table Header */}
