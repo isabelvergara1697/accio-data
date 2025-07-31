@@ -479,21 +479,7 @@ export default function InformationDrawer({
                   description: "Report contains components registered for rescreening",
                   csvLetter: "R",
                 },
-                {
-                  icon: "D",
-                  description: "Applicant has received Adverse Action Notice",
-                  csvLetter: "D",
-                },
-                {
-                  icon: "D",
-                  description: "Applicant has received Pre-Adverse Action Notice",
-                  csvLetter: "D",
-                },
-                {
-                  icon: "D",
-                  description: "Adverse Notice is in the Client Activation Queue",
-                  csvLetter: "D",
-                },
+
               ].map((row, index) => (
                 <div
                   key={index}
