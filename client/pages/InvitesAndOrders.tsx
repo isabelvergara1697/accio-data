@@ -175,6 +175,12 @@ const InvitesAndOrders: React.FC = () => {
       ) {
         setShowActionMenu(null);
       }
+      if (
+        mobileDotsMenuRef.current &&
+        !mobileDotsMenuRef.current.contains(event.target as Node)
+      ) {
+        setShowMobileDotsMenu(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
