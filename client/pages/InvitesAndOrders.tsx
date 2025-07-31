@@ -714,17 +714,7 @@ const InvitesAndOrders: React.FC = () => {
               position: "relative",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                padding: isMobile ? "32px 16px 0" : "32px 32px 0",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "20px",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
+            <div className="page-header-container">
               <div
                 style={{
                   display: "flex",
