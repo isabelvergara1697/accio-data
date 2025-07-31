@@ -1610,12 +1610,8 @@ const InvitesAndOrders: React.FC = () => {
                         alignItems: "flex-start",
                         alignSelf: "stretch",
                         position: "relative",
-                        ...(isTablet && !isMobile
-                          ? {
-                              overflowX: "auto",
-                              overflowY: "hidden",
-                            }
-                          : {}),
+                        overflowX: isMobile || isTablet ? "auto" : "visible",
+                        overflowY: "hidden",
                       }}
                     >
                       {/* Table Container */}
