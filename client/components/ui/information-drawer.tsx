@@ -139,21 +139,43 @@ export default function InformationDrawer({
                     alignSelf: "stretch",
                     color: "#181D27",
                     fontFamily: "Public Sans",
-                    fontSize: "18px",
+                    fontSize: "16px",
                     fontStyle: "normal",
                     fontWeight: 600,
-                    lineHeight: "28px",
+                    lineHeight: "24px",
                   }}
                 >
                   <span
                     style={{
                       fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontWeight: 700,
-                      fontSize: "18px",
+                      fontSize: "16px",
                       color: "rgba(24,29,39,1)",
                     }}
                   >
-                    Information
+                    Key Info
+                  </span>
+                </div>
+                <div
+                  style={{
+                    alignSelf: "stretch",
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "14px",
+                      color: "rgba(83,88,98,1)",
+                    }}
+                  >
+                    Quick reference for report symbols, colors, and codes.
                   </span>
                 </div>
               </div>
@@ -173,7 +195,7 @@ export default function InformationDrawer({
                 cursor: "pointer",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#F5F5F5";
+                e.currentTarget.style.background = "#FDFDFD";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
@@ -229,7 +251,7 @@ export default function InformationDrawer({
               >
                 <div
                   style={{
-                    width: "28px",
+                    width: "53px",
                     color: "#717680",
                     fontFamily: "Public Sans",
                     fontSize: "12px",
@@ -502,6 +524,93 @@ export default function InformationDrawer({
                   description: "Report contains components registered for rescreening",
                   csvLetter: "R",
                 },
+                {
+                  icon: (
+                    <div
+                      style={{
+                        width: "28px",
+                        color: "#414651",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 400,
+                          fontSize: "12px",
+                          color: "rgba(65,70,81,1)",
+                        }}
+                      >
+                        D
+                      </span>
+                    </div>
+                  ),
+                  description: "Applicant has received Adverse Action Notice",
+                  csvLetter: "D",
+                },
+                {
+                  icon: (
+                    <div
+                      style={{
+                        width: "28px",
+                        color: "#414651",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 400,
+                          fontSize: "12px",
+                          color: "rgba(65,70,81,1)",
+                        }}
+                      >
+                        D
+                      </span>
+                    </div>
+                  ),
+                  description: "Applicant has received Pre-Adverse Action Notice",
+                  csvLetter: "D",
+                },
+                {
+                  icon: (
+                    <div
+                      style={{
+                        width: "28px",
+                        color: "#414651",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 400,
+                          fontSize: "12px",
+                          color: "rgba(65,70,81,1)",
+                        }}
+                      >
+                        D
+                      </span>
+                    </div>
+                  ),
+                  description: "Adverse Notice is in the Client Activation Queue",
+                  csvLetter: "D",
+                },
               ].map((row, index) => (
                 <div
                   key={index}
@@ -512,90 +621,15 @@ export default function InformationDrawer({
                     alignSelf: "stretch",
                   }}
                 >
-                  {row.icon}
                   <div
                     style={{
-                      width: "203px",
-                      color: "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
+                      display: "flex",
+                      width: "47px",
+                      alignItems: "center",
+                      gap: "10px",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.description}
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      color: "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.csvLetter}
-                    </span>
-                  </div>
-                </div>
-              ))}
-
-              {/* Additional text-only rows */}
-              {[
-                { text: "D", description: "Applicant has received Adverse Action Notice", csvLetter: "D" },
-                { text: "D", description: "Applicant has received Pre-Adverse Action Notice", csvLetter: "D" },
-                { text: "D", description: "Adverse Notice is in the Client Activation Queue", csvLetter: "D" },
-              ].map((row, index) => (
-                <div
-                  key={`text-${index}`}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    alignSelf: "stretch",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "28px",
-                      color: "#414651",
-                      textAlign: "center",
-                      fontFamily: "Public Sans",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {row.text}
-                    </span>
+                    {row.icon}
                   </div>
                   <div
                     style={{
@@ -687,7 +721,7 @@ export default function InformationDrawer({
               >
                 <div
                   style={{
-                    width: "100px",
+                    width: "78px",
                     color: "#717680",
                     fontFamily: "Public Sans",
                     fontSize: "12px",
@@ -756,7 +790,7 @@ export default function InformationDrawer({
                 >
                   <div
                     style={{
-                      width: "100px",
+                      width: "78px",
                       color: "#414651",
                       fontFamily: "Public Sans",
                       fontSize: "12px",
@@ -800,6 +834,30 @@ export default function InformationDrawer({
                   </div>
                 </div>
               ))}
+              
+              {/* Note about computed statuses */}
+              <div
+                style={{
+                  alignSelf: "stretch",
+                  color: "#414651",
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "18px",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "12px",
+                    color: "rgba(65,70,81,1)",
+                  }}
+                >
+                  Note that statuses with an asterisk (*) are computed statuses.
+                </span>
+              </div>
             </div>
 
             {/* Divider */}
@@ -845,7 +903,7 @@ export default function InformationDrawer({
               >
                 <div
                   style={{
-                    width: "100px",
+                    width: "78px",
                     color: "#717680",
                     fontFamily: "Public Sans",
                     fontSize: "12px",
@@ -906,7 +964,7 @@ export default function InformationDrawer({
                 >
                   <div
                     style={{
-                      width: "100px",
+                      width: "78px",
                       color: "#414651",
                       fontFamily: "Public Sans",
                       fontSize: "12px",
@@ -995,7 +1053,7 @@ export default function InformationDrawer({
               >
                 <div
                   style={{
-                    width: "100px",
+                    width: "78px",
                     color: "#717680",
                     fontFamily: "Public Sans",
                     fontSize: "12px",
@@ -1065,7 +1123,7 @@ export default function InformationDrawer({
                 >
                   <div
                     style={{
-                      width: "100px",
+                      width: "78px",
                       color: "#414651",
                       fontFamily: "Public Sans",
                       fontSize: "12px",
