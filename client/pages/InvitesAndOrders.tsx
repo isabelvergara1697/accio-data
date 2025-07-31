@@ -1257,7 +1257,7 @@ const InvitesAndOrders: React.FC = () => {
                                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                       fontWeight: 600,
                                       fontSize: "14px",
-                                      color: "rgba(65,70,81,1)",
+                                      color: action.icon === "information" ? "rgba(83,88,98,1)" : "rgba(65,70,81,1)",
                                     }}
                                   >
                                     {action.label}
