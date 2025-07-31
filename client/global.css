@@ -368,16 +368,16 @@
     align-items: flex-start;
     width: 100%;
 
-    /* Desktop spacing */
+    /* Desktop spacing - only top padding, horizontal handled by main container */
     gap: 20px;
-    padding: 0;
+    padding: 32px 0 0 0;
   }
 
   /* Tablet responsive container */
   @media (min-width: 768px) and (max-width: 1023px) {
     .page-header-container {
       gap: 20px;
-      padding: 0;
+      padding: 32px 0 0 0;
     }
   }
 
@@ -385,7 +385,7 @@
   @media (max-width: 767px) {
     .page-header-container {
       gap: 16px;
-      padding: 0;
+      padding: 16px 0 0 0;
     }
   }
 
