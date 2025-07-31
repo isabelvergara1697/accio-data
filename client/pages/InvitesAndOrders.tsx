@@ -971,6 +971,9 @@ const InvitesAndOrders: React.FC = () => {
                     border: "1px solid #E9EAEB",
                     background: "#FFF",
                     position: "relative",
+                    maxWidth: isTablet ? "744px" : "100%",
+                    width: "100%",
+                    margin: isTablet ? "0 auto" : "0",
                   }}
                 >
                   {/* Table Header */}
