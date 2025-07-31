@@ -3778,19 +3778,18 @@ const InvitesAndOrders: React.FC = () => {
                       position: "relative",
                     }}
                   >
-                    {/* Table */}
+                    {/* Table Container with Horizontal Scroll */}
                     <div
                       style={{
                         display: "flex",
+                        flexDirection: "column",
                         alignItems: "flex-start",
                         alignSelf: "stretch",
                         position: "relative",
-                        overflowX: isMobile
-                          ? "auto"
-                          : isTablet
-                            ? "auto"
-                            : "visible",
-                        overflowY: "hidden",
+                        width: "100%",
+                        maxWidth: "100%",
+                        overflowX: isMobile || isTablet ? "auto" : "visible",
+                        overflowY: "visible",
                         ...(isMobile || isTablet
                           ? {
                               scrollbarWidth: "thin",
@@ -3800,19 +3799,15 @@ const InvitesAndOrders: React.FC = () => {
                           : {}),
                       }}
                     >
-                      {/* Table Container */}
+                      {/* Table Content */}
                       <div
                         style={{
                           display: "flex",
                           flexDirection: "column",
                           alignItems: "flex-start",
-                          alignSelf: "stretch",
-                          flex: "1 0 0",
                           position: "relative",
                           minWidth: isMobile || isTablet ? "1000px" : "100%",
-                          width: "100%",
-                          maxWidth: "100%",
-                          boxSizing: "border-box",
+                          width: isMobile || isTablet ? "1000px" : "100%",
                         }}
                       >
                         {/* Table Header */}
