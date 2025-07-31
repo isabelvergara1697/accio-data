@@ -1627,6 +1627,11 @@ const InvitesAndOrders: React.FC = () => {
                           alignSelf: "stretch",
                           flex: "1 0 0",
                           position: "relative",
+                          ...(isTablet && !isMobile
+                            ? {
+                                minWidth: "900px",
+                              }
+                            : {}),
                         }}
                       >
                         {/* Table Header */}
