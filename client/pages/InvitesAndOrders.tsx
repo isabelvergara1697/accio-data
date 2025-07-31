@@ -742,6 +742,9 @@ const InvitesAndOrders: React.FC = () => {
                     gap: isMobile ? "16px" : "20px",
                     alignSelf: "stretch",
                     position: "relative",
+                    width: "100%",
+                    maxWidth: "100%",
+                    boxSizing: "border-box",
                   }}
                 >
                   <div className="page-title-group">
