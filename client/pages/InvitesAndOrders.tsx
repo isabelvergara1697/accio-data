@@ -3832,16 +3832,15 @@ const InvitesAndOrders: React.FC = () => {
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "flex-start",
-                        alignSelf: "stretch",
                         position: "relative",
                         width: "100%",
                         maxWidth: "100%",
                         overflowX: "auto",
-                        overflowY: "visible",
+                        overflowY: "hidden",
                         scrollbarWidth: "thin",
                         scrollbarColor: "#D5D7DA #F9FAFB",
                         WebkitOverflowScrolling: "touch",
-                        padding: "0 16px",
+                        padding: "12px 16px 0 16px",
                       }}
                     >
                       {/* Table Content */}
