@@ -205,10 +205,10 @@ export default function InformationDrawer({
           <div
             style={{
               display: "flex",
-              padding: "20px 24px",
+              padding: "0 24px 20px 24px",
               flexDirection: "column",
               alignItems: "center",
-              gap: "8px",
+              gap: "16px",
               alignSelf: "stretch",
             }}
           >
