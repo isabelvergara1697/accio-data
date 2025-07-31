@@ -661,6 +661,11 @@ const InvitesAndOrders: React.FC = () => {
           alignSelf: "stretch",
           marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
           position: "relative",
+          width: "100%",
+          maxWidth: "100%",
+          minWidth: 0,
+          overflow: "hidden",
+          boxSizing: "border-box",
         }}
       >
         <Header
