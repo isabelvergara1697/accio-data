@@ -416,4 +416,25 @@
       min-width: auto;
     }
   }
+
+  /* Responsive main container for proper margins */
+  .responsive-main-container {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Force responsive padding with CSS media queries */
+  @media (max-width: 767px) {
+    .responsive-main-container {
+      padding: 0 16px 24px 16px !important;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .responsive-main-container {
+      padding: 0 32px 24px 32px !important;
+    }
+  }
 }
