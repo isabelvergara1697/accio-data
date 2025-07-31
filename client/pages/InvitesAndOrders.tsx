@@ -138,7 +138,9 @@ const InvitesAndOrders: React.FC = () => {
     string | null
   >(null);
   const [showInformationDrawer, setShowInformationDrawer] = useState(false);
+  const [showActionMenu, setShowActionMenu] = useState<string | null>(null);
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
+  const actionMenuRef = useRef<HTMLDivElement>(null);
 
   // Window resize handler
   useEffect(() => {
