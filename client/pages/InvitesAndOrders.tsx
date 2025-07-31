@@ -1593,7 +1593,7 @@ const InvitesAndOrders: React.FC = () => {
                   <div
                     style={{
                       display: "flex",
-                      padding: "12px 16px 16px 16px",
+                      padding: isMobile ? "8px 8px 16px 8px" : "12px 16px 16px 16px",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
