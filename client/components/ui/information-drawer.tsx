@@ -790,26 +790,14 @@ export default function InformationDrawer({
             </div>
 
             {/* Divider */}
-            <svg
+            <div
               style={{
-                display: "block",
-                padding: "4px 0",
                 width: "100%",
-                height: "9px",
+                height: "1px",
+                backgroundColor: "#E9EAEB",
+                margin: "4px 0",
               }}
-              width="352"
-              height="9"
-              viewBox="0 0 352 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M352 5H0V4H352V5Z"
-                fill="#E9EAEB"
-              />
-            </svg>
+            />
 
             {/* CSV Status Code Table */}
             <div
