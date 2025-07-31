@@ -816,10 +816,10 @@ export default function InformationDrawer({
             {/* Divider */}
             <svg
               style={{
-                display: "flex",
+                display: "block",
                 padding: "4px 0",
-                alignItems: "center",
-                alignSelf: "stretch",
+                width: "100%",
+                height: "9px",
               }}
               width="352"
               height="9"
