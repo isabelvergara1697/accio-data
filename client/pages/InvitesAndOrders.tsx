@@ -2200,9 +2200,7 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <button
                                 onClick={() =>
-                                  setShowDownloadDropdown(
-                                    !showDownloadDropdown,
-                                  )
+                                  setShowDownloadDropdown(!showDownloadDropdown)
                                 }
                                 onMouseEnter={() =>
                                   setHoveredButton("download")
@@ -2316,8 +2314,7 @@ const InvitesAndOrders: React.FC = () => {
                                       onMouseLeave={(e) => {
                                         e.currentTarget.querySelector(
                                           ".content",
-                                        ).style.backgroundColor =
-                                          "transparent";
+                                        ).style.backgroundColor = "transparent";
                                       }}
                                       onClick={() => {
                                         console.log("Download XLSX");
@@ -2366,8 +2363,7 @@ const InvitesAndOrders: React.FC = () => {
                                       onMouseLeave={(e) => {
                                         e.currentTarget.querySelector(
                                           ".content",
-                                        ).style.backgroundColor =
-                                          "transparent";
+                                        ).style.backgroundColor = "transparent";
                                       }}
                                       onClick={() => {
                                         console.log("Download CSV");
@@ -2489,7 +2485,9 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "6px",
                                     borderRight: "1px solid #D5D7DA",
                                     background:
-                                      tableView === "table" ? "#ECEEF9" : "#FFF",
+                                      tableView === "table"
+                                        ? "#ECEEF9"
+                                        : "#FFF",
                                     borderTopLeftRadius: "8px",
                                     borderBottomLeftRadius: "8px",
                                     cursor: "pointer",
@@ -2578,7 +2576,8 @@ const InvitesAndOrders: React.FC = () => {
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   padding: "8px",
                                   position: "relative",
                                   minHeight: "40px",
@@ -2603,7 +2602,9 @@ const InvitesAndOrders: React.FC = () => {
                                   type="text"
                                   placeholder="Search by Name, SSN, State.."
                                   value={searchQuery}
-                                  onChange={(e) => setSearchQuery(e.target.value)}
+                                  onChange={(e) =>
+                                    setSearchQuery(e.target.value)
+                                  }
                                   style={{
                                     border: "none",
                                     outline: "none",
