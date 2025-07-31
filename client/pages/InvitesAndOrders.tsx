@@ -142,6 +142,7 @@ const InvitesAndOrders: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const actionMenuRef = useRef<HTMLDivElement>(null);
+  const mobileDotsMenuRef = useRef<HTMLDivElement>(null);
 
   // Window resize handler
   useEffect(() => {
