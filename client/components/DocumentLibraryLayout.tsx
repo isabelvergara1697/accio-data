@@ -36,7 +36,10 @@ export const DocumentLibraryLayout: React.FC<DocumentLibraryLayoutProps> = ({
   isDesktop,
   searchPlaceholder = "Find documents or categories",
 }) => {
-  const [openAccordions, setOpenAccordions] = useState<string[]>([]);
+  // Initialize with all section IDs to keep all sections always open
+  const [openAccordions, setOpenAccordions] = useState<string[]>(
+    documentSections.map(section => section.id)
+  );
   const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
   const [fileTypeDropdownOpen, setFileTypeDropdownOpen] = useState(false);
   const [selectedSortOption, setSelectedSortOption] = useState("Most Recent");
