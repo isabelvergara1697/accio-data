@@ -5,6 +5,28 @@
 @tailwind utilities;
 
 @layer base {
+  /* Fix for status badge alignment */
+  .status-badge-left {
+    text-align: left !important;
+  }
+
+  /* Fix for pagination styling */
+  .pagination-number {
+    border: 1px solid #E9EAEB !important;
+    border-radius: 8px !important;
+  }
+
+  .pagination-number.active {
+    background: #F5F5F5 !important;
+  }
+
+  /* Fix for email column width */
+  .email-column-narrow {
+    width: 120px !important;
+    min-width: 120px !important;
+    flex: 1 1 120px !important;
+  }
+
   /* Responsive SVG styles */
   .responsive-svg {
     flex-shrink: 0;
