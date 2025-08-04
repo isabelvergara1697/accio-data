@@ -141,17 +141,14 @@ export const AssignedTasksWidget: React.FC<AssignedTasksWidgetProps> = ({
       key={task.id}
       style={{
         display: "flex",
-        padding: "6px",
+        padding: "12px 8px",
         alignItems: "center",
-        gap: "12px",
+        gap: "4px",
         alignSelf: "stretch",
         borderRadius: "12px",
         cursor: "pointer",
-        background: hoveredTask === task.id ? "#F5F5F5" : "transparent",
-        border:
-          hoveredTask === task.id
-            ? "1px solid #D5D7DA"
-            : "1px solid transparent",
+        background: hoveredTask === task.id ? "#F5F5F5" : "#FFF",
+        border: "1px solid #E9EAEB",
         boxShadow:
           hoveredTask === task.id
             ? "0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
