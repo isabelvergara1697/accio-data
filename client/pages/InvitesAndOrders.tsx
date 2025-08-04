@@ -5791,7 +5791,7 @@ const InvitesAndOrders: React.FC = () => {
                               color: "rgba(65,70,81,1)",
                             }}
                           >
-                            Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, filteredData.length)} of {filteredData.length}
+                            Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, sortedData.length)} of {sortedData.length}
                           </span>
                         </div>
                       </div>
