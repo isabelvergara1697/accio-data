@@ -287,11 +287,10 @@ export const AssignedTasksWidget: React.FC<AssignedTasksWidgetProps> = ({
           justifyContent: "center",
           alignItems: "center",
           borderRadius: "8px",
-          border: "1px solid #D5D7DA",
-          background: "#FFF",
-          boxShadow:
-            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+          border: "none",
+          background: hoveredTask === task.id ? "#F5F5F5" : "transparent",
           cursor: "pointer",
+          transition: "background-color 0.2s ease",
         }}
         onClick={() => console.log("View task:", task.id)}
       >
