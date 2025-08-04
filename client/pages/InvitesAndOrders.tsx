@@ -421,7 +421,7 @@ const InvitesAndOrders: React.FC = () => {
                   whiteSpace: "nowrap",
                 }),
             color: colors.text,
-            textAlign: "left",
+            textAlign: "center",
             fontFamily: "Public Sans",
             fontSize: "12px",
             fontStyle: "normal",
