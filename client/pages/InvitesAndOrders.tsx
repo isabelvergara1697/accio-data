@@ -5762,6 +5762,7 @@ const InvitesAndOrders: React.FC = () => {
                         gap: isMobile ? "12px" : "0",
                       }}
                     >
+                      {/* Left Side - Showing text */}
                       <div
                         style={{
                           display: "flex",
@@ -5776,7 +5777,7 @@ const InvitesAndOrders: React.FC = () => {
                             fontFamily: "Public Sans",
                             fontSize: "14px",
                             fontStyle: "normal",
-                            fontWeight: 500,
+                            fontWeight: 400,
                             lineHeight: "20px",
                             position: "relative",
                           }}
@@ -5790,235 +5791,314 @@ const InvitesAndOrders: React.FC = () => {
                               color: "rgba(65,70,81,1)",
                             }}
                           >
-                            Showing {Math.min(pageSize, sortedData.length)} of{" "}
-                            {sortedData.length}
+                            Showing [X] of [X]
                           </span>
                         </div>
                       </div>
 
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "12px",
-                          position: "relative",
-                        }}
-                      >
-                        {/* Pagination Controls */}
-                        <button
-                          onClick={() =>
-                            setCurrentPage(Math.max(1, currentPage - 1))
-                          }
-                          disabled={currentPage === 1}
-                          onMouseEnter={() =>
-                            setHoveredPaginationButton("prev")
-                          }
-                          onMouseLeave={() => setHoveredPaginationButton(null)}
+                      {/* Center - Pagination Controls */}
+                      {!isMobile && (
+                        <div
                           style={{
                             display: "flex",
-                            padding: isMobile ? "12px" : "8px",
-                            justifyContent: "center",
                             alignItems: "center",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background:
-                              hoveredPaginationButton === "prev"
-                                ? "#F5F5F5"
-                                : "#FFF",
-                            boxShadow:
-                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            cursor: "pointer",
-                            transition: "background-color 0.2s ease",
+                            gap: "12px",
+                            position: "relative",
                           }}
                         >
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M19 12H5M5 12L12 19M5 12L12 5"
-                              stroke="#A4A7AE"
-                              strokeWidth="1.66667"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </button>
-
-                        {getPageNumbers().map((page, index) => (
-                          <div
-                            key={index}
+                          {/* Previous Button */}
+                          <button
+                            onClick={() =>
+                              setCurrentPage(Math.max(1, currentPage - 1))
+                            }
+                            disabled={currentPage === 1}
                             onMouseEnter={() =>
-                              page !== "..." &&
-                              setHoveredPaginationButton(`page-${index}`)
+                              setHoveredPaginationButton("prev")
                             }
-                            onMouseLeave={() =>
-                              setHoveredPaginationButton(null)
-                            }
+                            onMouseLeave={() => setHoveredPaginationButton(null)}
                             style={{
                               display: "flex",
-                              width: isMobile ? "40px" : "32px",
-                              height: isMobile ? "40px" : "32px",
+                              padding: "8px",
                               justifyContent: "center",
                               alignItems: "center",
                               borderRadius: "8px",
-                              background:
-                                page === currentPage
-                                  ? "#F5F5F5"
-                                  : hoveredPaginationButton ===
-                                        `page-${index}` && page !== "..."
-                                    ? "#F5F5F5"
-                                    : "transparent",
-                              cursor: page !== "..." ? "pointer" : "default",
-                              position: "relative",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: currentPage === 1 ? "default" : "pointer",
+                              opacity: currentPage === 1 ? 0.5 : 1,
                               transition: "background-color 0.2s ease",
                             }}
-                            onClick={() =>
-                              typeof page === "number" && setCurrentPage(page)
-                            }
                           >
-                            <div
-                              style={{
-                                color:
-                                  page === currentPage ? "#414651" : "#717680",
-                                textAlign: "center",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontStyle: "normal",
-                                fontWeight: 500,
-                                lineHeight: "20px",
-                                position: "relative",
-                              }}
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 25 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
                             >
-                              <span
+                              <path
+                                d="M19.5 12H5.5M5.5 12L12.5 19M5.5 12L12.5 5"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </button>
+
+                          {/* Page Numbers */}
+                          {getPageNumbers().map((page, index) => (
+                            <div
+                              key={index}
+                              style={{
+                                display: "flex",
+                                width: "32px",
+                                height: "32px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "8px",
+                                border: page === currentPage ? "1px solid #E9EAEB" : "none",
+                                background: page === currentPage ? "#F5F5F5" : "transparent",
+                                cursor: page !== "..." ? "pointer" : "default",
+                                position: "relative",
+                                transition: "background-color 0.2s ease",
+                              }}
+                              onClick={() =>
+                                typeof page === "number" && setCurrentPage(page)
+                              }
+                            >
+                              <div
                                 style={{
-                                  fontFamily:
-                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 400,
+                                  color: page === currentPage ? "#414651" : "#717680",
+                                  textAlign: "center",
+                                  fontFamily: "Public Sans",
                                   fontSize: "14px",
-                                  color:
-                                    page === currentPage
-                                      ? "rgba(65,70,81,1)"
-                                      : "rgba(113,118,128,1)",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                  position: "relative",
                                 }}
                               >
-                                {page}
-                              </span>
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: page === currentPage ? "rgba(65,70,81,1)" : "rgba(113,118,128,1)",
+                                  }}
+                                >
+                                  {page}
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
 
-                        <button
-                          onClick={() =>
-                            setCurrentPage(
-                              Math.min(totalPages, currentPage + 1),
-                            )
-                          }
-                          disabled={currentPage === totalPages}
-                          onMouseEnter={() =>
-                            setHoveredPaginationButton("next")
-                          }
-                          onMouseLeave={() => setHoveredPaginationButton(null)}
-                          style={{
-                            display: "flex",
-                            padding: isMobile ? "12px" : "8px",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background:
-                              hoveredPaginationButton === "next"
-                                ? "#F5F5F5"
-                                : "#FFF",
-                            boxShadow:
-                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            cursor: "pointer",
-                            transition: "background-color 0.2s ease",
-                          }}
-                        >
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
+                          {/* Next Button */}
+                          <button
+                            onClick={() =>
+                              setCurrentPage(
+                                Math.min(totalPages, currentPage + 1),
+                              )
+                            }
+                            disabled={currentPage === totalPages}
+                            onMouseEnter={() =>
+                              setHoveredPaginationButton("next")
+                            }
+                            onMouseLeave={() => setHoveredPaginationButton(null)}
+                            style={{
+                              display: "flex",
+                              padding: "8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: currentPage === totalPages ? "default" : "pointer",
+                              opacity: currentPage === totalPages ? 0.5 : 1,
+                              transition: "background-color 0.2s ease",
+                            }}
                           >
-                            <path
-                              d="M5 12H19M19 12L12 5M19 12L12 19"
-                              stroke="#A4A7AE"
-                              strokeWidth="1.66667"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </button>
-                      </div>
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 25 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.5 12H19.5M19.5 12L12.5 5M19.5 12L12.5 19"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      )}
 
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "flex-end",
-                          alignItems: "center",
-                          gap: "12px",
-                          position: "relative",
-                        }}
-                      >
+                      {/* Mobile pagination - simple version */}
+                      {isMobile && (
                         <div
                           style={{
-                            color: "#414651",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 500,
-                            lineHeight: "20px",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "12px",
                             position: "relative",
                           }}
                         >
-                          <span
+                          <button
+                            onClick={() =>
+                              setCurrentPage(Math.max(1, currentPage - 1))
+                            }
+                            disabled={currentPage === 1}
                             style={{
-                              fontFamily:
-                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                              fontWeight: 400,
-                              fontSize: "14px",
-                              color: "rgba(65,70,81,1)",
+                              display: "flex",
+                              padding: "12px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: currentPage === 1 ? "default" : "pointer",
+                              opacity: currentPage === 1 ? 0.5 : 1,
                             }}
                           >
-                            Go to
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M19 12H5M5 12L12 19M5 12L12 5"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </button>
+
+                          <span style={{ fontFamily: "Public Sans", fontSize: "14px", color: "#414651" }}>
+                            {currentPage} of {totalPages}
                           </span>
-                        </div>
-                        <input
-                          type="number"
-                          value={currentPage}
-                          onChange={(e) => {
-                            const page = parseInt(e.target.value);
-                            if (page >= 1 && page <= totalPages) {
-                              setCurrentPage(page);
+
+                          <button
+                            onClick={() =>
+                              setCurrentPage(
+                                Math.min(totalPages, currentPage + 1),
+                              )
                             }
-                          }}
-                          min={1}
-                          max={totalPages}
+                            disabled={currentPage === totalPages}
+                            style={{
+                              display: "flex",
+                              padding: "12px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: currentPage === totalPages ? "default" : "pointer",
+                              opacity: currentPage === totalPages ? 0.5 : 1,
+                            }}
+                          >
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5 12H19M19 12L12 5M19 12L12 19"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      )}
+
+                      {/* Right Side - Go to input */}
+                      {!isMobile && (
+                        <div
                           style={{
                             display: "flex",
-                            width: isMobile ? "80px" : "72px",
-                            padding: isMobile ? "8px 12px" : "6px 8px",
+                            justifyContent: "flex-end",
                             alignItems: "center",
-                            gap: "8px",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            color: "#717680",
-                            textAlign: "center",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 400,
-                            lineHeight: "20px",
+                            gap: "12px",
+                            position: "relative",
                           }}
-                        />
-                      </div>
+                        >
+                          <div
+                            style={{
+                              color: "#414651",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontWeight: 400,
+                                fontSize: "14px",
+                                color: "rgba(65,70,81,1)",
+                              }}
+                            >
+                              Go to
+                            </span>
+                          </div>
+                          <input
+                            type="number"
+                            value={currentPage}
+                            onChange={(e) => {
+                              const page = parseInt(e.target.value);
+                              if (page >= 1 && page <= totalPages) {
+                                setCurrentPage(page);
+                              }
+                            }}
+                            min={1}
+                            max={totalPages}
+                            style={{
+                              display: "flex",
+                              width: "72px",
+                              height: "32px",
+                              padding: "6px 8px",
+                              alignItems: "center",
+                              gap: "8px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              color: "#717680",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                              outline: "none",
+                            }}
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
