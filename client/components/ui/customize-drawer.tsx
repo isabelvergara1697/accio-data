@@ -383,11 +383,10 @@ export default function CustomizeDrawer({
           style={{
             alignSelf: "stretch",
             color: card.canAdd ? "#414651" : "#717680",
-            fontFamily:
-              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+            fontFamily: "Public Sans",
             fontSize: "16px",
             fontStyle: "normal",
-            fontWeight: 600,
+            fontWeight: 700,
             lineHeight: "24px",
           }}
         >
@@ -400,10 +399,9 @@ export default function CustomizeDrawer({
             WebkitLineClamp: 4,
             alignSelf: "stretch",
             overflow: "hidden",
-            color: card.canAdd ? "#535862" : "#8E9297",
+            color: card.canAdd ? "#535862" : "#717680",
             textOverflow: "ellipsis",
-            fontFamily:
-              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+            fontFamily: "Public Sans",
             fontSize: "14px",
             fontStyle: "normal",
             fontWeight: 400,
