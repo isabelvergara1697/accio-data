@@ -5188,8 +5188,8 @@ const InvitesAndOrders: React.FC = () => {
                               style={{
                                 display: "flex",
                                 ...(isLargeDesktop
-                                  ? { flex: "1 1 200px", minWidth: "200px" }
-                                  : { width: "200px" }),
+                                  ? { flex: "1 1 140px", minWidth: "140px" }
+                                  : { width: "140px" }),
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
