@@ -3855,12 +3855,12 @@ const InvitesAndOrders: React.FC = () => {
                           alignItems: "flex-start",
                           position: "relative",
                           minWidth: isMobile
-                            ? "1120px"
+                            ? "1140px"
                             : isTablet
-                              ? "1110px"
+                              ? "1130px"
                               : isLargeDesktop
-                                ? "1200px"
-                                : "1080px",
+                                ? "1220px"
+                                : "1100px",
                           width: "100%",
                           height: "556px", // Fixed height for header (36px) + 10 rows (10 × 52px)
                           overflow: "visible",
