@@ -680,13 +680,11 @@ export default function CustomizeDrawer({
                 <div
                   style={{
                     color: "#535862",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans",
                     fontSize: "12px",
-                    fontWeight: 600,
-                    lineHeight: "18px",
+                    fontWeight: 400,
+                    lineHeight: "20px",
                     textTransform: "uppercase",
-                    letterSpacing: "0.5px",
                   }}
                 >
                   Available to Add
