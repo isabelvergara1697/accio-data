@@ -1662,7 +1662,11 @@ export default function Resources() {
                       <ResourceSection
                         key={section.id}
                         section={section}
-                        isOpen={isSearchActive ? true : openAccordions.includes(section.id)}
+                        isOpen={
+                          isSearchActive
+                            ? true
+                            : openAccordions.includes(section.id)
+                        }
                         onToggle={toggleAccordion}
                         isMobile={isMobile}
                         isDesktop={isDesktop}

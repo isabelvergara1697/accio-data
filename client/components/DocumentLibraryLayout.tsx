@@ -38,7 +38,7 @@ export const DocumentLibraryLayout: React.FC<DocumentLibraryLayoutProps> = ({
 }) => {
   // Initialize with all section IDs to keep all sections always open
   const [openAccordions, setOpenAccordions] = useState<string[]>(
-    documentSections.map(section => section.id)
+    documentSections.map((section) => section.id),
   );
   const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
   const [fileTypeDropdownOpen, setFileTypeDropdownOpen] = useState(false);
