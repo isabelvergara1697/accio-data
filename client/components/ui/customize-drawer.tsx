@@ -594,15 +594,14 @@ export default function CustomizeDrawer({
                   style={{
                     margin: "2px 0 0 0",
                     color: "#535862",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "20px",
                   }}
                 >
-                  Add new widgets or view existing dashboard components.
+                  Monitor key metrics with our ready-to-use widgets.
                 </p>
               </div>
             </div>
