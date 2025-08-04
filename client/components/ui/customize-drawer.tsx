@@ -357,7 +357,8 @@ export default function CustomizeDrawer({
           borderRadius: "8px",
           border: "1px solid #D5D7DA",
           background: "#FFF",
-          boxShadow: "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+          boxShadow:
+            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
         }}
       >
         {React.cloneElement(card.icon as React.ReactElement, {
