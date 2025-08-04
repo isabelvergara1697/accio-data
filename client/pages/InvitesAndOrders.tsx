@@ -434,8 +434,8 @@ const InvitesAndOrders: React.FC = () => {
             style={{
               fontFamily:
                 "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-              fontWeight: 600,
-              fontSize: "13px",
+              fontWeight: 500,
+              fontSize: "12px",
               color: colors.text,
             }}
           >
