@@ -118,6 +118,40 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
                     {section.title}
                   </span>
                 </div>
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "2px 8px",
+                    alignItems: "center",
+                    borderRadius: "9999px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FAFAFA",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#414651",
+                      textAlign: "center",
+                      fontFamily: "'Public Sans'",
+                      fontSize: "12px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "18px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontWeight: 400,
+                        fontSize: "12px",
+                        color: "rgba(65,70,81,1)",
+                      }}
+                    >
+                      {section.count}
+                    </span>
+                  </div>
+                </div>
                 {showTabLabel && (
                   <div
                     style={{
@@ -154,40 +188,6 @@ export const ResourceSection: React.FC<ResourceSectionProps> = ({
                     </div>
                   </div>
                 )}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "2px 8px",
-                    alignItems: "center",
-                    borderRadius: "9999px",
-                    border: "1px solid #E9EAEB",
-                    background: "#FAFAFA",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#414651",
-                      textAlign: "center",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "18px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "12px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      {section.count}
-                    </span>
-                  </div>
-                </div>
               </div>
               {section.subtitle && (
                 <div
