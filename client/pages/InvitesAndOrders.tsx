@@ -329,7 +329,7 @@ const InvitesAndOrders: React.FC = () => {
     },
   ];
 
-  // Component for status badges with dynamic truncation detection
+  // Component for status badges with dynamic truncation detection - updated styling
   const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({
     status,
   }) => {
