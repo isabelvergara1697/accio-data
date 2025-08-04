@@ -580,12 +580,11 @@ export default function CustomizeDrawer({
                   style={{
                     margin: 0,
                     color: "#181D27",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: isDesktop ? "18px" : "16px",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
                     fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: isDesktop ? "28px" : "24px",
+                    fontWeight: 700,
+                    lineHeight: "28px",
                   }}
                 >
                   Customize your Dashboard
