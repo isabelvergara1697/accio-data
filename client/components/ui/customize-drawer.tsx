@@ -361,11 +361,11 @@ export default function CustomizeDrawer({
         }}
       >
         {React.cloneElement(card.icon as React.ReactElement, {
-          width: isDesktop ? "20" : "18",
-          height: isDesktop ? "20" : "18",
+          width: "20",
+          height: "20",
           style: {
-            width: isDesktop ? "20px" : "18px",
-            height: isDesktop ? "20px" : "18px",
+            width: "20px",
+            height: "20px",
           },
         })}
       </div>
