@@ -423,10 +423,10 @@ const InvitesAndOrders: React.FC = () => {
             color: colors.text,
             textAlign: "center",
             fontFamily: "Public Sans",
-            fontSize: "13px",
+            fontSize: "12px",
             fontStyle: "normal",
-            fontWeight: 600,
-            lineHeight: "20px",
+            fontWeight: 500,
+            lineHeight: "18px",
             position: "relative",
           }}
         >
