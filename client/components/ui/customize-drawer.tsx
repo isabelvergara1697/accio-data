@@ -321,23 +321,24 @@ export default function CustomizeDrawer({
       className="widget-card"
       style={{
         display: "flex",
-        padding: isDesktop ? "16px" : "12px",
+        padding: "16px",
         alignItems: "flex-start",
         gap: "12px",
         alignSelf: "stretch",
         borderRadius: "12px",
-        border: card.canAdd ? "1px solid #E9EAEB" : "1px solid #F2F4F7",
+        border: card.canAdd
+          ? hoveredCard === card.id
+            ? "1px solid #E9EAEB"
+            : "1px solid #E9EAEB"
+          : "1px solid #D5D7DA",
         background: card.canAdd
           ? hoveredCard === card.id
-            ? "#F9FAFB"
+            ? "#F5F5F5"
             : "#FFF"
-          : "#FAFAFA",
-        boxShadow: card.canAdd
-          ? "0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
-          : "0px 1px 1px 0px rgba(10, 13, 18, 0.02)",
+          : "#F5F5F5",
+        boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
         cursor: card.canAdd ? "pointer" : "default",
-        transition: "background-color 0.2s ease",
-        opacity: card.canAdd ? 1 : 0.7,
+        transition: "all 0.2s ease-in-out",
       }}
       onMouseEnter={() => card.canAdd && setHoveredCard(card.id)}
       onMouseLeave={() => setHoveredCard(null)}
