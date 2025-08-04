@@ -348,18 +348,16 @@ export default function CustomizeDrawer({
         className="widget-icon"
         style={{
           display: "flex",
-          width: isDesktop ? "40px" : "32px",
-          height: isDesktop ? "40px" : "32px",
-          padding: isDesktop ? "10px" : "8px",
+          width: "40px",
+          height: "40px",
+          padding: "10px",
           alignItems: "center",
           justifyContent: "center",
           gap: "10px",
-          borderRadius: isDesktop ? "8px" : "6px",
-          border: card.canAdd ? "1px solid #D5D7DA" : "1px solid #E9EAEB",
-          background: card.canAdd ? "#FFF" : "#F8F9FA",
-          boxShadow: card.canAdd
-            ? "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)"
-            : "0px 1px 1px 0px rgba(10, 13, 18, 0.02)",
+          borderRadius: "8px",
+          border: "1px solid #D5D7DA",
+          background: "#FFF",
+          boxShadow: "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
         }}
       >
         {React.cloneElement(card.icon as React.ReactElement, {
