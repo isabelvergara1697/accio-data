@@ -68,11 +68,8 @@ export const DocumentLibraryLayout: React.FC<DocumentLibraryLayoutProps> = ({
   }, [sortDropdownOpen, fileTypeDropdownOpen]);
 
   const toggleAccordion = (accordionId: string) => {
-    setOpenAccordions((prev) =>
-      prev.includes(accordionId)
-        ? prev.filter((id) => id !== accordionId)
-        : [...prev, accordionId],
-    );
+    // Keep all sections always open - do nothing when toggle is called
+    return;
   };
 
   const handleSortOptionSelect = (option: string) => {
