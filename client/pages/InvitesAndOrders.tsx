@@ -3862,6 +3862,8 @@ const InvitesAndOrders: React.FC = () => {
                                 ? "1200px"
                                 : "1080px",
                           width: "100%",
+                          height: "556px", // Fixed height for header (36px) + 10 rows (10 × 52px)
+                          overflow: "visible",
                         }}
                       >
                         {/* Table Header */}
