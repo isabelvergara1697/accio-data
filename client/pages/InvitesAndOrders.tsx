@@ -5111,6 +5111,7 @@ const InvitesAndOrders: React.FC = () => {
                                 height: "52px",
                                 padding: "12px",
                                 alignItems: "center",
+                                justifyContent: "flex-start",
                                 borderBottom: "1px solid #E9EAEB",
                                 position: "relative",
                                 minWidth: 0,
