@@ -391,10 +391,10 @@ const InvitesAndOrders: React.FC = () => {
         ref={containerRef}
         style={{
           display: "flex",
-          padding: "2px 8px",
+          padding: "4px 12px",
           alignItems: "center",
           ...(isLongText ? { flex: "1 0 0" } : {}),
-          borderRadius: "9999px",
+          borderRadius: "6px",
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
