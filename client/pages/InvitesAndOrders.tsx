@@ -5858,12 +5858,13 @@ const InvitesAndOrders: React.FC = () => {
                                 height: "32px",
                                 justifyContent: "center",
                                 alignItems: "center",
-                                borderRadius: "8px",
-                                border: page === currentPage ? "1px solid #E9EAEB" : "none",
-                                background: page === currentPage ? "#F5F5F5" : "transparent",
+                                borderRadius: "6px",
+                                border: page === currentPage ? "1px solid #D5D7DA" : "1px solid #E9EAEB",
+                                background: page === currentPage ? "#FFF" : "#FFF",
                                 cursor: page !== "..." ? "pointer" : "default",
                                 position: "relative",
-                                transition: "background-color 0.2s ease",
+                                transition: "all 0.2s ease",
+                                boxShadow: page === currentPage ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
                               }}
                               onClick={() =>
                                 typeof page === "number" && setCurrentPage(page)
