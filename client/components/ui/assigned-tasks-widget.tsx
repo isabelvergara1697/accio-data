@@ -172,7 +172,7 @@ export const AssignedTasksWidget: React.FC<AssignedTasksWidgetProps> = ({
         <div
           style={{
             display: "flex",
-            width: "100%",
+            width: "200px",
             alignItems: "center",
             gap: "8px",
           }}
