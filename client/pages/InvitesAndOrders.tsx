@@ -1831,20 +1831,6 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
                           )}
 
-                          {showAdvancedSearch && (
-                            <div
-                              style={{
-                                position: "absolute",
-                                top: "50px",
-                                left: "0",
-                                color: "red",
-                                fontWeight: "bold",
-                                zIndex: 10000,
-                              }}
-                            >
-                              DEBUG: DROPDOWN STATE IS TRUE
-                            </div>
-                          )}
                           {/* Desktop: Action Buttons */}
                           <div
                             style={{
