@@ -203,12 +203,15 @@ const InvitesAndOrders: React.FC = () => {
       ) {
         setShowMobileDotsMenu(false);
       }
-      if (
-        showAdvancedSearch &&
-        advancedSearchRef.current &&
-        !advancedSearchRef.current.contains(event.target as Node)
-      ) {
-        setShowAdvancedSearch(false);
+      if (showAdvancedSearch) {
+        const isClickOutside =
+          (advancedSearchRef.current && !advancedSearchRef.current.contains(event.target as Node)) &&
+          (mobileAdvancedSearchRef.current && !mobileAdvancedSearchRef.current.contains(event.target as Node)) &&
+          (tabletAdvancedSearchRef.current && !tabletAdvancedSearchRef.current.contains(event.target as Node));
+
+        if (isClickOutside) {
+          setShowAdvancedSearch(false);
+        }
       }
     };
 
