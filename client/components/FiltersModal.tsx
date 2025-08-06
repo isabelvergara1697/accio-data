@@ -1,0 +1,668 @@
+import React, { useState, useRef } from "react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "./ui/sheet";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import DatePickerCalendar from "./ui/date-picker-calendar";
+
+interface FiltersModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+interface FilterState {
+  status: string;
+  state: string;
+  filter1: string;
+  filter2: string;
+  filter3: string;
+  dateRange: {
+    start: Date;
+    end: Date;
+  };
+}
+
+const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
+  const [filters, setFilters] = useState<FilterState>({
+    status: "",
+    state: "",
+    filter1: "",
+    filter2: "",
+    filter3: "",
+    dateRange: {
+      start: new Date(),
+      end: new Date(),
+    },
+  });
+
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const datePickerRef = useRef<HTMLButtonElement>(null);
+
+  const statusOptions = [
+    { value: "waiting", label: "Waiting" },
+    { value: "expired", label: "Expired" },
+    { value: "canceled", label: "Canceled" },
+    { value: "unsolicited", label: "Unsolicited" },
+    { value: "waiting-for-recruitee", label: "Waiting for Recruitee" },
+    { value: "expires-today", label: "Expires Today" },
+  ];
+
+  const stateOptions = [
+    { value: "active", label: "Active" },
+    { value: "inactive", label: "Inactive" },
+    { value: "pending", label: "Pending" },
+    { value: "completed", label: "Completed" },
+  ];
+
+  const filterOptions = [
+    { value: "option1", label: "Option 1" },
+    { value: "option2", label: "Option 2" },
+    { value: "option3", label: "Option 3" },
+  ];
+
+  const handleFilterChange = (key: keyof FilterState, value: string) => {
+    setFilters(prev => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
+  const handleDateRangeChange = (start: Date, end: Date) => {
+    setFilters(prev => ({
+      ...prev,
+      dateRange: { start, end },
+    }));
+  };
+
+  const formatDateRange = (start: Date, end: Date): string => {
+    const options: Intl.DateTimeFormatOptions = { 
+      month: 'short', 
+      day: 'numeric', 
+      year: 'numeric' 
+    };
+    return `${start.toLocaleDateString('en-US', options)} - ${end.toLocaleDateString('en-US', options)}`;
+  };
+
+  const clearFilters = () => {
+    setFilters({
+      status: "",
+      state: "",
+      filter1: "",
+      filter2: "",
+      filter3: "",
+      dateRange: {
+        start: new Date(),
+        end: new Date(),
+      },
+    });
+  };
+
+  return (
+    <>
+      <Sheet open={isOpen} onOpenChange={onClose}>
+        <SheetContent 
+          side="left" 
+          style={{
+            width: "258px",
+            height: "100vh",
+            padding: "0",
+            border: "none",
+            background: "#FFF",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* Header */}
+          <div
+            style={{
+              display: "flex",
+              height: "64px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "20px",
+              flexShrink: 0,
+              alignSelf: "stretch",
+              borderRadius: "12px 12px 0 0",
+              border: "1px solid #E9EAEB",
+              background: "#FFF",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                padding: "16px 16px 12px 16px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "4px",
+                    flex: "1 0 0",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      gap: "2px",
+                      flex: "1 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <SheetTitle
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "18px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "28px",
+                          position: "relative",
+                        }}
+                      >
+                        Filters
+                      </SheetTitle>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Close Button */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    position: "relative",
+                  }}
+                >
+                  <button
+                    onClick={onClose}
+                    style={{
+                      display: "flex",
+                      padding: "8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.3333 4.66675L4.66666 11.3334M4.66666 4.66675L11.3333 11.3334"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Filter Content */}
+          <div
+            style={{
+              display: "flex",
+              padding: "12px 12px 16px 12px",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "16px",
+              flex: "1 0 0",
+              alignSelf: "stretch",
+              borderRadius: "0px 0px 12px 12px",
+              borderRight: "1px solid #E9EAEB",
+              borderBottom: "1px solid #E9EAEB",
+              borderLeft: "1px solid #E9EAEB",
+              background: "#FFF",
+              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+              position: "relative",
+              overflow: "auto",
+            }}
+          >
+            {/* Status Filter */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "2px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    Status
+                  </div>
+                </div>
+                <div
+                  style={{
+                    height: "32px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <Select value={filters.status} onValueChange={(value) => handleFilterChange('status', value)}>
+                    <SelectTrigger
+                      style={{
+                        display: "flex",
+                        height: "32px",
+                        padding: "6px 8px",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        position: "relative",
+                      }}
+                    >
+                      <SelectValue placeholder="Select Status" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {statusOptions.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+
+            {/* State Filter */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "2px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    State
+                  </div>
+                </div>
+                <div
+                  style={{
+                    height: "32px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <Select value={filters.state} onValueChange={(value) => handleFilterChange('state', value)}>
+                    <SelectTrigger
+                      style={{
+                        display: "flex",
+                        height: "32px",
+                        padding: "6px 8px",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        position: "relative",
+                      }}
+                    >
+                      <SelectValue placeholder="Select State" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {stateOptions.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Filter Options */}
+            {[1, 2, 3].map((filterNum) => (
+              <div
+                key={filterNum}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "6px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "2px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      [Filter]
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      height: "32px",
+                      alignSelf: "stretch",
+                      position: "relative",
+                    }}
+                  >
+                    <Select 
+                      value={filters[`filter${filterNum}` as keyof FilterState] as string} 
+                      onValueChange={(value) => handleFilterChange(`filter${filterNum}` as keyof FilterState, value)}
+                    >
+                      <SelectTrigger
+                        style={{
+                          display: "flex",
+                          height: "32px",
+                          padding: "6px 8px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          position: "relative",
+                        }}
+                      >
+                        <SelectValue placeholder="Select Filter" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {filterOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Date Range Filter */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "2px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    Date Range
+                  </div>
+                </div>
+                <div
+                  style={{
+                    height: "32px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <button
+                    ref={datePickerRef}
+                    onClick={() => setShowDatePicker(!showDatePicker)}
+                    style={{
+                      display: "flex",
+                      height: "32px",
+                      padding: "8px 12px",
+                      alignItems: "center",
+                      gap: "8px",
+                      alignSelf: "stretch",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      position: "relative",
+                      cursor: "pointer",
+                      width: "100%",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        flex: "1 0 0",
+                        position: "relative",
+                      }}
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14 6.66659H2M10.6667 1.33325V3.99992M5.33333 1.33325V3.99992M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4486C13.2843 14.2569 13.5903 13.9509 13.782 13.5746C14 13.1467 14 12.5867 14 11.4666V5.86659C14 4.74648 14 4.18643 13.782 3.7586C13.5903 3.38228 13.2843 3.07632 12.908 2.88457C12.4802 2.66659 11.9201 2.66659 10.8 2.66659H5.2C4.0799 2.66659 3.51984 2.66659 3.09202 2.88457C2.71569 3.07632 2.40973 3.38228 2.21799 3.7586C2 4.18643 2 4.74648 2 5.86659V11.4666C2 12.5867 2 13.1467 2.21799 13.5746C2.40973 13.9509 2.71569 14.2569 3.09202 14.4486C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div
+                        style={{
+                          display: "-webkit-box",
+                          WebkitBoxOrient: "vertical",
+                          WebkitLineClamp: 1,
+                          flex: "1 0 0",
+                          overflow: "hidden",
+                          color: "#717680",
+                          textOverflow: "ellipsis",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          position: "relative",
+                        }}
+                      >
+                        {formatDateRange(filters.dateRange.start, filters.dateRange.end)}
+                      </div>
+                    </div>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
+
+      {/* Date Picker */}
+      {showDatePicker && (
+        <DatePickerCalendar
+          isOpen={showDatePicker}
+          onClose={() => setShowDatePicker(false)}
+          triggerRef={datePickerRef}
+          selectedStartDate={filters.dateRange.start}
+          selectedEndDate={filters.dateRange.end}
+          onDateChange={handleDateRangeChange}
+        />
+      )}
+    </>
+  );
+};
+
+export default FiltersModal;
