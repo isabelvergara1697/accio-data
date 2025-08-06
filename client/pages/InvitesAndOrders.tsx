@@ -2924,9 +2924,10 @@ const InvitesAndOrders: React.FC = () => {
                                   {/* Advanced Search Button */}
                                   <div style={{ position: "relative" }}>
                                     <button
-                                      onClick={() =>
-                                        setShowAdvancedSearch(!showAdvancedSearch)
-                                      }
+                                      onMouseDown={(e) => {
+                                        e.preventDefault();
+                                        setShowAdvancedSearch(!showAdvancedSearch);
+                                      }}
                                       onMouseEnter={() =>
                                         setHoveredSearchButton("advanced")
                                       }
@@ -3894,15 +3895,16 @@ const InvitesAndOrders: React.FC = () => {
                                     {/* Advanced Search Button */}
                                     <div style={{ position: "relative" }}>
                                       <button
-                                      onClick={() =>
-                                        setShowAdvancedSearch(!showAdvancedSearch)
-                                      }
+                                      onMouseDown={(e) => {
+                                        e.preventDefault();
+                                        setShowAdvancedSearch(!showAdvancedSearch);
+                                      }}
                                       onMouseEnter={() =>
                                         setHoveredSearchButton("advanced")
                                       }
-                                        onMouseLeave={() =>
-                                          setHoveredSearchButton(null)
-                                        }
+                                      onMouseLeave={() =>
+                                        setHoveredSearchButton(null)
+                                      }
                                         style={{
                                           display: "flex",
                                           width: "24px",
