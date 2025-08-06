@@ -4653,6 +4653,380 @@ const InvitesAndOrders: React.FC = () => {
                                 )}
                               </div>
                             </div>
+
+                            {/* Tablet: Advanced Search Button - Always visible */}
+                            <div style={{ position: "relative" }}>
+                              <button
+                                onMouseDown={(e) => {
+                                  e.preventDefault();
+                                  setShowAdvancedSearch(!showAdvancedSearch);
+                                }}
+                                onMouseEnter={() =>
+                                  setHoveredSearchButton("advanced")
+                                }
+                                onMouseLeave={() =>
+                                  setHoveredSearchButton(null)
+                                }
+                                style={{
+                                  display: "flex",
+                                  width: "24px",
+                                  height: "24px",
+                                  padding: "4px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "6px",
+                                  border: "none",
+                                  background:
+                                    showAdvancedSearch ||
+                                    hoveredSearchButton === "advanced"
+                                      ? "#F5F5F5"
+                                      : "transparent",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </button>
+                              {showAdvancedSearch && (
+                                <div
+                                  ref={tabletAdvancedSearchRef}
+                                  style={{
+                                    position: "absolute",
+                                    top: "calc(100% + 4px)",
+                                    right: "0",
+                                    width: "320px",
+                                    borderRadius: "8px",
+                                    border: "1px solid rgba(10, 13, 18, 0.04)",
+                                    background: "rgba(255, 255, 255, 1)",
+                                    boxShadow:
+                                      "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                    zIndex: 9999,
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "12px",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "12px",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
+                                    {/* Title */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        alignItems: "center",
+                                        alignSelf: "stretch",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 600,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Advanced Search
+                                      </div>
+                                      <button
+                                        onClick={clearAdvancedSearch}
+                                        style={{
+                                          background: "none",
+                                          border: "none",
+                                          color: "#273572",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 600,
+                                          lineHeight: "20px",
+                                          cursor: "pointer",
+                                        }}
+                                      >
+                                        Clear
+                                      </button>
+                                    </div>
+
+                                    {/* Form */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                      }}
+                                    >
+                                      {/* First Name */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          alignSelf: "stretch",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#414651",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          First Name
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={advancedSearchForm.firstName}
+                                          onChange={(e) =>
+                                            handleAdvancedSearchChange(
+                                              "firstName",
+                                              e.target.value,
+                                            )
+                                          }
+                                          placeholder="Enter first name"
+                                          style={{
+                                            display: "flex",
+                                            height: "32px",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "rgba(255, 255, 255, 1)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            color: "#717680",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Last Name */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          alignSelf: "stretch",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#414651",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Last Name
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={advancedSearchForm.lastName}
+                                          onChange={(e) =>
+                                            handleAdvancedSearchChange(
+                                              "lastName",
+                                              e.target.value,
+                                            )
+                                          }
+                                          placeholder="Enter last name"
+                                          style={{
+                                            display: "flex",
+                                            height: "32px",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "rgba(255, 255, 255, 1)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            color: "#717680",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Social Security Trace */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          alignSelf: "stretch",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#414651",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Social Security Trace
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={
+                                            advancedSearchForm.socialSecurityTrace
+                                          }
+                                          onChange={(e) =>
+                                            handleAdvancedSearchChange(
+                                              "socialSecurityTrace",
+                                              e.target.value,
+                                            )
+                                          }
+                                          placeholder="000-00-0000"
+                                          style={{
+                                            display: "flex",
+                                            height: "32px",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "rgba(255, 255, 255, 1)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            color: "#717680",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Order Number */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          alignSelf: "stretch",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#414651",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Order Number
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={advancedSearchForm.orderNumber}
+                                          onChange={(e) =>
+                                            handleAdvancedSearchChange(
+                                              "orderNumber",
+                                              e.target.value,
+                                            )
+                                          }
+                                          placeholder="Enter order number"
+                                          style={{
+                                            display: "flex",
+                                            height: "32px",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "rgba(255, 255, 255, 1)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            color: "#717680",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Search Button */}
+                                      <button
+                                        onClick={handleAdvancedSearchSubmit}
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 12px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          gap: "4px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #273572",
+                                          background: "#273572",
+                                          cursor: "pointer",
+                                          color: "rgba(255, 255, 255, 1)",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 600,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Search
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           </div>
 
 
