@@ -1651,7 +1651,9 @@ const InvitesAndOrders: React.FC = () => {
                                 )}
                               </button>
 
-                              {/* Customize Button */}
+                              {!showFiltersModal && (
+                                <>
+                                  {/* Customize Button */}
                               <button
                                 onClick={() => console.log("Customize clicked")}
                                 onMouseEnter={() =>
@@ -2110,6 +2112,8 @@ const InvitesAndOrders: React.FC = () => {
                                   </div>
                                 </div>
                               </button>
+                                </>
+                              )}
                             </div>
                           </>
                         ) : isMobile ? (
