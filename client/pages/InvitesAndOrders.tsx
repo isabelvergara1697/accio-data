@@ -1461,9 +1461,7 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Advanced Search Button - Always Visible */}
                             <button
                               ref={advancedSearchButtonRef}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
+                              onClick={() => {
                                 console.log('Button clicked:', showAdvancedSearch);
                                 setShowAdvancedSearch(!showAdvancedSearch);
                               }}
