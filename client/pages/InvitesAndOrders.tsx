@@ -2420,6 +2420,7 @@ const InvitesAndOrders: React.FC = () => {
                                   outline: "none",
                                   background: "transparent",
                                   flex: "1 0 0",
+                                  minWidth: 0,
                                   color: isSearchActive ? "#181D27" : "#717680",
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
@@ -2432,7 +2433,12 @@ const InvitesAndOrders: React.FC = () => {
                                 }}
                               />
                               {isSearchActive && (
-                                <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                  flexShrink: 0
+                                }}>
                                   {/* X Button */}
                                   <button
                                     onClick={clearSearch}
