@@ -1319,6 +1319,7 @@ const InvitesAndOrders: React.FC = () => {
 
                           {/* Desktop: Search */}
                           <div
+                            className="search-container"
                             style={{
                               display: "flex",
                               alignItems: "center",
