@@ -1464,6 +1464,7 @@ const InvitesAndOrders: React.FC = () => {
                               onClick={(e) => {
                                 e.preventDefault();
                                 e.stopPropagation();
+                                console.log('Button clicked:', showAdvancedSearch);
                                 setShowAdvancedSearch(!showAdvancedSearch);
                               }}
                               onMouseEnter={() =>
