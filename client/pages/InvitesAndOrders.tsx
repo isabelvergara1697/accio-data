@@ -3366,7 +3366,7 @@ const InvitesAndOrders: React.FC = () => {
                             </button>
                             {showAdvancedSearch && (
                               <div
-                                ref={mobileAdvancedSearchRef}
+                                ref={null}
                                 style={{
                                   position: "absolute",
                                   top: "calc(100% + 4px)",
@@ -3375,6 +3375,7 @@ const InvitesAndOrders: React.FC = () => {
                                   width: "calc(100vw - 32px)",
                                   maxWidth: "280px",
                                   transform: "translateX(-70%)",
+                                  display: "none",
                                   borderRadius: "8px",
                                   border: "1px solid rgba(10, 13, 18, 0.04)",
                                   background: "rgba(255, 255, 255, 1)",
