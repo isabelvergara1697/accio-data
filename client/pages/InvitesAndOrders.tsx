@@ -1407,7 +1407,7 @@ const InvitesAndOrders: React.FC = () => {
                                 {/* Configure Search Button */}
                                 <button
                                   onClick={() =>
-                                    console.log("Configure search")
+                                    setShowAdvancedSearch(!showAdvancedSearch)
                                   }
                                   style={{
                                     display: "flex",
@@ -2529,7 +2529,7 @@ const InvitesAndOrders: React.FC = () => {
                                   {/* Configure Search Button */}
                                   <button
                                     onClick={() =>
-                                      console.log("Configure search")
+                                      setShowAdvancedSearch(!showAdvancedSearch)
                                     }
                                     style={{
                                       display: "flex",
@@ -3143,7 +3143,7 @@ const InvitesAndOrders: React.FC = () => {
                                     {/* Configure Search Button */}
                                     <button
                                       onClick={() =>
-                                        console.log("Configure search")
+                                        setShowAdvancedSearch(!showAdvancedSearch)
                                       }
                                       style={{
                                         display: "flex",
