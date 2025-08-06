@@ -1490,7 +1490,7 @@ const InvitesAndOrders: React.FC = () => {
                                 width: "234px",
                                 zIndex: 9999,
                                 borderRadius: "8px",
-                                border: "1px solid rgba(0, 0, 0, 0.08)",
+                                border: "2px solid red",
                                 background: "#FFF",
                                 boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                               }}
@@ -2129,7 +2129,7 @@ const InvitesAndOrders: React.FC = () => {
                                     right: "0",
                                     width: "170px",
                                     borderRadius: "8px",
-                                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                                    border: "2px solid red",
                                     background: "#FFF",
                                     boxShadow:
                                       "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
@@ -2403,7 +2403,7 @@ const InvitesAndOrders: React.FC = () => {
                                     right: "0",
                                     width: "200px",
                                     borderRadius: "8px",
-                                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                                    border: "2px solid red",
                                     background: "#FFF",
                                     boxShadow:
                                       "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
@@ -2928,7 +2928,7 @@ const InvitesAndOrders: React.FC = () => {
                                 right: "0",
                                 zIndex: 9999,
                                 borderRadius: "8px",
-                                border: "1px solid rgba(0, 0, 0, 0.08)",
+                                border: "2px solid red",
                                 background: "#FFF",
                                 boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                                 margin: "0 20px",
@@ -3399,7 +3399,7 @@ const InvitesAndOrders: React.FC = () => {
                                     right: "0",
                                     width: "170px",
                                     borderRadius: "8px",
-                                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                                    border: "2px solid red",
                                     background: "#FFF",
                                     boxShadow:
                                       "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
@@ -3860,7 +3860,7 @@ const InvitesAndOrders: React.FC = () => {
                                 width: "234px",
                                 zIndex: 9999,
                                 borderRadius: "8px",
-                                border: "1px solid rgba(0, 0, 0, 0.08)",
+                                border: "2px solid red",
                                 background: "#FFF",
                                 boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                               }}
@@ -4342,7 +4342,7 @@ const InvitesAndOrders: React.FC = () => {
                                         right: "0",
                                         width: "170px",
                                         borderRadius: "8px",
-                                        border: "1px solid rgba(0, 0, 0, 0.08)",
+                                        border: "2px solid red",
                                         background: "#FFF",
                                         boxShadow:
                                           "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
@@ -4499,7 +4499,7 @@ const InvitesAndOrders: React.FC = () => {
                                         right: "0",
                                         width: "200px",
                                         borderRadius: "8px",
-                                        border: "1px solid rgba(0, 0, 0, 0.08)",
+                                        border: "2px solid red",
                                         background: "#FFF",
                                         boxShadow:
                                           "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
@@ -5084,7 +5084,7 @@ const InvitesAndOrders: React.FC = () => {
                                         right: "0",
                                         width: "170px",
                                         borderRadius: "8px",
-                                        border: "1px solid rgba(0, 0, 0, 0.08)",
+                                        border: "2px solid red",
                                         background: "#FFF",
                                         boxShadow:
                                           "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
@@ -6860,7 +6860,7 @@ const InvitesAndOrders: React.FC = () => {
                                       marginTop: "4px",
                                       width: isMobile ? "200px" : "248px",
                                       borderRadius: "8px",
-                                      border: "1px solid rgba(0, 0, 0, 0.08)",
+                                      border: "2px solid red",
                                       background: "#FFF",
                                       boxShadow:
                                         "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
