@@ -153,6 +153,7 @@ const InvitesAndOrders: React.FC = () => {
     orderNumber: "",
   });
   const [goToInputValue, setGoToInputValue] = useState("");
+  const [hoveredSearchButton, setHoveredSearchButton] = useState<string | null>(null);
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
   const actionMenuRef = useRef<HTMLDivElement>(null);
