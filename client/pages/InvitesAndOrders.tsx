@@ -3039,6 +3039,27 @@ const InvitesAndOrders: React.FC = () => {
                               )}
                             </div>
 
+                            {/* Mobile Advanced Search Dropdown - positioned relative to search bar */}
+                            {!isSearchActive && (
+                              <AdvancedSearchDropdown
+                                showAdvancedSearch={showAdvancedSearch}
+                                advancedSearchForm={advancedSearchForm}
+                                focusedAdvancedField={focusedAdvancedField}
+                                onFieldChange={handleAdvancedSearchChange}
+                                onFieldFocus={setFocusedAdvancedField}
+                                onClear={clearAdvancedSearch}
+                                onSearch={handleAdvancedSearch}
+                                dropdownRef={mobileAdvancedSearchRef}
+                                style={{
+                                  position: "absolute",
+                                  top: "calc(100% + 4px)",
+                                  left: "0",
+                                  right: "0",
+                                  width: "100%",
+                                  zIndex: 10000,
+                                }}
+                              />
+                            )}
                           </div>
 
                           <div style={{ position: "relative" }}>
