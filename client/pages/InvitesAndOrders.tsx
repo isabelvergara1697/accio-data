@@ -1475,6 +1475,12 @@ const InvitesAndOrders: React.FC = () => {
                                     );
                                     setShowAdvancedSearch(!showAdvancedSearch);
                                   }}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('ADVANCED SEARCH ONCLICK!', showAdvancedSearch);
+                                    setShowAdvancedSearch(!showAdvancedSearch);
+                                  }}
                                   onMouseEnter={() =>
                                     setHoveredSearchButton("advanced")
                                   }
@@ -2974,12 +2980,18 @@ const InvitesAndOrders: React.FC = () => {
                                         !showAdvancedSearch,
                                       );
                                     }}
-                                    onMouseEnter={() =>
-                                      setHoveredSearchButton("advanced")
-                                    }
-                                    onMouseLeave={() =>
-                                      setHoveredSearchButton(null)
-                                    }
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('ADVANCED SEARCH ONCLICK!', showAdvancedSearch);
+                                    setShowAdvancedSearch(!showAdvancedSearch);
+                                  }}
+                                  onMouseEnter={() =>
+                                    setHoveredSearchButton("advanced")
+                                  }
+                                  onMouseLeave={() =>
+                                    setHoveredSearchButton(null)
+                                  }
                                     style={{
                                       display: "flex",
                                       width: "24px",
@@ -3965,12 +3977,18 @@ const InvitesAndOrders: React.FC = () => {
                                           !showAdvancedSearch,
                                         );
                                       }}
-                                      onMouseEnter={() =>
-                                        setHoveredSearchButton("advanced")
-                                      }
-                                      onMouseLeave={() =>
-                                        setHoveredSearchButton(null)
-                                      }
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('ADVANCED SEARCH ONCLICK!', showAdvancedSearch);
+                                    setShowAdvancedSearch(!showAdvancedSearch);
+                                  }}
+                                  onMouseEnter={() =>
+                                    setHoveredSearchButton("advanced")
+                                  }
+                                  onMouseLeave={() =>
+                                    setHoveredSearchButton(null)
+                                  }
                                       style={{
                                         display: "flex",
                                         width: "24px",
