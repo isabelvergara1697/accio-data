@@ -2816,7 +2816,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 boxSizing: "border-box",
                                 maxWidth: "100%",
-                                overflow: "hidden",
+                                overflow: "visible",
                               }}
                             >
                               <svg
