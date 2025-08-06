@@ -1560,7 +1560,7 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               {/* Filters Button */}
                               <button
-                                onClick={() => setShowFiltersModal(true)}
+                                onClick={() => setShowFiltersModal(!showFiltersModal)}
                                 onMouseEnter={() => setHoveredButton("filters")}
                                 onMouseLeave={() => setHoveredButton(null)}
                                 style={{
@@ -3123,7 +3123,7 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               {/* Filters Button */}
                               <button
-                                onClick={() => setShowFiltersModal(true)}
+                                onClick={() => setShowFiltersModal(!showFiltersModal)}
                                 onMouseEnter={() => setHoveredButton("filters")}
                                 onMouseLeave={() => setHoveredButton(null)}
                                 style={{
