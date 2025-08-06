@@ -2504,6 +2504,152 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
                           </div>
 
+                          {/* Mobile: Search Row */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Search Input */}
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                height: "40px",
+                                borderRadius: "8px",
+                                border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                padding: isSearchActive ? "7px" : "8px",
+                                position: "relative",
+                                boxSizing: "border-box",
+                              }}
+                            >
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                              <input
+                                type="text"
+                                placeholder={isSearchActive ? "" : "Search by Name, SSN, State.."}
+                                value={searchQuery}
+                                onChange={handleSearchChange}
+                                onFocus={() => setIsSearchActive(true)}
+                                onBlur={() => setIsSearchActive(searchQuery.length > 0)}
+                                style={{
+                                  border: "none",
+                                  outline: "none",
+                                  background: "transparent",
+                                  flex: "1 0 0",
+                                  color: isSearchActive ? "#181D27" : "#717680",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "14px",
+                                  fontWeight: isSearchActive ? 500 : 400,
+                                  lineHeight: "20px",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                  whiteSpace: "nowrap",
+                                }}
+                              />
+                              {isSearchActive && (
+                                <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                  {/* X Button */}
+                                  <button
+                                    onClick={clearSearch}
+                                    style={{
+                                      display: "flex",
+                                      width: "24px",
+                                      height: "24px",
+                                      padding: "4px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      borderRadius: "6px",
+                                      border: "none",
+                                      background: "transparent",
+                                      cursor: "pointer",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M11.3333 4.66675L4.66666 11.3334M4.66666 4.66675L11.3333 11.3334"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </button>
+
+                                  {/* Divider */}
+                                  <div
+                                    style={{
+                                      width: "1px",
+                                      height: "24px",
+                                      background: "#E9EAEB",
+                                      transform: "rotate(90deg)",
+                                    }}
+                                  />
+
+                                  {/* Configure Search Button */}
+                                  <button
+                                    onClick={() => console.log("Configure search")}
+                                    style={{
+                                      display: "flex",
+                                      width: "24px",
+                                      height: "24px",
+                                      padding: "4px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      borderRadius: "6px",
+                                      border: "none",
+                                      background: "transparent",
+                                      cursor: "pointer",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </button>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+
                           {/* Mobile: Filters + Download Buttons Row */}
                           <div
                             style={{
