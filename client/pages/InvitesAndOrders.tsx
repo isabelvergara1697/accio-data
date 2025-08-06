@@ -150,7 +150,6 @@ const InvitesAndOrders: React.FC = () => {
     firstName: "",
     lastName: "",
     socialSecurityTrace: "",
-    orderNumber: "",
   });
   const [goToInputValue, setGoToInputValue] = useState("");
   const [hoveredSearchButton, setHoveredSearchButton] = useState<string | null>(
@@ -880,7 +879,6 @@ const InvitesAndOrders: React.FC = () => {
       firstName: "",
       lastName: "",
       socialSecurityTrace: "",
-      orderNumber: "",
     });
   };
 
