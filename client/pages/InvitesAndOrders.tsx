@@ -6084,39 +6084,27 @@ const InvitesAndOrders: React.FC = () => {
                           <input
                             type="text"
                             placeholder="1010"
-                            value=""
+                            value={goToInputValue}
                             onChange={(e) => {
                               // Only allow numbers
                               const value = e.target.value.replace(/[^0-9]/g, '');
-                              e.target.value = value;
+                              setGoToInputValue(value);
                             }}
                             onKeyDown={(e) => {
-                              // Only allow numbers, backspace, delete, tab, escape, enter, and arrow keys
-                              if (!/[0-9]/.test(e.key) &&
-                                  !['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
-                                e.preventDefault();
-                              }
-
                               if (e.key === 'Enter') {
-                                const page = parseInt((e.target as HTMLInputElement).value);
+                                const page = parseInt(goToInputValue);
                                 if (page >= 1 && page <= totalPages) {
                                   setCurrentPage(page);
-                                  (e.target as HTMLInputElement).value = '';
-                                } else {
-                                  // Clear invalid input
-                                  (e.target as HTMLInputElement).value = '';
+                                  setGoToInputValue('');
                                 }
                               }
                             }}
-                            onBlur={(e) => {
-                              const page = parseInt(e.target.value);
+                            onBlur={() => {
+                              const page = parseInt(goToInputValue);
                               if (page >= 1 && page <= totalPages) {
                                 setCurrentPage(page);
-                                e.target.value = '';
-                              } else {
-                                // Clear invalid input
-                                e.target.value = '';
                               }
+                              setGoToInputValue('');
                             }}
                             style={{
                               display: "flex",
