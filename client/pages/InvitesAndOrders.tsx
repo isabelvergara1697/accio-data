@@ -6048,7 +6048,7 @@ const InvitesAndOrders: React.FC = () => {
                       )}
 
                       {/* Right Side - Go to input */}
-                      {true && (
+                      {!isMobile && (
                         <div
                           style={{
                             display: "flex",
