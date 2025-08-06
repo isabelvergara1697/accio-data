@@ -1258,7 +1258,7 @@ const InvitesAndOrders: React.FC = () => {
                     alignSelf: "stretch",
                     position: "relative",
                     maxWidth: "100%",
-                    overflow: "visible",
+                    overflow: showFiltersModal ? "hidden" : "visible",
                     boxSizing: "border-box",
                   }}
                 >
