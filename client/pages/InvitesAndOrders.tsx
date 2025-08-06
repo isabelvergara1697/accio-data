@@ -1555,7 +1555,7 @@ const InvitesAndOrders: React.FC = () => {
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
                                 background:
-                                  hoveredButton === "filters"
+                                  hoveredButton === "filters" || showFiltersModal
                                     ? "#FDFDFD"
                                     : "#FFF",
                                 boxShadow:
