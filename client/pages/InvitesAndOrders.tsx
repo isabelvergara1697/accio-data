@@ -6081,26 +6081,42 @@ const InvitesAndOrders: React.FC = () => {
                             </span>
                           </div>
                           <input
-                            type="number"
+                            type="text"
                             placeholder="1010"
                             value=""
                             onChange={(e) => {
-                              const page = parseInt(e.target.value);
-                              if (page >= 1 && page <= totalPages) {
-                                setCurrentPage(page);
-                              }
+                              // Only allow numbers
+                              const value = e.target.value.replace(/[^0-9]/g, '');
+                              e.target.value = value;
                             }}
                             onKeyDown={(e) => {
+                              // Only allow numbers, backspace, delete, tab, escape, enter, and arrow keys
+                              if (!/[0-9]/.test(e.key) &&
+                                  !['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+                                e.preventDefault();
+                              }
+
                               if (e.key === 'Enter') {
                                 const page = parseInt((e.target as HTMLInputElement).value);
                                 if (page >= 1 && page <= totalPages) {
                                   setCurrentPage(page);
                                   (e.target as HTMLInputElement).value = '';
+                                } else {
+                                  // Clear invalid input
+                                  (e.target as HTMLInputElement).value = '';
                                 }
                               }
                             }}
-                            min={1}
-                            max={totalPages}
+                            onBlur={(e) => {
+                              const page = parseInt(e.target.value);
+                              if (page >= 1 && page <= totalPages) {
+                                setCurrentPage(page);
+                                e.target.value = '';
+                              } else {
+                                // Clear invalid input
+                                e.target.value = '';
+                              }
+                            }}
                             style={{
                               display: "flex",
                               width: "72px",
