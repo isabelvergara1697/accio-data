@@ -1604,7 +1604,7 @@ const InvitesAndOrders: React.FC = () => {
                                               e.target.value,
                                             )
                                           }
-                                          placeholder="Enter first name"
+                                          placeholder="John"
                                           style={{
                                             display: "flex",
                                             height: "32px",
@@ -1614,16 +1614,24 @@ const InvitesAndOrders: React.FC = () => {
                                             alignSelf: "stretch",
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
-                                            background: "rgba(255, 255, 255, 1)",
+                                            background: "#FFF",
                                             boxShadow:
                                               "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            color: "#717680",
+                                            color: advancedSearchForm.firstName ? "#181D27" : "#717680",
                                             fontFamily: "Public Sans",
                                             fontSize: "14px",
                                             fontStyle: "normal",
                                             fontWeight: 400,
                                             lineHeight: "20px",
                                             outline: "none",
+                                          }}
+                                          onFocus={(e) => {
+                                            e.target.style.border = "2px solid #34479A";
+                                            e.target.style.padding = "5px 7px";
+                                          }}
+                                          onBlur={(e) => {
+                                            e.target.style.border = "1px solid #D5D7DA";
+                                            e.target.style.padding = "6px 8px";
                                           }}
                                         />
                                       </div>
@@ -1659,7 +1667,7 @@ const InvitesAndOrders: React.FC = () => {
                                               e.target.value,
                                             )
                                           }
-                                          placeholder="Enter last name"
+                                          placeholder="Doe"
                                           style={{
                                             display: "flex",
                                             height: "32px",
@@ -1669,16 +1677,24 @@ const InvitesAndOrders: React.FC = () => {
                                             alignSelf: "stretch",
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
-                                            background: "rgba(255, 255, 255, 1)",
+                                            background: "#FFF",
                                             boxShadow:
                                               "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            color: "#717680",
+                                            color: advancedSearchForm.lastName ? "#181D27" : "#717680",
                                             fontFamily: "Public Sans",
                                             fontSize: "14px",
                                             fontStyle: "normal",
                                             fontWeight: 400,
                                             lineHeight: "20px",
                                             outline: "none",
+                                          }}
+                                          onFocus={(e) => {
+                                            e.target.style.border = "2px solid #34479A";
+                                            e.target.style.padding = "5px 7px";
+                                          }}
+                                          onBlur={(e) => {
+                                            e.target.style.border = "1px solid #D5D7DA";
+                                            e.target.style.padding = "6px 8px";
                                           }}
                                         />
                                       </div>
@@ -1726,10 +1742,10 @@ const InvitesAndOrders: React.FC = () => {
                                             alignSelf: "stretch",
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
-                                            background: "rgba(255, 255, 255, 1)",
+                                            background: "#FFF",
                                             boxShadow:
                                               "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            color: "#717680",
+                                            color: advancedSearchForm.socialSecurityTrace ? "#181D27" : "#717680",
                                             fontFamily: "Public Sans",
                                             fontSize: "14px",
                                             fontStyle: "normal",
@@ -1737,60 +1753,13 @@ const InvitesAndOrders: React.FC = () => {
                                             lineHeight: "20px",
                                             outline: "none",
                                           }}
-                                        />
-                                      </div>
-
-                                      {/* Order Number */}
-                                      <div
-                                        style={{
-                                          display: "flex",
-                                          flexDirection: "column",
-                                          alignItems: "flex-start",
-                                          gap: "6px",
-                                          alignSelf: "stretch",
-                                        }}
-                                      >
-                                        <div
-                                          style={{
-                                            color: "#414651",
-                                            fontFamily: "Public Sans",
-                                            fontSize: "14px",
-                                            fontStyle: "normal",
-                                            fontWeight: 500,
-                                            lineHeight: "20px",
+                                          onFocus={(e) => {
+                                            e.target.style.border = "2px solid #34479A";
+                                            e.target.style.padding = "5px 7px";
                                           }}
-                                        >
-                                          Order Number
-                                        </div>
-                                        <input
-                                          type="text"
-                                          value={advancedSearchForm.orderNumber}
-                                          onChange={(e) =>
-                                            handleAdvancedSearchChange(
-                                              "orderNumber",
-                                              e.target.value,
-                                            )
-                                          }
-                                          placeholder="Enter order number"
-                                          style={{
-                                            display: "flex",
-                                            height: "32px",
-                                            padding: "6px 8px",
-                                            alignItems: "center",
-                                            gap: "8px",
-                                            alignSelf: "stretch",
-                                            borderRadius: "8px",
-                                            border: "1px solid #D5D7DA",
-                                            background: "rgba(255, 255, 255, 1)",
-                                            boxShadow:
-                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            color: "#717680",
-                                            fontFamily: "Public Sans",
-                                            fontSize: "14px",
-                                            fontStyle: "normal",
-                                            fontWeight: 400,
-                                            lineHeight: "20px",
-                                            outline: "none",
+                                          onBlur={(e) => {
+                                            e.target.style.border = "1px solid #D5D7DA";
+                                            e.target.style.padding = "6px 8px";
                                           }}
                                         />
                                       </div>
@@ -1799,17 +1768,23 @@ const InvitesAndOrders: React.FC = () => {
                                     {/* Search Button */}
                                     <button
                                       onClick={handleAdvancedSearch}
+                                      onMouseEnter={(e) => {
+                                        e.target.style.background = "#273572";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.target.style.background = "#344698";
+                                      }}
                                       style={{
                                         display: "flex",
-                                        height: "32px",
-                                        padding: "6px 16px",
+                                        minHeight: "36px",
+                                        padding: "6px 8px",
                                         justifyContent: "center",
                                         alignItems: "center",
-                                        gap: "8px",
+                                        gap: "4px",
                                         alignSelf: "stretch",
                                         borderRadius: "8px",
-                                        border: "1px solid #273572",
-                                        background: "#273572",
+                                        border: "2px solid rgba(255, 255, 255, 0.12)",
+                                        background: "#344698",
                                         boxShadow:
                                           "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#FFF",
