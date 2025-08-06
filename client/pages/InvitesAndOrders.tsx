@@ -3157,10 +3157,7 @@ const InvitesAndOrders: React.FC = () => {
                                             type="text"
                                             value={""}
                                             onChange={(e) =>
-                                              handleAdvancedSearchChange(
-                                                "orderNumber",
-                                                e.target.value,
-                                              )
+                                              {}
                                             }
                                             placeholder="Enter order number"
                                             style={{
@@ -3594,10 +3591,7 @@ const InvitesAndOrders: React.FC = () => {
                                                 type="text"
                                                 value={""}
                                                 onChange={(e) =>
-                                                  handleAdvancedSearchChange(
-                                                    "orderNumber",
-                                                    e.target.value,
-                                                  )
+                                                  {}
                                                 }
                                                 placeholder="Enter order number"
                                                 style={{
@@ -4890,10 +4884,7 @@ const InvitesAndOrders: React.FC = () => {
                                                   type="text"
                                                   value={""}
                                                   onChange={(e) =>
-                                                    handleAdvancedSearchChange(
-                                                      "orderNumber",
-                                                      e.target.value,
-                                                    )
+                                                    {}
                                                   }
                                                   placeholder="Enter order number"
                                                   style={{
