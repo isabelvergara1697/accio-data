@@ -1205,7 +1205,7 @@ const InvitesAndOrders: React.FC = () => {
                 alignSelf: "stretch",
                 position: "relative",
                 maxWidth: "100%",
-                overflow: "hidden",
+                overflow: "visible",
                 boxSizing: "border-box",
               }}
             >
@@ -1218,7 +1218,7 @@ const InvitesAndOrders: React.FC = () => {
                   alignSelf: "stretch",
                   position: "relative",
                   maxWidth: "100%",
-                  overflow: "hidden",
+                  overflow: "visible",
                   boxSizing: "border-box",
                 }}
               >
@@ -1235,7 +1235,7 @@ const InvitesAndOrders: React.FC = () => {
                     width: "100%",
                     maxWidth: "100%",
                     boxSizing: "border-box",
-                    overflow: "hidden",
+                    overflow: "visible",
                   }}
                 >
                   {/* Table Header */}
