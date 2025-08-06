@@ -1503,6 +1503,7 @@ const InvitesAndOrders: React.FC = () => {
                           </div>
 
                           {/* Advanced Search Dropdown */}
+                          {console.log('Dropdown render check - showAdvancedSearch:', showAdvancedSearch) || null}
                           {showAdvancedSearch && (
                             <div
                               ref={advancedSearchRef}
