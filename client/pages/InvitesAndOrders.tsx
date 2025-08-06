@@ -917,7 +917,6 @@ const InvitesAndOrders: React.FC = () => {
     });
   };
 
-  console.log('🟣 COMPONENT RENDER - showAdvancedSearch:', showAdvancedSearch, 'isSearchActive:', isSearchActive);
 
   return (
     <div
