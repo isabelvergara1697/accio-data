@@ -75,7 +75,7 @@ const TruncatedText: React.FC<{
           color: "rgba(24,29,39,1)",
         }}
       >
-        {text}
+        {highlightedText || text}
       </span>
     </div>
   );
