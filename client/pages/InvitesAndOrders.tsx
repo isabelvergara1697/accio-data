@@ -6047,7 +6047,7 @@ const InvitesAndOrders: React.FC = () => {
                       )}
 
                       {/* Right Side - Go to input */}
-                      {true && (
+                      {(isTablet || isDesktop) && (
                         <div
                           style={{
                             display: "flex",
