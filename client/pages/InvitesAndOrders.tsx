@@ -5798,7 +5798,7 @@ const InvitesAndOrders: React.FC = () => {
                       </div>
 
                       {/* Center - Pagination Controls */}
-                      {!isMobile && (
+                      {true && (
                         <div
                           style={{
                             display: "flex",
