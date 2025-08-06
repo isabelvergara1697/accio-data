@@ -1399,7 +1399,7 @@ const InvitesAndOrders: React.FC = () => {
                                     alignItems: "center",
                                     borderRadius: "6px",
                                     border: "none",
-                                    background: "transparent",
+                                    background: showAdvancedSearch ? "#F5F5F5" : "transparent",
                                     cursor: "pointer",
                                   }}
                                 >
@@ -1444,7 +1444,7 @@ const InvitesAndOrders: React.FC = () => {
                                     alignItems: "center",
                                     borderRadius: "6px",
                                     border: "none",
-                                    background: "transparent",
+                                    background: showAdvancedSearch ? "#F5F5F5" : "transparent",
                                     cursor: "pointer",
                                   }}
                                 >
@@ -2827,7 +2827,7 @@ const InvitesAndOrders: React.FC = () => {
                                       alignItems: "center",
                                       borderRadius: "6px",
                                       border: "none",
-                                      background: "transparent",
+                                      background: showAdvancedSearch ? "#F5F5F5" : "transparent",
                                       cursor: "pointer",
                                     }}
                                   >
@@ -2872,7 +2872,7 @@ const InvitesAndOrders: React.FC = () => {
                                       alignItems: "center",
                                       borderRadius: "6px",
                                       border: "none",
-                                      background: "transparent",
+                                      background: showAdvancedSearch ? "#F5F5F5" : "transparent",
                                       cursor: "pointer",
                                     }}
                                   >
@@ -3406,7 +3406,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     border: "none",
                                     outline: "none",
-                                    background: "transparent",
+                                    background: showAdvancedSearch ? "#F5F5F5" : "transparent",
                                     flex: "1 0 0",
                                     color: isSearchActive
                                       ? "#181D27"
@@ -3441,7 +3441,7 @@ const InvitesAndOrders: React.FC = () => {
                                         alignItems: "center",
                                         borderRadius: "6px",
                                         border: "none",
-                                        background: "transparent",
+                                        background: showAdvancedSearch ? "#F5F5F5" : "transparent",
                                         cursor: "pointer",
                                       }}
                                     >
@@ -3486,7 +3486,7 @@ const InvitesAndOrders: React.FC = () => {
                                         alignItems: "center",
                                         borderRadius: "6px",
                                         border: "none",
-                                        background: "transparent",
+                                        background: showAdvancedSearch ? "#F5F5F5" : "transparent",
                                         cursor: "pointer",
                                       }}
                                     >
