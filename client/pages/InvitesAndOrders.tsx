@@ -1402,6 +1402,8 @@ const InvitesAndOrders: React.FC = () => {
                                   gap: "2px",
                                   background: "lime",
                                   border: "2px solid blue",
+                                  zIndex: 10000,
+                                  position: "relative",
                                 }}
                               >
                                 {/* X Button */}
@@ -2908,6 +2910,8 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "2px",
                                   background: "lime",
                                   border: "2px solid blue",
+                                  zIndex: 10000,
+                                  position: "relative",
                                     flexShrink: 0,
                                   }}
                                 >
@@ -3906,6 +3910,8 @@ const InvitesAndOrders: React.FC = () => {
                                       gap: "2px",
                                   background: "lime",
                                   border: "2px solid blue",
+                                  zIndex: 10000,
+                                  position: "relative",
                                     }}
                                   >
                                     {/* X Button */}
