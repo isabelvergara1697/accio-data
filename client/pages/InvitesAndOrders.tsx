@@ -1228,6 +1228,10 @@ const InvitesAndOrders: React.FC = () => {
                 flex: "1 0 0",
                 alignSelf: "stretch",
                 position: "relative",
+                minWidth: 0, // Allow container to shrink below content size
+                ...(showFiltersModal && isDesktop && {
+                  maxWidth: `calc(100% - 258px - 16px)`, // Account for filters panel and gap
+                }),
               }}
             >
               <div
