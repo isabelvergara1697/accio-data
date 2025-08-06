@@ -1460,9 +1460,10 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Advanced Search Button - Working Pattern */}
                             <div style={{ position: "relative" }}>
                               <button
-                                onClick={() =>
-                                  setShowAdvancedSearch(!showAdvancedSearch)
-                                }
+                                onMouseDown={(e) => {
+                                  e.preventDefault();
+                                  setShowAdvancedSearch(!showAdvancedSearch);
+                                }}
                                 style={{
                                   display: "flex",
                                   width: "24px",
