@@ -1408,6 +1408,7 @@ const InvitesAndOrders: React.FC = () => {
                                 <button
                                   onMouseDown={(e) => {
                                     e.preventDefault();
+                                    console.log('X BUTTON CLICKED!');
                                     clearSearch();
                                   }}
                                   onMouseEnter={() =>
@@ -2909,9 +2910,10 @@ const InvitesAndOrders: React.FC = () => {
                                   {/* X Button */}
                                   <button
                                     onMouseDown={(e) => {
-                                      e.preventDefault();
-                                      clearSearch();
-                                    }}
+                                    e.preventDefault();
+                                    console.log('X BUTTON CLICKED!');
+                                    clearSearch();
+                                  }}
                                     onMouseEnter={() =>
                                       setHoveredSearchButton("clear")
                                     }
@@ -3893,9 +3895,10 @@ const InvitesAndOrders: React.FC = () => {
                                     {/* X Button */}
                                     <button
                                       onMouseDown={(e) => {
-                                        e.preventDefault();
-                                        clearSearch();
-                                      }}
+                                    e.preventDefault();
+                                    console.log('X BUTTON CLICKED!');
+                                    clearSearch();
+                                  }}
                                       onMouseEnter={() =>
                                         setHoveredSearchButton("clear")
                                       }
