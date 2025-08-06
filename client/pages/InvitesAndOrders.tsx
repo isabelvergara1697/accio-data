@@ -3820,11 +3820,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     border: "none",
                                     outline: "none",
-                                    background:
-                                      showAdvancedSearch ||
-                                      hoveredSearchButton === "advanced"
-                                        ? "#F5F5F5"
-                                        : "transparent",
+                                    background: "transparent",
                                     flex: "1 0 0",
                                     color: isSearchActive
                                       ? "#181D27"
