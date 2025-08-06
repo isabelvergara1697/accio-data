@@ -145,8 +145,16 @@ const InvitesAndOrders: React.FC = () => {
   const [tableView, setTableView] = useState<"table" | "rows">("table");
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
+  const [advancedSearchForm, setAdvancedSearchForm] = useState({
+    firstName: "",
+    lastName: "",
+    socialSecurityTrace: "",
+    orderNumber: "",
+  });
   const [goToInputValue, setGoToInputValue] = useState("");
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
+  const advancedSearchRef = useRef<HTMLDivElement>(null);
   const actionMenuRef = useRef<HTMLDivElement>(null);
   const mobileDotsMenuRef = useRef<HTMLDivElement>(null);
 
