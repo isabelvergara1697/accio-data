@@ -1333,8 +1333,8 @@ const InvitesAndOrders: React.FC = () => {
                               borderRadius: "8px",
                               border: isSearchActive
                                 ? "2px solid #34479A"
-                                : "3px solid red",
-                              background: "yellow",
+                                : "1px solid #D5D7DA",
+                              background: "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               padding: isSearchActive ? "7px" : "8px",
                               position: "relative",
