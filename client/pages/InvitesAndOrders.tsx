@@ -1577,7 +1577,7 @@ const InvitesAndOrders: React.FC = () => {
                                   background:
                                     hoveredButton === "filters" ||
                                     showFiltersModal
-                                      ? "#FDFDFD"
+                                      ? "#F5F5F5"
                                       : "#FFF",
                                   boxShadow:
                                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
@@ -1588,13 +1588,13 @@ const InvitesAndOrders: React.FC = () => {
                                 <svg
                                   width="16"
                                   height="16"
-                                  viewBox="0 0 17 16"
+                                  viewBox="0 0 16 16"
                                   fill="none"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <path
-                                    d="M3.83333 14L3.83333 10M3.83333 10C4.56971 10 5.16667 9.40305 5.16667 8.66667C5.16667 7.93029 4.56971 7.33333 3.83333 7.33333C3.09695 7.33333 2.5 7.93029 2.5 8.66667C2.5 9.40305 3.09695 10 3.83333 10ZM3.83333 4.66667V2M8.5 14V10M8.5 4.66667V2M8.5 4.66667C7.76362 4.66667 7.16667 5.26362 7.16667 6C7.16667 6.73638 7.76362 7.33333 8.5 7.33333C9.23638 7.33333 9.83333 6.73638 9.83333 6C9.83333 5.26362 9.23638 4.66667 8.5 4.66667ZM13.1667 14V11.3333M13.1667 11.3333C13.903 11.3333 14.5 10.7364 14.5 10C14.5 9.26362 13.903 8.66667 13.1667 8.66667C12.4303 8.66667 11.8333 9.26362 11.8333 10C11.8333 10.7364 12.4303 11.3333 13.1667 11.3333ZM13.1667 6V2"
-                                    stroke="#A4A7AE"
+                                    d="M3.33333 14L3.33333 10M3.33333 10C4.06971 10 4.66667 9.40305 4.66667 8.66667C4.66667 7.93029 4.06971 7.33333 3.33333 7.33333C2.59695 7.33333 2 7.93029 2 8.66667C2 9.40305 2.59695 10 3.33333 10ZM3.33333 4.66667V2M8 14V10M8 4.66667V2M8 4.66667C7.26362 4.66667 6.66667 5.26362 6.66667 6C6.66667 6.73638 7.26362 7.33333 8 7.33333C8.73638 7.33333 9.33333 6.73638 9.33333 6C9.33333 5.26362 8.73638 4.66667 8 4.66667ZM12.6667 14V11.3333M12.6667 11.3333C13.403 11.3333 14 10.7364 14 10C14 9.26362 13.403 8.66667 12.6667 8.66667C11.9303 8.66667 11.3333 9.26362 11.3333 10C11.3333 10.7364 11.9303 11.3333 12.6667 11.3333ZM12.6667 6V2"
+                                    stroke={showFiltersModal ? "#717680" : "#A4A7AE"}
                                     strokeWidth="1.66667"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -1610,7 +1610,7 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   <div
                                     style={{
-                                      color: "#414651",
+                                      color: showFiltersModal ? "#252B37" : "#414651",
                                       fontFamily: "Public Sans",
                                       fontSize: "14px",
                                       fontWeight: 600,
@@ -1621,15 +1621,32 @@ const InvitesAndOrders: React.FC = () => {
                                       style={{
                                         fontFamily:
                                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: 600,
+                                        fontWeight: showFiltersModal ? 700 : 600,
                                         fontSize: "14px",
-                                        color: "rgba(65,70,81,1)",
+                                        color: showFiltersModal ? "rgba(37,43,55,1)" : "rgba(65,70,81,1)",
                                       }}
                                     >
                                       Filters
                                     </span>
                                   </div>
                                 </div>
+                                {showFiltersModal && (
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M11.3333 4.66675L4.66663 11.3334M4.66663 4.66675L11.3333 11.3334"
+                                      stroke="#717680"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                )}
                               </button>
 
                               {/* Customize Button */}
