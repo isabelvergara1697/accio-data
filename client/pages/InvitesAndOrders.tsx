@@ -1548,7 +1548,7 @@ const InvitesAndOrders: React.FC = () => {
                                       lineHeight: "20px",
                                     }}
                                   >
-                                    Advanced Search
+                                    🚨 DROPDOWN IS WORKING!!! 🚨
                                   </div>
                                   <button
                                     onClick={clearAdvancedSearch}
@@ -3043,7 +3043,7 @@ const InvitesAndOrders: React.FC = () => {
                                       lineHeight: "20px",
                                     }}
                                   >
-                                    Advanced Search
+                                    🚨 DROPDOWN IS WORKING!!! 🚨
                                   </div>
                                   <button
                                     onClick={clearAdvancedSearch}
@@ -4032,7 +4032,7 @@ const InvitesAndOrders: React.FC = () => {
                                       lineHeight: "20px",
                                     }}
                                   >
-                                    Advanced Search
+                                    🚨 DROPDOWN IS WORKING!!! 🚨
                                   </div>
                                   <button
                                     onClick={clearAdvancedSearch}
