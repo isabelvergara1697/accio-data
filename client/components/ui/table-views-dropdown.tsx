@@ -131,7 +131,7 @@ export const TableViewsDropdown: React.FC<TableViewsDropdownProps> = ({
       <div
         style={{
           display: "flex",
-          padding: "4px 0",
+          padding: "4px 0px",
           flexDirection: "column",
           alignItems: "flex-start",
           alignSelf: "stretch",
