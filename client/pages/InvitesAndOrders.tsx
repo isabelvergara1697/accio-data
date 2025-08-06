@@ -156,6 +156,7 @@ const InvitesAndOrders: React.FC = () => {
   const [hoveredSearchButton, setHoveredSearchButton] = useState<string | null>(
     null,
   );
+  const [isButtonClick, setIsButtonClick] = useState(false);
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
   const advancedSearchButtonRef = useRef<HTMLButtonElement>(null);
