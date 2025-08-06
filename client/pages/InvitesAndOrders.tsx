@@ -3653,7 +3653,7 @@ const InvitesAndOrders: React.FC = () => {
 
                                       {/* Search Button */}
                                       <button
-                                        onClick={handleAdvancedSearchSubmit}
+                                        onClick={handleAdvancedSearch}
                                         style={{
                                           display: "flex",
                                           height: "32px",
@@ -4999,7 +4999,7 @@ const InvitesAndOrders: React.FC = () => {
 
                                       {/* Search Button */}
                                       <button
-                                        onClick={handleAdvancedSearchSubmit}
+                                        onClick={handleAdvancedSearch}
                                         style={{
                                           display: "flex",
                                           height: "32px",
