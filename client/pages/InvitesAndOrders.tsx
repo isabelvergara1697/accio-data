@@ -3155,7 +3155,7 @@ const InvitesAndOrders: React.FC = () => {
                                           </div>
                                           <input
                                             type="text"
-                                            value={advancedSearchForm.orderNumber}
+                                            value={""}
                                             onChange={(e) =>
                                               handleAdvancedSearchChange(
                                                 "orderNumber",
@@ -3592,7 +3592,7 @@ const InvitesAndOrders: React.FC = () => {
                                               </div>
                                               <input
                                                 type="text"
-                                                value={advancedSearchForm.orderNumber}
+                                                value={""}
                                                 onChange={(e) =>
                                                   handleAdvancedSearchChange(
                                                     "orderNumber",
@@ -3923,7 +3923,7 @@ const InvitesAndOrders: React.FC = () => {
                                       </div>
                                       <input
                                         type="text"
-                                        value={advancedSearchForm.orderNumber}
+                                        value={""}
                                         onChange={(e) =>
                                           handleAdvancedSearchChange(
                                             "orderNumber",
@@ -4888,7 +4888,7 @@ const InvitesAndOrders: React.FC = () => {
                                                 </div>
                                                 <input
                                                   type="text"
-                                                  value={advancedSearchForm.orderNumber}
+                                                  value={""}
                                                   onChange={(e) =>
                                                     handleAdvancedSearchChange(
                                                       "orderNumber",
