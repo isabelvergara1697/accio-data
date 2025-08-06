@@ -2738,7 +2738,7 @@ const InvitesAndOrders: React.FC = () => {
                           </div>
 
                           <div style={{ position: "relative" }}>
-                            {showAdvancedSearch && (
+                            {false && (
                               <div
                                 style={{
                                   display: "none",
