@@ -2885,11 +2885,11 @@ const InvitesAndOrders: React.FC = () => {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     borderRadius: "4px",
-                                    border: "1px solid rgba(164, 167, 174, 0.3)",
+                                    border: "none",
                                     background:
                                       showAdvancedSearch
                                         ? "#F5F5F5"
-                                        : "rgba(255, 255, 255, 0.9)",
+                                        : "transparent",
                                     cursor: "pointer",
                                     touchAction: "manipulation",
                                     flexShrink: 0,
