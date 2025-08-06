@@ -5005,7 +5005,9 @@ const InvitesAndOrders: React.FC = () => {
                           alignItems: "flex-start",
                           position: "relative",
                           width: "100%",
-                          maxWidth: "100%",
+                          maxWidth: showFiltersModal && isDesktop
+                            ? `calc(100vw - ${sidebarCollapsed ? '80px' : '296px'} - 258px - 64px)` // Subtracting sidebar, filters panel, and margins
+                            : "100%",
                           overflowX: "auto",
                           overflowY: "hidden",
                           scrollbarWidth: "thin",
