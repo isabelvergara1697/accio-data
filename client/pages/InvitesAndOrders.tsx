@@ -179,6 +179,7 @@ const InvitesAndOrders: React.FC = () => {
   const advancedSearchButtonRef = useRef<HTMLButtonElement>(null);
   const actionMenuRef = useRef<HTMLDivElement>(null);
   const mobileDotsMenuRef = useRef<HTMLDivElement>(null);
+  const tableViewsDropdownRef = useRef<HTMLDivElement>(null);
 
   // Window resize handler
   useEffect(() => {
