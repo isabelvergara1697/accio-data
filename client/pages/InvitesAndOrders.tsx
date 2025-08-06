@@ -5746,11 +5746,6 @@ const InvitesAndOrders: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* DEBUG: This should be visible */}
-                    <div style={{background: "yellow", padding: "10px", color: "black", fontSize: "16px", fontWeight: "bold"}}>
-                      DEBUG: Before Pagination - TotalPages: {totalPages}, CurrentPage: {currentPage}
-                    </div>
-
                     {/* Pagination - moved outside scroll container */}
                     <div
                       style={{
