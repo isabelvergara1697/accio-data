@@ -639,7 +639,7 @@ const InvitesAndOrders: React.FC = () => {
   }, [invitesData, sortField, sortDirection]);
 
   // Pagination constants
-  const pageSize = 3; // Temporarily reduced to test pagination
+  const pageSize = 10;
   const totalPages = Math.ceil(sortedData.length / pageSize);
 
   // Paginated data
