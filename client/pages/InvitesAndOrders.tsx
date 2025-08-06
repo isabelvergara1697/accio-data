@@ -969,16 +969,13 @@ const InvitesAndOrders: React.FC = () => {
           flexDirection: "column",
           flex: "1 0 0",
           alignSelf: "stretch",
-          marginLeft: isDesktop
-            ? (sidebarCollapsed ? "80px" : "296px") + (showFiltersModal ? 258 : 0)
-            : showFiltersModal ? "258px" : "0",
+          marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
           position: "relative",
           width: "100%",
           maxWidth: "100%",
           minWidth: 0,
           overflow: "visible",
           boxSizing: "border-box",
-          transition: "margin-left 0.3s ease",
         }}
       >
         <Header
