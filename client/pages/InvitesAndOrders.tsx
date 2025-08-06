@@ -2613,7 +2613,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     top: "calc(100% + 8px)",
                                     right: "0",
-                                    width: "100%",
+                                    width: "280px",
                                     maxWidth: "calc(100vw - 32px)",
                                     transform: "translateX(-20px)",
                                   }}
@@ -4034,7 +4034,8 @@ const InvitesAndOrders: React.FC = () => {
                                         style={{
                                           top: "calc(100% + 4px)",
                                           right: "0",
-                                          width: "100%",
+                                          width: "320px",
+                                          maxWidth: "100%",
                                         }}
                                       />
                                     </div>
