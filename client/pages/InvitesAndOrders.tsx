@@ -151,6 +151,7 @@ const InvitesAndOrders: React.FC = () => {
     lastName: "",
     socialSecurityTrace: "",
   });
+  const [focusedAdvancedField, setFocusedAdvancedField] = useState<string | null>(null);
   const [goToInputValue, setGoToInputValue] = useState("");
   const [hoveredSearchButton, setHoveredSearchButton] = useState<string | null>(
     null,
@@ -1595,45 +1596,47 @@ const InvitesAndOrders: React.FC = () => {
                                         >
                                           First Name
                                         </div>
-                                        <input
-                                          type="text"
-                                          value={advancedSearchForm.firstName}
-                                          onChange={(e) =>
-                                            handleAdvancedSearchChange(
-                                              "firstName",
-                                              e.target.value,
-                                            )
-                                          }
-                                          placeholder="John"
+                                        <div
                                           style={{
                                             display: "flex",
-                                            height: "32px",
                                             padding: "6px 8px",
                                             alignItems: "center",
                                             gap: "8px",
                                             alignSelf: "stretch",
                                             borderRadius: "8px",
-                                            border: "1px solid #D5D7DA",
+                                            border: focusedAdvancedField === "firstName"
+                                              ? "2px solid #34479A"
+                                              : "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow:
-                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            color: advancedSearchForm.firstName ? "#181D27" : "#717680",
-                                            fontFamily: "Public Sans",
-                                            fontSize: "14px",
-                                            fontStyle: "normal",
-                                            fontWeight: 400,
-                                            lineHeight: "20px",
-                                            outline: "none",
+                                            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                                           }}
-                                          onFocus={(e) => {
-                                            e.target.style.border = "2px solid #34479A";
-                                            e.target.style.padding = "5px 7px";
-                                          }}
-                                          onBlur={(e) => {
-                                            e.target.style.border = "1px solid #D5D7DA";
-                                            e.target.style.padding = "6px 8px";
-                                          }}
-                                        />
+                                        >
+                                          <input
+                                            type="text"
+                                            value={advancedSearchForm.firstName}
+                                            onChange={(e) =>
+                                              handleAdvancedSearchChange(
+                                                "firstName",
+                                                e.target.value,
+                                              )
+                                            }
+                                            onFocus={() => setFocusedAdvancedField("firstName")}
+                                            onBlur={() => setFocusedAdvancedField(null)}
+                                            placeholder="John"
+                                            style={{
+                                              flex: "1 0 0",
+                                              border: "none",
+                                              outline: "none",
+                                              background: "transparent",
+                                              color: advancedSearchForm.firstName ? "#181D27" : "#717680",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 400,
+                                              lineHeight: "20px",
+                                            }}
+                                          />
+                                        </div>
                                       </div>
 
                                       {/* Last Name */}
@@ -1658,45 +1661,47 @@ const InvitesAndOrders: React.FC = () => {
                                         >
                                           Last Name
                                         </div>
-                                        <input
-                                          type="text"
-                                          value={advancedSearchForm.lastName}
-                                          onChange={(e) =>
-                                            handleAdvancedSearchChange(
-                                              "lastName",
-                                              e.target.value,
-                                            )
-                                          }
-                                          placeholder="Doe"
+                                        <div
                                           style={{
                                             display: "flex",
-                                            height: "32px",
                                             padding: "6px 8px",
                                             alignItems: "center",
                                             gap: "8px",
                                             alignSelf: "stretch",
                                             borderRadius: "8px",
-                                            border: "1px solid #D5D7DA",
+                                            border: focusedAdvancedField === "lastName"
+                                              ? "2px solid #34479A"
+                                              : "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow:
-                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            color: advancedSearchForm.lastName ? "#181D27" : "#717680",
-                                            fontFamily: "Public Sans",
-                                            fontSize: "14px",
-                                            fontStyle: "normal",
-                                            fontWeight: 400,
-                                            lineHeight: "20px",
-                                            outline: "none",
+                                            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                                           }}
-                                          onFocus={(e) => {
-                                            e.target.style.border = "2px solid #34479A";
-                                            e.target.style.padding = "5px 7px";
-                                          }}
-                                          onBlur={(e) => {
-                                            e.target.style.border = "1px solid #D5D7DA";
-                                            e.target.style.padding = "6px 8px";
-                                          }}
-                                        />
+                                        >
+                                          <input
+                                            type="text"
+                                            value={advancedSearchForm.lastName}
+                                            onChange={(e) =>
+                                              handleAdvancedSearchChange(
+                                                "lastName",
+                                                e.target.value,
+                                              )
+                                            }
+                                            onFocus={() => setFocusedAdvancedField("lastName")}
+                                            onBlur={() => setFocusedAdvancedField(null)}
+                                            placeholder="Doe"
+                                            style={{
+                                              flex: "1 0 0",
+                                              border: "none",
+                                              outline: "none",
+                                              background: "transparent",
+                                              color: advancedSearchForm.lastName ? "#181D27" : "#717680",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 400,
+                                              lineHeight: "20px",
+                                            }}
+                                          />
+                                        </div>
                                       </div>
 
                                       {/* Social Security Trace */}
@@ -1721,47 +1726,49 @@ const InvitesAndOrders: React.FC = () => {
                                         >
                                           Social Security Trace
                                         </div>
-                                        <input
-                                          type="text"
-                                          value={
-                                            advancedSearchForm.socialSecurityTrace
-                                          }
-                                          onChange={(e) =>
-                                            handleAdvancedSearchChange(
-                                              "socialSecurityTrace",
-                                              e.target.value,
-                                            )
-                                          }
-                                          placeholder="000-00-0000"
+                                        <div
                                           style={{
                                             display: "flex",
-                                            height: "32px",
                                             padding: "6px 8px",
                                             alignItems: "center",
                                             gap: "8px",
                                             alignSelf: "stretch",
                                             borderRadius: "8px",
-                                            border: "1px solid #D5D7DA",
+                                            border: focusedAdvancedField === "socialSecurityTrace"
+                                              ? "2px solid #34479A"
+                                              : "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow:
-                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            color: advancedSearchForm.socialSecurityTrace ? "#181D27" : "#717680",
-                                            fontFamily: "Public Sans",
-                                            fontSize: "14px",
-                                            fontStyle: "normal",
-                                            fontWeight: 400,
-                                            lineHeight: "20px",
-                                            outline: "none",
+                                            boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
                                           }}
-                                          onFocus={(e) => {
-                                            e.target.style.border = "2px solid #34479A";
-                                            e.target.style.padding = "5px 7px";
-                                          }}
-                                          onBlur={(e) => {
-                                            e.target.style.border = "1px solid #D5D7DA";
-                                            e.target.style.padding = "6px 8px";
-                                          }}
-                                        />
+                                        >
+                                          <input
+                                            type="text"
+                                            value={
+                                              advancedSearchForm.socialSecurityTrace
+                                            }
+                                            onChange={(e) =>
+                                              handleAdvancedSearchChange(
+                                                "socialSecurityTrace",
+                                                e.target.value,
+                                              )
+                                            }
+                                            onFocus={() => setFocusedAdvancedField("socialSecurityTrace")}
+                                            onBlur={() => setFocusedAdvancedField(null)}
+                                            placeholder="000-00-0000"
+                                            style={{
+                                              flex: "1 0 0",
+                                              border: "none",
+                                              outline: "none",
+                                              background: "transparent",
+                                              color: advancedSearchForm.socialSecurityTrace ? "#181D27" : "#717680",
+                                              fontFamily: "Public Sans",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 400,
+                                              lineHeight: "20px",
+                                            }}
+                                          />
+                                        </div>
                                       </div>
                                     </div>
 
