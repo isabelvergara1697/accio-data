@@ -6082,11 +6082,21 @@ const InvitesAndOrders: React.FC = () => {
                           </div>
                           <input
                             type="number"
-                            value={currentPage}
+                            placeholder="1010"
+                            value=""
                             onChange={(e) => {
                               const page = parseInt(e.target.value);
                               if (page >= 1 && page <= totalPages) {
                                 setCurrentPage(page);
+                              }
+                            }}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                const page = parseInt((e.target as HTMLInputElement).value);
+                                if (page >= 1 && page <= totalPages) {
+                                  setCurrentPage(page);
+                                  (e.target as HTMLInputElement).value = '';
+                                }
                               }
                             }}
                             min={1}
