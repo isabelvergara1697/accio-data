@@ -1509,10 +1509,10 @@ const InvitesAndOrders: React.FC = () => {
                                 top: "calc(100% + 8px)",
                                 right: "0",
                                 width: "234px",
-                                zIndex: 9999,
+                                zIndex: 999999,
                                 borderRadius: "8px",
-                                border: "1px solid rgba(10, 13, 18, 0.04)",
-                                background: "rgba(255, 255, 255, 1)",
+                                border: "1px solid rgba(10, 13, 18, 0.12)",
+                                background: "#FFFFFF",
                                 boxShadow:
                                   "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                               }}
