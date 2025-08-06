@@ -2954,9 +2954,9 @@ const InvitesAndOrders: React.FC = () => {
                               }
                               style={{
                                 display: "flex",
-                                width: "24px",
-                                height: "24px",
-                                padding: "4px",
+                                width: "32px",
+                                height: "32px",
+                                padding: "6px",
                                 justifyContent: "center",
                                 alignItems: "center",
                                 borderRadius: "6px",
@@ -2967,6 +2967,7 @@ const InvitesAndOrders: React.FC = () => {
                                     ? "#F5F5F5"
                                     : "transparent",
                                 cursor: "pointer",
+                                touchAction: "manipulation",
                               }}
                             >
                               <svg
