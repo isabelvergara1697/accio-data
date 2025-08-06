@@ -2885,14 +2885,16 @@ const InvitesAndOrders: React.FC = () => {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     borderRadius: "4px",
-                                    border: "none",
+                                    border: "1px solid rgba(164, 167, 174, 0.3)",
                                     background:
                                       showAdvancedSearch
                                         ? "#F5F5F5"
-                                        : "transparent",
+                                        : "rgba(255, 255, 255, 0.9)",
                                     cursor: "pointer",
                                     touchAction: "manipulation",
                                     flexShrink: 0,
+                                    minWidth: "24px",
+                                    minHeight: "24px",
                                   }}
                                 >
                                   <svg
