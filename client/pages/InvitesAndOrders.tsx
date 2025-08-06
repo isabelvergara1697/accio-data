@@ -952,6 +952,60 @@ const InvitesAndOrders: React.FC = () => {
     });
   };
 
+  // Table views handlers
+  const handleTableViewChange = (view: TableView) => {
+    setCurrentTableView(view);
+    // Apply the view configuration here
+    console.log("Switching to table view:", view);
+  };
+
+  const handleSaveTableView = (name: string) => {
+    const newView: TableView = {
+      id: Date.now().toString(),
+      name,
+      config: {
+        // Save current table state (filters, sort, columns, etc.)
+        sortField,
+        sortDirection,
+        searchQuery,
+        // Add more table configuration as needed
+      },
+    };
+    setTableViews([...tableViews, newView]);
+    setCurrentTableView(newView);
+    console.log("Saved new table view:", newView);
+  };
+
+  const handleCreateNewTableView = () => {
+    // Reset to default state for new view
+    setSortField(null);
+    setSortDirection(null);
+    setSearchQuery("");
+    setIsSearchActive(false);
+    setCurrentPage(1);
+    console.log("Created new table view");
+  };
+
+  const handleDeleteTableView = (viewId: string) => {
+    const filteredViews = tableViews.filter((view) => view.id !== viewId);
+    setTableViews(filteredViews);
+    if (currentTableView.id === viewId) {
+      setCurrentTableView(filteredViews[0] || tableViews[0]);
+    }
+    console.log("Deleted table view:", viewId);
+  };
+
+  const handleRenameTableView = (viewId: string, newName: string) => {
+    const updatedViews = tableViews.map((view) =>
+      view.id === viewId ? { ...view, name: newName } : view,
+    );
+    setTableViews(updatedViews);
+    if (currentTableView.id === viewId) {
+      setCurrentTableView({ ...currentTableView, name: newName });
+    }
+    console.log("Renamed table view:", viewId, "to:", newName);
+  };
+
   return (
     <div
       style={{
