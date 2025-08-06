@@ -159,6 +159,8 @@ const InvitesAndOrders: React.FC = () => {
   const [isButtonClick, setIsButtonClick] = useState(false);
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
+  const mobileAdvancedSearchRef = useRef<HTMLDivElement>(null);
+  const tabletAdvancedSearchRef = useRef<HTMLDivElement>(null);
   const advancedSearchButtonRef = useRef<HTMLButtonElement>(null);
   const actionMenuRef = useRef<HTMLDivElement>(null);
   const mobileDotsMenuRef = useRef<HTMLDivElement>(null);
