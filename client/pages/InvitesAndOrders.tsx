@@ -2611,10 +2611,12 @@ const InvitesAndOrders: React.FC = () => {
                                   onSearch={handleAdvancedSearch}
                                   dropdownRef={mobileAdvancedSearchRef}
                                   style={{
+                                    position: "absolute",
                                     top: "calc(100% + 4px)",
                                     left: "0",
                                     right: "0",
                                     width: "100%",
+                                    zIndex: 10000,
                                   }}
                                 />
                               </div>
