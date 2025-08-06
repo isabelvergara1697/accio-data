@@ -1367,7 +1367,7 @@ const InvitesAndOrders: React.FC = () => {
                               onChange={handleSearchChange}
                               onFocus={() => setIsSearchActive(true)}
                               onBlur={() =>
-                                setIsSearchActive(searchQuery.length > 0)
+                                setIsSearchActive(searchQuery.length > 0 || showAdvancedSearch)
                               }
                               style={{
                                 border: "none",
@@ -2866,7 +2866,7 @@ const InvitesAndOrders: React.FC = () => {
                                 onChange={handleSearchChange}
                                 onFocus={() => setIsSearchActive(true)}
                                 onBlur={() =>
-                                  setIsSearchActive(searchQuery.length > 0)
+                                  setIsSearchActive(searchQuery.length > 0 || showAdvancedSearch)
                                 }
                                 style={{
                                   border: "none",
@@ -3845,7 +3845,7 @@ const InvitesAndOrders: React.FC = () => {
                                   onChange={handleSearchChange}
                                   onFocus={() => setIsSearchActive(true)}
                                   onBlur={() =>
-                                    setIsSearchActive(searchQuery.length > 0)
+                                    setIsSearchActive(searchQuery.length > 0 || showAdvancedSearch)
                                   }
                                   style={{
                                     border: "none",
