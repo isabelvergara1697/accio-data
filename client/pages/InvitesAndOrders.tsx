@@ -2253,12 +2253,11 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
                           </div>
 
-                          {/* Mobile: View Toggle + Search Row */}
+                          {/* Mobile: View Toggle Row */}
                           <div
                             style={{
                               display: "flex",
-                              alignItems: "center",
-                              gap: "12px",
+                              alignItems: "flex-start",
                               alignSelf: "stretch",
                               position: "relative",
                             }}
