@@ -1400,7 +1400,7 @@ const InvitesAndOrders: React.FC = () => {
                                     width: "1px",
                                     height: "24px",
                                     background: "#E9EAEB",
-                                    transform: "rotate(90deg)",
+
                                   }}
                                 />
 
@@ -2522,7 +2522,7 @@ const InvitesAndOrders: React.FC = () => {
                                       width: "1px",
                                       height: "24px",
                                       background: "#E9EAEB",
-                                      transform: "rotate(90deg)",
+  
                                     }}
                                   />
 
@@ -3136,7 +3136,7 @@ const InvitesAndOrders: React.FC = () => {
                                         width: "1px",
                                         height: "24px",
                                         background: "#E9EAEB",
-                                        transform: "rotate(90deg)",
+    
                                       }}
                                     />
 
