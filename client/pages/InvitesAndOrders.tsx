@@ -1840,119 +1840,22 @@ const InvitesAndOrders: React.FC = () => {
                                   </button>
 
                                   {/* Table Views Dropdown */}
-                                  <div style={{ position: "relative" }}>
-                                    <button
-                                      onClick={() =>
-                                        setTableViewsDropdownOpen(
-                                          !tableViewsDropdownOpen,
-                                        )
+                                  <div ref={tableViewsDropdownRef}>
+                                    <TableViewsDropdown
+                                      currentView={currentTableView}
+                                      views={tableViews}
+                                      onViewChange={handleViewChange}
+                                      onSaveTableView={handleSaveTableView}
+                                      onCreateNewView={handleCreateNewTableView}
+                                      onDeleteTableView={handleDeleteTableView}
+                                      onRenameTableView={handleRenameTableView}
+                                      isOpen={tableViewsDropdownOpen}
+                                      onToggle={() =>
+                                        setTableViewsDropdownOpen(!tableViewsDropdownOpen)
                                       }
-                                      onMouseEnter={() =>
-                                        setHoveredButton("table-views")
-                                      }
-                                      onMouseLeave={() => setHoveredButton(null)}
-                                      style={{
-                                        display: "flex",
-                                        minHeight: "36px",
-                                        padding: "6px 8px",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        gap: "4px",
-                                        borderRadius: "8px",
-                                        border: "1px solid #D5D7DA",
-                                        background:
-                                          hoveredButton === "table-views" ||
-                                          tableViewsDropdownOpen
-                                            ? "#FDFDFD"
-                                            : "#FFF",
-                                        boxShadow:
-                                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                        cursor: "pointer",
-                                        transition: "background-color 0.2s ease",
-                                      }}
-                                    >
-                                      <svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 16 16"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <path
-                                          d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z"
-                                          stroke="#A4A7AE"
-                                          strokeWidth="1.66667"
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                        />
-                                      </svg>
-                                      <div
-                                        style={{
-                                          display: "flex",
-                                          padding: "0 2px",
-                                          justifyContent: "center",
-                                          alignItems: "center",
-                                        }}
-                                      >
-                                        <div
-                                          style={{
-                                            color: "#414651",
-                                            fontFamily: "Public Sans",
-                                            fontSize: "14px",
-                                            fontWeight: 600,
-                                            lineHeight: "20px",
-                                            maxWidth: "80px",
-                                            overflow: "hidden",
-                                            textOverflow: "ellipsis",
-                                            whiteSpace: "nowrap",
-                                          }}
-                                        >
-                                          <span
-                                            style={{
-                                              fontFamily:
-                                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                              fontWeight: 600,
-                                              fontSize: "14px",
-                                              color: "rgba(65,70,81,1)",
-                                            }}
-                                          >
-                                            {currentTableView.name}
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <svg
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 16 16"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                      >
-                                        <path
-                                          d="M4 6L8 10L12 6"
-                                          stroke="#A4A7AE"
-                                          strokeWidth="1.66667"
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                        />
-                                      </svg>
-                                    </button>
-                                    <div ref={tableViewsDropdownRef}>
-                                      <TableViewsDropdown
-                                        isOpen={tableViewsDropdownOpen}
-                                        onToggle={() =>
-                                          setTableViewsDropdownOpen(
-                                            !tableViewsDropdownOpen,
-                                          )
-                                        }
-                                        views={tableViews}
-                                        currentView={currentTableView}
-                                        onViewChange={handleTableViewChange}
-                                        onSaveTableView={handleSaveTableView}
-                                        onCreateNewView={handleCreateNewTableView}
-                                        onDeleteTableView={handleDeleteTableView}
-                                        onRenameTableView={handleRenameTableView}
-                                      />
-                                    </div>
+                                      onClose={() => setTableViewsDropdownOpen(false)}
+                                      isMobile={isMobile}
+                                    />
                                   </div>
 
                                   {/* Download Button */}
