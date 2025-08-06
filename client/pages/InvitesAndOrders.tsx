@@ -1202,14 +1202,34 @@ const InvitesAndOrders: React.FC = () => {
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: showFiltersModal ? "row" : "column",
               alignItems: "flex-start",
-              gap: "24px",
+              gap: showFiltersModal ? "16px" : "24px",
               flex: "1 0 0",
               alignSelf: "stretch",
               position: "relative",
             }}
           >
+            {/* Filters Panel */}
+            {showFiltersModal && (
+              <FiltersPanel
+                isOpen={showFiltersModal}
+                onClose={() => setShowFiltersModal(false)}
+              />
+            )}
+
+            {/* Table Container */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "24px",
+                flex: "1 0 0",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
             <div
               style={{
                 display: "flex",
@@ -7236,6 +7256,7 @@ const InvitesAndOrders: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </main>
