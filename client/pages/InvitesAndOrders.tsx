@@ -1363,10 +1363,11 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Desktop: Search */}
-                            <div
-                              className="search-container"
-                              style={{
-                                display: "flex",
+                            {!showFiltersModal && (
+                              <div
+                                className="search-container"
+                                style={{
+                                  display: "flex",
                                 alignItems: "center",
                                 gap: "8px",
                                 flex: "0 0 234px",
@@ -1548,6 +1549,7 @@ const InvitesAndOrders: React.FC = () => {
                                 />
                               </div>
                             </div>
+                            )}
 
                             {/* Desktop: Action Buttons */}
                             <div
