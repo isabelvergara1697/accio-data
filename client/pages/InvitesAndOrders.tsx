@@ -2928,6 +2928,7 @@ const InvitesAndOrders: React.FC = () => {
                                   {/* Advanced Search Button */}
                                   <div style={{ position: "relative" }}>
                                     <button
+                                      ref={advancedSearchButtonRef}
                                       onClick={() =>
                                         setShowAdvancedSearch(!showAdvancedSearch)
                                       }
@@ -3903,12 +3904,13 @@ const InvitesAndOrders: React.FC = () => {
                                     {/* Advanced Search Button */}
                                     <div style={{ position: "relative" }}>
                                       <button
-                                        onClick={() =>
-                                          setShowAdvancedSearch(!showAdvancedSearch)
-                                        }
-                                        onMouseEnter={() =>
-                                          setHoveredSearchButton("advanced")
-                                        }
+                                      ref={advancedSearchButtonRef}
+                                      onClick={() =>
+                                        setShowAdvancedSearch(!showAdvancedSearch)
+                                      }
+                                      onMouseEnter={() =>
+                                        setHoveredSearchButton("advanced")
+                                      }
                                         onMouseLeave={() =>
                                           setHoveredSearchButton(null)
                                         }
