@@ -1434,9 +1434,10 @@ const InvitesAndOrders: React.FC = () => {
 
                                 {/* Configure Search Button */}
                                 <button
-                                  onClick={() =>
-                                    setShowAdvancedSearch(!showAdvancedSearch)
-                                  }
+                                  onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    setShowAdvancedSearch(!showAdvancedSearch);
+                                  }}
                                   style={{
                                     display: "flex",
                                     width: "24px",
@@ -2862,9 +2863,10 @@ const InvitesAndOrders: React.FC = () => {
 
                                   {/* Configure Search Button */}
                                   <button
-                                    onClick={() =>
-                                      setShowAdvancedSearch(!showAdvancedSearch)
-                                    }
+                                    onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    setShowAdvancedSearch(!showAdvancedSearch);
+                                  }}
                                     style={{
                                       display: "flex",
                                       width: "24px",
@@ -3784,9 +3786,10 @@ const InvitesAndOrders: React.FC = () => {
 
                                     {/* Configure Search Button */}
                                     <button
-                                      onClick={() =>
-                                        setShowAdvancedSearch(!showAdvancedSearch)
-                                      }
+                                      onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    setShowAdvancedSearch(!showAdvancedSearch);
+                                  }}
                                       style={{
                                         display: "flex",
                                         width: "24px",
