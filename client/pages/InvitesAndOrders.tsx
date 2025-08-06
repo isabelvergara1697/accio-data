@@ -3079,7 +3079,7 @@ const InvitesAndOrders: React.FC = () => {
                           >
                             {/* Filters Button */}
                             <button
-                              onClick={() => console.log("Filters clicked")}
+                              onClick={() => setShowFiltersModal(true)}
                               onMouseEnter={() => setHoveredButton("filters")}
                               onMouseLeave={() => setHoveredButton(null)}
                               style={{
