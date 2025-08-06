@@ -2975,7 +2975,7 @@ const InvitesAndOrders: React.FC = () => {
                                     </button>
                                     {showAdvancedSearch && (
                                       <div
-                                        ref={advancedSearchRef}
+                                        ref={mobileAdvancedSearchRef}
                                         style={{
                                           position: "absolute",
                                           top: "calc(100% + 4px)",
