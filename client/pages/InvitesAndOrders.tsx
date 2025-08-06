@@ -1395,6 +1395,8 @@ const InvitesAndOrders: React.FC = () => {
                                     e.preventDefault();
                                     clearSearch();
                                   }}
+                                  onMouseEnter={() => setHoveredSearchButton("clear")}
+                                  onMouseLeave={() => setHoveredSearchButton(null)}
                                   style={{
                                     display: "flex",
                                     width: "24px",
@@ -2829,7 +2831,9 @@ const InvitesAndOrders: React.FC = () => {
                                     e.preventDefault();
                                     clearSearch();
                                   }}
-                                    style={{
+                                  onMouseEnter={() => setHoveredSearchButton("clear")}
+                                  onMouseLeave={() => setHoveredSearchButton(null)}
+                                  style={{
                                       display: "flex",
                                       width: "24px",
                                       height: "24px",
@@ -3757,7 +3761,9 @@ const InvitesAndOrders: React.FC = () => {
                                     e.preventDefault();
                                     clearSearch();
                                   }}
-                                      style={{
+                                  onMouseEnter={() => setHoveredSearchButton("clear")}
+                                  onMouseLeave={() => setHoveredSearchButton(null)}
+                                  style={{
                                         display: "flex",
                                         width: "24px",
                                         height: "24px",
