@@ -2942,6 +2942,10 @@ const InvitesAndOrders: React.FC = () => {
                                 e.preventDefault();
                                 setShowAdvancedSearch(!showAdvancedSearch);
                               }}
+                              onTouchStart={(e) => {
+                                e.preventDefault();
+                                setShowAdvancedSearch(!showAdvancedSearch);
+                              }}
                               onMouseEnter={() =>
                                 setHoveredSearchButton("advanced")
                               }
