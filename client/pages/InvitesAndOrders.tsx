@@ -196,6 +196,12 @@ const InvitesAndOrders: React.FC = () => {
       ) {
         setShowMobileDotsMenu(false);
       }
+      if (
+        advancedSearchRef.current &&
+        !advancedSearchRef.current.contains(event.target as Node)
+      ) {
+        setShowAdvancedSearch(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
