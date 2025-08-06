@@ -201,15 +201,11 @@ const InvitesAndOrders: React.FC = () => {
       ) {
         setShowMobileDotsMenu(false);
       }
-      // Don't close dropdown if this is a button click
-      if (isButtonClick) {
-        setIsButtonClick(false);
-        return;
-      }
-
       if (
         advancedSearchRef.current &&
-        !advancedSearchRef.current.contains(event.target as Node)
+        !advancedSearchRef.current.contains(event.target as Node) &&
+        advancedSearchButtonRef.current &&
+        !advancedSearchButtonRef.current.contains(event.target as Node)
       ) {
         console.log('🔴 CLICK OUTSIDE - Closing dropdown');
         setShowAdvancedSearch(false);
