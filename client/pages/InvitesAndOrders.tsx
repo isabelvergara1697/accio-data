@@ -153,7 +153,9 @@ const InvitesAndOrders: React.FC = () => {
     orderNumber: "",
   });
   const [goToInputValue, setGoToInputValue] = useState("");
-  const [hoveredSearchButton, setHoveredSearchButton] = useState<string | null>(null);
+  const [hoveredSearchButton, setHoveredSearchButton] = useState<string | null>(
+    null,
+  );
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
   const actionMenuRef = useRef<HTMLDivElement>(null);
@@ -857,9 +859,9 @@ const InvitesAndOrders: React.FC = () => {
   };
 
   const handleAdvancedSearchChange = (field: string, value: string) => {
-    setAdvancedSearchForm(prev => ({
+    setAdvancedSearchForm((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -874,7 +876,9 @@ const InvitesAndOrders: React.FC = () => {
 
   const handleAdvancedSearch = () => {
     // Combine all form fields into a single search query
-    const searchTerms = Object.values(advancedSearchForm).filter(term => term.trim());
+    const searchTerms = Object.values(advancedSearchForm).filter((term) =>
+      term.trim(),
+    );
     const combinedQuery = searchTerms.join(" ");
     setSearchQuery(combinedQuery);
     setIsSearchActive(combinedQuery.length > 0);
@@ -1395,8 +1399,12 @@ const InvitesAndOrders: React.FC = () => {
                                     e.preventDefault();
                                     clearSearch();
                                   }}
-                                  onMouseEnter={() => setHoveredSearchButton("clear")}
-                                  onMouseLeave={() => setHoveredSearchButton(null)}
+                                  onMouseEnter={() =>
+                                    setHoveredSearchButton("clear")
+                                  }
+                                  onMouseLeave={() =>
+                                    setHoveredSearchButton(null)
+                                  }
                                   style={{
                                     display: "flex",
                                     width: "24px",
@@ -1406,7 +1414,10 @@ const InvitesAndOrders: React.FC = () => {
                                     alignItems: "center",
                                     borderRadius: "6px",
                                     border: "none",
-                                    background: hoveredSearchButton === "clear" ? "#F5F5F5" : "transparent",
+                                    background:
+                                      hoveredSearchButton === "clear"
+                                        ? "#F5F5F5"
+                                        : "transparent",
                                     cursor: "pointer",
                                   }}
                                 >
@@ -1433,7 +1444,6 @@ const InvitesAndOrders: React.FC = () => {
                                     width: "1px",
                                     height: "24px",
                                     background: "#E9EAEB",
-
                                   }}
                                 />
 
@@ -1441,11 +1451,18 @@ const InvitesAndOrders: React.FC = () => {
                                 <button
                                   onMouseDown={(e) => {
                                     e.preventDefault();
-                                    console.log('Advanced search clicked, current state:', showAdvancedSearch);
+                                    console.log(
+                                      "Advanced search clicked, current state:",
+                                      showAdvancedSearch,
+                                    );
                                     setShowAdvancedSearch(!showAdvancedSearch);
                                   }}
-                                  onMouseEnter={() => setHoveredSearchButton("advanced")}
-                                  onMouseLeave={() => setHoveredSearchButton(null)}
+                                  onMouseEnter={() =>
+                                    setHoveredSearchButton("advanced")
+                                  }
+                                  onMouseLeave={() =>
+                                    setHoveredSearchButton(null)
+                                  }
                                   style={{
                                     display: "flex",
                                     width: "24px",
@@ -1455,7 +1472,11 @@ const InvitesAndOrders: React.FC = () => {
                                     alignItems: "center",
                                     borderRadius: "6px",
                                     border: "none",
-                                    background: showAdvancedSearch || hoveredSearchButton === "advanced" ? "#F5F5F5" : "transparent",
+                                    background:
+                                      showAdvancedSearch ||
+                                      hoveredSearchButton === "advanced"
+                                        ? "#F5F5F5"
+                                        : "transparent",
                                     cursor: "pointer",
                                   }}
                                 >
@@ -1480,7 +1501,11 @@ const InvitesAndOrders: React.FC = () => {
                           </div>
 
                           {/* Advanced Search Dropdown */}
-                          {(console.log('Dropdown render check:', showAdvancedSearch), showAdvancedSearch) && (
+                          {(console.log(
+                            "Dropdown render check:",
+                            showAdvancedSearch,
+                          ),
+                          showAdvancedSearch) && (
                             <div
                               ref={advancedSearchRef}
                               style={{
@@ -1492,7 +1517,8 @@ const InvitesAndOrders: React.FC = () => {
                                 borderRadius: "8px",
                                 border: "2px solid red",
                                 background: "yellow",
-                                boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                boxShadow:
+                                  "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                               }}
                             >
                               <div
@@ -1579,7 +1605,12 @@ const InvitesAndOrders: React.FC = () => {
                                     <input
                                       type="text"
                                       value={advancedSearchForm.firstName}
-                                      onChange={(e) => handleAdvancedSearchChange("firstName", e.target.value)}
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "firstName",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="John"
                                       style={{
                                         display: "flex",
@@ -1591,7 +1622,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -1629,7 +1661,12 @@ const InvitesAndOrders: React.FC = () => {
                                     <input
                                       type="text"
                                       value={advancedSearchForm.lastName}
-                                      onChange={(e) => handleAdvancedSearchChange("lastName", e.target.value)}
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "lastName",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="Doe"
                                       style={{
                                         display: "flex",
@@ -1641,7 +1678,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -1678,8 +1716,15 @@ const InvitesAndOrders: React.FC = () => {
                                     </div>
                                     <input
                                       type="text"
-                                      value={advancedSearchForm.socialSecurityTrace}
-                                      onChange={(e) => handleAdvancedSearchChange("socialSecurityTrace", e.target.value)}
+                                      value={
+                                        advancedSearchForm.socialSecurityTrace
+                                      }
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "socialSecurityTrace",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="000-00-0000"
                                       style={{
                                         display: "flex",
@@ -1691,7 +1736,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -1729,7 +1775,12 @@ const InvitesAndOrders: React.FC = () => {
                                     <input
                                       type="text"
                                       value={advancedSearchForm.orderNumber}
-                                      onChange={(e) => handleAdvancedSearchChange("orderNumber", e.target.value)}
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "orderNumber",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="123456"
                                       style={{
                                         display: "flex",
@@ -1741,7 +1792,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -1767,9 +1819,11 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "4px",
                                     alignSelf: "stretch",
                                     borderRadius: "8px",
-                                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                                    border:
+                                      "2px solid rgba(255, 255, 255, 0.12)",
                                     background: "#344698",
-                                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    boxShadow:
+                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                     color: "#FFF",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
@@ -1785,7 +1839,20 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
                           )}
 
-                          {showAdvancedSearch && <div style={{position: "absolute", top: "50px", left: "0", color: "red", fontWeight: "bold", zIndex: 10000}}>DEBUG: DROPDOWN STATE IS TRUE</div>}
+                          {showAdvancedSearch && (
+                            <div
+                              style={{
+                                position: "absolute",
+                                top: "50px",
+                                left: "0",
+                                color: "red",
+                                fontWeight: "bold",
+                                zIndex: 10000,
+                              }}
+                            >
+                              DEBUG: DROPDOWN STATE IS TRUE
+                            </div>
+                          )}
                           {/* Desktop: Action Buttons */}
                           <div
                             style={{
@@ -2830,21 +2897,28 @@ const InvitesAndOrders: React.FC = () => {
                                   {/* X Button */}
                                   <button
                                     onMouseDown={(e) => {
-                                    e.preventDefault();
-                                    clearSearch();
-                                  }}
-                                  onMouseEnter={() => setHoveredSearchButton("clear")}
-                                  onMouseLeave={() => setHoveredSearchButton(null)}
-                                  style={{
-                                    display: "flex",
-                                    width: "24px",
-                                    height: "24px",
-                                    padding: "4px",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    borderRadius: "6px",
-                                    border: "none",
-                                    background: hoveredSearchButton === "clear" ? "#F5F5F5" : "transparent",
+                                      e.preventDefault();
+                                      clearSearch();
+                                    }}
+                                    onMouseEnter={() =>
+                                      setHoveredSearchButton("clear")
+                                    }
+                                    onMouseLeave={() =>
+                                      setHoveredSearchButton(null)
+                                    }
+                                    style={{
+                                      display: "flex",
+                                      width: "24px",
+                                      height: "24px",
+                                      padding: "4px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      borderRadius: "6px",
+                                      border: "none",
+                                      background:
+                                        hoveredSearchButton === "clear"
+                                          ? "#F5F5F5"
+                                          : "transparent",
                                       cursor: "pointer",
                                     }}
                                   >
@@ -2871,20 +2945,28 @@ const InvitesAndOrders: React.FC = () => {
                                       width: "1px",
                                       height: "24px",
                                       background: "#E9EAEB",
-  
                                     }}
                                   />
 
                                   {/* Configure Search Button */}
                                   <button
                                     onMouseDown={(e) => {
-                                    e.preventDefault();
-                                    console.log('Advanced search clicked, current state:', showAdvancedSearch);
-                                    setShowAdvancedSearch(!showAdvancedSearch);
-                                  }}
-                                  onMouseEnter={() => setHoveredSearchButton("advanced")}
-                                  onMouseLeave={() => setHoveredSearchButton(null)}
-                                  style={{
+                                      e.preventDefault();
+                                      console.log(
+                                        "Advanced search clicked, current state:",
+                                        showAdvancedSearch,
+                                      );
+                                      setShowAdvancedSearch(
+                                        !showAdvancedSearch,
+                                      );
+                                    }}
+                                    onMouseEnter={() =>
+                                      setHoveredSearchButton("advanced")
+                                    }
+                                    onMouseLeave={() =>
+                                      setHoveredSearchButton(null)
+                                    }
+                                    style={{
                                       display: "flex",
                                       width: "24px",
                                       height: "24px",
@@ -2893,7 +2975,11 @@ const InvitesAndOrders: React.FC = () => {
                                       alignItems: "center",
                                       borderRadius: "6px",
                                       border: "none",
-                                      background: showAdvancedSearch || hoveredSearchButton === "advanced" ? "#F5F5F5" : "transparent",
+                                      background:
+                                        showAdvancedSearch ||
+                                        hoveredSearchButton === "advanced"
+                                          ? "#F5F5F5"
+                                          : "transparent",
                                       cursor: "pointer",
                                     }}
                                   >
@@ -2931,7 +3017,8 @@ const InvitesAndOrders: React.FC = () => {
                                 borderRadius: "8px",
                                 border: "2px solid red",
                                 background: "yellow",
-                                boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                boxShadow:
+                                  "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                                 margin: "0 20px",
                                 marginTop: "8px",
                               }}
@@ -3020,7 +3107,12 @@ const InvitesAndOrders: React.FC = () => {
                                     <input
                                       type="text"
                                       value={advancedSearchForm.firstName}
-                                      onChange={(e) => handleAdvancedSearchChange("firstName", e.target.value)}
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "firstName",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="John"
                                       style={{
                                         display: "flex",
@@ -3032,7 +3124,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -3070,7 +3163,12 @@ const InvitesAndOrders: React.FC = () => {
                                     <input
                                       type="text"
                                       value={advancedSearchForm.lastName}
-                                      onChange={(e) => handleAdvancedSearchChange("lastName", e.target.value)}
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "lastName",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="Doe"
                                       style={{
                                         display: "flex",
@@ -3082,7 +3180,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -3119,8 +3218,15 @@ const InvitesAndOrders: React.FC = () => {
                                     </div>
                                     <input
                                       type="text"
-                                      value={advancedSearchForm.socialSecurityTrace}
-                                      onChange={(e) => handleAdvancedSearchChange("socialSecurityTrace", e.target.value)}
+                                      value={
+                                        advancedSearchForm.socialSecurityTrace
+                                      }
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "socialSecurityTrace",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="000-00-0000"
                                       style={{
                                         display: "flex",
@@ -3132,7 +3238,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -3170,7 +3277,12 @@ const InvitesAndOrders: React.FC = () => {
                                     <input
                                       type="text"
                                       value={advancedSearchForm.orderNumber}
-                                      onChange={(e) => handleAdvancedSearchChange("orderNumber", e.target.value)}
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "orderNumber",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="123456"
                                       style={{
                                         display: "flex",
@@ -3182,7 +3294,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -3208,9 +3321,11 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "4px",
                                     alignSelf: "stretch",
                                     borderRadius: "8px",
-                                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                                    border:
+                                      "2px solid rgba(255, 255, 255, 0.12)",
                                     background: "#344698",
-                                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    boxShadow:
+                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                     color: "#FFF",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
@@ -3735,7 +3850,11 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     border: "none",
                                     outline: "none",
-                                    background: showAdvancedSearch || hoveredSearchButton === "advanced" ? "#F5F5F5" : "transparent",
+                                    background:
+                                      showAdvancedSearch ||
+                                      hoveredSearchButton === "advanced"
+                                        ? "#F5F5F5"
+                                        : "transparent",
                                     flex: "1 0 0",
                                     color: isSearchActive
                                       ? "#181D27"
@@ -3761,21 +3880,28 @@ const InvitesAndOrders: React.FC = () => {
                                     {/* X Button */}
                                     <button
                                       onMouseDown={(e) => {
-                                    e.preventDefault();
-                                    clearSearch();
-                                  }}
-                                  onMouseEnter={() => setHoveredSearchButton("clear")}
-                                  onMouseLeave={() => setHoveredSearchButton(null)}
-                                  style={{
-                                    display: "flex",
-                                    width: "24px",
-                                    height: "24px",
-                                    padding: "4px",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    borderRadius: "6px",
-                                    border: "none",
-                                    background: hoveredSearchButton === "clear" ? "#F5F5F5" : "transparent",
+                                        e.preventDefault();
+                                        clearSearch();
+                                      }}
+                                      onMouseEnter={() =>
+                                        setHoveredSearchButton("clear")
+                                      }
+                                      onMouseLeave={() =>
+                                        setHoveredSearchButton(null)
+                                      }
+                                      style={{
+                                        display: "flex",
+                                        width: "24px",
+                                        height: "24px",
+                                        padding: "4px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: "6px",
+                                        border: "none",
+                                        background:
+                                          hoveredSearchButton === "clear"
+                                            ? "#F5F5F5"
+                                            : "transparent",
                                         cursor: "pointer",
                                       }}
                                     >
@@ -3802,20 +3928,28 @@ const InvitesAndOrders: React.FC = () => {
                                         width: "1px",
                                         height: "24px",
                                         background: "#E9EAEB",
-    
                                       }}
                                     />
 
                                     {/* Configure Search Button */}
                                     <button
                                       onMouseDown={(e) => {
-                                    e.preventDefault();
-                                    console.log('Advanced search clicked, current state:', showAdvancedSearch);
-                                    setShowAdvancedSearch(!showAdvancedSearch);
-                                  }}
-                                  onMouseEnter={() => setHoveredSearchButton("advanced")}
-                                  onMouseLeave={() => setHoveredSearchButton(null)}
-                                  style={{
+                                        e.preventDefault();
+                                        console.log(
+                                          "Advanced search clicked, current state:",
+                                          showAdvancedSearch,
+                                        );
+                                        setShowAdvancedSearch(
+                                          !showAdvancedSearch,
+                                        );
+                                      }}
+                                      onMouseEnter={() =>
+                                        setHoveredSearchButton("advanced")
+                                      }
+                                      onMouseLeave={() =>
+                                        setHoveredSearchButton(null)
+                                      }
+                                      style={{
                                         display: "flex",
                                         width: "24px",
                                         height: "24px",
@@ -3824,7 +3958,11 @@ const InvitesAndOrders: React.FC = () => {
                                         alignItems: "center",
                                         borderRadius: "6px",
                                         border: "none",
-                                        background: showAdvancedSearch || hoveredSearchButton === "advanced" ? "#F5F5F5" : "transparent",
+                                        background:
+                                          showAdvancedSearch ||
+                                          hoveredSearchButton === "advanced"
+                                            ? "#F5F5F5"
+                                            : "transparent",
                                         cursor: "pointer",
                                       }}
                                     >
@@ -3863,7 +4001,8 @@ const InvitesAndOrders: React.FC = () => {
                                 borderRadius: "8px",
                                 border: "2px solid red",
                                 background: "yellow",
-                                boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                boxShadow:
+                                  "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
                               }}
                             >
                               <div
@@ -3950,7 +4089,12 @@ const InvitesAndOrders: React.FC = () => {
                                     <input
                                       type="text"
                                       value={advancedSearchForm.firstName}
-                                      onChange={(e) => handleAdvancedSearchChange("firstName", e.target.value)}
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "firstName",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="John"
                                       style={{
                                         display: "flex",
@@ -3962,7 +4106,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -4000,7 +4145,12 @@ const InvitesAndOrders: React.FC = () => {
                                     <input
                                       type="text"
                                       value={advancedSearchForm.lastName}
-                                      onChange={(e) => handleAdvancedSearchChange("lastName", e.target.value)}
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "lastName",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="Doe"
                                       style={{
                                         display: "flex",
@@ -4012,7 +4162,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -4049,8 +4200,15 @@ const InvitesAndOrders: React.FC = () => {
                                     </div>
                                     <input
                                       type="text"
-                                      value={advancedSearchForm.socialSecurityTrace}
-                                      onChange={(e) => handleAdvancedSearchChange("socialSecurityTrace", e.target.value)}
+                                      value={
+                                        advancedSearchForm.socialSecurityTrace
+                                      }
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "socialSecurityTrace",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="000-00-0000"
                                       style={{
                                         display: "flex",
@@ -4062,7 +4220,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -4100,7 +4259,12 @@ const InvitesAndOrders: React.FC = () => {
                                     <input
                                       type="text"
                                       value={advancedSearchForm.orderNumber}
-                                      onChange={(e) => handleAdvancedSearchChange("orderNumber", e.target.value)}
+                                      onChange={(e) =>
+                                        handleAdvancedSearchChange(
+                                          "orderNumber",
+                                          e.target.value,
+                                        )
+                                      }
                                       placeholder="123456"
                                       style={{
                                         display: "flex",
@@ -4112,7 +4276,8 @@ const InvitesAndOrders: React.FC = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "yellow",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                         color: "#717680",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
@@ -4138,9 +4303,11 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "4px",
                                     alignSelf: "stretch",
                                     borderRadius: "8px",
-                                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                                    border:
+                                      "2px solid rgba(255, 255, 255, 0.12)",
                                     background: "#344698",
-                                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    boxShadow:
+                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                     color: "#FFF",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
