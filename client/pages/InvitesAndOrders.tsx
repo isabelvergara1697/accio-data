@@ -3946,7 +3946,7 @@ const InvitesAndOrders: React.FC = () => {
                                       </button>
                                       {showAdvancedSearch && (
                                         <div
-                                          ref={advancedSearchRef}
+                                          ref={tabletAdvancedSearchRef}
                                           style={{
                                             position: "absolute",
                                             top: "calc(100% + 4px)",
