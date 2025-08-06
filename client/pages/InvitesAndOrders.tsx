@@ -1441,6 +1441,8 @@ const InvitesAndOrders: React.FC = () => {
                                     e.preventDefault();
                                     setShowAdvancedSearch(!showAdvancedSearch);
                                   }}
+                                  onMouseEnter={() => setHoveredSearchButton("advanced")}
+                                  onMouseLeave={() => setHoveredSearchButton(null)}
                                   style={{
                                     display: "flex",
                                     width: "24px",
@@ -2873,7 +2875,9 @@ const InvitesAndOrders: React.FC = () => {
                                     e.preventDefault();
                                     setShowAdvancedSearch(!showAdvancedSearch);
                                   }}
-                                    style={{
+                                  onMouseEnter={() => setHoveredSearchButton("advanced")}
+                                  onMouseLeave={() => setHoveredSearchButton(null)}
+                                  style={{
                                       display: "flex",
                                       width: "24px",
                                       height: "24px",
@@ -3799,7 +3803,9 @@ const InvitesAndOrders: React.FC = () => {
                                     e.preventDefault();
                                     setShowAdvancedSearch(!showAdvancedSearch);
                                   }}
-                                      style={{
+                                  onMouseEnter={() => setHoveredSearchButton("advanced")}
+                                  onMouseLeave={() => setHoveredSearchButton(null)}
+                                  style={{
                                         display: "flex",
                                         width: "24px",
                                         height: "24px",
