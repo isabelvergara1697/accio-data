@@ -5021,13 +5021,21 @@ const InvitesAndOrders: React.FC = () => {
                             flexDirection: "column",
                             alignItems: "flex-start",
                             position: "relative",
-                            minWidth: isMobile
-                              ? "1140px"
-                              : isTablet
-                                ? "1130px"
-                                : isLargeDesktop
-                                  ? "1220px"
-                                  : "1100px",
+                            minWidth: showFiltersModal
+                              ? isMobile
+                                ? "800px" // Reduced for mobile with filters
+                                : isTablet
+                                  ? "830px" // Reduced for tablet with filters
+                                  : isLargeDesktop
+                                    ? "900px" // Reduced for large desktop with filters
+                                    : "800px" // Reduced for desktop with filters
+                              : isMobile
+                                ? "1140px"
+                                : isTablet
+                                  ? "1130px"
+                                  : isLargeDesktop
+                                    ? "1220px"
+                                    : "1100px",
                             width: "100%",
                             height: "556px", // Fixed height for header (36px) + 10 rows (10 × 52px)
                             overflow: "visible",
