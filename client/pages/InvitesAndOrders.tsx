@@ -4417,8 +4417,9 @@ const InvitesAndOrders: React.FC = () => {
                                       borderRadius: "8px",
                                       border: "1px solid #D5D7DA",
                                       background:
-                                        hoveredButton === "filters"
-                                          ? "#FDFDFD"
+                                        hoveredButton === "filters" ||
+                                        showFiltersModal
+                                          ? "#F5F5F5"
                                           : "#FFF",
                                       flex: "1 0 0",
                                       minWidth: "90px",
