@@ -5436,6 +5436,7 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <TruncatedText
                                 text={invite.lastName}
+                                highlightedText={highlightText(invite.lastName, searchQuery)}
                                 style={{
                                   color: "#181D27",
                                   fontFamily: "Public Sans",
