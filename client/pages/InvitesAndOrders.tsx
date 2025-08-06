@@ -3841,7 +3841,6 @@ const InvitesAndOrders: React.FC = () => {
                                       display: "flex",
                                       alignItems: "center",
                                       gap: "2px",
-
                                     }}
                                   >
                                     {/* X Button */}
