@@ -2720,24 +2720,24 @@ const InvitesAndOrders: React.FC = () => {
                                   </div>
                                 </div>
                               )}
-                            </div>
 
-                            {/* Mobile Advanced Search Dropdown - positioned relative to search bar */}
-                            <AdvancedSearchDropdown
-                              showAdvancedSearch={showAdvancedSearch}
-                              advancedSearchForm={advancedSearchForm}
-                              focusedAdvancedField={focusedAdvancedField}
-                              onFieldChange={handleAdvancedSearchChange}
-                              onFieldFocus={setFocusedAdvancedField}
-                              onClear={clearAdvancedSearch}
-                              onSearch={handleAdvancedSearch}
-                              dropdownRef={mobileAdvancedSearchRef}
-                              style={{
-                                right: "0",
-                                left: "0",
-                                width: "auto",
-                              }}
-                            />
+                              {/* Mobile Advanced Search Dropdown - positioned relative to search bar */}
+                              <AdvancedSearchDropdown
+                                showAdvancedSearch={showAdvancedSearch}
+                                advancedSearchForm={advancedSearchForm}
+                                focusedAdvancedField={focusedAdvancedField}
+                                onFieldChange={handleAdvancedSearchChange}
+                                onFieldFocus={setFocusedAdvancedField}
+                                onClear={clearAdvancedSearch}
+                                onSearch={handleAdvancedSearch}
+                                dropdownRef={mobileAdvancedSearchRef}
+                                style={{
+                                  right: "0",
+                                  left: "0",
+                                  width: "auto",
+                                }}
+                              />
+                            </div>
                           </div>
 
                           <div style={{ position: "relative" }}>
