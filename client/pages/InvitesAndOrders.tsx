@@ -219,6 +219,12 @@ const InvitesAndOrders: React.FC = () => {
       ) {
         setShowMobileDotsMenu(false);
       }
+      if (
+        tableViewsDropdownRef.current &&
+        !tableViewsDropdownRef.current.contains(event.target as Node)
+      ) {
+        setTableViewsDropdownOpen(false);
+      }
       if (showAdvancedSearch) {
         const target = event.target as Node;
         const isClickInsideDesktop =
