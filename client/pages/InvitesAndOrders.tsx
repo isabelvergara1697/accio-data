@@ -9,6 +9,7 @@ import {
   TooltipTrigger,
 } from "../components/ui/tooltip";
 import InformationDrawer from "../components/ui/information-drawer";
+import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
 
 interface InviteData {
   id: string;
