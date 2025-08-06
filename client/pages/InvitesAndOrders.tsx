@@ -1458,52 +1458,61 @@ const InvitesAndOrders: React.FC = () => {
                               </div>
                             )}
 
-                            {/* Advanced Search Button - Always Visible */}
-                            <button
-                              ref={advancedSearchButtonRef}
-                              onClick={() => {
-                                console.log('Button clicked:', showAdvancedSearch);
-                                setShowAdvancedSearch(!showAdvancedSearch);
-                              }}
-                              onMouseEnter={() =>
-                                setHoveredSearchButton("advanced")
-                              }
-                              onMouseLeave={() =>
-                                setHoveredSearchButton(null)
-                              }
-                              style={{
-                                display: "flex",
-                                width: "24px",
-                                height: "24px",
-                                padding: "4px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                borderRadius: "6px",
-                                border: "none",
-                                background:
-                                  showAdvancedSearch ||
-                                  hoveredSearchButton === "advanced"
-                                    ? "#F5F5F5"
-                                    : "transparent",
-                                cursor: "pointer",
-                              }}
-                            >
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                            {/* Advanced Search Button - Working Pattern */}
+                            <div style={{ position: "relative" }}>
+                              <button
+                                onClick={() =>
+                                  setShowAdvancedSearch(!showAdvancedSearch)
+                                }
+                                style={{
+                                  display: "flex",
+                                  width: "24px",
+                                  height: "24px",
+                                  padding: "4px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "6px",
+                                  border: "none",
+                                  background: showAdvancedSearch ? "#F5F5F5" : "transparent",
+                                  cursor: "pointer",
+                                }}
                               >
-                                <path
-                                  d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </button>
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </button>
+                              {showAdvancedSearch && (
+                                <div
+                                  style={{
+                                    position: "absolute",
+                                    top: "calc(100% + 4px)",
+                                    right: "0",
+                                    width: "200px",
+                                    height: "100px",
+                                    borderRadius: "8px",
+                                    border: "1px solid red",
+                                    background: "yellow",
+                                    zIndex: 99999,
+                                    padding: "10px",
+                                  }}
+                                >
+                                  <div>DROPDOWN TEST - WORKING!</div>
+                                  <button onClick={() => setShowAdvancedSearch(false)}>Close</button>
+                                </div>
+                              )}
+                            </div>
                           </div>
 
                           {/* Advanced Search Dropdown */}
