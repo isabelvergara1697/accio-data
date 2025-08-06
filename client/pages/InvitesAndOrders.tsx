@@ -2940,10 +2940,12 @@ const InvitesAndOrders: React.FC = () => {
                             <button
                               onClick={(e) => {
                                 e.preventDefault();
+                                console.log("Mobile advanced search clicked, current state:", showAdvancedSearch);
                                 setShowAdvancedSearch(!showAdvancedSearch);
                               }}
                               onTouchStart={(e) => {
                                 e.preventDefault();
+                                console.log("Mobile advanced search touched, current state:", showAdvancedSearch);
                                 setShowAdvancedSearch(!showAdvancedSearch);
                               }}
                               onMouseEnter={() =>
