@@ -7247,11 +7247,7 @@ const InvitesAndOrders: React.FC = () => {
         onClose={() => setShowInformationDrawer(false)}
       />
 
-      {/* Filters Modal */}
-      <FiltersModal
-        isOpen={showFiltersModal}
-        onClose={() => setShowFiltersModal(false)}
-      />
+      {/* Filters Panel will be inline in the layout */}
     </div>
   );
 };
