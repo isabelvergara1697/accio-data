@@ -1400,6 +1400,8 @@ const InvitesAndOrders: React.FC = () => {
                                   display: "flex",
                                   alignItems: "center",
                                   gap: "2px",
+                                  background: "lime",
+                                  border: "2px solid blue",
                                 }}
                               >
                                 {/* X Button */}
@@ -2899,6 +2901,8 @@ const InvitesAndOrders: React.FC = () => {
                                     display: "flex",
                                     alignItems: "center",
                                     gap: "2px",
+                                  background: "lime",
+                                  border: "2px solid blue",
                                     flexShrink: 0,
                                   }}
                                 >
@@ -3882,6 +3886,8 @@ const InvitesAndOrders: React.FC = () => {
                                       display: "flex",
                                       alignItems: "center",
                                       gap: "2px",
+                                  background: "lime",
+                                  border: "2px solid blue",
                                     }}
                                   >
                                     {/* X Button */}
