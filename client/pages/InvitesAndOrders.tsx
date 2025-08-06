@@ -855,6 +855,32 @@ const InvitesAndOrders: React.FC = () => {
     setCurrentPage(1);
   };
 
+  const handleAdvancedSearchChange = (field: string, value: string) => {
+    setAdvancedSearchForm(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const clearAdvancedSearch = () => {
+    setAdvancedSearchForm({
+      firstName: "",
+      lastName: "",
+      socialSecurityTrace: "",
+      orderNumber: "",
+    });
+  };
+
+  const handleAdvancedSearch = () => {
+    // Combine all form fields into a single search query
+    const searchTerms = Object.values(advancedSearchForm).filter(term => term.trim());
+    const combinedQuery = searchTerms.join(" ");
+    setSearchQuery(combinedQuery);
+    setIsSearchActive(combinedQuery.length > 0);
+    setShowAdvancedSearch(false);
+    setCurrentPage(1);
+  };
+
   // Helper function to highlight matching text
   const highlightText = (text: string, query: string) => {
     if (!query.trim()) return text;
