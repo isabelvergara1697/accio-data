@@ -10,6 +10,7 @@ import {
 } from "../components/ui/tooltip";
 import InformationDrawer from "../components/ui/information-drawer";
 import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
+import FiltersModal from "../components/FiltersModal";
 
 interface InviteData {
   id: string;
