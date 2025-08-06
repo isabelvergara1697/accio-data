@@ -2432,9 +2432,10 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Mobile: View Toggle + Search Row */}
-                            <div
-                              style={{
-                                display: "flex",
+                            {!showFiltersModal && (
+                              <div
+                                style={{
+                                  display: "flex",
                                 alignItems: "center",
                                 gap: "10px",
                                 alignSelf: "stretch",
@@ -2806,6 +2807,7 @@ const InvitesAndOrders: React.FC = () => {
                                 />
                               </div>
                             </div>
+                            )}
 
                             <div style={{ position: "relative" }}>
                               {false && (
