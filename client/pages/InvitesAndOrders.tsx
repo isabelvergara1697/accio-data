@@ -2611,11 +2611,10 @@ const InvitesAndOrders: React.FC = () => {
                                   onSearch={handleAdvancedSearch}
                                   dropdownRef={mobileAdvancedSearchRef}
                                   style={{
-                                    top: "calc(100% + 8px)",
+                                    top: "calc(100% + 4px)",
+                                    left: "0",
                                     right: "0",
-                                    width: "280px",
-                                    maxWidth: "calc(100vw - 32px)",
-                                    transform: "translateX(-20px)",
+                                    width: "100%",
                                   }}
                                 />
                               </div>
@@ -4033,9 +4032,9 @@ const InvitesAndOrders: React.FC = () => {
                                         dropdownRef={tabletAdvancedSearchRef}
                                         style={{
                                           top: "calc(100% + 4px)",
+                                          left: "0",
                                           right: "0",
-                                          width: "320px",
-                                          maxWidth: "100%",
+                                          width: "100%",
                                         }}
                                       />
                                     </div>
