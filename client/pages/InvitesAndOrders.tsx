@@ -2950,9 +2950,7 @@ const InvitesAndOrders: React.FC = () => {
                                         !showAdvancedSearch,
                                       );
                                     }}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
+                                  onClick={() => {
                                     console.log('ADVANCED SEARCH ONCLICK!', showAdvancedSearch);
                                     setShowAdvancedSearch(!showAdvancedSearch);
                                   }}
@@ -3940,9 +3938,7 @@ const InvitesAndOrders: React.FC = () => {
                                           !showAdvancedSearch,
                                         );
                                       }}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
+                                  onClick={() => {
                                     console.log('ADVANCED SEARCH ONCLICK!', showAdvancedSearch);
                                     setShowAdvancedSearch(!showAdvancedSearch);
                                   }}
