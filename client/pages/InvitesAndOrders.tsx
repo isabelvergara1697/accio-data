@@ -2869,7 +2869,8 @@ const InvitesAndOrders: React.FC = () => {
                                 }}
                               />
 
-                              {/* Mobile: Advanced Search Button */}
+                              {/* Mobile: Advanced Search Button - Only show when search is not active */}
+                              {!isSearchActive && (
                               <div style={{ position: "relative" }}>
                                 <button
                                   onClick={(e) => {
@@ -3242,6 +3243,7 @@ const InvitesAndOrders: React.FC = () => {
                                   </div>
                                 )}
                               </div>
+                              )}
 
                               {isSearchActive && (
                                 <div
