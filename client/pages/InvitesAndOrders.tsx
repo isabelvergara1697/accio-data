@@ -641,6 +641,18 @@ const InvitesAndOrders: React.FC = () => {
   const pageSize = 10;
   const totalPages = Math.ceil(sortedData.length / pageSize);
 
+  // Debug pagination
+  console.log('Pagination Debug:', {
+    sortedDataLength: sortedData.length,
+    pageSize,
+    totalPages,
+    currentPage,
+    isDesktop,
+    isTablet,
+    isMobile,
+    windowWidth: typeof window !== 'undefined' ? window.innerWidth : 'undefined'
+  });
+
   // Paginated data
   const paginatedData = React.useMemo(() => {
     const startIndex = (currentPage - 1) * pageSize;
