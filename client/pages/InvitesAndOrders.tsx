@@ -3820,6 +3820,312 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
                           </div>
 
+                          {/* Tablet: Advanced Search Dropdown */}
+                          {showAdvancedSearch && (
+                            <div
+                              ref={advancedSearchRef}
+                              style={{
+                                position: "absolute",
+                                top: "calc(100% + 8px)",
+                                right: "0",
+                                width: "234px",
+                                zIndex: 1000,
+                                borderRadius: "8px",
+                                border: "1px solid rgba(0, 0, 0, 0.08)",
+                                background: "#FFF",
+                                boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "12px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "12px",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                {/* Title */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                    alignItems: "center",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Advanced Search
+                                  </div>
+                                  <button
+                                    onClick={clearAdvancedSearch}
+                                    style={{
+                                      background: "none",
+                                      border: "none",
+                                      color: "#273572",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                      cursor: "pointer",
+                                    }}
+                                  >
+                                    Clear
+                                  </button>
+                                </div>
+
+                                {/* Form */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  {/* First Name */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      First Name
+                                    </div>
+                                    <input
+                                      type="text"
+                                      value={advancedSearchForm.firstName}
+                                      onChange={(e) => handleAdvancedSearchChange("firstName", e.target.value)}
+                                      placeholder="John"
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#717680",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                        boxSizing: "border-box",
+                                      }}
+                                    />
+                                  </div>
+
+                                  {/* Last Name */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      Last Name
+                                    </div>
+                                    <input
+                                      type="text"
+                                      value={advancedSearchForm.lastName}
+                                      onChange={(e) => handleAdvancedSearchChange("lastName", e.target.value)}
+                                      placeholder="Doe"
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#717680",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                        boxSizing: "border-box",
+                                      }}
+                                    />
+                                  </div>
+
+                                  {/* Social Security Trace */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      Social Security Trace
+                                    </div>
+                                    <input
+                                      type="text"
+                                      value={advancedSearchForm.socialSecurityTrace}
+                                      onChange={(e) => handleAdvancedSearchChange("socialSecurityTrace", e.target.value)}
+                                      placeholder="000-00-0000"
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#717680",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                        boxSizing: "border-box",
+                                      }}
+                                    />
+                                  </div>
+
+                                  {/* Order Number */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      Order Number
+                                    </div>
+                                    <input
+                                      type="text"
+                                      value={advancedSearchForm.orderNumber}
+                                      onChange={(e) => handleAdvancedSearchChange("orderNumber", e.target.value)}
+                                      placeholder="123456"
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#717680",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                        boxSizing: "border-box",
+                                      }}
+                                    />
+                                  </div>
+                                </div>
+
+                                {/* Search Button */}
+                                <button
+                                  onClick={handleAdvancedSearch}
+                                  style={{
+                                    display: "flex",
+                                    minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                                    background: "#344698",
+                                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    color: "#FFF",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  Search
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
                           {/* Tablet: Action Buttons Row */}
                           <div
                             style={{
