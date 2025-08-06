@@ -206,6 +206,7 @@ const InvitesAndOrders: React.FC = () => {
         advancedSearchButtonRef.current &&
         !advancedSearchButtonRef.current.contains(event.target as Node)
       ) {
+        console.log('🔴 CLICK OUTSIDE - Closing dropdown');
         setShowAdvancedSearch(false);
       }
     };
