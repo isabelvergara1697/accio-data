@@ -1455,16 +1455,6 @@ const InvitesAndOrders: React.FC = () => {
                                 <button
                                   onMouseDown={(e) => {
                                     e.preventDefault();
-                                    console.log(
-                                      "ADVANCED SEARCH BUTTON CLICKED!",
-                                      showAdvancedSearch,
-                                    );
-                                    setShowAdvancedSearch(!showAdvancedSearch);
-                                  }}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    console.log('ADVANCED SEARCH ONCLICK!', showAdvancedSearch);
                                     setShowAdvancedSearch(!showAdvancedSearch);
                                   }}
                                   onMouseEnter={() =>
