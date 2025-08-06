@@ -1406,7 +1406,7 @@ const InvitesAndOrders: React.FC = () => {
                                     alignItems: "center",
                                     borderRadius: "6px",
                                     border: "none",
-                                    background: showAdvancedSearch || hoveredSearchButton === "advanced" ? "#F5F5F5" : "transparent",
+                                    background: hoveredSearchButton === "clear" ? "#F5F5F5" : "transparent",
                                     cursor: "pointer",
                                   }}
                                 >
@@ -2834,15 +2834,15 @@ const InvitesAndOrders: React.FC = () => {
                                   onMouseEnter={() => setHoveredSearchButton("clear")}
                                   onMouseLeave={() => setHoveredSearchButton(null)}
                                   style={{
-                                      display: "flex",
-                                      width: "24px",
-                                      height: "24px",
-                                      padding: "4px",
-                                      justifyContent: "center",
-                                      alignItems: "center",
-                                      borderRadius: "6px",
-                                      border: "none",
-                                      background: showAdvancedSearch || hoveredSearchButton === "advanced" ? "#F5F5F5" : "transparent",
+                                    display: "flex",
+                                    width: "24px",
+                                    height: "24px",
+                                    padding: "4px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "6px",
+                                    border: "none",
+                                    background: hoveredSearchButton === "clear" ? "#F5F5F5" : "transparent",
                                       cursor: "pointer",
                                     }}
                                   >
@@ -3764,15 +3764,15 @@ const InvitesAndOrders: React.FC = () => {
                                   onMouseEnter={() => setHoveredSearchButton("clear")}
                                   onMouseLeave={() => setHoveredSearchButton(null)}
                                   style={{
-                                        display: "flex",
-                                        width: "24px",
-                                        height: "24px",
-                                        padding: "4px",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        borderRadius: "6px",
-                                        border: "none",
-                                        background: showAdvancedSearch || hoveredSearchButton === "advanced" ? "#F5F5F5" : "transparent",
+                                    display: "flex",
+                                    width: "24px",
+                                    height: "24px",
+                                    padding: "4px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "6px",
+                                    border: "none",
+                                    background: hoveredSearchButton === "clear" ? "#F5F5F5" : "transparent",
                                         cursor: "pointer",
                                       }}
                                     >
