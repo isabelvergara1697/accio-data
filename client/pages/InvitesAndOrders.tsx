@@ -1411,6 +1411,12 @@ const InvitesAndOrders: React.FC = () => {
                                     console.log('X BUTTON CLICKED!');
                                     clearSearch();
                                   }}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('X BUTTON ONCLICK!');
+                                    clearSearch();
+                                  }}
                                   onMouseEnter={() =>
                                     setHoveredSearchButton("clear")
                                   }
@@ -2914,6 +2920,12 @@ const InvitesAndOrders: React.FC = () => {
                                     console.log('X BUTTON CLICKED!');
                                     clearSearch();
                                   }}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('X BUTTON ONCLICK!');
+                                    clearSearch();
+                                  }}
                                     onMouseEnter={() =>
                                       setHoveredSearchButton("clear")
                                     }
@@ -3897,6 +3909,12 @@ const InvitesAndOrders: React.FC = () => {
                                       onMouseDown={(e) => {
                                     e.preventDefault();
                                     console.log('X BUTTON CLICKED!');
+                                    clearSearch();
+                                  }}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    console.log('X BUTTON ONCLICK!');
                                     clearSearch();
                                   }}
                                       onMouseEnter={() =>
