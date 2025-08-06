@@ -1417,7 +1417,7 @@ const InvitesAndOrders: React.FC = () => {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     borderRadius: "6px",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     background:
                                       hoveredSearchButton === "clear"
                                         ? "#F5F5F5"
@@ -1471,7 +1471,7 @@ const InvitesAndOrders: React.FC = () => {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     borderRadius: "6px",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     background:
                                       showAdvancedSearch ||
                                       hoveredSearchButton === "advanced"
@@ -1552,7 +1552,7 @@ const InvitesAndOrders: React.FC = () => {
                                     onClick={clearAdvancedSearch}
                                     style={{
                                       background: "none",
-                                      border: "3px solid orange",
+                                      border: "none",
                                       color: "#273572",
                                       fontFamily: "Public Sans",
                                       fontSize: "14px",
@@ -2901,7 +2901,7 @@ const InvitesAndOrders: React.FC = () => {
                                       justifyContent: "center",
                                       alignItems: "center",
                                       borderRadius: "6px",
-                                      border: "3px solid orange",
+                                      border: "none",
                                       background:
                                         hoveredSearchButton === "clear"
                                           ? "#F5F5F5"
@@ -2963,7 +2963,7 @@ const InvitesAndOrders: React.FC = () => {
                                       justifyContent: "center",
                                       alignItems: "center",
                                       borderRadius: "6px",
-                                      border: "3px solid orange",
+                                      border: "none",
                                       background:
                                         showAdvancedSearch ||
                                         hoveredSearchButton === "advanced"
@@ -3047,7 +3047,7 @@ const InvitesAndOrders: React.FC = () => {
                                     onClick={clearAdvancedSearch}
                                     style={{
                                       background: "none",
-                                      border: "3px solid orange",
+                                      border: "none",
                                       color: "#273572",
                                       fontFamily: "Public Sans",
                                       fontSize: "14px",
@@ -3840,7 +3840,7 @@ const InvitesAndOrders: React.FC = () => {
                                     )
                                   }
                                   style={{
-                                    border: "3px solid orange",
+                                    border: "none",
                                     outline: "none",
                                     background:
                                       showAdvancedSearch ||
@@ -3891,7 +3891,7 @@ const InvitesAndOrders: React.FC = () => {
                                         justifyContent: "center",
                                         alignItems: "center",
                                         borderRadius: "6px",
-                                        border: "3px solid orange",
+                                        border: "none",
                                         background:
                                           hoveredSearchButton === "clear"
                                             ? "#F5F5F5"
@@ -3953,7 +3953,7 @@ const InvitesAndOrders: React.FC = () => {
                                         justifyContent: "center",
                                         alignItems: "center",
                                         borderRadius: "6px",
-                                        border: "3px solid orange",
+                                        border: "none",
                                         background:
                                           showAdvancedSearch ||
                                           hoveredSearchButton === "advanced"
@@ -4036,7 +4036,7 @@ const InvitesAndOrders: React.FC = () => {
                                     onClick={clearAdvancedSearch}
                                     style={{
                                       background: "none",
-                                      border: "3px solid orange",
+                                      border: "none",
                                       color: "#273572",
                                       fontFamily: "Public Sans",
                                       fontSize: "14px",
@@ -5622,7 +5622,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -5666,7 +5666,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -5775,7 +5775,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -5819,7 +5819,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -5928,7 +5928,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -5972,7 +5972,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -6081,7 +6081,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -6125,7 +6125,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -6234,7 +6234,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -6278,7 +6278,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -6385,7 +6385,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
@@ -6429,7 +6429,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                   style={{
                                     background: "none",
-                                    border: "3px solid orange",
+                                    border: "none",
                                     padding: 0,
                                     cursor: "pointer",
                                     display: "flex",
