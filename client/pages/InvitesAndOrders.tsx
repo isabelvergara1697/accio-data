@@ -879,6 +879,7 @@ const InvitesAndOrders: React.FC = () => {
   };
 
   const handleAdvancedSearch = () => {
+    console.log('🟠 HANDLE ADVANCED SEARCH CALLED');
     // Combine all form fields into a single search query
     const searchTerms = Object.values(advancedSearchForm).filter((term) =>
       term.trim(),
