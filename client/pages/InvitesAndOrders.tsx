@@ -1273,7 +1273,9 @@ const InvitesAndOrders: React.FC = () => {
                       background: "#FFF",
                       position: "relative",
                       width: "100%",
-                      maxWidth: "100%",
+                      maxWidth: showFiltersModal && isDesktop
+                        ? `calc(100% - 16px)` // Account for gap between filters and table
+                        : "100%",
                       boxSizing: "border-box",
                       overflow: "visible",
                     }}
