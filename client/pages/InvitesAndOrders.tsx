@@ -3709,7 +3709,9 @@ const InvitesAndOrders: React.FC = () => {
                                     <AdvancedSearchDropdown
                                       showAdvancedSearch={showAdvancedSearch}
                                       advancedSearchForm={advancedSearchForm}
-                                      focusedAdvancedField={focusedAdvancedField}
+                                      focusedAdvancedField={
+                                        focusedAdvancedField
+                                      }
                                       onFieldChange={handleAdvancedSearchChange}
                                       onFieldFocus={setFocusedAdvancedField}
                                       onClear={clearAdvancedSearch}
