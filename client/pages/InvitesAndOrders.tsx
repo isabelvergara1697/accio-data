@@ -742,23 +742,41 @@ const InvitesAndOrders: React.FC = () => {
     }
   };
 
+  // Filter data based on search query
+  const filteredData = React.useMemo(() => {
+    if (!searchQuery.trim()) return invitesData;
+
+    return invitesData.filter((invite) =>
+      invite.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      invite.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      invite.email.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery]);
+
+  // Update sortedData to use filteredData instead of invitesData
   const sortedData = React.useMemo(() => {
-    if (!sortField || !sortDirection) return invitesData;
+    let data = [...filteredData];
 
-    return [...invitesData].sort((a, b) => {
-      const aValue = a[sortField];
-      const bValue = b[sortField];
+    if (sortField && sortDirection) {
+      data.sort((a, b) => {
+        let aValue = a[sortField];
+        let bValue = b[sortField];
 
-      let comparison = 0;
-      if (aValue < bValue) {
-        comparison = -1;
-      } else if (aValue > bValue) {
-        comparison = 1;
-      }
+        if (typeof aValue === "string") {
+          aValue = aValue.toLowerCase();
+        }
+        if (typeof bValue === "string") {
+          bValue = bValue.toLowerCase();
+        }
 
-      return sortDirection === "desc" ? comparison * -1 : comparison;
-    });
-  }, [invitesData, sortField, sortDirection]);
+        if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
+        if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
+        return 0;
+      });
+    }
+
+    return data;
+  }, [filteredData, sortField, sortDirection]);
 
   // Pagination constants
   const pageSize = 10;
