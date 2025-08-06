@@ -2261,6 +2261,10 @@ const InvitesAndOrders: React.FC = () => {
                               gap: "10px",
                               alignSelf: "stretch",
                               position: "relative",
+                              width: "100%",
+                              maxWidth: "100%",
+                              overflow: "hidden",
+                              boxSizing: "border-box",
                             }}
                           >
                             {/* View Toggle */}
@@ -2375,6 +2379,7 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "8px",
                                 flex: "1 0 0",
+                                minWidth: 0,
                                 height: "40px",
                                 borderRadius: "8px",
                                 border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
@@ -2383,6 +2388,8 @@ const InvitesAndOrders: React.FC = () => {
                                 padding: isSearchActive ? "7px" : "8px",
                                 position: "relative",
                                 boxSizing: "border-box",
+                                maxWidth: "100%",
+                                overflow: "hidden",
                               }}
                             >
                               <svg
