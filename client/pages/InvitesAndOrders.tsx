@@ -203,9 +203,7 @@ const InvitesAndOrders: React.FC = () => {
       }
       if (
         advancedSearchRef.current &&
-        !advancedSearchRef.current.contains(event.target as Node) &&
-        advancedSearchButtonRef.current &&
-        !advancedSearchButtonRef.current.contains(event.target as Node)
+        !advancedSearchRef.current.contains(event.target as Node)
       ) {
         setShowAdvancedSearch(false);
       }
