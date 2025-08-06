@@ -1470,6 +1470,7 @@ const InvitesAndOrders: React.FC = () => {
                               onMouseDown={(e) => {
                                 e.preventDefault();
                                 console.log('🔵 BUTTON CLICK - Before:', showAdvancedSearch);
+                                setIsButtonClick(true);
                                 setShowAdvancedSearch(!showAdvancedSearch);
                                 setTimeout(() => console.log('🔵 BUTTON CLICK - After:', !showAdvancedSearch), 50);
                               }}
