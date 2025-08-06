@@ -1391,7 +1391,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 {/* X Button */}
                                 <button
-                                  onClick={clearSearch}
+                                  onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    clearSearch();
+                                  }}
                                   style={{
                                     display: "flex",
                                     width: "24px",
@@ -2820,7 +2823,10 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   {/* X Button */}
                                   <button
-                                    onClick={clearSearch}
+                                    onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    clearSearch();
+                                  }}
                                     style={{
                                       display: "flex",
                                       width: "24px",
@@ -3743,7 +3749,10 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     {/* X Button */}
                                     <button
-                                      onClick={clearSearch}
+                                      onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    clearSearch();
+                                  }}
                                       style={{
                                         display: "flex",
                                         width: "24px",
