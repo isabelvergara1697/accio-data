@@ -3315,15 +3315,7 @@ const InvitesAndOrders: React.FC = () => {
                           <div style={{ position: "relative" }}>
                             {showAdvancedSearch && (
                               <div
-                                ref={null}
                                 style={{
-                                  position: "absolute",
-                                  top: "calc(100% + 4px)",
-                                  right: "0",
-                                  left: "auto",
-                                  width: "calc(100vw - 32px)",
-                                  maxWidth: "280px",
-                                  transform: "translateX(-70%)",
                                   display: "none",
                                   borderRadius: "8px",
                                   border: "1px solid rgba(10, 13, 18, 0.04)",
