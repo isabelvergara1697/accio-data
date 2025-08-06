@@ -747,10 +747,11 @@ const InvitesAndOrders: React.FC = () => {
   const filteredData = React.useMemo(() => {
     if (!searchQuery.trim()) return invitesData;
 
-    return invitesData.filter((invite) =>
-      invite.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      invite.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      invite.email.toLowerCase().includes(searchQuery.toLowerCase())
+    return invitesData.filter(
+      (invite) =>
+        invite.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        invite.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        invite.email.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }, [searchQuery]);
 
@@ -844,7 +845,10 @@ const InvitesAndOrders: React.FC = () => {
   const highlightText = (text: string, query: string) => {
     if (!query.trim()) return text;
 
-    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const regex = new RegExp(
+      `(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+      "gi",
+    );
     const parts = text.split(regex);
 
     return parts.map((part, index) => {
@@ -1281,7 +1285,9 @@ const InvitesAndOrders: React.FC = () => {
                               flex: "0 0 234px",
                               height: "40px",
                               borderRadius: "8px",
-                              border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
+                              border: isSearchActive
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                               background: "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               padding: isSearchActive ? "7px" : "8px",
@@ -1306,11 +1312,17 @@ const InvitesAndOrders: React.FC = () => {
                             </svg>
                             <input
                               type="text"
-                              placeholder={isSearchActive ? "" : "Search by Name, SSN, State.."}
+                              placeholder={
+                                isSearchActive
+                                  ? ""
+                                  : "Search by Name, SSN, State.."
+                              }
                               value={searchQuery}
                               onChange={handleSearchChange}
                               onFocus={() => setIsSearchActive(true)}
-                              onBlur={() => setIsSearchActive(searchQuery.length > 0)}
+                              onBlur={() =>
+                                setIsSearchActive(searchQuery.length > 0)
+                              }
                               style={{
                                 border: "none",
                                 outline: "none",
@@ -1328,7 +1340,13 @@ const InvitesAndOrders: React.FC = () => {
                               }}
                             />
                             {isSearchActive && (
-                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
                                 {/* X Button */}
                                 <button
                                   onClick={clearSearch}
@@ -1374,7 +1392,9 @@ const InvitesAndOrders: React.FC = () => {
 
                                 {/* Configure Search Button */}
                                 <button
-                                  onClick={() => console.log("Configure search")}
+                                  onClick={() =>
+                                    console.log("Configure search")
+                                  }
                                   style={{
                                     display: "flex",
                                     width: "24px",
@@ -2382,7 +2402,9 @@ const InvitesAndOrders: React.FC = () => {
                                 minWidth: 0,
                                 height: "40px",
                                 borderRadius: "8px",
-                                border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
+                                border: isSearchActive
+                                  ? "2px solid #34479A"
+                                  : "1px solid #D5D7DA",
                                 background: "#FFF",
                                 boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 padding: isSearchActive ? "7px" : "8px",
@@ -2410,11 +2432,17 @@ const InvitesAndOrders: React.FC = () => {
                               </svg>
                               <input
                                 type="text"
-                                placeholder={isSearchActive ? "" : "Search by Name, SSN, State.."}
+                                placeholder={
+                                  isSearchActive
+                                    ? ""
+                                    : "Search by Name, SSN, State.."
+                                }
                                 value={searchQuery}
                                 onChange={handleSearchChange}
                                 onFocus={() => setIsSearchActive(true)}
-                                onBlur={() => setIsSearchActive(searchQuery.length > 0)}
+                                onBlur={() =>
+                                  setIsSearchActive(searchQuery.length > 0)
+                                }
                                 style={{
                                   border: "none",
                                   outline: "none",
@@ -2433,12 +2461,14 @@ const InvitesAndOrders: React.FC = () => {
                                 }}
                               />
                               {isSearchActive && (
-                                <div style={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: "2px",
-                                  flexShrink: 0
-                                }}>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "2px",
+                                    flexShrink: 0,
+                                  }}
+                                >
                                   {/* X Button */}
                                   <button
                                     onClick={clearSearch}
@@ -2484,7 +2514,9 @@ const InvitesAndOrders: React.FC = () => {
 
                                   {/* Configure Search Button */}
                                   <button
-                                    onClick={() => console.log("Configure search")}
+                                    onClick={() =>
+                                      console.log("Configure search")
+                                    }
                                     style={{
                                       display: "flex",
                                       width: "24px",
@@ -2986,7 +3018,9 @@ const InvitesAndOrders: React.FC = () => {
                                   flex: "1 0 0",
                                   height: "40px",
                                   borderRadius: "8px",
-                                  border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
+                                  border: isSearchActive
+                                    ? "2px solid #34479A"
+                                    : "1px solid #D5D7DA",
                                   background: "#FFF",
                                   boxShadow:
                                     "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
@@ -3012,17 +3046,25 @@ const InvitesAndOrders: React.FC = () => {
                                 </svg>
                                 <input
                                   type="text"
-                                  placeholder={isSearchActive ? "" : "Search by Name, SSN, State.."}
+                                  placeholder={
+                                    isSearchActive
+                                      ? ""
+                                      : "Search by Name, SSN, State.."
+                                  }
                                   value={searchQuery}
                                   onChange={handleSearchChange}
                                   onFocus={() => setIsSearchActive(true)}
-                                  onBlur={() => setIsSearchActive(searchQuery.length > 0)}
+                                  onBlur={() =>
+                                    setIsSearchActive(searchQuery.length > 0)
+                                  }
                                   style={{
                                     border: "none",
                                     outline: "none",
                                     background: "transparent",
                                     flex: "1 0 0",
-                                    color: isSearchActive ? "#181D27" : "#717680",
+                                    color: isSearchActive
+                                      ? "#181D27"
+                                      : "#717680",
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontSize: "14px",
@@ -3034,7 +3076,13 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                 />
                                 {isSearchActive && (
-                                  <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "2px",
+                                    }}
+                                  >
                                     {/* X Button */}
                                     <button
                                       onClick={clearSearch}
@@ -3080,7 +3128,9 @@ const InvitesAndOrders: React.FC = () => {
 
                                     {/* Configure Search Button */}
                                     <button
-                                      onClick={() => console.log("Configure search")}
+                                      onClick={() =>
+                                        console.log("Configure search")
+                                      }
                                       style={{
                                         display: "flex",
                                         width: "24px",
@@ -5585,7 +5635,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <TruncatedText
                                 text={invite.firstName}
-                                highlightedText={highlightText(invite.firstName, searchQuery)}
+                                highlightedText={highlightText(
+                                  invite.firstName,
+                                  searchQuery,
+                                )}
                                 style={{
                                   color: "#181D27",
                                   fontFamily: "Public Sans",
@@ -5614,7 +5667,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <TruncatedText
                                 text={invite.lastName}
-                                highlightedText={highlightText(invite.lastName, searchQuery)}
+                                highlightedText={highlightText(
+                                  invite.lastName,
+                                  searchQuery,
+                                )}
                                 style={{
                                   color: "#181D27",
                                   fontFamily: "Public Sans",
@@ -6234,7 +6290,12 @@ const InvitesAndOrders: React.FC = () => {
                               color: "rgba(65,70,81,1)",
                             }}
                           >
-                            Showing {((currentPage - 1) * pageSize) + 1} to {Math.min(currentPage * pageSize, sortedData.length)} of {sortedData.length}
+                            Showing {(currentPage - 1) * pageSize + 1} to{" "}
+                            {Math.min(
+                              currentPage * pageSize,
+                              sortedData.length,
+                            )}{" "}
+                            of {sortedData.length}
                           </span>
                         </div>
                       </div>
@@ -6258,7 +6319,9 @@ const InvitesAndOrders: React.FC = () => {
                             onMouseEnter={() =>
                               setHoveredPaginationButton("prev")
                             }
-                            onMouseLeave={() => setHoveredPaginationButton(null)}
+                            onMouseLeave={() =>
+                              setHoveredPaginationButton(null)
+                            }
                             style={{
                               display: "flex",
                               padding: "8px",
@@ -6306,12 +6369,19 @@ const InvitesAndOrders: React.FC = () => {
                                 justifyContent: "center",
                                 alignItems: "center",
                                 borderRadius: "8px",
-                                border: page === currentPage ? "1px solid #E9EAEB" : "1px solid #E9EAEB",
-                                background: page === currentPage ? "#F5F5F5" : "#FFF",
+                                border:
+                                  page === currentPage
+                                    ? "1px solid #E9EAEB"
+                                    : "1px solid #E9EAEB",
+                                background:
+                                  page === currentPage ? "#F5F5F5" : "#FFF",
                                 cursor: page !== "..." ? "pointer" : "default",
                                 position: "relative",
                                 transition: "all 0.2s ease",
-                                boxShadow: page === currentPage ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
+                                boxShadow:
+                                  page === currentPage
+                                    ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)"
+                                    : "none",
                                 outline: "none",
                               }}
                               onMouseEnter={(e) => {
@@ -6327,7 +6397,10 @@ const InvitesAndOrders: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: page === currentPage ? "#414651" : "#717680",
+                                  color:
+                                    page === currentPage
+                                      ? "#414651"
+                                      : "#717680",
                                   textAlign: "center",
                                   fontFamily: "Public Sans",
                                   fontSize: "14px",
@@ -6341,9 +6414,13 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: page === currentPage ? 500 : 500,
+                                    fontWeight:
+                                      page === currentPage ? 500 : 500,
                                     fontSize: "14px",
-                                    color: page === currentPage ? "rgba(65,70,81,1)" : "rgba(113,118,128,1)",
+                                    color:
+                                      page === currentPage
+                                        ? "rgba(65,70,81,1)"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   {page}
@@ -6363,7 +6440,9 @@ const InvitesAndOrders: React.FC = () => {
                             onMouseEnter={() =>
                               setHoveredPaginationButton("next")
                             }
-                            onMouseLeave={() => setHoveredPaginationButton(null)}
+                            onMouseLeave={() =>
+                              setHoveredPaginationButton(null)
+                            }
                             style={{
                               display: "flex",
                               padding: "8px",
@@ -6374,7 +6453,10 @@ const InvitesAndOrders: React.FC = () => {
                               background: "#FFF",
                               boxShadow:
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              cursor: currentPage === totalPages ? "default" : "pointer",
+                              cursor:
+                                currentPage === totalPages
+                                  ? "default"
+                                  : "pointer",
                               opacity: currentPage === totalPages ? 0.5 : 1,
                               transition: "background-color 0.2s ease",
                             }}
@@ -6444,7 +6526,13 @@ const InvitesAndOrders: React.FC = () => {
                             </svg>
                           </button>
 
-                          <span style={{ fontFamily: "Public Sans", fontSize: "14px", color: "#414651" }}>
+                          <span
+                            style={{
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              color: "#414651",
+                            }}
+                          >
                             {currentPage} of {totalPages}
                           </span>
 
@@ -6465,7 +6553,10 @@ const InvitesAndOrders: React.FC = () => {
                               background: "#FFF",
                               boxShadow:
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              cursor: currentPage === totalPages ? "default" : "pointer",
+                              cursor:
+                                currentPage === totalPages
+                                  ? "default"
+                                  : "pointer",
                               opacity: currentPage === totalPages ? 0.5 : 1,
                             }}
                           >
@@ -6528,15 +6619,18 @@ const InvitesAndOrders: React.FC = () => {
                             value={goToInputValue}
                             onChange={(e) => {
                               // Only allow numbers
-                              const value = e.target.value.replace(/[^0-9]/g, '');
+                              const value = e.target.value.replace(
+                                /[^0-9]/g,
+                                "",
+                              );
                               setGoToInputValue(value);
                             }}
                             onKeyDown={(e) => {
-                              if (e.key === 'Enter') {
+                              if (e.key === "Enter") {
                                 const page = parseInt(goToInputValue);
                                 if (page >= 1 && page <= totalPages) {
                                   setCurrentPage(page);
-                                  setGoToInputValue('');
+                                  setGoToInputValue("");
                                 }
                               }
                             }}
@@ -6545,7 +6639,7 @@ const InvitesAndOrders: React.FC = () => {
                               if (page >= 1 && page <= totalPages) {
                                 setCurrentPage(page);
                               }
-                              setGoToInputValue('');
+                              setGoToInputValue("");
                             }}
                             style={{
                               display: "flex",
