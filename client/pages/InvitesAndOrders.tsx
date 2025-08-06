@@ -2797,6 +2797,7 @@ const InvitesAndOrders: React.FC = () => {
 
                             {/* Search Input */}
                             <div
+                              className="search-container"
                               style={{
                                 display: "flex",
                                 alignItems: "center",
@@ -2808,7 +2809,7 @@ const InvitesAndOrders: React.FC = () => {
                                 border: isSearchActive
                                   ? "2px solid #34479A"
                                   : "1px solid #D5D7DA",
-                                background: "rgba(255, 255, 255, 1)",
+                                background: "#FFF",
                                 boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 padding: isSearchActive ? "7px" : "8px",
                                 position: "relative",
