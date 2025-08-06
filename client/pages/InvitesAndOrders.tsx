@@ -949,9 +949,10 @@ const InvitesAndOrders: React.FC = () => {
   };
 
   // Table views handlers
-  const handleTableViewChange = (view: TableView) => {
-    setCurrentTableView(view);
+  const handleViewChange = (viewId: string) => {
+    setCurrentTableView(viewId);
     // Apply the view configuration here
+    const view = tableViews.find(v => v.id === viewId);
     console.log("Switching to table view:", view);
   };
 
@@ -968,7 +969,7 @@ const InvitesAndOrders: React.FC = () => {
       },
     };
     setTableViews([...tableViews, newView]);
-    setCurrentTableView(newView);
+    setCurrentTableView(newView.id);
     console.log("Saved new table view:", newView);
   };
 
@@ -985,8 +986,8 @@ const InvitesAndOrders: React.FC = () => {
   const handleDeleteTableView = (viewId: string) => {
     const filteredViews = tableViews.filter((view) => view.id !== viewId);
     setTableViews(filteredViews);
-    if (currentTableView.id === viewId) {
-      setCurrentTableView(filteredViews[0] || tableViews[0]);
+    if (currentTableView === viewId) {
+      setCurrentTableView(filteredViews[0]?.id || "default");
     }
     console.log("Deleted table view:", viewId);
   };
@@ -996,9 +997,6 @@ const InvitesAndOrders: React.FC = () => {
       view.id === viewId ? { ...view, name: newName } : view,
     );
     setTableViews(updatedViews);
-    if (currentTableView.id === viewId) {
-      setCurrentTableView({ ...currentTableView, name: newName });
-    }
     console.log("Renamed table view:", viewId, "to:", newName);
   };
 
