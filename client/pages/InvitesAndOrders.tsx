@@ -1232,9 +1232,10 @@ const InvitesAndOrders: React.FC = () => {
                 alignSelf: "stretch",
                 position: "relative",
                 minWidth: 0, // Allow container to shrink below content size
-                ...(showFiltersModal && isDesktop && {
-                  maxWidth: `calc(100% - 258px - 16px)`, // Account for filters panel and gap
-                }),
+                ...(showFiltersModal &&
+                  isDesktop && {
+                    maxWidth: `calc(100% - 258px - 16px)`, // Account for filters panel and gap
+                  }),
               }}
             >
               <div
@@ -1276,9 +1277,10 @@ const InvitesAndOrders: React.FC = () => {
                       background: "#FFF",
                       position: "relative",
                       width: "100%",
-                      maxWidth: showFiltersModal && isDesktop
-                        ? `calc(100% - 16px)` // Account for gap between filters and table
-                        : "100%",
+                      maxWidth:
+                        showFiltersModal && isDesktop
+                          ? `calc(100% - 16px)` // Account for gap between filters and table
+                          : "100%",
                       boxSizing: "border-box",
                       overflow: "visible",
                     }}
@@ -1377,88 +1379,144 @@ const InvitesAndOrders: React.FC = () => {
                                 className="search-container"
                                 style={{
                                   display: "flex",
-                                alignItems: "center",
-                                gap: "8px",
-                                flex: "0 0 234px",
-                                height: "40px",
-                                borderRadius: "8px",
-                                border: isSearchActive
-                                  ? "2px solid #34479A"
-                                  : "1px solid #D5D7DA",
-                                background: "#FFF",
-                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                padding: isSearchActive ? "7px" : "8px",
-                                position: "relative",
-                                boxSizing: "border-box",
-                              }}
-                            >
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                              <input
-                                type="text"
-                                placeholder={
-                                  isSearchActive
-                                    ? ""
-                                    : "Search by Name, SSN, State.."
-                                }
-                                value={searchQuery}
-                                onChange={handleSearchChange}
-                                onFocus={() => setIsSearchActive(true)}
-                                onBlur={() =>
-                                  setIsSearchActive(
-                                    searchQuery.length > 0 ||
-                                      showAdvancedSearch,
-                                  )
-                                }
-                                style={{
-                                  border: "none",
-                                  outline: "none",
-                                  background: "transparent",
-                                  flex: "1 0 0",
-                                  color: isSearchActive ? "#181D27" : "#717680",
-                                  fontFamily:
-                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontSize: "14px",
-                                  fontWeight: isSearchActive ? 500 : 400,
-                                  lineHeight: "20px",
-                                  overflow: "hidden",
-                                  textOverflow: "ellipsis",
-                                  whiteSpace: "nowrap",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  flex: "0 0 234px",
+                                  height: "40px",
+                                  borderRadius: "8px",
+                                  border: isSearchActive
+                                    ? "2px solid #34479A"
+                                    : "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  padding: isSearchActive ? "7px" : "8px",
+                                  position: "relative",
+                                  boxSizing: "border-box",
                                 }}
-                              />
-                              {isSearchActive && (
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "2px",
-                                  }}
+                              >
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
                                 >
-                                  {/* X Button */}
+                                  <path
+                                    d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                                <input
+                                  type="text"
+                                  placeholder={
+                                    isSearchActive
+                                      ? ""
+                                      : "Search by Name, SSN, State.."
+                                  }
+                                  value={searchQuery}
+                                  onChange={handleSearchChange}
+                                  onFocus={() => setIsSearchActive(true)}
+                                  onBlur={() =>
+                                    setIsSearchActive(
+                                      searchQuery.length > 0 ||
+                                        showAdvancedSearch,
+                                    )
+                                  }
+                                  style={{
+                                    border: "none",
+                                    outline: "none",
+                                    background: "transparent",
+                                    flex: "1 0 0",
+                                    color: isSearchActive
+                                      ? "#181D27"
+                                      : "#717680",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: isSearchActive ? 500 : 400,
+                                    lineHeight: "20px",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap",
+                                  }}
+                                />
+                                {isSearchActive && (
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "2px",
+                                    }}
+                                  >
+                                    {/* X Button */}
+                                    <button
+                                      onMouseDown={(e) => {
+                                        e.preventDefault();
+                                        clearSearch();
+                                      }}
+                                      onMouseEnter={() =>
+                                        setHoveredSearchButton("clear")
+                                      }
+                                      onMouseLeave={() =>
+                                        setHoveredSearchButton(null)
+                                      }
+                                      style={{
+                                        display: "flex",
+                                        width: "24px",
+                                        height: "24px",
+                                        padding: "4px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: "6px",
+                                        border: "none",
+                                        background:
+                                          hoveredSearchButton === "clear"
+                                            ? "#F5F5F5"
+                                            : "transparent",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M11.3333 4.66675L4.66666 11.3334M4.66666 4.66675L11.3333 11.3334"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.66667"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </button>
+
+                                    {/* Divider */}
+                                    <div
+                                      style={{
+                                        width: "1px",
+                                        height: "24px",
+                                        background: "#E9EAEB",
+                                      }}
+                                    />
+                                  </div>
+                                )}
+
+                                {/* Advanced Search Button - Working Pattern */}
+                                <div style={{ position: "relative" }}>
                                   <button
                                     onMouseDown={(e) => {
                                       e.preventDefault();
-                                      clearSearch();
+                                      setShowAdvancedSearch(
+                                        !showAdvancedSearch,
+                                      );
                                     }}
-                                    onMouseEnter={() =>
-                                      setHoveredSearchButton("clear")
-                                    }
-                                    onMouseLeave={() =>
-                                      setHoveredSearchButton(null)
-                                    }
                                     style={{
                                       display: "flex",
                                       width: "24px",
@@ -1468,10 +1526,9 @@ const InvitesAndOrders: React.FC = () => {
                                       alignItems: "center",
                                       borderRadius: "6px",
                                       border: "none",
-                                      background:
-                                        hoveredSearchButton === "clear"
-                                          ? "#F5F5F5"
-                                          : "transparent",
+                                      background: showAdvancedSearch
+                                        ? "#F5F5F5"
+                                        : "transparent",
                                       cursor: "pointer",
                                     }}
                                   >
@@ -1483,7 +1540,7 @@ const InvitesAndOrders: React.FC = () => {
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M11.3333 4.66675L4.66666 11.3334M4.66666 4.66675L11.3333 11.3334"
+                                        d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
                                         stroke="#A4A7AE"
                                         strokeWidth="1.66667"
                                         strokeLinecap="round"
@@ -1491,73 +1548,23 @@ const InvitesAndOrders: React.FC = () => {
                                       />
                                     </svg>
                                   </button>
-
-                                  {/* Divider */}
-                                  <div
+                                  <AdvancedSearchDropdown
+                                    showAdvancedSearch={showAdvancedSearch}
+                                    advancedSearchForm={advancedSearchForm}
+                                    focusedAdvancedField={focusedAdvancedField}
+                                    onFieldChange={handleAdvancedSearchChange}
+                                    onFieldFocus={setFocusedAdvancedField}
+                                    onClear={clearAdvancedSearch}
+                                    onSearch={handleAdvancedSearch}
+                                    dropdownRef={advancedSearchRef}
                                     style={{
-                                      width: "1px",
-                                      height: "24px",
-                                      background: "#E9EAEB",
+                                      right: "-8px", // Align with search bar edge
+                                      width: "234px", // Match search bar width
+                                      top: "calc(100% + 4px)", // Exactly 4px spacing
                                     }}
                                   />
                                 </div>
-                              )}
-
-                              {/* Advanced Search Button - Working Pattern */}
-                              <div style={{ position: "relative" }}>
-                                <button
-                                  onMouseDown={(e) => {
-                                    e.preventDefault();
-                                    setShowAdvancedSearch(!showAdvancedSearch);
-                                  }}
-                                  style={{
-                                    display: "flex",
-                                    width: "24px",
-                                    height: "24px",
-                                    padding: "4px",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    borderRadius: "6px",
-                                    border: "none",
-                                    background: showAdvancedSearch
-                                      ? "#F5F5F5"
-                                      : "transparent",
-                                    cursor: "pointer",
-                                  }}
-                                >
-                                  <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
-                                      stroke="#A4A7AE"
-                                      strokeWidth="1.66667"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
-                                <AdvancedSearchDropdown
-                                  showAdvancedSearch={showAdvancedSearch}
-                                  advancedSearchForm={advancedSearchForm}
-                                  focusedAdvancedField={focusedAdvancedField}
-                                  onFieldChange={handleAdvancedSearchChange}
-                                  onFieldFocus={setFocusedAdvancedField}
-                                  onClear={clearAdvancedSearch}
-                                  onSearch={handleAdvancedSearch}
-                                  dropdownRef={advancedSearchRef}
-                                  style={{
-                                    right: "-8px", // Align with search bar edge
-                                    width: "234px", // Match search bar width
-                                    top: "calc(100% + 4px)", // Exactly 4px spacing
-                                  }}
-                                />
                               </div>
-                            </div>
                             )}
 
                             {/* Desktop: Action Buttons */}
@@ -1605,7 +1612,9 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   <path
                                     d="M3.33333 14L3.33333 10M3.33333 10C4.06971 10 4.66667 9.40305 4.66667 8.66667C4.66667 7.93029 4.06971 7.33333 3.33333 7.33333C2.59695 7.33333 2 7.93029 2 8.66667C2 9.40305 2.59695 10 3.33333 10ZM3.33333 4.66667V2M8 14V10M8 4.66667V2M8 4.66667C7.26362 4.66667 6.66667 5.26362 6.66667 6C6.66667 6.73638 7.26362 7.33333 8 7.33333C8.73638 7.33333 9.33333 6.73638 9.33333 6C9.33333 5.26362 8.73638 4.66667 8 4.66667ZM12.6667 14V11.3333M12.6667 11.3333C13.403 11.3333 14 10.7364 14 10C14 9.26362 13.403 8.66667 12.6667 8.66667C11.9303 8.66667 11.3333 9.26362 11.3333 10C11.3333 10.7364 11.9303 11.3333 12.6667 11.3333ZM12.6667 6V2"
-                                    stroke={showFiltersModal ? "#717680" : "#A4A7AE"}
+                                    stroke={
+                                      showFiltersModal ? "#717680" : "#A4A7AE"
+                                    }
                                     strokeWidth="1.66667"
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
@@ -1621,7 +1630,9 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   <div
                                     style={{
-                                      color: showFiltersModal ? "#252B37" : "#414651",
+                                      color: showFiltersModal
+                                        ? "#252B37"
+                                        : "#414651",
                                       fontFamily: "Public Sans",
                                       fontSize: "14px",
                                       fontWeight: 600,
@@ -1632,9 +1643,13 @@ const InvitesAndOrders: React.FC = () => {
                                       style={{
                                         fontFamily:
                                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: showFiltersModal ? 700 : 600,
+                                        fontWeight: showFiltersModal
+                                          ? 700
+                                          : 600,
                                         fontSize: "14px",
-                                        color: showFiltersModal ? "rgba(37,43,55,1)" : "rgba(65,70,81,1)",
+                                        color: showFiltersModal
+                                          ? "rgba(37,43,55,1)"
+                                          : "rgba(65,70,81,1)",
                                       }}
                                     >
                                       Filters
@@ -1663,464 +1678,477 @@ const InvitesAndOrders: React.FC = () => {
                               {!showFiltersModal && (
                                 <>
                                   {/* Customize Button */}
-                              <button
-                                onClick={() => console.log("Customize clicked")}
-                                onMouseEnter={() =>
-                                  setHoveredButton("customize")
-                                }
-                                onMouseLeave={() => setHoveredButton(null)}
-                                style={{
-                                  display: "flex",
-                                  minHeight: "36px",
-                                  padding: "6px 8px",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                  gap: "4px",
-                                  borderRadius: "8px",
-                                  border: "1px solid #D5D7DA",
-                                  background:
-                                    hoveredButton === "customize"
-                                      ? "#FDFDFD"
-                                      : "#FFF",
-                                  boxShadow:
-                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                  <path
-                                    d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    padding: "0 2px",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      color: "#414651",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontWeight: 600,
-                                      lineHeight: "20px",
-                                    }}
-                                  >
-                                    <span
-                                      style={{
-                                        fontFamily:
-                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: 600,
-                                        fontSize: "14px",
-                                        color: "rgba(65,70,81,1)",
-                                      }}
-                                    >
-                                      Customize
-                                    </span>
-                                  </div>
-                                </div>
-                                <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M4 6L8 10L12 6"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                              </button>
-
-                              {/* Default Button */}
-                              <button
-                                onClick={() => console.log("Default clicked")}
-                                onMouseEnter={() => setHoveredButton("default")}
-                                onMouseLeave={() => setHoveredButton(null)}
-                                style={{
-                                  display: "flex",
-                                  minHeight: "36px",
-                                  padding: "6px 8px",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                  gap: "4px",
-                                  borderRadius: "8px",
-                                  border: "1px solid #D5D7DA",
-                                  background:
-                                    hoveredButton === "default"
-                                      ? "#FDFDFD"
-                                      : "#FFF",
-                                  boxShadow:
-                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    padding: "0 2px",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      color: "#414651",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontWeight: 600,
-                                      lineHeight: "20px",
-                                    }}
-                                  >
-                                    <span
-                                      style={{
-                                        fontFamily:
-                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: 600,
-                                        fontSize: "14px",
-                                        color: "rgba(65,70,81,1)",
-                                      }}
-                                    >
-                                      Default
-                                    </span>
-                                  </div>
-                                </div>
-                                <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M4 6L8 10L12 6"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                              </button>
-
-                              {/* Download Button */}
-                              <div style={{ position: "relative" }}>
-                                <button
-                                  onClick={() =>
-                                    setShowDownloadDropdown(
-                                      !showDownloadDropdown,
-                                    )
-                                  }
-                                  onMouseEnter={() =>
-                                    setHoveredButton("download")
-                                  }
-                                  onMouseLeave={() => setHoveredButton(null)}
-                                  style={{
-                                    display: "flex",
-                                    minHeight: "36px",
-                                    padding: "6px 8px",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    gap: "4px",
-                                    borderRadius: "8px",
-                                    border: "1px solid #D5D7DA",
-                                    background:
-                                      hoveredButton === "download" ||
-                                      showDownloadDropdown
-                                        ? "#FDFDFD"
-                                        : "#FFF",
-                                    boxShadow:
-                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    cursor: "pointer",
-                                    transition: "background-color 0.2s ease",
-                                  }}
-                                >
-                                  <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
-                                      stroke="#A4A7AE"
-                                      strokeWidth="1.66667"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                  <div
+                                  <button
+                                    onClick={() =>
+                                      console.log("Customize clicked")
+                                    }
+                                    onMouseEnter={() =>
+                                      setHoveredButton("customize")
+                                    }
+                                    onMouseLeave={() => setHoveredButton(null)}
                                     style={{
                                       display: "flex",
-                                      padding: "0 2px",
+                                      minHeight: "36px",
+                                      padding: "6px 8px",
                                       justifyContent: "center",
                                       alignItems: "center",
-                                    }}
-                                  >
-                                    <div
-                                      style={{
-                                        color: "#414651",
-                                        fontFamily: "Public Sans",
-                                        fontSize: "14px",
-                                        fontWeight: 600,
-                                        lineHeight: "20px",
-                                      }}
-                                    >
-                                      <span
-                                        style={{
-                                          fontFamily:
-                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                          fontWeight: 600,
-                                          fontSize: "14px",
-                                          color: "rgba(65,70,81,1)",
-                                        }}
-                                      >
-                                        Download
-                                      </span>
-                                    </div>
-                                  </div>
-                                </button>
-                                {showDownloadDropdown && (
-                                  <div
-                                    ref={downloadDropdownRef}
-                                    style={{
-                                      position: "absolute",
-                                      top: "calc(100% + 4px)",
-                                      right: "0",
-                                      width: "170px",
+                                      gap: "4px",
                                       borderRadius: "8px",
-                                      border:
-                                        "1px solid rgba(10, 13, 18, 0.04)",
-                                      background: "rgba(255, 255, 255, 1)",
+                                      border: "1px solid #D5D7DA",
+                                      background:
+                                        hoveredButton === "customize"
+                                          ? "#FDFDFD"
+                                          : "#FFF",
                                       boxShadow:
-                                        "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
-                                      zIndex: 9999,
+                                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      cursor: "pointer",
+                                      transition: "background-color 0.2s ease",
                                     }}
                                   >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                      <path
+                                        d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
                                     <div
                                       style={{
                                         display: "flex",
-                                        padding: "4px 0",
-                                        flexDirection: "column",
-                                        alignItems: "flex-start",
-                                        alignSelf: "stretch",
+                                        padding: "0 2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                                       }}
                                     >
                                       <div
                                         style={{
-                                          display: "flex",
-                                          padding: "1px 4px",
-                                          alignItems: "center",
-                                          alignSelf: "stretch",
-                                          cursor: "pointer",
-                                        }}
-                                        onMouseEnter={(e) => {
-                                          e.currentTarget.querySelector(
-                                            ".content",
-                                          ).style.backgroundColor = "#FDFDFD";
-                                        }}
-                                        onMouseLeave={(e) => {
-                                          e.currentTarget.querySelector(
-                                            ".content",
-                                          ).style.backgroundColor =
-                                            "transparent";
-                                        }}
-                                        onClick={() => {
-                                          console.log("Download XLSX");
-                                          setShowDownloadDropdown(false);
+                                          color: "#414651",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          fontWeight: 600,
+                                          lineHeight: "20px",
                                         }}
                                       >
-                                        <div
-                                          className="content"
+                                        <span
                                           style={{
-                                            display: "flex",
-                                            padding: "6px 6px",
-                                            alignItems: "center",
-                                            gap: "12px",
-                                            flex: "1 0 0",
-                                            borderRadius: "6px",
-                                            transition:
-                                              "background-color 0.2s ease",
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(65,70,81,1)",
                                           }}
                                         >
-                                          <span
-                                            style={{
-                                              fontFamily:
-                                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                              fontWeight: 600,
-                                              fontSize: "14px",
-                                              color: "rgba(65,70,81,1)",
-                                            }}
-                                          >
-                                            Download XLSX
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <div
-                                        style={{
-                                          display: "flex",
-                                          padding: "1px 4px",
-                                          alignItems: "center",
-                                          alignSelf: "stretch",
-                                          cursor: "pointer",
-                                        }}
-                                        onMouseEnter={(e) => {
-                                          e.currentTarget.querySelector(
-                                            ".content",
-                                          ).style.backgroundColor = "#FDFDFD";
-                                        }}
-                                        onMouseLeave={(e) => {
-                                          e.currentTarget.querySelector(
-                                            ".content",
-                                          ).style.backgroundColor =
-                                            "transparent";
-                                        }}
-                                        onClick={() => {
-                                          console.log("Download CSV");
-                                          setShowDownloadDropdown(false);
-                                        }}
-                                      >
-                                        <div
-                                          className="content"
-                                          style={{
-                                            display: "flex",
-                                            padding: "6px 6px",
-                                            alignItems: "center",
-                                            gap: "12px",
-                                            flex: "1 0 0",
-                                            borderRadius: "6px",
-                                            transition:
-                                              "background-color 0.2s ease",
-                                          }}
-                                        >
-                                          <span
-                                            style={{
-                                              fontFamily:
-                                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                              fontWeight: 600,
-                                              fontSize: "14px",
-                                              color: "rgba(65,70,81,1)",
-                                            }}
-                                          >
-                                            Download CSV
-                                          </span>
-                                        </div>
+                                          Customize
+                                        </span>
                                       </div>
                                     </div>
-                                  </div>
-                                )}
-                              </div>
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M4 6L8 10L12 6"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </button>
 
-                              {/* Key Stats Button */}
-                              <button
-                                onClick={() => setShowInformationDrawer(true)}
-                                onMouseEnter={() =>
-                                  setHoveredButton("information")
-                                }
-                                onMouseLeave={() => setHoveredButton(null)}
-                                style={{
-                                  display: "flex",
-                                  minHeight: "36px",
-                                  padding: "6px 8px",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                  gap: "4px",
-                                  borderRadius: "8px",
-                                  background:
-                                    hoveredButton === "information"
-                                      ? "#F5F5F5"
-                                      : "transparent",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M8 9.33333V7M8 4.66667H8.00667M6.6 12.8L7.57333 14.0978C7.71808 14.2908 7.79045 14.3873 7.87918 14.4218C7.95689 14.452 8.04311 14.452 8.12082 14.4218C8.20955 14.3873 8.28192 14.2908 8.42667 14.0978L9.4 12.8C9.59543 12.5394 9.69315 12.4091 9.81234 12.3097C9.97126 12.177 10.1589 12.0832 10.3603 12.0357C10.5114 12 10.6743 12 11 12C11.9319 12 12.3978 12 12.7654 11.8478C13.2554 11.6448 13.6448 11.2554 13.8478 10.7654C14 10.3978 14 9.93188 14 9V5.2C14 4.07989 14 3.51984 13.782 3.09202C13.5903 2.71569 13.2843 2.40973 12.908 2.21799C12.4802 2 11.9201 2 10.8 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V9C2 9.93188 2 10.3978 2.15224 10.7654C2.35523 11.2554 2.74458 11.6448 3.23463 11.8478C3.60218 12 4.06812 12 5 12C5.32572 12 5.48858 12 5.63967 12.0357C5.84113 12.0832 6.02874 12.177 6.18766 12.3097C6.30685 12.4091 6.40457 12.5394 6.6 12.8Z"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    padding: "0 2px",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  <div
+                                  {/* Default Button */}
+                                  <button
+                                    onClick={() =>
+                                      console.log("Default clicked")
+                                    }
+                                    onMouseEnter={() =>
+                                      setHoveredButton("default")
+                                    }
+                                    onMouseLeave={() => setHoveredButton(null)}
                                     style={{
-                                      color: "#535862",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontWeight: 600,
-                                      lineHeight: "20px",
+                                      display: "flex",
+                                      minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      border: "1px solid #D5D7DA",
+                                      background:
+                                        hoveredButton === "default"
+                                          ? "#FDFDFD"
+                                          : "#FFF",
+                                      boxShadow:
+                                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      cursor: "pointer",
+                                      transition: "background-color 0.2s ease",
                                     }}
                                   >
-                                    <span
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M2 6L14 6M6 2L6 14M5.2 2H10.8C11.9201 2 12.4802 2 12.908 2.21799C13.2843 2.40973 13.5903 2.71569 13.782 3.09202C14 3.51984 14 4.0799 14 5.2V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V5.2C2 4.07989 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                    <div
                                       style={{
-                                        fontFamily:
-                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: 600,
-                                        fontSize: "14px",
-                                        color: "rgba(83,88,98,1)",
+                                        display: "flex",
+                                        padding: "0 2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                                       }}
                                     >
-                                      Key Stats
-                                    </span>
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          fontWeight: 600,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        <span
+                                          style={{
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(65,70,81,1)",
+                                          }}
+                                        >
+                                          Default
+                                        </span>
+                                      </div>
+                                    </div>
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M4 6L8 10L12 6"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </button>
+
+                                  {/* Download Button */}
+                                  <div style={{ position: "relative" }}>
+                                    <button
+                                      onClick={() =>
+                                        setShowDownloadDropdown(
+                                          !showDownloadDropdown,
+                                        )
+                                      }
+                                      onMouseEnter={() =>
+                                        setHoveredButton("download")
+                                      }
+                                      onMouseLeave={() =>
+                                        setHoveredButton(null)
+                                      }
+                                      style={{
+                                        display: "flex",
+                                        minHeight: "36px",
+                                        padding: "6px 8px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background:
+                                          hoveredButton === "download" ||
+                                          showDownloadDropdown
+                                            ? "#FDFDFD"
+                                            : "#FFF",
+                                        boxShadow:
+                                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        cursor: "pointer",
+                                        transition:
+                                          "background-color 0.2s ease",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.66667"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          padding: "0 2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#414651",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontWeight: 600,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          <span
+                                            style={{
+                                              fontFamily:
+                                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontWeight: 600,
+                                              fontSize: "14px",
+                                              color: "rgba(65,70,81,1)",
+                                            }}
+                                          >
+                                            Download
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </button>
+                                    {showDownloadDropdown && (
+                                      <div
+                                        ref={downloadDropdownRef}
+                                        style={{
+                                          position: "absolute",
+                                          top: "calc(100% + 4px)",
+                                          right: "0",
+                                          width: "170px",
+                                          borderRadius: "8px",
+                                          border:
+                                            "1px solid rgba(10, 13, 18, 0.04)",
+                                          background: "rgba(255, 255, 255, 1)",
+                                          boxShadow:
+                                            "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                          zIndex: 9999,
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            padding: "4px 0",
+                                            flexDirection: "column",
+                                            alignItems: "flex-start",
+                                            alignSelf: "stretch",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              padding: "1px 4px",
+                                              alignItems: "center",
+                                              alignSelf: "stretch",
+                                              cursor: "pointer",
+                                            }}
+                                            onMouseEnter={(e) => {
+                                              e.currentTarget.querySelector(
+                                                ".content",
+                                              ).style.backgroundColor =
+                                                "#FDFDFD";
+                                            }}
+                                            onMouseLeave={(e) => {
+                                              e.currentTarget.querySelector(
+                                                ".content",
+                                              ).style.backgroundColor =
+                                                "transparent";
+                                            }}
+                                            onClick={() => {
+                                              console.log("Download XLSX");
+                                              setShowDownloadDropdown(false);
+                                            }}
+                                          >
+                                            <div
+                                              className="content"
+                                              style={{
+                                                display: "flex",
+                                                padding: "6px 6px",
+                                                alignItems: "center",
+                                                gap: "12px",
+                                                flex: "1 0 0",
+                                                borderRadius: "6px",
+                                                transition:
+                                                  "background-color 0.2s ease",
+                                              }}
+                                            >
+                                              <span
+                                                style={{
+                                                  fontFamily:
+                                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                  fontWeight: 600,
+                                                  fontSize: "14px",
+                                                  color: "rgba(65,70,81,1)",
+                                                }}
+                                              >
+                                                Download XLSX
+                                              </span>
+                                            </div>
+                                          </div>
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              padding: "1px 4px",
+                                              alignItems: "center",
+                                              alignSelf: "stretch",
+                                              cursor: "pointer",
+                                            }}
+                                            onMouseEnter={(e) => {
+                                              e.currentTarget.querySelector(
+                                                ".content",
+                                              ).style.backgroundColor =
+                                                "#FDFDFD";
+                                            }}
+                                            onMouseLeave={(e) => {
+                                              e.currentTarget.querySelector(
+                                                ".content",
+                                              ).style.backgroundColor =
+                                                "transparent";
+                                            }}
+                                            onClick={() => {
+                                              console.log("Download CSV");
+                                              setShowDownloadDropdown(false);
+                                            }}
+                                          >
+                                            <div
+                                              className="content"
+                                              style={{
+                                                display: "flex",
+                                                padding: "6px 6px",
+                                                alignItems: "center",
+                                                gap: "12px",
+                                                flex: "1 0 0",
+                                                borderRadius: "6px",
+                                                transition:
+                                                  "background-color 0.2s ease",
+                                              }}
+                                            >
+                                              <span
+                                                style={{
+                                                  fontFamily:
+                                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                  fontWeight: 600,
+                                                  fontSize: "14px",
+                                                  color: "rgba(65,70,81,1)",
+                                                }}
+                                              >
+                                                Download CSV
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    )}
                                   </div>
-                                </div>
-                              </button>
+
+                                  {/* Key Stats Button */}
+                                  <button
+                                    onClick={() =>
+                                      setShowInformationDrawer(true)
+                                    }
+                                    onMouseEnter={() =>
+                                      setHoveredButton("information")
+                                    }
+                                    onMouseLeave={() => setHoveredButton(null)}
+                                    style={{
+                                      display: "flex",
+                                      minHeight: "36px",
+                                      padding: "6px 8px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      borderRadius: "8px",
+                                      background:
+                                        hoveredButton === "information"
+                                          ? "#F5F5F5"
+                                          : "transparent",
+                                      cursor: "pointer",
+                                      transition: "background-color 0.2s ease",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M8 9.33333V7M8 4.66667H8.00667M6.6 12.8L7.57333 14.0978C7.71808 14.2908 7.79045 14.3873 7.87918 14.4218C7.95689 14.452 8.04311 14.452 8.12082 14.4218C8.20955 14.3873 8.28192 14.2908 8.42667 14.0978L9.4 12.8C9.59543 12.5394 9.69315 12.4091 9.81234 12.3097C9.97126 12.177 10.1589 12.0832 10.3603 12.0357C10.5114 12 10.6743 12 11 12C11.9319 12 12.3978 12 12.7654 11.8478C13.2554 11.6448 13.6448 11.2554 13.8478 10.7654C14 10.3978 14 9.93188 14 9V5.2C14 4.07989 14 3.51984 13.782 3.09202C13.5903 2.71569 13.2843 2.40973 12.908 2.21799C12.4802 2 11.9201 2 10.8 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V9C2 9.93188 2 10.3978 2.15224 10.7654C2.35523 11.2554 2.74458 11.6448 3.23463 11.8478C3.60218 12 4.06812 12 5 12C5.32572 12 5.48858 12 5.63967 12.0357C5.84113 12.0832 6.02874 12.177 6.18766 12.3097C6.30685 12.4091 6.40457 12.5394 6.6 12.8Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "0 2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#535862",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          fontWeight: 600,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        <span
+                                          style={{
+                                            fontFamily:
+                                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontWeight: 600,
+                                            fontSize: "14px",
+                                            color: "rgba(83,88,98,1)",
+                                          }}
+                                        >
+                                          Key Stats
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </button>
                                 </>
                               )}
                             </div>
@@ -2445,283 +2473,231 @@ const InvitesAndOrders: React.FC = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                alignItems: "center",
-                                gap: "10px",
-                                alignSelf: "stretch",
-                                position: "relative",
-                                width: "100%",
-                                maxWidth: "100%",
-                                overflow: "visible",
-                                boxSizing: "border-box",
-                              }}
-                            >
-                              {/* View Toggle */}
-                              <div
-                                style={{
-                                  display: "flex",
-                                  alignItems: "flex-start",
-                                  borderRadius: "8px",
-                                  border: "1px solid #D5D7DA",
-                                  boxShadow:
-                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                  position: "relative",
-                                  minWidth: "88px",
-                                  flexShrink: 0,
-                                }}
-                              >
-                                {/* Table View Button */}
-                                <button
-                                  onClick={() => setTableView("table")}
-                                  style={{
-                                    display: "flex",
-                                    minHeight: "40px",
-                                    padding: "8px 12px",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    gap: "6px",
-                                    borderRight: "1px solid #D5D7DA",
-                                    background:
-                                      tableView === "table"
-                                        ? "#ECEEF9"
-                                        : "#FFF",
-                                    borderTopLeftRadius: "8px",
-                                    borderBottomLeftRadius: "8px",
-                                    cursor: "pointer",
-                                    position: "relative",
-                                  }}
-                                >
-                                  <svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M3 9L21 9M9 3L9 21M7.8 3H16.2C17.8802 3 18.7202 3 19.362 3.32698C19.9265 3.6146 20.3854 4.07354 20.673 4.63803C21 5.27976 21 6.11984 21 7.8V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V7.8C3 6.11984 3 5.27976 3.32698 4.63803C3.6146 4.07354 4.07354 3.6146 4.63803 3.32698C5.27976 3 6.11984 3 7.8 3Z"
-                                      stroke={
-                                        tableView === "table"
-                                          ? "#344698"
-                                          : "#A4A7AE"
-                                      }
-                                      strokeWidth="1.66667"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
-
-                                {/* Rows View Button */}
-                                <button
-                                  onClick={() => setTableView("rows")}
-                                  style={{
-                                    display: "flex",
-                                    minHeight: "40px",
-                                    padding: "8px 12px",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    gap: "6px",
-                                    background:
-                                      tableView === "rows" ? "#ECEEF9" : "#FFF",
-                                    borderTopRightRadius: "8px",
-                                    borderBottomRightRadius: "8px",
-                                    cursor: "pointer",
-                                    position: "relative",
-                                  }}
-                                >
-                                  <svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M17.8 10C18.9201 10 19.4802 10 19.908 9.78201C20.2843 9.59027 20.5903 9.28431 20.782 8.90798C21 8.48016 21 7.92011 21 6.8V6.2C21 5.0799 21 4.51984 20.782 4.09202C20.5903 3.7157 20.2843 3.40973 19.908 3.21799C19.4802 3 18.9201 3 17.8 3L6.2 3C5.0799 3 4.51984 3 4.09202 3.21799C3.71569 3.40973 3.40973 3.71569 3.21799 4.09202C3 4.51984 3 5.07989 3 6.2L3 6.8C3 7.9201 3 8.48016 3.21799 8.90798C3.40973 9.28431 3.71569 9.59027 4.09202 9.78201C4.51984 10 5.07989 10 6.2 10L17.8 10Z"
-                                      stroke={
-                                        tableView === "rows"
-                                          ? "#344698"
-                                          : "#A4A7AE"
-                                      }
-                                      strokeWidth="1.66667"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                    <path
-                                      d="M17.8 21C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V17.2C21 16.0799 21 15.5198 20.782 15.092C20.5903 14.7157 20.2843 14.4097 19.908 14.218C19.4802 14 18.9201 14 17.8 14L6.2 14C5.0799 14 4.51984 14 4.09202 14.218C3.71569 14.4097 3.40973 14.7157 3.21799 15.092C3 15.5198 3 16.0799 3 17.2L3 17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8Z"
-                                      stroke={
-                                        tableView === "rows"
-                                          ? "#344698"
-                                          : "#A4A7AE"
-                                      }
-                                      strokeWidth="1.66667"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
-                              </div>
-
-                              {/* Search Input */}
-                              <div
-                                className="search-container"
-                                style={{
-                                  display: "flex",
                                   alignItems: "center",
-                                  gap: "8px",
-                                  flex: "1 0 0",
-                                  minWidth: 0,
-                                  height: "40px",
-                                  borderRadius: "8px",
-                                  border: isSearchActive
-                                    ? "2px solid #34479A"
-                                    : "1px solid #D5D7DA",
-                                  background: "#FFF",
-                                  boxShadow:
-                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                  padding: isSearchActive ? "7px" : "8px",
+                                  gap: "10px",
+                                  alignSelf: "stretch",
                                   position: "relative",
-                                  boxSizing: "border-box",
+                                  width: "100%",
                                   maxWidth: "100%",
                                   overflow: "visible",
+                                  boxSizing: "border-box",
                                 }}
                               >
-                                <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                                <input
-                                  type="text"
-                                  placeholder={
-                                    isSearchActive
-                                      ? ""
-                                      : "Search by Name, SSN, State.."
-                                  }
-                                  value={searchQuery}
-                                  onChange={handleSearchChange}
-                                  onFocus={() => setIsSearchActive(true)}
-                                  onBlur={() =>
-                                    setIsSearchActive(
-                                      searchQuery.length > 0 ||
-                                        showAdvancedSearch,
-                                    )
-                                  }
+                                {/* View Toggle */}
+                                <div
                                   style={{
-                                    border: "none",
-                                    outline: "none",
-                                    background: "transparent",
-                                    flex: "1 1 auto",
-                                    minWidth: 0,
-                                    maxWidth: "calc(100% - 32px)",
-                                    color: isSearchActive
-                                      ? "#181D27"
-                                      : "#717680",
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontSize: "14px",
-                                    fontWeight: isSearchActive ? 500 : 400,
-                                    lineHeight: "20px",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    whiteSpace: "nowrap",
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    boxShadow:
+                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    position: "relative",
+                                    minWidth: "88px",
+                                    flexShrink: 0,
                                   }}
-                                />
-
-                                {/* Mobile: Advanced Search Button - Only show when search is not active */}
-                                {!isSearchActive && (
+                                >
+                                  {/* Table View Button */}
                                   <button
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      console.log(
-                                        "Mobile advanced search clicked, current state:",
-                                        showAdvancedSearch,
-                                      );
-                                      setShowAdvancedSearch(
-                                        !showAdvancedSearch,
-                                      );
-                                    }}
+                                    onClick={() => setTableView("table")}
                                     style={{
                                       display: "flex",
-                                      width: "24px",
-                                      height: "24px",
-                                      padding: "2px",
+                                      minHeight: "40px",
+                                      padding: "8px 12px",
                                       justifyContent: "center",
                                       alignItems: "center",
-                                      borderRadius: "4px",
-                                      border: "none",
-                                      background: showAdvancedSearch
-                                        ? "#F5F5F5"
-                                        : "transparent",
+                                      gap: "6px",
+                                      borderRight: "1px solid #D5D7DA",
+                                      background:
+                                        tableView === "table"
+                                          ? "#ECEEF9"
+                                          : "#FFF",
+                                      borderTopLeftRadius: "8px",
+                                      borderBottomLeftRadius: "8px",
                                       cursor: "pointer",
-                                      touchAction: "manipulation",
-                                      flexShrink: 0,
-                                      minWidth: "24px",
-                                      minHeight: "24px",
+                                      position: "relative",
                                     }}
                                   >
                                     <svg
-                                      width="16"
-                                      height="16"
-                                      viewBox="0 0 16 16"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
                                       fill="none"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <path
-                                        d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
-                                        stroke="#A4A7AE"
+                                        d="M3 9L21 9M9 3L9 21M7.8 3H16.2C17.8802 3 18.7202 3 19.362 3.32698C19.9265 3.6146 20.3854 4.07354 20.673 4.63803C21 5.27976 21 6.11984 21 7.8V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V7.8C3 6.11984 3 5.27976 3.32698 4.63803C3.6146 4.07354 4.07354 3.6146 4.63803 3.32698C5.27976 3 6.11984 3 7.8 3Z"
+                                        stroke={
+                                          tableView === "table"
+                                            ? "#344698"
+                                            : "#A4A7AE"
+                                        }
                                         strokeWidth="1.66667"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                       />
                                     </svg>
                                   </button>
-                                )}
 
-                                {isSearchActive && (
-                                  <div
+                                  {/* Rows View Button */}
+                                  <button
+                                    onClick={() => setTableView("rows")}
                                     style={{
                                       display: "flex",
+                                      minHeight: "40px",
+                                      padding: "8px 12px",
+                                      justifyContent: "center",
                                       alignItems: "center",
-                                      gap: "2px",
+                                      gap: "6px",
+                                      background:
+                                        tableView === "rows"
+                                          ? "#ECEEF9"
+                                          : "#FFF",
+                                      borderTopRightRadius: "8px",
+                                      borderBottomRightRadius: "8px",
+                                      cursor: "pointer",
+                                      position: "relative",
                                     }}
                                   >
-                                    {/* X Button */}
+                                    <svg
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M17.8 10C18.9201 10 19.4802 10 19.908 9.78201C20.2843 9.59027 20.5903 9.28431 20.782 8.90798C21 8.48016 21 7.92011 21 6.8V6.2C21 5.0799 21 4.51984 20.782 4.09202C20.5903 3.7157 20.2843 3.40973 19.908 3.21799C19.4802 3 18.9201 3 17.8 3L6.2 3C5.0799 3 4.51984 3 4.09202 3.21799C3.71569 3.40973 3.40973 3.71569 3.21799 4.09202C3 4.51984 3 5.07989 3 6.2L3 6.8C3 7.9201 3 8.48016 3.21799 8.90798C3.40973 9.28431 3.71569 9.59027 4.09202 9.78201C4.51984 10 5.07989 10 6.2 10L17.8 10Z"
+                                        stroke={
+                                          tableView === "rows"
+                                            ? "#344698"
+                                            : "#A4A7AE"
+                                        }
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                      <path
+                                        d="M17.8 21C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V17.2C21 16.0799 21 15.5198 20.782 15.092C20.5903 14.7157 20.2843 14.4097 19.908 14.218C19.4802 14 18.9201 14 17.8 14L6.2 14C5.0799 14 4.51984 14 4.09202 14.218C3.71569 14.4097 3.40973 14.7157 3.21799 15.092C3 15.5198 3 16.0799 3 17.2L3 17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8Z"
+                                        stroke={
+                                          tableView === "rows"
+                                            ? "#344698"
+                                            : "#A4A7AE"
+                                        }
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </button>
+                                </div>
+
+                                {/* Search Input */}
+                                <div
+                                  className="search-container"
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    flex: "1 0 0",
+                                    minWidth: 0,
+                                    height: "40px",
+                                    borderRadius: "8px",
+                                    border: isSearchActive
+                                      ? "2px solid #34479A"
+                                      : "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    padding: isSearchActive ? "7px" : "8px",
+                                    position: "relative",
+                                    boxSizing: "border-box",
+                                    maxWidth: "100%",
+                                    overflow: "visible",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                  <input
+                                    type="text"
+                                    placeholder={
+                                      isSearchActive
+                                        ? ""
+                                        : "Search by Name, SSN, State.."
+                                    }
+                                    value={searchQuery}
+                                    onChange={handleSearchChange}
+                                    onFocus={() => setIsSearchActive(true)}
+                                    onBlur={() =>
+                                      setIsSearchActive(
+                                        searchQuery.length > 0 ||
+                                          showAdvancedSearch,
+                                      )
+                                    }
+                                    style={{
+                                      border: "none",
+                                      outline: "none",
+                                      background: "transparent",
+                                      flex: "1 1 auto",
+                                      minWidth: 0,
+                                      maxWidth: "calc(100% - 32px)",
+                                      color: isSearchActive
+                                        ? "#181D27"
+                                        : "#717680",
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontWeight: isSearchActive ? 500 : 400,
+                                      lineHeight: "20px",
+                                      overflow: "hidden",
+                                      textOverflow: "ellipsis",
+                                      whiteSpace: "nowrap",
+                                    }}
+                                  />
+
+                                  {/* Mobile: Advanced Search Button - Only show when search is not active */}
+                                  {!isSearchActive && (
                                     <button
-                                      onMouseDown={(e) => {
+                                      onClick={(e) => {
                                         e.preventDefault();
-                                        clearSearch();
+                                        console.log(
+                                          "Mobile advanced search clicked, current state:",
+                                          showAdvancedSearch,
+                                        );
+                                        setShowAdvancedSearch(
+                                          !showAdvancedSearch,
+                                        );
                                       }}
-                                      onMouseEnter={() =>
-                                        setHoveredSearchButton("clear")
-                                      }
-                                      onMouseLeave={() =>
-                                        setHoveredSearchButton(null)
-                                      }
                                       style={{
                                         display: "flex",
                                         width: "24px",
                                         height: "24px",
-                                        padding: "4px",
+                                        padding: "2px",
                                         justifyContent: "center",
                                         alignItems: "center",
-                                        borderRadius: "6px",
+                                        borderRadius: "4px",
                                         border: "none",
-                                        background:
-                                          hoveredSearchButton === "clear"
-                                            ? "#F5F5F5"
-                                            : "transparent",
+                                        background: showAdvancedSearch
+                                          ? "#F5F5F5"
+                                          : "transparent",
                                         cursor: "pointer",
+                                        touchAction: "manipulation",
+                                        flexShrink: 0,
+                                        minWidth: "24px",
+                                        minHeight: "24px",
                                       }}
                                     >
                                       <svg
@@ -2732,7 +2708,7 @@ const InvitesAndOrders: React.FC = () => {
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
                                         <path
-                                          d="M11.3333 4.66675L4.66666 11.3334M4.66666 4.66675L11.3333 11.3334"
+                                          d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
                                           stroke="#A4A7AE"
                                           strokeWidth="1.66667"
                                           strokeLinecap="round"
@@ -2740,42 +2716,42 @@ const InvitesAndOrders: React.FC = () => {
                                         />
                                       </svg>
                                     </button>
+                                  )}
 
-                                    {/* Divider */}
+                                  {isSearchActive && (
                                     <div
                                       style={{
-                                        width: "1px",
-                                        height: "24px",
-                                        background: "#E9EAEB",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "2px",
                                       }}
-                                    />
-
-                                    {/* Advanced Search Button */}
-                                    <div style={{ position: "relative" }}>
+                                    >
+                                      {/* X Button */}
                                       <button
-                                        onClick={(e) => {
+                                        onMouseDown={(e) => {
                                           e.preventDefault();
-                                          setShowAdvancedSearch(
-                                            !showAdvancedSearch,
-                                          );
+                                          clearSearch();
                                         }}
+                                        onMouseEnter={() =>
+                                          setHoveredSearchButton("clear")
+                                        }
+                                        onMouseLeave={() =>
+                                          setHoveredSearchButton(null)
+                                        }
                                         style={{
                                           display: "flex",
                                           width: "24px",
                                           height: "24px",
-                                          padding: "2px",
+                                          padding: "4px",
                                           justifyContent: "center",
                                           alignItems: "center",
-                                          borderRadius: "4px",
+                                          borderRadius: "6px",
                                           border: "none",
-                                          background: showAdvancedSearch
-                                            ? "#F5F5F5"
-                                            : "transparent",
+                                          background:
+                                            hoveredSearchButton === "clear"
+                                              ? "#F5F5F5"
+                                              : "transparent",
                                           cursor: "pointer",
-                                          touchAction: "manipulation",
-                                          flexShrink: 0,
-                                          minWidth: "24px",
-                                          minHeight: "24px",
                                         }}
                                       >
                                         <svg
@@ -2786,7 +2762,7 @@ const InvitesAndOrders: React.FC = () => {
                                           xmlns="http://www.w3.org/2000/svg"
                                         >
                                           <path
-                                            d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
+                                            d="M11.3333 4.66675L4.66666 11.3334M4.66666 4.66675L11.3333 11.3334"
                                             stroke="#A4A7AE"
                                             strokeWidth="1.66667"
                                             strokeLinecap="round"
@@ -2794,28 +2770,82 @@ const InvitesAndOrders: React.FC = () => {
                                           />
                                         </svg>
                                       </button>
-                                    </div>
-                                  </div>
-                                )}
 
-                                {/* Mobile Advanced Search Dropdown - positioned relative to search bar */}
-                                <AdvancedSearchDropdown
-                                  showAdvancedSearch={showAdvancedSearch}
-                                  advancedSearchForm={advancedSearchForm}
-                                  focusedAdvancedField={focusedAdvancedField}
-                                  onFieldChange={handleAdvancedSearchChange}
-                                  onFieldFocus={setFocusedAdvancedField}
-                                  onClear={clearAdvancedSearch}
-                                  onSearch={handleAdvancedSearch}
-                                  dropdownRef={mobileAdvancedSearchRef}
-                                  style={{
-                                    right: "0",
-                                    left: "0",
-                                    width: "auto",
-                                  }}
-                                />
+                                      {/* Divider */}
+                                      <div
+                                        style={{
+                                          width: "1px",
+                                          height: "24px",
+                                          background: "#E9EAEB",
+                                        }}
+                                      />
+
+                                      {/* Advanced Search Button */}
+                                      <div style={{ position: "relative" }}>
+                                        <button
+                                          onClick={(e) => {
+                                            e.preventDefault();
+                                            setShowAdvancedSearch(
+                                              !showAdvancedSearch,
+                                            );
+                                          }}
+                                          style={{
+                                            display: "flex",
+                                            width: "24px",
+                                            height: "24px",
+                                            padding: "2px",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            borderRadius: "4px",
+                                            border: "none",
+                                            background: showAdvancedSearch
+                                              ? "#F5F5F5"
+                                              : "transparent",
+                                            cursor: "pointer",
+                                            touchAction: "manipulation",
+                                            flexShrink: 0,
+                                            minWidth: "24px",
+                                            minHeight: "24px",
+                                          }}
+                                        >
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.66667"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  )}
+
+                                  {/* Mobile Advanced Search Dropdown - positioned relative to search bar */}
+                                  <AdvancedSearchDropdown
+                                    showAdvancedSearch={showAdvancedSearch}
+                                    advancedSearchForm={advancedSearchForm}
+                                    focusedAdvancedField={focusedAdvancedField}
+                                    onFieldChange={handleAdvancedSearchChange}
+                                    onFieldFocus={setFocusedAdvancedField}
+                                    onClear={clearAdvancedSearch}
+                                    onSearch={handleAdvancedSearch}
+                                    dropdownRef={mobileAdvancedSearchRef}
+                                    style={{
+                                      right: "0",
+                                      left: "0",
+                                      width: "auto",
+                                    }}
+                                  />
+                                </div>
                               </div>
-                            </div>
                             )}
 
                             <div style={{ position: "relative" }}>
@@ -5014,9 +5044,10 @@ const InvitesAndOrders: React.FC = () => {
                           alignItems: "flex-start",
                           position: "relative",
                           width: "100%",
-                          maxWidth: showFiltersModal && isDesktop
-                            ? `calc(100vw - ${sidebarCollapsed ? '80px' : '296px'} - 258px - 80px)` // Subtracting sidebar, filters panel, margins, and padding
-                            : "100%",
+                          maxWidth:
+                            showFiltersModal && isDesktop
+                              ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"} - 258px - 80px)` // Subtracting sidebar, filters panel, margins, and padding
+                              : "100%",
                           overflowX: "auto",
                           overflowY: "hidden",
                           scrollbarWidth: "thin",
