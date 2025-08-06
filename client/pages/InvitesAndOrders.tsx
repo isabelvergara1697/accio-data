@@ -5490,7 +5490,7 @@ const InvitesAndOrders: React.FC = () => {
                                     color: "rgba(24,29,39,1)",
                                   }}
                                 >
-                                  {invite.email}
+                                  {highlightText(invite.email, searchQuery)}
                                 </span>
                               </div>
                             </div>
