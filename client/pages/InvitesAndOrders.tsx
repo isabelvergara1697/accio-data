@@ -163,6 +163,15 @@ const InvitesAndOrders: React.FC = () => {
   );
   const [isButtonClick, setIsButtonClick] = useState(false);
   const [showFiltersModal, setShowFiltersModal] = useState(false);
+  const [tableViewsDropdownOpen, setTableViewsDropdownOpen] = useState(false);
+  const [currentTableView, setCurrentTableView] = useState<TableView>({
+    id: "default",
+    name: "Default",
+    isDefault: true,
+  });
+  const [tableViews, setTableViews] = useState<TableView[]>([
+    { id: "default", name: "Default", isDefault: true },
+  ]);
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
   const mobileAdvancedSearchRef = useRef<HTMLDivElement>(null);
