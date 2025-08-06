@@ -1391,7 +1391,7 @@ const InvitesAndOrders: React.FC = () => {
                                 whiteSpace: "nowrap",
                               }}
                             />
-                            {(isSearchActive || true) && (
+                            {isSearchActive && (
                               <div
                                 style={{
                                   display: "flex",
@@ -2875,7 +2875,7 @@ const InvitesAndOrders: React.FC = () => {
                                   whiteSpace: "nowrap",
                                 }}
                               />
-                              {(isSearchActive || true) && (
+                              {isSearchActive && (
                                 <div
                                   style={{
                                     display: "flex",
@@ -3866,7 +3866,7 @@ const InvitesAndOrders: React.FC = () => {
                                     whiteSpace: "nowrap",
                                   }}
                                 />
-                                {(isSearchActive || true) && (
+                                {isSearchActive && (
                                   <div
                                     style={{
                                       display: "flex",
