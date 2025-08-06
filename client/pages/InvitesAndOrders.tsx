@@ -5798,18 +5798,15 @@ const InvitesAndOrders: React.FC = () => {
                       </div>
 
                       {/* Center - Pagination Controls */}
-                      {true && (
+                      {(isTablet || isDesktop) && (
                         <div
                           style={{
                             display: "flex",
                             alignItems: "center",
                             gap: "12px",
                             position: "relative",
-                            border: "2px solid red", // Debug border
-                            padding: "4px",
                           }}
                         >
-                          <div style={{color: "red", fontSize: "12px"}}>PAGINATION HERE</div>
                           {/* Previous Button */}
                           <button
                             onClick={() =>
