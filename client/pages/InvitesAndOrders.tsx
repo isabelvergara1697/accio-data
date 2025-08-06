@@ -2253,11 +2253,12 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
                           </div>
 
-                          {/* Mobile: View Toggle Row */}
+                          {/* Mobile: View Toggle + Search Row */}
                           <div
                             style={{
                               display: "flex",
-                              alignItems: "flex-start",
+                              alignItems: "center",
+                              gap: "10px",
                               alignSelf: "stretch",
                               position: "relative",
                             }}
@@ -2366,17 +2367,7 @@ const InvitesAndOrders: React.FC = () => {
                                 </svg>
                               </button>
                             </div>
-                          </div>
 
-                          {/* Mobile: Search Row */}
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              alignSelf: "stretch",
-                              position: "relative",
-                            }}
-                          >
                             {/* Search Input */}
                             <div
                               style={{
