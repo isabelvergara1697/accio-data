@@ -914,13 +914,6 @@ const InvitesAndOrders: React.FC = () => {
     });
   };
 
-  console.log("=== COMPONENT RENDER DEBUG ===");
-  console.log("isMobile:", isMobile, "isTablet:", isTablet);
-  console.log("showAdvancedSearch:", showAdvancedSearch);
-  console.log("isSearchActive:", isSearchActive);
-  console.log("searchQuery:", searchQuery);
-  console.log("================================");
-
   return (
     <div
       style={{
