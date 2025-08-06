@@ -5851,8 +5851,12 @@ const InvitesAndOrders: React.FC = () => {
 
                           {/* Page Numbers */}
                           {getPageNumbers().map((page, index) => (
-                            <div
+                            <button
                               key={index}
+                              onClick={() =>
+                                typeof page === "number" && setCurrentPage(page)
+                              }
+                              disabled={page === "..."}
                               style={{
                                 display: "flex",
                                 width: "32px",
@@ -5866,10 +5870,18 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                                 transition: "all 0.2s ease",
                                 boxShadow: page === currentPage ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
+                                outline: "none",
                               }}
-                              onClick={() =>
-                                typeof page === "number" && setCurrentPage(page)
-                              }
+                              onMouseEnter={(e) => {
+                                if (page !== "..." && page !== currentPage) {
+                                  e.currentTarget.style.background = "#F5F5F5";
+                                }
+                              }}
+                              onMouseLeave={(e) => {
+                                if (page !== "..." && page !== currentPage) {
+                                  e.currentTarget.style.background = "#FFF";
+                                }
+                              }}
                             >
                               <div
                                 style={{
@@ -5878,7 +5890,7 @@ const InvitesAndOrders: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "14px",
                                   fontStyle: "normal",
-                                  fontWeight: page === currentPage ? 600 : 400,
+                                  fontWeight: page === currentPage ? 500 : 500,
                                   lineHeight: "20px",
                                   position: "relative",
                                 }}
@@ -5887,7 +5899,7 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     fontFamily:
                                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: page === currentPage ? 600 : 400,
+                                    fontWeight: page === currentPage ? 500 : 500,
                                     fontSize: "14px",
                                     color: page === currentPage ? "rgba(65,70,81,1)" : "rgba(113,118,128,1)",
                                   }}
@@ -5895,7 +5907,7 @@ const InvitesAndOrders: React.FC = () => {
                                   {page}
                                 </span>
                               </div>
-                            </div>
+                            </button>
                           ))}
 
                           {/* Next Button */}
