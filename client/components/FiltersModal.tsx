@@ -1,10 +1,5 @@
 import React, { useState, useRef } from "react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "./ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
 import {
   Select,
   SelectContent,
@@ -70,26 +65,26 @@ const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
   ];
 
   const handleFilterChange = (key: keyof FilterState, value: string) => {
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
       [key]: value,
     }));
   };
 
   const handleDateRangeChange = (start: Date, end: Date) => {
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
       dateRange: { start, end },
     }));
   };
 
   const formatDateRange = (start: Date, end: Date): string => {
-    const options: Intl.DateTimeFormatOptions = { 
-      month: 'short', 
-      day: 'numeric', 
-      year: 'numeric' 
+    const options: Intl.DateTimeFormatOptions = {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
     };
-    return `${start.toLocaleDateString('en-US', options)} - ${end.toLocaleDateString('en-US', options)}`;
+    return `${start.toLocaleDateString("en-US", options)} - ${end.toLocaleDateString("en-US", options)}`;
   };
 
   const clearFilters = () => {
@@ -204,7 +199,7 @@ const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Close Button */}
                 <div
                   style={{
@@ -224,7 +219,8 @@ const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
                       borderRadius: "8px",
                       border: "1px solid #D5D7DA",
                       background: "#FFF",
-                      boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      boxShadow:
+                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                       cursor: "pointer",
                       position: "relative",
                     }}
@@ -320,7 +316,12 @@ const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
                     position: "relative",
                   }}
                 >
-                  <Select value={filters.status} onValueChange={(value) => handleFilterChange('status', value)}>
+                  <Select
+                    value={filters.status}
+                    onValueChange={(value) =>
+                      handleFilterChange("status", value)
+                    }
+                  >
                     <SelectTrigger
                       style={{
                         display: "flex",
@@ -400,7 +401,12 @@ const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
                     position: "relative",
                   }}
                 >
-                  <Select value={filters.state} onValueChange={(value) => handleFilterChange('state', value)}>
+                  <Select
+                    value={filters.state}
+                    onValueChange={(value) =>
+                      handleFilterChange("state", value)
+                    }
+                  >
                     <SelectTrigger
                       style={{
                         display: "flex",
@@ -482,9 +488,18 @@ const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
                       position: "relative",
                     }}
                   >
-                    <Select 
-                      value={filters[`filter${filterNum}` as keyof FilterState] as string} 
-                      onValueChange={(value) => handleFilterChange(`filter${filterNum}` as keyof FilterState, value)}
+                    <Select
+                      value={
+                        filters[
+                          `filter${filterNum}` as keyof FilterState
+                        ] as string
+                      }
+                      onValueChange={(value) =>
+                        handleFilterChange(
+                          `filter${filterNum}` as keyof FilterState,
+                          value,
+                        )
+                      }
                     >
                       <SelectTrigger
                         style={{
@@ -626,7 +641,10 @@ const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
                           position: "relative",
                         }}
                       >
-                        {formatDateRange(filters.dateRange.start, filters.dateRange.end)}
+                        {formatDateRange(
+                          filters.dateRange.start,
+                          filters.dateRange.end,
+                        )}
                       </div>
                     </div>
                     <svg

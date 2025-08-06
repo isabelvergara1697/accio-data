@@ -64,26 +64,26 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
   ];
 
   const handleFilterChange = (key: keyof FilterState, value: string) => {
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
       [key]: value,
     }));
   };
 
   const handleDateRangeChange = (start: Date, end: Date) => {
-    setFilters(prev => ({
+    setFilters((prev) => ({
       ...prev,
       dateRange: { start, end },
     }));
   };
 
   const formatDateRange = (start: Date, end: Date): string => {
-    const options: Intl.DateTimeFormatOptions = { 
-      month: 'short', 
-      day: 'numeric', 
-      year: 'numeric' 
+    const options: Intl.DateTimeFormatOptions = {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
     };
-    return `${start.toLocaleDateString('en-US', options)} - ${end.toLocaleDateString('en-US', options)}`;
+    return `${start.toLocaleDateString("en-US", options)} - ${end.toLocaleDateString("en-US", options)}`;
   };
 
   if (!isOpen) return null;
@@ -180,7 +180,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     >
                       <span
                         style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontWeight: 700,
                           fontSize: "18px",
                           color: "rgba(24,29,39,1)",
@@ -192,7 +193,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Close Button */}
               <div
                 style={{
@@ -212,7 +213,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
-                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                     position: "relative",
                   }}
@@ -300,7 +302,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                 >
                   <span
                     style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontWeight: 400,
                       fontSize: "14px",
                       color: "rgba(65,70,81,1)",
@@ -317,7 +320,10 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   position: "relative",
                 }}
               >
-                <Select value={filters.status} onValueChange={(value) => handleFilterChange('status', value)}>
+                <Select
+                  value={filters.status}
+                  onValueChange={(value) => handleFilterChange("status", value)}
+                >
                   <SelectTrigger
                     style={{
                       display: "flex",
@@ -389,7 +395,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                 >
                   <span
                     style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontWeight: 400,
                       fontSize: "14px",
                       color: "rgba(65,70,81,1)",
@@ -406,7 +413,10 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   position: "relative",
                 }}
               >
-                <Select value={filters.state} onValueChange={(value) => handleFilterChange('state', value)}>
+                <Select
+                  value={filters.state}
+                  onValueChange={(value) => handleFilterChange("state", value)}
+                >
                   <SelectTrigger
                     style={{
                       display: "flex",
@@ -480,7 +490,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   >
                     <span
                       style={{
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         fontWeight: 400,
                         fontSize: "14px",
                         color: "rgba(65,70,81,1)",
@@ -497,9 +508,18 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     position: "relative",
                   }}
                 >
-                  <Select 
-                    value={filters[`filter${filterNum}` as keyof FilterState] as string} 
-                    onValueChange={(value) => handleFilterChange(`filter${filterNum}` as keyof FilterState, value)}
+                  <Select
+                    value={
+                      filters[
+                        `filter${filterNum}` as keyof FilterState
+                      ] as string
+                    }
+                    onValueChange={(value) =>
+                      handleFilterChange(
+                        `filter${filterNum}` as keyof FilterState,
+                        value,
+                      )
+                    }
                   >
                     <SelectTrigger
                       style={{
@@ -573,7 +593,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                 >
                   <span
                     style={{
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontWeight: 400,
                       fontSize: "14px",
                       color: "rgba(65,70,81,1)",
@@ -652,7 +673,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     >
                       <span
                         style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontWeight: 400,
                           fontSize: "14px",
                           color: "rgba(113,118,128,1)",
