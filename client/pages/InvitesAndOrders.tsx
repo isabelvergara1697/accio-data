@@ -3312,7 +3312,6 @@ const InvitesAndOrders: React.FC = () => {
 
                           </div>
 
-                          {/* Mobile: Advanced Search Button - Always visible */}
                           <div style={{ position: "relative" }}>
                             <button
                               onClick={(e) => {
