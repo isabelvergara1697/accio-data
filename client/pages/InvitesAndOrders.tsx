@@ -3703,26 +3703,24 @@ const InvitesAndOrders: React.FC = () => {
                                           />
                                         </svg>
                                       </button>
-                                      <AdvancedSearchDropdown
-                                        showAdvancedSearch={showAdvancedSearch}
-                                        advancedSearchForm={advancedSearchForm}
-                                        focusedAdvancedField={
-                                          focusedAdvancedField
-                                        }
-                                        onFieldChange={
-                                          handleAdvancedSearchChange
-                                        }
-                                        onFieldFocus={setFocusedAdvancedField}
-                                        onClear={clearAdvancedSearch}
-                                        onSearch={handleAdvancedSearch}
-                                        dropdownRef={tabletAdvancedSearchRef}
-                                        style={{
-                                          right: "0",
-                                          left: "0",
-                                          width: "auto",
-                                        }}
-                                      />
                                     </div>
+
+                                    {/* Tablet Advanced Search Dropdown - positioned relative to search bar */}
+                                    <AdvancedSearchDropdown
+                                      showAdvancedSearch={showAdvancedSearch}
+                                      advancedSearchForm={advancedSearchForm}
+                                      focusedAdvancedField={focusedAdvancedField}
+                                      onFieldChange={handleAdvancedSearchChange}
+                                      onFieldFocus={setFocusedAdvancedField}
+                                      onClear={clearAdvancedSearch}
+                                      onSearch={handleAdvancedSearch}
+                                      dropdownRef={tabletAdvancedSearchRef}
+                                      style={{
+                                        right: "0",
+                                        left: "0",
+                                        width: "auto",
+                                      }}
+                                    />
                                   </div>
                                 )}
                               </div>
