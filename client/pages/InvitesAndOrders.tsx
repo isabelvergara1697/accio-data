@@ -3166,7 +3166,7 @@ const InvitesAndOrders: React.FC = () => {
                                             onChange={(e) =>
                                               {}
                                             }
-                                            placeholder="Enter order number"
+                                            placeholder="REMOVE_THIS_FIELD"
                                             style={{
                                               display: "flex",
                                               height: "32px",
@@ -3600,7 +3600,7 @@ const InvitesAndOrders: React.FC = () => {
                                                 onChange={(e) =>
                                                   {}
                                                 }
-                                                placeholder="Enter order number"
+                                                placeholder="REMOVE_THIS_FIELD"
                                                 style={{
                                                   display: "flex",
                                                   height: "32px",
@@ -3931,7 +3931,7 @@ const InvitesAndOrders: React.FC = () => {
                                             e.target.value,
                                           )
                                         }
-                                        placeholder="Enter order number"
+                                        placeholder="REMOVE_THIS_FIELD"
                                         style={{
                                           display: "flex",
                                           height: "32px",
@@ -4893,7 +4893,7 @@ const InvitesAndOrders: React.FC = () => {
                                                   onChange={(e) =>
                                                     {}
                                                   }
-                                                  placeholder="Enter order number"
+                                                  placeholder="REMOVE_THIS_FIELD"
                                                   style={{
                                                     display: "flex",
                                                     height: "32px",
