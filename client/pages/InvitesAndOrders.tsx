@@ -1367,7 +1367,9 @@ const InvitesAndOrders: React.FC = () => {
                               onChange={handleSearchChange}
                               onFocus={() => setIsSearchActive(true)}
                               onBlur={() =>
-                                setIsSearchActive(searchQuery.length > 0 || showAdvancedSearch)
+                                setIsSearchActive(
+                                  searchQuery.length > 0 || showAdvancedSearch,
+                                )
                               }
                               style={{
                                 border: "none",
@@ -1451,10 +1453,19 @@ const InvitesAndOrders: React.FC = () => {
                                 <button
                                   onMouseDown={(e) => {
                                     e.preventDefault();
-                                    console.log('Button clicked. Current showAdvancedSearch:', showAdvancedSearch);
-                                    console.log('isSearchActive:', isSearchActive);
+                                    console.log(
+                                      "Button clicked. Current showAdvancedSearch:",
+                                      showAdvancedSearch,
+                                    );
+                                    console.log(
+                                      "isSearchActive:",
+                                      isSearchActive,
+                                    );
                                     setShowAdvancedSearch(!showAdvancedSearch);
-                                    console.log('Setting showAdvancedSearch to:', !showAdvancedSearch);
+                                    console.log(
+                                      "Setting showAdvancedSearch to:",
+                                      !showAdvancedSearch,
+                                    );
                                   }}
                                   onMouseEnter={() =>
                                     setHoveredSearchButton("advanced")
@@ -1500,7 +1511,12 @@ const InvitesAndOrders: React.FC = () => {
                           </div>
 
                           {/* Advanced Search Dropdown */}
-                          {console.log('Dropdown render check - showAdvancedSearch:', showAdvancedSearch, 'isSearchActive:', isSearchActive) || null}
+                          {console.log(
+                            "Dropdown render check - showAdvancedSearch:",
+                            showAdvancedSearch,
+                            "isSearchActive:",
+                            isSearchActive,
+                          ) || null}
                           {showAdvancedSearch && (
                             <div
                               ref={advancedSearchRef}
@@ -2848,7 +2864,10 @@ const InvitesAndOrders: React.FC = () => {
                                 onChange={handleSearchChange}
                                 onFocus={() => setIsSearchActive(true)}
                                 onBlur={() =>
-                                  setIsSearchActive(searchQuery.length > 0 || showAdvancedSearch)
+                                  setIsSearchActive(
+                                    searchQuery.length > 0 ||
+                                      showAdvancedSearch,
+                                  )
                                 }
                                 style={{
                                   border: "none",
@@ -3823,7 +3842,10 @@ const InvitesAndOrders: React.FC = () => {
                                   onChange={handleSearchChange}
                                   onFocus={() => setIsSearchActive(true)}
                                   onBlur={() =>
-                                    setIsSearchActive(searchQuery.length > 0 || showAdvancedSearch)
+                                    setIsSearchActive(
+                                      searchQuery.length > 0 ||
+                                        showAdvancedSearch,
+                                    )
                                   }
                                   style={{
                                     border: "none",
@@ -3914,8 +3936,8 @@ const InvitesAndOrders: React.FC = () => {
                                       onMouseDown={(e) => {
                                         e.preventDefault();
                                         setShowAdvancedSearch(
-                                        !showAdvancedSearch,
-                                      );
+                                          !showAdvancedSearch,
+                                        );
                                       }}
                                       onMouseEnter={() =>
                                         setHoveredSearchButton("advanced")
@@ -4484,7 +4506,8 @@ const InvitesAndOrders: React.FC = () => {
                                         right: "0",
                                         width: "170px",
                                         borderRadius: "8px",
-                                        border: "1px solid rgba(10, 13, 18, 0.04)",
+                                        border:
+                                          "1px solid rgba(10, 13, 18, 0.04)",
                                         background: "rgba(255, 255, 255, 1)",
                                         boxShadow:
                                           "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
@@ -4641,7 +4664,8 @@ const InvitesAndOrders: React.FC = () => {
                                         right: "0",
                                         width: "200px",
                                         borderRadius: "8px",
-                                        border: "1px solid rgba(10, 13, 18, 0.04)",
+                                        border:
+                                          "1px solid rgba(10, 13, 18, 0.04)",
                                         background: "rgba(255, 255, 255, 1)",
                                         boxShadow:
                                           "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
@@ -5226,7 +5250,8 @@ const InvitesAndOrders: React.FC = () => {
                                         right: "0",
                                         width: "170px",
                                         borderRadius: "8px",
-                                        border: "1px solid rgba(10, 13, 18, 0.04)",
+                                        border:
+                                          "1px solid rgba(10, 13, 18, 0.04)",
                                         background: "rgba(255, 255, 255, 1)",
                                         boxShadow:
                                           "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
@@ -7002,7 +7027,8 @@ const InvitesAndOrders: React.FC = () => {
                                       marginTop: "4px",
                                       width: isMobile ? "200px" : "248px",
                                       borderRadius: "8px",
-                                      border: "1px solid rgba(10, 13, 18, 0.04)",
+                                      border:
+                                        "1px solid rgba(10, 13, 18, 0.04)",
                                       background: "rgba(255, 255, 255, 1)",
                                       boxShadow:
                                         "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
