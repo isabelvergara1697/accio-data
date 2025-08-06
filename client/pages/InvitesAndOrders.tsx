@@ -1421,7 +1421,7 @@ const InvitesAndOrders: React.FC = () => {
                                     background:
                                       hoveredSearchButton === "clear"
                                         ? "#F5F5F5"
-                                        : "pink",
+                                        : "transparent",
                                     cursor: "pointer",
                                   }}
                                 >
@@ -1476,7 +1476,7 @@ const InvitesAndOrders: React.FC = () => {
                                       showAdvancedSearch ||
                                       hoveredSearchButton === "advanced"
                                         ? "#F5F5F5"
-                                        : "pink",
+                                        : "transparent",
                                     cursor: "pointer",
                                   }}
                                 >
@@ -2905,7 +2905,7 @@ const InvitesAndOrders: React.FC = () => {
                                       background:
                                         hoveredSearchButton === "clear"
                                           ? "#F5F5F5"
-                                          : "pink",
+                                          : "transparent",
                                       cursor: "pointer",
                                     }}
                                   >
@@ -2968,7 +2968,7 @@ const InvitesAndOrders: React.FC = () => {
                                         showAdvancedSearch ||
                                         hoveredSearchButton === "advanced"
                                           ? "#F5F5F5"
-                                          : "pink",
+                                          : "transparent",
                                       cursor: "pointer",
                                     }}
                                   >
@@ -3846,7 +3846,7 @@ const InvitesAndOrders: React.FC = () => {
                                       showAdvancedSearch ||
                                       hoveredSearchButton === "advanced"
                                         ? "#F5F5F5"
-                                        : "pink",
+                                        : "transparent",
                                     flex: "1 0 0",
                                     color: isSearchActive
                                       ? "#181D27"
@@ -3895,7 +3895,7 @@ const InvitesAndOrders: React.FC = () => {
                                         background:
                                           hoveredSearchButton === "clear"
                                             ? "#F5F5F5"
-                                            : "pink",
+                                            : "transparent",
                                         cursor: "pointer",
                                       }}
                                     >
@@ -3958,7 +3958,7 @@ const InvitesAndOrders: React.FC = () => {
                                           showAdvancedSearch ||
                                           hoveredSearchButton === "advanced"
                                             ? "#F5F5F5"
-                                            : "pink",
+                                            : "transparent",
                                         cursor: "pointer",
                                       }}
                                     >
@@ -5390,7 +5390,7 @@ const InvitesAndOrders: React.FC = () => {
                                     background:
                                       hoveredButton === "information"
                                         ? "#F5F5F5"
-                                        : "pink",
+                                        : "transparent",
                                     cursor: "pointer",
                                     flex: "0 0 auto",
                                     minWidth: "100px",
@@ -7002,7 +7002,7 @@ const InvitesAndOrders: React.FC = () => {
                                     background:
                                       showActionMenu === invite.id
                                         ? "#FDFDFD"
-                                        : "pink",
+                                        : "transparent",
                                   }}
                                   onClick={(e) => {
                                     e.stopPropagation();
