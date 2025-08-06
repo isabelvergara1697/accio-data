@@ -1467,10 +1467,10 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Advanced Search Button - Always Visible */}
                             <button
                               ref={advancedSearchButtonRef}
-                              onMouseDown={(e) => {
+                              onClick={(e) => {
                                 e.preventDefault();
+                                e.stopPropagation();
                                 console.log('🔵 BUTTON CLICK - Before:', showAdvancedSearch);
-                                setIsButtonClick(true);
                                 setShowAdvancedSearch(!showAdvancedSearch);
                                 setTimeout(() => console.log('🔵 BUTTON CLICK - After:', !showAdvancedSearch), 50);
                               }}
