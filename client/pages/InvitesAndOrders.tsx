@@ -2938,7 +2938,7 @@ const InvitesAndOrders: React.FC = () => {
                           {/* Mobile: Advanced Search Button - Always visible */}
                           <div style={{ position: "relative" }}>
                             <button
-                              onMouseDown={(e) => {
+                              onClick={(e) => {
                                 e.preventDefault();
                                 setShowAdvancedSearch(!showAdvancedSearch);
                               }}
