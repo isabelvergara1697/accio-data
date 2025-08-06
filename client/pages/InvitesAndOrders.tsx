@@ -202,18 +202,11 @@ const InvitesAndOrders: React.FC = () => {
         setShowMobileDotsMenu(false);
       }
       if (
+        showAdvancedSearch &&
         advancedSearchRef.current &&
         !advancedSearchRef.current.contains(event.target as Node)
       ) {
-        // Check if the clicked element is an advanced search button by looking for the specific svg path
-        const target = event.target as Element;
-        const isAdvancedSearchButton =
-          target.closest('button') &&
-          target.closest('button')?.querySelector('svg path[d*="M2 5.33325L10 5.33325"]');
-
-        if (!isAdvancedSearchButton) {
-          setShowAdvancedSearch(false);
-        }
+        setShowAdvancedSearch(false);
       }
     };
 
