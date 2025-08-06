@@ -2928,7 +2928,6 @@ const InvitesAndOrders: React.FC = () => {
                                   {/* Advanced Search Button */}
                                   <div style={{ position: "relative" }}>
                                     <button
-                                      ref={advancedSearchButtonRef}
                                       onClick={() =>
                                         setShowAdvancedSearch(!showAdvancedSearch)
                                       }
@@ -3904,7 +3903,6 @@ const InvitesAndOrders: React.FC = () => {
                                     {/* Advanced Search Button */}
                                     <div style={{ position: "relative" }}>
                                       <button
-                                      ref={advancedSearchButtonRef}
                                       onClick={() =>
                                         setShowAdvancedSearch(!showAdvancedSearch)
                                       }
