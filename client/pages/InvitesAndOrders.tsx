@@ -1263,7 +1263,7 @@ const InvitesAndOrders: React.FC = () => {
                         position: "relative",
                         width: "100%",
                         maxWidth: "100%",
-                        overflow: "hidden",
+                        overflow: "visible",
                         boxSizing: "border-box",
                       }}
                     >
@@ -2706,8 +2706,8 @@ const InvitesAndOrders: React.FC = () => {
                               position: "relative",
                               width: "100%",
                               maxWidth: "100%",
-                              overflow: "hidden",
-                              boxSizing: "border-box",
+                        overflow: "visible",
+                        boxSizing: "border-box",
                             }}
                           >
                             {/* View Toggle */}
