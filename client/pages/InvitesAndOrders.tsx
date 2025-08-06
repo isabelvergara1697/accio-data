@@ -2854,7 +2854,6 @@ const InvitesAndOrders: React.FC = () => {
                                   outline: "none",
                                   background: "transparent",
                                   flex: "1 0 0",
-                                  minWidth: 0,
                                   color: isSearchActive ? "#181D27" : "#717680",
                                   fontFamily:
                                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
