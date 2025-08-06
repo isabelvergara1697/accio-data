@@ -109,8 +109,9 @@ const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
   return (
     <>
       <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent 
-          side="left" 
+        <SheetContent
+          side="left"
+          className=""
           style={{
             width: "258px",
             height: "100vh",
@@ -119,6 +120,7 @@ const FiltersModal: React.FC<FiltersModalProps> = ({ isOpen, onClose }) => {
             background: "#FFF",
             display: "flex",
             flexDirection: "column",
+            maxWidth: "258px",
           }}
         >
           {/* Header */}
