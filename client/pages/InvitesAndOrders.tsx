@@ -1400,7 +1400,6 @@ const InvitesAndOrders: React.FC = () => {
                                 <button
                                   onMouseDown={(e) => {
                                     e.preventDefault();
-                                    console.log('X BUTTON CLICKED!');
                                     clearSearch();
                                   }}
 
@@ -2895,7 +2894,6 @@ const InvitesAndOrders: React.FC = () => {
                                   <button
                                     onMouseDown={(e) => {
                                     e.preventDefault();
-                                    console.log('X BUTTON CLICKED!');
                                     clearSearch();
                                   }}
 
@@ -3886,7 +3884,6 @@ const InvitesAndOrders: React.FC = () => {
                                     <button
                                       onMouseDown={(e) => {
                                     e.preventDefault();
-                                    console.log('X BUTTON CLICKED!');
                                     clearSearch();
                                   }}
 
