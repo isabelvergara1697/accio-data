@@ -161,6 +161,7 @@ const InvitesAndOrders: React.FC = () => {
     null,
   );
   const [isButtonClick, setIsButtonClick] = useState(false);
+  const [showFiltersModal, setShowFiltersModal] = useState(false);
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
   const mobileAdvancedSearchRef = useRef<HTMLDivElement>(null);
