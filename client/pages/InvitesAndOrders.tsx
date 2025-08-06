@@ -36,7 +36,8 @@ const TruncatedText: React.FC<{
   text: string;
   style?: React.CSSProperties;
   maxWidth?: string;
-}> = ({ text, style = {}, maxWidth }) => {
+  highlightedText?: React.ReactNode;
+}> = ({ text, style = {}, maxWidth, highlightedText }) => {
   const textRef = useRef<HTMLDivElement>(null);
   const [isTruncated, setIsTruncated] = useState(false);
 
