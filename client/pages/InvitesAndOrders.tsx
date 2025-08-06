@@ -1279,12 +1279,14 @@ const InvitesAndOrders: React.FC = () => {
                               alignItems: "center",
                               gap: "8px",
                               flex: "0 0 234px",
+                              height: "40px",
                               borderRadius: "8px",
                               border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
                               background: "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              padding: "8px",
+                              padding: isSearchActive ? "7px" : "8px",
                               position: "relative",
+                              boxSizing: "border-box",
                             }}
                           >
                             <svg
@@ -2966,15 +2968,16 @@ const InvitesAndOrders: React.FC = () => {
                                   display: "flex",
                                   alignItems: "center",
                                   gap: "8px",
-                                  width: "300px",
+                                  flex: "1 0 0",
+                                  height: "40px",
                                   borderRadius: "8px",
                                   border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
                                   background: "#FFF",
                                   boxShadow:
                                     "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                  padding: "8px",
+                                  padding: isSearchActive ? "7px" : "8px",
                                   position: "relative",
-                                  minHeight: "40px",
+                                  boxSizing: "border-box",
                                 }}
                               >
                                 <svg
