@@ -135,9 +135,10 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
                 gap: "8px",
                 alignSelf: "stretch",
                 borderRadius: "8px",
-                border: focusedAdvancedField === "firstName"
-                  ? "2px solid #34479A"
-                  : "1px solid #D5D7DA",
+                border:
+                  focusedAdvancedField === "firstName"
+                    ? "2px solid #34479A"
+                    : "1px solid #D5D7DA",
                 background: "#FFF",
                 boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
               }}
@@ -195,9 +196,10 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
                 gap: "8px",
                 alignSelf: "stretch",
                 borderRadius: "8px",
-                border: focusedAdvancedField === "lastName"
-                  ? "2px solid #34479A"
-                  : "1px solid #D5D7DA",
+                border:
+                  focusedAdvancedField === "lastName"
+                    ? "2px solid #34479A"
+                    : "1px solid #D5D7DA",
                 background: "#FFF",
                 boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
               }}
@@ -255,9 +257,10 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
                 gap: "8px",
                 alignSelf: "stretch",
                 borderRadius: "8px",
-                border: focusedAdvancedField === "socialSecurityTrace"
-                  ? "2px solid #34479A"
-                  : "1px solid #D5D7DA",
+                border:
+                  focusedAdvancedField === "socialSecurityTrace"
+                    ? "2px solid #34479A"
+                    : "1px solid #D5D7DA",
                 background: "#FFF",
                 boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
               }}
@@ -265,7 +268,9 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
               <input
                 type="text"
                 value={advancedSearchForm.socialSecurityTrace}
-                onChange={(e) => onFieldChange("socialSecurityTrace", e.target.value)}
+                onChange={(e) =>
+                  onFieldChange("socialSecurityTrace", e.target.value)
+                }
                 onFocus={() => onFieldFocus("socialSecurityTrace")}
                 onBlur={() => onFieldFocus(null)}
                 placeholder="000-00-0000"
@@ -274,7 +279,9 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
                   border: "none",
                   outline: "none",
                   background: "transparent",
-                  color: advancedSearchForm.socialSecurityTrace ? "#181D27" : "#717680",
+                  color: advancedSearchForm.socialSecurityTrace
+                    ? "#181D27"
+                    : "#717680",
                   fontFamily: "Public Sans",
                   fontSize: "14px",
                   fontStyle: "normal",

@@ -152,7 +152,9 @@ const InvitesAndOrders: React.FC = () => {
     lastName: "",
     socialSecurityTrace: "",
   });
-  const [focusedAdvancedField, setFocusedAdvancedField] = useState<string | null>(null);
+  const [focusedAdvancedField, setFocusedAdvancedField] = useState<
+    string | null
+  >(null);
   const [goToInputValue, setGoToInputValue] = useState("");
   const [hoveredSearchButton, setHoveredSearchButton] = useState<string | null>(
     null,
@@ -206,11 +208,18 @@ const InvitesAndOrders: React.FC = () => {
       }
       if (showAdvancedSearch) {
         const target = event.target as Node;
-        const isClickInsideDesktop = advancedSearchRef.current && advancedSearchRef.current.contains(target);
-        const isClickInsideMobile = mobileAdvancedSearchRef.current && mobileAdvancedSearchRef.current.contains(target);
-        const isClickInsideTablet = tabletAdvancedSearchRef.current && tabletAdvancedSearchRef.current.contains(target);
+        const isClickInsideDesktop =
+          advancedSearchRef.current &&
+          advancedSearchRef.current.contains(target);
+        const isClickInsideMobile =
+          mobileAdvancedSearchRef.current &&
+          mobileAdvancedSearchRef.current.contains(target);
+        const isClickInsideTablet =
+          tabletAdvancedSearchRef.current &&
+          tabletAdvancedSearchRef.current.contains(target);
 
-        const isClickOutside = !isClickInsideDesktop && !isClickInsideMobile && !isClickInsideTablet;
+        const isClickOutside =
+          !isClickInsideDesktop && !isClickInsideMobile && !isClickInsideTablet;
 
         if (isClickOutside) {
           setShowAdvancedSearch(false);
@@ -924,7 +933,6 @@ const InvitesAndOrders: React.FC = () => {
     });
   };
 
-
   return (
     <div
       style={{
@@ -1404,7 +1412,6 @@ const InvitesAndOrders: React.FC = () => {
                                   display: "flex",
                                   alignItems: "center",
                                   gap: "2px",
-
                                 }}
                               >
                                 {/* X Button */}
@@ -1413,7 +1420,6 @@ const InvitesAndOrders: React.FC = () => {
                                     e.preventDefault();
                                     clearSearch();
                                   }}
-
                                   onMouseEnter={() =>
                                     setHoveredSearchButton("clear")
                                   }
@@ -1480,7 +1486,9 @@ const InvitesAndOrders: React.FC = () => {
                                   alignItems: "center",
                                   borderRadius: "6px",
                                   border: "none",
-                                  background: showAdvancedSearch ? "#F5F5F5" : "transparent",
+                                  background: showAdvancedSearch
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                   cursor: "pointer",
                                 }}
                               >
@@ -1517,7 +1525,6 @@ const InvitesAndOrders: React.FC = () => {
                               />
                             </div>
                           </div>
-
 
                           {/* Desktop: Action Buttons */}
                           <div
@@ -2374,8 +2381,8 @@ const InvitesAndOrders: React.FC = () => {
                               position: "relative",
                               width: "100%",
                               maxWidth: "100%",
-                        overflow: "visible",
-                        boxSizing: "border-box",
+                              overflow: "visible",
+                              boxSizing: "border-box",
                             }}
                           >
                             {/* View Toggle */}
@@ -2558,48 +2565,50 @@ const InvitesAndOrders: React.FC = () => {
 
                               {/* Mobile: Advanced Search Button - Only show when search is not active */}
                               {!isSearchActive && (
-                              <button
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  console.log("Mobile advanced search clicked, current state:", showAdvancedSearch);
-                                  setShowAdvancedSearch(!showAdvancedSearch);
-                                }}
-                                style={{
-                                  display: "flex",
-                                  width: "24px",
-                                  height: "24px",
-                                  padding: "2px",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                  borderRadius: "4px",
-                                  border: "none",
-                                  background:
-                                    showAdvancedSearch
+                                <button
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    console.log(
+                                      "Mobile advanced search clicked, current state:",
+                                      showAdvancedSearch,
+                                    );
+                                    setShowAdvancedSearch(!showAdvancedSearch);
+                                  }}
+                                  style={{
+                                    display: "flex",
+                                    width: "24px",
+                                    height: "24px",
+                                    padding: "2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "4px",
+                                    border: "none",
+                                    background: showAdvancedSearch
                                       ? "#F5F5F5"
                                       : "transparent",
-                                  cursor: "pointer",
-                                  touchAction: "manipulation",
-                                  flexShrink: 0,
-                                  minWidth: "24px",
-                                  minHeight: "24px",
-                                }}
-                              >
-                                <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
+                                    cursor: "pointer",
+                                    touchAction: "manipulation",
+                                    flexShrink: 0,
+                                    minWidth: "24px",
+                                    minHeight: "24px",
+                                  }}
                                 >
-                                  <path
-                                    d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
-                                    stroke="#A4A7AE"
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                              </button>
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
                               )}
 
                               {isSearchActive && (
@@ -2613,10 +2622,9 @@ const InvitesAndOrders: React.FC = () => {
                                   {/* X Button */}
                                   <button
                                     onMouseDown={(e) => {
-                                    e.preventDefault();
-                                    clearSearch();
-                                  }}
-
+                                      e.preventDefault();
+                                      clearSearch();
+                                    }}
                                     onMouseEnter={() =>
                                       setHoveredSearchButton("clear")
                                     }
@@ -2670,7 +2678,9 @@ const InvitesAndOrders: React.FC = () => {
                                     <button
                                       onClick={(e) => {
                                         e.preventDefault();
-                                        setShowAdvancedSearch(!showAdvancedSearch);
+                                        setShowAdvancedSearch(
+                                          !showAdvancedSearch,
+                                        );
                                       }}
                                       style={{
                                         display: "flex",
@@ -2681,10 +2691,9 @@ const InvitesAndOrders: React.FC = () => {
                                         alignItems: "center",
                                         borderRadius: "4px",
                                         border: "none",
-                                        background:
-                                          showAdvancedSearch
-                                            ? "#F5F5F5"
-                                            : "transparent",
+                                        background: showAdvancedSearch
+                                          ? "#F5F5F5"
+                                          : "transparent",
                                         cursor: "pointer",
                                         touchAction: "manipulation",
                                         flexShrink: 0,
@@ -2709,7 +2718,6 @@ const InvitesAndOrders: React.FC = () => {
                                       </svg>
                                     </button>
                                   </div>
-
                                 </div>
                               )}
                             </div>
@@ -3061,7 +3069,6 @@ const InvitesAndOrders: React.FC = () => {
                               </div>
                             )}
                           </div>
-
 
                           {/* Mobile: Filters + Download Buttons Row */}
                           <div
@@ -3535,7 +3542,8 @@ const InvitesAndOrders: React.FC = () => {
                                     ? "2px solid #34479A"
                                     : "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   padding: isSearchActive ? "7px" : "8px",
                                   position: "relative",
                                   boxSizing: "border-box",
@@ -3601,10 +3609,9 @@ const InvitesAndOrders: React.FC = () => {
                                     {/* X Button */}
                                     <button
                                       onMouseDown={(e) => {
-                                    e.preventDefault();
-                                    clearSearch();
-                                  }}
-
+                                        e.preventDefault();
+                                        clearSearch();
+                                      }}
                                       onMouseEnter={() =>
                                         setHoveredSearchButton("clear")
                                       }
@@ -3656,16 +3663,18 @@ const InvitesAndOrders: React.FC = () => {
                                     {/* Advanced Search Button */}
                                     <div style={{ position: "relative" }}>
                                       <button
-                                      onMouseDown={(e) => {
-                                        e.preventDefault();
-                                        setShowAdvancedSearch(!showAdvancedSearch);
-                                      }}
-                                      onMouseEnter={() =>
-                                        setHoveredSearchButton("advanced")
-                                      }
-                                      onMouseLeave={() =>
-                                        setHoveredSearchButton(null)
-                                      }
+                                        onMouseDown={(e) => {
+                                          e.preventDefault();
+                                          setShowAdvancedSearch(
+                                            !showAdvancedSearch,
+                                          );
+                                        }}
+                                        onMouseEnter={() =>
+                                          setHoveredSearchButton("advanced")
+                                        }
+                                        onMouseLeave={() =>
+                                          setHoveredSearchButton(null)
+                                        }
                                         style={{
                                           display: "flex",
                                           width: "24px",
@@ -3702,8 +3711,12 @@ const InvitesAndOrders: React.FC = () => {
                                       <AdvancedSearchDropdown
                                         showAdvancedSearch={showAdvancedSearch}
                                         advancedSearchForm={advancedSearchForm}
-                                        focusedAdvancedField={focusedAdvancedField}
-                                        onFieldChange={handleAdvancedSearchChange}
+                                        focusedAdvancedField={
+                                          focusedAdvancedField
+                                        }
+                                        onFieldChange={
+                                          handleAdvancedSearchChange
+                                        }
                                         onFieldFocus={setFocusedAdvancedField}
                                         onClear={clearAdvancedSearch}
                                         onSearch={handleAdvancedSearch}
@@ -3722,9 +3735,7 @@ const InvitesAndOrders: React.FC = () => {
                                 )}
                               </div>
                             </div>
-
                           </div>
-
 
                           {/* Tablet: Action Buttons Row */}
                           <div
