@@ -11,6 +11,7 @@ import {
 import InformationDrawer from "../components/ui/information-drawer";
 import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
 import FiltersPanel from "../components/FiltersPanel";
+import { TableViewsDropdown, TableView } from "../components/ui/table-views-dropdown";
 
 interface InviteData {
   id: string;
