@@ -807,6 +807,81 @@ const InvitesAndOrders: React.FC = () => {
     return pages;
   };
 
+  // Search handling functions
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    setIsSearchActive(value.length > 0);
+    setCurrentPage(1); // Reset to first page when searching
+  };
+
+  const clearSearch = () => {
+    setSearchQuery("");
+    setIsSearchActive(false);
+    setCurrentPage(1);
+  };
+
+  // Filter data based on search query
+  const filteredData = React.useMemo(() => {
+    if (!searchQuery.trim()) return invitesData;
+
+    return invitesData.filter((invite) =>
+      invite.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      invite.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      invite.email.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery]);
+
+  // Update sortedData to use filteredData instead of invitesData
+  const sortedData = React.useMemo(() => {
+    let data = [...filteredData];
+
+    if (sortField && sortDirection) {
+      data.sort((a, b) => {
+        let aValue = a[sortField];
+        let bValue = b[sortField];
+
+        if (typeof aValue === "string") {
+          aValue = aValue.toLowerCase();
+        }
+        if (typeof bValue === "string") {
+          bValue = bValue.toLowerCase();
+        }
+
+        if (aValue < bValue) return sortDirection === "asc" ? -1 : 1;
+        if (aValue > bValue) return sortDirection === "asc" ? 1 : -1;
+        return 0;
+      });
+    }
+
+    return data;
+  }, [filteredData, sortField, sortDirection]);
+
+  // Helper function to highlight matching text
+  const highlightText = (text: string, query: string) => {
+    if (!query.trim()) return text;
+
+    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const parts = text.split(regex);
+
+    return parts.map((part, index) => {
+      if (regex.test(part)) {
+        return (
+          <span
+            key={index}
+            style={{
+              color: "#344698",
+              fontWeight: 700,
+            }}
+          >
+            {part}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <div
       style={{
