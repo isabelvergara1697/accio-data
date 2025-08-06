@@ -164,11 +164,7 @@ const InvitesAndOrders: React.FC = () => {
   const [isButtonClick, setIsButtonClick] = useState(false);
   const [showFiltersModal, setShowFiltersModal] = useState(false);
   const [tableViewsDropdownOpen, setTableViewsDropdownOpen] = useState(false);
-  const [currentTableView, setCurrentTableView] = useState<TableView>({
-    id: "default",
-    name: "Default",
-    isDefault: true,
-  });
+  const [currentTableView, setCurrentTableView] = useState("default");
   const [tableViews, setTableViews] = useState<TableView[]>([
     { id: "default", name: "Default", isDefault: true },
   ]);
