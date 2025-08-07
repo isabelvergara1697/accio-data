@@ -515,14 +515,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             padding: "2px 8px",
                             alignItems: "center",
                             borderRadius: "9999px",
-                            border: "1px solid #E9EAEB",
-                            background: "#FAFAFA",
+                            border: currentPage === "invites-orders"
+                              ? "1px solid #B3BCE5"
+                              : "1px solid #E9EAEB",
+                            background: currentPage === "invites-orders"
+                              ? "#ECEEF9"
+                              : "#FAFAFA",
                             position: "relative",
                           }}
                         >
                           <div
                             style={{
-                              color: "#414651",
+                              color: currentPage === "invites-orders"
+                                ? "#273572"
+                                : "#414651",
                               textAlign: "center",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -538,7 +544,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                                   "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                 fontWeight: 400,
                                 fontSize: "12px",
-                                color: "rgba(65,70,81,1)",
+                                color: currentPage === "invites-orders"
+                                  ? "rgba(39,53,114,1)"
+                                  : "rgba(65,70,81,1)",
                               }}
                             >
                               8
