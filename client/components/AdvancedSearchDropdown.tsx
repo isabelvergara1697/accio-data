@@ -230,7 +230,7 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
             </div>
           </div>
 
-          {/* Social Security Trace */}
+          {/* Email */}
           <div
             style={{
               display: "flex",
@@ -250,18 +250,19 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
                 lineHeight: "20px",
               }}
             >
-              Social Security Trace
+              Email
             </div>
             <div
               style={{
                 display: "flex",
+                height: "32px",
                 padding: "6px 8px",
                 alignItems: "center",
                 gap: "8px",
                 alignSelf: "stretch",
                 borderRadius: "8px",
                 border:
-                  focusedAdvancedField === "socialSecurityTrace"
+                  focusedAdvancedField === "email"
                     ? "2px solid #34479A"
                     : "1px solid #D5D7DA",
                 background: "#FFF",
@@ -269,22 +270,80 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
               }}
             >
               <input
-                type="text"
-                value={advancedSearchForm.socialSecurityTrace}
-                onChange={(e) =>
-                  onFieldChange("socialSecurityTrace", e.target.value)
-                }
-                onFocus={() => onFieldFocus("socialSecurityTrace")}
+                type="email"
+                value={advancedSearchForm.email}
+                onChange={(e) => onFieldChange("email", e.target.value)}
+                onFocus={() => onFieldFocus("email")}
                 onBlur={() => onFieldFocus(null)}
-                placeholder="000-00-0000"
+                placeholder="user@mail.com"
                 style={{
                   flex: "1 0 0",
                   border: "none",
                   outline: "none",
                   background: "transparent",
-                  color: advancedSearchForm.socialSecurityTrace
-                    ? "#181D27"
-                    : "#717680",
+                  color: advancedSearchForm.email ? "#181D27" : "#717680",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Phone Number */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+            }}
+          >
+            <div
+              style={{
+                color: "#414651",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            >
+              Phone Number
+            </div>
+            <div
+              style={{
+                display: "flex",
+                height: "32px",
+                padding: "6px 8px",
+                alignItems: "center",
+                gap: "8px",
+                alignSelf: "stretch",
+                borderRadius: "8px",
+                border:
+                  focusedAdvancedField === "phoneNumber"
+                    ? "2px solid #34479A"
+                    : "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+              }}
+            >
+              <input
+                type="tel"
+                value={advancedSearchForm.phoneNumber}
+                onChange={(e) => onFieldChange("phoneNumber", e.target.value)}
+                onFocus={() => onFieldFocus("phoneNumber")}
+                onBlur={() => onFieldFocus(null)}
+                placeholder="000000000"
+                style={{
+                  flex: "1 0 0",
+                  border: "none",
+                  outline: "none",
+                  background: "transparent",
+                  color: advancedSearchForm.phoneNumber ? "#181D27" : "#717680",
                   fontFamily: "Public Sans",
                   fontSize: "14px",
                   fontStyle: "normal",
