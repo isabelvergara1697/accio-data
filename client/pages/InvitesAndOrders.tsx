@@ -152,7 +152,8 @@ const InvitesAndOrders: React.FC = () => {
   const [advancedSearchForm, setAdvancedSearchForm] = useState({
     firstName: "",
     lastName: "",
-    socialSecurityTrace: "",
+    email: "",
+    phoneNumber: "",
   });
   const [focusedAdvancedField, setFocusedAdvancedField] = useState<
     string | null
