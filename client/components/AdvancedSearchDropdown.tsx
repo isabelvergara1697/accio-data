@@ -5,7 +5,8 @@ interface AdvancedSearchDropdownProps {
   advancedSearchForm: {
     firstName: string;
     lastName: string;
-    socialSecurityTrace: string;
+    email: string;
+    phoneNumber: string;
   };
   focusedAdvancedField: string | null;
   onFieldChange: (field: string, value: string) => void;
