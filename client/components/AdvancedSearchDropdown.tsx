@@ -193,6 +193,7 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
             <div
               style={{
                 display: "flex",
+                height: "32px",
                 padding: "6px 8px",
                 alignItems: "center",
                 gap: "8px",
