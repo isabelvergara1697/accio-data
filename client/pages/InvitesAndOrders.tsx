@@ -905,7 +905,8 @@ const InvitesAndOrders: React.FC = () => {
     setAdvancedSearchForm({
       firstName: "",
       lastName: "",
-      socialSecurityTrace: "",
+      email: "",
+      phoneNumber: "",
     });
   };
 
