@@ -128,6 +128,94 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
     onFiltersChange(newFilters);
   };
 
+  const clearAllFilters = () => {
+    const clearedFilters = {
+      status: [],
+      typeOfPackage: [],
+      i9Filled: [],
+      activate: [],
+      ews: [],
+      dateRange: {
+        start: new Date(2025, 0, 10), // Jan 10, 2025
+        end: new Date(2025, 0, 16), // Jan 16, 2025
+      },
+    };
+    setFilters(clearedFilters);
+    onFiltersChange(clearedFilters);
+  };
+
+  const removeFilter = (filterKey: keyof FilterState, valueToRemove: string) => {
+    if (filterKey === 'dateRange') {
+      // Reset date range to default
+      const newFilters = {
+        ...filters,
+        dateRange: {
+          start: new Date(2025, 0, 10),
+          end: new Date(2025, 0, 16),
+        },
+      };
+      setFilters(newFilters);
+      onFiltersChange(newFilters);
+    } else {
+      const currentValues = filters[filterKey] as string[];
+      const newValues = currentValues.filter(value => value !== valueToRemove);
+      handleFilterChange(filterKey, newValues);
+    }
+  };
+
+  const getFilterLabel = (filterKey: keyof FilterState, value: string): string => {
+    const optionsMap = {
+      status: statusOptions,
+      typeOfPackage: packageTypeOptions,
+      i9Filled: i9FilledOptions,
+      activate: activateOptions,
+      ews: ewsOptions,
+    };
+
+    if (filterKey in optionsMap) {
+      const option = optionsMap[filterKey as keyof typeof optionsMap].find(opt => opt.value === value);
+      return option?.label || value;
+    }
+    return value;
+  };
+
+  const getAppliedFilters = () => {
+    const appliedFilters: Array<{key: keyof FilterState, value: string, label: string}> = [];
+
+    // Check each filter type
+    (Object.keys(filters) as Array<keyof FilterState>).forEach(key => {
+      if (key === 'dateRange') {
+        // Check if date range is different from default
+        const defaultStart = new Date(2025, 0, 10);
+        const defaultEnd = new Date(2025, 0, 16);
+        if (filters.dateRange.start.getTime() !== defaultStart.getTime() ||
+            filters.dateRange.end.getTime() !== defaultEnd.getTime()) {
+          appliedFilters.push({
+            key: 'dateRange',
+            value: 'dateRange',
+            label: `Date: ${formatDateRange(filters.dateRange.start, filters.dateRange.end)}`
+          });
+        }
+      } else {
+        const values = filters[key] as string[];
+        values.forEach(value => {
+          const filterLabel = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1');
+          appliedFilters.push({
+            key,
+            value,
+            label: `${filterLabel}: ${getFilterLabel(key, value)}`
+          });
+        });
+      }
+    });
+
+    return appliedFilters;
+  };
+
+  const hasAppliedFilters = () => {
+    return getAppliedFilters().length > 0;
+  };
+
   const formatDateRange = (startDate: Date, endDate: Date): string => {
     const months = [
       "Jan",
@@ -318,6 +406,174 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
             overflow: "visible",
           }}
         >
+          {/* Filters Selected Section */}
+          {hasAppliedFilters() && (
+            <>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "6px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      Filters Selected
+                    </div>
+                    <button
+                      onClick={clearAllFilters}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        background: "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#273572",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          position: "relative",
+                        }}
+                      >
+                        Clear All
+                      </div>
+                    </button>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      alignContent: "flex-start",
+                      gap: "4px",
+                      alignSelf: "stretch",
+                      flexWrap: "wrap",
+                      position: "relative",
+                    }}
+                  >
+                    {getAppliedFilters().map((filter, index) => (
+                      <div
+                        key={`${filter.key}-${filter.value}-${index}`}
+                        style={{
+                          display: "flex",
+                          padding: "3px 4px 3px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "3px",
+                          borderRadius: "6px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "4px",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#414651",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "18px",
+                              position: "relative",
+                            }}
+                          >
+                            {filter.label}
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => removeFilter(filter.key, filter.value)}
+                          style={{
+                            display: "flex",
+                            width: "18px",
+                            padding: "2px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            borderRadius: "3px",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            position: "relative",
+                          }}
+                        >
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                              stroke="#A4A7AE"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              {/* Divider */}
+              <div
+                style={{
+                  width: "100%",
+                  height: "1px",
+                  background: "#E9EAEB",
+                  position: "relative",
+                }}
+              />
+            </>
+          )}
           {/* Status Filter */}
           <div style={{ width: "100%" }}>
             <FilterDropdown
