@@ -131,6 +131,16 @@ const InvitesAndOrders: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  // Auto-minimize sidebar after 30 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSidebarCollapsed(true);
+    }, 30000); // 30 seconds
+
+    // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
   const [activeTab, setActiveTab] = useState<"invites" | "orders">("invites");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
@@ -166,7 +176,7 @@ const InvitesAndOrders: React.FC = () => {
     null,
   );
   const [isButtonClick, setIsButtonClick] = useState(false);
-  const [showFiltersModal, setShowFiltersModal] = useState(true);
+  const [showFiltersModal, setShowFiltersModal] = useState(false);
   const [tableViewsDropdownOpen, setTableViewsDropdownOpen] = useState(false);
   const [currentTableView, setCurrentTableView] = useState("default");
   const [tableViews, setTableViews] = useState<TableView[]>([
