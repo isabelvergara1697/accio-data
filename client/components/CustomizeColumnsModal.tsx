@@ -467,14 +467,13 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   };
 
   const removeColumn = (columnId: string) => {
-    setSelectedColumns(columns => {
-      const filteredColumns = columns.filter(col => col.id !== columnId);
-      // Reorder the remaining columns
-      return filteredColumns.map((col, index) => ({
-        ...col,
-        order: index + 1
-      }));
-    });
+    const filteredColumns = selectedColumns.filter(col => col.id !== columnId);
+    // Reorder the remaining columns
+    const updatedColumns = filteredColumns.map((col, index) => ({
+      ...col,
+      order: index + 1
+    }));
+    onColumnOrderChange(updatedColumns);
   };
 
   // Drag handlers
