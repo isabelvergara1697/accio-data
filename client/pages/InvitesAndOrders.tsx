@@ -6565,7 +6565,6 @@ const InvitesAndOrders: React.FC = () => {
                                         fontWeight: 500,
                                         lineHeight: "20px",
                                         position: "relative",
-                                        cursor: "default",
                                       }}
                                     >
                                       <span
@@ -6592,9 +6591,8 @@ const InvitesAndOrders: React.FC = () => {
                                       borderRadius: "8px",
                                       fontSize: "12px",
                                       fontWeight: 600,
-                                      maxWidth: "300px",
+                                      maxWidth: "200px",
                                       zIndex: 99999,
-                                      wordBreak: "break-all",
                                     }}
                                   >
                                     {invite.email}
