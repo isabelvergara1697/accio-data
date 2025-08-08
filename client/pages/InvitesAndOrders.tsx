@@ -782,6 +782,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: true,
       ews: true,
+      packageType: "CSD Standard",
     },
     {
       id: "2",
@@ -794,6 +795,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: false,
       ews: false,
+      packageType: "Executive",
     },
     {
       id: "3",
@@ -806,6 +808,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: false,
       activated: true,
       ews: true,
+      packageType: "A La Carte",
     },
     {
       id: "4",
@@ -818,6 +821,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: true,
       ews: false,
+      packageType: "Retail",
     },
     {
       id: "5",
@@ -830,6 +834,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: true,
       ews: true,
+      packageType: "MVR",
     },
     {
       id: "6",
@@ -842,6 +847,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: false,
       activated: false,
       ews: true,
+      packageType: "Operations",
     },
     {
       id: "7",
@@ -854,6 +860,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: false,
       activated: false,
       ews: true,
+      packageType: "Hourly",
     },
     {
       id: "8",
@@ -866,6 +873,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: true,
       ews: false,
+      packageType: "DOT",
     },
     {
       id: "9",
