@@ -6548,36 +6548,58 @@ const InvitesAndOrders: React.FC = () => {
                                   minWidth: 0,
                                 }}
                               >
-                                <div
-                                  style={{
-                                    display: "-webkit-box",
-                                    WebkitBoxOrient: "vertical",
-                                    WebkitLineClamp: 1,
-                                    width: "100%",
-                                    overflow: "hidden",
-                                    color: "#181D27",
-                                    textOverflow: "ellipsis",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
-                                    position: "relative",
-                                  }}
-                                  title={invite.email}
-                                >
-                                  <span
+                                <Tooltip>
+                                  <TooltipTrigger asChild>
+                                    <div
+                                      style={{
+                                        display: "-webkit-box",
+                                        WebkitBoxOrient: "vertical",
+                                        WebkitLineClamp: 1,
+                                        width: "100%",
+                                        overflow: "hidden",
+                                        color: "#181D27",
+                                        textOverflow: "ellipsis",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                        position: "relative",
+                                        cursor: "default",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(24,29,39,1)",
+                                        }}
+                                      >
+                                        {highlightText(invite.email, searchQuery)}
+                                      </span>
+                                    </div>
+                                  </TooltipTrigger>
+                                  <TooltipContent
+                                    side="top"
+                                    align="start"
+                                    sideOffset={5}
                                     style={{
-                                      fontFamily:
-                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                      fontWeight: 400,
-                                      fontSize: "14px",
-                                      color: "rgba(24,29,39,1)",
+                                      backgroundColor: "#0A0D12",
+                                      color: "#FFF",
+                                      padding: "8px 12px",
+                                      borderRadius: "8px",
+                                      fontSize: "12px",
+                                      fontWeight: 600,
+                                      maxWidth: "300px",
+                                      zIndex: 99999,
+                                      wordBreak: "break-all",
                                     }}
                                   >
-                                    {highlightText(invite.email, searchQuery)}
-                                  </span>
-                                </div>
+                                    {invite.email}
+                                  </TooltipContent>
+                                </Tooltip>
                               </div>
 
                               {/* Completion Cell */}
