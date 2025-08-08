@@ -870,6 +870,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
+                    minWidth: "16px",
+                    minHeight: "16px",
+                    flexShrink: 0,
                     position: "relative",
                   }}
                   width="16"
