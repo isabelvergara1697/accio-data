@@ -1660,7 +1660,7 @@ const InvitesAndOrders: React.FC = () => {
                                   gap: "4px",
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
-                                  background: hoveredButton === "close-filters" ? "#F5F5F5" : "#FFF",
+                                  background: "#F5F5F5",
                                   boxShadow:
                                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   cursor: "pointer",
