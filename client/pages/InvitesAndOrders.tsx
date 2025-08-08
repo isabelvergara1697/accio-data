@@ -551,22 +551,8 @@ const InvitesAndOrders: React.FC = () => {
 
     const colors = colorMap[config.color as keyof typeof colorMap];
 
-    // Define specific widths for longer status names to prevent cropping
-    const getStatusWidth = () => {
-      switch (status) {
-        case "waiting-for-recruitee":
-          return "130px";
-        case "expires-today":
-          return "95px";
-        case "unsolicited":
-          return "85px";
-        default:
-          return "fit-content";
-      }
-    };
-
+    // Define badge styling based on status length
     const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
-    const statusWidth = getStatusWidth();
 
     const badgeElement = (
       <div
@@ -579,9 +565,9 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          width: statusWidth,
-          minWidth: statusWidth,
-          maxWidth: statusWidth,
+          minWidth: "fit-content",
+          maxWidth: isLongStatus ? "110px" : "none",
+          width: "auto",
         }}
       >
         <span
@@ -596,8 +582,7 @@ const InvitesAndOrders: React.FC = () => {
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
-            display: "block",
-            width: "100%",
+            display: "inline-block",
           }}
         >
           {config.label}
