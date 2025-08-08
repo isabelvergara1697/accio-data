@@ -49,9 +49,9 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
       style={{
         position: "absolute",
         top: "calc(100% + 12px)",
-        right: isMobile ? "-20px" : "0",
+        right: isMobile ? "calc(-100vw + 20px)" : "0",
         width: isMobile ? "calc(100vw - 40px)" : "100%",
-        maxWidth: isMobile ? "calc(100vw - 40px)" : "none",
+        left: isMobile ? "20px" : "auto",
         borderRadius: "8px",
         border: "1px solid rgba(0, 0, 0, 0.08)",
         background: "#FFF",
