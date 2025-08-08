@@ -578,7 +578,7 @@ const InvitesAndOrders: React.FC = () => {
           justifyContent: "center",
           borderRadius: "9999px",
           border: `2px solid ${colors.border}`,
-          background: "red",
+          background: colors.bg,
           position: "relative",
           width: badgeWidth,
           minWidth: badgeWidth,
