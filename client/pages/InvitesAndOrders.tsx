@@ -1279,8 +1279,9 @@ const InvitesAndOrders: React.FC = () => {
               alignSelf: "stretch",
               position: "relative",
               maxWidth: "100%",
-              overflow: "hidden",
+              overflow: "visible",
               boxSizing: "border-box",
+              minHeight: "calc(100vh - 200px)",
             }}
           >
             {/* Filters Panel */}
@@ -1302,10 +1303,8 @@ const InvitesAndOrders: React.FC = () => {
                 alignSelf: "stretch",
                 position: "relative",
                 minWidth: 0, // Allow container to shrink below content size
-                ...(showFiltersModal &&
-                  isDesktop && {
-                    maxWidth: `calc(100% - 258px - 16px)`, // Account for filters panel and gap
-                  }),
+                width: showFiltersModal && isDesktop ? `calc(100% - 258px - 16px)` : "100%",
+                maxWidth: showFiltersModal && isDesktop ? `calc(100% - 258px - 16px)` : "100%",
               }}
             >
               <div
@@ -1321,6 +1320,7 @@ const InvitesAndOrders: React.FC = () => {
                   maxWidth: "100%",
                   overflow: "visible",
                   boxSizing: "border-box",
+                  minHeight: "calc(100vh - 250px)",
                 }}
               >
                 <div
@@ -1332,7 +1332,7 @@ const InvitesAndOrders: React.FC = () => {
                     alignSelf: "stretch",
                     position: "relative",
                     maxWidth: "100%",
-                    overflow: showFiltersModal ? "hidden" : "visible",
+                    overflow: "visible",
                     boxSizing: "border-box",
                   }}
                 >
@@ -1347,12 +1347,10 @@ const InvitesAndOrders: React.FC = () => {
                       background: "#FFF",
                       position: "relative",
                       width: "100%",
-                      maxWidth:
-                        showFiltersModal && isDesktop
-                          ? `calc(100% - 16px)` // Account for gap between filters and table
-                          : "100%",
+                      maxWidth: "100%",
                       boxSizing: "border-box",
                       overflow: "visible",
+                      minHeight: "600px",
                     }}
                   >
                     {/* Table Header */}
