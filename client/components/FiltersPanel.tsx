@@ -140,7 +140,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
           <div
             style={{
               display: "flex",
-              padding: "16px 16px 12px 16px",
+              padding: "16px 16px 16px 16px",
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "16px",
