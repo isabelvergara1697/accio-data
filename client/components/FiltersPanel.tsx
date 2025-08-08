@@ -475,7 +475,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
                     </svg>
                     <span
                       style={{
-                        color: showDatePicker ? "#181D27" : "#717680",
+                        color: showDatePicker ? "#273572" : "#717680",
                         fontFamily: "Public Sans",
                         fontSize: "14px",
                         fontWeight: showDatePicker ? 500 : 400,
