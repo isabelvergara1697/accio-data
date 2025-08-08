@@ -72,7 +72,7 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
               fontFamily: "Public Sans",
               fontSize: "14px",
               fontStyle: "normal",
-              fontWeight: 700,
+              fontWeight: 600,
               lineHeight: "20px",
             }}
           >
