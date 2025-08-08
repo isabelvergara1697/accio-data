@@ -442,7 +442,9 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
                     alignItems: "center",
                     justifyContent: "space-between",
                     borderRadius: "8px",
-                    border: showDatePicker ? "1px solid #B3BCE5" : "1px solid #D5D7DA",
+                    border: showDatePicker
+                      ? "1px solid #B3BCE5"
+                      : "1px solid #D5D7DA",
                     background: showDatePicker ? "#ECEEF9" : "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
@@ -482,7 +484,10 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
                         lineHeight: "20px",
                       }}
                     >
-                      {formatDateRange(filters.dateRange.start, filters.dateRange.end)}
+                      {formatDateRange(
+                        filters.dateRange.start,
+                        filters.dateRange.end,
+                      )}
                     </span>
                   </div>
                   <svg
