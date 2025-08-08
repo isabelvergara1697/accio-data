@@ -6,8 +6,8 @@ import FilterDropdown from "./ui/filter-dropdown";
 interface FiltersPanelProps {
   isVisible: boolean;
   onClose?: () => void;
-  onFiltersChange: (filters: FilterState) => void;
-  filters: FilterState;
+  onFiltersChange: (localFilters: FilterState) => void;
+  localFilters: FilterState;
   isMobile?: boolean;
 }
 
@@ -27,16 +27,16 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   isVisible,
   onClose,
   onFiltersChange,
-  filters,
+  localFilters,
   isMobile = false,
 }) => {
-  const [localFilters, setLocalFilters] = useState<FilterState>(filters);
+  const [localFilters, setLocalFilters] = useState<FilterState>(localFilters);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
 
-  // Sync local filters with parent filters
+  // Sync local localFilters with parent localFilters
   useEffect(() => {
-    setLocalFilters(filters);
-  }, [filters]);
+    setLocalFilters(localFilters);
+  }, [localFilters]);
   const [isTablet, setIsTablet] = useState(
     window.innerWidth >= 768 && window.innerWidth < 1024,
   );
@@ -58,7 +58,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   }, []);
 
   // Sync local state with prop changes
-  // Remove this effect as we now sync with parent filters differently
+  // Remove this effect as we now sync with parent localFilters differently
 
   const statusOptions = [
     { value: "waiting", label: "Waiting" },
@@ -117,7 +117,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
 
   const handleFilterChange = (key: keyof FilterState, value: string[]) => {
     const newFilters = {
-      ...filters,
+      ...localFilters,
       [key]: value,
     };
     setLocalFilters(newFilters);
@@ -126,7 +126,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
 
   const handleDateRangeChange = (start: Date, end: Date) => {
     const newFilters = {
-      ...filters,
+      ...localFilters,
       dateRange: { start, end },
     };
     setLocalFilters(newFilters);
@@ -156,7 +156,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
     if (filterKey === "dateRange") {
       // Reset date range to default
       const newFilters = {
-        ...filters,
+        ...localFilters,
         dateRange: {
           start: new Date(2025, 0, 10),
           end: new Date(2025, 0, 16),
@@ -165,7 +165,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
       setLocalFilters(newFilters);
       onFiltersChange(newFilters);
     } else {
-      const currentValues = filters[filterKey] as string[];
+      const currentValues = localFilters[filterKey] as string[];
       const newValues = currentValues.filter(
         (value) => value !== valueToRemove,
       );
@@ -223,23 +223,23 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
     };
 
     // Check each filter type
-    (Object.keys(filters) as Array<keyof FilterState>).forEach((key) => {
+    (Object.keys(localFilters) as Array<keyof FilterState>).forEach((key) => {
       if (key === "dateRange") {
         // Check if date range is different from default
         const defaultStart = new Date(2025, 0, 10);
         const defaultEnd = new Date(2025, 0, 16);
         if (
-          filters.dateRange.start.getTime() !== defaultStart.getTime() ||
-          filters.dateRange.end.getTime() !== defaultEnd.getTime()
+          localFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
+          localFilters.dateRange.end.getTime() !== defaultEnd.getTime()
         ) {
           appliedFilters.push({
             key: "dateRange",
             value: "dateRange",
-            label: `Date: ${formatDateRange(filters.dateRange.start, filters.dateRange.end)}`,
+            label: `Date: ${formatDateRange(localFilters.dateRange.start, localFilters.dateRange.end)}`,
           });
         }
       } else {
-        const values = filters[key] as string[];
+        const values = localFilters[key] as string[];
 
         // Skip if no values selected OR if all options are selected
         if (values.length === 0 || areAllOptionsSelected(key, values)) {
@@ -648,7 +648,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
             <FilterDropdown
               label="Status"
               options={statusOptions}
-              selectedValues={filters.status}
+              selectedValues={localFilters.status}
               onSelectionChange={(values) =>
                 handleFilterChange("status", values)
               }
@@ -662,7 +662,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
             <FilterDropdown
               label="Type of Package"
               options={packageTypeOptions}
-              selectedValues={filters.typeOfPackage}
+              selectedValues={localFilters.typeOfPackage}
               onSelectionChange={(values) =>
                 handleFilterChange("typeOfPackage", values)
               }
@@ -675,7 +675,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
             <FilterDropdown
               label="I-9 Filled"
               options={i9FilledOptions}
-              selectedValues={filters.i9Filled}
+              selectedValues={localFilters.i9Filled}
               onSelectionChange={(values) =>
                 handleFilterChange("i9Filled", values)
               }
@@ -688,7 +688,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
             <FilterDropdown
               label="Activate"
               options={activateOptions}
-              selectedValues={filters.activate}
+              selectedValues={localFilters.activate}
               onSelectionChange={(values) =>
                 handleFilterChange("activate", values)
               }
@@ -701,7 +701,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
             <FilterDropdown
               label="EWS"
               options={ewsOptions}
-              selectedValues={filters.ews}
+              selectedValues={localFilters.ews}
               onSelectionChange={(values) => handleFilterChange("ews", values)}
               placeholder="Select Filter"
             />
@@ -810,8 +810,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
                       }}
                     >
                       {formatDateRange(
-                        filters.dateRange.start,
-                        filters.dateRange.end,
+                        localFilters.dateRange.start,
+                        localFilters.dateRange.end,
                       )}
                     </span>
                   </div>
@@ -843,8 +843,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
           isOpen={showDatePicker}
           onClose={() => setShowDatePicker(false)}
           triggerRef={datePickerRef}
-          selectedStartDate={filters.dateRange.start}
-          selectedEndDate={filters.dateRange.end}
+          selectedStartDate={localFilters.dateRange.start}
+          selectedEndDate={localFilters.dateRange.end}
           onDateChange={handleDateRangeChange}
         />
       )}
@@ -853,8 +853,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
           isOpen={showDatePicker}
           onClose={() => setShowDatePicker(false)}
           triggerRef={datePickerRef}
-          selectedStartDate={filters.dateRange.start}
-          selectedEndDate={filters.dateRange.end}
+          selectedStartDate={localFilters.dateRange.start}
+          selectedEndDate={localFilters.dateRange.end}
           onDateChange={handleDateRangeChange}
         />
       )}
