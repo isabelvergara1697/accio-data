@@ -231,7 +231,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
         <div
           style={{
             display: "flex",
-            padding: "12px 12px 16px 12px",
+            padding: "12px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "16px",
