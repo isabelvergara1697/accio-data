@@ -6259,9 +6259,7 @@ const InvitesAndOrders: React.FC = () => {
                                 display: "flex",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
-                                ...(showFiltersModal
-                                  ? { width: "90px" }
-                                  : { flex: "0 1 110px", minWidth: "90px" }),
+                                width: "110px",
                                 alignSelf: "stretch",
                                 position: "relative",
                               }}
