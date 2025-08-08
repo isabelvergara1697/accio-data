@@ -37,6 +37,7 @@ interface InviteData {
   i9Filled: boolean;
   activated: boolean;
   ews: boolean;
+  packageType: string;
 }
 
 // Component to handle text truncation with tooltip
@@ -193,6 +194,7 @@ const InvitesAndOrders: React.FC = () => {
     { id: "i9Filled", name: "I-9 Filled", order: 6, isSelected: true },
     { id: "activate", name: "Activate", order: 7, isSelected: true },
     { id: "ews", name: "EWS", order: 8, isSelected: true },
+    { id: "package", name: "Package", order: 9, isSelected: true },
   ];
 
   const [columnOrder, setColumnOrder] = useState(defaultColumnOrder);
@@ -239,6 +241,11 @@ const InvitesAndOrders: React.FC = () => {
         width: "110px",
         label: "EWS",
         sortField: "ews",
+      },
+      package: {
+        width: "140px",
+        label: "Package",
+        sortField: "packageType",
       },
     };
     return configs[columnId as keyof typeof configs];
@@ -361,6 +368,21 @@ const InvitesAndOrders: React.FC = () => {
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
               {invite.ews && <CheckIcon />}
             </div>
+          );
+        case "package":
+          return (
+            <TruncatedText
+              text={invite.packageType}
+              highlightedText={highlightText(invite.packageType, searchQuery)}
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            />
           );
         default:
           return null;
