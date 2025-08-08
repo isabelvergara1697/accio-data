@@ -1628,8 +1628,8 @@ const InvitesAndOrders: React.FC = () => {
                                     onSearch={handleAdvancedSearch}
                                     dropdownRef={advancedSearchRef}
                                     style={{
-                                      right: "-8px", // Align with search bar edge
-                                      width: "234px", // Match search bar width
+                                      right: isMobile ? "-20px" : "-8px", // Align with search bar edge
+                                      width: isMobile ? "calc(100vw - 40px)" : "234px", // Match search bar width, full width on mobile
                                       top: "calc(100% + 12px)", // 12px spacing from button (4px + 8px)
                                     }}
                                   />
