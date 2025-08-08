@@ -1452,7 +1452,7 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Desktop: Search */}
-                            {(
+                            {!showFiltersModal && (
                               <div
                                 className="search-container"
                                 style={{
