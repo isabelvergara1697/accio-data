@@ -1853,7 +1853,7 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   display: "flex",
                                   minHeight: "36px",
-                                  padding: "6px 8px",
+                                  padding: isTablet ? "6px 6px" : "6px 8px",
                                   justifyContent: "center",
                                   alignItems: "center",
                                   gap: "4px",
