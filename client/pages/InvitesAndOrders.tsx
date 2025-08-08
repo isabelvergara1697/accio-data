@@ -3508,7 +3508,7 @@ const InvitesAndOrders: React.FC = () => {
                               {/* Filters Button */}
                               <button
                                 onClick={() =>
-                                  setShowFiltersModal(!showFiltersModal)
+                                  setShowMobileFiltersModal(!showMobileFiltersModal)
                                 }
                                 onMouseEnter={() => setHoveredButton("filters")}
                                 onMouseLeave={() => setHoveredButton(null)}
