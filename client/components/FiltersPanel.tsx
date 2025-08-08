@@ -494,7 +494,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
                   >
                     <path
                       d="M4 6L8 10L12 6"
-                      stroke={showDatePicker ? "#34479A" : "#A4A7AE"}
+                      stroke={showDatePicker ? "#273572" : "#A4A7AE"}
                       strokeWidth="1.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
