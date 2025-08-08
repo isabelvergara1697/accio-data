@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import DatePickerCalendar from "./ui/date-picker-calendar";
+import FilterDropdown from "./ui/filter-dropdown";
 
 interface FiltersPanelProps {
   isOpen: boolean;
