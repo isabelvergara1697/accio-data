@@ -551,8 +551,22 @@ const InvitesAndOrders: React.FC = () => {
 
     const colors = colorMap[config.color as keyof typeof colorMap];
 
-    // Define badge styling based on status length
+    // Define specific badge widths to prevent cropping
+    const getBadgeWidth = () => {
+      switch (status) {
+        case "waiting-for-recruitee":
+          return "140px";
+        case "expires-today":
+          return "100px";
+        case "unsolicited":
+          return "90px";
+        default:
+          return "auto";
+      }
+    };
+
     const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
+    const badgeWidth = getBadgeWidth();
 
     const badgeElement = (
       <div
@@ -565,15 +579,15 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          minWidth: "fit-content",
-          maxWidth: isLongStatus ? "110px" : "none",
-          width: "auto",
+          width: badgeWidth,
+          minWidth: badgeWidth,
+          maxWidth: badgeWidth,
         }}
       >
         <span
           style={{
-            overflow: isLongStatus ? "hidden" : "visible",
-            textOverflow: isLongStatus ? "ellipsis" : "clip",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             color: colors.text,
             textAlign: "center",
@@ -582,7 +596,8 @@ const InvitesAndOrders: React.FC = () => {
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
-            display: "inline-block",
+            display: "block",
+            width: "100%",
           }}
         >
           {config.label}
