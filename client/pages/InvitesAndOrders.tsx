@@ -1903,10 +1903,14 @@ const InvitesAndOrders: React.FC = () => {
                                   alignItems: "center",
                                   gap: "4px",
                                   borderRadius: "8px",
-                                  border: "1px solid #D5D7DA",
+                                  border: hasAppliedFilters() && !showFiltersModal
+                                    ? "1px solid #34479A"
+                                    : "1px solid #D5D7DA",
                                   background:
-                                    hoveredButton === "filters" ||
-                                    showFiltersModal
+                                    hasAppliedFilters() && !showFiltersModal
+                                      ? "#ECEEF9"
+                                      : hoveredButton === "filters" ||
+                                        showFiltersModal
                                       ? "#F5F5F5"
                                       : "#FFF",
                                   boxShadow:
