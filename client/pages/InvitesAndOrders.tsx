@@ -1357,6 +1357,7 @@ const InvitesAndOrders: React.FC = () => {
                       alignSelf: "stretch",
                       borderRadius: "12px",
                       border: "1px solid #E9EAEB",
+                      borderBottom: "none",
                       background: "#FFF",
                       position: "relative",
                       width: "100%",
