@@ -5,6 +5,8 @@ import FilterDropdown from "./ui/filter-dropdown";
 interface FiltersPanelProps {
   isOpen: boolean;
   onClose: () => void;
+  onFiltersChange: (filters: FilterState) => void;
+  initialFilters: FilterState;
 }
 
 interface FilterState {
@@ -19,18 +21,13 @@ interface FilterState {
   };
 }
 
-const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
-  const [filters, setFilters] = useState<FilterState>({
-    status: [],
-    typeOfPackage: [],
-    i9Filled: [],
-    activate: [],
-    ews: [],
-    dateRange: {
-      start: new Date(),
-      end: new Date(),
-    },
-  });
+const FiltersPanel: React.FC<FiltersPanelProps> = ({
+  isOpen,
+  onClose,
+  onFiltersChange,
+  initialFilters
+}) => {
+  const [filters, setFilters] = useState<FilterState>(initialFilters);
 
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [hoveredCloseButton, setHoveredCloseButton] = useState(false);
@@ -86,17 +83,21 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
   ];
 
   const handleFilterChange = (key: keyof FilterState, value: string[]) => {
-    setFilters((prev) => ({
-      ...prev,
+    const newFilters = {
+      ...filters,
       [key]: value,
-    }));
+    };
+    setFilters(newFilters);
+    onFiltersChange(newFilters);
   };
 
   const handleDateRangeChange = (start: Date, end: Date) => {
-    setFilters((prev) => ({
-      ...prev,
+    const newFilters = {
+      ...filters,
       dateRange: { start, end },
-    }));
+    };
+    setFilters(newFilters);
+    onFiltersChange(newFilters);
   };
 
   if (!isOpen) return null;
