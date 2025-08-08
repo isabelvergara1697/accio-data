@@ -152,9 +152,13 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const calendarRect = calendarRef.current.getBoundingClientRect();
 
-      const top = triggerRect.bottom + 4;
-      // On desktop, align calendar's right edge with trigger's right edge
-      const left = triggerRect.right - calendarRect.width;
+      const top = triggerRect.bottom + 8;
+      // Center the calendar horizontally relative to the trigger button
+      const left = triggerRect.left + (triggerRect.width / 2) - (calendarRect.width / 2);
+
+      // Ensure calendar doesn't go off screen
+      const viewportWidth = window.innerWidth;
+      const adjustedLeft = Math.max(16, Math.min(left, viewportWidth - calendarRect.width - 16));
 
       setPosition({ top, left });
     }
