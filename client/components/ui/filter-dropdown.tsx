@@ -25,14 +25,14 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  // Filter options based on search query (only if search is enabled)
-  const filteredOptions = searchDisabled
-    ? options
-    : options.filter((option) =>
-        option.label.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+  // Filter options based on search query
+  const filteredOptions = options.filter((option) =>
+    option.label.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   // Handle clicking outside to close dropdown
   useEffect(() => {
@@ -42,12 +42,21 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setIsOpen(false);
+        setIsTyping(false);
+        setSearchQuery("");
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Focus input when dropdown opens and typing mode is enabled
+  useEffect(() => {
+    if (isOpen && isTyping && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isOpen, isTyping]);
 
   const handleOptionToggle = (value: string) => {
     const newSelectedValues = selectedValues.includes(value)
@@ -57,20 +66,57 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
   };
 
   const handleSelectAll = () => {
-    if (selectedValues.length === options.length) {
+    if (selectedValues.length === filteredOptions.length) {
       onSelectionChange([]);
     } else {
-      onSelectionChange(options.map((opt) => opt.value));
+      onSelectionChange(filteredOptions.map((opt) => opt.value));
     }
   };
 
   const getDisplayText = () => {
+    if (isTyping && searchQuery) return searchQuery;
     if (selectedValues.length === 0) return placeholder;
     if (selectedValues.length === 1) {
       const option = options.find((opt) => opt.value === selectedValues[0]);
       return option?.label || placeholder;
     }
     return `${selectedValues.length} selected`;
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setIsOpen(false);
+      setIsTyping(false);
+      setSearchQuery("");
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (filteredOptions.length === 1) {
+        handleOptionToggle(filteredOptions[0].value);
+      }
+    } else if (e.key.length === 1 || e.key === "Backspace") {
+      if (!isOpen) {
+        setIsOpen(true);
+      }
+      setIsTyping(true);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+    if (!isOpen) {
+      setIsOpen(true);
+    }
+  };
+
+  const handleTriggerClick = () => {
+    if (isTyping) {
+      // If already typing, just toggle the dropdown
+      setIsOpen(!isOpen);
+    } else {
+      // If not typing, open dropdown and enable typing
+      setIsOpen(true);
+      setIsTyping(true);
+    }
   };
 
   return (
@@ -98,15 +144,13 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
         </div>
       </div>
 
-      {/* Trigger Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
+      {/* Trigger Button/Input */}
+      <div
         style={{
+          position: "relative",
           display: "flex",
           height: "32px",
-          padding: "6px 8px",
           alignItems: "center",
-          justifyContent: "space-between",
           width: "100%",
           borderRadius: "8px",
           border: isOpen ? "1px solid #344698" : "1px solid #D5D7DA",
@@ -114,22 +158,55 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
           boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
           fontSize: "14px",
           fontFamily: "Public Sans",
-          color: selectedValues.length > 0 ? "#414651" : "#717680",
-          outline: "none",
           cursor: "pointer",
         }}
+        onClick={handleTriggerClick}
       >
-        <span
+        {/* Hidden input for typing */}
+        <input
+          ref={inputRef}
+          type="text"
+          value={searchQuery}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
           style={{
-            flex: 1,
-            textAlign: "left",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            padding: "6px 32px 6px 8px",
+            border: "none",
+            outline: "none",
+            background: "transparent",
+            fontSize: "14px",
+            fontFamily: "Public Sans",
+            color: selectedValues.length > 0 ? "#414651" : "#717680",
+            opacity: isTyping ? 1 : 0,
+            pointerEvents: isTyping ? "auto" : "none",
+            borderRadius: "8px",
           }}
-        >
-          {getDisplayText()}
-        </span>
+          placeholder={placeholder}
+        />
+        
+        {/* Display text when not typing */}
+        {!isTyping && (
+          <span
+            style={{
+              flex: 1,
+              padding: "6px 8px",
+              textAlign: "left",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              color: selectedValues.length > 0 ? "#414651" : "#717680",
+            }}
+          >
+            {getDisplayText()}
+          </span>
+        )}
+
+        {/* Chevron Icon */}
         <svg
           width="16"
           height="16"
@@ -137,8 +214,12 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           style={{
-            transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+            position: "absolute",
+            right: "8px",
+            top: "50%",
+            transform: `translateY(-50%) ${isOpen ? "rotate(180deg)" : "rotate(0deg)"}`,
             transition: "transform 0.2s ease",
+            pointerEvents: "none",
           }}
         >
           <path
@@ -149,7 +230,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
             strokeLinejoin="round"
           />
         </svg>
-      </button>
+      </div>
 
       {/* Dropdown Content */}
       {isOpen && (
@@ -169,38 +250,10 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
             overflow: "hidden",
           }}
         >
-          {/* Search Input - only show if search is not disabled */}
-          {!searchDisabled && (
-            <div
-              style={{
-                padding: "8px",
-                borderBottom: "1px solid #E9EAEB",
-              }}
-            >
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                style={{
-                  width: "100%",
-                  height: "28px",
-                  padding: "4px 8px",
-                  border: "1px solid #D5D7DA",
-                  borderRadius: "6px",
-                  fontSize: "14px",
-                  fontFamily: "Public Sans",
-                  outline: "none",
-                  boxSizing: "border-box",
-                }}
-              />
-            </div>
-          )}
-
           {/* Options List */}
           <div
             style={{
-              maxHeight: "160px",
+              maxHeight: "240px",
               overflowY: "auto",
               padding: "4px 0",
             }}
@@ -232,7 +285,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
                   borderRadius: "4px",
                   border: "1px solid #D5D7DA",
                   background:
-                    selectedValues.length === options.length
+                    selectedValues.length === filteredOptions.length
                       ? "#344698"
                       : selectedValues.length > 0
                       ? "#E6E9F4"
@@ -242,7 +295,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
                   justifyContent: "center",
                 }}
               >
-                {selectedValues.length === options.length && (
+                {selectedValues.length === filteredOptions.length && (
                   <svg
                     width="12"
                     height="12"
@@ -260,7 +313,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
                   </svg>
                 )}
                 {selectedValues.length > 0 &&
-                  selectedValues.length < options.length && (
+                  selectedValues.length < filteredOptions.length && (
                     <div
                       style={{
                         width: "8px",
