@@ -567,9 +567,9 @@ const InvitesAndOrders: React.FC = () => {
           position: "relative",
           ...(isLongStatus
             ? {
-                maxWidth: "85px",
-                minWidth: "85px",
-                width: "85px"
+                maxWidth: "105px", // Increased from 85px to 105px for better text display
+                minWidth: "105px",
+                width: "105px"
               }
             : {
                 minWidth: "fit-content",
@@ -590,8 +590,9 @@ const InvitesAndOrders: React.FC = () => {
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
-            display: "block",
+            display: "inline-block", // Changed from "block" to "inline-block" for better text handling
             width: "100%",
+            boxSizing: "border-box", // Ensure padding is included in width calculations
           }}
         >
           {config.label}
