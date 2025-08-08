@@ -7873,6 +7873,9 @@ const InvitesAndOrders: React.FC = () => {
       <CustomizeColumnsModal
         isOpen={showCustomizeColumnsModal}
         onClose={() => setShowCustomizeColumnsModal(false)}
+        columnOrder={columnOrder}
+        onColumnOrderChange={setColumnOrder}
+        onResetToDefault={() => setColumnOrder(defaultColumnOrder)}
       />
     </div>
   );
