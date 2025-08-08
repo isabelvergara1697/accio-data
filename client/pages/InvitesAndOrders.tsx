@@ -189,8 +189,8 @@ const InvitesAndOrders: React.FC = () => {
     activate: [] as string[],
     ews: [] as string[],
     dateRange: {
-      start: new Date(),
-      end: new Date(),
+      start: new Date(2025, 0, 10), // Jan 10, 2025
+      end: new Date(2025, 0, 16), // Jan 16, 2025
     },
   });
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
