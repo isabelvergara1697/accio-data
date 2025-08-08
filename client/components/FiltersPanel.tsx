@@ -120,7 +120,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
       ...filters,
       [key]: value,
     };
-    setFilters(newFilters);
+    setLocalFilters(newFilters);
     onFiltersChange(newFilters);
   };
 
@@ -129,7 +129,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
       ...filters,
       dateRange: { start, end },
     };
-    setFilters(newFilters);
+    setLocalFilters(newFilters);
     onFiltersChange(newFilters);
   };
 
@@ -145,7 +145,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
         end: new Date(2025, 0, 16), // Jan 16, 2025
       },
     };
-    setFilters(clearedFilters);
+    setLocalFilters(clearedFilters);
     onFiltersChange(clearedFilters);
   };
 
@@ -162,7 +162,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
           end: new Date(2025, 0, 16),
         },
       };
-      setFilters(newFilters);
+      setLocalFilters(newFilters);
       onFiltersChange(newFilters);
     } else {
       const currentValues = filters[filterKey] as string[];
