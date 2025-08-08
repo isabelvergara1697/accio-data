@@ -158,7 +158,10 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
 
       // Ensure calendar doesn't go off screen to the right
       const viewportWidth = window.innerWidth;
-      const adjustedLeft = Math.min(left, viewportWidth - calendarRect.width - 16);
+      const adjustedLeft = Math.min(
+        left,
+        viewportWidth - calendarRect.width - 16,
+      );
 
       setPosition({ top, left: adjustedLeft });
     }
