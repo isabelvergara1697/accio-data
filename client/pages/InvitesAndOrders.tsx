@@ -6714,7 +6714,7 @@ const InvitesAndOrders: React.FC = () => {
                                 />
                               ))}
 
-                              {/* Email Cell */}
+                              {/* Actions Cell */}
                               <div
                                 style={{
                                   display: "flex",
