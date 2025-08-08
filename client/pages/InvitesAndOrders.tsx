@@ -211,7 +211,7 @@ const InvitesAndOrders: React.FC = () => {
         sortField: "firstName",
       },
       lastName: {
-        width: "106px",
+        width: "108px",
         label: "Last Name",
         sortField: "lastName",
       },
