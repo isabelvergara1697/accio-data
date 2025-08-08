@@ -6543,7 +6543,6 @@ const InvitesAndOrders: React.FC = () => {
                                   alignItems: "center",
                                   borderBottom: "1px solid #E9EAEB",
                                   position: "relative",
-                                  overflow: "hidden",
                                 }}
                               >
                                 <Tooltip>
