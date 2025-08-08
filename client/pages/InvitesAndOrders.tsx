@@ -1627,7 +1627,7 @@ const InvitesAndOrders: React.FC = () => {
                                     style={{
                                       right: "-8px", // Align with search bar edge
                                       width: "234px", // Match search bar width
-                                      top: "calc(100% + 8px)", // 8px spacing for better visibility
+                                      top: "calc(100% + 4px)", // 4px spacing as requested
                                     }}
                                   />
                                 </div>
