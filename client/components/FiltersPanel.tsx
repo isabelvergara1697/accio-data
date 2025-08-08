@@ -32,6 +32,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
   });
 
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [hoveredCloseButton, setHoveredCloseButton] = useState(false);
   const datePickerRef = useRef<HTMLButtonElement>(null);
 
   const statusOptions = [
