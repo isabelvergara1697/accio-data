@@ -6546,47 +6546,23 @@ const InvitesAndOrders: React.FC = () => {
                                   overflow: "hidden",
                                 }}
                               >
-                                <Tooltip>
-                                  <TooltipTrigger asChild>
-                                    <div
-                                      style={{
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
-                                        whiteSpace: "nowrap",
-                                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: 400,
-                                        fontSize: "14px",
-                                        color: "rgba(24,29,39,1)",
-                                        lineHeight: "20px",
-                                        width: "100%",
-                                        cursor: "default",
-                                      }}
-                                    >
-                                      {highlightText(invite.email, searchQuery)}
-                                    </div>
-                                  </TooltipTrigger>
-                                  <TooltipContent
-                                    side="bottom"
-                                    align="center"
-                                    sideOffset={8}
-                                    avoidCollisions={true}
-                                    collisionPadding={20}
-                                    style={{
-                                      backgroundColor: "#0A0D12",
-                                      color: "#FFF",
-                                      padding: "8px 12px",
-                                      borderRadius: "8px",
-                                      fontSize: "12px",
-                                      fontWeight: 600,
-                                      maxWidth: "300px",
-                                      zIndex: 999999,
-                                      wordBreak: "break-all",
-                                      position: "fixed",
-                                    }}
-                                  >
-                                    {invite.email}
-                                  </TooltipContent>
-                                </Tooltip>
+                                <div
+                                  title={invite.email}
+                                  style={{
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap",
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: "rgba(24,29,39,1)",
+                                    lineHeight: "20px",
+                                    width: "100%",
+                                    cursor: "default",
+                                  }}
+                                >
+                                  {highlightText(invite.email, searchQuery)}
+                                </div>
                               </div>
 
                               {/* Completion Cell */}
