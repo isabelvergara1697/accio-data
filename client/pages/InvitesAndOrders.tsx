@@ -6547,7 +6547,7 @@ const InvitesAndOrders: React.FC = () => {
                                 }}
                               >
                                 <div
-                                  title={invite.email}
+                                  data-tooltip={invite.email}
                                   style={{
                                     overflow: "hidden",
                                     textOverflow: "ellipsis",
@@ -6559,7 +6559,9 @@ const InvitesAndOrders: React.FC = () => {
                                     lineHeight: "20px",
                                     width: "100%",
                                     cursor: "default",
+                                    position: "relative",
                                   }}
+                                  className="email-tooltip"
                                 >
                                   {highlightText(invite.email, searchQuery)}
                                 </div>
