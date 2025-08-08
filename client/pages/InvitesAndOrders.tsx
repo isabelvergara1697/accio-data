@@ -1472,7 +1472,7 @@ const InvitesAndOrders: React.FC = () => {
                             (isDesktop || isTablet) && !isMobile
                               ? "row"
                               : "column",
-                          gap: "16px",
+                          gap: isTablet ? "12px" : "16px",
                           alignItems:
                             (isDesktop || isTablet) && !isMobile
                               ? "center"
