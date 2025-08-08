@@ -1965,11 +1965,15 @@ const InvitesAndOrders: React.FC = () => {
                                       style={{
                                         fontFamily:
                                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: showFiltersModal
+                                        fontWeight: hasAppliedFilters() && !showFiltersModal
+                                          ? 700
+                                          : showFiltersModal
                                           ? 700
                                           : 600,
                                         fontSize: "14px",
-                                        color: showFiltersModal
+                                        color: hasAppliedFilters() && !showFiltersModal
+                                          ? "rgba(52,70,152,1)"
+                                          : showFiltersModal
                                           ? "rgba(37,43,55,1)"
                                           : "rgba(65,70,81,1)",
                                       }}
