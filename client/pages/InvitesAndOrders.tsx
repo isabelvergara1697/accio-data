@@ -6543,32 +6543,29 @@ const InvitesAndOrders: React.FC = () => {
                                   alignItems: "center",
                                   borderBottom: "1px solid #E9EAEB",
                                   position: "relative",
+                                  overflow: "hidden",
                                 }}
                               >
                                 <Tooltip>
                                   <TooltipTrigger asChild>
-                                    <div style={{
-                                      position: "relative",
-                                      display: "flex",
-                                      width: "100%",
-                                      minWidth: 0,
-                                    }}>
-                                      <div
-                                        style={{
-                                          overflow: "hidden",
-                                          textOverflow: "ellipsis",
-                                          whiteSpace: "nowrap",
-                                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                          fontWeight: 400,
-                                          fontSize: "14px",
-                                          color: "rgba(24,29,39,1)",
-                                          lineHeight: "20px",
-                                          width: "100%",
-                                        }}
-                                      >
-                                        {highlightText(invite.email, searchQuery)}
-                                      </div>
-                                    </div>
+                                    <span
+                                      style={{
+                                        display: "block",
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                        whiteSpace: "nowrap",
+                                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 400,
+                                        fontSize: "14px",
+                                        color: "rgba(24,29,39,1)",
+                                        lineHeight: "20px",
+                                        width: "100%",
+                                        maxWidth: "100%",
+                                        cursor: "default",
+                                      }}
+                                    >
+                                      {highlightText(invite.email, searchQuery)}
+                                    </span>
                                   </TooltipTrigger>
                                   <TooltipContent
                                     side="top"
