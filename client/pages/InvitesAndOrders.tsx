@@ -1030,6 +1030,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: false,
       activated: false,
       ews: false,
+      packageType: "Executive Plus",
     },
   ];
 
