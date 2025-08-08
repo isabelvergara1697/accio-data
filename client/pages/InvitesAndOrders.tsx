@@ -254,11 +254,16 @@ const InvitesAndOrders: React.FC = () => {
     const config = getColumnConfig(columnId);
     if (!config) return null;
 
-    return (
-      <div
-        style={{
+    // Handle flexible width for email column
+    const getColumnStyle = () => {
+      if (columnId === "invtEmail") {
+        return {
           display: "flex",
-          width: config.width,
+          ...(showFiltersModal
+            ? { flex: "1 1 120px", minWidth: "120px" }
+            : isLargeDesktop
+              ? { flex: "1 1 200px", minWidth: "180px" }
+              : { flex: "1 1 160px", minWidth: "140px" }),
           height: "36px",
           padding: "6px 12px",
           alignItems: "center",
@@ -266,8 +271,24 @@ const InvitesAndOrders: React.FC = () => {
           borderBottom: "1px solid #E9EAEB",
           background: "#FFF",
           position: "relative",
-        }}
-      >
+        };
+      }
+
+      return {
+        display: "flex",
+        width: config.width,
+        height: "36px",
+        padding: "6px 12px",
+        alignItems: "center",
+        gap: "12px",
+        borderBottom: "1px solid #E9EAEB",
+        background: "#FFF",
+        position: "relative",
+      };
+    };
+
+    return (
+      <div style={getColumnStyle()}>
         <div
           style={{
             display: "flex",
