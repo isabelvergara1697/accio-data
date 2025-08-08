@@ -1835,9 +1835,10 @@ const InvitesAndOrders: React.FC = () => {
                               style={{
                                 display: showFiltersModal ? "none" : "flex",
                                 alignItems: "center",
-                                gap: "12px",
+                                gap: isTablet ? "8px" : "12px",
                                 position: "relative",
-                                flexShrink: 0,
+                                flexShrink: isTablet ? 1 : 0,
+                                minWidth: 0,
                               }}
                             >
                               {/* Filters Button */}
