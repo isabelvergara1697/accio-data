@@ -7774,6 +7774,14 @@ const InvitesAndOrders: React.FC = () => {
       />
 
       {/* Filters Panel will be inline in the layout */}
+
+      {/* Mobile Filters Modal */}
+      <MobileFiltersModal
+        isOpen={showMobileFiltersModal}
+        onClose={() => setShowMobileFiltersModal(false)}
+        filters={appliedFilters}
+        onFiltersChange={setAppliedFilters}
+      />
     </div>
   );
 };
