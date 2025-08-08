@@ -38,6 +38,18 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   const [hoveredCloseButton, setHoveredCloseButton] = useState(false);
   const datePickerRef = useRef<HTMLButtonElement>(null);
 
+  // Handle window resize for responsive behavior
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsDesktop(width >= 1024);
+      setIsTablet(width >= 768 && width < 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Sync local state with prop changes
   useEffect(() => {
     setFilters(initialFilters);
