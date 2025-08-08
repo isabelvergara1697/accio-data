@@ -1089,8 +1089,10 @@ const InvitesAndOrders: React.FC = () => {
             position: "relative",
             minWidth: 0,
             minHeight: "calc(100vh - 144px)",
-            padding: "32px",
-            paddingTop: "32px",
+            paddingTop: "32px !important",
+            paddingBottom: "24px !important",
+            paddingLeft: isMobile ? "16px !important" : "32px !important",
+            paddingRight: isMobile ? "16px !important" : "32px !important",
             boxSizing: "border-box",
           }}
         >
