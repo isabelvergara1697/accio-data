@@ -417,7 +417,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   const getFilteredColumns = (columns: Column[]) => {
     if (!searchQuery.trim()) return columns;
     return columns.filter((column) =>
-      column.name.toLowerCase().includes(searchQuery.toLowerCase())
+      column.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   };
 
@@ -425,18 +425,22 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   const getFilteredSections = () => {
     if (!searchQuery.trim()) return columnSections;
 
-    return columnSections.map((section) => {
-      const filteredColumns = getFilteredColumns(section.columns);
-      return {
-        ...section,
-        columns: filteredColumns,
-        isExpanded: filteredColumns.length > 0 ? true : section.isExpanded,
-      };
-    }).filter((section) => section.columns.length > 0);
+    return columnSections
+      .map((section) => {
+        const filteredColumns = getFilteredColumns(section.columns);
+        return {
+          ...section,
+          columns: filteredColumns,
+          isExpanded: filteredColumns.length > 0 ? true : section.isExpanded,
+        };
+      })
+      .filter((section) => section.columns.length > 0);
   };
 
   const filteredSections = getFilteredSections();
-  const hasSearchResults = searchQuery.trim() ? filteredSections.length > 0 : true;
+  const hasSearchResults = searchQuery.trim()
+    ? filteredSections.length > 0
+    : true;
 
   if (!isOpen) return null;
 
@@ -467,11 +471,13 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   };
 
   const removeColumn = (columnId: string) => {
-    const filteredColumns = selectedColumns.filter(col => col.id !== columnId);
+    const filteredColumns = selectedColumns.filter(
+      (col) => col.id !== columnId,
+    );
     // Reorder the remaining columns
     const updatedColumns = filteredColumns.map((col, index) => ({
       ...col,
-      order: index + 1
+      order: index + 1,
     }));
     onColumnOrderChange(updatedColumns);
   };
@@ -479,13 +485,13 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   // Drag handlers
   const handleDragStart = (e: React.DragEvent, columnId: string) => {
     setDraggedColumn(columnId);
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', columnId);
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/html", columnId);
   };
 
   const handleDragOver = (e: React.DragEvent, columnId: string) => {
     e.preventDefault();
-    e.dataTransfer.dropEffect = 'move';
+    e.dataTransfer.dropEffect = "move";
     if (draggedColumn && draggedColumn !== columnId) {
       setDragOverColumn(columnId);
     }
@@ -505,8 +511,12 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     }
 
     const newColumns = [...selectedColumns];
-    const draggedIndex = newColumns.findIndex(col => col.id === draggedColumn);
-    const targetIndex = newColumns.findIndex(col => col.id === targetColumnId);
+    const draggedIndex = newColumns.findIndex(
+      (col) => col.id === draggedColumn,
+    );
+    const targetIndex = newColumns.findIndex(
+      (col) => col.id === targetColumnId,
+    );
 
     if (draggedIndex === -1 || targetIndex === -1) {
       setDraggedColumn(null);
@@ -523,7 +533,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     // Update order numbers
     const updatedColumns = newColumns.map((col, index) => ({
       ...col,
-      order: index + 1
+      order: index + 1,
     }));
 
     onColumnOrderChange(updatedColumns);
@@ -797,7 +807,9 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                     width: "112px",
                     height: "28px",
                     borderRadius: "6px",
-                    border: dragOverColumn ? "1px solid #34479A" : "1px dashed #D5D7DA",
+                    border: dragOverColumn
+                      ? "1px solid #34479A"
+                      : "1px dashed #D5D7DA",
                     background: dragOverColumn ? "#ECEEF9" : "transparent",
                     opacity: draggedColumn ? 1 : 0,
                     transition: "all 0.2s ease",
@@ -826,9 +838,17 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                       alignItems: "center",
                       gap: "3px",
                       borderRadius: "6px",
-                      border: isDropTarget ? "1px solid #34479A" : "1px solid #D5D7DA",
-                      background: isDragging ? "#F5F5F5" : isDropTarget ? "#ECEEF9" : "#FFF",
-                      boxShadow: isDragging ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)" : "none",
+                      border: isDropTarget
+                        ? "1px solid #34479A"
+                        : "1px solid #D5D7DA",
+                      background: isDragging
+                        ? "#F5F5F5"
+                        : isDropTarget
+                          ? "#ECEEF9"
+                          : "#FFF",
+                      boxShadow: isDragging
+                        ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)"
+                        : "none",
                       opacity: isDragging ? 0.8 : 1,
                       transform: isDragging ? "rotate(2deg)" : "none",
                       transition: "all 0.2s ease",
@@ -1102,7 +1122,9 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                   gap: "8px",
                   alignSelf: "stretch",
                   borderRadius: "8px",
-                  border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
+                  border: isSearchActive
+                    ? "2px solid #34479A"
+                    : "1px solid #D5D7DA",
                   background: "#FFF",
                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                 }}
@@ -1319,7 +1341,10 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                             lineHeight: "18px",
                           }}
                         >
-                          {section.selectedCount} of {searchQuery.trim() ? section.columns.length : section.totalCount}
+                          {section.selectedCount} of{" "}
+                          {searchQuery.trim()
+                            ? section.columns.length
+                            : section.totalCount}
                         </div>
                       </div>
                     </div>

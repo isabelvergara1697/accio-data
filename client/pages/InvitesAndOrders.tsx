@@ -203,49 +203,51 @@ const InvitesAndOrders: React.FC = () => {
       status: {
         width: "118px",
         label: "Status",
-        sortField: "status"
+        sortField: "status",
       },
       firstName: {
         width: "108px",
         label: "First Name",
-        sortField: "firstName"
+        sortField: "firstName",
       },
       lastName: {
         width: "106px",
         label: "Last Name",
-        sortField: "lastName"
+        sortField: "lastName",
       },
       invtEmail: {
         width: "180px",
         label: "Invt Email",
-        sortField: "email"
+        sortField: "email",
       },
       completed: {
         width: "88px",
         label: "Completed",
-        sortField: "completion"
+        sortField: "completion",
       },
       i9Filled: {
         width: "78px",
         label: "I-9 Filled",
-        sortField: "i9Filled"
+        sortField: "i9Filled",
       },
       activate: {
         width: "72px",
         label: "Activate",
-        sortField: "activated"
+        sortField: "activated",
       },
       ews: {
         width: "52px",
         label: "EWS",
-        sortField: "ews"
-      }
+        sortField: "ews",
+      },
     };
     return configs[columnId as keyof typeof configs];
   };
 
   // Get visible columns in order
-  const visibleColumns = columnOrder.filter(col => col.isSelected).sort((a, b) => a.order - b.order);
+  const visibleColumns = columnOrder
+    .filter((col) => col.isSelected)
+    .sort((a, b) => a.order - b.order);
 
   // Component for rendering a table header column
   const TableHeaderColumn: React.FC<{ columnId: string }> = ({ columnId }) => {
@@ -287,10 +289,14 @@ const InvitesAndOrders: React.FC = () => {
           >
             <span
               style={{
-                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                 fontWeight: 600,
                 fontSize: "12px",
-                color: sortField === config.sortField ? "#34479A" : "rgba(113,118,128,1)",
+                color:
+                  sortField === config.sortField
+                    ? "#34479A"
+                    : "rgba(113,118,128,1)",
               }}
             >
               {config.label}
@@ -345,7 +351,10 @@ const InvitesAndOrders: React.FC = () => {
             </button>
             <button
               onClick={() => {
-                if (sortField === config.sortField && sortDirection === "desc") {
+                if (
+                  sortField === config.sortField &&
+                  sortDirection === "desc"
+                ) {
                   setSortField(null);
                   setSortDirection(null);
                 } else {
@@ -5715,9 +5724,11 @@ const InvitesAndOrders: React.FC = () => {
 
                             {/* Dynamic Columns */}
                             {visibleColumns.map((column) => (
-                              <TableHeaderColumn key={column.id} columnId={column.id} />
+                              <TableHeaderColumn
+                                key={column.id}
+                                columnId={column.id}
+                              />
                             ))}
-
 
                             {/* Invitation Email Column */}
                             <div
