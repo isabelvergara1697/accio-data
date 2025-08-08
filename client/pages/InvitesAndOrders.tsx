@@ -305,6 +305,12 @@ const InvitesAndOrders: React.FC = () => {
             >
               <div
                 onMouseEnter={(e) => {
+                  // Clear any existing tooltip first
+                  if (e.target._tooltip) {
+                    document.body.removeChild(e.target._tooltip);
+                    delete e.target._tooltip;
+                  }
+
                   const tooltip = document.createElement("div");
                   tooltip.textContent = invite.email;
                   tooltip.style.cssText = `
@@ -325,11 +331,24 @@ const InvitesAndOrders: React.FC = () => {
                   tooltip.style.top = rect.top - 40 + "px";
                   document.body.appendChild(tooltip);
                   e.target._tooltip = tooltip;
+
+                  // Auto-hide tooltip after 3 seconds as backup
+                  setTimeout(() => {
+                    if (e.target._tooltip && document.body.contains(e.target._tooltip)) {
+                      document.body.removeChild(e.target._tooltip);
+                      delete e.target._tooltip;
+                    }
+                  }, 3000);
                 }}
                 onMouseLeave={(e) => {
                   if (e.target._tooltip) {
-                    document.body.removeChild(e.target._tooltip);
-                    delete e.target._tooltip;
+                    try {
+                      document.body.removeChild(e.target._tooltip);
+                      delete e.target._tooltip;
+                    } catch (error) {
+                      // Tooltip might already be removed
+                      delete e.target._tooltip;
+                    }
                   }
                 }}
                 style={{
