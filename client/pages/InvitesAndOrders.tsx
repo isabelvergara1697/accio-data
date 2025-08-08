@@ -540,8 +540,43 @@ const InvitesAndOrders: React.FC = () => {
     const needsFlexLayout = status === "waiting-for-recruitee" || status === "expires-today";
     const needsTooltip = needsFlexLayout; // Only long statuses get tooltips
 
-    // Use consistent display: "inline-flex" for both to fix alignment
-    const badgeElement = (
+    const badgeElement = needsFlexLayout ? (
+      // For long statuses: use flex layout with proper truncation
+      <div
+        style={{
+          display: "flex",
+          padding: "2px 8px",
+          alignItems: "center",
+          flex: "1 0 0",
+          borderRadius: "9999px",
+          border: `1px solid ${config.border}`,
+          background: config.bg,
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 1,
+            flex: "1 0 0",
+            overflow: "hidden",
+            color: config.text,
+            textAlign: "center",
+            textOverflow: "ellipsis",
+            fontFamily: "Public Sans",
+            fontSize: "12px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "18px",
+            position: "relative",
+          }}
+        >
+          {config.label}
+        </div>
+      </div>
+    ) : (
+      // For short statuses: simple inline layout - no truncation needed
       <div
         style={{
           display: "inline-flex",
@@ -551,11 +586,6 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${config.border}`,
           background: config.bg,
           position: "relative",
-          // Only apply flex and width constraints for long statuses that need truncation
-          ...(needsFlexLayout ? {
-            flex: "1 0 0",
-            maxWidth: "100%",
-          } : {}),
         }}
       >
         <div
@@ -567,14 +597,6 @@ const InvitesAndOrders: React.FC = () => {
             fontWeight: 500,
             lineHeight: "18px",
             position: "relative",
-            // Apply truncation only for long statuses
-            ...(needsFlexLayout ? {
-              flex: "1 0 0",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-              textAlign: "center",
-            } : {}),
           }}
         >
           {config.label}
