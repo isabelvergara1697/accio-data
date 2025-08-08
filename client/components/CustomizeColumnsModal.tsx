@@ -1425,22 +1425,25 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                                 width: "16px",
                                 height: "16px",
                                 borderRadius: "4px",
-                                border: column.isSelected
+                                border: isColumnVisible(column.id)
                                   ? "none"
                                   : "1px solid #D5D7DA",
-                                background: column.isSelected
+                                background: isColumnVisible(column.id)
                                   ? "#344698"
                                   : "transparent",
-                                cursor: "pointer",
+                                cursor: isColumnVisible(column.id) ? "pointer" : "not-allowed",
+                                opacity: isColumnVisible(column.id) ? 1 : 0.4,
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
                               }}
-                              onClick={() =>
-                                console.log("Toggle column:", column.id)
-                              }
+                              onClick={() => {
+                                if (isColumnVisible(column.id)) {
+                                  handleColumnToggle(column.id);
+                                }
+                              }}
                             >
-                              {column.isSelected && (
+                              {isColumnVisible(column.id) && (
                                 <svg
                                   width="14"
                                   height="14"
