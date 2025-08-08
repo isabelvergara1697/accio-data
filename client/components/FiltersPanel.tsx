@@ -90,7 +90,9 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
         style={{
           display: "flex",
           width: "258px",
-          maxHeight: "100vh",
+          height: "auto",
+          minHeight: "400px",
+          maxHeight: "calc(100vh - 200px)",
           flexDirection: "column",
           alignItems: "flex-start",
           position: "relative",
@@ -231,9 +233,9 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
             display: "flex",
             padding: "12px 12px 16px 12px",
             flexDirection: "column",
-            alignItems: "center",
+            alignItems: "flex-start",
             gap: "16px",
-            flex: "1 0 0",
+            flex: "1 1 auto",
             alignSelf: "stretch",
             borderRadius: "0px 0px 12px 12px",
             borderRight: "1px solid #E9EAEB",
@@ -242,8 +244,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
             background: "#FFF",
             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
             position: "relative",
-            overflow: "auto",
-            maxHeight: "calc(100vh - 160px)",
+            overflow: "visible",
+            minHeight: "350px",
           }}
         >
           {/* Status Filter */}
