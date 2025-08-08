@@ -46,27 +46,46 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
   ];
 
   const packageTypeOptions = [
-    { value: "basic", label: "Basic Package" },
-    { value: "premium", label: "Premium Package" },
-    { value: "enterprise", label: "Enterprise Package" },
+    { value: "csd-standard", label: "CSD Standard" },
+    { value: "volunteer-application", label: "Volunteer Application" },
+    { value: "a-la-carte", label: "A La Carte" },
+    { value: "retail", label: "Retail" },
+    { value: "mvr", label: "MVR" },
+    { value: "sales", label: "Sales" },
+    { value: "executive", label: "Executive" },
+    { value: "operations", label: "Operations" },
+    { value: "hourly", label: "Hourly" },
+    { value: "cbsv", label: "CBSV" },
+    { value: "dot", label: "DOT" },
+    { value: "new-york", label: "New York" },
+    { value: "immunization-records", label: "Immunization Records" },
+    { value: "just-mvr", label: "Just MVR" },
+    { value: "hasc-contractor", label: "HASC Contractor" },
+    { value: "applicant-provided-address-only", label: "Applicant provided address only" },
+    { value: "employment-only", label: "Employment Only" },
+    { value: "sap-10", label: "SAP 10" },
+    { value: "identity-check-package", label: "Identity Check Package" },
+    { value: "identity-check-test-package-includes-product", label: "Identity Check Test Package Includes Product" },
+    { value: "standard-with-edu-and-emp", label: "Standard with EDU and EMP" },
+    { value: "executive-plus", label: "Executive Plus" },
   ];
 
   const i9FilledOptions = [
+    { value: "all", label: "All" },
     { value: "yes", label: "Yes" },
     { value: "no", label: "No" },
-    { value: "pending", label: "Pending" },
   ];
 
   const activateOptions = [
-    { value: "active", label: "Active" },
-    { value: "inactive", label: "Inactive" },
-    { value: "pending", label: "Pending" },
+    { value: "all", label: "All" },
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
   ];
 
   const ewsOptions = [
-    { value: "verified", label: "Verified" },
-    { value: "not-verified", label: "Not Verified" },
-    { value: "pending", label: "Pending" },
+    { value: "all", label: "All" },
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
   ];
 
   const handleFilterChange = (key: keyof FilterState, value: string[]) => {
@@ -103,7 +122,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
         <div
           style={{
             display: "flex",
-            height: "64px",
+            height: "72px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "20px",
