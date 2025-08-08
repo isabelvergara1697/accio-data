@@ -1742,6 +1742,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <NavItem
                   section="screening"
                   label="Screening"
+                  isActive={currentPage === "invites-orders"}
                   badge={!isAccordionOpen("screening") ? "8" : undefined}
                   onClick={() => toggleSidebarAccordion("screening")}
                 />
