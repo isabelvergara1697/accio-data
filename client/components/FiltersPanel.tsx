@@ -199,7 +199,26 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
       } else {
         const values = filters[key] as string[];
         values.forEach(value => {
-          const filterLabel = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1');
+          let filterLabel = '';
+          switch (key) {
+            case 'status':
+              filterLabel = 'Status';
+              break;
+            case 'typeOfPackage':
+              filterLabel = 'Type of Package';
+              break;
+            case 'i9Filled':
+              filterLabel = 'I-9 Filled';
+              break;
+            case 'activate':
+              filterLabel = 'Activate';
+              break;
+            case 'ews':
+              filterLabel = 'EWS';
+              break;
+            default:
+              filterLabel = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1');
+          }
           appliedFilters.push({
             key,
             value,
