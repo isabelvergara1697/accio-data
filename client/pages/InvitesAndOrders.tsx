@@ -1037,7 +1037,7 @@ const InvitesAndOrders: React.FC = () => {
         style={{
           display: "flex",
           flexDirection: "column",
-          flex: "1 0 0",
+          flex: "1 1 auto",
           alignSelf: "stretch",
           marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
           position: "relative",
@@ -1045,6 +1045,7 @@ const InvitesAndOrders: React.FC = () => {
           maxWidth: "100%",
           minWidth: 0,
           minHeight: "100vh",
+          height: "auto",
           overflow: "visible",
           boxSizing: "border-box",
         }}
