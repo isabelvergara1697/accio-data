@@ -404,6 +404,14 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
 
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Check if search is active (has content)
+  const isSearchActive = searchQuery.trim().length > 0;
+
+  // Clear search function
+  const clearSearch = () => {
+    setSearchQuery("");
+  };
+
   // Filter columns based on search query
   const getFilteredColumns = (columns: Column[]) => {
     if (!searchQuery.trim()) return columns;
