@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import DatePickerCalendar from "./ui/date-picker-calendar";
 import FilterDropdown from "./ui/filter-dropdown";
 
