@@ -258,6 +258,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
               selectedValues={filters.status}
               onSelectionChange={(values) => handleFilterChange("status", values)}
               placeholder="Select Status"
+              searchDisabled={true}
             />
           </div>
 
