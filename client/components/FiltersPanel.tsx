@@ -21,11 +21,11 @@ interface FilterState {
 
 const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
   const [filters, setFilters] = useState<FilterState>({
-    status: "",
-    typeOfPackage: "",
-    i9Filled: "",
-    activate: "",
-    ews: "",
+    status: [],
+    typeOfPackage: [],
+    i9Filled: [],
+    activate: [],
+    ews: [],
     dateRange: {
       start: new Date(),
       end: new Date(),
