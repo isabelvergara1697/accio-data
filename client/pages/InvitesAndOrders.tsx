@@ -520,81 +520,47 @@ const InvitesAndOrders: React.FC = () => {
     },
   ];
 
-  // Component for status badges with proper sizing and alignment
-  const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({
-    status,
-  }) => {
+  // Simple and reliable StatusBadge component
+  const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({ status }) => {
     const statusConfig = {
-      waiting: { label: "Waiting", color: "blue-light" },
-      unsolicited: { label: "Unsolicited", color: "gray-blue" },
-      canceled: { label: "Canceled", color: "orange" },
-      expired: { label: "Expired", color: "gray" },
-      "waiting-for-recruitee": {
-        label: "Waiting for Recruitee",
-        color: "error",
-      },
-      "expires-today": { label: "Expires Today", color: "warning" },
-      reviewed: { label: "Reviewed", color: "pink" },
-      archived: { label: "Archived", color: "gray" },
+      waiting: { label: "Waiting", bg: "#F0F9FF", border: "#B9E6FE", text: "#026AA2" },
+      unsolicited: { label: "Unsolicited", bg: "#F8F9FC", border: "#D5D9EB", text: "#363F72" },
+      canceled: { label: "Canceled", bg: "#FEF6EE", border: "#F9DBAF", text: "#B93815" },
+      expired: { label: "Expired", bg: "#FAFAFA", border: "#E9EAEB", text: "#414651" },
+      "waiting-for-recruitee": { label: "Waiting for Recruitee", bg: "#FEF3F2", border: "#FECDCA", text: "#B42318" },
+      "expires-today": { label: "Expires Today", bg: "#FFFAEB", border: "#FEDF89", text: "#B54708" },
+      reviewed: { label: "Reviewed", bg: "#FDF2FA", border: "#FCCEEE", text: "#C11574" },
+      archived: { label: "Archived", bg: "#FAFAFA", border: "#E9EAEB", text: "#414651" },
     };
 
     const config = statusConfig[status];
-    const colorMap = {
-      "blue-light": { bg: "#F0F9FF", border: "#B9E6FE", text: "#026AA2" },
-      "gray-blue": { bg: "#F8F9FC", border: "#D5D9EB", text: "#363F72" },
-      gray: { bg: "#FAFAFA", border: "#E9EAEB", text: "#414651" },
-      orange: { bg: "#FEF6EE", border: "#F9DBAF", text: "#B93815" },
-      error: { bg: "#FEF3F2", border: "#FECDCA", text: "#B42318" },
-      warning: { bg: "#FFFAEB", border: "#FEDF89", text: "#B54708" },
-      pink: { bg: "#FDF2FA", border: "#FCCEEE", text: "#C11574" },
-    };
+    if (!config) return null;
 
-    const colors = colorMap[config.color as keyof typeof colorMap];
-
-    // Use minWidth approach to ensure badges are never smaller than needed
-    const getMinWidth = () => {
-      switch (status) {
-        case "waiting-for-recruitee":
-          return "160px"; // Increased to ensure full text fits
-        case "expires-today":
-          return "120px"; // Increased to ensure "Expires Today" fits
-        case "unsolicited":
-          return "95px";  // Increased to ensure "Unsolicited" fits
-        default:
-          return "fit-content";
-      }
-    };
-
-    const minWidth = getMinWidth();
+    // Fixed maximum width with proper truncation
+    const maxWidth = "120px";
     const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
 
     const badgeElement = (
       <div
         style={{
-          display: "inline-flex",
+          display: "inline-block",
+          maxWidth: maxWidth,
           padding: "2px 8px",
-          alignItems: "center",
-          justifyContent: "center",
           borderRadius: "9999px",
-          border: `1px solid ${colors.border}`,
-          background: colors.bg,
-          position: "relative",
-          minWidth: minWidth,
-          width: "auto",
-          flexShrink: 0, // Prevent the badge from shrinking
+          border: `1px solid ${config.border}`,
+          backgroundColor: config.bg,
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
         }}
       >
         <span
           style={{
-            whiteSpace: "nowrap",
-            color: colors.text,
-            textAlign: "center",
+            color: config.text,
             fontFamily: "Public Sans",
             fontSize: "12px",
-            fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
-            display: "inline-block",
           }}
         >
           {config.label}
@@ -602,6 +568,7 @@ const InvitesAndOrders: React.FC = () => {
       </div>
     );
 
+    // Add tooltip for truncated longer status names
     if (isLongStatus) {
       return (
         <Tooltip>
@@ -611,17 +578,13 @@ const InvitesAndOrders: React.FC = () => {
             align="start"
             sideOffset={5}
             style={{
-              maxWidth: "200px",
-              wordWrap: "break-word",
               backgroundColor: "#0A0D12",
               color: "#FFF",
               padding: "8px 12px",
               borderRadius: "8px",
               fontSize: "12px",
               fontWeight: 600,
-              lineHeight: "18px",
-              boxShadow:
-                "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+              maxWidth: "200px",
             }}
           >
             {config.label}
