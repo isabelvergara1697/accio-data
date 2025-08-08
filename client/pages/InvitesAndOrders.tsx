@@ -6719,9 +6719,7 @@ const InvitesAndOrders: React.FC = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  ...(showFiltersModal
-                                    ? { width: "90px" }
-                                    : { flex: "0 1 110px", minWidth: "90px" }),
+                                  width: "110px",
                                   height: "52px",
                                   padding: "12px",
                                   alignItems: "center",
