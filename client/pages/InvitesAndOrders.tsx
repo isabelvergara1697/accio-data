@@ -576,12 +576,13 @@ const InvitesAndOrders: React.FC = () => {
           alignItems: "center",
           justifyContent: "center",
           borderRadius: "9999px",
-          border: `1px solid ${colors.border}`,
+          border: `2px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
           width: badgeWidth,
           minWidth: badgeWidth,
           maxWidth: badgeWidth,
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
         }}
       >
         <span
