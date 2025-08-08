@@ -374,6 +374,7 @@ const InvitesAndOrders: React.FC = () => {
             <TruncatedText
               text={invite.packageType}
               highlightedText={highlightText(invite.packageType, searchQuery)}
+              maxWidth="116px"
               style={{
                 color: "#181D27",
                 fontFamily: "Public Sans",
