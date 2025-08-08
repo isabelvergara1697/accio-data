@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import DatePickerCalendar from "./ui/date-picker-calendar";
-import DesktopCalendar from "./ui/desktop-calendar";
 import FilterDropdown from "./ui/filter-dropdown";
 
 interface FiltersPanelProps {
