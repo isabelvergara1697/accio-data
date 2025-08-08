@@ -997,56 +997,89 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
               <div
                 style={{
                   display: "flex",
-                  height: "32px",
+                  minHeight: "32px",
                   padding: "6px 8px",
                   alignItems: "center",
                   gap: "8px",
                   alignSelf: "stretch",
                   borderRadius: "8px",
-                  border: "1px solid #D5D7DA",
+                  border: isSearchActive ? "2px solid #34479A" : "1px solid #D5D7DA",
                   background: "#FFF",
                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                 }}
               >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <input
-                  type="text"
-                  placeholder="Find Columns"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                <div
                   style={{
                     display: "flex",
-                    height: "20px",
-                    flexDirection: "column",
-                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "8px",
                     flex: "1 0 0",
-                    overflow: "hidden",
-                    color: "#717680",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    lineHeight: "20px",
-                    border: "none",
-                    outline: "none",
-                    background: "transparent",
                   }}
-                />
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Find Columns"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    style={{
+                      border: "none",
+                      outline: "none",
+                      background: "transparent",
+                      flex: "1 0 0",
+                      height: "20px",
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                    }}
+                  />
+                </div>
+                {isSearchActive && (
+                  <button
+                    onClick={clearSearch}
+                    style={{
+                      border: "none",
+                      background: "transparent",
+                      cursor: "pointer",
+                      padding: "2px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 4L4 12M4 4L12 12"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                )}
               </div>
             </div>
 
