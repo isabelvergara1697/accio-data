@@ -262,40 +262,48 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Type of Package Filter */}
-          <FilterDropdown
-            label="Type of Package"
-            options={packageTypeOptions}
-            selectedValues={filters.typeOfPackage}
-            onSelectionChange={(values) => handleFilterChange("typeOfPackage", values)}
-            placeholder="Select Filter"
-          />
+          <div style={{ width: "100%" }}>
+            <FilterDropdown
+              label="Type of Package"
+              options={packageTypeOptions}
+              selectedValues={filters.typeOfPackage}
+              onSelectionChange={(values) => handleFilterChange("typeOfPackage", values)}
+              placeholder="Select Filter"
+            />
+          </div>
 
           {/* I-9 Filled Filter */}
-          <FilterDropdown
-            label="I-9 Filled"
-            options={i9FilledOptions}
-            selectedValues={filters.i9Filled}
-            onSelectionChange={(values) => handleFilterChange("i9Filled", values)}
-            placeholder="Select Filter"
-          />
+          <div style={{ width: "100%" }}>
+            <FilterDropdown
+              label="I-9 Filled"
+              options={i9FilledOptions}
+              selectedValues={filters.i9Filled}
+              onSelectionChange={(values) => handleFilterChange("i9Filled", values)}
+              placeholder="Select Filter"
+            />
+          </div>
 
           {/* Activate Filter */}
-          <FilterDropdown
-            label="Activate"
-            options={activateOptions}
-            selectedValues={filters.activate}
-            onSelectionChange={(values) => handleFilterChange("activate", values)}
-            placeholder="Select Filter"
-          />
+          <div style={{ width: "100%" }}>
+            <FilterDropdown
+              label="Activate"
+              options={activateOptions}
+              selectedValues={filters.activate}
+              onSelectionChange={(values) => handleFilterChange("activate", values)}
+              placeholder="Select Filter"
+            />
+          </div>
 
           {/* EWS Filter */}
-          <FilterDropdown
-            label="EWS"
-            options={ewsOptions}
-            selectedValues={filters.ews}
-            onSelectionChange={(values) => handleFilterChange("ews", values)}
-            placeholder="Select Filter"
-          />
+          <div style={{ width: "100%" }}>
+            <FilterDropdown
+              label="EWS"
+              options={ewsOptions}
+              selectedValues={filters.ews}
+              onSelectionChange={(values) => handleFilterChange("ews", values)}
+              placeholder="Select Filter"
+            />
+          </div>
 
           {/* Date Range Filter */}
           <div
