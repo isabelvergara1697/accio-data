@@ -249,6 +249,174 @@ const InvitesAndOrders: React.FC = () => {
     .filter((col) => col.isSelected)
     .sort((a, b) => a.order - b.order);
 
+  // Component for rendering a table cell
+  const TableCell: React.FC<{ columnId: string; invite: InviteData }> = ({ columnId, invite }) => {
+    const config = getColumnConfig(columnId);
+    if (!config) return null;
+
+    const renderCellContent = () => {
+      switch (columnId) {
+        case "status":
+          return <StatusBadge status={invite.status} />;
+        case "firstName":
+          return (
+            <TruncatedText
+              text={invite.firstName}
+              highlightedText={highlightText(invite.firstName, searchQuery)}
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            />
+          );
+        case "lastName":
+          return (
+            <TruncatedText
+              text={invite.lastName}
+              highlightedText={highlightText(invite.lastName, searchQuery)}
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            />
+          );
+        case "invtEmail":
+          return (
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+              }}
+            >
+              <div
+                onMouseEnter={(e) => {
+                  const tooltip = document.createElement("div");
+                  tooltip.textContent = invite.email;
+                  tooltip.style.cssText = `
+                    position: fixed;
+                    background: #0A0D12;
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 8px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    z-index: 999999;
+                    pointer-events: none;
+                    max-width: 300px;
+                    word-break: break-all;
+                  `;
+                  const rect = e.target.getBoundingClientRect();
+                  tooltip.style.left = rect.left + "px";
+                  tooltip.style.top = rect.top - 40 + "px";
+                  document.body.appendChild(tooltip);
+                  e.target._tooltip = tooltip;
+                }}
+                onMouseLeave={(e) => {
+                  if (e.target._tooltip) {
+                    document.body.removeChild(e.target._tooltip);
+                    delete e.target._tooltip;
+                  }
+                }}
+                style={{
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "14px",
+                  color: "rgba(24,29,39,1)",
+                  lineHeight: "20px",
+                  width: "100%",
+                  cursor: "default",
+                }}
+              >
+                {highlightText(invite.email, searchQuery)}
+              </div>
+            </div>
+          );
+        case "completed":
+          return <ProgressBar percentage={invite.completion} />;
+        case "i9Filled":
+          return (
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+              {invite.i9Filled && <CheckIcon />}
+            </div>
+          );
+        case "activate":
+          return (
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+              {invite.activated && <CheckIcon />}
+            </div>
+          );
+        case "ews":
+          return (
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+              {invite.ews && <CheckIcon />}
+            </div>
+          );
+        default:
+          return null;
+      }
+    };
+
+    // Handle flexible width for email column
+    const getCellStyle = () => {
+      if (columnId === "invtEmail") {
+        return {
+          display: "flex",
+          ...(showFiltersModal
+            ? { flex: "1 1 120px", minWidth: "120px" }
+            : isLargeDesktop
+              ? { flex: "1 1 200px", minWidth: "180px" }
+              : { flex: "1 1 160px", minWidth: "140px" }),
+          height: "52px",
+          padding: "12px",
+          alignItems: "center",
+          borderBottom: "1px solid #E9EAEB",
+          position: "relative",
+          minWidth: 0,
+        };
+      }
+
+      return {
+        display: "flex",
+        width: config.width,
+        height: "52px",
+        padding: "12px",
+        alignItems: "center",
+        borderBottom: "1px solid #E9EAEB",
+        position: "relative",
+        minWidth: 0,
+        ...(columnId === "completed" ? { gap: "12px" } : {}),
+        ...(columnId === "status" ? { justifyContent: "flex-start" } : {}),
+      };
+    };
+
+    return (
+      <div style={getCellStyle()}>
+        <div
+          style={{
+            width: "100%",
+            maxWidth: "100%",
+            display: "flex",
+            alignItems: "center",
+            ...(columnId === "completed" ? { gap: "4px" } : {}),
+          }}
+        >
+          {renderCellContent()}
+        </div>
+      </div>
+    );
+  };
+
   // Component for rendering a table header column
   const TableHeaderColumn: React.FC<{ columnId: string }> = ({ columnId }) => {
     const config = getColumnConfig(columnId);
