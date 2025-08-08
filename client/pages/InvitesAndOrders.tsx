@@ -211,7 +211,7 @@ const InvitesAndOrders: React.FC = () => {
         sortField: "firstName",
       },
       lastName: {
-        width: "106px",
+        width: "108px",
         label: "Last Name",
         sortField: "lastName",
       },
@@ -221,22 +221,22 @@ const InvitesAndOrders: React.FC = () => {
         sortField: "email",
       },
       completed: {
-        width: "88px",
+        width: "113px",
         label: "Completed",
         sortField: "completion",
       },
       i9Filled: {
-        width: "78px",
+        width: "110px",
         label: "I-9 Filled",
         sortField: "i9Filled",
       },
       activate: {
-        width: "72px",
+        width: "110px",
         label: "Activate",
         sortField: "activated",
       },
       ews: {
-        width: "52px",
+        width: "110px",
         label: "EWS",
         sortField: "ews",
       },
