@@ -1471,7 +1471,7 @@ const InvitesAndOrders: React.FC = () => {
                           boxSizing: "border-box",
                         }}
                       >
-                        {isDesktop && !isTablet ? (
+                        {(isDesktop || isTablet) && !isMobile ? (
                           <>
                             {/* Desktop: Title - Left aligned */}
                             <div
