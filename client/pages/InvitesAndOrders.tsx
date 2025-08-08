@@ -1087,7 +1087,10 @@ const InvitesAndOrders: React.FC = () => {
             background: "#FAFAFA",
             position: "relative",
             minWidth: 0,
-            minHeight: 0,
+            minHeight: "calc(100vh - 144px)",
+            padding: "32px",
+            paddingTop: "32px",
+            boxSizing: "border-box",
           }}
         >
           {/* Header section */}
