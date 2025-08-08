@@ -52,8 +52,8 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     onColumnOrderChange(updatedColumns);
   };
 
-  // Available columns grouped by sections
-  const allAvailableColumns = [
+  // All available columns for Subject / Applicant section
+  const subjectApplicantColumns = [
     // Current active columns first
     { id: "status", name: "Status", isSelected: false },
     { id: "firstName", name: "First Name", isSelected: false },
@@ -86,6 +86,94 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "passportCountry", name: "Passport Country", isSelected: false },
     { id: "citizenshipStatus", name: "Citizenship Status", isSelected: false },
     { id: "passportType", name: "Passport Type", isSelected: false },
+    { id: "intlDriverLicenseState", name: "Intl. Driver License State", isSelected: false },
+    { id: "intlGovernmentId", name: "Intl. Government Id", isSelected: false },
+    { id: "applicantEmail", name: "Applicant Email", isSelected: false, hasHelpIcon: true },
+    { id: "noteTitle", name: "Note Title", isSelected: false },
+    { id: "hairColor", name: "Hair Color", isSelected: false },
+    { id: "race", name: "Race", isSelected: false },
+    { id: "yearsAtCurrentResidence", name: "Years at Current Residence", isSelected: false },
+    { id: "monthlyIncome", name: "Monthly Income", isSelected: false },
+    { id: "monthlyPayments", name: "Monthly Payments", isSelected: false },
+    { id: "applicantId", name: "Applicant ID", isSelected: false },
+    { id: "adjudicationStatus", name: "Adjudication Status", isSelected: false },
+    { id: "adjudicationSubStatus2", name: "Adjudication Sub Status #2", isSelected: false },
+    { id: "subjectDisposition", name: "Subject Disposition", isSelected: false },
+    { id: "intlGovernmentIdDescription", name: "Intl. Government ID Description", isSelected: false },
+    { id: "applicantPhone", name: "Applicant Phone", isSelected: false, hasHelpIcon: true },
+    { id: "hasAdmittedConvictions", name: "Has Admitted Convictions", isSelected: false },
+    { id: "eyeColor", name: "Eye Color", isSelected: false },
+    { id: "gender", name: "Gender", isSelected: false },
+    { id: "monthsAtCurrentResidence", name: "Months at Current Residence", isSelected: false },
+    { id: "monthlyRent", name: "Monthly Rent", isSelected: false },
+    { id: "taxIdNumber", name: "Tax Id Number", isSelected: false },
+    { id: "csvReportStatus", name: "CSV Report Status", isSelected: false },
+    { id: "adjudicationSubStatus1", name: "Adjudication Sub Status #1", isSelected: false },
+    { id: "adjudicationSubStatus3", name: "Adjudication Sub Status #3", isSelected: false },
+    { id: "hireDate", name: "Hire Date", isSelected: false },
+  ];
+
+  // All available columns for Invitation / Portal section
+  const invitationPortalColumns = [
+    { id: "applicationFillLink", name: "Application Fill Link", isSelected: false, hasHelpIcon: true },
+    { id: "invitationStatus", name: "Invitation Status", isSelected: false, hasHelpIcon: true },
+    { id: "invitationNotes", name: "Invitation Notes", isSelected: false, hasHelpIcon: true },
+    { id: "collectDrugs", name: "Collect Drugs", isSelected: false, hasHelpIcon: true },
+    { id: "applicationDays", name: "Application Days", isSelected: false, hasHelpIcon: true },
+    { id: "inclusionEmail", name: "Inclusion Email", isSelected: false, hasHelpIcon: true },
+    { id: "verificationStatus", name: "Verification Status", isSelected: false },
+    { id: "lastEmailSent", name: "Last Email Sent", isSelected: false, hasHelpIcon: true },
+    { id: "lastEmailSentText", name: "Last SMS Text Sent", isSelected: false, hasHelpIcon: true },
+    { id: "timesEmailed", name: "Times Emailed Sent", isSelected: false, hasHelpIcon: true },
+    { id: "inclusionExpired", name: "Inclusion Expired", isSelected: false, hasHelpIcon: true },
+    { id: "smsTextSendGreen", name: "SMS Text Send Green", isSelected: false, hasHelpIcon: true },
+    { id: "portalAuthentication", name: "Portal Authentication", isSelected: false },
+    { id: "unsubscribed", name: "Unsubscribed", isSelected: false },
+  ];
+
+  const jobInformationColumns = [
+    { id: "applicantType", name: "Applicant Type", isSelected: false },
+    { id: "employmentStatus", name: "Employment Status", isSelected: false },
+    { id: "positionRequested", name: "Position Requested", isSelected: false },
+    { id: "managerName", name: "Manager Name", isSelected: false },
+    { id: "jobPurpose", name: "Job Purpose", isSelected: false },
+    { id: "jobCity", name: "Job City", isSelected: false },
+    { id: "jobState", name: "Job State", isSelected: false },
+    { id: "jobTitle", name: "Job Title", isSelected: false },
+    { id: "jobZip", name: "Job Zip", isSelected: false },
+  ];
+
+  const orderStatusColumns = [
+    { id: "orderStatus", name: "Status", isSelected: false, hasHelpIcon: true },
+    { id: "orderUpdate", name: "Order Update", isSelected: false, hasHelpIcon: true },
+    { id: "dispositionByComponentType", name: "Disposition by Component Type", isSelected: false, hasHelpIcon: true },
+    { id: "orderDate", name: "Order Date", isSelected: false },
+    { id: "methodReceivingRecommendation", name: "Method Receiving Recommendation", isSelected: false, hasHelpIcon: true },
+    { id: "flags", name: "Flags", isSelected: false, hasHelpIcon: true },
+    { id: "reportProgress", name: "Report Progress", isSelected: false, hasHelpIcon: true },
+    { id: "rankings", name: "Rankings", isSelected: false, hasHelpIcon: true },
+    { id: "applicationNumber", name: "Application Number", isSelected: false },
+  ];
+
+  const billingIdentifiersColumns = [
+    { id: "billingIdentifier1", name: "Billing Identifier 1", isSelected: false },
+    { id: "billingIdentifier2", name: "Billing Identifier 2", isSelected: false },
+    { id: "billingIdentifier3", name: "Billing Identifier 3", isSelected: false },
+    { id: "billingIdentifier4", name: "Billing Identifier 4", isSelected: false },
+    { id: "billingIdentifier5", name: "Billing Identifier 5", isSelected: false },
+    { id: "billingIdentifier6", name: "Billing Identifier 6", isSelected: false },
+    { id: "billingIdentifier7", name: "Billing Identifier 7", isSelected: false },
+    { id: "billingIdentifier8", name: "Billing Identifier 8", isSelected: false },
+    { id: "billingIdentifier9", name: "Billing Identifier 9", isSelected: false },
+    { id: "billingIdentifier10", name: "Billing Identifier 10", isSelected: false },
+  ];
+
+  const integrationColumns = [
+    { id: "outbackId", name: "Outback Id", isSelected: false },
+    { id: "outback2", name: "Outback 2", isSelected: false },
+    { id: "outback3", name: "Outback 3", isSelected: false },
+    { id: "remoteOrderNumber", name: "Remote Order Number", isSelected: false, hasHelpIcon: true },
+    { id: "activateOrder", name: "Activate Order", isSelected: false, hasHelpIcon: true },
   ];
 
   // Column sections for the accordion
@@ -95,8 +183,48 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
       name: "Subject / Applicant",
       isExpanded: true,
       selectedCount: 0,
-      totalCount: allAvailableColumns.length,
-      columns: allAvailableColumns,
+      totalCount: 46,
+      columns: subjectApplicantColumns,
+    },
+    {
+      id: "invitation",
+      name: "Invitation / Portal",
+      isExpanded: false,
+      selectedCount: 0,
+      totalCount: 14,
+      columns: invitationPortalColumns,
+    },
+    {
+      id: "jobInfo",
+      name: "Job Information",
+      isExpanded: false,
+      selectedCount: 0,
+      totalCount: 9,
+      columns: jobInformationColumns,
+    },
+    {
+      id: "orderStatus",
+      name: "Order Status",
+      isExpanded: false,
+      selectedCount: 0,
+      totalCount: 9,
+      columns: orderStatusColumns,
+    },
+    {
+      id: "billing",
+      name: "Billing Identifiers",
+      isExpanded: false,
+      selectedCount: 0,
+      totalCount: 10,
+      columns: billingIdentifiersColumns,
+    },
+    {
+      id: "integration",
+      name: "Integration Related",
+      isExpanded: false,
+      selectedCount: 0,
+      totalCount: 5,
+      columns: integrationColumns,
     },
   ]);
 
