@@ -520,7 +520,7 @@ const InvitesAndOrders: React.FC = () => {
     },
   ];
 
-  // Simple and reliable StatusBadge component
+  // Pixel-perfect StatusBadge component matching Figma design
   const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({ status }) => {
     const statusConfig = {
       waiting: { label: "Waiting", bg: "#F0F9FF", border: "#B9E6FE", text: "#026AA2" },
@@ -536,40 +536,77 @@ const InvitesAndOrders: React.FC = () => {
     const config = statusConfig[status];
     if (!config) return null;
 
-    // Fixed maximum width with proper truncation
-    const maxWidth = "120px";
-    const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
+    // Determine if this status needs truncation and flex layout (for longer statuses)
+    const needsFlexLayout = status === "waiting-for-recruitee" || status === "expires-today";
+    const needsTooltip = needsFlexLayout; // Only long statuses get tooltips
 
-    const badgeElement = (
+    const badgeElement = needsFlexLayout ? (
+      // For long statuses: use flex layout with truncation matching Figma exactly
       <div
         style={{
-          display: "inline-block",
-          maxWidth: maxWidth,
+          display: "flex",
           padding: "2px 8px",
+          alignItems: "center",
+          flex: "1 0 0",
           borderRadius: "9999px",
           border: `1px solid ${config.border}`,
-          backgroundColor: config.bg,
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          whiteSpace: "nowrap",
+          background: config.bg,
+          position: "relative",
         }}
       >
-        <span
+        <div
           style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 1,
+            flex: "1 0 0",
+            overflow: "hidden",
             color: config.text,
+            textAlign: "center",
+            textOverflow: "ellipsis",
             fontFamily: "Public Sans",
             fontSize: "12px",
+            fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
+            position: "relative",
           }}
         >
           {config.label}
-        </span>
+        </div>
+      </div>
+    ) : (
+      // For short statuses: simple inline layout matching Figma
+      <div
+        style={{
+          display: "flex",
+          padding: "2px 8px",
+          alignItems: "center",
+          borderRadius: "9999px",
+          border: `1px solid ${config.border}`,
+          background: config.bg,
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            color: config.text,
+            textAlign: "center",
+            fontFamily: "Public Sans",
+            fontSize: "12px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "18px",
+            position: "relative",
+          }}
+        >
+          {config.label}
+        </div>
       </div>
     );
 
-    // Add tooltip for truncated longer status names
-    if (isLongStatus) {
+    // Add tooltip only for long status names that get truncated
+    if (needsTooltip) {
       return (
         <Tooltip>
           <TooltipTrigger asChild>{badgeElement}</TooltipTrigger>
