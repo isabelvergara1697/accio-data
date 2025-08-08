@@ -20,6 +20,9 @@ interface ColumnSection {
 interface CustomizeColumnsModalProps {
   isOpen: boolean;
   onClose: () => void;
+  columnOrder: Column[];
+  onColumnOrderChange: (columns: Column[]) => void;
+  onResetToDefault: () => void;
 }
 
 export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
