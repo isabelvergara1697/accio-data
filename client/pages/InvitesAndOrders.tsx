@@ -2720,135 +2720,17 @@ const InvitesAndOrders: React.FC = () => {
                                       </div>
                                     </button>
                                     {showDownloadDropdown && (
-                                      <div
-                                        ref={downloadDropdownRef}
-                                        style={{
-                                          position: "absolute",
-                                          top: "calc(100% + 4px)",
-                                          right: "0",
-                                          width: "170px",
-                                          borderRadius: "8px",
-                                          border:
-                                            "1px solid rgba(10, 13, 18, 0.04)",
-                                          background: "rgba(255, 255, 255, 1)",
-                                          boxShadow:
-                                            "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
-                                          zIndex: 9999,
+                                      <DownloadDropdown
+                                        downloadDropdownRef={downloadDropdownRef}
+                                        onDownloadCSV={() => {
+                                          console.log("Download CSV");
+                                          setShowDownloadDropdown(false);
                                         }}
-                                      >
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            padding: "4px 0",
-                                            flexDirection: "column",
-                                            alignItems: "flex-start",
-                                            alignSelf: "stretch",
-                                          }}
-                                        >
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                              padding: "1px 4px",
-                                              alignItems: "center",
-                                              alignSelf: "stretch",
-                                              cursor: "pointer",
-                                            }}
-                                            onMouseEnter={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "#FDFDFD";
-                                            }}
-                                            onMouseLeave={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "transparent";
-                                            }}
-                                            onClick={() => {
-                                              console.log("Download XLSX");
-                                              setShowDownloadDropdown(false);
-                                            }}
-                                          >
-                                            <div
-                                              className="content"
-                                              style={{
-                                                display: "flex",
-                                                padding: "6px 6px",
-                                                alignItems: "center",
-                                                gap: "12px",
-                                                flex: "1 0 0",
-                                                borderRadius: "6px",
-                                                transition:
-                                                  "background-color 0.2s ease",
-                                              }}
-                                            >
-                                              <span
-                                                style={{
-                                                  fontFamily:
-                                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                                  fontWeight: 600,
-                                                  fontSize: "14px",
-                                                  color: "rgba(65,70,81,1)",
-                                                }}
-                                              >
-                                                Download XLSX
-                                              </span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                              padding: "1px 4px",
-                                              alignItems: "center",
-                                              alignSelf: "stretch",
-                                              cursor: "pointer",
-                                            }}
-                                            onMouseEnter={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "#FDFDFD";
-                                            }}
-                                            onMouseLeave={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "transparent";
-                                            }}
-                                            onClick={() => {
-                                              console.log("Download CSV");
-                                              setShowDownloadDropdown(false);
-                                            }}
-                                          >
-                                            <div
-                                              className="content"
-                                              style={{
-                                                display: "flex",
-                                                padding: "6px 6px",
-                                                alignItems: "center",
-                                                gap: "12px",
-                                                flex: "1 0 0",
-                                                borderRadius: "6px",
-                                                transition:
-                                                  "background-color 0.2s ease",
-                                              }}
-                                            >
-                                              <span
-                                                style={{
-                                                  fontFamily:
-                                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                                  fontWeight: 600,
-                                                  fontSize: "14px",
-                                                  color: "rgba(65,70,81,1)",
-                                                }}
-                                              >
-                                                Download CSV
-                                              </span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                        onDownloadXLSX={() => {
+                                          console.log("Download XLSX");
+                                          setShowDownloadDropdown(false);
+                                        }}
+                                      />
                                     )}
                                   </div>
 
@@ -4881,135 +4763,17 @@ const InvitesAndOrders: React.FC = () => {
                                       </div>
                                     </button>
                                     {showDownloadDropdown && (
-                                      <div
-                                        ref={downloadDropdownRef}
-                                        style={{
-                                          position: "absolute",
-                                          top: "calc(100% + 4px)",
-                                          right: "0",
-                                          width: "170px",
-                                          borderRadius: "8px",
-                                          border:
-                                            "1px solid rgba(10, 13, 18, 0.04)",
-                                          background: "rgba(255, 255, 255, 1)",
-                                          boxShadow:
-                                            "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
-                                          zIndex: 9999,
+                                      <DownloadDropdown
+                                        downloadDropdownRef={downloadDropdownRef}
+                                        onDownloadCSV={() => {
+                                          console.log("Download CSV");
+                                          setShowDownloadDropdown(false);
                                         }}
-                                      >
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            padding: "4px 0",
-                                            flexDirection: "column",
-                                            alignItems: "flex-start",
-                                            alignSelf: "stretch",
-                                          }}
-                                        >
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                              padding: "1px 4px",
-                                              alignItems: "center",
-                                              alignSelf: "stretch",
-                                              cursor: "pointer",
-                                            }}
-                                            onMouseEnter={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "#FDFDFD";
-                                            }}
-                                            onMouseLeave={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "transparent";
-                                            }}
-                                            onClick={() => {
-                                              console.log("Download XLSX");
-                                              setShowDownloadDropdown(false);
-                                            }}
-                                          >
-                                            <div
-                                              className="content"
-                                              style={{
-                                                display: "flex",
-                                                padding: "6px 6px",
-                                                alignItems: "center",
-                                                gap: "12px",
-                                                flex: "1 0 0",
-                                                borderRadius: "6px",
-                                                transition:
-                                                  "background-color 0.2s ease",
-                                              }}
-                                            >
-                                              <span
-                                                style={{
-                                                  fontFamily:
-                                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                                  fontWeight: 600,
-                                                  fontSize: "14px",
-                                                  color: "rgba(65,70,81,1)",
-                                                }}
-                                              >
-                                                Download XLSX
-                                              </span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                              padding: "1px 4px",
-                                              alignItems: "center",
-                                              alignSelf: "stretch",
-                                              cursor: "pointer",
-                                            }}
-                                            onMouseEnter={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "#FDFDFD";
-                                            }}
-                                            onMouseLeave={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "transparent";
-                                            }}
-                                            onClick={() => {
-                                              console.log("Download CSV");
-                                              setShowDownloadDropdown(false);
-                                            }}
-                                          >
-                                            <div
-                                              className="content"
-                                              style={{
-                                                display: "flex",
-                                                padding: "6px 6px",
-                                                alignItems: "center",
-                                                gap: "12px",
-                                                flex: "1 0 0",
-                                                borderRadius: "6px",
-                                                transition:
-                                                  "background-color 0.2s ease",
-                                              }}
-                                            >
-                                              <span
-                                                style={{
-                                                  fontFamily:
-                                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                                  fontWeight: 600,
-                                                  fontSize: "14px",
-                                                  color: "rgba(65,70,81,1)",
-                                                }}
-                                              >
-                                                Download CSV
-                                              </span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                        onDownloadXLSX={() => {
+                                          console.log("Download XLSX");
+                                          setShowDownloadDropdown(false);
+                                        }}
+                                      />
                                     )}
                                   </div>
 
@@ -5626,135 +5390,17 @@ const InvitesAndOrders: React.FC = () => {
                                       </div>
                                     </button>
                                     {showDownloadDropdown && (
-                                      <div
-                                        ref={downloadDropdownRef}
-                                        style={{
-                                          position: "absolute",
-                                          top: "calc(100% + 4px)",
-                                          right: "0",
-                                          width: "170px",
-                                          borderRadius: "8px",
-                                          border:
-                                            "1px solid rgba(10, 13, 18, 0.04)",
-                                          background: "rgba(255, 255, 255, 1)",
-                                          boxShadow:
-                                            "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
-                                          zIndex: 9999,
+                                      <DownloadDropdown
+                                        downloadDropdownRef={downloadDropdownRef}
+                                        onDownloadCSV={() => {
+                                          console.log("Download CSV");
+                                          setShowDownloadDropdown(false);
                                         }}
-                                      >
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            padding: "4px 0",
-                                            flexDirection: "column",
-                                            alignItems: "flex-start",
-                                            alignSelf: "stretch",
-                                          }}
-                                        >
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                              padding: "1px 4px",
-                                              alignItems: "center",
-                                              alignSelf: "stretch",
-                                              cursor: "pointer",
-                                            }}
-                                            onMouseEnter={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "#FDFDFD";
-                                            }}
-                                            onMouseLeave={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "transparent";
-                                            }}
-                                            onClick={() => {
-                                              console.log("Download XLSX");
-                                              setShowDownloadDropdown(false);
-                                            }}
-                                          >
-                                            <div
-                                              className="content"
-                                              style={{
-                                                display: "flex",
-                                                padding: "6px 6px",
-                                                alignItems: "center",
-                                                gap: "12px",
-                                                flex: "1 0 0",
-                                                borderRadius: "6px",
-                                                transition:
-                                                  "background-color 0.2s ease",
-                                              }}
-                                            >
-                                              <span
-                                                style={{
-                                                  fontFamily:
-                                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                                  fontWeight: 600,
-                                                  fontSize: "14px",
-                                                  color: "rgba(65,70,81,1)",
-                                                }}
-                                              >
-                                                Download XLSX
-                                              </span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                              padding: "1px 4px",
-                                              alignItems: "center",
-                                              alignSelf: "stretch",
-                                              cursor: "pointer",
-                                            }}
-                                            onMouseEnter={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "#FDFDFD";
-                                            }}
-                                            onMouseLeave={(e) => {
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ).style.backgroundColor =
-                                                "transparent";
-                                            }}
-                                            onClick={() => {
-                                              console.log("Download CSV");
-                                              setShowDownloadDropdown(false);
-                                            }}
-                                          >
-                                            <div
-                                              className="content"
-                                              style={{
-                                                display: "flex",
-                                                padding: "6px 6px",
-                                                alignItems: "center",
-                                                gap: "12px",
-                                                flex: "1 0 0",
-                                                borderRadius: "6px",
-                                                transition:
-                                                  "background-color 0.2s ease",
-                                              }}
-                                            >
-                                              <span
-                                                style={{
-                                                  fontFamily:
-                                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                                  fontWeight: 600,
-                                                  fontSize: "14px",
-                                                  color: "rgba(65,70,81,1)",
-                                                }}
-                                              >
-                                                Download CSV
-                                              </span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                        onDownloadXLSX={() => {
+                                          console.log("Download XLSX");
+                                          setShowDownloadDropdown(false);
+                                        }}
+                                      />
                                     )}
                                   </div>
 
