@@ -577,16 +577,15 @@ const InvitesAndOrders: React.FC = () => {
       <div
         ref={containerRef}
         style={{
-          display: "flex",
+          display: "inline-flex",
           padding: "2px 8px",
           alignItems: "center",
           borderRadius: "9999px",
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          width: "90px", // Fixed width for consistency
-          minWidth: "90px",
-          maxWidth: "90px",
+          maxWidth: "72px",
+          minWidth: "fit-content",
         }}
       >
         <div
@@ -596,14 +595,13 @@ const InvitesAndOrders: React.FC = () => {
             textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             color: colors.text,
-            textAlign: "left",
+            textAlign: "center",
             fontFamily: "Public Sans",
             fontSize: "12px",
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
             position: "relative",
-            width: "100%",
           }}
         >
           <span
