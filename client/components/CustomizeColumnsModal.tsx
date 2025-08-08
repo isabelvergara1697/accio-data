@@ -504,26 +504,29 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
       return;
     }
 
-    setSelectedColumns(columns => {
-      const newColumns = [...columns];
-      const draggedIndex = newColumns.findIndex(col => col.id === draggedColumn);
-      const targetIndex = newColumns.findIndex(col => col.id === targetColumnId);
+    const newColumns = [...selectedColumns];
+    const draggedIndex = newColumns.findIndex(col => col.id === draggedColumn);
+    const targetIndex = newColumns.findIndex(col => col.id === targetColumnId);
 
-      if (draggedIndex === -1 || targetIndex === -1) return columns;
+    if (draggedIndex === -1 || targetIndex === -1) {
+      setDraggedColumn(null);
+      setDragOverColumn(null);
+      return;
+    }
 
-      // Remove dragged item
-      const [draggedItem] = newColumns.splice(draggedIndex, 1);
+    // Remove dragged item
+    const [draggedItem] = newColumns.splice(draggedIndex, 1);
 
-      // Insert at target position
-      newColumns.splice(targetIndex, 0, draggedItem);
+    // Insert at target position
+    newColumns.splice(targetIndex, 0, draggedItem);
 
-      // Update order numbers
-      return newColumns.map((col, index) => ({
-        ...col,
-        order: index + 1
-      }));
-    });
+    // Update order numbers
+    const updatedColumns = newColumns.map((col, index) => ({
+      ...col,
+      order: index + 1
+    }));
 
+    onColumnOrderChange(updatedColumns);
     setDraggedColumn(null);
     setDragOverColumn(null);
   };
