@@ -1625,9 +1625,9 @@ const InvitesAndOrders: React.FC = () => {
                                     onSearch={handleAdvancedSearch}
                                     dropdownRef={advancedSearchRef}
                                     style={{
-                                      right: "-210px", // Position to align with search bar right edge
+                                      right: "-8px", // Align with search bar edge
                                       width: "234px", // Match search bar width
-                                      top: "-36px", // Position relative to search bar height + 4px spacing
+                                      top: "calc(100% + 4px)", // 4px spacing from button
                                     }}
                                   />
                                 </div>
