@@ -482,7 +482,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
                         lineHeight: "20px",
                       }}
                     >
-                      Select Date
+                      {formatDateRange(filters.dateRange.start, filters.dateRange.end)}
                     </span>
                   </div>
                   <svg
