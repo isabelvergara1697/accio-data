@@ -556,16 +556,30 @@ const InvitesAndOrders: React.FC = () => {
     const colors = colorMap[config.color as keyof typeof colorMap];
 
     const checkTruncation = useCallback(() => {
-      if (textRef.current) {
-        // Check if the text is actually overflowing
-        const element = textRef.current;
-        setIsTruncated(element.scrollWidth > element.offsetWidth);
+      if (textRef.current && containerRef.current) {
+        // Check if the text content exceeds the container width
+        const textElement = textRef.current;
+        const containerElement = containerRef.current;
+
+        // Create a temporary element to measure the actual text width
+        const tempSpan = document.createElement('span');
+        tempSpan.style.font = window.getComputedStyle(textElement).font;
+        tempSpan.style.visibility = 'hidden';
+        tempSpan.style.position = 'absolute';
+        tempSpan.textContent = config.label;
+        document.body.appendChild(tempSpan);
+
+        const textWidth = tempSpan.offsetWidth;
+        const availableWidth = containerElement.offsetWidth - 16; // Subtract padding (2px * 8px = 16px)
+
+        setIsTruncated(textWidth > availableWidth);
+        document.body.removeChild(tempSpan);
       }
     }, [config.label]);
 
     useEffect(() => {
-      // Add a small delay to ensure DOM is fully rendered
-      const timer = setTimeout(checkTruncation, 10);
+      // Check truncation after component mounts and when window resizes
+      const timer = setTimeout(checkTruncation, 50);
       window.addEventListener("resize", checkTruncation);
       return () => {
         clearTimeout(timer);
