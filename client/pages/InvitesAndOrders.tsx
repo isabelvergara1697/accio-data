@@ -598,11 +598,11 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          maxWidth: "72px",
+          maxWidth: "100px", // Increased from 72px to accommodate more text
           minWidth: "fit-content",
         }}
       >
-        <div
+        <span
           ref={textRef}
           style={{
             overflow: "hidden",
@@ -615,21 +615,12 @@ const InvitesAndOrders: React.FC = () => {
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
-            position: "relative",
+            display: "block",
+            maxWidth: "100%",
           }}
         >
-          <span
-            style={{
-              fontFamily:
-                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-              fontWeight: 500,
-              fontSize: "12px",
-              color: colors.text,
-            }}
-          >
-            {config.label}
-          </span>
-        </div>
+          {config.label}
+        </span>
       </div>
     );
 
