@@ -6705,91 +6705,14 @@ const InvitesAndOrders: React.FC = () => {
                                 />
                               </div>
 
-                              {/* Status Cell */}
-                              <div
-                                style={{
-                                  display: "flex",
-                                  width: "118px",
-                                  height: "52px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  justifyContent: "flex-start",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  position: "relative",
-                                  minWidth: 0,
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    width: "100%",
-                                    maxWidth: "100%",
-                                    display: "flex",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  <StatusBadge status={invite.status} />
-                                </div>
-                              </div>
-
-                              {/* First Name Cell */}
-                              <div
-                                style={{
-                                  display: "flex",
-                                  width: "108px",
-                                  height: "52px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  position: "relative",
-                                  minWidth: 0,
-                                }}
-                              >
-                                <TruncatedText
-                                  text={invite.firstName}
-                                  highlightedText={highlightText(
-                                    invite.firstName,
-                                    searchQuery,
-                                  )}
-                                  style={{
-                                    color: "#181D27",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
-                                  }}
+                              {/* Dynamic Cells */}
+                              {visibleColumns.map((column) => (
+                                <TableCell
+                                  key={column.id}
+                                  columnId={column.id}
+                                  invite={invite}
                                 />
-                              </div>
-
-                              {/* Last Name Cell */}
-                              <div
-                                style={{
-                                  display: "flex",
-                                  width: "108px",
-                                  height: "52px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  position: "relative",
-                                  minWidth: 0,
-                                }}
-                              >
-                                <TruncatedText
-                                  text={invite.lastName}
-                                  highlightedText={highlightText(
-                                    invite.lastName,
-                                    searchQuery,
-                                  )}
-                                  style={{
-                                    color: "#181D27",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
-                                  }}
-                                />
-                              </div>
+                              ))}
 
                               {/* Email Cell */}
                               <div
