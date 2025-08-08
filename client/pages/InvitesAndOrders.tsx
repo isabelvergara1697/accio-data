@@ -1326,8 +1326,8 @@ const InvitesAndOrders: React.FC = () => {
                 alignSelf: "stretch",
                 position: "relative",
                 minWidth: 0, // Allow container to shrink below content size
-                width: showFiltersModal && isDesktop ? `calc(100% - 258px - 16px)` : "100%",
-                maxWidth: showFiltersModal && isDesktop ? `calc(100% - 258px - 16px)` : "100%",
+                width: showFiltersModal && isDesktop ? `calc(100% - 268px - 16px)` : "100%",
+                maxWidth: showFiltersModal && isDesktop ? `calc(100% - 268px - 16px)` : "100%",
               }}
             >
               <div
