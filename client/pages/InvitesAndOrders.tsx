@@ -2005,8 +2005,8 @@ const InvitesAndOrders: React.FC = () => {
                                 <div
                                   style={{
                                     position: "absolute",
-                                    top: "0px",
-                                    right: "0px",
+                                    top: "-8px",
+                                    right: "-8px",
                                     display: "flex",
                                     padding: "2px 8px",
                                     alignItems: "center",
@@ -2015,7 +2015,6 @@ const InvitesAndOrders: React.FC = () => {
                                     background: "#ECEEF9",
                                     minWidth: "20px",
                                     justifyContent: "center",
-                                    transform: "translate(50%, -50%)",
                                     zIndex: 10,
                                   }}
                                 >
