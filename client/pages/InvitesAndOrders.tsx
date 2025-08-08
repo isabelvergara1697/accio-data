@@ -196,6 +196,56 @@ const InvitesAndOrders: React.FC = () => {
   ];
 
   const [columnOrder, setColumnOrder] = useState(defaultColumnOrder);
+
+  // Function to get column configuration for rendering
+  const getColumnConfig = (columnId: string) => {
+    const configs = {
+      status: {
+        width: "118px",
+        label: "Status",
+        sortField: "status"
+      },
+      firstName: {
+        width: "108px",
+        label: "First Name",
+        sortField: "firstName"
+      },
+      lastName: {
+        width: "106px",
+        label: "Last Name",
+        sortField: "lastName"
+      },
+      invtEmail: {
+        width: "180px",
+        label: "Invt Email",
+        sortField: "email"
+      },
+      completed: {
+        width: "88px",
+        label: "Completed",
+        sortField: "completion"
+      },
+      i9Filled: {
+        width: "78px",
+        label: "I-9 Filled",
+        sortField: "i9Filled"
+      },
+      activate: {
+        width: "72px",
+        label: "Activate",
+        sortField: "activated"
+      },
+      ews: {
+        width: "52px",
+        label: "EWS",
+        sortField: "ews"
+      }
+    };
+    return configs[columnId as keyof typeof configs];
+  };
+
+  // Get visible columns in order
+  const visibleColumns = columnOrder.filter(col => col.isSelected).sort((a, b) => a.order - b.order);
   const [tableViewsDropdownOpen, setTableViewsDropdownOpen] = useState(false);
   const [currentTableView, setCurrentTableView] = useState("default");
   const [tableViews, setTableViews] = useState<TableView[]>([
