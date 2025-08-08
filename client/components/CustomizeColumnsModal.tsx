@@ -43,8 +43,16 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "name", name: "Name", isSelected: false },
     { id: "maidenLastName", name: "Maiden Last Name", isSelected: false },
     { id: "mothersMaidenName", name: "Mothers Maiden Name", isSelected: false },
-    { id: "motherCompleteName", name: "Mother Complete Name", isSelected: false },
-    { id: "fatherCompleteName", name: "Father Complete Name", isSelected: false },
+    {
+      id: "motherCompleteName",
+      name: "Mother Complete Name",
+      isSelected: false,
+    },
+    {
+      id: "fatherCompleteName",
+      name: "Father Complete Name",
+      isSelected: false,
+    },
     { id: "middleName", name: "Middle Name", isSelected: false },
     { id: "address", name: "Address", isSelected: false },
     { id: "addressLine2", name: "Address Line 2", isSelected: false },
@@ -52,8 +60,16 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "applicantCountry", name: "Applicant Country", isSelected: false },
     { id: "ssn", name: "SSN", isSelected: false },
     { id: "dateOfBirth", name: "Date of Birth", isSelected: false },
-    { id: "driverLicenseNumber", name: "Driver License Number", isSelected: false },
-    { id: "driverLicenseCountry", name: "Driver License Country", isSelected: false },
+    {
+      id: "driverLicenseNumber",
+      name: "Driver License Number",
+      isSelected: false,
+    },
+    {
+      id: "driverLicenseCountry",
+      name: "Driver License Country",
+      isSelected: false,
+    },
     { id: "stateOfBirth", name: "State of Birth", isSelected: false },
     { id: "cityOfBirth", name: "City of Birth", isSelected: false },
     { id: "countryOfBirth", name: "Country of Birth", isSelected: false },
@@ -61,30 +77,80 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "passportCountry", name: "Passport Country", isSelected: false },
     { id: "citizenshipStatus", name: "Citizenship Status", isSelected: false },
     { id: "passportType", name: "Passport Type", isSelected: false },
-    { id: "intlDriverLicenseState", name: "Intl. Driver License State", isSelected: false },
+    {
+      id: "intlDriverLicenseState",
+      name: "Intl. Driver License State",
+      isSelected: false,
+    },
     { id: "intlGovernmentId", name: "Intl. Government Id", isSelected: false },
-    { id: "applicantEmail", name: "Applicant Email", isSelected: false, hasHelpIcon: true },
+    {
+      id: "applicantEmail",
+      name: "Applicant Email",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
     { id: "noteTitle", name: "Note Title", isSelected: false },
     { id: "hairColor", name: "Hair Color", isSelected: false },
     { id: "race", name: "Race", isSelected: false },
-    { id: "yearsAtCurrentResidence", name: "Years at Current Residence", isSelected: false },
+    {
+      id: "yearsAtCurrentResidence",
+      name: "Years at Current Residence",
+      isSelected: false,
+    },
     { id: "monthlyIncome", name: "Monthly Income", isSelected: false },
     { id: "monthlyPayments", name: "Monthly Payments", isSelected: false },
     { id: "applicantId", name: "Applicant ID", isSelected: false },
-    { id: "adjudicationStatus", name: "Adjudication Status", isSelected: false },
-    { id: "adjudicationSubStatus2", name: "Adjudication Sub Status #2", isSelected: false },
-    { id: "subjectDisposition", name: "Subject Disposition", isSelected: false },
-    { id: "intlGovernmentIdDescription", name: "Intl. Government ID Description", isSelected: false },
-    { id: "applicantPhone", name: "Applicant Phone", isSelected: false, hasHelpIcon: true },
-    { id: "hasAdmittedConvictions", name: "Has Admitted Convictions", isSelected: false },
+    {
+      id: "adjudicationStatus",
+      name: "Adjudication Status",
+      isSelected: false,
+    },
+    {
+      id: "adjudicationSubStatus2",
+      name: "Adjudication Sub Status #2",
+      isSelected: false,
+    },
+    {
+      id: "subjectDisposition",
+      name: "Subject Disposition",
+      isSelected: false,
+    },
+    {
+      id: "intlGovernmentIdDescription",
+      name: "Intl. Government ID Description",
+      isSelected: false,
+    },
+    {
+      id: "applicantPhone",
+      name: "Applicant Phone",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "hasAdmittedConvictions",
+      name: "Has Admitted Convictions",
+      isSelected: false,
+    },
     { id: "eyeColor", name: "Eye Color", isSelected: false },
     { id: "gender", name: "Gender", isSelected: false },
-    { id: "monthsAtCurrentResidence", name: "Months at Current Residence", isSelected: false },
+    {
+      id: "monthsAtCurrentResidence",
+      name: "Months at Current Residence",
+      isSelected: false,
+    },
     { id: "monthlyRent", name: "Monthly Rent", isSelected: false },
     { id: "taxIdNumber", name: "Tax Id Number", isSelected: false },
     { id: "csvReportStatus", name: "CSV Report Status", isSelected: false },
-    { id: "adjudicationSubStatus1", name: "Adjudication Sub Status #1", isSelected: false },
-    { id: "adjudicationSubStatus3", name: "Adjudication Sub Status #3", isSelected: false },
+    {
+      id: "adjudicationSubStatus1",
+      name: "Adjudication Sub Status #1",
+      isSelected: false,
+    },
+    {
+      id: "adjudicationSubStatus3",
+      name: "Adjudication Sub Status #3",
+      isSelected: false,
+    },
     { id: "hireDate", name: "Hire Date", isSelected: false },
   ];
 
@@ -298,7 +364,8 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                   lineHeight: "20px",
                 }}
               >
-                Select, reorder, and customize your column layout. Then you can save your customize.
+                Select, reorder, and customize your column layout. Then you can
+                save your customize.
               </div>
             </div>
           </div>
@@ -821,7 +888,9 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     style={{
-                      transform: section.isExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                      transform: section.isExpanded
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
                       transition: "transform 0.2s ease",
                     }}
                   >
@@ -868,14 +937,20 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                               width: "16px",
                               height: "16px",
                               borderRadius: "4px",
-                              border: column.isSelected ? "none" : "1px solid #D5D7DA",
-                              background: column.isSelected ? "#344698" : "transparent",
+                              border: column.isSelected
+                                ? "none"
+                                : "1px solid #D5D7DA",
+                              background: column.isSelected
+                                ? "#344698"
+                                : "transparent",
                               cursor: "pointer",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
                             }}
-                            onClick={() => console.log("Toggle column:", column.id)}
+                            onClick={() =>
+                              console.log("Toggle column:", column.id)
+                            }
                           >
                             {column.isSelected && (
                               <svg
@@ -951,7 +1026,11 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                                   </g>
                                   <defs>
                                     <clipPath id="clip0_help">
-                                      <rect width="16" height="16" fill="white" />
+                                      <rect
+                                        width="16"
+                                        height="16"
+                                        fill="white"
+                                      />
                                     </clipPath>
                                   </defs>
                                 </svg>
