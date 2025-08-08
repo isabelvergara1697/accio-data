@@ -565,10 +565,7 @@ const InvitesAndOrders: React.FC = () => {
       }
     };
 
-    const isLongStatus =
-      status === "waiting-for-recruitee" ||
-      status === "expires-today" ||
-      status === "unsolicited";
+    const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
     const minWidth = getMinWidth();
 
     const badgeElement = (
@@ -580,7 +577,7 @@ const InvitesAndOrders: React.FC = () => {
           justifyContent: "center",
           borderRadius: "9999px",
           border: `1px solid ${colors.border}`,
-          background: colors.bg,
+          background: "lime",
           position: "relative",
           minWidth: minWidth,
           width: "auto",
@@ -797,9 +794,7 @@ const InvitesAndOrders: React.FC = () => {
 
     // Apply status filter
     if (appliedFilters.status.length > 0) {
-      data = data.filter((invite) =>
-        appliedFilters.status.includes(invite.status),
-      );
+      data = data.filter((invite) => appliedFilters.status.includes(invite.status));
     }
 
     // Apply I-9 Filled filter
@@ -1335,14 +1330,8 @@ const InvitesAndOrders: React.FC = () => {
                 alignSelf: "stretch",
                 position: "relative",
                 minWidth: 0, // Allow container to shrink below content size
-                width:
-                  showFiltersModal && isDesktop
-                    ? `calc(100% - 268px - 16px)`
-                    : "100%",
-                maxWidth:
-                  showFiltersModal && isDesktop
-                    ? `calc(100% - 268px - 16px)`
-                    : "100%",
+                width: showFiltersModal && isDesktop ? `calc(100% - 268px - 16px)` : "100%",
+                maxWidth: showFiltersModal && isDesktop ? `calc(100% - 268px - 16px)` : "100%",
               }}
             >
               <div
@@ -1665,15 +1654,11 @@ const InvitesAndOrders: React.FC = () => {
                                     onClear={clearAdvancedSearch}
                                     onSearch={handleAdvancedSearch}
                                     dropdownRef={advancedSearchRef}
-                                    style={
-                                      !isMobile
-                                        ? {
-                                            right: "-8px",
-                                            width: "234px",
-                                            top: "calc(100% + 12px)",
-                                          }
-                                        : undefined
-                                    }
+                                    style={!isMobile ? {
+                                      right: "-8px",
+                                      width: "234px",
+                                      top: "calc(100% + 12px)"
+                                    } : undefined}
                                   />
                                 </div>
                               </div>
@@ -1683,9 +1668,7 @@ const InvitesAndOrders: React.FC = () => {
                             {showFiltersModal && (
                               <button
                                 onClick={() => setShowFiltersModal(false)}
-                                onMouseEnter={() =>
-                                  setHoveredButton("close-filters")
-                                }
+                                onMouseEnter={() => setHoveredButton("close-filters")}
                                 onMouseLeave={() => setHoveredButton(null)}
                                 style={{
                                   display: "flex",
@@ -1875,7 +1858,7 @@ const InvitesAndOrders: React.FC = () => {
                                 )}
                               </button>
 
-                              {
+                              {(
                                 <>
                                   {/* Customize Button */}
                                   <button
@@ -2283,7 +2266,7 @@ const InvitesAndOrders: React.FC = () => {
                                     </div>
                                   </button>
                                 </>
-                              }
+                              )}
                             </div>
                           </>
                         ) : isMobile ? (
@@ -2602,7 +2585,7 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Mobile: View Toggle + Search Row */}
-                            {
+                            {(
                               <div
                                 style={{
                                   display: "flex",
@@ -2979,7 +2962,7 @@ const InvitesAndOrders: React.FC = () => {
                                   />
                                 </div>
                               </div>
-                            }
+                            )}
 
                             <div style={{ position: "relative" }}>
                               {false && (
