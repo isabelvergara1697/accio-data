@@ -1,5 +1,6 @@
-import React from "react";
-import FiltersPanel from "./FiltersPanel";
+import React, { useState, useRef } from "react";
+import DatePickerCalendar from "./ui/date-picker-calendar";
+import FilterDropdown from "./ui/filter-dropdown";
 
 export interface FilterState {
   status: string[];
@@ -26,7 +27,222 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
   filters,
   onFiltersChange,
 }) => {
+  const [localFilters, setLocalFilters] = useState<FilterState>(filters);
+  const [showDatePicker, setShowDatePicker] = useState(false);
+  const datePickerRef = useRef<HTMLButtonElement>(null);
+
+  // Keep local filters in sync with parent
+  React.useEffect(() => {
+    setLocalFilters(filters);
+  }, [filters]);
+
   if (!isOpen) return null;
+
+  // Filter options
+  const statusOptions = [
+    { value: "waiting", label: "Waiting" },
+    { value: "expired", label: "Expired" },
+    { value: "canceled", label: "Canceled" },
+    { value: "unsolicited", label: "Unsolicited" },
+    { value: "waiting-for-recruitee", label: "Waiting for Recruitee" },
+    { value: "expires-today", label: "Expires Today" },
+  ];
+
+  const packageTypeOptions = [
+    { value: "csd-standard", label: "CSD Standard" },
+    { value: "volunteer-application", label: "Volunteer Application" },
+    { value: "a-la-carte", label: "A La Carte" },
+    { value: "retail", label: "Retail" },
+    { value: "mvr", label: "MVR" },
+    { value: "sales", label: "Sales" },
+    { value: "executive", label: "Executive" },
+    { value: "operations", label: "Operations" },
+    { value: "hourly", label: "Hourly" },
+    { value: "cbsv", label: "CBSV" },
+    { value: "dot", label: "DOT" },
+    { value: "new-york", label: "New York" },
+    { value: "immunization-records", label: "Immunization Records" },
+    { value: "just-mvr", label: "Just MVR" },
+    { value: "hasc-contractor", label: "HASC Contractor" },
+    {
+      value: "applicant-provided-address-only",
+      label: "Applicant provided address only",
+    },
+    { value: "employment-only", label: "Employment Only" },
+    { value: "sap-10", label: "SAP 10" },
+    { value: "identity-check-package", label: "Identity Check Package" },
+    {
+      value: "identity-check-test-package-includes-product",
+      label: "Identity Check Test Package Includes Product",
+    },
+    { value: "standard-with-edu-and-emp", label: "Standard with EDU and EMP" },
+    { value: "executive-plus", label: "Executive Plus" },
+  ];
+
+  const i9FilledOptions = [
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
+  ];
+
+  const activateOptions = [
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
+  ];
+
+  const ewsOptions = [
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
+  ];
+
+  const handleFilterChange = (key: keyof FilterState, value: string[]) => {
+    const newFilters = {
+      ...localFilters,
+      [key]: value,
+    };
+    setLocalFilters(newFilters);
+    onFiltersChange(newFilters);
+  };
+
+  const handleDateRangeChange = (start: Date, end: Date) => {
+    const newFilters = {
+      ...localFilters,
+      dateRange: { start, end },
+    };
+    setLocalFilters(newFilters);
+    onFiltersChange(newFilters);
+  };
+
+  const clearAllFilters = () => {
+    const clearedFilters = {
+      status: [],
+      typeOfPackage: [],
+      i9Filled: [],
+      activate: [],
+      ews: [],
+      dateRange: {
+        start: new Date(2025, 0, 10),
+        end: new Date(2025, 0, 16),
+      },
+    };
+    setLocalFilters(clearedFilters);
+    onFiltersChange(clearedFilters);
+  };
+
+  const removeFilter = (filterKey: keyof FilterState, valueToRemove: string) => {
+    if (filterKey === "dateRange") {
+      const newFilters = {
+        ...localFilters,
+        dateRange: {
+          start: new Date(2025, 0, 10),
+          end: new Date(2025, 0, 16),
+        },
+      };
+      setLocalFilters(newFilters);
+      onFiltersChange(newFilters);
+    } else {
+      const currentValues = localFilters[filterKey] as string[];
+      const newValues = currentValues.filter(
+        (value) => value !== valueToRemove,
+      );
+      handleFilterChange(filterKey, newValues);
+    }
+  };
+
+  const getFilterLabel = (filterKey: keyof FilterState, value: string): string => {
+    const optionsMap = {
+      status: statusOptions,
+      typeOfPackage: packageTypeOptions,
+      i9Filled: i9FilledOptions,
+      activate: activateOptions,
+      ews: ewsOptions,
+    };
+
+    if (filterKey in optionsMap) {
+      const option = optionsMap[filterKey as keyof typeof optionsMap].find(
+        (opt) => opt.value === value,
+      );
+      return option?.label || value;
+    }
+    return value;
+  };
+
+  const getAppliedFilters = () => {
+    const appliedFilters: Array<{
+      key: keyof FilterState;
+      value: string;
+      label: string;
+    }> = [];
+
+    // Check each filter type
+    (Object.keys(localFilters) as Array<keyof FilterState>).forEach((key) => {
+      if (key === "dateRange") {
+        const defaultStart = new Date(2025, 0, 10);
+        const defaultEnd = new Date(2025, 0, 16);
+        if (
+          localFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
+          localFilters.dateRange.end.getTime() !== defaultEnd.getTime()
+        ) {
+          appliedFilters.push({
+            key: "dateRange",
+            value: "dateRange",
+            label: `Date: ${formatDateRange(localFilters.dateRange.start, localFilters.dateRange.end)}`,
+          });
+        }
+      } else {
+        const values = localFilters[key] as string[];
+        if (values.length === 0) return;
+
+        values.forEach((value) => {
+          let filterLabel = "";
+          switch (key) {
+            case "status":
+              filterLabel = "Status";
+              break;
+            case "typeOfPackage":
+              filterLabel = "Type of Package";
+              break;
+            case "i9Filled":
+              filterLabel = "I-9 Filled";
+              break;
+            case "activate":
+              filterLabel = "Activate";
+              break;
+            case "ews":
+              filterLabel = "EWS";
+              break;
+            default:
+              filterLabel =
+                key.charAt(0).toUpperCase() +
+                key.slice(1).replace(/([A-Z])/g, " $1");
+          }
+          appliedFilters.push({
+            key,
+            value,
+            label: `${filterLabel}: ${getFilterLabel(key, value)}`,
+          });
+        });
+      }
+    });
+
+    return appliedFilters;
+  };
+
+  const hasAppliedFilters = () => {
+    return getAppliedFilters().length > 0;
+  };
+
+  const formatDateRange = (startDate: Date, endDate: Date): string => {
+    const months = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+    ];
+
+    const formatSingleDate = (date: Date) => {
+      return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+    };
+
+    return `${formatSingleDate(startDate)} – ${formatSingleDate(endDate)}`;
+  };
 
   return (
     <div
@@ -77,7 +293,6 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
             alignItems: "flex-start",
             gap: "8px",
             background: "#FFF",
-            borderBottom: "1px solid #E9EAEB",
           }}
         >
           <div
@@ -192,24 +407,394 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
         {/* Content */}
         <div
           style={{
-            flex: 1,
-            padding: "0 16px",
-            paddingBottom: "24px",
-            overflowY: "auto",
             display: "flex",
+            height: "856px",
+            padding: "0 16px",
             flexDirection: "column",
+            alignItems: "center",
             gap: "12px",
+            alignSelf: "stretch",
+            overflowY: "auto",
           }}
         >
-          {/* Reuse FiltersPanel component */}
-          <FiltersPanel
-            isVisible={true}
-            filters={filters}
-            onFiltersChange={onFiltersChange}
-            isMobile={true}
-          />
+          {/* Filters Selected Section - only show if there are applied filters */}
+          {hasAppliedFilters() && (
+            <>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  alignSelf: "stretch",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "6px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Filters Selected
+                    </div>
+                    <button
+                      onClick={clearAllFilters}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        background: "transparent",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#273572",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Clear All
+                      </div>
+                    </button>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      alignContent: "flex-start",
+                      gap: "4px",
+                      alignSelf: "stretch",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    {getAppliedFilters().map((filter, index) => (
+                      <div
+                        key={`${filter.key}-${filter.value}-${index}`}
+                        style={{
+                          display: "flex",
+                          padding: "3px 4px 3px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "3px",
+                          borderRadius: "6px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "4px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#414651",
+                              textAlign: "center",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            {filter.label}
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => removeFilter(filter.key, filter.value)}
+                          style={{
+                            display: "flex",
+                            width: "18px",
+                            padding: "2px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            borderRadius: "3px",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                              stroke="#A4A7AE"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <svg
+                style={{
+                  display: "flex",
+                  padding: "4px 0",
+                  alignItems: "center",
+                  alignSelf: "stretch",
+                }}
+                width="319"
+                height="9"
+                viewBox="0 0 319 9"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M319 5H0V4H319V5Z"
+                  fill="#E9EAEB"
+                />
+              </svg>
+            </>
+          )}
+
+          {/* Status Filter */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+            }}
+          >
+            <FilterDropdown
+              label="Status"
+              options={statusOptions}
+              selectedValues={localFilters.status}
+              onSelectionChange={(values) => handleFilterChange("status", values)}
+              placeholder="Select Filter"
+              searchDisabled={true}
+            />
+          </div>
+
+          {/* Type of Package Filter */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+            }}
+          >
+            <FilterDropdown
+              label="Type of Package"
+              options={packageTypeOptions}
+              selectedValues={localFilters.typeOfPackage}
+              onSelectionChange={(values) =>
+                handleFilterChange("typeOfPackage", values)
+              }
+              placeholder="Select Filter"
+            />
+          </div>
+
+          {/* I-9 Filled Filter */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+            }}
+          >
+            <FilterDropdown
+              label="I-9 Filled"
+              options={i9FilledOptions}
+              selectedValues={localFilters.i9Filled}
+              onSelectionChange={(values) => handleFilterChange("i9Filled", values)}
+              placeholder="Select Filter"
+            />
+          </div>
+
+          {/* Activate Filter */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+            }}
+          >
+            <FilterDropdown
+              label="Activate"
+              options={activateOptions}
+              selectedValues={localFilters.activate}
+              onSelectionChange={(values) => handleFilterChange("activate", values)}
+              placeholder="Select Filter"
+            />
+          </div>
+
+          {/* EWS Filter */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+            }}
+          >
+            <FilterDropdown
+              label="EWS"
+              options={ewsOptions}
+              selectedValues={localFilters.ews}
+              onSelectionChange={(values) => handleFilterChange("ews", values)}
+              placeholder="Select Filter"
+            />
+          </div>
+
+          {/* Date Range Filter */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "2px",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Date Range
+                </div>
+              </div>
+              <button
+                ref={datePickerRef}
+                onClick={() => setShowDatePicker(!showDatePicker)}
+                style={{
+                  display: "flex",
+                  padding: "10px 14px",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border: "1px solid #D5D7DA",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  cursor: "pointer",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    flex: "1 0 0",
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "24px",
+                    }}
+                  >
+                    {formatDateRange(localFilters.dateRange.start, localFilters.dateRange.end)}
+                  </div>
+                </div>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Date Picker */}
+      {showDatePicker && (
+        <DatePickerCalendar
+          isOpen={showDatePicker}
+          onClose={() => setShowDatePicker(false)}
+          triggerRef={datePickerRef}
+          selectedStartDate={localFilters.dateRange.start}
+          selectedEndDate={localFilters.dateRange.end}
+          onDateChange={handleDateRangeChange}
+        />
+      )}
     </div>
   );
 };
