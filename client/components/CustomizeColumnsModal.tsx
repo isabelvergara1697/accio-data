@@ -845,6 +845,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                       gap: "12px 8px",
                       alignSelf: "stretch",
                       flexWrap: "wrap",
+                      width: "100%",
                     }}
                   >
                     {section.columns.map((column) => (
