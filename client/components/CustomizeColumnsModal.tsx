@@ -839,12 +839,10 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                 {section.isExpanded && section.columns.length > 0 && (
                   <div
                     style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      alignContent: "flex-start",
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr",
                       gap: "12px 8px",
                       alignSelf: "stretch",
-                      flexWrap: "wrap",
                       width: "100%",
                     }}
                   >
