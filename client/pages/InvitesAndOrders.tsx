@@ -6546,6 +6546,7 @@ const InvitesAndOrders: React.FC = () => {
                                   borderBottom: "1px solid #E9EAEB",
                                   position: "relative",
                                   minWidth: 0,
+                                  overflow: "hidden",
                                 }}
                               >
                                 <Tooltip>
