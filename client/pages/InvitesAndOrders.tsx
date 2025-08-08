@@ -193,6 +193,55 @@ const InvitesAndOrders: React.FC = () => {
       end: new Date(2025, 0, 16), // Jan 16, 2025
     },
   });
+
+  // Helper function to check if all options are selected for a filter
+  const areAllOptionsSelected = (filterKey: string, selectedValues: string[]) => {
+    // These would typically come from your options data, but for now using static counts
+    const optionCounts = {
+      status: 6, // From statusOptions in FiltersPanel
+      typeOfPackage: 22, // From packageTypeOptions in FiltersPanel
+      i9Filled: 2,
+      activate: 2,
+      ews: 2,
+    };
+
+    if (filterKey in optionCounts) {
+      const totalOptions = optionCounts[filterKey as keyof typeof optionCounts];
+      return selectedValues.length === totalOptions;
+    }
+    return false;
+  };
+
+  // Get count of applied filters (excluding those where all options are selected)
+  const getAppliedFiltersCount = () => {
+    let count = 0;
+
+    // Check each filter type
+    Object.keys(appliedFilters).forEach(key => {
+      if (key === 'dateRange') {
+        // Check if date range is different from default
+        const defaultStart = new Date(2025, 0, 10);
+        const defaultEnd = new Date(2025, 0, 16);
+        if (appliedFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
+            appliedFilters.dateRange.end.getTime() !== defaultEnd.getTime()) {
+          count++;
+        }
+      } else {
+        const values = appliedFilters[key as keyof typeof appliedFilters] as string[];
+
+        // Skip if no values selected OR if all options are selected
+        if (values.length > 0 && !areAllOptionsSelected(key, values)) {
+          count += values.length;
+        }
+      }
+    });
+
+    return count;
+  };
+
+  const hasAppliedFilters = () => {
+    return getAppliedFiltersCount() > 0;
+  };
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
   const mobileAdvancedSearchRef = useRef<HTMLDivElement>(null);
