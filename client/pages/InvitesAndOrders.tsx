@@ -2067,7 +2067,7 @@ const InvitesAndOrders: React.FC = () => {
                                   {/* Customize Button */}
                                   <button
                                     onClick={() =>
-                                      console.log("Customize clicked")
+                                      setShowCustomizeColumnsModal(true)
                                     }
                                     onMouseEnter={() =>
                                       setHoveredButton("customize")
@@ -4915,7 +4915,7 @@ const InvitesAndOrders: React.FC = () => {
                                   {/* Customize Button */}
                                   <button
                                     onClick={() =>
-                                      console.log("Customize clicked")
+                                      setShowCustomizeColumnsModal(true)
                                     }
                                     onMouseEnter={() =>
                                       setHoveredButton("customize")
