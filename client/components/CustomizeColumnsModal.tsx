@@ -1249,6 +1249,19 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                         const isToggleable = isColumnToggleable(column.id);
                         const isDisabled = !isToggleable;
 
+                        // Determine text color based on state:
+                        // - Checked (visible): dark text #181D27
+                        // - Unchecked but toggleable: dark text #181D27
+                        // - Disabled: gray text #717680
+                        const textColor = isDisabled ? "#717680" : "#181D27";
+
+                        // Determine checkbox background based on state:
+                        // - Checked: blue background #344698
+                        // - Unchecked but toggleable: transparent background
+                        // - Disabled: light gray background #FAFAFA
+                        const checkboxBackground = isVisible ? "#344698" : (isDisabled ? "#FAFAFA" : "transparent");
+                        const checkboxBorder = isVisible ? "none" : "1px solid #D5D7DA";
+
                         return (
                           <div
                             key={column.id}
@@ -1272,12 +1285,8 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                                   width: "16px",
                                   height: "16px",
                                   borderRadius: "4px",
-                                  border: isVisible
-                                    ? "none"
-                                    : "1px solid #D5D7DA",
-                                  background: isVisible
-                                    ? "#344698"
-                                    : "transparent",
+                                  border: checkboxBorder,
+                                  background: checkboxBackground,
                                   cursor: isToggleable ? "pointer" : "not-allowed",
                                   display: "flex",
                                   alignItems: "center",
@@ -1326,7 +1335,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                               >
                                 <div
                                   style={{
-                                    color: isVisible ? "#181D27" : "#A4A7AE",
+                                    color: textColor,
                                     fontFamily: "Public Sans",
                                     fontSize: "12px",
                                     fontWeight: 500,
