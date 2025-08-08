@@ -5902,9 +5902,6 @@ const InvitesAndOrders: React.FC = () => {
                               </div>
                             </div>
 
-
-
-
                             {/* Actions Column */}
                             <div
                               style={{
