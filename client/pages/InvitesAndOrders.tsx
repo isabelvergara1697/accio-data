@@ -1950,7 +1950,9 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   <div
                                     style={{
-                                      color: showFiltersModal
+                                      color: hasAppliedFilters() && !showFiltersModal
+                                        ? "#344698"
+                                        : showFiltersModal
                                         ? "#252B37"
                                         : "#414651",
                                       fontFamily: "Public Sans",
