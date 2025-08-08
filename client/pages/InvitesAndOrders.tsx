@@ -195,7 +195,10 @@ const InvitesAndOrders: React.FC = () => {
   });
 
   // Helper function to check if all options are selected for a filter
-  const areAllOptionsSelected = (filterKey: string, selectedValues: string[]) => {
+  const areAllOptionsSelected = (
+    filterKey: string,
+    selectedValues: string[],
+  ) => {
     const optionCounts = {
       status: 6,
       typeOfPackage: 22,
@@ -215,16 +218,20 @@ const InvitesAndOrders: React.FC = () => {
   const getAppliedFiltersCount = () => {
     let count = 0;
 
-    Object.keys(appliedFilters).forEach(key => {
-      if (key === 'dateRange') {
+    Object.keys(appliedFilters).forEach((key) => {
+      if (key === "dateRange") {
         const defaultStart = new Date(2025, 0, 10);
         const defaultEnd = new Date(2025, 0, 16);
-        if (appliedFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
-            appliedFilters.dateRange.end.getTime() !== defaultEnd.getTime()) {
+        if (
+          appliedFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
+          appliedFilters.dateRange.end.getTime() !== defaultEnd.getTime()
+        ) {
           count++;
         }
       } else {
-        const values = appliedFilters[key as keyof typeof appliedFilters] as string[];
+        const values = appliedFilters[
+          key as keyof typeof appliedFilters
+        ] as string[];
         if (values.length > 0 && !areAllOptionsSelected(key, values)) {
           count += values.length;
         }
@@ -1889,101 +1896,45 @@ const InvitesAndOrders: React.FC = () => {
                               }}
                             >
                               {/* Filters Button Container */}
-                              <div style={{ position: "relative", display: "inline-flex" }}>
+                              <div
+                                style={{
+                                  position: "relative",
+                                  display: "inline-flex",
+                                }}
+                              >
                                 <button
                                   onClick={() =>
                                     setShowFiltersModal(!showFiltersModal)
                                   }
-                                onMouseEnter={() => setHoveredButton("filters")}
-                                onMouseLeave={() => setHoveredButton(null)}
-                                style={{
-                                  display: "flex",
-                                  minHeight: "36px",
-                                  padding: isTablet ? "6px 6px" : "6px 8px",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                  gap: "4px",
-                                  borderRadius: "8px",
-                                  border: hasAppliedFilters() && !showFiltersModal
-                                    ? "1px solid #34479A"
-                                    : "1px solid #D5D7DA",
-                                  background:
-                                    hasAppliedFilters() && !showFiltersModal
-                                      ? "#ECEEF9"
-                                      : hoveredButton === "filters" ||
-                                        showFiltersModal
-                                      ? "#F5F5F5"
-                                      : "#FFF",
-                                  boxShadow:
-                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M3.33333 14L3.33333 10M3.33333 10C4.06971 10 4.66667 9.40305 4.66667 8.66667C4.66667 7.93029 4.06971 7.33333 3.33333 7.33333C2.59695 7.33333 2 7.93029 2 8.66667C2 9.40305 2.59695 10 3.33333 10ZM3.33333 4.66667V2M8 14V10M8 4.66667V2M8 4.66667C7.26362 4.66667 6.66667 5.26362 6.66667 6C6.66667 6.73638 7.26362 7.33333 8 7.33333C8.73638 7.33333 9.33333 6.73638 9.33333 6C9.33333 5.26362 8.73638 4.66667 8 4.66667ZM12.6667 14V11.3333M12.6667 11.3333C13.403 11.3333 14 10.7364 14 10C14 9.26362 13.403 8.66667 12.6667 8.66667C11.9303 8.66667 11.3333 9.26362 11.3333 10C11.3333 10.7364 11.9303 11.3333 12.6667 11.3333ZM12.6667 6V2"
-                                    stroke={
-                                      hasAppliedFilters() && !showFiltersModal
-                                        ? "#344698"
-                                        : showFiltersModal
-                                        ? "#717680"
-                                        : "#A4A7AE"
-                                    }
-                                    strokeWidth="1.66667"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                                <div
+                                  onMouseEnter={() =>
+                                    setHoveredButton("filters")
+                                  }
+                                  onMouseLeave={() => setHoveredButton(null)}
                                   style={{
                                     display: "flex",
-                                    padding: "0 2px",
+                                    minHeight: "36px",
+                                    padding: isTablet ? "6px 6px" : "6px 8px",
                                     justifyContent: "center",
                                     alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border:
+                                      hasAppliedFilters() && !showFiltersModal
+                                        ? "1px solid #34479A"
+                                        : "1px solid #D5D7DA",
+                                    background:
+                                      hasAppliedFilters() && !showFiltersModal
+                                        ? "#ECEEF9"
+                                        : hoveredButton === "filters" ||
+                                            showFiltersModal
+                                          ? "#F5F5F5"
+                                          : "#FFF",
+                                    boxShadow:
+                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    cursor: "pointer",
+                                    transition: "background-color 0.2s ease",
                                   }}
                                 >
-                                  <div
-                                    style={{
-                                      color: hasAppliedFilters() && !showFiltersModal
-                                        ? "#344698"
-                                        : showFiltersModal
-                                        ? "#252B37"
-                                        : "#414651",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontWeight: 600,
-                                      lineHeight: "20px",
-                                    }}
-                                  >
-                                    <span
-                                      style={{
-                                        fontFamily:
-                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: hasAppliedFilters() && !showFiltersModal
-                                          ? 700
-                                          : showFiltersModal
-                                          ? 700
-                                          : 600,
-                                        fontSize: "14px",
-                                        color: hasAppliedFilters() && !showFiltersModal
-                                          ? "rgba(52,70,152,1)"
-                                          : showFiltersModal
-                                          ? "rgba(37,43,55,1)"
-                                          : "rgba(65,70,81,1)",
-                                      }}
-                                    >
-                                      Filters
-                                    </span>
-                                  </div>
-                                </div>
-                                {showFiltersModal && (
                                   <svg
                                     width="16"
                                     height="16"
@@ -1992,14 +1943,84 @@ const InvitesAndOrders: React.FC = () => {
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <path
-                                      d="M11.3333 4.66675L4.66663 11.3334M4.66663 4.66675L11.3333 11.3334"
-                                      stroke="#717680"
+                                      d="M3.33333 14L3.33333 10M3.33333 10C4.06971 10 4.66667 9.40305 4.66667 8.66667C4.66667 7.93029 4.06971 7.33333 3.33333 7.33333C2.59695 7.33333 2 7.93029 2 8.66667C2 9.40305 2.59695 10 3.33333 10ZM3.33333 4.66667V2M8 14V10M8 4.66667V2M8 4.66667C7.26362 4.66667 6.66667 5.26362 6.66667 6C6.66667 6.73638 7.26362 7.33333 8 7.33333C8.73638 7.33333 9.33333 6.73638 9.33333 6C9.33333 5.26362 8.73638 4.66667 8 4.66667ZM12.6667 14V11.3333M12.6667 11.3333C13.403 11.3333 14 10.7364 14 10C14 9.26362 13.403 8.66667 12.6667 8.66667C11.9303 8.66667 11.3333 9.26362 11.3333 10C11.3333 10.7364 11.9303 11.3333 12.6667 11.3333ZM12.6667 6V2"
+                                      stroke={
+                                        hasAppliedFilters() && !showFiltersModal
+                                          ? "#344698"
+                                          : showFiltersModal
+                                            ? "#717680"
+                                            : "#A4A7AE"
+                                      }
                                       strokeWidth="1.66667"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
                                     />
                                   </svg>
-                                )}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "0 2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color:
+                                          hasAppliedFilters() &&
+                                          !showFiltersModal
+                                            ? "#344698"
+                                            : showFiltersModal
+                                              ? "#252B37"
+                                              : "#414651",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontWeight: 600,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight:
+                                            hasAppliedFilters() &&
+                                            !showFiltersModal
+                                              ? 700
+                                              : showFiltersModal
+                                                ? 700
+                                                : 600,
+                                          fontSize: "14px",
+                                          color:
+                                            hasAppliedFilters() &&
+                                            !showFiltersModal
+                                              ? "rgba(52,70,152,1)"
+                                              : showFiltersModal
+                                                ? "rgba(37,43,55,1)"
+                                                : "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Filters
+                                      </span>
+                                    </div>
+                                  </div>
+                                  {showFiltersModal && (
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M11.3333 4.66675L4.66663 11.3334M4.66663 4.66675L11.3333 11.3334"
+                                        stroke="#717680"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  )}
                                 </button>
                                 {/* Filter Count Badge */}
                                 {hasAppliedFilters() && !showFiltersModal && (

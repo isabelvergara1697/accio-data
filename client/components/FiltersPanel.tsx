@@ -144,8 +144,11 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
     onFiltersChange(clearedFilters);
   };
 
-  const removeFilter = (filterKey: keyof FilterState, valueToRemove: string) => {
-    if (filterKey === 'dateRange') {
+  const removeFilter = (
+    filterKey: keyof FilterState,
+    valueToRemove: string,
+  ) => {
+    if (filterKey === "dateRange") {
       // Reset date range to default
       const newFilters = {
         ...filters,
@@ -158,12 +161,17 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
       onFiltersChange(newFilters);
     } else {
       const currentValues = filters[filterKey] as string[];
-      const newValues = currentValues.filter(value => value !== valueToRemove);
+      const newValues = currentValues.filter(
+        (value) => value !== valueToRemove,
+      );
       handleFilterChange(filterKey, newValues);
     }
   };
 
-  const getFilterLabel = (filterKey: keyof FilterState, value: string): string => {
+  const getFilterLabel = (
+    filterKey: keyof FilterState,
+    value: string,
+  ): string => {
     const optionsMap = {
       status: statusOptions,
       typeOfPackage: packageTypeOptions,
@@ -173,17 +181,26 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
     };
 
     if (filterKey in optionsMap) {
-      const option = optionsMap[filterKey as keyof typeof optionsMap].find(opt => opt.value === value);
+      const option = optionsMap[filterKey as keyof typeof optionsMap].find(
+        (opt) => opt.value === value,
+      );
       return option?.label || value;
     }
     return value;
   };
 
   const getAppliedFilters = () => {
-    const appliedFilters: Array<{key: keyof FilterState, value: string, label: string}> = [];
+    const appliedFilters: Array<{
+      key: keyof FilterState;
+      value: string;
+      label: string;
+    }> = [];
 
     // Helper function to check if all options are selected for a filter
-    const areAllOptionsSelected = (filterKey: keyof FilterState, selectedValues: string[]) => {
+    const areAllOptionsSelected = (
+      filterKey: keyof FilterState,
+      selectedValues: string[],
+    ) => {
       const optionsMap = {
         status: statusOptions,
         typeOfPackage: packageTypeOptions,
@@ -193,24 +210,27 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
       };
 
       if (filterKey in optionsMap) {
-        const totalOptions = optionsMap[filterKey as keyof typeof optionsMap].length;
+        const totalOptions =
+          optionsMap[filterKey as keyof typeof optionsMap].length;
         return selectedValues.length === totalOptions;
       }
       return false;
     };
 
     // Check each filter type
-    (Object.keys(filters) as Array<keyof FilterState>).forEach(key => {
-      if (key === 'dateRange') {
+    (Object.keys(filters) as Array<keyof FilterState>).forEach((key) => {
+      if (key === "dateRange") {
         // Check if date range is different from default
         const defaultStart = new Date(2025, 0, 10);
         const defaultEnd = new Date(2025, 0, 16);
-        if (filters.dateRange.start.getTime() !== defaultStart.getTime() ||
-            filters.dateRange.end.getTime() !== defaultEnd.getTime()) {
+        if (
+          filters.dateRange.start.getTime() !== defaultStart.getTime() ||
+          filters.dateRange.end.getTime() !== defaultEnd.getTime()
+        ) {
           appliedFilters.push({
-            key: 'dateRange',
-            value: 'dateRange',
-            label: `Date: ${formatDateRange(filters.dateRange.start, filters.dateRange.end)}`
+            key: "dateRange",
+            value: "dateRange",
+            label: `Date: ${formatDateRange(filters.dateRange.start, filters.dateRange.end)}`,
           });
         }
       } else {
@@ -221,31 +241,33 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
           return;
         }
 
-        values.forEach(value => {
-          let filterLabel = '';
+        values.forEach((value) => {
+          let filterLabel = "";
           switch (key) {
-            case 'status':
-              filterLabel = 'Status';
+            case "status":
+              filterLabel = "Status";
               break;
-            case 'typeOfPackage':
-              filterLabel = 'Type of Package';
+            case "typeOfPackage":
+              filterLabel = "Type of Package";
               break;
-            case 'i9Filled':
-              filterLabel = 'I-9 Filled';
+            case "i9Filled":
+              filterLabel = "I-9 Filled";
               break;
-            case 'activate':
-              filterLabel = 'Activate';
+            case "activate":
+              filterLabel = "Activate";
               break;
-            case 'ews':
-              filterLabel = 'EWS';
+            case "ews":
+              filterLabel = "EWS";
               break;
             default:
-              filterLabel = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1');
+              filterLabel =
+                key.charAt(0).toUpperCase() +
+                key.slice(1).replace(/([A-Z])/g, " $1");
           }
           appliedFilters.push({
             key,
             value,
-            label: `${filterLabel}: ${getFilterLabel(key, value)}`
+            label: `${filterLabel}: ${getFilterLabel(key, value)}`,
           });
         });
       }
