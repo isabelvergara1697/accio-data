@@ -853,7 +853,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                         key={column.id}
                         style={{
                           display: "flex",
-                          width: "172px",
+                          width: "168px",
                           alignItems: "flex-start",
                           gap: "8px",
                         }}
