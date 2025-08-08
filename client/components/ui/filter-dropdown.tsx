@@ -12,6 +12,7 @@ interface FilterDropdownProps {
   selectedValues: string[];
   onSelectionChange: (values: string[]) => void;
   placeholder?: string;
+  searchDisabled?: boolean;
 }
 
 const FilterDropdown: React.FC<FilterDropdownProps> = ({
@@ -20,15 +21,18 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
   selectedValues,
   onSelectionChange,
   placeholder = "Select Filter",
+  searchDisabled = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Filter options based on search query
-  const filteredOptions = options.filter((option) =>
-    option.label.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Filter options based on search query (only if search is enabled)
+  const filteredOptions = searchDisabled
+    ? options
+    : options.filter((option) =>
+        option.label.toLowerCase().includes(searchQuery.toLowerCase())
+      );
 
   // Handle clicking outside to close dropdown
   useEffect(() => {
@@ -105,7 +109,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
           justifyContent: "space-between",
           width: "100%",
           borderRadius: "8px",
-          border: "1px solid #D5D7DA",
+          border: isOpen ? "1px solid #344698" : "1px solid #D5D7DA",
           background: "#FFF",
           boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
           fontSize: "14px",
@@ -165,31 +169,33 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
             overflow: "hidden",
           }}
         >
-          {/* Search Input */}
-          <div
-            style={{
-              padding: "8px",
-              borderBottom: "1px solid #E9EAEB",
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Search..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+          {/* Search Input - only show if search is not disabled */}
+          {!searchDisabled && (
+            <div
               style={{
-                width: "100%",
-                height: "28px",
-                padding: "4px 8px",
-                border: "1px solid #D5D7DA",
-                borderRadius: "6px",
-                fontSize: "14px",
-                fontFamily: "Public Sans",
-                outline: "none",
-                boxSizing: "border-box",
+                padding: "8px",
+                borderBottom: "1px solid #E9EAEB",
               }}
-            />
-          </div>
+            >
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{
+                  width: "100%",
+                  height: "28px",
+                  padding: "4px 8px",
+                  border: "1px solid #D5D7DA",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  fontFamily: "Public Sans",
+                  outline: "none",
+                  boxSizing: "border-box",
+                }}
+              />
+            </div>
+          )}
 
           {/* Options List */}
           <div
