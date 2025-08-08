@@ -278,88 +278,13 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
           />
 
           {/* Activate Filter */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "6px",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "6px",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "2px",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Activate
-                </div>
-              </div>
-              <div
-                style={{
-                  height: "32px",
-                  alignSelf: "stretch",
-                  position: "relative",
-                }}
-              >
-                <select
-                  value={filters.activate}
-                  onChange={(e) => handleFilterChange("activate", e.target.value)}
-                  style={{
-                    height: "32px",
-                    padding: "6px 8px",
-                    borderRadius: "8px",
-                    border: "1px solid #D5D7DA",
-                    background: "#FFF",
-                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    fontSize: "14px",
-                    fontFamily: "Public Sans",
-                    color: "#414651",
-                    outline: "none",
-                    cursor: "pointer",
-                    width: "100%",
-                    appearance: "none",
-                    backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg width=\'16\' height=\'16\' viewBox=\'0 0 16 16\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M4 6L8 10L12 6\' stroke=\'%23A4A7AE\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3e%3c/svg%3e")',
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "right 8px center",
-                    paddingRight: "32px",
-                  }}
-                >
-                  <option value="">Select Filter</option>
-                  {activateOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
+          <FilterDropdown
+            label="Activate"
+            options={activateOptions}
+            selectedValues={filters.activate}
+            onSelectionChange={(values) => handleFilterChange("activate", values)}
+            placeholder="Select Filter"
+          />
 
           {/* EWS Filter */}
           <div
