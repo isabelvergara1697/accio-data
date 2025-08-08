@@ -6546,24 +6546,51 @@ const InvitesAndOrders: React.FC = () => {
                                   overflow: "hidden",
                                 }}
                               >
-                                <div
-                                  data-tooltip={invite.email}
-                                  style={{
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    whiteSpace: "nowrap",
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 400,
-                                    fontSize: "14px",
-                                    color: "rgba(24,29,39,1)",
-                                    lineHeight: "20px",
-                                    width: "100%",
-                                    cursor: "default",
-                                    position: "relative",
-                                  }}
-                                  className="email-tooltip"
-                                >
-                                  {highlightText(invite.email, searchQuery)}
+                                <div style={{ position: "relative", width: "100%" }}>
+                                  <div
+                                    onMouseEnter={(e) => {
+                                      const tooltip = document.createElement('div');
+                                      tooltip.textContent = invite.email;
+                                      tooltip.style.cssText = `
+                                        position: fixed;
+                                        background: #0A0D12;
+                                        color: white;
+                                        padding: 8px 12px;
+                                        border-radius: 8px;
+                                        font-size: 12px;
+                                        font-weight: 600;
+                                        z-index: 999999;
+                                        pointer-events: none;
+                                        max-width: 300px;
+                                        word-break: break-all;
+                                      `;
+                                      const rect = e.target.getBoundingClientRect();
+                                      tooltip.style.left = rect.left + 'px';
+                                      tooltip.style.top = (rect.top - 40) + 'px';
+                                      document.body.appendChild(tooltip);
+                                      e.target._tooltip = tooltip;
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      if (e.target._tooltip) {
+                                        document.body.removeChild(e.target._tooltip);
+                                        delete e.target._tooltip;
+                                      }
+                                    }}
+                                    style={{
+                                      overflow: "hidden",
+                                      textOverflow: "ellipsis",
+                                      whiteSpace: "nowrap",
+                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(24,29,39,1)",
+                                      lineHeight: "20px",
+                                      width: "100%",
+                                      cursor: "default",
+                                    }}
+                                  >
+                                    {highlightText(invite.email, searchQuery)}
+                                  </div>
                                 </div>
                               </div>
 
