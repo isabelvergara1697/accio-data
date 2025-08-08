@@ -193,6 +193,51 @@ const InvitesAndOrders: React.FC = () => {
       end: new Date(2025, 0, 16), // Jan 16, 2025
     },
   });
+
+  // Helper function to check if all options are selected for a filter
+  const areAllOptionsSelected = (filterKey: string, selectedValues: string[]) => {
+    const optionCounts = {
+      status: 6,
+      typeOfPackage: 22,
+      i9Filled: 2,
+      activate: 2,
+      ews: 2,
+    };
+
+    if (filterKey in optionCounts) {
+      const totalOptions = optionCounts[filterKey as keyof typeof optionCounts];
+      return selectedValues.length === totalOptions;
+    }
+    return false;
+  };
+
+  // Get count of applied filters (excluding those where all options are selected)
+  const getAppliedFiltersCount = () => {
+    let count = 0;
+
+    Object.keys(appliedFilters).forEach(key => {
+      if (key === 'dateRange') {
+        const defaultStart = new Date(2025, 0, 10);
+        const defaultEnd = new Date(2025, 0, 16);
+        if (appliedFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
+            appliedFilters.dateRange.end.getTime() !== defaultEnd.getTime()) {
+          count++;
+        }
+      } else {
+        const values = appliedFilters[key as keyof typeof appliedFilters] as string[];
+        if (values.length > 0 && !areAllOptionsSelected(key, values)) {
+          count += values.length;
+        }
+      }
+    });
+
+    return count;
+  };
+
+  const hasAppliedFilters = () => {
+    return getAppliedFiltersCount() > 0;
+  };
+
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
   const mobileAdvancedSearchRef = useRef<HTMLDivElement>(null);
