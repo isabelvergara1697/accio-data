@@ -13,6 +13,7 @@ import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
 import FiltersPanel from "../components/FiltersPanel";
 import { MobileFiltersModal } from "../components/MobileFiltersModal";
 import { CustomizeColumnsModal } from "../components/CustomizeColumnsModal";
+import { DownloadDropdown } from "../components/DownloadDropdown";
 import {
   TableViewsDropdown,
   TableView,
