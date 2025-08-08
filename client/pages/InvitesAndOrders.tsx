@@ -552,22 +552,22 @@ const InvitesAndOrders: React.FC = () => {
 
     const colors = colorMap[config.color as keyof typeof colorMap];
 
-    // Define specific badge widths to prevent cropping
-    const getBadgeWidth = () => {
+    // Define minimum widths to prevent text cropping
+    const getMinWidth = () => {
       switch (status) {
         case "waiting-for-recruitee":
           return "140px";
         case "expires-today":
           return "100px";
         case "unsolicited":
-          return "90px";
+          return "88px";
         default:
-          return "auto";
+          return "fit-content";
       }
     };
 
     const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
-    const badgeWidth = getBadgeWidth();
+    const minWidth = getMinWidth();
 
     const badgeElement = (
       <div
