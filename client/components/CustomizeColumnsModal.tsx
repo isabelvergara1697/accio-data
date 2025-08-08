@@ -3,8 +3,9 @@ import React, { useState } from "react";
 interface Column {
   id: string;
   name: string;
-  order: number;
+  order?: number;
   isSelected: boolean;
+  hasHelpIcon?: boolean;
 }
 
 interface ColumnSection {
