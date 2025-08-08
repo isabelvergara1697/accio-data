@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import DatePickerCalendar from "./ui/date-picker-calendar";
+import DesktopCalendar from "./ui/desktop-calendar";
 import FilterDropdown from "./ui/filter-dropdown";
 
 interface FiltersPanelProps {
@@ -28,10 +29,26 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   initialFilters,
 }) => {
   const [filters, setFilters] = useState<FilterState>(initialFilters);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const [isTablet, setIsTablet] = useState(
+    window.innerWidth >= 768 && window.innerWidth < 1024,
+  );
 
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [hoveredCloseButton, setHoveredCloseButton] = useState(false);
   const datePickerRef = useRef<HTMLButtonElement>(null);
+
+  // Handle window resize for responsive behavior
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsDesktop(width >= 1024);
+      setIsTablet(width >= 768 && width < 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Sync local state with prop changes
   useEffect(() => {
@@ -467,8 +484,18 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
         </div>
       </div>
 
-      {/* Date Picker */}
-      {showDatePicker && (
+      {/* Date Picker - Use DesktopCalendar for desktop and tablet, DatePickerCalendar for mobile */}
+      {showDatePicker && (isDesktop || isTablet) && (
+        <DesktopCalendar
+          isOpen={showDatePicker}
+          onClose={() => setShowDatePicker(false)}
+          triggerRef={datePickerRef}
+          selectedStartDate={filters.dateRange.start}
+          selectedEndDate={filters.dateRange.end}
+          onDateChange={handleDateRangeChange}
+        />
+      )}
+      {showDatePicker && !isDesktop && !isTablet && (
         <DatePickerCalendar
           isOpen={showDatePicker}
           onClose={() => setShowDatePicker(false)}
