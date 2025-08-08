@@ -573,10 +573,6 @@ const InvitesAndOrders: React.FC = () => {
       };
     }, [checkTruncation]);
 
-    const isLongText =
-      config.label === "Waiting for Recruitee" ||
-      config.label === "Expires Today";
-
     const badgeElement = (
       <div
         ref={containerRef}
@@ -584,33 +580,21 @@ const InvitesAndOrders: React.FC = () => {
           display: "flex",
           padding: "2px 8px",
           alignItems: "center",
-          ...(isLongText ? { flex: "1 0 0" } : {}),
           borderRadius: "9999px",
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          maxWidth: "100%",
-          minWidth: 0,
-          width: "fit-content",
+          width: "90px", // Fixed width for consistency
+          minWidth: "90px",
+          maxWidth: "90px",
         }}
       >
         <div
           ref={textRef}
           style={{
-            ...(isLongText
-              ? {
-                  display: "-webkit-box",
-                  WebkitBoxOrient: "vertical",
-                  WebkitLineClamp: 1,
-                  flex: "1 0 0",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                }
-              : {
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                }),
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
             color: colors.text,
             textAlign: "left",
             fontFamily: "Public Sans",
@@ -619,6 +603,7 @@ const InvitesAndOrders: React.FC = () => {
             fontWeight: 500,
             lineHeight: "18px",
             position: "relative",
+            width: "100%",
           }}
         >
           <span
