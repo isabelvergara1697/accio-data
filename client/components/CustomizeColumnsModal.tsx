@@ -62,6 +62,15 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
 
   // All available columns for Subject / Applicant section
   const subjectApplicantColumns = [
+    { id: "status", name: "Status", isSelected: false },
+    { id: "firstName", name: "First Name", isSelected: false },
+    { id: "lastName", name: "Last Name", isSelected: false },
+    { id: "invtEmail", name: "Invitation Email", isSelected: false },
+    { id: "completed", name: "Completed", isSelected: false },
+    { id: "i9Filled", name: "I-9 Filled", isSelected: false },
+    { id: "activate", name: "Activate", isSelected: false },
+    { id: "ews", name: "EWS", isSelected: false },
+    { id: "package", name: "Package", isSelected: false },
     { id: "name", name: "Name", isSelected: false },
     { id: "maidenLastName", name: "Maiden Last Name", isSelected: false },
     { id: "mothersMaidenName", name: "Mothers Maiden Name", isSelected: false },
@@ -1480,11 +1489,12 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                             >
                               <div
                                 style={{
-                                  color: "#181D27",
+                                  color: isColumnVisible(column.id) ? "#181D27" : "#A4A7AE",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontWeight: 500,
                                   lineHeight: "18px",
+                                  opacity: isColumnVisible(column.id) ? 1 : 0.6,
                                 }}
                               >
                                 {column.name}
