@@ -6439,7 +6439,8 @@ const InvitesAndOrders: React.FC = () => {
                                   style={{
                                     width: "100%",
                                     maxWidth: "100%",
-                                    overflow: "hidden",
+                                    display: "flex",
+                                    alignItems: "center",
                                   }}
                                 >
                                   <StatusBadge status={invite.status} />
