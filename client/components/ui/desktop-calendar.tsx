@@ -152,9 +152,9 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const calendarRect = calendarRef.current.getBoundingClientRect();
 
-      const top = triggerRect.bottom + 4;
-      // Align calendar with the left edge of the trigger button (as shown in Figma)
-      const left = triggerRect.left;
+      // Position calendar to the right of the button, aligned to button's top
+      const top = triggerRect.top;
+      const left = triggerRect.right + 8; // 8px gap between button and calendar
 
       // Ensure calendar doesn't go off screen to the right
       const viewportWidth = window.innerWidth;
