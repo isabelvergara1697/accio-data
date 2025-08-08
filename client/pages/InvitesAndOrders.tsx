@@ -521,23 +521,66 @@ const InvitesAndOrders: React.FC = () => {
   ];
 
   // Pixel-perfect StatusBadge component matching Figma design
-  const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({ status }) => {
+  const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({
+    status,
+  }) => {
     const statusConfig = {
-      waiting: { label: "Waiting", bg: "#F0F9FF", border: "#B9E6FE", text: "#026AA2" },
-      unsolicited: { label: "Unsolicited", bg: "#F8F9FC", border: "#D5D9EB", text: "#363F72" },
-      canceled: { label: "Canceled", bg: "#FEF6EE", border: "#F9DBAF", text: "#B93815" },
-      expired: { label: "Expired", bg: "#FAFAFA", border: "#E9EAEB", text: "#414651" },
-      "waiting-for-recruitee": { label: "Waiting for Recruitee", bg: "#FEF3F2", border: "#FECDCA", text: "#B42318" },
-      "expires-today": { label: "Expires Today", bg: "#FFFAEB", border: "#FEDF89", text: "#B54708" },
-      reviewed: { label: "Reviewed", bg: "#FDF2FA", border: "#FCCEEE", text: "#C11574" },
-      archived: { label: "Archived", bg: "#FAFAFA", border: "#E9EAEB", text: "#414651" },
+      waiting: {
+        label: "Waiting",
+        bg: "#F0F9FF",
+        border: "#B9E6FE",
+        text: "#026AA2",
+      },
+      unsolicited: {
+        label: "Unsolicited",
+        bg: "#F8F9FC",
+        border: "#D5D9EB",
+        text: "#363F72",
+      },
+      canceled: {
+        label: "Canceled",
+        bg: "#FEF6EE",
+        border: "#F9DBAF",
+        text: "#B93815",
+      },
+      expired: {
+        label: "Expired",
+        bg: "#FAFAFA",
+        border: "#E9EAEB",
+        text: "#414651",
+      },
+      "waiting-for-recruitee": {
+        label: "Waiting for Recruitee",
+        bg: "#FEF3F2",
+        border: "#FECDCA",
+        text: "#B42318",
+      },
+      "expires-today": {
+        label: "Expires Today",
+        bg: "#FFFAEB",
+        border: "#FEDF89",
+        text: "#B54708",
+      },
+      reviewed: {
+        label: "Reviewed",
+        bg: "#FDF2FA",
+        border: "#FCCEEE",
+        text: "#C11574",
+      },
+      archived: {
+        label: "Archived",
+        bg: "#FAFAFA",
+        border: "#E9EAEB",
+        text: "#414651",
+      },
     };
 
     const config = statusConfig[status];
     if (!config) return null;
 
     // Determine if this status needs truncation and flex layout (for longer statuses)
-    const needsFlexLayout = status === "waiting-for-recruitee" || status === "expires-today";
+    const needsFlexLayout =
+      status === "waiting-for-recruitee" || status === "expires-today";
     const needsTooltip = needsFlexLayout; // Only long statuses get tooltips
 
     const badgeElement = needsFlexLayout ? (
@@ -609,12 +652,14 @@ const InvitesAndOrders: React.FC = () => {
       return (
         <Tooltip>
           <TooltipTrigger asChild>
-            <div style={{
-              position: "relative",
-              display: "flex",
-              flex: "1 0 0",
-              minWidth: 0, // Allow shrinking
-            }}>
+            <div
+              style={{
+                position: "relative",
+                display: "flex",
+                flex: "1 0 0",
+                minWidth: 0, // Allow shrinking
+              }}
+            >
               {badgeElement}
             </div>
           </TooltipTrigger>
@@ -801,7 +846,9 @@ const InvitesAndOrders: React.FC = () => {
 
     // Apply status filter
     if (appliedFilters.status.length > 0) {
-      data = data.filter((invite) => appliedFilters.status.includes(invite.status));
+      data = data.filter((invite) =>
+        appliedFilters.status.includes(invite.status),
+      );
     }
 
     // Apply I-9 Filled filter
@@ -1337,8 +1384,14 @@ const InvitesAndOrders: React.FC = () => {
                 alignSelf: "stretch",
                 position: "relative",
                 minWidth: 0, // Allow container to shrink below content size
-                width: showFiltersModal && isDesktop ? `calc(100% - 268px - 16px)` : "100%",
-                maxWidth: showFiltersModal && isDesktop ? `calc(100% - 268px - 16px)` : "100%",
+                width:
+                  showFiltersModal && isDesktop
+                    ? `calc(100% - 268px - 16px)`
+                    : "100%",
+                maxWidth:
+                  showFiltersModal && isDesktop
+                    ? `calc(100% - 268px - 16px)`
+                    : "100%",
               }}
             >
               <div
@@ -1661,11 +1714,15 @@ const InvitesAndOrders: React.FC = () => {
                                     onClear={clearAdvancedSearch}
                                     onSearch={handleAdvancedSearch}
                                     dropdownRef={advancedSearchRef}
-                                    style={!isMobile ? {
-                                      right: "-8px",
-                                      width: "234px",
-                                      top: "calc(100% + 12px)"
-                                    } : undefined}
+                                    style={
+                                      !isMobile
+                                        ? {
+                                            right: "-8px",
+                                            width: "234px",
+                                            top: "calc(100% + 12px)",
+                                          }
+                                        : undefined
+                                    }
                                   />
                                 </div>
                               </div>
@@ -1675,7 +1732,9 @@ const InvitesAndOrders: React.FC = () => {
                             {showFiltersModal && (
                               <button
                                 onClick={() => setShowFiltersModal(false)}
-                                onMouseEnter={() => setHoveredButton("close-filters")}
+                                onMouseEnter={() =>
+                                  setHoveredButton("close-filters")
+                                }
                                 onMouseLeave={() => setHoveredButton(null)}
                                 style={{
                                   display: "flex",
@@ -1865,7 +1924,7 @@ const InvitesAndOrders: React.FC = () => {
                                 )}
                               </button>
 
-                              {(
+                              {
                                 <>
                                   {/* Customize Button */}
                                   <button
@@ -2273,7 +2332,7 @@ const InvitesAndOrders: React.FC = () => {
                                     </div>
                                   </button>
                                 </>
-                              )}
+                              }
                             </div>
                           </>
                         ) : isMobile ? (
@@ -2592,7 +2651,7 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Mobile: View Toggle + Search Row */}
-                            {(
+                            {
                               <div
                                 style={{
                                   display: "flex",
@@ -2969,7 +3028,7 @@ const InvitesAndOrders: React.FC = () => {
                                   />
                                 </div>
                               </div>
-                            )}
+                            }
 
                             <div style={{ position: "relative" }}>
                               {false && (
@@ -6546,10 +6605,16 @@ const InvitesAndOrders: React.FC = () => {
                                   overflow: "hidden",
                                 }}
                               >
-                                <div style={{ position: "relative", width: "100%" }}>
+                                <div
+                                  style={{
+                                    position: "relative",
+                                    width: "100%",
+                                  }}
+                                >
                                   <div
                                     onMouseEnter={(e) => {
-                                      const tooltip = document.createElement('div');
+                                      const tooltip =
+                                        document.createElement("div");
                                       tooltip.textContent = invite.email;
                                       tooltip.style.cssText = `
                                         position: fixed;
@@ -6564,15 +6629,18 @@ const InvitesAndOrders: React.FC = () => {
                                         max-width: 300px;
                                         word-break: break-all;
                                       `;
-                                      const rect = e.target.getBoundingClientRect();
-                                      tooltip.style.left = rect.left + 'px';
-                                      tooltip.style.top = (rect.top - 40) + 'px';
+                                      const rect =
+                                        e.target.getBoundingClientRect();
+                                      tooltip.style.left = rect.left + "px";
+                                      tooltip.style.top = rect.top - 40 + "px";
                                       document.body.appendChild(tooltip);
                                       e.target._tooltip = tooltip;
                                     }}
                                     onMouseLeave={(e) => {
                                       if (e.target._tooltip) {
-                                        document.body.removeChild(e.target._tooltip);
+                                        document.body.removeChild(
+                                          e.target._tooltip,
+                                        );
                                         delete e.target._tooltip;
                                       }
                                     }}
@@ -6580,7 +6648,8 @@ const InvitesAndOrders: React.FC = () => {
                                       overflow: "hidden",
                                       textOverflow: "ellipsis",
                                       whiteSpace: "nowrap",
-                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                       fontWeight: 400,
                                       fontSize: "14px",
                                       color: "rgba(24,29,39,1)",
