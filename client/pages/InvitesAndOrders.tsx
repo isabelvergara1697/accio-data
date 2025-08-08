@@ -6553,29 +6553,20 @@ const InvitesAndOrders: React.FC = () => {
                                     <div
                                       style={{
                                         width: "100%",
+                                        minWidth: 0,
+                                        maxWidth: "100%",
                                         overflow: "hidden",
                                         textOverflow: "ellipsis",
                                         whiteSpace: "nowrap",
-                                        color: "#181D27",
-                                        fontFamily: "Public Sans",
+                                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 400,
                                         fontSize: "14px",
-                                        fontStyle: "normal",
-                                        fontWeight: 500,
+                                        color: "rgba(24,29,39,1)",
                                         lineHeight: "20px",
                                         position: "relative",
                                       }}
                                     >
-                                      <span
-                                        style={{
-                                          fontFamily:
-                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                          fontWeight: 400,
-                                          fontSize: "14px",
-                                          color: "rgba(24,29,39,1)",
-                                        }}
-                                      >
-                                        {highlightText(invite.email, searchQuery)}
-                                      </span>
+                                      {highlightText(invite.email, searchQuery)}
                                     </div>
                                   </TooltipTrigger>
                                   <TooltipContent
