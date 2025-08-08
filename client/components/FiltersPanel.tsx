@@ -1,11 +1,4 @@
 import React, { useState, useRef } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select";
 import DatePickerCalendar from "./ui/date-picker-calendar";
 
 interface FiltersPanelProps {
@@ -303,35 +296,34 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   position: "relative",
                 }}
               >
-                <Select
+                <select
                   value={filters.status}
-                  onValueChange={(value) => handleFilterChange("status", value)}
+                  onChange={(e) => handleFilterChange("status", e.target.value)}
+                  style={{
+                    display: "flex",
+                    height: "32px",
+                    padding: "6px 8px",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    fontSize: "14px",
+                    fontFamily: "Public Sans",
+                    color: "#414651",
+                    outline: "none",
+                    cursor: "pointer",
+                    width: "100%",
+                  }}
                 >
-                  <SelectTrigger
-                    style={{
-                      display: "flex",
-                      height: "32px",
-                      padding: "6px 8px",
-                      alignItems: "center",
-                      gap: "8px",
-                      alignSelf: "stretch",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      position: "relative",
-                    }}
-                  >
-                    <SelectValue placeholder="Select Status" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {statusOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                  <option value="">Select Status</option>
+                  {statusOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
@@ -386,35 +378,34 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   position: "relative",
                 }}
               >
-                <Select
+                <select
                   value={filters.typeOfPackage}
-                  onValueChange={(value) => handleFilterChange("typeOfPackage", value)}
+                  onChange={(e) => handleFilterChange("typeOfPackage", e.target.value)}
+                  style={{
+                    display: "flex",
+                    height: "32px",
+                    padding: "6px 8px",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    fontSize: "14px",
+                    fontFamily: "Public Sans",
+                    color: "#414651",
+                    outline: "none",
+                    cursor: "pointer",
+                    width: "100%",
+                  }}
                 >
-                  <SelectTrigger
-                    style={{
-                      display: "flex",
-                      height: "32px",
-                      padding: "6px 8px",
-                      alignItems: "center",
-                      gap: "8px",
-                      alignSelf: "stretch",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      position: "relative",
-                    }}
-                  >
-                    <SelectValue placeholder="Select Filter" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {packageTypeOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                  <option value="">Select Filter</option>
+                  {packageTypeOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
@@ -469,35 +460,34 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   position: "relative",
                 }}
               >
-                <Select
+                <select
                   value={filters.i9Filled}
-                  onValueChange={(value) => handleFilterChange("i9Filled", value)}
+                  onChange={(e) => handleFilterChange("i9Filled", e.target.value)}
+                  style={{
+                    display: "flex",
+                    height: "32px",
+                    padding: "6px 8px",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    fontSize: "14px",
+                    fontFamily: "Public Sans",
+                    color: "#414651",
+                    outline: "none",
+                    cursor: "pointer",
+                    width: "100%",
+                  }}
                 >
-                  <SelectTrigger
-                    style={{
-                      display: "flex",
-                      height: "32px",
-                      padding: "6px 8px",
-                      alignItems: "center",
-                      gap: "8px",
-                      alignSelf: "stretch",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      position: "relative",
-                    }}
-                  >
-                    <SelectValue placeholder="Select Filter" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {i9FilledOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                  <option value="">Select Filter</option>
+                  {i9FilledOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
@@ -552,35 +542,34 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   position: "relative",
                 }}
               >
-                <Select
+                <select
                   value={filters.activate}
-                  onValueChange={(value) => handleFilterChange("activate", value)}
+                  onChange={(e) => handleFilterChange("activate", e.target.value)}
+                  style={{
+                    display: "flex",
+                    height: "32px",
+                    padding: "6px 8px",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    fontSize: "14px",
+                    fontFamily: "Public Sans",
+                    color: "#414651",
+                    outline: "none",
+                    cursor: "pointer",
+                    width: "100%",
+                  }}
                 >
-                  <SelectTrigger
-                    style={{
-                      display: "flex",
-                      height: "32px",
-                      padding: "6px 8px",
-                      alignItems: "center",
-                      gap: "8px",
-                      alignSelf: "stretch",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      position: "relative",
-                    }}
-                  >
-                    <SelectValue placeholder="Select Filter" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {activateOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                  <option value="">Select Filter</option>
+                  {activateOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
@@ -635,35 +624,34 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   position: "relative",
                 }}
               >
-                <Select
+                <select
                   value={filters.ews}
-                  onValueChange={(value) => handleFilterChange("ews", value)}
+                  onChange={(e) => handleFilterChange("ews", e.target.value)}
+                  style={{
+                    display: "flex",
+                    height: "32px",
+                    padding: "6px 8px",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    fontSize: "14px",
+                    fontFamily: "Public Sans",
+                    color: "#414651",
+                    outline: "none",
+                    cursor: "pointer",
+                    width: "100%",
+                  }}
                 >
-                  <SelectTrigger
-                    style={{
-                      display: "flex",
-                      height: "32px",
-                      padding: "6px 8px",
-                      alignItems: "center",
-                      gap: "8px",
-                      alignSelf: "stretch",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      position: "relative",
-                    }}
-                  >
-                    <SelectValue placeholder="Select Filter" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {ewsOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                  <option value="">Select Filter</option>
+                  {ewsOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
           </div>
