@@ -251,13 +251,15 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
           }}
         >
           {/* Status Filter */}
-          <FilterDropdown
-            label="Status"
-            options={statusOptions}
-            selectedValues={filters.status}
-            onSelectionChange={(values) => handleFilterChange("status", values)}
-            placeholder="Select Status"
-          />
+          <div style={{ width: "100%" }}>
+            <FilterDropdown
+              label="Status"
+              options={statusOptions}
+              selectedValues={filters.status}
+              onSelectionChange={(values) => handleFilterChange("status", values)}
+              placeholder="Select Status"
+            />
+          </div>
 
           {/* Type of Package Filter */}
           <FilterDropdown
