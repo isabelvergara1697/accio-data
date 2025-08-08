@@ -245,7 +245,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
             position: "relative",
             overflow: "visible",
-            minHeight: "436px",
+            minHeight: "536px",
           }}
         >
           {/* Status Filter */}
