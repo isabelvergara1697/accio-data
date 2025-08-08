@@ -235,7 +235,11 @@ const InvitesAndOrders: React.FC = () => {
   };
 
   const hasAppliedFilters = () => {
-    return getAppliedFiltersCount() > 0;
+    const count = getAppliedFiltersCount();
+    console.log("Applied filters count:", count);
+    console.log("Has applied filters:", count > 0);
+    console.log("showFiltersModal:", showFiltersModal);
+    return count > 0;
   };
 
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
