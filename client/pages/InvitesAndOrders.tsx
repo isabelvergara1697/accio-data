@@ -520,7 +520,7 @@ const InvitesAndOrders: React.FC = () => {
     },
   ];
 
-  // Component for status badges with simplified CSS truncation
+  // Component for status badges with natural sizing and proper truncation
   const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({
     status,
   }) => {
@@ -551,8 +551,9 @@ const InvitesAndOrders: React.FC = () => {
 
     const colors = colorMap[config.color as keyof typeof colorMap];
 
-    // Check if this status typically needs truncation
-    const needsTooltip = config.label.length > 10;
+    // Determine if this is a longer status that needs special handling
+    const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
+    const needsTooltip = isLongStatus;
 
     const badgeElement = (
       <div
@@ -564,15 +565,23 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          width: "80px", // Fixed width to prevent overflow
-          maxWidth: "80px",
-          minWidth: "80px",
+          ...(isLongStatus
+            ? {
+                maxWidth: "85px",
+                minWidth: "85px",
+                width: "85px"
+              }
+            : {
+                minWidth: "fit-content",
+                width: "fit-content"
+              }
+          ),
         }}
       >
         <span
           style={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
+            overflow: isLongStatus ? "hidden" : "visible",
+            textOverflow: isLongStatus ? "ellipsis" : "clip",
             whiteSpace: "nowrap",
             color: colors.text,
             textAlign: "center",
