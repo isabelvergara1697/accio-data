@@ -1385,11 +1385,11 @@ const InvitesAndOrders: React.FC = () => {
                 position: "relative",
                 minWidth: 0, // Allow container to shrink below content size
                 width:
-                  showFiltersModal && isDesktop
+                  showFiltersModal && !isMobile
                     ? `calc(100% - 268px - 16px)`
                     : "100%",
                 maxWidth:
-                  showFiltersModal && isDesktop
+                  showFiltersModal && !isMobile
                     ? `calc(100% - 268px - 16px)`
                     : "100%",
               }}
@@ -1459,10 +1459,10 @@ const InvitesAndOrders: React.FC = () => {
                         style={{
                           display: "flex",
                           flexDirection:
-                            isDesktop && !isTablet ? "row" : "column",
+                            !isMobile ? "row" : "column",
                           gap: "16px",
                           alignItems:
-                            isDesktop && !isTablet ? "center" : "flex-start",
+                            !isMobile ? "center" : "flex-start",
                           alignSelf: "stretch",
                           position: "relative",
                           width: "100%",
@@ -1471,7 +1471,7 @@ const InvitesAndOrders: React.FC = () => {
                           boxSizing: "border-box",
                         }}
                       >
-                        {isDesktop && !isTablet ? (
+                        {!isMobile ? (
                           <>
                             {/* Desktop: Title - Left aligned */}
                             <div
