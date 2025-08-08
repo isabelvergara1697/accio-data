@@ -128,6 +128,29 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
     onFiltersChange(newFilters);
   };
 
+  const formatDateRange = (startDate: Date, endDate: Date): string => {
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    const formatSingleDate = (date: Date) => {
+      return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+    };
+
+    return `${formatSingleDate(startDate)} – ${formatSingleDate(endDate)}`;
+  };
+
   if (!isOpen) return null;
 
   return (
