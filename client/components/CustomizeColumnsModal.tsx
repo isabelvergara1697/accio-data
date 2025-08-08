@@ -441,7 +441,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   if (!isOpen) return null;
 
   const resetToDefault = () => {
-    console.log("Reset to default clicked");
+    onResetToDefault();
   };
 
   const collapseAll = () => {
