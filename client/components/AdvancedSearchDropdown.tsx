@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 interface AdvancedSearchDropdownProps {
   showAdvancedSearch: boolean;
@@ -28,6 +28,19 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
   style = {},
   dropdownRef,
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   if (!showAdvancedSearch) return null;
 
   return (
@@ -36,8 +49,9 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
       style={{
         position: "absolute",
         top: "calc(100% + 12px)",
-        right: "0",
-        width: "100%",
+        right: isMobile ? "-20px" : "0",
+        width: isMobile ? "calc(100vw - 40px)" : "100%",
+        maxWidth: isMobile ? "calc(100vw - 40px)" : "none",
         borderRadius: "8px",
         border: "1px solid rgba(0, 0, 0, 0.08)",
         background: "#FFF",
