@@ -4,10 +4,11 @@ import DesktopCalendar from "./ui/desktop-calendar";
 import FilterDropdown from "./ui/filter-dropdown";
 
 interface FiltersPanelProps {
-  isOpen: boolean;
-  onClose: () => void;
+  isVisible: boolean;
+  onClose?: () => void;
   onFiltersChange: (filters: FilterState) => void;
-  initialFilters: FilterState;
+  filters: FilterState;
+  isMobile?: boolean;
 }
 
 interface FilterState {
