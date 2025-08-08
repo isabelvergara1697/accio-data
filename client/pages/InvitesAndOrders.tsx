@@ -2476,7 +2476,7 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Mobile: View Toggle + Search Row */}
-                            {!showFiltersModal && (
+                            {(
                               <div
                                 style={{
                                   display: "flex",
