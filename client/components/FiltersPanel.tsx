@@ -738,8 +738,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                       display: "flex",
                       alignItems: "center",
                       gap: "8px",
-                      flex: "1 0 0",
-                      position: "relative",
+                      flex: "1",
                     }}
                   >
                     <svg
@@ -757,25 +756,17 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <div
+                    <span
                       style={{
-                        display: "-webkit-box",
-                        WebkitBoxOrient: "vertical",
-                        WebkitLineClamp: 1,
-                        flex: "1 0 0",
-                        overflow: "hidden",
                         color: "#717680",
-                        textOverflow: "ellipsis",
                         fontFamily: "Public Sans",
                         fontSize: "14px",
-                        fontStyle: "normal",
                         fontWeight: 400,
                         lineHeight: "20px",
-                        position: "relative",
                       }}
                     >
                       Select Date
-                    </div>
+                    </span>
                   </div>
                   <svg
                     width="16"
