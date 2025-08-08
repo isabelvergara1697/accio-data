@@ -1627,20 +1627,11 @@ const InvitesAndOrders: React.FC = () => {
                                     onClear={clearAdvancedSearch}
                                     onSearch={handleAdvancedSearch}
                                     dropdownRef={advancedSearchRef}
-                                    style={{
-                                      ...(isMobile ? {
-                                        position: "fixed",
-                                        left: "20px",
-                                        right: "20px",
-                                        width: "auto",
-                                        top: "auto",
-                                        marginTop: "12px"
-                                      } : {
-                                        right: "-8px",
-                                        width: "234px",
-                                        top: "calc(100% + 12px)"
-                                      })
-                                    }}
+                                    style={!isMobile ? {
+                                      right: "-8px",
+                                      width: "234px",
+                                      top: "calc(100% + 12px)"
+                                    } : undefined}
                                   />
                                 </div>
                               </div>
