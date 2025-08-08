@@ -1552,7 +1552,7 @@ const InvitesAndOrders: React.FC = () => {
                                   display: "flex",
                                   alignItems: "center",
                                   gap: "8px",
-                                  flex: "0 0 234px",
+                                  flex: isTablet ? "0 0 180px" : "0 0 234px",
                                   height: "40px",
                                   borderRadius: "8px",
                                   border: isSearchActive
