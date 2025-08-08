@@ -24,12 +24,13 @@ interface FilterState {
 }
 
 const FiltersPanel: React.FC<FiltersPanelProps> = ({
-  isOpen,
+  isVisible,
   onClose,
   onFiltersChange,
-  initialFilters,
+  filters,
+  isMobile = false,
 }) => {
-  const [filters, setFilters] = useState<FilterState>(initialFilters);
+  const [localFilters, setLocalFilters] = useState<FilterState>(filters);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
   const [isTablet, setIsTablet] = useState(
     window.innerWidth >= 768 && window.innerWidth < 1024,
