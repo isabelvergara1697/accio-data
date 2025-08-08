@@ -91,7 +91,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
           display: "flex",
           width: "258px",
           height: "auto",
-          minHeight: "500px",
+          minHeight: "600px",
           maxHeight: "none",
           flexDirection: "column",
           alignItems: "flex-start",
