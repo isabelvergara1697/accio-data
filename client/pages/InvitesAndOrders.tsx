@@ -1835,7 +1835,7 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Desktop: Action Buttons */}
                             <div
                               style={{
-                                display: "flex",
+                                display: showFiltersModal ? "none" : "flex",
                                 alignItems: "center",
                                 gap: isTablet ? "8px" : "12px",
                                 position: "relative",
