@@ -1043,235 +1043,310 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
             </div>
 
             {/* Column Sections */}
-            {columnSections.map((section) => (
+            {!hasSearchResults && searchQuery.trim() ? (
+              // Empty state for no search results
               <div
-                key={section.id}
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "flex-start",
+                  alignItems: "center",
+                  gap: "12px",
+                  padding: "40px 20px",
                   alignSelf: "stretch",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
-                    padding: "8px 0",
+                    width: "48px",
+                    height: "48px",
+                    justifyContent: "center",
                     alignItems: "center",
-                    gap: "12px",
-                    alignSelf: "stretch",
-                    borderRadius: "6px",
-                    background: "#FFF",
-                    cursor: "pointer",
+                    borderRadius: "9999px",
+                    background: "#F7F8F9",
                   }}
-                  onClick={() => toggleSection(section.id)}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                      flex: "1 0 0",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#414651",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                      }}
-                    >
-                      {section.name}
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        padding: "2px 8px",
-                        alignItems: "center",
-                        borderRadius: "9999px",
-                        border: "1px solid #E9EAEB",
-                        background: "#FAFAFA",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          textAlign: "center",
-                          fontFamily: "Public Sans",
-                          fontSize: "12px",
-                          fontWeight: 500,
-                          lineHeight: "18px",
-                        }}
-                      >
-                        {section.selectedCount} of {section.totalCount}
-                      </div>
-                    </div>
-                  </div>
                   <svg
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    style={{
-                      transform: section.isExpanded
-                        ? "rotate(180deg)"
-                        : "rotate(0deg)",
-                      transition: "transform 0.2s ease",
-                    }}
                   >
                     <path
-                      d="M6 9L12 15L18 9"
+                      d="M21 21L16.5 16.5M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
                       stroke="#A4A7AE"
-                      strokeWidth="1.67"
+                      strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                   </svg>
                 </div>
-
-                {/* Expanded section content */}
-                {section.isExpanded && section.columns.length > 0 && (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "4px",
+                  }}
+                >
                   <div
                     style={{
-                      display: "grid",
-                      gridTemplateColumns: "1fr 1fr",
-                      gap: "12px 8px",
-                      alignSelf: "stretch",
-                      width: "100%",
+                      color: "#414651",
+                      textAlign: "center",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontWeight: 600,
+                      lineHeight: "24px",
                     }}
                   >
-                    {section.columns.map((column) => (
+                    No columns found
+                  </div>
+                  <div
+                    style={{
+                      color: "#717680",
+                      textAlign: "center",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Try adjusting your search to find what you're looking for.
+                  </div>
+                </div>
+              </div>
+            ) : (
+              filteredSections.map((section) => (
+                <div
+                  key={section.id}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "8px 0",
+                      alignItems: "center",
+                      gap: "12px",
+                      alignSelf: "stretch",
+                      borderRadius: "6px",
+                      background: "#FFF",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => toggleSection(section.id)}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        flex: "1 0 0",
+                      }}
+                    >
                       <div
-                        key={column.id}
+                        style={{
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        {section.name}
+                      </div>
+                      <div
                         style={{
                           display: "flex",
-                          alignItems: "flex-start",
-                          gap: "8px",
+                          padding: "2px 8px",
+                          alignItems: "center",
+                          borderRadius: "9999px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FAFAFA",
                         }}
                       >
                         <div
                           style={{
-                            display: "flex",
-                            paddingTop: "2px",
-                            justifyContent: "center",
-                            alignItems: "center",
+                            color: "#414651",
+                            textAlign: "center",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 500,
+                            lineHeight: "18px",
                           }}
                         >
-                          <div
-                            style={{
-                              width: "16px",
-                              height: "16px",
-                              borderRadius: "4px",
-                              border: column.isSelected
-                                ? "none"
-                                : "1px solid #D5D7DA",
-                              background: column.isSelected
-                                ? "#344698"
-                                : "transparent",
-                              cursor: "pointer",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                            }}
-                            onClick={() =>
-                              console.log("Toggle column:", column.id)
-                            }
-                          >
-                            {column.isSelected && (
-                              <svg
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M11.6668 3.5L5.25016 9.91667L2.3335 7"
-                                  stroke="white"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            )}
-                          </div>
+                          {section.selectedCount} of {searchQuery.trim() ? section.columns.length : section.totalCount}
                         </div>
+                      </div>
+                    </div>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        transform: section.isExpanded
+                          ? "rotate(180deg)"
+                          : "rotate(0deg)",
+                        transition: "transform 0.2s ease",
+                      }}
+                    >
+                      <path
+                        d="M6 9L12 15L18 9"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.67"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+
+                  {/* Expanded section content */}
+                  {section.isExpanded && section.columns.length > 0 && (
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "1fr 1fr",
+                        gap: "12px 8px",
+                        alignSelf: "stretch",
+                        width: "100%",
+                      }}
+                    >
+                      {section.columns.map((column) => (
                         <div
+                          key={column.id}
                           style={{
                             display: "flex",
-                            flexDirection: "column",
                             alignItems: "flex-start",
-                            flex: "1 0 0",
+                            gap: "8px",
                           }}
                         >
                           <div
                             style={{
                               display: "flex",
+                              paddingTop: "2px",
+                              justifyContent: "center",
                               alignItems: "center",
-                              gap: "4px",
-                              alignSelf: "stretch",
                             }}
                           >
                             <div
                               style={{
-                                color: "#181D27",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontWeight: 500,
-                                lineHeight: "18px",
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "4px",
+                                border: column.isSelected
+                                  ? "none"
+                                  : "1px solid #D5D7DA",
+                                background: column.isSelected
+                                  ? "#344698"
+                                  : "transparent",
+                                cursor: "pointer",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
                               }}
+                              onClick={() =>
+                                console.log("Toggle column:", column.id)
+                              }
                             >
-                              {column.name}
-                            </div>
-                            {column.hasHelpIcon && (
-                              <div
-                                style={{
-                                  display: "flex",
-                                  width: "16px",
-                                  height: "16px",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                }}
-                              >
+                              {column.isSelected && (
                                 <svg
-                                  width="16"
-                                  height="16"
-                                  viewBox="0 0 16 16"
+                                  width="14"
+                                  height="14"
+                                  viewBox="0 0 14 14"
                                   fill="none"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
-                                  <g clipPath="url(#clip0_help)">
-                                    <path
-                                      d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z"
-                                      stroke="#A4A7AE"
-                                      strokeWidth="1.33333"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </g>
-                                  <defs>
-                                    <clipPath id="clip0_help">
-                                      <rect
-                                        width="16"
-                                        height="16"
-                                        fill="white"
-                                      />
-                                    </clipPath>
-                                  </defs>
+                                  <path
+                                    d="M11.6668 3.5L5.25016 9.91667L2.3335 7"
+                                    stroke="white"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
                                 </svg>
+                              )}
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                {column.name}
                               </div>
-                            )}
+                              {column.hasHelpIcon && (
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_help)">
+                                      <path
+                                        d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help">
+                                        <rect
+                                          width="16"
+                                          height="16"
+                                          fill="white"
+                                        />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
