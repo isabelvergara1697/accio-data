@@ -5874,7 +5874,7 @@ const InvitesAndOrders: React.FC = () => {
                               </div>
                             </div>
 
-                            {/* Completed Column */}
+                            {/* Actions Column */}
                             <div
                               style={{
                                 display: "flex",
