@@ -1749,7 +1749,7 @@ const InvitesAndOrders: React.FC = () => {
                                 )}
                               </button>
 
-                              {!showFiltersModal && (
+                              {(
                                 <>
                                   {/* Customize Button */}
                                   <button
