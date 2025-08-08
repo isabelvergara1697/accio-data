@@ -33,6 +33,11 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   const [hoveredCloseButton, setHoveredCloseButton] = useState(false);
   const datePickerRef = useRef<HTMLButtonElement>(null);
 
+  // Sync local state with prop changes
+  useEffect(() => {
+    setFilters(initialFilters);
+  }, [initialFilters]);
+
   const statusOptions = [
     { value: "waiting", label: "Waiting" },
     { value: "expired", label: "Expired" },
