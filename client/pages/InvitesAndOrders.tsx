@@ -520,7 +520,7 @@ const InvitesAndOrders: React.FC = () => {
     },
   ];
 
-  // Component for status badges with natural sizing and proper truncation
+  // Component for status badges with proper sizing and alignment
   const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({
     status,
   }) => {
@@ -551,9 +551,22 @@ const InvitesAndOrders: React.FC = () => {
 
     const colors = colorMap[config.color as keyof typeof colorMap];
 
-    // Determine if this is a longer status that needs special handling
+    // Define specific widths for longer status names to prevent cropping
+    const getStatusWidth = () => {
+      switch (status) {
+        case "waiting-for-recruitee":
+          return "130px";
+        case "expires-today":
+          return "95px";
+        case "unsolicited":
+          return "85px";
+        default:
+          return "fit-content";
+      }
+    };
+
     const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
-    const needsTooltip = isLongStatus;
+    const statusWidth = getStatusWidth();
 
     const badgeElement = (
       <div
@@ -561,21 +574,14 @@ const InvitesAndOrders: React.FC = () => {
           display: "inline-flex",
           padding: "2px 8px",
           alignItems: "center",
+          justifyContent: "center",
           borderRadius: "9999px",
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          ...(isLongStatus
-            ? {
-                maxWidth: "105px", // Increased from 85px to 105px for better text display
-                minWidth: "105px",
-                width: "105px"
-              }
-            : {
-                minWidth: "fit-content",
-                width: "fit-content"
-              }
-          ),
+          width: statusWidth,
+          minWidth: statusWidth,
+          maxWidth: statusWidth,
         }}
       >
         <span
@@ -590,9 +596,8 @@ const InvitesAndOrders: React.FC = () => {
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
-            display: "inline-block", // Changed from "block" to "inline-block" for better text handling
+            display: "block",
             width: "100%",
-            boxSizing: "border-box", // Ensure padding is included in width calculations
           }}
         >
           {config.label}
@@ -600,7 +605,7 @@ const InvitesAndOrders: React.FC = () => {
       </div>
     );
 
-    if (needsTooltip) {
+    if (isLongStatus) {
       return (
         <Tooltip>
           <TooltipTrigger asChild>{badgeElement}</TooltipTrigger>
