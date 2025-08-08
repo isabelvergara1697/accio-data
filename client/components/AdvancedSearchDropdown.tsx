@@ -35,7 +35,7 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
       ref={dropdownRef}
       style={{
         position: "absolute",
-        top: "calc(100% + 8px)",
+        top: "calc(100% + 4px)",
         right: "0",
         width: "100%",
         borderRadius: "8px",
