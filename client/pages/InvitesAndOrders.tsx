@@ -7753,6 +7753,15 @@ const InvitesAndOrders: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Bottom Spacer */}
+          <div
+            style={{
+              height: isMobile ? "64px" : isTablet ? "72px" : "80px",
+              width: "100%",
+              flexShrink: 0,
+            }}
+          />
         </main>
       </div>
 
