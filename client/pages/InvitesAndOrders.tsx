@@ -3611,29 +3611,29 @@ const InvitesAndOrders: React.FC = () => {
                                 {hasAppliedFilters() && !showMobileFiltersModal && (
                                   <div
                                     style={{
-                                      display: "flex",
                                       position: "absolute",
                                       top: "-6px",
                                       right: "-10px",
-                                      width: "20px",
-                                      height: "20px",
-                                      padding: "2px 6px",
-                                      justifyContent: "center",
+                                      display: "flex",
+                                      padding: "2px 8px",
                                       alignItems: "center",
-                                      gap: "10px",
-                                      borderRadius: "50%",
-                                      background: "#FF6B6B",
-                                      border: "2px solid #FFF",
+                                      borderRadius: "9999px",
+                                      border: "1px solid #B3BCE5",
+                                      background: "#ECEEF9",
+                                      minWidth: "20px",
+                                      justifyContent: "center",
+                                      zIndex: 10,
                                     }}
                                   >
                                     <div
                                       style={{
-                                        color: "#FFF",
+                                        color: "#273572",
                                         textAlign: "center",
                                         fontFamily: "Public Sans",
-                                        fontSize: "10px",
-                                        fontWeight: 600,
-                                        lineHeight: "12px",
+                                        fontSize: "12px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "18px",
                                       }}
                                     >
                                       {getAppliedFiltersCount()}
