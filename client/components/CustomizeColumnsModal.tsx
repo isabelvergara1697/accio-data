@@ -38,13 +38,20 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
 
   // Helper function to check if a column is currently visible
   const isColumnVisible = (columnId: string): boolean => {
-    return columnOrder.some(col => col.id === columnId && col.isSelected);
+    return columnOrder.some((col) => col.id === columnId && col.isSelected);
   };
 
   // Core columns that should always be toggleable (the original 9 active columns)
   const coreColumnIds = [
-    "status", "firstName", "lastName", "invtEmail", "completed",
-    "i9Filled", "activate", "ews", "package"
+    "status",
+    "firstName",
+    "lastName",
+    "invtEmail",
+    "completed",
+    "i9Filled",
+    "activate",
+    "ews",
+    "package",
   ];
 
   // Helper function to check if a column can be toggled
@@ -59,16 +66,16 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
 
   // Helper function to get selected count for a section
   const getSectionSelectedCount = (sectionColumns: Column[]): number => {
-    return sectionColumns.filter(col => isColumnVisible(col.id)).length;
+    return sectionColumns.filter((col) => isColumnVisible(col.id)).length;
   };
 
   // Handler for toggling column visibility
   const handleColumnToggle = (columnId: string) => {
-    const existingColumn = columnOrder.find(col => col.id === columnId);
+    const existingColumn = columnOrder.find((col) => col.id === columnId);
 
     if (existingColumn) {
       // Column exists, toggle its selection
-      const updatedColumns = columnOrder.map(col => {
+      const updatedColumns = columnOrder.map((col) => {
         if (col.id === columnId) {
           return { ...col, isSelected: !col.isSelected };
         }
@@ -79,14 +86,15 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
       // Column doesn't exist, add it to the end
       const newColumn = {
         id: columnId,
-        name: allAvailableColumns.find(col => col.id === columnId)?.name || columnId,
+        name:
+          allAvailableColumns.find((col) => col.id === columnId)?.name ||
+          columnId,
         order: columnOrder.length + 1,
         isSelected: true,
       };
       onColumnOrderChange([...columnOrder, newColumn]);
     }
   };
-
 
   // All available columns for Subject / Applicant section
   const subjectApplicantColumns = [
@@ -104,8 +112,16 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "name", name: "Name", isSelected: false },
     { id: "maidenLastName", name: "Maiden Last Name", isSelected: false },
     { id: "mothersMaidenName", name: "Mothers Maiden Name", isSelected: false },
-    { id: "motherCompleteName", name: "Mother Complete Name", isSelected: false },
-    { id: "fatherCompleteName", name: "Father Complete Name", isSelected: false },
+    {
+      id: "motherCompleteName",
+      name: "Mother Complete Name",
+      isSelected: false,
+    },
+    {
+      id: "fatherCompleteName",
+      name: "Father Complete Name",
+      isSelected: false,
+    },
     { id: "middleName", name: "Middle Name", isSelected: false },
     { id: "address", name: "Address", isSelected: false },
     { id: "addressLine2", name: "Address Line 2", isSelected: false },
@@ -113,8 +129,16 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "applicantCountry", name: "Applicant Country", isSelected: false },
     { id: "ssn", name: "SSN", isSelected: false },
     { id: "dateOfBirth", name: "Date of Birth", isSelected: false },
-    { id: "driverLicenseNumber", name: "Driver License Number", isSelected: false },
-    { id: "driverLicenseCountry", name: "Driver License Country", isSelected: false },
+    {
+      id: "driverLicenseNumber",
+      name: "Driver License Number",
+      isSelected: false,
+    },
+    {
+      id: "driverLicenseCountry",
+      name: "Driver License Country",
+      isSelected: false,
+    },
     { id: "stateOfBirth", name: "State of Birth", isSelected: false },
     { id: "cityOfBirth", name: "City of Birth", isSelected: false },
     { id: "countryOfBirth", name: "Country of Birth", isSelected: false },
@@ -122,48 +146,161 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "passportCountry", name: "Passport Country", isSelected: false },
     { id: "citizenshipStatus", name: "Citizenship Status", isSelected: false },
     { id: "passportType", name: "Passport Type", isSelected: false },
-    { id: "intlDriverLicenseState", name: "Intl. Driver License State", isSelected: false },
+    {
+      id: "intlDriverLicenseState",
+      name: "Intl. Driver License State",
+      isSelected: false,
+    },
     { id: "intlGovernmentId", name: "Intl. Government Id", isSelected: false },
-    { id: "applicantEmail", name: "Applicant Email", isSelected: false, hasHelpIcon: true },
+    {
+      id: "applicantEmail",
+      name: "Applicant Email",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
     { id: "noteTitle", name: "Note Title", isSelected: false },
     { id: "hairColor", name: "Hair Color", isSelected: false },
     { id: "race", name: "Race", isSelected: false },
-    { id: "yearsAtCurrentResidence", name: "Years at Current Residence", isSelected: false },
+    {
+      id: "yearsAtCurrentResidence",
+      name: "Years at Current Residence",
+      isSelected: false,
+    },
     { id: "monthlyIncome", name: "Monthly Income", isSelected: false },
     { id: "monthlyPayments", name: "Monthly Payments", isSelected: false },
     { id: "applicantId", name: "Applicant ID", isSelected: false },
-    { id: "adjudicationStatus", name: "Adjudication Status", isSelected: false },
-    { id: "adjudicationSubStatus2", name: "Adjudication Sub Status #2", isSelected: false },
-    { id: "subjectDisposition", name: "Subject Disposition", isSelected: false },
-    { id: "intlGovernmentIdDescription", name: "Intl. Government ID Description", isSelected: false },
-    { id: "applicantPhone", name: "Applicant Phone", isSelected: false, hasHelpIcon: true },
-    { id: "hasAdmittedConvictions", name: "Has Admitted Convictions", isSelected: false },
+    {
+      id: "adjudicationStatus",
+      name: "Adjudication Status",
+      isSelected: false,
+    },
+    {
+      id: "adjudicationSubStatus2",
+      name: "Adjudication Sub Status #2",
+      isSelected: false,
+    },
+    {
+      id: "subjectDisposition",
+      name: "Subject Disposition",
+      isSelected: false,
+    },
+    {
+      id: "intlGovernmentIdDescription",
+      name: "Intl. Government ID Description",
+      isSelected: false,
+    },
+    {
+      id: "applicantPhone",
+      name: "Applicant Phone",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "hasAdmittedConvictions",
+      name: "Has Admitted Convictions",
+      isSelected: false,
+    },
     { id: "eyeColor", name: "Eye Color", isSelected: false },
     { id: "gender", name: "Gender", isSelected: false },
-    { id: "monthsAtCurrentResidence", name: "Months at Current Residence", isSelected: false },
+    {
+      id: "monthsAtCurrentResidence",
+      name: "Months at Current Residence",
+      isSelected: false,
+    },
     { id: "monthlyRent", name: "Monthly Rent", isSelected: false },
     { id: "taxIdNumber", name: "Tax Id Number", isSelected: false },
     { id: "csvReportStatus", name: "CSV Report Status", isSelected: false },
-    { id: "adjudicationSubStatus1", name: "Adjudication Sub Status #1", isSelected: false },
-    { id: "adjudicationSubStatus3", name: "Adjudication Sub Status #3", isSelected: false },
+    {
+      id: "adjudicationSubStatus1",
+      name: "Adjudication Sub Status #1",
+      isSelected: false,
+    },
+    {
+      id: "adjudicationSubStatus3",
+      name: "Adjudication Sub Status #3",
+      isSelected: false,
+    },
     { id: "hireDate", name: "Hire Date", isSelected: false },
   ];
 
   // All available columns for Invitation / Portal section
   const invitationPortalColumns = [
-    { id: "applicationFillLink", name: "Application Fill Link", isSelected: false, hasHelpIcon: true },
-    { id: "invitationStatus", name: "Invitation Status", isSelected: false, hasHelpIcon: true },
-    { id: "invitationNotes", name: "Invitation Notes", isSelected: false, hasHelpIcon: true },
-    { id: "collectDrugs", name: "Collect Drugs", isSelected: false, hasHelpIcon: true },
-    { id: "applicationDays", name: "Application Days", isSelected: false, hasHelpIcon: true },
-    { id: "inclusionEmail", name: "Inclusion Email", isSelected: false, hasHelpIcon: true },
-    { id: "verificationStatus", name: "Verification Status", isSelected: false },
-    { id: "lastEmailSent", name: "Last Email Sent", isSelected: false, hasHelpIcon: true },
-    { id: "lastEmailSentText", name: "Last SMS Text Sent", isSelected: false, hasHelpIcon: true },
-    { id: "timesEmailed", name: "Times Emailed Sent", isSelected: false, hasHelpIcon: true },
-    { id: "inclusionExpired", name: "Inclusion Expired", isSelected: false, hasHelpIcon: true },
-    { id: "smsTextSendGreen", name: "SMS Text Send Green", isSelected: false, hasHelpIcon: true },
-    { id: "portalAuthentication", name: "Portal Authentication", isSelected: false },
+    {
+      id: "applicationFillLink",
+      name: "Application Fill Link",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "invitationStatus",
+      name: "Invitation Status",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "invitationNotes",
+      name: "Invitation Notes",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "collectDrugs",
+      name: "Collect Drugs",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "applicationDays",
+      name: "Application Days",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "inclusionEmail",
+      name: "Inclusion Email",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "verificationStatus",
+      name: "Verification Status",
+      isSelected: false,
+    },
+    {
+      id: "lastEmailSent",
+      name: "Last Email Sent",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "lastEmailSentText",
+      name: "Last SMS Text Sent",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "timesEmailed",
+      name: "Times Emailed Sent",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "inclusionExpired",
+      name: "Inclusion Expired",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "smsTextSendGreen",
+      name: "SMS Text Send Green",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "portalAuthentication",
+      name: "Portal Authentication",
+      isSelected: false,
+    },
     { id: "unsubscribed", name: "Unsubscribed", isSelected: false },
   ];
 
@@ -181,35 +318,105 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
 
   const orderStatusColumns = [
     { id: "orderStatus", name: "Status", isSelected: false, hasHelpIcon: true },
-    { id: "orderUpdate", name: "Order Update", isSelected: false, hasHelpIcon: true },
-    { id: "dispositionByComponentType", name: "Disposition by Component Type", isSelected: false, hasHelpIcon: true },
+    {
+      id: "orderUpdate",
+      name: "Order Update",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "dispositionByComponentType",
+      name: "Disposition by Component Type",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
     { id: "orderDate", name: "Order Date", isSelected: false },
-    { id: "methodReceivingRecommendation", name: "Method Receiving Recommendation", isSelected: false, hasHelpIcon: true },
+    {
+      id: "methodReceivingRecommendation",
+      name: "Method Receiving Recommendation",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
     { id: "flags", name: "Flags", isSelected: false, hasHelpIcon: true },
-    { id: "reportProgress", name: "Report Progress", isSelected: false, hasHelpIcon: true },
+    {
+      id: "reportProgress",
+      name: "Report Progress",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
     { id: "rankings", name: "Rankings", isSelected: false, hasHelpIcon: true },
     { id: "applicationNumber", name: "Application Number", isSelected: false },
   ];
 
   const billingIdentifiersColumns = [
-    { id: "billingIdentifier1", name: "Billing Identifier 1", isSelected: false },
-    { id: "billingIdentifier2", name: "Billing Identifier 2", isSelected: false },
-    { id: "billingIdentifier3", name: "Billing Identifier 3", isSelected: false },
-    { id: "billingIdentifier4", name: "Billing Identifier 4", isSelected: false },
-    { id: "billingIdentifier5", name: "Billing Identifier 5", isSelected: false },
-    { id: "billingIdentifier6", name: "Billing Identifier 6", isSelected: false },
-    { id: "billingIdentifier7", name: "Billing Identifier 7", isSelected: false },
-    { id: "billingIdentifier8", name: "Billing Identifier 8", isSelected: false },
-    { id: "billingIdentifier9", name: "Billing Identifier 9", isSelected: false },
-    { id: "billingIdentifier10", name: "Billing Identifier 10", isSelected: false },
+    {
+      id: "billingIdentifier1",
+      name: "Billing Identifier 1",
+      isSelected: false,
+    },
+    {
+      id: "billingIdentifier2",
+      name: "Billing Identifier 2",
+      isSelected: false,
+    },
+    {
+      id: "billingIdentifier3",
+      name: "Billing Identifier 3",
+      isSelected: false,
+    },
+    {
+      id: "billingIdentifier4",
+      name: "Billing Identifier 4",
+      isSelected: false,
+    },
+    {
+      id: "billingIdentifier5",
+      name: "Billing Identifier 5",
+      isSelected: false,
+    },
+    {
+      id: "billingIdentifier6",
+      name: "Billing Identifier 6",
+      isSelected: false,
+    },
+    {
+      id: "billingIdentifier7",
+      name: "Billing Identifier 7",
+      isSelected: false,
+    },
+    {
+      id: "billingIdentifier8",
+      name: "Billing Identifier 8",
+      isSelected: false,
+    },
+    {
+      id: "billingIdentifier9",
+      name: "Billing Identifier 9",
+      isSelected: false,
+    },
+    {
+      id: "billingIdentifier10",
+      name: "Billing Identifier 10",
+      isSelected: false,
+    },
   ];
 
   const integrationColumns = [
     { id: "outbackId", name: "Outback Id", isSelected: false },
     { id: "outback2", name: "Outback 2", isSelected: false },
     { id: "outback3", name: "Outback 3", isSelected: false },
-    { id: "remoteOrderNumber", name: "Remote Order Number", isSelected: false, hasHelpIcon: true },
-    { id: "activateOrder", name: "Activate Order", isSelected: false, hasHelpIcon: true },
+    {
+      id: "remoteOrderNumber",
+      name: "Remote Order Number",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
+    {
+      id: "activateOrder",
+      name: "Activate Order",
+      isSelected: false,
+      hasHelpIcon: true,
+    },
   ];
 
   // Get all available columns from all sections
@@ -274,7 +481,9 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     },
   ];
 
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+  const [expandedSections, setExpandedSections] = useState<
+    Record<string, boolean>
+  >({
     subject: true,
     invitation: false,
     jobInfo: false,
@@ -312,14 +521,17 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
         return {
           ...section,
           columns: filteredColumns,
-          isExpanded: filteredColumns.length > 0 ? true : expandedSections[section.id],
+          isExpanded:
+            filteredColumns.length > 0 ? true : expandedSections[section.id],
         };
       })
       .filter((section) => section.columns.length > 0);
   };
 
   const filteredSections = getFilteredSections();
-  const hasSearchResults = searchQuery.trim() ? filteredSections.length > 0 : true;
+  const hasSearchResults = searchQuery.trim()
+    ? filteredSections.length > 0
+    : true;
 
   if (!isOpen) return null;
 
@@ -350,7 +562,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   };
 
   const toggleSection = (sectionId: string) => {
-    setExpandedSections(prev => ({
+    setExpandedSections((prev) => ({
       ...prev,
       [sectionId]: !prev[sectionId],
     }));
@@ -395,8 +607,12 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     }
 
     const newColumns = [...columnOrder];
-    const draggedIndex = newColumns.findIndex((col) => col.id === draggedColumn);
-    const targetIndex = newColumns.findIndex((col) => col.id === targetColumnId);
+    const draggedIndex = newColumns.findIndex(
+      (col) => col.id === draggedColumn,
+    );
+    const targetIndex = newColumns.findIndex(
+      (col) => col.id === targetColumnId,
+    );
 
     if (draggedIndex === -1 || targetIndex === -1) {
       setDraggedColumn(null);
@@ -679,123 +895,140 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                 flexWrap: "wrap",
               }}
             >
-              {columnOrder.filter(col => col.isSelected).map((column, index) => {
-                const isDragging = draggedColumn === column.id;
-                const isDropTarget = dragOverColumn === column.id;
+              {columnOrder
+                .filter((col) => col.isSelected)
+                .map((column, index) => {
+                  const isDragging = draggedColumn === column.id;
+                  const isDropTarget = dragOverColumn === column.id;
 
-                return (
-                  <div
-                    key={column.id}
-                    draggable
-                    onDragStart={(e) => handleDragStart(e, column.id)}
-                    onDragOver={(e) => handleDragOver(e, column.id)}
-                    onDragLeave={handleDragLeave}
-                    onDrop={(e) => handleDrop(e, column.id)}
-                    onDragEnd={handleDragEnd}
-                    style={{
-                      display: "flex",
-                      height: "28px",
-                      padding: "3px 4px 3px 6px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "3px",
-                      borderRadius: "6px",
-                      border: isDropTarget
-                        ? "1px solid #34479A"
-                        : "1px solid #D5D7DA",
-                      background: isDragging
-                        ? "#F5F5F5"
-                        : isDropTarget
-                          ? "#ECEEF9"
-                          : "#FFF",
-                      boxShadow: isDragging
-                        ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)"
-                        : "none",
-                      opacity: isDragging ? 0.8 : 1,
-                      transform: isDragging ? "rotate(2deg)" : "none",
-                      transition: "all 0.2s ease",
-                      cursor: isDragging ? "grabbing" : "grab",
-                      zIndex: isDragging ? 1000 : 1,
-                    }}
-                  >
-                    {/* Drag Handle */}
+                  return (
                     <div
+                      key={column.id}
+                      draggable
+                      onDragStart={(e) => handleDragStart(e, column.id)}
+                      onDragOver={(e) => handleDragOver(e, column.id)}
+                      onDragLeave={handleDragLeave}
+                      onDrop={(e) => handleDrop(e, column.id)}
+                      onDragEnd={handleDragEnd}
                       style={{
                         display: "flex",
-                        width: "24px",
-                        height: "24px",
-                        transform: "rotate(90deg)",
-                        padding: "4px",
+                        height: "28px",
+                        padding: "3px 4px 3px 6px",
                         justifyContent: "center",
                         alignItems: "center",
+                        gap: "3px",
                         borderRadius: "6px",
-                        background: isDragging ? "#FAFAFA" : "transparent",
+                        border: isDropTarget
+                          ? "1px solid #34479A"
+                          : "1px solid #D5D7DA",
+                        background: isDragging
+                          ? "#F5F5F5"
+                          : isDropTarget
+                            ? "#ECEEF9"
+                            : "#FFF",
+                        boxShadow: isDragging
+                          ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)"
+                          : "none",
+                        opacity: isDragging ? 0.8 : 1,
+                        transform: isDragging ? "rotate(2deg)" : "none",
+                        transition: "all 0.2s ease",
                         cursor: isDragging ? "grabbing" : "grab",
+                        zIndex: isDragging ? 1000 : 1,
                       }}
                     >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                      {/* Drag Handle */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "24px",
+                          height: "24px",
+                          transform: "rotate(90deg)",
+                          padding: "4px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "6px",
+                          background: isDragging ? "#FAFAFA" : "transparent",
+                          cursor: isDragging ? "grabbing" : "grab",
+                        }}
                       >
-                        <path
-                          d="M7.33337 5.99992C7.33337 6.36811 7.63185 6.66658 8.00004 6.66658C8.36823 6.66658 8.66671 6.36811 8.66671 5.99992C8.66671 5.63173 8.36823 5.33325 8.00004 5.33325C7.63185 5.33325 7.33337 5.63173 7.33337 5.99992Z"
-                          stroke={isDragging ? "#717680" : "#A4A7AE"}
-                          strokeWidth={isDragging ? "2" : "1.66667"}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M12 5.99992C12 6.36811 12.2985 6.66658 12.6667 6.66658C13.0349 6.66658 13.3334 6.36811 13.3334 5.99992C13.3334 5.63173 13.0349 5.33325 12.6667 5.33325C12.2985 5.33325 12 5.63173 12 5.99992Z"
-                          stroke={isDragging ? "#717680" : "#A4A7AE"}
-                          strokeWidth={isDragging ? "2" : "1.66667"}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M2.66671 5.99992C2.66671 6.36811 2.96518 6.66658 3.33337 6.66658C3.70156 6.66658 4.00004 6.36811 4.00004 5.99992C4.00004 5.63173 3.70156 5.33325 3.33337 5.33325C2.96518 5.33325 2.66671 5.63173 2.66671 5.99992Z"
-                          stroke={isDragging ? "#717680" : "#A4A7AE"}
-                          strokeWidth={isDragging ? "2" : "1.66667"}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M7.33337 9.99992C7.33337 10.3681 7.63185 10.6666 8.00004 10.6666C8.36823 10.6666 8.66671 10.3681 8.66671 9.99992C8.66671 9.63173 8.36823 9.33325 8.00004 9.33325C7.63185 9.33325 7.33337 9.63173 7.33337 9.99992Z"
-                          stroke={isDragging ? "#717680" : "#A4A7AE"}
-                          strokeWidth={isDragging ? "2" : "1.66667"}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M12 9.99992C12 10.3681 12.2985 10.6666 12.6667 10.6666C13.0349 10.6666 13.3334 10.3681 13.3334 9.99992C13.3334 9.63173 13.0349 9.33325 12.6667 9.33325C12.2985 9.33325 12 9.63173 12 9.99992Z"
-                          stroke={isDragging ? "#717680" : "#A4A7AE"}
-                          strokeWidth={isDragging ? "2" : "1.66667"}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M2.66671 9.99992C2.66671 10.3681 2.96518 10.6666 3.33337 10.6666C3.70156 10.6666 4.00004 10.3681 4.00004 9.99992C4.00004 9.63173 3.70156 9.33325 3.33337 9.33325C2.96518 9.33325 2.66671 9.63173 2.66671 9.99992Z"
-                          stroke={isDragging ? "#717680" : "#A4A7AE"}
-                          strokeWidth={isDragging ? "2" : "1.66667"}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.33337 5.99992C7.33337 6.36811 7.63185 6.66658 8.00004 6.66658C8.36823 6.66658 8.66671 6.36811 8.66671 5.99992C8.66671 5.63173 8.36823 5.33325 8.00004 5.33325C7.63185 5.33325 7.33337 5.63173 7.33337 5.99992Z"
+                            stroke={isDragging ? "#717680" : "#A4A7AE"}
+                            strokeWidth={isDragging ? "2" : "1.66667"}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12 5.99992C12 6.36811 12.2985 6.66658 12.6667 6.66658C13.0349 6.66658 13.3334 6.36811 13.3334 5.99992C13.3334 5.63173 13.0349 5.33325 12.6667 5.33325C12.2985 5.33325 12 5.63173 12 5.99992Z"
+                            stroke={isDragging ? "#717680" : "#A4A7AE"}
+                            strokeWidth={isDragging ? "2" : "1.66667"}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M2.66671 5.99992C2.66671 6.36811 2.96518 6.66658 3.33337 6.66658C3.70156 6.66658 4.00004 6.36811 4.00004 5.99992C4.00004 5.63173 3.70156 5.33325 3.33337 5.33325C2.96518 5.33325 2.66671 5.63173 2.66671 5.99992Z"
+                            stroke={isDragging ? "#717680" : "#A4A7AE"}
+                            strokeWidth={isDragging ? "2" : "1.66667"}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M7.33337 9.99992C7.33337 10.3681 7.63185 10.6666 8.00004 10.6666C8.36823 10.6666 8.66671 10.3681 8.66671 9.99992C8.66671 9.63173 8.36823 9.33325 8.00004 9.33325C7.63185 9.33325 7.33337 9.63173 7.33337 9.99992Z"
+                            stroke={isDragging ? "#717680" : "#A4A7AE"}
+                            strokeWidth={isDragging ? "2" : "1.66667"}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12 9.99992C12 10.3681 12.2985 10.6666 12.6667 10.6666C13.0349 10.6666 13.3334 10.3681 13.3334 9.99992C13.3334 9.63173 13.0349 9.33325 12.6667 9.33325C12.2985 9.33325 12 9.63173 12 9.99992Z"
+                            stroke={isDragging ? "#717680" : "#A4A7AE"}
+                            strokeWidth={isDragging ? "2" : "1.66667"}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M2.66671 9.99992C2.66671 10.3681 2.96518 10.6666 3.33337 10.6666C3.70156 10.6666 4.00004 10.3681 4.00004 9.99992C4.00004 9.63173 3.70156 9.33325 3.33337 9.33325C2.96518 9.33325 2.66671 9.63173 2.66671 9.99992Z"
+                            stroke={isDragging ? "#717680" : "#A4A7AE"}
+                            strokeWidth={isDragging ? "2" : "1.66667"}
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
 
-                    {/* Order Badge */}
-                    <div
-                      style={{
-                        display: "flex",
-                        padding: "2px 8px",
-                        alignItems: "center",
-                        borderRadius: "9999px",
-                        border: "1px solid #E9EAEB",
-                        background: "#FAFAFA",
-                      }}
-                    >
+                      {/* Order Badge */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "2px 8px",
+                          alignItems: "center",
+                          borderRadius: "9999px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FAFAFA",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            textAlign: "center",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 500,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          {column.order}
+                        </div>
+                      </div>
+
+                      {/* Column Name */}
                       <div
                         style={{
                           color: "#414651",
@@ -806,56 +1039,41 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                           lineHeight: "18px",
                         }}
                       >
-                        {column.order}
+                        {column.name}
                       </div>
-                    </div>
 
-                    {/* Column Name */}
-                    <div
-                      style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "Public Sans",
-                        fontSize: "12px",
-                        fontWeight: 500,
-                        lineHeight: "18px",
-                      }}
-                    >
-                      {column.name}
-                    </div>
-
-                    {/* Remove Button */}
-                    <button
-                      onClick={() => removeColumn(column.id)}
-                      style={{
-                        display: "flex",
-                        padding: "2px",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        borderRadius: "3px",
-                        border: "none",
-                        background: "transparent",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                      {/* Remove Button */}
+                      <button
+                        onClick={() => removeColumn(column.id)}
+                        style={{
+                          display: "flex",
+                          padding: "2px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          borderRadius: "3px",
+                          border: "none",
+                          background: "transparent",
+                          cursor: "pointer",
+                        }}
                       >
-                        <path
-                          d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
-                          stroke="#A4A7AE"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                );
-              })}
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                            stroke="#A4A7AE"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  );
+                })}
             </div>
           </div>
 
@@ -1234,161 +1452,170 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                   </div>
 
                   {/* Expanded section content */}
-                  {expandedSections[section.id] && section.columns.length > 0 && (
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "1fr 1fr",
-                        gap: "12px 8px",
-                        alignSelf: "stretch",
-                        width: "100%",
-                      }}
-                    >
-                      {section.columns.map((column) => {
-                        const isVisible = isColumnVisible(column.id);
-                        const isToggleable = isColumnToggleable(column.id);
-                        const isDisabled = !isToggleable;
+                  {expandedSections[section.id] &&
+                    section.columns.length > 0 && (
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "1fr 1fr",
+                          gap: "12px 8px",
+                          alignSelf: "stretch",
+                          width: "100%",
+                        }}
+                      >
+                        {section.columns.map((column) => {
+                          const isVisible = isColumnVisible(column.id);
+                          const isToggleable = isColumnToggleable(column.id);
+                          const isDisabled = !isToggleable;
 
-                        // Determine text color based on state:
-                        // - Checked (visible): dark text #181D27
-                        // - Unchecked but toggleable: dark text #181D27
-                        // - Disabled: gray text #717680
-                        const textColor = isDisabled ? "#717680" : "#181D27";
+                          // Determine text color based on state:
+                          // - Checked (visible): dark text #181D27
+                          // - Unchecked but toggleable: dark text #181D27
+                          // - Disabled: gray text #717680
+                          const textColor = isDisabled ? "#717680" : "#181D27";
 
-                        // Determine checkbox background based on state:
-                        // - Checked: blue background #344698
-                        // - Unchecked but toggleable: transparent background
-                        // - Disabled: light gray background #FAFAFA
-                        const checkboxBackground = isVisible ? "#344698" : (isDisabled ? "#FAFAFA" : "transparent");
-                        const checkboxBorder = isVisible ? "none" : "1px solid #D5D7DA";
+                          // Determine checkbox background based on state:
+                          // - Checked: blue background #344698
+                          // - Unchecked but toggleable: transparent background
+                          // - Disabled: light gray background #FAFAFA
+                          const checkboxBackground = isVisible
+                            ? "#344698"
+                            : isDisabled
+                              ? "#FAFAFA"
+                              : "transparent";
+                          const checkboxBorder = isVisible
+                            ? "none"
+                            : "1px solid #D5D7DA";
 
-                        return (
-                          <div
-                            key={column.id}
-                            style={{
-                              display: "flex",
-                              alignItems: "flex-start",
-                              gap: "8px",
-                              opacity: isDisabled ? 0.4 : 1,
-                            }}
-                          >
+                          return (
                             <div
+                              key={column.id}
                               style={{
                                 display: "flex",
-                                paddingTop: "2px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  borderRadius: "4px",
-                                  border: checkboxBorder,
-                                  background: checkboxBackground,
-                                  cursor: isToggleable ? "pointer" : "not-allowed",
-                                  display: "flex",
-                                  alignItems: "center",
-                                  justifyContent: "center",
-                                }}
-                                onClick={() => {
-                                  if (isToggleable) {
-                                    handleColumnToggle(column.id);
-                                  }
-                                }}
-                              >
-                                {isVisible && (
-                                  <svg
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M11.6668 3.5L5.25016 9.91667L2.3335 7"
-                                      stroke="white"
-                                      strokeWidth="2"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                )}
-                              </div>
-                            </div>
-                            <div
-                              style={{
-                                display: "flex",
-                                flexDirection: "column",
                                 alignItems: "flex-start",
-                                flex: "1 0 0",
+                                gap: "8px",
+                                opacity: isDisabled ? 0.4 : 1,
                               }}
                             >
                               <div
                                 style={{
                                   display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
                                   alignItems: "center",
-                                  gap: "4px",
-                                  alignSelf: "stretch",
                                 }}
                               >
                                 <div
                                   style={{
-                                    color: textColor,
-                                    fontFamily: "Public Sans",
-                                    fontSize: "12px",
-                                    fontWeight: 500,
-                                    lineHeight: "18px",
+                                    width: "16px",
+                                    height: "16px",
+                                    borderRadius: "4px",
+                                    border: checkboxBorder,
+                                    background: checkboxBackground,
+                                    cursor: isToggleable
+                                      ? "pointer"
+                                      : "not-allowed",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                  }}
+                                  onClick={() => {
+                                    if (isToggleable) {
+                                      handleColumnToggle(column.id);
+                                    }
                                   }}
                                 >
-                                  {column.name}
-                                </div>
-                                {column.hasHelpIcon && (
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      width: "16px",
-                                      height: "16px",
-                                      justifyContent: "center",
-                                      alignItems: "center",
-                                    }}
-                                  >
+                                  {isVisible && (
                                     <svg
-                                      width="16"
-                                      height="16"
-                                      viewBox="0 0 16 16"
+                                      width="14"
+                                      height="14"
+                                      viewBox="0 0 14 14"
                                       fill="none"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
-                                      <g clipPath="url(#clip0_help)">
-                                        <path
-                                          d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z"
-                                          stroke="#A4A7AE"
-                                          strokeWidth="1.33333"
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                        />
-                                      </g>
-                                      <defs>
-                                        <clipPath id="clip0_help">
-                                          <rect
-                                            width="16"
-                                            height="16"
-                                            fill="white"
-                                          />
-                                        </clipPath>
-                                      </defs>
+                                      <path
+                                        d="M11.6668 3.5L5.25016 9.91667L2.3335 7"
+                                        stroke="white"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
                                     </svg>
+                                  )}
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: textColor,
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                    }}
+                                  >
+                                    {column.name}
                                   </div>
-                                )}
+                                  {column.hasHelpIcon && (
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <g clipPath="url(#clip0_help)">
+                                          <path
+                                            d="M6.06004 6.00016C6.21678 5.55461 6.52614 5.1789 6.93334 4.93958C7.34055 4.70027 7.8193 4.61279 8.28483 4.69264C8.75035 4.77249 9.17259 5.01451 9.47676 5.37585C9.78093 5.73718 9.94741 6.19451 9.94671 6.66683C9.94671 8.00016 7.94671 8.66683 7.94671 8.66683M8.00004 11.3335H8.00671M14.6667 8.00016C14.6667 11.6821 11.6819 14.6668 8.00004 14.6668C4.31814 14.6668 1.33337 11.6821 1.33337 8.00016C1.33337 4.31826 4.31814 1.3335 8.00004 1.3335C11.6819 1.3335 14.6667 4.31826 14.6667 8.00016Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.33333"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </g>
+                                        <defs>
+                                          <clipPath id="clip0_help">
+                                            <rect
+                                              width="16"
+                                              height="16"
+                                              fill="white"
+                                            />
+                                          </clipPath>
+                                        </defs>
+                                      </svg>
+                                    </div>
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
+                          );
+                        })}
+                      </div>
+                    )}
                 </div>
               ))
             )}

@@ -257,7 +257,10 @@ const InvitesAndOrders: React.FC = () => {
     .sort((a, b) => a.order - b.order);
 
   // Component for rendering a table cell
-  const TableCell: React.FC<{ columnId: string; invite: InviteData }> = ({ columnId, invite }) => {
+  const TableCell: React.FC<{ columnId: string; invite: InviteData }> = ({
+    columnId,
+    invite,
+  }) => {
     const config = getColumnConfig(columnId);
     if (!config) return null;
 
@@ -336,7 +339,8 @@ const InvitesAndOrders: React.FC = () => {
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontWeight: 400,
                   fontSize: "14px",
                   color: "rgba(24,29,39,1)",
@@ -353,19 +357,40 @@ const InvitesAndOrders: React.FC = () => {
           return <ProgressBar percentage={invite.completion} />;
         case "i9Filled":
           return (
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
               {invite.i9Filled && <CheckIcon />}
             </div>
           );
         case "activate":
           return (
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
               {invite.activated && <CheckIcon />}
             </div>
           );
         case "ews":
           return (
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
               {invite.ews && <CheckIcon />}
             </div>
           );
