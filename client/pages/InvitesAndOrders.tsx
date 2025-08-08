@@ -249,6 +249,234 @@ const InvitesAndOrders: React.FC = () => {
     .filter((col) => col.isSelected)
     .sort((a, b) => a.order - b.order);
 
+  // Component for rendering a table cell
+  const TableCell: React.FC<{ columnId: string; invite: InviteData }> = ({ columnId, invite }) => {
+    const config = getColumnConfig(columnId);
+    if (!config) return null;
+
+    const renderCellContent = () => {
+      switch (columnId) {
+        case "status":
+          return <StatusBadge status={invite.status} />;
+        case "firstName":
+          return (
+            <TruncatedText
+              text={invite.firstName}
+              highlightedText={highlightText(invite.firstName, searchQuery)}
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            />
+          );
+        case "lastName":
+          return (
+            <TruncatedText
+              text={invite.lastName}
+              highlightedText={highlightText(invite.lastName, searchQuery)}
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            />
+          );
+        case "invtEmail":
+          return (
+            <TruncatedText
+              text={invite.email}
+              highlightedText={highlightText(invite.email, searchQuery)}
+              style={{
+                color: "#181D27",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontStyle: "normal",
+                fontWeight: 500,
+                lineHeight: "20px",
+              }}
+            />
+          );
+        case "completed":
+          return (
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "4px",
+              width: "100%",
+              maxWidth: "100%",
+            }}>
+              <div style={{
+                flex: "1 0 0",
+                height: "4px",
+                background: "#E9EAEB",
+                borderRadius: "9999px",
+                position: "relative",
+                overflow: "hidden",
+              }}>
+                <div style={{
+                  width: `${invite.completion}%`,
+                  height: "100%",
+                  background: "#17B26A",
+                  borderRadius: "9999px",
+                  transition: "width 0.3s ease",
+                }} />
+              </div>
+              <span style={{
+                color: "#414651",
+                fontFamily: "Public Sans",
+                fontSize: "12px",
+                fontWeight: 500,
+                lineHeight: "18px",
+                minWidth: "32px",
+                textAlign: "right",
+              }}>
+                {invite.completion}%
+              </span>
+            </div>
+          );
+        case "i9Filled":
+          return (
+            <div style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+            }}>
+              {invite.i9Filled ? (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                    stroke="#17B26A"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              ) : (
+                <div style={{
+                  width: "4px",
+                  height: "4px",
+                  background: "#D5D7DA",
+                  borderRadius: "50%",
+                }} />
+              )}
+            </div>
+          );
+        case "activate":
+          return (
+            <div style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+            }}>
+              {invite.activated ? (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                    stroke="#17B26A"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              ) : (
+                <div style={{
+                  width: "4px",
+                  height: "4px",
+                  background: "#D5D7DA",
+                  borderRadius: "50%",
+                }} />
+              )}
+            </div>
+          );
+        case "ews":
+          return (
+            <div style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+            }}>
+              {invite.ews ? (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                    stroke="#17B26A"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              ) : (
+                <div style={{
+                  width: "4px",
+                  height: "4px",
+                  background: "#D5D7DA",
+                  borderRadius: "50%",
+                }} />
+              )}
+            </div>
+          );
+        default:
+          return null;
+      }
+    };
+
+    // Special width handling for email column
+    const getColumnStyle = () => {
+      if (columnId === "invtEmail") {
+        return {
+          display: "flex",
+          ...(showFiltersModal
+            ? { flex: "1 1 120px", minWidth: "120px" }
+            : isLargeDesktop
+              ? { flex: "1 1 200px", minWidth: "180px" }
+              : { flex: "1 1 160px", minWidth: "140px" }),
+          height: "52px",
+          padding: "12px",
+          alignItems: "center",
+          borderBottom: "1px solid #E9EAEB",
+          position: "relative" as const,
+          minWidth: 0,
+        };
+      }
+
+      return {
+        display: "flex",
+        width: config.width,
+        height: "52px",
+        padding: "12px",
+        alignItems: "center",
+        borderBottom: "1px solid #E9EAEB",
+        position: "relative" as const,
+        minWidth: 0,
+        ...(columnId === "completed" ? { justifyContent: "flex-start" } : {}),
+      };
+    };
+
+    return (
+      <div style={getColumnStyle()}>
+        <div style={{
+          width: "100%",
+          maxWidth: "100%",
+          display: "flex",
+          alignItems: "center",
+          ...(columnId === "completed" ? { gap: "4px" } : {}),
+        }}>
+          {renderCellContent()}
+        </div>
+      </div>
+    );
+  };
+
   // Component for rendering a table header column
   const TableHeaderColumn: React.FC<{ columnId: string }> = ({ columnId }) => {
     const config = getColumnConfig(columnId);
