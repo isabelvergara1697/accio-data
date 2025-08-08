@@ -246,6 +246,149 @@ const InvitesAndOrders: React.FC = () => {
 
   // Get visible columns in order
   const visibleColumns = columnOrder.filter(col => col.isSelected).sort((a, b) => a.order - b.order);
+
+  // Component for rendering a table header column
+  const TableHeaderColumn: React.FC<{ columnId: string }> = ({ columnId }) => {
+    const config = getColumnConfig(columnId);
+    if (!config) return null;
+
+    return (
+      <div
+        style={{
+          display: "flex",
+          width: config.width,
+          height: "36px",
+          padding: "6px 12px",
+          alignItems: "center",
+          gap: "12px",
+          borderBottom: "1px solid #E9EAEB",
+          background: "#FFF",
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "4px",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              color: sortField === config.sortField ? "#34479A" : "#717680",
+              fontFamily: "Public Sans",
+              fontSize: "12px",
+              fontStyle: "normal",
+              fontWeight: 600,
+              lineHeight: "18px",
+              position: "relative",
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                fontWeight: 600,
+                fontSize: "12px",
+                color: sortField === config.sortField ? "#34479A" : "rgba(113,118,128,1)",
+              }}
+            >
+              {config.label}
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1px",
+            }}
+          >
+            <button
+              onClick={() => {
+                if (sortField === config.sortField && sortDirection === "asc") {
+                  setSortField(null);
+                  setSortDirection(null);
+                } else {
+                  setSortField(config.sortField);
+                  setSortDirection("asc");
+                }
+              }}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                  stroke={
+                    sortField === config.sortField && sortDirection === "asc"
+                      ? "#34479A"
+                      : "#A4A7AE"
+                  }
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={() => {
+                if (sortField === config.sortField && sortDirection === "desc") {
+                  setSortField(null);
+                  setSortDirection(null);
+                } else {
+                  setSortField(config.sortField);
+                  setSortDirection("desc");
+                }
+              }}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg
+                width="10"
+                height="6"
+                viewBox="0 0 10 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ transform: "rotate(180deg)" }}
+              >
+                <path
+                  d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                  stroke={
+                    sortField === config.sortField && sortDirection === "desc"
+                      ? "#34479A"
+                      : "#A4A7AE"
+                  }
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
   const [tableViewsDropdownOpen, setTableViewsDropdownOpen] = useState(false);
   const [currentTableView, setCurrentTableView] = useState("default");
   const [tableViews, setTableViews] = useState<TableView[]>([
