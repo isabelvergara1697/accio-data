@@ -551,21 +551,21 @@ const InvitesAndOrders: React.FC = () => {
 
     const colors = colorMap[config.color as keyof typeof colorMap];
 
-    // Define proper widths for each status to prevent cropping
-    const getBadgeStyles = () => {
+    // Use minWidth approach to ensure badges are never smaller than needed
+    const getMinWidth = () => {
       switch (status) {
         case "waiting-for-recruitee":
-          return { width: "150px", maxWidth: "150px" };
+          return "160px"; // Increased to ensure full text fits
         case "expires-today":
-          return { width: "110px", maxWidth: "110px" };
+          return "120px"; // Increased to ensure "Expires Today" fits
         case "unsolicited":
-          return { width: "90px", maxWidth: "90px" };
+          return "95px";  // Increased to ensure "Unsolicited" fits
         default:
-          return { width: "auto", maxWidth: "none" };
+          return "fit-content";
       }
     };
 
-    const badgeStyles = getBadgeStyles();
+    const minWidth = getMinWidth();
     const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
 
     const badgeElement = (
@@ -579,13 +579,13 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          ...badgeStyles,
+          minWidth: minWidth,
+          width: "auto",
+          flexShrink: 0, // Prevent the badge from shrinking
         }}
       >
         <span
           style={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
             whiteSpace: "nowrap",
             color: colors.text,
             textAlign: "center",
@@ -594,8 +594,7 @@ const InvitesAndOrders: React.FC = () => {
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
-            display: "block",
-            width: "100%",
+            display: "inline-block",
           }}
         >
           {config.label}
