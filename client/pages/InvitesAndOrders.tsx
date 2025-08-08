@@ -991,6 +991,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: false,
       activated: false,
       ews: false,
+      packageType: "SAP 10",
     },
     {
       id: "18",
@@ -1003,6 +1004,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: false,
       ews: true,
+      packageType: "Identity Check Package",
     },
     {
       id: "19",
@@ -1015,6 +1017,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: true,
       ews: true,
+      packageType: "Standard with EDU and EMP",
     },
     {
       id: "20",
