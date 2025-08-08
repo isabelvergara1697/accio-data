@@ -6537,14 +6537,13 @@ const InvitesAndOrders: React.FC = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  ...(isLargeDesktop
-                                    ? { flex: "1 1 120px", minWidth: "120px" }
-                                    : { width: "120px" }),
+                                  width: "150px",
                                   height: "52px",
                                   padding: "12px",
                                   alignItems: "center",
                                   borderBottom: "1px solid #E9EAEB",
                                   position: "relative",
+                                  overflow: "hidden",
                                 }}
                               >
                                 <Tooltip>
@@ -6559,8 +6558,7 @@ const InvitesAndOrders: React.FC = () => {
                                         fontSize: "14px",
                                         color: "rgba(24,29,39,1)",
                                         lineHeight: "20px",
-                                        flex: 1,
-                                        minWidth: 0,
+                                        width: "100%",
                                       }}
                                     >
                                       {highlightText(invite.email, searchQuery)}
