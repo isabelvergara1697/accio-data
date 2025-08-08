@@ -28,7 +28,7 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
   onFiltersChange,
 }) => {
   const [localFilters, setLocalFilters] = useState<FilterState>(filters);
-  const [showDatePicker, setShowDatePicker] = useState(false);
+  // Date picker disabled on mobile
   const datePickerRef = useRef<HTMLButtonElement>(null);
 
   // Keep local filters in sync with parent
@@ -565,26 +565,22 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
               </div>
 
               {/* Divider */}
-              <svg
+              <div
                 style={{
                   display: "flex",
                   padding: "4px 0",
                   alignItems: "center",
                   alignSelf: "stretch",
                 }}
-                width="319"
-                height="9"
-                viewBox="0 0 319 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M319 5H0V4H319V5Z"
-                  fill="#E9EAEB"
+                <div
+                  style={{
+                    width: "100%",
+                    height: "1px",
+                    background: "#E9EAEB",
+                  }}
                 />
-              </svg>
+              </div>
             </>
           )}
 
@@ -686,7 +682,7 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
             />
           </div>
 
-          {/* Date Range Filter */}
+          {/* Date Range Filter - reuse desktop element without calendar functionality */}
           <div
             style={{
               display: "flex",
@@ -725,9 +721,7 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
                   Date Range
                 </div>
               </div>
-              <button
-                ref={datePickerRef}
-                onClick={() => setShowDatePicker(!showDatePicker)}
+              <div
                 style={{
                   display: "flex",
                   padding: "10px 14px",
@@ -738,7 +732,6 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
                   border: "1px solid #D5D7DA",
                   background: "#FFF",
                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  cursor: "pointer",
                 }}
               >
                 <div
@@ -778,23 +771,13 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Date Picker */}
-      {showDatePicker && (
-        <DatePickerCalendar
-          isOpen={showDatePicker}
-          onClose={() => setShowDatePicker(false)}
-          triggerRef={datePickerRef}
-          selectedStartDate={localFilters.dateRange.start}
-          selectedEndDate={localFilters.dateRange.end}
-          onDateChange={handleDateRangeChange}
-        />
-      )}
+      {/* No date picker on mobile - calendar functionality disabled */}
     </div>
   );
 };
