@@ -6543,31 +6543,37 @@ const InvitesAndOrders: React.FC = () => {
                                   alignItems: "center",
                                   borderBottom: "1px solid #E9EAEB",
                                   position: "relative",
-                                  overflow: "hidden",
                                 }}
                               >
                                 <Tooltip>
                                   <TooltipTrigger asChild>
-                                    <div
-                                      style={{
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
-                                        whiteSpace: "nowrap",
-                                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: 400,
-                                        fontSize: "14px",
-                                        color: "rgba(24,29,39,1)",
-                                        lineHeight: "20px",
-                                        width: "100%",
-                                      }}
-                                    >
-                                      {highlightText(invite.email, searchQuery)}
+                                    <div style={{
+                                      position: "relative",
+                                      display: "flex",
+                                      width: "100%",
+                                      minWidth: 0,
+                                    }}>
+                                      <div
+                                        style={{
+                                          overflow: "hidden",
+                                          textOverflow: "ellipsis",
+                                          whiteSpace: "nowrap",
+                                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(24,29,39,1)",
+                                          lineHeight: "20px",
+                                          width: "100%",
+                                        }}
+                                      >
+                                        {highlightText(invite.email, searchQuery)}
+                                      </div>
                                     </div>
                                   </TooltipTrigger>
                                   <TooltipContent
-                                    side="bottom"
+                                    side="top"
+                                    align="start"
                                     sideOffset={5}
-                                    avoidCollisions={true}
                                     style={{
                                       backgroundColor: "#0A0D12",
                                       color: "#FFF",
@@ -6576,7 +6582,7 @@ const InvitesAndOrders: React.FC = () => {
                                       fontSize: "12px",
                                       fontWeight: 600,
                                       maxWidth: "300px",
-                                      zIndex: 50,
+                                      zIndex: 99999,
                                       wordBreak: "break-all",
                                     }}
                                   >
