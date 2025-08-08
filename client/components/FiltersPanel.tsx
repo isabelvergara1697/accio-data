@@ -15,10 +15,10 @@ interface FiltersPanelProps {
 
 interface FilterState {
   status: string;
-  state: string;
-  filter1: string;
-  filter2: string;
-  filter3: string;
+  typeOfPackage: string;
+  i9Filled: string;
+  activate: string;
+  ews: string;
   dateRange: {
     start: Date;
     end: Date;
@@ -28,10 +28,10 @@ interface FilterState {
 const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
   const [filters, setFilters] = useState<FilterState>({
     status: "",
-    state: "",
-    filter1: "",
-    filter2: "",
-    filter3: "",
+    typeOfPackage: "",
+    i9Filled: "",
+    activate: "",
+    ews: "",
     dateRange: {
       start: new Date(),
       end: new Date(),
@@ -50,17 +50,28 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
     { value: "expires-today", label: "Expires Today" },
   ];
 
-  const stateOptions = [
+  const packageTypeOptions = [
+    { value: "basic", label: "Basic Package" },
+    { value: "premium", label: "Premium Package" },
+    { value: "enterprise", label: "Enterprise Package" },
+  ];
+
+  const i9FilledOptions = [
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
+    { value: "pending", label: "Pending" },
+  ];
+
+  const activateOptions = [
     { value: "active", label: "Active" },
     { value: "inactive", label: "Inactive" },
     { value: "pending", label: "Pending" },
-    { value: "completed", label: "Completed" },
   ];
 
-  const filterOptions = [
-    { value: "option1", label: "Option 1" },
-    { value: "option2", label: "Option 2" },
-    { value: "option3", label: "Option 3" },
+  const ewsOptions = [
+    { value: "verified", label: "Verified" },
+    { value: "not-verified", label: "Not Verified" },
+    { value: "pending", label: "Pending" },
   ];
 
   const handleFilterChange = (key: keyof FilterState, value: string) => {
@@ -77,15 +88,6 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
     }));
   };
 
-  const formatDateRange = (start: Date, end: Date): string => {
-    const options: Intl.DateTimeFormatOptions = {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    };
-    return `${start.toLocaleDateString("en-US", options)} - ${end.toLocaleDateString("en-US", options)}`;
-  };
-
   if (!isOpen) return null;
 
   return (
@@ -95,7 +97,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
         style={{
           display: "flex",
           width: "258px",
-          height: "700px",
+          maxHeight: "100vh",
           flexDirection: "column",
           alignItems: "flex-start",
           position: "relative",
@@ -178,17 +180,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                         position: "relative",
                       }}
                     >
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 700,
-                          fontSize: "18px",
-                          color: "rgba(24,29,39,1)",
-                        }}
-                      >
-                        Filters
-                      </span>
+                      Filters
                     </div>
                   </div>
                 </div>
@@ -258,6 +250,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
             position: "relative",
             overflow: "auto",
+            maxHeight: "calc(100vh - 160px)",
           }}
         >
           {/* Status Filter */}
@@ -300,17 +293,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     position: "relative",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      color: "rgba(65,70,81,1)",
-                    }}
-                  >
-                    Status
-                  </span>
+                  Status
                 </div>
               </div>
               <div
@@ -353,7 +336,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          {/* State Filter */}
+          {/* Type of Package Filter */}
           <div
             style={{
               display: "flex",
@@ -393,17 +376,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     position: "relative",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      color: "rgba(65,70,81,1)",
-                    }}
-                  >
-                    State
-                  </span>
+                  Type of Package
                 </div>
               </div>
               <div
@@ -414,8 +387,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                 }}
               >
                 <Select
-                  value={filters.state}
-                  onValueChange={(value) => handleFilterChange("state", value)}
+                  value={filters.typeOfPackage}
+                  onValueChange={(value) => handleFilterChange("typeOfPackage", value)}
                 >
                   <SelectTrigger
                     style={{
@@ -432,10 +405,10 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                       position: "relative",
                     }}
                   >
-                    <SelectValue placeholder="Select State" />
+                    <SelectValue placeholder="Select Filter" />
                   </SelectTrigger>
                   <SelectContent>
-                    {stateOptions.map((option) => (
+                    {packageTypeOptions.map((option) => (
                       <SelectItem key={option.value} value={option.value}>
                         {option.label}
                       </SelectItem>
@@ -446,10 +419,18 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          {/* Additional Filter Options */}
-          {[1, 2, 3].map((filterNum) => (
+          {/* I-9 Filled Filter */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
             <div
-              key={filterNum}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -462,94 +443,230 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
               <div
                 style={{
                   display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "6px",
-                  alignSelf: "stretch",
+                  alignItems: "center",
+                  gap: "2px",
                   position: "relative",
                 }}
               >
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "2px",
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
                     position: "relative",
                   }}
                 >
-                  <div
+                  I-9 Filled
+                </div>
+              </div>
+              <div
+                style={{
+                  height: "32px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <Select
+                  value={filters.i9Filled}
+                  onValueChange={(value) => handleFilterChange("i9Filled", value)}
+                >
+                  <SelectTrigger
                     style={{
-                      color: "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "20px",
+                      display: "flex",
+                      height: "32px",
+                      padding: "6px 8px",
+                      alignItems: "center",
+                      gap: "8px",
+                      alignSelf: "stretch",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                       position: "relative",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      [Filter]
-                    </span>
-                  </div>
-                </div>
+                    <SelectValue placeholder="Select Filter" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {i9FilledOptions.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </div>
+
+          {/* Activate Filter */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "2px",
+                  position: "relative",
+                }}
+              >
                 <div
                   style={{
-                    height: "32px",
-                    alignSelf: "stretch",
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
                     position: "relative",
                   }}
                 >
-                  <Select
-                    value={
-                      filters[
-                        `filter${filterNum}` as keyof FilterState
-                      ] as string
-                    }
-                    onValueChange={(value) =>
-                      handleFilterChange(
-                        `filter${filterNum}` as keyof FilterState,
-                        value,
-                      )
-                    }
-                  >
-                    <SelectTrigger
-                      style={{
-                        display: "flex",
-                        height: "32px",
-                        padding: "6px 8px",
-                        alignItems: "center",
-                        gap: "8px",
-                        alignSelf: "stretch",
-                        borderRadius: "8px",
-                        border: "1px solid #D5D7DA",
-                        background: "#FFF",
-                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                        position: "relative",
-                      }}
-                    >
-                      <SelectValue placeholder="Select Filter" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {filterOptions.map((option) => (
-                        <SelectItem key={option.value} value={option.value}>
-                          {option.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  Activate
                 </div>
               </div>
+              <div
+                style={{
+                  height: "32px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <Select
+                  value={filters.activate}
+                  onValueChange={(value) => handleFilterChange("activate", value)}
+                >
+                  <SelectTrigger
+                    style={{
+                      display: "flex",
+                      height: "32px",
+                      padding: "6px 8px",
+                      alignItems: "center",
+                      gap: "8px",
+                      alignSelf: "stretch",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      position: "relative",
+                    }}
+                  >
+                    <SelectValue placeholder="Select Filter" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {activateOptions.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* EWS Filter */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "6px",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "2px",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  EWS
+                </div>
+              </div>
+              <div
+                style={{
+                  height: "32px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <Select
+                  value={filters.ews}
+                  onValueChange={(value) => handleFilterChange("ews", value)}
+                >
+                  <SelectTrigger
+                    style={{
+                      display: "flex",
+                      height: "32px",
+                      padding: "6px 8px",
+                      alignItems: "center",
+                      gap: "8px",
+                      alignSelf: "stretch",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      position: "relative",
+                    }}
+                  >
+                    <SelectValue placeholder="Select Filter" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {ewsOptions.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </div>
 
           {/* Date Range Filter */}
           <div
@@ -591,17 +708,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     position: "relative",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      color: "rgba(65,70,81,1)",
-                    }}
-                  >
-                    Date Range
-                  </span>
+                  Date Range
                 </div>
               </div>
               <div
@@ -671,17 +778,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                         position: "relative",
                       }}
                     >
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "14px",
-                          color: "rgba(113,118,128,1)",
-                        }}
-                      >
-                        Select Date
-                      </span>
+                      Select Date
                     </div>
                   </div>
                   <svg
