@@ -27,10 +27,10 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   isVisible,
   onClose,
   onFiltersChange,
-  localFilters,
+  filters,
   isMobile = false,
 }) => {
-  const [localFilters, setLocalFilters] = useState<FilterState>(localFilters);
+  const [localFilters, setLocalFilters] = useState<FilterState>(filters);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
 
   // Sync local localFilters with parent localFilters
