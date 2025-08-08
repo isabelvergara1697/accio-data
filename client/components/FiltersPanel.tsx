@@ -507,8 +507,18 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
         </div>
       </div>
 
-      {/* Date Picker */}
-      {showDatePicker && (
+      {/* Date Picker - Use DesktopCalendar for desktop and tablet, DatePickerCalendar for mobile */}
+      {showDatePicker && (isDesktop || isTablet) && (
+        <DesktopCalendar
+          isOpen={showDatePicker}
+          onClose={() => setShowDatePicker(false)}
+          triggerRef={datePickerRef}
+          selectedStartDate={filters.dateRange.start}
+          selectedEndDate={filters.dateRange.end}
+          onDateChange={handleDateRangeChange}
+        />
+      )}
+      {showDatePicker && !isDesktop && !isTablet && (
         <DatePickerCalendar
           isOpen={showDatePicker}
           onClose={() => setShowDatePicker(false)}
