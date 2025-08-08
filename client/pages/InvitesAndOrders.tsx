@@ -2000,6 +2000,38 @@ const InvitesAndOrders: React.FC = () => {
                                   </svg>
                                 )}
                               </button>
+                              {/* Filter Count Badge */}
+                              {hasAppliedFilters() && !showFiltersModal && (
+                                <div
+                                  style={{
+                                    position: "absolute",
+                                    top: "-6px",
+                                    right: "-6px",
+                                    display: "flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: "1px solid #B3BCE5",
+                                    background: "#ECEEF9",
+                                    minWidth: "20px",
+                                    justifyContent: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#273572",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                    }}
+                                  >
+                                    {getAppliedFiltersCount()}
+                                  </div>
+                                </div>
+                              )}
 
                               {
                                 <>
