@@ -1088,12 +1088,14 @@ const InvitesAndOrders: React.FC = () => {
             background: "#FAFAFA",
             position: "relative",
             minWidth: 0,
-            minHeight: "calc(100vh - 144px)",
+            minHeight: "calc(100vh - 80px)",
+            height: "auto",
             paddingTop: "32px !important",
             paddingBottom: "24px !important",
             paddingLeft: isMobile ? "16px !important" : "32px !important",
             paddingRight: isMobile ? "16px !important" : "32px !important",
             boxSizing: "border-box",
+            overflow: "visible",
           }}
         >
           {/* Header section */}
@@ -1287,7 +1289,7 @@ const InvitesAndOrders: React.FC = () => {
               maxWidth: "100%",
               overflow: "visible",
               boxSizing: "border-box",
-              minHeight: "calc(100vh - 200px)",
+              minHeight: "600px",
             }}
           >
             {/* Filters Panel */}
@@ -1326,7 +1328,7 @@ const InvitesAndOrders: React.FC = () => {
                   maxWidth: "100%",
                   overflow: "visible",
                   boxSizing: "border-box",
-                  minHeight: "calc(100vh - 250px)",
+                  minHeight: "500px",
                 }}
               >
                 <div
@@ -1356,7 +1358,8 @@ const InvitesAndOrders: React.FC = () => {
                       maxWidth: "100%",
                       boxSizing: "border-box",
                       overflow: "visible",
-                      minHeight: "600px",
+                      minHeight: "500px",
+                      height: "auto",
                     }}
                   >
                     {/* Table Header */}
