@@ -183,7 +183,7 @@ const InvitesAndOrders: React.FC = () => {
     { id: "default", name: "Default", isDefault: true },
   ]);
   const [appliedFilters, setAppliedFilters] = useState({
-    status: [] as string[],
+    status: ["canceled", "expired"] as string[], // Test filters
     typeOfPackage: [] as string[],
     i9Filled: [] as string[],
     activate: [] as string[],
