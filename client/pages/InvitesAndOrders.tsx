@@ -221,7 +221,7 @@ const InvitesAndOrders: React.FC = () => {
         sortField: "email",
       },
       completed: {
-        width: "88px",
+        width: "113px",
         label: "Completed",
         sortField: "completion",
       },
