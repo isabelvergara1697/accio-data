@@ -886,6 +886,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: false,
       activated: true,
       ews: true,
+      packageType: "Sales",
     },
     {
       id: "10",
@@ -898,6 +899,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: true,
       ews: false,
+      packageType: "CBSV",
     },
     // Second page content (page 2)
     {
@@ -911,6 +913,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: true,
       ews: true,
+      packageType: "New York",
     },
     {
       id: "12",
@@ -923,6 +926,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: false,
       activated: false,
       ews: false,
+      packageType: "Volunteer Application",
     },
     {
       id: "13",
@@ -935,6 +939,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: true,
       ews: true,
+      packageType: "Just MVR",
     },
     {
       id: "14",
@@ -947,6 +952,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: false,
       ews: true,
+      packageType: "Immunization Records",
     },
     {
       id: "15",
@@ -959,6 +965,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: false,
       activated: false,
       ews: false,
+      packageType: "HASC Contractor",
     },
     {
       id: "16",
@@ -971,6 +978,7 @@ const InvitesAndOrders: React.FC = () => {
       i9Filled: true,
       activated: true,
       ews: true,
+      packageType: "Employment Only",
     },
     {
       id: "17",
