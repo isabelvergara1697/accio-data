@@ -27,7 +27,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   onClose,
 }) => {
   // Selected columns that are currently active
-  const [selectedColumns] = useState<Column[]>([
+  const [selectedColumns, setSelectedColumns] = useState<Column[]>([
     { id: "status", name: "Status", order: 1, isSelected: true },
     { id: "firstName", name: "First Name", order: 2, isSelected: true },
     { id: "lastName", name: "Last Name", order: 3, isSelected: true },
@@ -37,6 +37,10 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "activate", name: "Activate", order: 7, isSelected: true },
     { id: "ews", name: "EWS", order: 8, isSelected: true },
   ]);
+
+  // Drag and drop state
+  const [draggedColumn, setDraggedColumn] = useState<string | null>(null);
+  const [dragOverColumn, setDragOverColumn] = useState<string | null>(null);
 
   // All available columns for Subject / Applicant section
   const subjectApplicantColumns = [
@@ -466,7 +470,71 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   };
 
   const removeColumn = (columnId: string) => {
-    console.log("Remove column:", columnId);
+    setSelectedColumns(columns => {
+      const filteredColumns = columns.filter(col => col.id !== columnId);
+      // Reorder the remaining columns
+      return filteredColumns.map((col, index) => ({
+        ...col,
+        order: index + 1
+      }));
+    });
+  };
+
+  // Drag handlers
+  const handleDragStart = (e: React.DragEvent, columnId: string) => {
+    setDraggedColumn(columnId);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', columnId);
+  };
+
+  const handleDragOver = (e: React.DragEvent, columnId: string) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    if (draggedColumn && draggedColumn !== columnId) {
+      setDragOverColumn(columnId);
+    }
+  };
+
+  const handleDragLeave = () => {
+    setDragOverColumn(null);
+  };
+
+  const handleDrop = (e: React.DragEvent, targetColumnId: string) => {
+    e.preventDefault();
+
+    if (!draggedColumn || draggedColumn === targetColumnId) {
+      setDraggedColumn(null);
+      setDragOverColumn(null);
+      return;
+    }
+
+    setSelectedColumns(columns => {
+      const newColumns = [...columns];
+      const draggedIndex = newColumns.findIndex(col => col.id === draggedColumn);
+      const targetIndex = newColumns.findIndex(col => col.id === targetColumnId);
+
+      if (draggedIndex === -1 || targetIndex === -1) return columns;
+
+      // Remove dragged item
+      const [draggedItem] = newColumns.splice(draggedIndex, 1);
+
+      // Insert at target position
+      newColumns.splice(targetIndex, 0, draggedItem);
+
+      // Update order numbers
+      return newColumns.map((col, index) => ({
+        ...col,
+        order: index + 1
+      }));
+    });
+
+    setDraggedColumn(null);
+    setDragOverColumn(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedColumn(null);
+    setDragOverColumn(null);
   };
 
   return (
@@ -722,100 +790,146 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                 flexWrap: "wrap",
               }}
             >
-              {selectedColumns.map((column) => (
+              {/* Placeholder for drop zone */}
+              {selectedColumns.length > 0 && (
                 <div
-                  key={column.id}
                   style={{
                     display: "flex",
+                    width: "112px",
                     height: "28px",
-                    padding: "3px 4px 3px 6px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "3px",
                     borderRadius: "6px",
-                    border: "1px solid #D5D7DA",
-                    background: "#FFF",
+                    border: dragOverColumn ? "1px solid #34479A" : "1px dashed #D5D7DA",
+                    background: dragOverColumn ? "#ECEEF9" : "transparent",
+                    opacity: draggedColumn ? 1 : 0,
+                    transition: "all 0.2s ease",
                   }}
-                >
-                  {/* Drag Handle */}
-                  <button
+                />
+              )}
+
+              {selectedColumns.map((column, index) => {
+                const isDragging = draggedColumn === column.id;
+                const isDropTarget = dragOverColumn === column.id;
+
+                return (
+                  <div
+                    key={column.id}
+                    draggable
+                    onDragStart={(e) => handleDragStart(e, column.id)}
+                    onDragOver={(e) => handleDragOver(e, column.id)}
+                    onDragLeave={handleDragLeave}
+                    onDrop={(e) => handleDrop(e, column.id)}
+                    onDragEnd={handleDragEnd}
                     style={{
                       display: "flex",
-                      width: "24px",
-                      height: "24px",
-                      transform: "rotate(90deg)",
-                      padding: "4px",
+                      height: "28px",
+                      padding: "3px 4px 3px 6px",
                       justifyContent: "center",
                       alignItems: "center",
+                      gap: "3px",
                       borderRadius: "6px",
-                      border: "none",
-                      background: "transparent",
-                      cursor: "grab",
+                      border: isDropTarget ? "1px solid #34479A" : "1px solid #D5D7DA",
+                      background: isDragging ? "#F5F5F5" : isDropTarget ? "#ECEEF9" : "#FFF",
+                      boxShadow: isDragging ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)" : "none",
+                      opacity: isDragging ? 0.8 : 1,
+                      transform: isDragging ? "rotate(2deg)" : "none",
+                      transition: "all 0.2s ease",
+                      cursor: isDragging ? "grabbing" : "grab",
+                      zIndex: isDragging ? 1000 : 1,
                     }}
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                    {/* Drag Handle */}
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "24px",
+                        height: "24px",
+                        transform: "rotate(90deg)",
+                        padding: "4px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: "6px",
+                        background: isDragging ? "#FAFAFA" : "transparent",
+                        cursor: isDragging ? "grabbing" : "grab",
+                      }}
                     >
-                      <path
-                        d="M7.33337 5.99992C7.33337 6.36811 7.63185 6.66658 8.00004 6.66658C8.36823 6.66658 8.66671 6.36811 8.66671 5.99992C8.66671 5.63173 8.36823 5.33325 8.00004 5.33325C7.63185 5.33325 7.33337 5.63173 7.33337 5.99992Z"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12 5.99992C12 6.36811 12.2985 6.66658 12.6667 6.66658C13.0349 6.66658 13.3334 6.36811 13.3334 5.99992C13.3334 5.63173 13.0349 5.33325 12.6667 5.33325C12.2985 5.33325 12 5.63173 12 5.99992Z"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M2.66671 5.99992C2.66671 6.36811 2.96518 6.66658 3.33337 6.66658C3.70156 6.66658 4.00004 6.36811 4.00004 5.99992C4.00004 5.63173 3.70156 5.33325 3.33337 5.33325C2.96518 5.33325 2.66671 5.63173 2.66671 5.99992Z"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M7.33337 9.99992C7.33337 10.3681 7.63185 10.6666 8.00004 10.6666C8.36823 10.6666 8.66671 10.3681 8.66671 9.99992C8.66671 9.63173 8.36823 9.33325 8.00004 9.33325C7.63185 9.33325 7.33337 9.63173 7.33337 9.99992Z"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12 9.99992C12 10.3681 12.2985 10.6666 12.6667 10.6666C13.0349 10.6666 13.3334 10.3681 13.3334 9.99992C13.3334 9.63173 13.0349 9.33325 12.6667 9.33325C12.2985 9.33325 12 9.63173 12 9.99992Z"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M2.66671 9.99992C2.66671 10.3681 2.96518 10.6666 3.33337 10.6666C3.70156 10.6666 4.00004 10.3681 4.00004 9.99992C4.00004 9.63173 3.70156 9.33325 3.33337 9.33325C2.96518 9.33325 2.66671 9.63173 2.66671 9.99992Z"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7.33337 5.99992C7.33337 6.36811 7.63185 6.66658 8.00004 6.66658C8.36823 6.66658 8.66671 6.36811 8.66671 5.99992C8.66671 5.63173 8.36823 5.33325 8.00004 5.33325C7.63185 5.33325 7.33337 5.63173 7.33337 5.99992Z"
+                          stroke={isDragging ? "#717680" : "#A4A7AE"}
+                          strokeWidth={isDragging ? "2" : "1.66667"}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M12 5.99992C12 6.36811 12.2985 6.66658 12.6667 6.66658C13.0349 6.66658 13.3334 6.36811 13.3334 5.99992C13.3334 5.63173 13.0349 5.33325 12.6667 5.33325C12.2985 5.33325 12 5.63173 12 5.99992Z"
+                          stroke={isDragging ? "#717680" : "#A4A7AE"}
+                          strokeWidth={isDragging ? "2" : "1.66667"}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M2.66671 5.99992C2.66671 6.36811 2.96518 6.66658 3.33337 6.66658C3.70156 6.66658 4.00004 6.36811 4.00004 5.99992C4.00004 5.63173 3.70156 5.33325 3.33337 5.33325C2.96518 5.33325 2.66671 5.63173 2.66671 5.99992Z"
+                          stroke={isDragging ? "#717680" : "#A4A7AE"}
+                          strokeWidth={isDragging ? "2" : "1.66667"}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M7.33337 9.99992C7.33337 10.3681 7.63185 10.6666 8.00004 10.6666C8.36823 10.6666 8.66671 10.3681 8.66671 9.99992C8.66671 9.63173 8.36823 9.33325 8.00004 9.33325C7.63185 9.33325 7.33337 9.63173 7.33337 9.99992Z"
+                          stroke={isDragging ? "#717680" : "#A4A7AE"}
+                          strokeWidth={isDragging ? "2" : "1.66667"}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M12 9.99992C12 10.3681 12.2985 10.6666 12.6667 10.6666C13.0349 10.6666 13.3334 10.3681 13.3334 9.99992C13.3334 9.63173 13.0349 9.33325 12.6667 9.33325C12.2985 9.33325 12 9.63173 12 9.99992Z"
+                          stroke={isDragging ? "#717680" : "#A4A7AE"}
+                          strokeWidth={isDragging ? "2" : "1.66667"}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M2.66671 9.99992C2.66671 10.3681 2.96518 10.6666 3.33337 10.6666C3.70156 10.6666 4.00004 10.3681 4.00004 9.99992C4.00004 9.63173 3.70156 9.33325 3.33337 9.33325C2.96518 9.33325 2.66671 9.63173 2.66671 9.99992Z"
+                          stroke={isDragging ? "#717680" : "#A4A7AE"}
+                          strokeWidth={isDragging ? "2" : "1.66667"}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
 
-                  {/* Order Badge */}
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "2px 8px",
-                      alignItems: "center",
-                      borderRadius: "9999px",
-                      border: "1px solid #E9EAEB",
-                      background: "#FAFAFA",
-                    }}
-                  >
+                    {/* Order Badge */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "2px 8px",
+                        alignItems: "center",
+                        borderRadius: "9999px",
+                        border: "1px solid #E9EAEB",
+                        background: "#FAFAFA",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#414651",
+                          textAlign: "center",
+                          fontFamily: "Public Sans",
+                          fontSize: "12px",
+                          fontWeight: 500,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        {column.order}
+                      </div>
+                    </div>
+
+                    {/* Column Name */}
                     <div
                       style={{
                         color: "#414651",
@@ -826,55 +940,41 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                         lineHeight: "18px",
                       }}
                     >
-                      {column.order}
+                      {column.name}
                     </div>
-                  </div>
 
-                  {/* Column Name */}
-                  <div
-                    style={{
-                      color: "#414651",
-                      textAlign: "center",
-                      fontFamily: "Public Sans",
-                      fontSize: "12px",
-                      fontWeight: 500,
-                      lineHeight: "18px",
-                    }}
-                  >
-                    {column.name}
-                  </div>
-
-                  {/* Remove Button */}
-                  <button
-                    onClick={() => removeColumn(column.id)}
-                    style={{
-                      display: "flex",
-                      padding: "2px",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      borderRadius: "3px",
-                      border: "none",
-                      background: "transparent",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                    {/* Remove Button */}
+                    <button
+                      onClick={() => removeColumn(column.id)}
+                      style={{
+                        display: "flex",
+                        padding: "2px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        borderRadius: "3px",
+                        border: "none",
+                        background: "transparent",
+                        cursor: "pointer",
+                      }}
                     >
-                      <path
-                        d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
-                        stroke="#A4A7AE"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              ))}
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                          stroke="#A4A7AE"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
