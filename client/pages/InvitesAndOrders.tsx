@@ -536,41 +536,67 @@ const InvitesAndOrders: React.FC = () => {
     const config = statusConfig[status];
     if (!config) return null;
 
-    // Determine if this status needs truncation (for longer statuses)
-    const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today";
+    // Determine if this status needs truncation and flex layout (for longer statuses)
+    const needsFlexLayout = status === "waiting-for-recruitee" || status === "expires-today";
+    const needsTooltip = needsFlexLayout; // Only long statuses get tooltips
 
-    // Use consistent layout for all badges but apply flex: "1 0 0" only for long statuses that need truncation
-    const badgeElement = (
+    const badgeElement = needsFlexLayout ? (
+      // For long statuses: use flex layout with truncation matching Figma exactly
       <div
         style={{
           display: "flex",
           padding: "2px 8px",
           alignItems: "center",
+          flex: "1 0 0",
           borderRadius: "9999px",
           border: `1px solid ${config.border}`,
           background: config.bg,
           position: "relative",
-          // Only apply flex for long statuses that need truncation
-          ...(isLongStatus ? { flex: "1 0 0" } : {}),
         }}
       >
         <div
           style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 1,
+            flex: "1 0 0",
+            overflow: "hidden",
             color: config.text,
             textAlign: "center",
+            textOverflow: "ellipsis",
             fontFamily: "Public Sans",
             fontSize: "12px",
             fontStyle: "normal",
             fontWeight: 500,
             lineHeight: "18px",
             position: "relative",
-            // Apply truncation only for long statuses
-            ...(isLongStatus ? {
-              flex: "1 0 0",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            } : {}),
+          }}
+        >
+          {config.label}
+        </div>
+      </div>
+    ) : (
+      // For short statuses: simple layout matching Figma - no extra space
+      <div
+        style={{
+          display: "inline-flex",
+          padding: "2px 8px",
+          alignItems: "center",
+          borderRadius: "9999px",
+          border: `1px solid ${config.border}`,
+          background: config.bg,
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            color: config.text,
+            fontFamily: "Public Sans",
+            fontSize: "12px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "18px",
+            position: "relative",
           }}
         >
           {config.label}
@@ -578,12 +604,16 @@ const InvitesAndOrders: React.FC = () => {
       </div>
     );
 
-    // Add tooltip only for long status names that get truncated
-    if (isLongStatus) {
+    // Add tooltip only for long status names that get truncated - fix z-index and container issues
+    if (needsTooltip) {
       return (
-        <div style={{ position: "relative", zIndex: 1000 }}>
+        <div style={{ position: "relative", display: "flex", flex: "1 0 0" }}>
           <Tooltip>
-            <TooltipTrigger asChild>{badgeElement}</TooltipTrigger>
+            <TooltipTrigger asChild>
+              <div style={{ position: "relative", flex: "1 0 0", display: "flex" }}>
+                {badgeElement}
+              </div>
+            </TooltipTrigger>
             <TooltipContent
               side="top"
               align="start"
@@ -596,7 +626,7 @@ const InvitesAndOrders: React.FC = () => {
                 fontSize: "12px",
                 fontWeight: 600,
                 maxWidth: "200px",
-                zIndex: 1001,
+                zIndex: 9999,
               }}
             >
               {config.label}
