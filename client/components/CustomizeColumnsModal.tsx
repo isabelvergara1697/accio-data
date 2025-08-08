@@ -28,18 +28,12 @@ interface CustomizeColumnsModalProps {
 export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   isOpen,
   onClose,
+  columnOrder,
+  onColumnOrderChange,
+  onResetToDefault,
 }) => {
-  // Selected columns that are currently active
-  const [selectedColumns, setSelectedColumns] = useState<Column[]>([
-    { id: "status", name: "Status", order: 1, isSelected: true },
-    { id: "firstName", name: "First Name", order: 2, isSelected: true },
-    { id: "lastName", name: "Last Name", order: 3, isSelected: true },
-    { id: "invtEmail", name: "Invt Email", order: 4, isSelected: true },
-    { id: "completed", name: "Completed", order: 5, isSelected: true },
-    { id: "i9Filled", name: "I-9 Filled", order: 6, isSelected: true },
-    { id: "activate", name: "Activate", order: 7, isSelected: true },
-    { id: "ews", name: "EWS", order: 8, isSelected: true },
-  ]);
+  // Use external column order state
+  const selectedColumns = columnOrder;
 
   // Drag and drop state
   const [draggedColumn, setDraggedColumn] = useState<string | null>(null);
