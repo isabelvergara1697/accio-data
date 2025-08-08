@@ -182,6 +182,23 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   const getAppliedFilters = () => {
     const appliedFilters: Array<{key: keyof FilterState, value: string, label: string}> = [];
 
+    // Helper function to check if all options are selected for a filter
+    const areAllOptionsSelected = (filterKey: keyof FilterState, selectedValues: string[]) => {
+      const optionsMap = {
+        status: statusOptions,
+        typeOfPackage: packageTypeOptions,
+        i9Filled: i9FilledOptions,
+        activate: activateOptions,
+        ews: ewsOptions,
+      };
+
+      if (filterKey in optionsMap) {
+        const totalOptions = optionsMap[filterKey as keyof typeof optionsMap].length;
+        return selectedValues.length === totalOptions;
+      }
+      return false;
+    };
+
     // Check each filter type
     (Object.keys(filters) as Array<keyof FilterState>).forEach(key => {
       if (key === 'dateRange') {
@@ -198,6 +215,12 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
         }
       } else {
         const values = filters[key] as string[];
+
+        // Skip if no values selected OR if all options are selected
+        if (values.length === 0 || areAllOptionsSelected(key, values)) {
+          return;
+        }
+
         values.forEach(value => {
           let filterLabel = '';
           switch (key) {
