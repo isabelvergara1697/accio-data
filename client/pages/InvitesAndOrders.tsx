@@ -6546,38 +6546,24 @@ const InvitesAndOrders: React.FC = () => {
                                   overflow: "hidden",
                                 }}
                               >
-                                {/* Truncated text display */}
-                                <div
-                                  style={{
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    whiteSpace: "nowrap",
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 400,
-                                    fontSize: "14px",
-                                    color: "rgba(24,29,39,1)",
-                                    lineHeight: "20px",
-                                    width: "100%",
-                                    pointerEvents: "none",
-                                  }}
-                                >
-                                  {highlightText(invite.email, searchQuery)}
-                                </div>
-
-                                {/* Invisible tooltip trigger overlay */}
                                 <Tooltip>
                                   <TooltipTrigger asChild>
                                     <div
                                       style={{
-                                        position: "absolute",
-                                        top: 0,
-                                        left: 0,
-                                        right: 0,
-                                        bottom: 0,
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                        whiteSpace: "nowrap",
+                                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 400,
+                                        fontSize: "14px",
+                                        color: "rgba(24,29,39,1)",
+                                        lineHeight: "20px",
+                                        width: "100%",
                                         cursor: "default",
-                                        zIndex: 1,
                                       }}
-                                    />
+                                    >
+                                      {highlightText(invite.email, searchQuery)}
+                                    </div>
                                   </TooltipTrigger>
                                   <TooltipContent
                                     side="top"
