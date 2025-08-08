@@ -1196,7 +1196,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                       style={{
-                        transform: section.isExpanded
+                        transform: expandedSections[section.id]
                           ? "rotate(180deg)"
                           : "rotate(0deg)",
                         transition: "transform 0.2s ease",
