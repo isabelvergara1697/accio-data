@@ -867,17 +867,17 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                         >
                           <div
                             style={{
-                              display: "flex",
                               width: "16px",
                               height: "16px",
-                              padding: "1px",
-                              justifyContent: "center",
-                              alignItems: "center",
                               borderRadius: "4px",
-                              background: column.isSelected ? "#344698" : "transparent",
                               border: column.isSelected ? "none" : "1px solid #D5D7DA",
+                              background: column.isSelected ? "#344698" : "transparent",
                               cursor: "pointer",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
                             }}
+                            onClick={() => console.log("Toggle column:", column.id)}
                           >
                             {column.isSelected && (
                               <svg
@@ -888,7 +888,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  d="M11.6667 3.5L5.25004 9.91667L2.33337 7"
+                                  d="M11.6668 3.5L5.25016 9.91667L2.3335 7"
                                   stroke="white"
                                   strokeWidth="2"
                                   strokeLinecap="round"
@@ -921,12 +921,6 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                                 fontSize: "12px",
                                 fontWeight: 500,
                                 lineHeight: "18px",
-                                flex: column.hasHelpIcon ? "1 0 0" : "auto",
-                                display: column.hasHelpIcon ? "-webkit-box" : "block",
-                                WebkitBoxOrient: column.hasHelpIcon ? "vertical" : "initial",
-                                WebkitLineClamp: column.hasHelpIcon ? 1 : "initial",
-                                overflow: column.hasHelpIcon ? "hidden" : "visible",
-                                textOverflow: column.hasHelpIcon ? "ellipsis" : "initial",
                               }}
                             >
                               {column.name}
