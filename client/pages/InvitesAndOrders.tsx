@@ -11,7 +11,10 @@ import {
 import InformationDrawer from "../components/ui/information-drawer";
 import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
 import FiltersPanel from "../components/FiltersPanel";
-import { TableViewsDropdown, TableView } from "../components/ui/table-views-dropdown";
+import {
+  TableViewsDropdown,
+  TableView,
+} from "../components/ui/table-views-dropdown";
 
 interface InviteData {
   id: string;
@@ -954,7 +957,7 @@ const InvitesAndOrders: React.FC = () => {
   const handleViewChange = (viewId: string) => {
     setCurrentTableView(viewId);
     // Apply the view configuration here
-    const view = tableViews.find(v => v.id === viewId);
+    const view = tableViews.find((v) => v.id === viewId);
     console.log("Switching to table view:", view);
   };
 
@@ -1853,9 +1856,13 @@ const InvitesAndOrders: React.FC = () => {
                                       onRenameTableView={handleRenameTableView}
                                       isOpen={tableViewsDropdownOpen}
                                       onToggle={() =>
-                                        setTableViewsDropdownOpen(!tableViewsDropdownOpen)
+                                        setTableViewsDropdownOpen(
+                                          !tableViewsDropdownOpen,
+                                        )
                                       }
-                                      onClose={() => setTableViewsDropdownOpen(false)}
+                                      onClose={() =>
+                                        setTableViewsDropdownOpen(false)
+                                      }
                                       isMobile={isMobile}
                                     />
                                   </div>
