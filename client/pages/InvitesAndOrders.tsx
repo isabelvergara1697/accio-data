@@ -5881,69 +5881,6 @@ const InvitesAndOrders: React.FC = () => {
                               </div>
                             </div>
 
-                            {/* I-9 Filled Column */}
-                            <div
-                              style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "flex-start",
-                                width: "110px",
-                                alignSelf: "stretch",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "6px 12px",
-                                  alignItems: "center",
-                                  gap: "12px",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background: "rgba(255, 255, 255, 1)",
-                                  position: "relative",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "4px",
-                                    position: "relative",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      color:
-                                        sortField === "i9Filled"
-                                          ? "#34479A"
-                                          : "#717680",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "12px",
-                                      fontStyle: "normal",
-                                      fontWeight: 600,
-                                      lineHeight: "18px",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    <span
-                                      style={{
-                                        fontFamily:
-                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontWeight: 600,
-                                        fontSize: "12px",
-                                        color:
-                                          sortField === "i9Filled"
-                                            ? "#34479A"
-                                            : "rgba(113,118,128,1)",
-                                      }}
-                                    >
-                                      I-9 Filled
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
 
                             {/* Activate Column */}
                             <div
