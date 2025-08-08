@@ -201,6 +201,16 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "activateOrder", name: "Activate Order", isSelected: false, hasHelpIcon: true },
   ];
 
+  // Get all available columns from all sections
+  const allAvailableColumns = [
+    ...subjectApplicantColumns,
+    ...invitationPortalColumns,
+    ...jobInformationColumns,
+    ...orderStatusColumns,
+    ...billingIdentifiersColumns,
+    ...integrationColumns,
+  ];
+
   // Column sections for the accordion - dynamically calculated
   const getColumnSections = (): ColumnSection[] => [
     {
