@@ -70,7 +70,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
   };
 
   return (
-    <div ref={dropdownRef} style={{ position: "relative" }}>
+    <div ref={dropdownRef} style={{ position: "relative", width: "100%" }}>
       {/* Label */}
       <div
         style={{
