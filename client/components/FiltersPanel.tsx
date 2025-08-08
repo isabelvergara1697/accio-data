@@ -28,10 +28,6 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   initialFilters,
 }) => {
   const [filters, setFilters] = useState<FilterState>(initialFilters);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
-  const [isTablet, setIsTablet] = useState(
-    window.innerWidth >= 768 && window.innerWidth < 1024,
-  );
 
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [hoveredCloseButton, setHoveredCloseButton] = useState(false);
