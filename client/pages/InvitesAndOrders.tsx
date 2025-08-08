@@ -1576,7 +1576,7 @@ const InvitesAndOrders: React.FC = () => {
                                 )}
 
                                 {/* Advanced Search Button - Working Pattern */}
-                                <div style={{ position: "relative" }}>
+                                <div>
                                   <button
                                     onMouseDown={(e) => {
                                       e.preventDefault();
@@ -1615,21 +1615,6 @@ const InvitesAndOrders: React.FC = () => {
                                       />
                                     </svg>
                                   </button>
-                                  <AdvancedSearchDropdown
-                                    showAdvancedSearch={showAdvancedSearch}
-                                    advancedSearchForm={advancedSearchForm}
-                                    focusedAdvancedField={focusedAdvancedField}
-                                    onFieldChange={handleAdvancedSearchChange}
-                                    onFieldFocus={setFocusedAdvancedField}
-                                    onClear={clearAdvancedSearch}
-                                    onSearch={handleAdvancedSearch}
-                                    dropdownRef={advancedSearchRef}
-                                    style={{
-                                      right: "-8px", // Align with search bar edge
-                                      width: "234px", // Match search bar width
-                                      top: "calc(100% + 4px)", // 4px spacing as requested
-                                    }}
-                                  />
                                 </div>
                               </div>
                             )}
