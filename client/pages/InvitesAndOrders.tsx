@@ -1481,7 +1481,7 @@ const InvitesAndOrders: React.FC = () => {
                           position: "relative",
                           width: "100%",
                           maxWidth: "100%",
-                          overflow: "visible",
+                          overflow: isTablet ? "hidden" : "visible",
                           boxSizing: "border-box",
                         }}
                       >
