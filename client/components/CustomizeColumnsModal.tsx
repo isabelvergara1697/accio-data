@@ -41,9 +41,20 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     return columnOrder.some(col => col.id === columnId && col.isSelected);
   };
 
-  // Helper function to check if a column can be toggled (active columns or available columns)
+  // Core columns that should always be toggleable (the original 9 active columns)
+  const coreColumnIds = [
+    "status", "firstName", "lastName", "invtEmail", "completed",
+    "i9Filled", "activate", "ews", "package"
+  ];
+
+  // Helper function to check if a column can be toggled
   const isColumnToggleable = (columnId: string): boolean => {
-    return isColumnVisible(columnId) || allAvailableColumns.some(col => col.id === columnId);
+    // Core columns are always toggleable
+    if (coreColumnIds.includes(columnId)) {
+      return true;
+    }
+    // Other columns are only toggleable if they're currently visible
+    return isColumnVisible(columnId);
   };
 
   // Helper function to get selected count for a section
