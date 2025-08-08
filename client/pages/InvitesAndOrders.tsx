@@ -6552,13 +6552,11 @@ const InvitesAndOrders: React.FC = () => {
                                   <TooltipTrigger asChild>
                                     <div
                                       style={{
-                                        display: "-webkit-box",
-                                        WebkitBoxOrient: "vertical",
-                                        WebkitLineClamp: 1,
                                         width: "100%",
                                         overflow: "hidden",
-                                        color: "#181D27",
                                         textOverflow: "ellipsis",
+                                        whiteSpace: "nowrap",
+                                        color: "#181D27",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
                                         fontStyle: "normal",
