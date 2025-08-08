@@ -1823,6 +1823,7 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "12px",
                                 position: "relative",
+                                flexShrink: 0,
                               }}
                             >
                               {/* Filters Button */}
