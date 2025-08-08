@@ -6,8 +6,8 @@ import FilterDropdown from "./ui/filter-dropdown";
 interface FiltersPanelProps {
   isVisible: boolean;
   onClose?: () => void;
-  onFiltersChange: (localFilters: FilterState) => void;
-  localFilters: FilterState;
+  onFiltersChange: (filters: FilterState) => void;
+  filters: FilterState;
   isMobile?: boolean;
 }
 
