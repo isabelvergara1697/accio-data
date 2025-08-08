@@ -69,7 +69,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
     { value: "pending", label: "Pending" },
   ];
 
-  const handleFilterChange = (key: keyof FilterState, value: string) => {
+  const handleFilterChange = (key: keyof FilterState, value: string[]) => {
     setFilters((prev) => ({
       ...prev,
       [key]: value,
