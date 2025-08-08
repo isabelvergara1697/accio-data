@@ -524,7 +524,6 @@ const InvitesAndOrders: React.FC = () => {
   const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({
     status,
   }) => {
-    console.log("StatusBadge rendering with status:", status);
     const statusConfig = {
       waiting: { label: "Waiting", color: "blue-light" },
       unsolicited: { label: "Unsolicited", color: "gray-blue" },
