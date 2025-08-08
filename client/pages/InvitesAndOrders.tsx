@@ -7853,6 +7853,12 @@ const InvitesAndOrders: React.FC = () => {
         filters={appliedFilters}
         onFiltersChange={setAppliedFilters}
       />
+
+      {/* Customize Columns Modal */}
+      <CustomizeColumnsModal
+        isOpen={showCustomizeColumnsModal}
+        onClose={() => setShowCustomizeColumnsModal(false)}
+      />
     </div>
   );
 };
