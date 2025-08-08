@@ -256,10 +256,10 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
         <div
           style={{
             display: "flex",
-            padding: "16px",
+            padding: "12px",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "20px",
+            gap: "16px",
             flex: "1 1 auto",
             alignSelf: "stretch",
             borderRadius: "0px 0px 12px 12px",
