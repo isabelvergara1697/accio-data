@@ -58,9 +58,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   }, []);
 
   // Sync local state with prop changes
-  useEffect(() => {
-    setFilters(initialFilters);
-  }, [initialFilters]);
+  // Remove this effect as we now sync with parent filters differently
 
   const statusOptions = [
     { value: "waiting", label: "Waiting" },
