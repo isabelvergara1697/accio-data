@@ -1648,7 +1648,7 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Desktop: Action Buttons */}
                             <div
                               style={{
-                                display: "flex",
+                                display: showFiltersModal ? "none" : "flex",
                                 alignItems: "center",
                                 gap: "12px",
                                 position: "relative",
