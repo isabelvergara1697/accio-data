@@ -1,5 +1,5 @@
 import React from "react";
-import { FiltersPanel } from "./FiltersPanel";
+import FiltersPanel from "./FiltersPanel";
 
 export interface FilterState {
   status: string[];
