@@ -6573,9 +6573,10 @@ const InvitesAndOrders: React.FC = () => {
                                     </div>
                                   </TooltipTrigger>
                                   <TooltipContent
-                                    side="top"
-                                    align="start"
-                                    sideOffset={5}
+                                    side="bottom"
+                                    align="center"
+                                    sideOffset={8}
+                                    avoidCollisions={true}
                                     style={{
                                       backgroundColor: "#0A0D12",
                                       color: "#FFF",
@@ -6583,8 +6584,10 @@ const InvitesAndOrders: React.FC = () => {
                                       borderRadius: "8px",
                                       fontSize: "12px",
                                       fontWeight: 600,
-                                      maxWidth: "200px",
-                                      zIndex: 99999,
+                                      maxWidth: "300px",
+                                      zIndex: 999999,
+                                      wordBreak: "break-all",
+                                      position: "fixed",
                                     }}
                                   >
                                     {invite.email}
