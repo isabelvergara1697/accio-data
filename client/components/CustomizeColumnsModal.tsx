@@ -41,16 +41,41 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     return columnOrder.some(col => col.id === columnId && col.isSelected);
   };
 
+  // Helper function to check if a column can be toggled (active columns or available columns)
+  const isColumnToggleable = (columnId: string): boolean => {
+    return isColumnVisible(columnId) || allAvailableColumns.some(col => col.id === columnId);
+  };
+
+  // Helper function to get selected count for a section
+  const getSectionSelectedCount = (sectionColumns: Column[]): number => {
+    return sectionColumns.filter(col => isColumnVisible(col.id)).length;
+  };
+
   // Handler for toggling column visibility
   const handleColumnToggle = (columnId: string) => {
-    const updatedColumns = columnOrder.map(col => {
-      if (col.id === columnId) {
-        return { ...col, isSelected: !col.isSelected };
-      }
-      return col;
-    });
-    onColumnOrderChange(updatedColumns);
+    const existingColumn = columnOrder.find(col => col.id === columnId);
+
+    if (existingColumn) {
+      // Column exists, toggle its selection
+      const updatedColumns = columnOrder.map(col => {
+        if (col.id === columnId) {
+          return { ...col, isSelected: !col.isSelected };
+        }
+        return col;
+      });
+      onColumnOrderChange(updatedColumns);
+    } else {
+      // Column doesn't exist, add it to the end
+      const newColumn = {
+        id: columnId,
+        name: allAvailableColumns.find(col => col.id === columnId)?.name || columnId,
+        order: columnOrder.length + 1,
+        isSelected: true,
+      };
+      onColumnOrderChange([...columnOrder, newColumn]);
+    }
   };
+
 
   // All available columns for Subject / Applicant section
   const subjectApplicantColumns = [
@@ -176,57 +201,66 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "activateOrder", name: "Activate Order", isSelected: false, hasHelpIcon: true },
   ];
 
-  // Column sections for the accordion
-  const [columnSections, setColumnSections] = useState<ColumnSection[]>([
+  // Column sections for the accordion - dynamically calculated
+  const getColumnSections = (): ColumnSection[] => [
     {
       id: "subject",
       name: "Subject / Applicant",
       isExpanded: true,
-      selectedCount: 0,
-      totalCount: 46,
+      selectedCount: getSectionSelectedCount(subjectApplicantColumns),
+      totalCount: subjectApplicantColumns.length,
       columns: subjectApplicantColumns,
     },
     {
       id: "invitation",
       name: "Invitation / Portal",
       isExpanded: false,
-      selectedCount: 0,
-      totalCount: 14,
+      selectedCount: getSectionSelectedCount(invitationPortalColumns),
+      totalCount: invitationPortalColumns.length,
       columns: invitationPortalColumns,
     },
     {
       id: "jobInfo",
       name: "Job Information",
       isExpanded: false,
-      selectedCount: 0,
-      totalCount: 9,
+      selectedCount: getSectionSelectedCount(jobInformationColumns),
+      totalCount: jobInformationColumns.length,
       columns: jobInformationColumns,
     },
     {
       id: "orderStatus",
       name: "Order Status",
       isExpanded: false,
-      selectedCount: 0,
-      totalCount: 9,
+      selectedCount: getSectionSelectedCount(orderStatusColumns),
+      totalCount: orderStatusColumns.length,
       columns: orderStatusColumns,
     },
     {
       id: "billing",
       name: "Billing Identifiers",
       isExpanded: false,
-      selectedCount: 0,
-      totalCount: 10,
+      selectedCount: getSectionSelectedCount(billingIdentifiersColumns),
+      totalCount: billingIdentifiersColumns.length,
       columns: billingIdentifiersColumns,
     },
     {
       id: "integration",
       name: "Integration Related",
       isExpanded: false,
-      selectedCount: 0,
-      totalCount: 5,
+      selectedCount: getSectionSelectedCount(integrationColumns),
+      totalCount: integrationColumns.length,
       columns: integrationColumns,
     },
-  ]);
+  ];
+
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+    subject: true,
+    invitation: false,
+    jobInfo: false,
+    orderStatus: false,
+    billing: false,
+    integration: false,
+  });
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -248,15 +282,16 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
 
   // Get filtered sections for display
   const getFilteredSections = () => {
-    if (!searchQuery.trim()) return columnSections;
+    const currentSections = getColumnSections();
+    if (!searchQuery.trim()) return currentSections;
 
-    return columnSections
+    return currentSections
       .map((section) => {
         const filteredColumns = getFilteredColumns(section.columns);
         return {
           ...section,
           columns: filteredColumns,
-          isExpanded: filteredColumns.length > 0 ? true : section.isExpanded,
+          isExpanded: filteredColumns.length > 0 ? true : expandedSections[section.id],
         };
       })
       .filter((section) => section.columns.length > 0);
@@ -272,25 +307,32 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   };
 
   const collapseAll = () => {
-    setColumnSections((sections) =>
-      sections.map((section) => ({ ...section, isExpanded: false })),
-    );
+    setExpandedSections({
+      subject: false,
+      invitation: false,
+      jobInfo: false,
+      orderStatus: false,
+      billing: false,
+      integration: false,
+    });
   };
 
   const expandAll = () => {
-    setColumnSections((sections) =>
-      sections.map((section) => ({ ...section, isExpanded: true })),
-    );
+    setExpandedSections({
+      subject: true,
+      invitation: true,
+      jobInfo: true,
+      orderStatus: true,
+      billing: true,
+      integration: true,
+    });
   };
 
   const toggleSection = (sectionId: string) => {
-    setColumnSections((sections) =>
-      sections.map((section) =>
-        section.id === sectionId
-          ? { ...section, isExpanded: !section.isExpanded }
-          : section,
-      ),
-    );
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionId]: !prev[sectionId],
+    }));
   };
 
   const removeColumn = (columnId: string) => {
@@ -1140,7 +1182,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                             lineHeight: "18px",
                           }}
                         >
-                          {columnOrder.filter(col => col.isSelected).length} of{" "}
+                          {section.selectedCount} of{" "}
                           {searchQuery.trim()
                             ? section.columns.length
                             : section.totalCount}
@@ -1171,7 +1213,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                   </div>
 
                   {/* Expanded section content */}
-                  {section.isExpanded && section.columns.length > 0 && (
+                  {expandedSections[section.id] && section.columns.length > 0 && (
                     <div
                       style={{
                         display: "grid",
@@ -1183,8 +1225,9 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                     >
                       {section.columns.map((column) => {
                         const isVisible = isColumnVisible(column.id);
-                        const isDisabled = !isVisible;
-                        
+                        const isToggleable = isColumnToggleable(column.id);
+                        const isDisabled = !isToggleable;
+
                         return (
                           <div
                             key={column.id}
@@ -1214,13 +1257,13 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                                   background: isVisible
                                     ? "#344698"
                                     : "transparent",
-                                  cursor: isVisible ? "pointer" : "not-allowed",
+                                  cursor: isToggleable ? "pointer" : "not-allowed",
                                   display: "flex",
                                   alignItems: "center",
                                   justifyContent: "center",
                                 }}
                                 onClick={() => {
-                                  if (isVisible) {
+                                  if (isToggleable) {
                                     handleColumnToggle(column.id);
                                   }
                                 }}
