@@ -6546,7 +6546,6 @@ const InvitesAndOrders: React.FC = () => {
                                   borderBottom: "1px solid #E9EAEB",
                                   position: "relative",
                                   minWidth: 0,
-                                  overflow: "hidden",
                                 }}
                               >
                                 <Tooltip>
@@ -6565,7 +6564,10 @@ const InvitesAndOrders: React.FC = () => {
                                         color: "rgba(24,29,39,1)",
                                         lineHeight: "20px",
                                         position: "relative",
+                                        cursor: "default",
+                                        display: "block",
                                       }}
+                                      title={invite.email}
                                     >
                                       {highlightText(invite.email, searchQuery)}
                                     </div>
