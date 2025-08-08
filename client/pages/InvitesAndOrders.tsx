@@ -6545,16 +6545,12 @@ const InvitesAndOrders: React.FC = () => {
                                   alignItems: "center",
                                   borderBottom: "1px solid #E9EAEB",
                                   position: "relative",
-                                  minWidth: 0,
                                 }}
                               >
                                 <Tooltip>
                                   <TooltipTrigger asChild>
                                     <div
                                       style={{
-                                        width: "100%",
-                                        minWidth: 0,
-                                        maxWidth: "100%",
                                         overflow: "hidden",
                                         textOverflow: "ellipsis",
                                         whiteSpace: "nowrap",
@@ -6563,19 +6559,16 @@ const InvitesAndOrders: React.FC = () => {
                                         fontSize: "14px",
                                         color: "rgba(24,29,39,1)",
                                         lineHeight: "20px",
-                                        position: "relative",
-                                        cursor: "default",
-                                        display: "block",
+                                        flex: 1,
+                                        minWidth: 0,
                                       }}
-                                      title={invite.email}
                                     >
                                       {highlightText(invite.email, searchQuery)}
                                     </div>
                                   </TooltipTrigger>
                                   <TooltipContent
                                     side="bottom"
-                                    align="center"
-                                    sideOffset={8}
+                                    sideOffset={5}
                                     avoidCollisions={true}
                                     style={{
                                       backgroundColor: "#0A0D12",
@@ -6585,9 +6578,8 @@ const InvitesAndOrders: React.FC = () => {
                                       fontSize: "12px",
                                       fontWeight: 600,
                                       maxWidth: "300px",
-                                      zIndex: 999999,
+                                      zIndex: 50,
                                       wordBreak: "break-all",
-                                      position: "fixed",
                                     }}
                                   >
                                     {invite.email}
