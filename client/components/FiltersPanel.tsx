@@ -90,9 +90,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
         style={{
           display: "flex",
           width: "258px",
-          height: "auto",
-          minHeight: "600px",
-          maxHeight: "none",
+          height: "100%",
           flexDirection: "column",
           alignItems: "flex-start",
           position: "relative",
@@ -301,11 +299,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   value={filters.status}
                   onChange={(e) => handleFilterChange("status", e.target.value)}
                   style={{
-                    display: "flex",
                     height: "32px",
                     padding: "6px 8px",
-                    alignItems: "center",
-                    alignSelf: "stretch",
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
@@ -316,6 +311,11 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     outline: "none",
                     cursor: "pointer",
                     width: "100%",
+                    appearance: "none",
+                    backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg width=\'16\' height=\'16\' viewBox=\'0 0 16 16\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M4 6L8 10L12 6\' stroke=\'%23A4A7AE\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3e%3c/svg%3e")',
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "right 8px center",
+                    paddingRight: "32px",
                   }}
                 >
                   <option value="">Select Status</option>
@@ -383,11 +383,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   value={filters.typeOfPackage}
                   onChange={(e) => handleFilterChange("typeOfPackage", e.target.value)}
                   style={{
-                    display: "flex",
                     height: "32px",
                     padding: "6px 8px",
-                    alignItems: "center",
-                    alignSelf: "stretch",
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
@@ -398,6 +395,11 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     outline: "none",
                     cursor: "pointer",
                     width: "100%",
+                    appearance: "none",
+                    backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg width=\'16\' height=\'16\' viewBox=\'0 0 16 16\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M4 6L8 10L12 6\' stroke=\'%23A4A7AE\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3e%3c/svg%3e")',
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "right 8px center",
+                    paddingRight: "32px",
                   }}
                 >
                   <option value="">Select Filter</option>
@@ -465,11 +467,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   value={filters.i9Filled}
                   onChange={(e) => handleFilterChange("i9Filled", e.target.value)}
                   style={{
-                    display: "flex",
                     height: "32px",
                     padding: "6px 8px",
-                    alignItems: "center",
-                    alignSelf: "stretch",
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
@@ -480,6 +479,11 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     outline: "none",
                     cursor: "pointer",
                     width: "100%",
+                    appearance: "none",
+                    backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg width=\'16\' height=\'16\' viewBox=\'0 0 16 16\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M4 6L8 10L12 6\' stroke=\'%23A4A7AE\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3e%3c/svg%3e")',
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "right 8px center",
+                    paddingRight: "32px",
                   }}
                 >
                   <option value="">Select Filter</option>
@@ -547,11 +551,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   value={filters.activate}
                   onChange={(e) => handleFilterChange("activate", e.target.value)}
                   style={{
-                    display: "flex",
                     height: "32px",
                     padding: "6px 8px",
-                    alignItems: "center",
-                    alignSelf: "stretch",
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
@@ -562,6 +563,11 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     outline: "none",
                     cursor: "pointer",
                     width: "100%",
+                    appearance: "none",
+                    backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg width=\'16\' height=\'16\' viewBox=\'0 0 16 16\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M4 6L8 10L12 6\' stroke=\'%23A4A7AE\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3e%3c/svg%3e")',
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "right 8px center",
+                    paddingRight: "32px",
                   }}
                 >
                   <option value="">Select Filter</option>
@@ -629,11 +635,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   value={filters.ews}
                   onChange={(e) => handleFilterChange("ews", e.target.value)}
                   style={{
-                    display: "flex",
                     height: "32px",
                     padding: "6px 8px",
-                    alignItems: "center",
-                    alignSelf: "stretch",
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
@@ -644,6 +647,11 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                     outline: "none",
                     cursor: "pointer",
                     width: "100%",
+                    appearance: "none",
+                    backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg width=\'16\' height=\'16\' viewBox=\'0 0 16 16\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3cpath d=\'M4 6L8 10L12 6\' stroke=\'%23A4A7AE\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3e%3c/svg%3e")',
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "right 8px center",
+                    paddingRight: "32px",
                   }}
                 >
                   <option value="">Select Filter</option>
@@ -713,10 +721,9 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
                   style={{
                     display: "flex",
                     height: "32px",
-                    padding: "8px 12px",
+                    padding: "6px 8px",
                     alignItems: "center",
-                    gap: "8px",
-                    alignSelf: "stretch",
+                    justifyContent: "space-between",
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
