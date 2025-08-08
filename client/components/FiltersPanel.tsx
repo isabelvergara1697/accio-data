@@ -33,10 +33,10 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   const [localFilters, setLocalFilters] = useState<FilterState>(filters);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
 
-  // Sync local localFilters with parent localFilters
+  // Sync local filters with parent filters
   useEffect(() => {
-    setLocalFilters(localFilters);
-  }, [localFilters]);
+    setLocalFilters(filters);
+  }, [filters]);
   const [isTablet, setIsTablet] = useState(
     window.innerWidth >= 768 && window.innerWidth < 1024,
   );
