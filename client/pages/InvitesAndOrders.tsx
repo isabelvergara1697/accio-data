@@ -12,6 +12,7 @@ import InformationDrawer from "../components/ui/information-drawer";
 import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
 import FiltersPanel from "../components/FiltersPanel";
 import { MobileFiltersModal } from "../components/MobileFiltersModal";
+import { CustomizeColumnsModal } from "../components/CustomizeColumnsModal";
 import {
   TableViewsDropdown,
   TableView,
