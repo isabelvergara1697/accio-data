@@ -1364,7 +1364,7 @@ const InvitesAndOrders: React.FC = () => {
             }}
           >
             {/* Filters Panel */}
-            {showFiltersModal && (
+            {showFiltersModal && !isMobile && (
               <FiltersPanel
                 isOpen={showFiltersModal}
                 onClose={() => setShowFiltersModal(false)}
