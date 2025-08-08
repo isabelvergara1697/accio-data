@@ -154,63 +154,118 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "hireDate", name: "Hire Date", isSelected: false },
   ];
 
+  // All available columns for each section
+  const invitationPortalColumns = [
+    { id: "applicationFillLink", name: "Application Fill Link", isSelected: false, hasHelpIcon: true },
+    { id: "invitationStatus", name: "Invitation Status", isSelected: false, hasHelpIcon: true },
+    { id: "invitationNotes", name: "Invitation Notes", isSelected: false, hasHelpIcon: true },
+    { id: "collectDrugs", name: "Collect Drugs", isSelected: false, hasHelpIcon: true },
+    { id: "applicationDays", name: "Application Days", isSelected: false, hasHelpIcon: true },
+    { id: "inclusionEmail", name: "Inclusion Email", isSelected: false, hasHelpIcon: true },
+    { id: "verificationStatus", name: "Verification Status", isSelected: false },
+    { id: "lastEmailSent", name: "Last Email Sent", isSelected: false, hasHelpIcon: true },
+    { id: "lastEmailSentText", name: "Last SMS Text Sent", isSelected: false, hasHelpIcon: true },
+    { id: "timesEmailed", name: "Times Emailed Sent", isSelected: false, hasHelpIcon: true },
+    { id: "inclusionExpired", name: "Inclusion Expired", isSelected: false, hasHelpIcon: true },
+    { id: "smsTextSendGreen", name: "SMS Text Send Green", isSelected: false, hasHelpIcon: true },
+    { id: "portalAuthentication", name: "Portal Authentication", isSelected: false },
+    { id: "unsubscribed", name: "Unsubscribed", isSelected: false },
+  ];
+
+  const jobInformationColumns = [
+    { id: "applicantType", name: "Applicant Type", isSelected: false },
+    { id: "employmentStatus", name: "Employment Status", isSelected: false },
+    { id: "positionRequested", name: "Position Requested", isSelected: false },
+    { id: "managerName", name: "Manager Name", isSelected: false },
+    { id: "jobPurpose", name: "Job Purpose", isSelected: false },
+    { id: "jobCity", name: "Job City", isSelected: false },
+    { id: "jobState", name: "Job State", isSelected: false },
+    { id: "jobTitle", name: "Job Title", isSelected: false },
+    { id: "jobZip", name: "Job Zip", isSelected: false },
+  ];
+
+  const orderStatusColumns = [
+    { id: "status", name: "Status", isSelected: false, hasHelpIcon: true },
+    { id: "orderUpdate", name: "Order Update", isSelected: false, hasHelpIcon: true },
+    { id: "dispositionByComponentType", name: "Disposition by Component Type", isSelected: false, hasHelpIcon: true },
+    { id: "orderDate", name: "Order Date", isSelected: false },
+    { id: "methodReceivingRecommendation", name: "Method Receiving Recommendation", isSelected: false, hasHelpIcon: true },
+    { id: "flags", name: "Flags", isSelected: false, hasHelpIcon: true },
+    { id: "reportProgress", name: "Report Progress", isSelected: false, hasHelpIcon: true },
+    { id: "rankings", name: "Rankings", isSelected: false, hasHelpIcon: true },
+    { id: "applicationNumber", name: "Application Number", isSelected: false },
+  ];
+
+  const billingIdentifiersColumns = [
+    { id: "billingIdentifier1", name: "Billing Identifier 1", isSelected: false },
+    { id: "billingIdentifier2", name: "Billing Identifier 2", isSelected: false },
+    { id: "billingIdentifier3", name: "Billing Identifier 3", isSelected: false },
+    { id: "billingIdentifier4", name: "Billing Identifier 4", isSelected: false },
+    { id: "billingIdentifier5", name: "Billing Identifier 5", isSelected: false },
+    { id: "billingIdentifier6", name: "Billing Identifier 6", isSelected: false },
+    { id: "billingIdentifier7", name: "Billing Identifier 7", isSelected: false },
+    { id: "billingIdentifier8", name: "Billing Identifier 8", isSelected: false },
+    { id: "billingIdentifier9", name: "Billing Identifier 9", isSelected: false },
+    { id: "billingIdentifier10", name: "Billing Identifier 10", isSelected: false },
+  ];
+
+  const integrationColumns = [
+    { id: "outbackId", name: "Outback Id", isSelected: false },
+    { id: "outback2", name: "Outback 2", isSelected: false },
+    { id: "outback3", name: "Outback 3", isSelected: false },
+    { id: "remoteOrderNumber", name: "Remote Order Number", isSelected: false, hasHelpIcon: true },
+    { id: "activateOrder", name: "Activate Order", isSelected: false, hasHelpIcon: true },
+  ];
+
   // Column sections for the accordion
-  const [columnSections] = useState<ColumnSection[]>([
+  const [columnSections, setColumnSections] = useState<ColumnSection[]>([
     {
       id: "subject",
       name: "Subject / Applicant",
       isExpanded: true,
       selectedCount: 0,
-      totalCount: 50,
+      totalCount: 46,
       columns: subjectApplicantColumns,
     },
     {
       id: "invitation",
       name: "Invitation / Portal",
       isExpanded: false,
-      selectedCount: 4,
-      totalCount: 31,
-      columns: [],
-    },
-    {
-      id: "jobPortal",
-      name: "Job Portal",
-      isExpanded: false,
-      selectedCount: 2,
-      totalCount: 46,
-      columns: [],
+      selectedCount: 0,
+      totalCount: 14,
+      columns: invitationPortalColumns,
     },
     {
       id: "jobInfo",
       name: "Job Information",
       isExpanded: false,
-      selectedCount: 2,
-      totalCount: 42,
-      columns: [],
+      selectedCount: 0,
+      totalCount: 9,
+      columns: jobInformationColumns,
     },
     {
       id: "orderStatus",
       name: "Order Status",
       isExpanded: false,
-      selectedCount: 2,
-      totalCount: 19,
-      columns: [],
+      selectedCount: 0,
+      totalCount: 9,
+      columns: orderStatusColumns,
     },
     {
       id: "billing",
       name: "Billing Identifiers",
       isExpanded: false,
       selectedCount: 0,
-      totalCount: 22,
-      columns: [],
+      totalCount: 10,
+      columns: billingIdentifiersColumns,
     },
     {
       id: "integration",
-      name: "Integration",
+      name: "Integration Related",
       isExpanded: false,
       selectedCount: 0,
-      totalCount: 35,
-      columns: [],
+      totalCount: 5,
+      columns: integrationColumns,
     },
   ]);
 
@@ -222,12 +277,27 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     console.log("Reset to default clicked");
   };
 
-  const expandAll = () => {
-    console.log("Expand all clicked");
-  };
 
   const collapseAll = () => {
-    console.log("Collapse all clicked");
+    setColumnSections(sections =>
+      sections.map(section => ({ ...section, isExpanded: false }))
+    );
+  };
+
+  const expandAll = () => {
+    setColumnSections(sections =>
+      sections.map(section => ({ ...section, isExpanded: true }))
+    );
+  };
+
+  const toggleSection = (sectionId: string) => {
+    setColumnSections(sections =>
+      sections.map(section =>
+        section.id === sectionId
+          ? { ...section, isExpanded: !section.isExpanded }
+          : section
+      )
+    );
   };
 
   const removeColumn = (columnId: string) => {
@@ -837,6 +907,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
                     background: "#FFF",
                     cursor: "pointer",
                   }}
+                  onClick={() => toggleSection(section.id)}
                 >
                   <div
                     style={{
