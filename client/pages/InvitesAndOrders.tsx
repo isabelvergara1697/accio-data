@@ -2005,8 +2005,8 @@ const InvitesAndOrders: React.FC = () => {
                                 <div
                                   style={{
                                     position: "absolute",
-                                    top: "8px",
-                                    left: "32px",
+                                    top: "-6px",
+                                    right: "-6px",
                                     display: "flex",
                                     padding: "2px 8px",
                                     alignItems: "center",
