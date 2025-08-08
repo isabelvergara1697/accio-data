@@ -226,17 +226,17 @@ const InvitesAndOrders: React.FC = () => {
         sortField: "completion",
       },
       i9Filled: {
-        width: "78px",
+        width: "88px",
         label: "I-9 Filled",
         sortField: "i9Filled",
       },
       activate: {
-        width: "72px",
+        width: "82px",
         label: "Activate",
         sortField: "activated",
       },
       ews: {
-        width: "52px",
+        width: "62px",
         label: "EWS",
         sortField: "ews",
       },
