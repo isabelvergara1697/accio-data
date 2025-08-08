@@ -520,14 +520,10 @@ const InvitesAndOrders: React.FC = () => {
     },
   ];
 
-  // Component for status badges with dynamic truncation detection - LATEST FIXES APPLIED
+  // Component for status badges with simplified CSS truncation
   const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({
     status,
   }) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const textRef = useRef<HTMLSpanElement>(null);
-    const [isTruncated, setIsTruncated] = useState(false);
-
     const statusConfig = {
       waiting: { label: "Waiting", color: "blue-light" },
       unsolicited: { label: "Unsolicited", color: "gray-blue" },
@@ -555,41 +551,11 @@ const InvitesAndOrders: React.FC = () => {
 
     const colors = colorMap[config.color as keyof typeof colorMap];
 
-    const checkTruncation = useCallback(() => {
-      if (textRef.current && containerRef.current) {
-        // Check if the text content exceeds the container width
-        const textElement = textRef.current;
-        const containerElement = containerRef.current;
-
-        // Create a temporary element to measure the actual text width
-        const tempSpan = document.createElement('span');
-        tempSpan.style.font = window.getComputedStyle(textElement).font;
-        tempSpan.style.visibility = 'hidden';
-        tempSpan.style.position = 'absolute';
-        tempSpan.textContent = config.label;
-        document.body.appendChild(tempSpan);
-
-        const textWidth = tempSpan.offsetWidth;
-        const availableWidth = containerElement.offsetWidth - 16; // Subtract padding (2px * 8px = 16px)
-
-        setIsTruncated(textWidth > availableWidth);
-        document.body.removeChild(tempSpan);
-      }
-    }, [config.label]);
-
-    useEffect(() => {
-      // Check truncation after component mounts and when window resizes
-      const timer = setTimeout(checkTruncation, 50);
-      window.addEventListener("resize", checkTruncation);
-      return () => {
-        clearTimeout(timer);
-        window.removeEventListener("resize", checkTruncation);
-      };
-    }, [checkTruncation]);
+    // Check if this status typically needs truncation
+    const needsTooltip = config.label.length > 10;
 
     const badgeElement = (
       <div
-        ref={containerRef}
         style={{
           display: "inline-flex",
           padding: "2px 8px",
@@ -598,12 +564,12 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          maxWidth: "100px", // Increased from 72px to accommodate more text
-          minWidth: "fit-content",
+          width: "80px", // Fixed width to prevent overflow
+          maxWidth: "80px",
+          minWidth: "80px",
         }}
       >
         <span
-          ref={textRef}
           style={{
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -616,7 +582,7 @@ const InvitesAndOrders: React.FC = () => {
             fontWeight: 500,
             lineHeight: "18px",
             display: "block",
-            maxWidth: "100%",
+            width: "100%",
           }}
         >
           {config.label}
@@ -624,7 +590,7 @@ const InvitesAndOrders: React.FC = () => {
       </div>
     );
 
-    if (isTruncated) {
+    if (needsTooltip) {
       return (
         <Tooltip>
           <TooltipTrigger asChild>{badgeElement}</TooltipTrigger>
