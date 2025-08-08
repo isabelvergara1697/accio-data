@@ -153,7 +153,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
           alignItems: "center",
           width: "100%",
           borderRadius: "8px",
-          border: isOpen ? "1px solid #344698" : "1px solid #D5D7DA",
+          border: isOpen ? "2px solid #344698" : "1px solid #D5D7DA",
           background: "#FFF",
           boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
           fontSize: "14px",
@@ -175,7 +175,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
             left: 0,
             width: "100%",
             height: "100%",
-            padding: "6px 32px 6px 8px",
+            padding: isOpen ? "5px 32px 5px 7px" : "6px 32px 6px 8px",
             border: "none",
             outline: "none",
             background: "transparent",
@@ -194,7 +194,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
           <span
             style={{
               flex: 1,
-              padding: "6px 8px",
+              padding: isOpen ? "5px 7px" : "6px 8px",
               textAlign: "left",
               overflow: "hidden",
               textOverflow: "ellipsis",
