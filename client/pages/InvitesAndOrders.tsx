@@ -1645,6 +1645,68 @@ const InvitesAndOrders: React.FC = () => {
                               </div>
                             )}
 
+                            {/* Desktop: Close Filters Button - when filters are open */}
+                            {showFiltersModal && (
+                              <button
+                                onClick={() => setShowFiltersModal(false)}
+                                onMouseEnter={() => setHoveredButton("close-filters")}
+                                onMouseLeave={() => setHoveredButton(null)}
+                                style={{
+                                  display: "flex",
+                                  minHeight: "36px",
+                                  padding: "6px 12px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "6px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: hoveredButton === "close-filters" ? "#F5F5F5" : "#FFF",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
+                                  flex: "0 0 auto",
+                                }}
+                              >
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M11.3333 4.66675L4.66666 11.3334M4.66666 4.66675L11.3333 11.3334"
+                                    stroke="#717680"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 600,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Close Filters
+                                  </span>
+                                </div>
+                              </button>
+                            )}
+
                             {/* Desktop: Action Buttons */}
                             <div
                               style={{
