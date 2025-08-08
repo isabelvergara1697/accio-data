@@ -36,9 +36,9 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
     };
 
     checkMobile();
-    window.addEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
 
-    return () => window.removeEventListener('resize', checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   if (!showAdvancedSearch) return null;
@@ -64,8 +64,8 @@ export const AdvancedSearchDropdown: React.FC<AdvancedSearchDropdownProps> = ({
           right: "20px",
           width: "auto",
           top: "auto",
-          marginTop: "12px"
-        })
+          marginTop: "12px",
+        }),
       }}
     >
       <div

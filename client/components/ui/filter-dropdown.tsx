@@ -31,7 +31,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
 
   // Filter options based on search query
   const filteredOptions = options.filter((option) =>
-    option.label.toLowerCase().includes(searchQuery.toLowerCase())
+    option.label.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   // Handle clicking outside to close dropdown
@@ -188,7 +188,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
           }}
           placeholder={placeholder}
         />
-        
+
         {/* Display text when not typing */}
         {!isTyping && (
           <span
@@ -288,8 +288,8 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
                     selectedValues.length === filteredOptions.length
                       ? "#344698"
                       : selectedValues.length > 0
-                      ? "#E6E9F4"
-                      : "#FFF",
+                        ? "#E6E9F4"
+                        : "#FFF",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

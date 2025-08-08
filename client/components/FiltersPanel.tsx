@@ -25,7 +25,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
   isOpen,
   onClose,
   onFiltersChange,
-  initialFilters
+  initialFilters,
 }) => {
   const [filters, setFilters] = useState<FilterState>(initialFilters);
 
@@ -63,11 +63,17 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
     { value: "immunization-records", label: "Immunization Records" },
     { value: "just-mvr", label: "Just MVR" },
     { value: "hasc-contractor", label: "HASC Contractor" },
-    { value: "applicant-provided-address-only", label: "Applicant provided address only" },
+    {
+      value: "applicant-provided-address-only",
+      label: "Applicant provided address only",
+    },
     { value: "employment-only", label: "Employment Only" },
     { value: "sap-10", label: "SAP 10" },
     { value: "identity-check-package", label: "Identity Check Package" },
-    { value: "identity-check-test-package-includes-product", label: "Identity Check Test Package Includes Product" },
+    {
+      value: "identity-check-test-package-includes-product",
+      label: "Identity Check Test Package Includes Product",
+    },
     { value: "standard-with-edu-and-emp", label: "Standard with EDU and EMP" },
     { value: "executive-plus", label: "Executive Plus" },
   ];
@@ -278,7 +284,9 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
               label="Status"
               options={statusOptions}
               selectedValues={filters.status}
-              onSelectionChange={(values) => handleFilterChange("status", values)}
+              onSelectionChange={(values) =>
+                handleFilterChange("status", values)
+              }
               placeholder="Select Status"
               searchDisabled={true}
             />
@@ -290,7 +298,9 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
               label="Type of Package"
               options={packageTypeOptions}
               selectedValues={filters.typeOfPackage}
-              onSelectionChange={(values) => handleFilterChange("typeOfPackage", values)}
+              onSelectionChange={(values) =>
+                handleFilterChange("typeOfPackage", values)
+              }
               placeholder="Select Filter"
             />
           </div>
@@ -301,7 +311,9 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
               label="I-9 Filled"
               options={i9FilledOptions}
               selectedValues={filters.i9Filled}
-              onSelectionChange={(values) => handleFilterChange("i9Filled", values)}
+              onSelectionChange={(values) =>
+                handleFilterChange("i9Filled", values)
+              }
               placeholder="Select Filter"
             />
           </div>
@@ -312,7 +324,9 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
               label="Activate"
               options={activateOptions}
               selectedValues={filters.activate}
-              onSelectionChange={(values) => handleFilterChange("activate", values)}
+              onSelectionChange={(values) =>
+                handleFilterChange("activate", values)
+              }
               placeholder="Select Filter"
             />
           </div>
