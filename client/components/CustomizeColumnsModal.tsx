@@ -404,6 +404,31 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
 
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Filter columns based on search query
+  const getFilteredColumns = (columns: Column[]) => {
+    if (!searchQuery.trim()) return columns;
+    return columns.filter((column) =>
+      column.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
+
+  // Get filtered sections for display
+  const getFilteredSections = () => {
+    if (!searchQuery.trim()) return columnSections;
+
+    return columnSections.map((section) => {
+      const filteredColumns = getFilteredColumns(section.columns);
+      return {
+        ...section,
+        columns: filteredColumns,
+        isExpanded: filteredColumns.length > 0 ? true : section.isExpanded,
+      };
+    }).filter((section) => section.columns.length > 0);
+  };
+
+  const filteredSections = getFilteredSections();
+  const hasSearchResults = searchQuery.trim() ? filteredSections.length > 0 : true;
+
   if (!isOpen) return null;
 
   const resetToDefault = () => {
