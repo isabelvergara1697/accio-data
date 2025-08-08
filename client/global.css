@@ -48,6 +48,53 @@
     max-height: 24px;
   }
 
+  /* CSS-only tooltip for email column */
+  .email-tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0A0D12;
+    color: #FFF;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    z-index: 999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    pointer-events: none;
+    margin-bottom: 8px;
+    max-width: 300px;
+    word-break: break-all;
+    white-space: normal;
+  }
+
+  .email-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #0A0D12;
+    z-index: 999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    pointer-events: none;
+    margin-bottom: 3px;
+  }
+
+  .email-tooltip:hover::before,
+  .email-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
   /* Container-aware SVGs */
   .responsive-svg.container-fit {
     width: 100%;
