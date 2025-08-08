@@ -308,7 +308,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
     return `${formatSingleDate(startDate)} – ${formatSingleDate(endDate)}`;
   };
 
-  if (!isOpen) return null;
+  if (!isVisible) return null;
 
   return (
     <>
