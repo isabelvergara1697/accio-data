@@ -113,7 +113,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
       <div
         style={{
           display: "flex",
-          width: "258px",
+          width: "268px",
           height: "100%",
           flexDirection: "column",
           alignItems: "flex-start",
@@ -128,7 +128,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
             height: "72px",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "20px",
+            gap: "16px",
             flexShrink: 0,
             alignSelf: "stretch",
             borderRadius: "12px 12px 0 0",
@@ -256,10 +256,10 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
         <div
           style={{
             display: "flex",
-            padding: "12px",
+            padding: "16px",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "16px",
+            gap: "20px",
             flex: "1 1 auto",
             alignSelf: "stretch",
             borderRadius: "0px 0px 12px 12px",
