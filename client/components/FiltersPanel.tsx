@@ -8,11 +8,11 @@ interface FiltersPanelProps {
 }
 
 interface FilterState {
-  status: string;
-  typeOfPackage: string;
-  i9Filled: string;
-  activate: string;
-  ews: string;
+  status: string[];
+  typeOfPackage: string[];
+  i9Filled: string[];
+  activate: string[];
+  ews: string[];
   dateRange: {
     start: Date;
     end: Date;
