@@ -172,6 +172,17 @@ const InvitesAndOrders: React.FC = () => {
   const [tableViews, setTableViews] = useState<TableView[]>([
     { id: "default", name: "Default", isDefault: true },
   ]);
+  const [appliedFilters, setAppliedFilters] = useState({
+    status: [] as string[],
+    typeOfPackage: [] as string[],
+    i9Filled: [] as string[],
+    activate: [] as string[],
+    ews: [] as string[],
+    dateRange: {
+      start: new Date(),
+      end: new Date(),
+    },
+  });
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
   const mobileAdvancedSearchRef = useRef<HTMLDivElement>(null);
@@ -799,17 +810,54 @@ const InvitesAndOrders: React.FC = () => {
     }
   };
 
-  // Filter data based on search query
+  // Filter data based on search query and applied filters
   const filteredData = React.useMemo(() => {
-    if (!searchQuery.trim()) return invitesData;
+    let data = [...invitesData];
 
-    return invitesData.filter(
-      (invite) =>
-        invite.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        invite.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        invite.email.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
-  }, [searchQuery]);
+    // Apply search filter
+    if (searchQuery.trim()) {
+      data = data.filter(
+        (invite) =>
+          invite.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          invite.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          invite.email.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+    }
+
+    // Apply status filter
+    if (appliedFilters.status.length > 0) {
+      data = data.filter((invite) => appliedFilters.status.includes(invite.status));
+    }
+
+    // Apply I-9 Filled filter
+    if (appliedFilters.i9Filled.length > 0) {
+      data = data.filter((invite) => {
+        const i9Status = invite.i9Filled ? "yes" : "no";
+        return appliedFilters.i9Filled.includes(i9Status);
+      });
+    }
+
+    // Apply Activate filter
+    if (appliedFilters.activate.length > 0) {
+      data = data.filter((invite) => {
+        const activateStatus = invite.activated ? "yes" : "no";
+        return appliedFilters.activate.includes(activateStatus);
+      });
+    }
+
+    // Apply EWS filter
+    if (appliedFilters.ews.length > 0) {
+      data = data.filter((invite) => {
+        const ewsStatus = invite.ews ? "yes" : "no";
+        return appliedFilters.ews.includes(ewsStatus);
+      });
+    }
+
+    // Note: Type of Package filter would need to be implemented when package type data is added to the invite records
+    // Note: Date Range filter would need to be implemented when date fields are clarified
+
+    return data;
+  }, [searchQuery, appliedFilters]);
 
   // Update sortedData to use filteredData instead of invitesData
   const sortedData = React.useMemo(() => {
@@ -1298,6 +1346,8 @@ const InvitesAndOrders: React.FC = () => {
               <FiltersPanel
                 isOpen={showFiltersModal}
                 onClose={() => setShowFiltersModal(false)}
+                onFiltersChange={setAppliedFilters}
+                initialFilters={appliedFilters}
               />
             )}
 
