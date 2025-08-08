@@ -160,7 +160,7 @@ const DesktopCalendar: React.FC<DesktopCalendarProps> = ({
       const viewportWidth = window.innerWidth;
       const adjustedLeft = Math.max(16, Math.min(left, viewportWidth - calendarRect.width - 16));
 
-      setPosition({ top, left });
+      setPosition({ top, left: adjustedLeft });
     }
   };
 
