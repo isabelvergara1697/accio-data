@@ -71,19 +71,16 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({ isOpen, onClose }) => {
   ];
 
   const i9FilledOptions = [
-    { value: "all", label: "All" },
     { value: "yes", label: "Yes" },
     { value: "no", label: "No" },
   ];
 
   const activateOptions = [
-    { value: "all", label: "All" },
     { value: "yes", label: "Yes" },
     { value: "no", label: "No" },
   ];
 
   const ewsOptions = [
-    { value: "all", label: "All" },
     { value: "yes", label: "Yes" },
     { value: "no", label: "No" },
   ];
