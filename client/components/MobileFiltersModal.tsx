@@ -127,7 +127,10 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
     onFiltersChange(clearedFilters);
   };
 
-  const removeFilter = (filterKey: keyof FilterState, valueToRemove: string) => {
+  const removeFilter = (
+    filterKey: keyof FilterState,
+    valueToRemove: string,
+  ) => {
     if (filterKey === "dateRange") {
       const newFilters = {
         ...localFilters,
@@ -147,7 +150,10 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
     }
   };
 
-  const getFilterLabel = (filterKey: keyof FilterState, value: string): string => {
+  const getFilterLabel = (
+    filterKey: keyof FilterState,
+    value: string,
+  ): string => {
     const optionsMap = {
       status: statusOptions,
       typeOfPackage: packageTypeOptions,
@@ -232,8 +238,18 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
 
   const formatDateRange = (startDate: Date, endDate: Date): string => {
     const months = [
-      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
     ];
 
     const formatSingleDate = (date: Date) => {
@@ -597,7 +613,9 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
               label="Status"
               options={statusOptions}
               selectedValues={localFilters.status}
-              onSelectionChange={(values) => handleFilterChange("status", values)}
+              onSelectionChange={(values) =>
+                handleFilterChange("status", values)
+              }
               placeholder="Select Filter"
               searchDisabled={true}
             />
@@ -638,7 +656,9 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
               label="I-9 Filled"
               options={i9FilledOptions}
               selectedValues={localFilters.i9Filled}
-              onSelectionChange={(values) => handleFilterChange("i9Filled", values)}
+              onSelectionChange={(values) =>
+                handleFilterChange("i9Filled", values)
+              }
               placeholder="Select Filter"
             />
           </div>
@@ -657,7 +677,9 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
               label="Activate"
               options={activateOptions}
               selectedValues={localFilters.activate}
-              onSelectionChange={(values) => handleFilterChange("activate", values)}
+              onSelectionChange={(values) =>
+                handleFilterChange("activate", values)
+              }
               placeholder="Select Filter"
             />
           </div>
@@ -752,7 +774,10 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
                       lineHeight: "24px",
                     }}
                   >
-                    {formatDateRange(localFilters.dateRange.start, localFilters.dateRange.end)}
+                    {formatDateRange(
+                      localFilters.dateRange.start,
+                      localFilters.dateRange.end,
+                    )}
                   </div>
                 </div>
                 <svg
