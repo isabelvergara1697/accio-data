@@ -580,9 +580,8 @@ const InvitesAndOrders: React.FC = () => {
           border: `2px solid ${colors.border}`,
           background: colors.bg,
           position: "relative",
-          width: badgeWidth,
-          minWidth: badgeWidth,
-          maxWidth: badgeWidth,
+          minWidth: minWidth,
+          width: "auto",
           boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
         }}
       >
