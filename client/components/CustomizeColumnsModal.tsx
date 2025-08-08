@@ -39,6 +39,27 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   const [draggedColumn, setDraggedColumn] = useState<string | null>(null);
   const [dragOverColumn, setDragOverColumn] = useState<string | null>(null);
 
+  // Helper function to check if a column is currently visible
+  const isColumnVisible = (columnId: string): boolean => {
+    return columnOrder.some(col => col.id === columnId && col.isSelected);
+  };
+
+  // Helper function to get the current column by ID
+  const getCurrentColumn = (columnId: string) => {
+    return columnOrder.find(col => col.id === columnId);
+  };
+
+  // Handler for toggling column visibility
+  const handleColumnToggle = (columnId: string) => {
+    const updatedColumns = columnOrder.map(col => {
+      if (col.id === columnId) {
+        return { ...col, isSelected: !col.isSelected };
+      }
+      return col;
+    });
+    onColumnOrderChange(updatedColumns);
+  };
+
   // All available columns for Subject / Applicant section
   const subjectApplicantColumns = [
     { id: "name", name: "Name", isSelected: false },
