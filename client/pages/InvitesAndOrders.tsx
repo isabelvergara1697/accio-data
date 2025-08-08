@@ -540,43 +540,8 @@ const InvitesAndOrders: React.FC = () => {
     const needsFlexLayout = status === "waiting-for-recruitee" || status === "expires-today";
     const needsTooltip = needsFlexLayout; // Only long statuses get tooltips
 
-    const badgeElement = needsFlexLayout ? (
-      // For long statuses: use flex layout with truncation matching Figma exactly
-      <div
-        style={{
-          display: "flex",
-          padding: "2px 8px",
-          alignItems: "center",
-          flex: "1 0 0",
-          borderRadius: "9999px",
-          border: `1px solid ${config.border}`,
-          background: config.bg,
-          position: "relative",
-        }}
-      >
-        <div
-          style={{
-            display: "-webkit-box",
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 1,
-            flex: "1 0 0",
-            overflow: "hidden",
-            color: config.text,
-            textAlign: "center",
-            textOverflow: "ellipsis",
-            fontFamily: "Public Sans",
-            fontSize: "12px",
-            fontStyle: "normal",
-            fontWeight: 500,
-            lineHeight: "18px",
-            position: "relative",
-          }}
-        >
-          {config.label}
-        </div>
-      </div>
-    ) : (
-      // For short statuses: simple layout matching Figma - no extra space
+    // Use consistent display: "inline-flex" for both to fix alignment
+    const badgeElement = (
       <div
         style={{
           display: "inline-flex",
@@ -586,6 +551,11 @@ const InvitesAndOrders: React.FC = () => {
           border: `1px solid ${config.border}`,
           background: config.bg,
           position: "relative",
+          // Only apply flex and width constraints for long statuses that need truncation
+          ...(needsFlexLayout ? {
+            flex: "1 0 0",
+            maxWidth: "100%",
+          } : {}),
         }}
       >
         <div
@@ -597,6 +567,14 @@ const InvitesAndOrders: React.FC = () => {
             fontWeight: 500,
             lineHeight: "18px",
             position: "relative",
+            // Apply truncation only for long statuses
+            ...(needsFlexLayout ? {
+              flex: "1 0 0",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              textAlign: "center",
+            } : {}),
           }}
         >
           {config.label}
@@ -604,35 +582,38 @@ const InvitesAndOrders: React.FC = () => {
       </div>
     );
 
-    // Add tooltip only for long status names that get truncated - fix z-index and container issues
+    // Add tooltip only for long status names that get truncated
     if (needsTooltip) {
       return (
-        <div style={{ position: "relative", display: "flex", flex: "1 0 0" }}>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div style={{ position: "relative", flex: "1 0 0", display: "flex" }}>
-                {badgeElement}
-              </div>
-            </TooltipTrigger>
-            <TooltipContent
-              side="top"
-              align="start"
-              sideOffset={5}
-              style={{
-                backgroundColor: "#0A0D12",
-                color: "#FFF",
-                padding: "8px 12px",
-                borderRadius: "8px",
-                fontSize: "12px",
-                fontWeight: 600,
-                maxWidth: "200px",
-                zIndex: 9999,
-              }}
-            >
-              {config.label}
-            </TooltipContent>
-          </Tooltip>
-        </div>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div style={{
+              position: "relative",
+              display: "flex",
+              flex: "1 0 0",
+              minWidth: 0, // Allow shrinking
+            }}>
+              {badgeElement}
+            </div>
+          </TooltipTrigger>
+          <TooltipContent
+            side="top"
+            align="start"
+            sideOffset={5}
+            style={{
+              backgroundColor: "#0A0D12",
+              color: "#FFF",
+              padding: "8px 12px",
+              borderRadius: "8px",
+              fontSize: "12px",
+              fontWeight: 600,
+              maxWidth: "200px",
+              zIndex: 99999,
+            }}
+          >
+            {config.label}
+          </TooltipContent>
+        </Tooltip>
       );
     }
 
