@@ -525,115 +525,24 @@ const InvitesAndOrders: React.FC = () => {
     status,
   }) => {
     console.log("🔥 StatusBadge called with status:", status);
-    const statusConfig = {
-      waiting: { label: "Waiting", color: "blue-light" },
-      unsolicited: { label: "Unsolicited", color: "gray-blue" },
-      canceled: { label: "Canceled", color: "orange" },
-      expired: { label: "Expired", color: "gray" },
-      "waiting-for-recruitee": {
-        label: "Waiting for Recruitee",
-        color: "error",
-      },
-      "expires-today": { label: "Expires Today", color: "warning" },
-      reviewed: { label: "Reviewed", color: "pink" },
-      archived: { label: "Archived", color: "gray" },
-    };
-
-    const config = statusConfig[status];
-    const colorMap = {
-      "blue-light": { bg: "#F0F9FF", border: "#B9E6FE", text: "#026AA2" },
-      "gray-blue": { bg: "#F8F9FC", border: "#D5D9EB", text: "#363F72" },
-      gray: { bg: "#FAFAFA", border: "#E9EAEB", text: "#414651" },
-      orange: { bg: "#FEF6EE", border: "#F9DBAF", text: "#B93815" },
-      error: { bg: "#FEF3F2", border: "#FECDCA", text: "#B42318" },
-      warning: { bg: "#FFFAEB", border: "#FEDF89", text: "#B54708" },
-      pink: { bg: "#FDF2FA", border: "#FCCEEE", text: "#C11574" },
-    };
-
-    const colors = colorMap[config.color as keyof typeof colorMap];
-
-    // Define minimum widths to prevent text cropping
-    const getMinWidth = () => {
-      switch (status) {
-        case "waiting-for-recruitee":
-          return "140px";
-        case "expires-today":
-          return "100px";
-        case "unsolicited":
-          return "88px";
-        default:
-          return "fit-content";
-      }
-    };
-
-    const isLongStatus = status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
-    const minWidth = getMinWidth();
-
-    const badgeElement = (
+    // Simplified test version
+    return (
       <div
         style={{
-          display: "inline-flex",
-          padding: "2px 8px",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "9999px",
-          border: `1px solid ${colors.border}`,
-          background: "lime",
-          position: "relative",
-          minWidth: minWidth,
-          width: "auto",
+          display: "inline-block",
+          padding: "4px 12px",
+          backgroundColor: "red",
+          color: "white",
+          borderRadius: "20px",
+          fontSize: "12px",
+          fontWeight: "bold",
+          border: "2px solid blue",
+          minWidth: status === "waiting-for-recruitee" ? "150px" : status === "expires-today" ? "110px" : status === "unsolicited" ? "90px" : "auto"
         }}
       >
-        <span
-          style={{
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-            color: colors.text,
-            textAlign: "center",
-            fontFamily: "Public Sans",
-            fontSize: "12px",
-            fontStyle: "normal",
-            fontWeight: 500,
-            lineHeight: "18px",
-            display: "inline-block",
-            width: "100%",
-          }}
-        >
-          {config.label}
-        </span>
+        TEST: {status}
       </div>
     );
-
-    if (isLongStatus) {
-      return (
-        <Tooltip>
-          <TooltipTrigger asChild>{badgeElement}</TooltipTrigger>
-          <TooltipContent
-            side="top"
-            align="start"
-            sideOffset={5}
-            style={{
-              maxWidth: "200px",
-              wordWrap: "break-word",
-              backgroundColor: "#0A0D12",
-              color: "#FFF",
-              padding: "8px 12px",
-              borderRadius: "8px",
-              fontSize: "12px",
-              fontWeight: 600,
-              lineHeight: "18px",
-              boxShadow:
-                "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
-            }}
-          >
-            {config.label}
-          </TooltipContent>
-        </Tooltip>
-      );
-    }
-
-    return badgeElement;
   };
 
   const ProgressBar = ({ percentage }: { percentage: number }) => (
