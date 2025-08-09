@@ -4141,7 +4141,7 @@ const InvitesAndOrders: React.FC = () => {
                                     background:
                                       hoveredButton === "download" ||
                                       showDownloadDropdown
-                                        ? "#F5F5F5"
+                                        ? "#FDFDFD"
                                         : "#FFF",
                                     width: "100%",
                                     boxShadow:
