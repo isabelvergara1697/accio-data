@@ -4247,7 +4247,7 @@ const InvitesAndOrders: React.FC = () => {
                                         ? "#ECEEF9"
                                         : hoveredButton === "filters" ||
                                             showMobileFiltersModal
-                                          ? "#F5F5F5"
+                                          ? "#FDFDFD"
                                           : "#FFF",
                                     width: "100%",
                                     boxShadow:
