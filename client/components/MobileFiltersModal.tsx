@@ -750,57 +750,63 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
               </div>
               <div
                 style={{
+                  position: "relative",
                   display: "flex",
-                  padding: "10px 14px",
+                  height: "32px",
                   alignItems: "center",
-                  gap: "8px",
-                  alignSelf: "stretch",
+                  width: "100%",
                   borderRadius: "8px",
                   border: "1px solid #D5D7DA",
                   background: "#FFF",
                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  fontSize: "14px",
+                  fontFamily: "Public Sans",
+                  cursor: "pointer",
                 }}
               >
+                <span
+                  style={{
+                    flex: 1,
+                    padding: "6px 8px",
+                    textAlign: "left",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                    fontSize: "14px",
+                    fontFamily: "Public Sans",
+                    color: "#414651",
+                  }}
+                >
+                  {formatDateRange(
+                    localFilters.dateRange.start,
+                    localFilters.dateRange.end,
+                  )}
+                </span>
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: "8px",
-                    flex: "1 0 0",
+                    justifyContent: "center",
+                    width: "32px",
+                    height: "100%",
                   }}
                 >
-                  <div
-                    style={{
-                      flex: "1 0 0",
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "16px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "24px",
-                    }}
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    {formatDateRange(
-                      localFilters.dateRange.start,
-                      localFilters.dateRange.end,
-                    )}
-                  </div>
+                    <path
+                      d="M4 6L8 10L12 6"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6 9L12 15L18 9"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
               </div>
             </div>
           </div>
