@@ -245,7 +245,7 @@ export const ActionsPanel: React.FC<ActionsPanelProps> = ({
                   style={{
                     fontFamily:
                       "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 700,
+                    fontWeight: 600,
                     fontSize: "14px",
                     color: "rgba(65,70,81,1)",
                   }}
@@ -306,7 +306,7 @@ export const ActionsPanel: React.FC<ActionsPanelProps> = ({
                 style={{
                   fontFamily:
                     "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                  fontWeight: 700,
+                  fontWeight: 600,
                   fontSize: "14px",
                   color: "rgba(83,88,98,1)",
                 }}
