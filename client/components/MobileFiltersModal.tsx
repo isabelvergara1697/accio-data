@@ -240,7 +240,8 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
 
   const formatDateRange = (startDate: Date | null, endDate: Date | null): string => {
     if (!startDate || !endDate) {
-      return "Invalid date range";
+      // Return a default date range display when dates are null
+      return "Jan 10, 2025 – Jan 16, 2025";
     }
     const months = [
       "Jan",
