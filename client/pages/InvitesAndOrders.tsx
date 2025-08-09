@@ -6697,15 +6697,17 @@ const InvitesAndOrders: React.FC = () => {
       />
 
       {/* Selection Badge - positioned as per Figma design */}
-      {selectedItems.length > 0 && showActionsPanel && (
+      {selectedItems.length > 0 && (
         <div
           style={{
             position: "fixed",
             right: "16px",
             top: "16px",
             zIndex: 9999,
-            backgroundColor: "rgba(255, 0, 0, 0.1)", // Temporary debug background
-            padding: "2px",
+            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            padding: "4px",
+            borderRadius: "8px",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
           }}
         >
           <SelectionBadge
