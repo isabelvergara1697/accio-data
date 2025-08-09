@@ -3093,7 +3093,7 @@ const InvitesAndOrders: React.FC = () => {
                                         onMouseEnter={(e) => {
                                           e.currentTarget.querySelector(
                                             ".content",
-                                          ).style.backgroundColor = "#F5F5F5";
+                                          ).style.backgroundColor = "#FDFDFD";
                                         }}
                                         onMouseLeave={(e) => {
                                           e.currentTarget.querySelector(
