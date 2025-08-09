@@ -38,7 +38,7 @@ export const SelectionBadge: React.FC<SelectionBadgeProps> = ({
             fontFamily: "Public Sans",
             fontSize: "12px",
             fontStyle: "normal",
-            fontWeight: 500,
+            fontWeight: 400,
             lineHeight: "18px",
             position: "relative",
           }}
