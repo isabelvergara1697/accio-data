@@ -2128,7 +2128,7 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Desktop: Search */}
-                            {!showFiltersModal && (
+                            {!showFiltersModal && !showActionsPanel && (
                               <div
                                 className="search-container"
                                 style={{
@@ -6695,12 +6695,21 @@ const InvitesAndOrders: React.FC = () => {
         onResetToDefault={() => setColumnOrder(defaultColumnOrder)}
       />
 
-      {/* Selection Badge */}
+      {/* Selection Badge - positioned within the main container */}
       {selectedItems.length > 0 && (
-        <SelectionBadge
-          count={selectedItems.length}
-          onClear={handleClearSelection}
-        />
+        <div
+          style={{
+            position: "fixed",
+            top: "220px",
+            right: "48px",
+            zIndex: 1000,
+          }}
+        >
+          <SelectionBadge
+            count={selectedItems.length}
+            onClear={handleClearSelection}
+          />
+        </div>
       )}
     </div>
   );
