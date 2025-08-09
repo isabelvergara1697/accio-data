@@ -704,11 +704,10 @@ const InvitesAndOrders: React.FC = () => {
 
     Object.keys(appliedFilters).forEach((key) => {
       if (key === "dateRange") {
-        const defaultStart = new Date(2025, 0, 10);
-        const defaultEnd = new Date(2025, 0, 16);
+        // Only count date range as applied if both start and end dates are set
         if (
-          appliedFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
-          appliedFilters.dateRange.end.getTime() !== defaultEnd.getTime()
+          appliedFilters.dateRange.start !== null &&
+          appliedFilters.dateRange.end !== null
         ) {
           count++;
         }
