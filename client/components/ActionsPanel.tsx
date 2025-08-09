@@ -121,7 +121,7 @@ export const ActionsPanel: React.FC<ActionsPanelProps> = ({
                       style={{
                         fontFamily:
                           "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 700,
+                        fontWeight: 600,
                         fontSize: "18px",
                         color: "rgba(24,29,39,1)",
                       }}
@@ -268,16 +268,18 @@ export const ActionsPanel: React.FC<ActionsPanelProps> = ({
             gap: "4px",
             alignSelf: "stretch",
             borderRadius: "8px",
+            border: "1px solid #D5D7DA",
+            background: "#FFF",
+            boxShadow:
+              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
             cursor: "pointer",
-            background: "transparent",
-            border: "none",
             transition: "background-color 0.2s ease",
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.background = "#F5F5F5";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.background = "#FFF";
           }}
         >
           <div
