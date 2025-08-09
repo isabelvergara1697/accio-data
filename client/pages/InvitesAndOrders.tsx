@@ -18,6 +18,8 @@ import {
   TableViewsDropdown,
   TableView,
 } from "../components/ui/table-views-dropdown";
+import { ActionsPanel } from "../components/ActionsPanel";
+import { SelectionBadge } from "../components/SelectionBadge";
 
 interface InviteData {
   id: string;
