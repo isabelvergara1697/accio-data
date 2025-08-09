@@ -183,7 +183,7 @@ export const ActionsPanel: React.FC<ActionsPanelProps> = ({
           padding: "12px 12px 16px 12px",
           flexDirection: "column",
           alignItems: "flex-start",
-          gap: "16px",
+          gap: "12px",
           flex: "1 0 0",
           alignSelf: "stretch",
           borderRadius: "0px 0px 12px 12px",
@@ -195,67 +195,89 @@ export const ActionsPanel: React.FC<ActionsPanelProps> = ({
           position: "relative",
         }}
       >
-        {actions.map((action) => (
-          <button
-            key={action.id}
-            onClick={() => onAction(action.id)}
-            style={{
-              display: "flex",
-              minHeight: "36px",
-              padding: "6px 8px",
-              alignItems: "center",
-              gap: "4px",
-              alignSelf: "stretch",
-              borderRadius: "8px",
-              border: "1px solid #D5D7DA",
-              background: "#FFF",
-              boxShadow:
-                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-              cursor: "pointer",
-              transition: "background-color 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F5F5F5";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "#FFF";
-            }}
-          >
+        {/* Action buttons in rows */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+            width: "100%",
+          }}
+        >
+          {Array.from({ length: Math.ceil(actions.length / 2) }, (_, rowIndex) => (
             <div
+              key={rowIndex}
               style={{
                 display: "flex",
-                padding: "0 2px",
-                justifyContent: "center",
-                alignItems: "center",
-                position: "relative",
+                gap: "8px",
+                width: "100%",
               }}
             >
-              <div
-                style={{
-                  color: "#414651",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                  position: "relative",
-                }}
-              >
-                <span
+              {actions.slice(rowIndex * 2, rowIndex * 2 + 2).map((action) => (
+                <button
+                  key={action.id}
+                  onClick={() => onAction(action.id)}
                   style={{
-                    fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 600,
-                    fontSize: "14px",
-                    color: "rgba(65,70,81,1)",
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    alignItems: "center",
+                    gap: "4px",
+                    flex: "1",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                    transition: "background-color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F5F5F5";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFF";
                   }}
                 >
-                  {action.label}
-                </span>
-              </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "18px",
+                        position: "relative",
+                        textAlign: "center",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 600,
+                          fontSize: "12px",
+                          color: "rgba(65,70,81,1)",
+                        }}
+                      >
+                        {action.label}
+                      </span>
+                    </div>
+                  </div>
+                </button>
+              ))}
             </div>
-          </button>
-        ))}
+          ))}
+        </div>
         
         {/* Save PDF Button */}
         <button
