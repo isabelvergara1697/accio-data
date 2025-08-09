@@ -268,7 +268,7 @@ export const ActionsPanel: React.FC<ActionsPanelProps> = ({
             </div>
           </button>
         ))}
-        
+
         {/* Save PDF Button */}
         <button
           onClick={() => onAction("save-pdf")}

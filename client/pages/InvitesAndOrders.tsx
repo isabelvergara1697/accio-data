@@ -1393,7 +1393,10 @@ const InvitesAndOrders: React.FC = () => {
   };
 
   const handleAction = (action: string) => {
-    console.log(`Action ${action} clicked for ${selectedItems.length} items:`, selectedItems);
+    console.log(
+      `Action ${action} clicked for ${selectedItems.length} items:`,
+      selectedItems,
+    );
     // Here you would implement the actual action logic
   };
 
@@ -1665,7 +1668,6 @@ const InvitesAndOrders: React.FC = () => {
         position: "relative",
       }}
     >
-
       <Sidebar
         isDesktop={isDesktop}
         isMobile={isMobile}
@@ -1934,9 +1936,10 @@ const InvitesAndOrders: React.FC = () => {
           <div
             style={{
               display: "flex",
-              flexDirection: (showFiltersModal || showActionsPanel) ? "row" : "column",
+              flexDirection:
+                showFiltersModal || showActionsPanel ? "row" : "column",
               alignItems: "flex-start",
-              gap: (showFiltersModal || showActionsPanel) ? "16px" : "24px",
+              gap: showFiltersModal || showActionsPanel ? "16px" : "24px",
               flex: "1 0 0",
               alignSelf: "stretch",
               position: "relative",
@@ -1947,14 +1950,16 @@ const InvitesAndOrders: React.FC = () => {
             }}
           >
             {/* Filters Panel */}
-            {showFiltersModal && !showActionsPanel && (isDesktop || isTablet) && (
-              <FiltersPanel
-                isVisible={showFiltersModal}
-                onClose={() => setShowFiltersModal(false)}
-                onFiltersChange={setAppliedFilters}
-                filters={appliedFilters}
-              />
-            )}
+            {showFiltersModal &&
+              !showActionsPanel &&
+              (isDesktop || isTablet) && (
+                <FiltersPanel
+                  isVisible={showFiltersModal}
+                  onClose={() => setShowFiltersModal(false)}
+                  onFiltersChange={setAppliedFilters}
+                  filters={appliedFilters}
+                />
+              )}
 
             {/* Actions Panel */}
             {showActionsPanel && (isDesktop || isTablet) && (
@@ -1978,11 +1983,13 @@ const InvitesAndOrders: React.FC = () => {
                 position: "relative",
                 minWidth: 0, // Allow container to shrink below content size
                 width:
-                  (showFiltersModal || showActionsPanel) && (isDesktop || isTablet)
+                  (showFiltersModal || showActionsPanel) &&
+                  (isDesktop || isTablet)
                     ? `calc(100% - 268px - 16px)`
                     : "100%",
                 maxWidth:
-                  (showFiltersModal || showActionsPanel) && (isDesktop || isTablet)
+                  (showFiltersModal || showActionsPanel) &&
+                  (isDesktop || isTablet)
                     ? `calc(100% - 268px - 16px)`
                     : "100%",
               }}
@@ -2170,7 +2177,9 @@ const InvitesAndOrders: React.FC = () => {
                                           color: "rgba(65,70,81,1)",
                                         }}
                                       >
-                                        {selectedItems.length} Invite{selectedItems.length !== 1 ? "s" : ""} Selected
+                                        {selectedItems.length} Invite
+                                        {selectedItems.length !== 1 ? "s" : ""}{" "}
+                                        Selected
                                       </span>
                                     </div>
                                   </div>
@@ -2510,7 +2519,10 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Desktop: Action Buttons */}
                             <div
                               style={{
-                                display: (showFiltersModal || showActionsPanel) ? "none" : "flex",
+                                display:
+                                  showFiltersModal || showActionsPanel
+                                    ? "none"
+                                    : "flex",
                                 alignItems: "center",
                                 gap: "12px",
                                 position: "relative",
@@ -4304,259 +4316,202 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "12px",
                                     position: "relative",
                                   }}
-                              >
-                                {/* View Toggle */}
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "flex-start",
-                                    borderRadius: "8px",
-                                    border: "1px solid #D5D7DA",
-                                    boxShadow:
-                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    position: "relative",
-                                    minWidth: "88px",
-                                    flexShrink: 0,
-                                  }}
                                 >
-                                  {/* Table View Button */}
-                                  <button
-                                    onClick={() => setTableView("table")}
+                                  {/* View Toggle */}
+                                  <div
                                     style={{
                                       display: "flex",
-                                      minHeight: "40px",
-                                      padding: "8px 12px",
-                                      justifyContent: "center",
-                                      alignItems: "center",
-                                      gap: "6px",
-                                      borderRight: "1px solid #D5D7DA",
-                                      background:
-                                        tableView === "table"
-                                          ? "#ECEEF9"
-                                          : "#FFF",
-                                      borderTopLeftRadius: "8px",
-                                      borderBottomLeftRadius: "8px",
-                                      cursor: "pointer",
+                                      alignItems: "flex-start",
+                                      borderRadius: "8px",
+                                      border: "1px solid #D5D7DA",
+                                      boxShadow:
+                                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                       position: "relative",
+                                      minWidth: "88px",
+                                      flexShrink: 0,
                                     }}
                                   >
-                                    <svg
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        d="M3 9L21 9M9 3L9 21M7.8 3H16.2C17.8802 3 18.7202 3 19.362 3.32698C19.9265 3.6146 20.3854 4.07354 20.673 4.63803C21 5.27976 21 6.11984 21 7.8V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V7.8C3 6.11984 3 5.27976 3.32698 4.63803C3.6146 4.07354 4.07354 3.6146 4.63803 3.32698C5.27976 3 6.11984 3 7.8 3Z"
-                                        stroke={
-                                          tableView === "table"
-                                            ? "#344698"
-                                            : "#A4A7AE"
-                                        }
-                                        strokeWidth="1.66667"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      />
-                                    </svg>
-                                  </button>
-
-                                  {/* Rows View Button */}
-                                  <button
-                                    onClick={() => setTableView("rows")}
-                                    style={{
-                                      display: "flex",
-                                      minHeight: "40px",
-                                      padding: "8px 12px",
-                                      justifyContent: "center",
-                                      alignItems: "center",
-                                      gap: "6px",
-                                      background:
-                                        tableView === "rows"
-                                          ? "#ECEEF9"
-                                          : "#FFF",
-                                      borderTopRightRadius: "8px",
-                                      borderBottomRightRadius: "8px",
-                                      cursor: "pointer",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    <svg
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        d="M17.8 10C18.9201 10 19.4802 10 19.908 9.78201C20.2843 9.59027 20.5903 9.28431 20.782 8.90798C21 8.48016 21 7.92011 21 6.8V6.2C21 5.0799 21 4.51984 20.782 4.09202C20.5903 3.7157 20.2843 3.40973 19.908 3.21799C19.4802 3 18.9201 3 17.8 3L6.2 3C5.0799 3 4.51984 3 4.09202 3.21799C3.71569 3.40973 3.40973 3.71569 3.21799 4.09202C3 4.51984 3 5.07989 3 6.2L3 6.8C3 7.9201 3 8.48016 3.21799 8.90798C3.40973 9.28431 3.71569 9.59027 4.09202 9.78201C4.51984 10 5.07989 10 6.2 10L17.8 10Z"
-                                        stroke={
-                                          tableView === "rows"
-                                            ? "#344698"
-                                            : "#A4A7AE"
-                                        }
-                                        strokeWidth="1.66667"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      />
-                                      <path
-                                        d="M17.8 21C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V17.2C21 16.0799 21 15.5198 20.782 15.092C20.5903 14.7157 20.2843 14.4097 19.908 14.218C19.4802 14 18.9201 14 17.8 14L6.2 14C5.0799 14 4.51984 14 4.09202 14.218C3.71569 14.4097 3.40973 14.7157 3.21799 15.092C3 15.5198 3 16.0799 3 17.2L3 17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8Z"
-                                        stroke={
-                                          tableView === "rows"
-                                            ? "#344698"
-                                            : "#A4A7AE"
-                                        }
-                                        strokeWidth="1.66667"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      />
-                                    </svg>
-                                  </button>
-                                </div>
-
-                                {/* Search Input */}
-                                <div
-                                  className="search-container"
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: "8px",
-                                    flex: "1 0 0",
-                                    height: "40px",
-                                    borderRadius: "8px",
-                                    border: isSearchActive
-                                      ? "2px solid #34479A"
-                                      : "1px solid #D5D7DA",
-                                    background: "#FFF",
-                                    boxShadow:
-                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    padding: isSearchActive ? "7px" : "8px",
-                                    position: "relative",
-                                    boxSizing: "border-box",
-                                  }}
-                                >
-                                  <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
-                                      stroke="#A4A7AE"
-                                      strokeWidth="1.66667"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                  <input
-                                    type="text"
-                                    placeholder={
-                                      isSearchActive
-                                        ? ""
-                                        : "Search by Name, SSN, State.."
-                                    }
-                                    value={searchQuery}
-                                    onChange={handleSearchChange}
-                                    onFocus={() => setIsSearchActive(true)}
-                                    onBlur={() =>
-                                      setIsSearchActive(
-                                        searchQuery.length > 0 ||
-                                          showAdvancedSearch,
-                                      )
-                                    }
-                                    style={{
-                                      border: "none",
-                                      outline: "none",
-                                      background: "transparent",
-                                      flex: "1 0 0",
-                                      color: isSearchActive
-                                        ? "#181D27"
-                                        : "#717680",
-                                      fontFamily:
-                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                      fontSize: "14px",
-                                      fontWeight: isSearchActive ? 500 : 400,
-                                      lineHeight: "20px",
-                                      overflow: "hidden",
-                                      textOverflow: "ellipsis",
-                                      whiteSpace: "nowrap",
-                                    }}
-                                  />
-                                  {isSearchActive && (
-                                    <div
+                                    {/* Table View Button */}
+                                    <button
+                                      onClick={() => setTableView("table")}
                                       style={{
                                         display: "flex",
+                                        minHeight: "40px",
+                                        padding: "8px 12px",
+                                        justifyContent: "center",
                                         alignItems: "center",
-                                        gap: "2px",
+                                        gap: "6px",
+                                        borderRight: "1px solid #D5D7DA",
+                                        background:
+                                          tableView === "table"
+                                            ? "#ECEEF9"
+                                            : "#FFF",
+                                        borderTopLeftRadius: "8px",
+                                        borderBottomLeftRadius: "8px",
+                                        cursor: "pointer",
+                                        position: "relative",
                                       }}
                                     >
-                                      {/* X Button */}
-                                      <button
-                                        onMouseDown={(e) => {
-                                          e.preventDefault();
-                                          clearSearch();
-                                        }}
-                                        onMouseEnter={() =>
-                                          setHoveredSearchButton("clear")
-                                        }
-                                        onMouseLeave={() =>
-                                          setHoveredSearchButton(null)
-                                        }
-                                        style={{
-                                          display: "flex",
-                                          width: "24px",
-                                          height: "24px",
-                                          padding: "4px",
-                                          justifyContent: "center",
-                                          alignItems: "center",
-                                          borderRadius: "6px",
-                                          border: "none",
-                                          background:
-                                            hoveredSearchButton === "clear"
-                                              ? "#F5F5F5"
-                                              : "transparent",
-                                          cursor: "pointer",
-                                        }}
+                                      <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
                                       >
-                                        <svg
-                                          width="16"
-                                          height="16"
-                                          viewBox="0 0 16 16"
-                                          fill="none"
-                                          xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                          <path
-                                            d="M11.3333 4.66675L4.66666 11.3334M4.66666 4.66675L11.3333 11.3334"
-                                            stroke="#A4A7AE"
-                                            strokeWidth="1.66667"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                          />
-                                        </svg>
-                                      </button>
+                                        <path
+                                          d="M3 9L21 9M9 3L9 21M7.8 3H16.2C17.8802 3 18.7202 3 19.362 3.32698C19.9265 3.6146 20.3854 4.07354 20.673 4.63803C21 5.27976 21 6.11984 21 7.8V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V7.8C3 6.11984 3 5.27976 3.32698 4.63803C3.6146 4.07354 4.07354 3.6146 4.63803 3.32698C5.27976 3 6.11984 3 7.8 3Z"
+                                          stroke={
+                                            tableView === "table"
+                                              ? "#344698"
+                                              : "#A4A7AE"
+                                          }
+                                          strokeWidth="1.66667"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </button>
 
-                                      {/* Divider */}
+                                    {/* Rows View Button */}
+                                    <button
+                                      onClick={() => setTableView("rows")}
+                                      style={{
+                                        display: "flex",
+                                        minHeight: "40px",
+                                        padding: "8px 12px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "6px",
+                                        background:
+                                          tableView === "rows"
+                                            ? "#ECEEF9"
+                                            : "#FFF",
+                                        borderTopRightRadius: "8px",
+                                        borderBottomRightRadius: "8px",
+                                        cursor: "pointer",
+                                        position: "relative",
+                                      }}
+                                    >
+                                      <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M17.8 10C18.9201 10 19.4802 10 19.908 9.78201C20.2843 9.59027 20.5903 9.28431 20.782 8.90798C21 8.48016 21 7.92011 21 6.8V6.2C21 5.0799 21 4.51984 20.782 4.09202C20.5903 3.7157 20.2843 3.40973 19.908 3.21799C19.4802 3 18.9201 3 17.8 3L6.2 3C5.0799 3 4.51984 3 4.09202 3.21799C3.71569 3.40973 3.40973 3.71569 3.21799 4.09202C3 4.51984 3 5.07989 3 6.2L3 6.8C3 7.9201 3 8.48016 3.21799 8.90798C3.40973 9.28431 3.71569 9.59027 4.09202 9.78201C4.51984 10 5.07989 10 6.2 10L17.8 10Z"
+                                          stroke={
+                                            tableView === "rows"
+                                              ? "#344698"
+                                              : "#A4A7AE"
+                                          }
+                                          strokeWidth="1.66667"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                        <path
+                                          d="M17.8 21C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V17.2C21 16.0799 21 15.5198 20.782 15.092C20.5903 14.7157 20.2843 14.4097 19.908 14.218C19.4802 14 18.9201 14 17.8 14L6.2 14C5.0799 14 4.51984 14 4.09202 14.218C3.71569 14.4097 3.40973 14.7157 3.21799 15.092C3 15.5198 3 16.0799 3 17.2L3 17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21H17.8Z"
+                                          stroke={
+                                            tableView === "rows"
+                                              ? "#344698"
+                                              : "#A4A7AE"
+                                          }
+                                          strokeWidth="1.66667"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </button>
+                                  </div>
+
+                                  {/* Search Input */}
+                                  <div
+                                    className="search-container"
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "8px",
+                                      flex: "1 0 0",
+                                      height: "40px",
+                                      borderRadius: "8px",
+                                      border: isSearchActive
+                                        ? "2px solid #34479A"
+                                        : "1px solid #D5D7DA",
+                                      background: "#FFF",
+                                      boxShadow:
+                                        "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      padding: isSearchActive ? "7px" : "8px",
+                                      position: "relative",
+                                      boxSizing: "border-box",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M14 14L11.6667 11.6667M13.3333 7.66667C13.3333 10.7963 10.7963 13.3333 7.66667 13.3333C4.53705 13.3333 2 10.7963 2 7.66667C2 4.53705 4.53705 2 7.66667 2C10.7963 2 13.3333 4.53705 13.3333 7.66667Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.66667"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                    <input
+                                      type="text"
+                                      placeholder={
+                                        isSearchActive
+                                          ? ""
+                                          : "Search by Name, SSN, State.."
+                                      }
+                                      value={searchQuery}
+                                      onChange={handleSearchChange}
+                                      onFocus={() => setIsSearchActive(true)}
+                                      onBlur={() =>
+                                        setIsSearchActive(
+                                          searchQuery.length > 0 ||
+                                            showAdvancedSearch,
+                                        )
+                                      }
+                                      style={{
+                                        border: "none",
+                                        outline: "none",
+                                        background: "transparent",
+                                        flex: "1 0 0",
+                                        color: isSearchActive
+                                          ? "#181D27"
+                                          : "#717680",
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontWeight: isSearchActive ? 500 : 400,
+                                        lineHeight: "20px",
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                        whiteSpace: "nowrap",
+                                      }}
+                                    />
+                                    {isSearchActive && (
                                       <div
                                         style={{
-                                          width: "1px",
-                                          height: "24px",
-                                          background: "#E9EAEB",
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "2px",
                                         }}
-                                      />
-
-                                      {/* Advanced Search Button */}
-                                      <div style={{ position: "relative" }}>
+                                      >
+                                        {/* X Button */}
                                         <button
                                           onMouseDown={(e) => {
                                             e.preventDefault();
-                                            setShowAdvancedSearch(
-                                              !showAdvancedSearch,
-                                            );
+                                            clearSearch();
                                           }}
                                           onMouseEnter={() =>
-                                            setHoveredSearchButton("advanced")
+                                            setHoveredSearchButton("clear")
                                           }
                                           onMouseLeave={() =>
                                             setHoveredSearchButton(null)
@@ -4571,8 +4526,7 @@ const InvitesAndOrders: React.FC = () => {
                                             borderRadius: "6px",
                                             border: "none",
                                             background:
-                                              showAdvancedSearch ||
-                                              hoveredSearchButton === "advanced"
+                                              hoveredSearchButton === "clear"
                                                 ? "#F5F5F5"
                                                 : "transparent",
                                             cursor: "pointer",
@@ -4586,7 +4540,7 @@ const InvitesAndOrders: React.FC = () => {
                                             xmlns="http://www.w3.org/2000/svg"
                                           >
                                             <path
-                                              d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
+                                              d="M11.3333 4.66675L4.66666 11.3334M4.66666 4.66675L11.3333 11.3334"
                                               stroke="#A4A7AE"
                                               strokeWidth="1.66667"
                                               strokeLinecap="round"
@@ -4594,28 +4548,91 @@ const InvitesAndOrders: React.FC = () => {
                                             />
                                           </svg>
                                         </button>
-                                      </div>
 
-                                      {/* Tablet Advanced Search Dropdown - positioned relative to search bar */}
-                                      <AdvancedSearchDropdown
-                                        showAdvancedSearch={showAdvancedSearch}
-                                        advancedSearchForm={advancedSearchForm}
-                                        focusedAdvancedField={
-                                          focusedAdvancedField
-                                        }
-                                        onFieldChange={
-                                          handleAdvancedSearchChange
-                                        }
-                                        onFieldFocus={setFocusedAdvancedField}
-                                        onClear={clearAdvancedSearch}
-                                        onSearch={handleAdvancedSearch}
-                                        dropdownRef={tabletAdvancedSearchRef}
-                                        style={{
-                                          right: "0",
-                                          left: "0",
-                                          width: "auto",
-                                        }}
-                                      />
+                                        {/* Divider */}
+                                        <div
+                                          style={{
+                                            width: "1px",
+                                            height: "24px",
+                                            background: "#E9EAEB",
+                                          }}
+                                        />
+
+                                        {/* Advanced Search Button */}
+                                        <div style={{ position: "relative" }}>
+                                          <button
+                                            onMouseDown={(e) => {
+                                              e.preventDefault();
+                                              setShowAdvancedSearch(
+                                                !showAdvancedSearch,
+                                              );
+                                            }}
+                                            onMouseEnter={() =>
+                                              setHoveredSearchButton("advanced")
+                                            }
+                                            onMouseLeave={() =>
+                                              setHoveredSearchButton(null)
+                                            }
+                                            style={{
+                                              display: "flex",
+                                              width: "24px",
+                                              height: "24px",
+                                              padding: "4px",
+                                              justifyContent: "center",
+                                              alignItems: "center",
+                                              borderRadius: "6px",
+                                              border: "none",
+                                              background:
+                                                showAdvancedSearch ||
+                                                hoveredSearchButton ===
+                                                  "advanced"
+                                                  ? "#F5F5F5"
+                                                  : "transparent",
+                                              cursor: "pointer",
+                                            }}
+                                          >
+                                            <svg
+                                              width="16"
+                                              height="16"
+                                              viewBox="0 0 16 16"
+                                              fill="none"
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <path
+                                                d="M2 5.33325L10 5.33325M10 5.33325C10 6.43782 10.8954 7.33325 12 7.33325C13.1046 7.33325 14 6.43782 14 5.33325C14 4.22868 13.1046 3.33325 12 3.33325C10.8954 3.33325 10 4.22868 10 5.33325ZM6 10.6666L14 10.6666M6 10.6666C6 11.7712 5.10457 12.6666 4 12.6666C2.89543 12.6666 2 11.7712 2 10.6666C2 9.56202 2.89543 8.66659 4 8.66659C5.10457 8.66659 6 9.56202 6 10.6666Z"
+                                                stroke="#A4A7AE"
+                                                strokeWidth="1.66667"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                              />
+                                            </svg>
+                                          </button>
+                                        </div>
+
+                                        {/* Tablet Advanced Search Dropdown - positioned relative to search bar */}
+                                        <AdvancedSearchDropdown
+                                          showAdvancedSearch={
+                                            showAdvancedSearch
+                                          }
+                                          advancedSearchForm={
+                                            advancedSearchForm
+                                          }
+                                          focusedAdvancedField={
+                                            focusedAdvancedField
+                                          }
+                                          onFieldChange={
+                                            handleAdvancedSearchChange
+                                          }
+                                          onFieldFocus={setFocusedAdvancedField}
+                                          onClear={clearAdvancedSearch}
+                                          onSearch={handleAdvancedSearch}
+                                          dropdownRef={tabletAdvancedSearchRef}
+                                          style={{
+                                            right: "0",
+                                            left: "0",
+                                            width: "auto",
+                                          }}
+                                        />
                                       </div>
                                     )}
                                   </div>
@@ -5825,12 +5842,11 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "flex-start",
                                 alignSelf: "stretch",
                                 position: "relative",
-                                background:
-                                  selectedItems.includes(invite.id)
+                                background: selectedItems.includes(invite.id)
+                                  ? "#F5F5F5"
+                                  : hoveredRowId === invite.id
                                     ? "#F5F5F5"
-                                    : hoveredRowId === invite.id
-                                      ? "#F5F5F5"
-                                      : "transparent",
+                                    : "transparent",
                                 transition: "background-color 0.15s ease",
                                 cursor: "pointer",
                               }}
