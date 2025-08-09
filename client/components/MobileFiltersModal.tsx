@@ -238,7 +238,10 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
     return getAppliedFilters().length > 0;
   };
 
-  const formatDateRange = (startDate: Date, endDate: Date): string => {
+  const formatDateRange = (startDate: Date | null, endDate: Date | null): string => {
+    if (!startDate || !endDate) {
+      return "Invalid date range";
+    }
     const months = [
       "Jan",
       "Feb",
