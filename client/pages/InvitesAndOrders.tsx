@@ -4014,7 +4014,7 @@ const InvitesAndOrders: React.FC = () => {
                                 position: "relative",
                               }}
                             >
-                              {/* Filters Button */}
+                              {/* Customize Button */}
                               <div
                                 style={{
                                   position: "relative",
@@ -4023,12 +4023,10 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() =>
-                                    setShowMobileFiltersModal(
-                                      !showMobileFiltersModal,
-                                    )
+                                    setShowCustomizeColumnsModal(true)
                                   }
                                   onMouseEnter={() =>
-                                    setHoveredButton("filters")
+                                    setHoveredButton("customize")
                                   }
                                   onMouseLeave={() => setHoveredButton(null)}
                                   style={{
@@ -4039,19 +4037,11 @@ const InvitesAndOrders: React.FC = () => {
                                     alignItems: "center",
                                     gap: "4px",
                                     borderRadius: "8px",
-                                    border:
-                                      hasAppliedFilters() &&
-                                      !showMobileFiltersModal
-                                        ? "1px solid #34479A"
-                                        : "1px solid #D5D7DA",
+                                    border: "1px solid #D5D7DA",
                                     background:
-                                      hasAppliedFilters() &&
-                                      !showMobileFiltersModal
-                                        ? "#ECEEF9"
-                                        : hoveredButton === "filters" ||
-                                            showMobileFiltersModal
-                                          ? "#F5F5F5"
-                                          : "#FFF",
+                                      hoveredButton === "customize"
+                                        ? "#F5F5F5"
+                                        : "#FFF",
                                     width: "100%",
                                     boxShadow:
                                       "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
@@ -4062,18 +4052,20 @@ const InvitesAndOrders: React.FC = () => {
                                   <svg
                                     width="16"
                                     height="16"
-                                    viewBox="0 0 17 16"
+                                    viewBox="0 0 16 16"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <path
-                                      d="M3.83333 14L3.83333 10M3.83333 10C4.56971 10 5.16667 9.40305 5.16667 8.66667C5.16667 7.93029 4.56971 7.33333 3.83333 7.33333C3.09695 7.33333 2.5 7.93029 2.5 8.66667C2.5 9.40305 3.09695 10 3.83333 10ZM3.83333 4.66667V2M8.5 14V10M8.5 4.66667V2M8.5 4.66667C7.76362 4.66667 7.16667 5.26362 7.16667 6C7.16667 6.73638 7.76362 7.33333 8.5 7.33333C9.23638 7.33333 9.83333 6.73638 9.83333 6C9.83333 5.26362 9.23638 4.66667 8.5 4.66667ZM13.1667 14V11.3333M13.1667 11.3333C13.903 11.3333 14.5 10.7364 14.5 10C14.5 9.26362 13.903 8.66667 13.1667 8.66667C12.4303 8.66667 11.8333 9.26362 11.8333 10C11.8333 10.7364 12.4303 11.3333 13.1667 11.3333ZM13.1667 6V2"
-                                      stroke={
-                                        hasAppliedFilters() &&
-                                        !showMobileFiltersModal
-                                          ? "#344698"
-                                          : "#A4A7AE"
-                                      }
+                                      d="M4.53333 2H4.13333C3.3866 2 3.01323 2 2.72801 2.14532C2.47713 2.27316 2.27316 2.47713 2.14532 2.72801C2 3.01323 2 3.3866 2 4.13333V11.8667C2 12.6134 2 12.9868 2.14532 13.272C2.27316 13.5229 2.47713 13.7268 2.72801 13.8547C3.01323 14 3.3866 14 4.13333 14H4.53333C5.28007 14 5.65344 14 5.93865 13.8547C6.18954 13.7268 6.39351 13.5229 6.52134 13.272C6.66667 12.9868 6.66667 12.6134 6.66667 11.8667V4.13333C6.66667 3.3866 6.66667 3.01323 6.52134 2.72801C6.39351 2.47713 6.18954 2.27316 5.93865 2.14532C5.65344 2 5.28007 2 4.53333 2Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                    <path
+                                      d="M11.8667 2H11.4667C10.7199 2 10.3466 2 10.0613 2.14532C9.81046 2.27316 9.60649 2.47713 9.47866 2.72801C9.33333 3.01323 9.33333 3.3866 9.33333 4.13333V11.8667C9.33333 12.6134 9.33333 12.9868 9.47866 13.272C9.60649 13.5229 9.81046 13.7268 10.0613 13.8547C10.3466 14 10.7199 14 11.4667 14H11.8667C12.6134 14 12.9868 14 13.272 13.8547C13.5229 13.7268 13.7268 13.5229 13.8547 13.272C14 12.9868 14 12.6134 14 11.8667V4.13333C14 3.3866 14 3.01323 13.8547 2.72801C13.7268 2.47713 13.5229 2.27316 13.272 2.14532C12.9868 2 12.6134 2 11.8667 2Z"
+                                      stroke="#A4A7AE"
                                       strokeWidth="1.66667"
                                       strokeLinecap="round"
                                       strokeLinejoin="round"
@@ -4108,55 +4100,16 @@ const InvitesAndOrders: React.FC = () => {
                                         style={{
                                           fontFamily:
                                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                          fontWeight: 600,
+                                          fontWeight: 700,
                                           fontSize: "14px",
-                                          color:
-                                            hasAppliedFilters() &&
-                                            !showMobileFiltersModal
-                                              ? "rgba(39,53,114,1)"
-                                              : "rgba(65,70,81,1)",
+                                          color: "rgba(65,70,81,1)",
                                         }}
                                       >
-                                        Filters
+                                        Customize
                                       </span>
                                     </div>
                                   </div>
                                 </button>
-
-                                {/* Filter Count Badge */}
-                                {hasAppliedFilters() &&
-                                  !showMobileFiltersModal && (
-                                    <div
-                                      style={{
-                                        position: "absolute",
-                                        top: "-6px",
-                                        right: "-10px",
-                                        display: "flex",
-                                        padding: "2px 8px",
-                                        alignItems: "center",
-                                        borderRadius: "9999px",
-                                        border: "1px solid #B3BCE5",
-                                        background: "#ECEEF9",
-                                        minWidth: "20px",
-                                        justifyContent: "center",
-                                        zIndex: 10,
-                                      }}
-                                    >
-                                      <div
-                                        style={{
-                                          color: "#273572",
-                                          textAlign: "center",
-                                          fontFamily: "Public Sans",
-                                          fontSize: "12px",
-                                          fontStyle: "normal",
-                                          fontWeight: 500,
-                                          lineHeight: "18px",
-                                        }}
-                                      >
-                                        {getAppliedFiltersCount()}
-                                      </div>
-                                    </div>
-                                  )}
                               </div>
 
                               {/* Download Button */}
@@ -4188,7 +4141,7 @@ const InvitesAndOrders: React.FC = () => {
                                     background:
                                       hoveredButton === "download" ||
                                       showDownloadDropdown
-                                        ? "#FDFDFD"
+                                        ? "#F5F5F5"
                                         : "#FFF",
                                     width: "100%",
                                     boxShadow:
@@ -4200,12 +4153,12 @@ const InvitesAndOrders: React.FC = () => {
                                   <svg
                                     width="16"
                                     height="16"
-                                    viewBox="0 0 16 16"
+                                    viewBox="0 0 17 16"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <path
-                                      d="M14 10V10.8C14 11.9201 14 12.4802 13.782 12.908C13.5903 13.2843 13.2843 13.5903 12.908 13.782C12.4802 14 11.9201 14 10.8 14H5.2C4.07989 14 3.51984 14 3.09202 13.782C2.71569 13.5903 2.40973 13.2843 2.21799 12.908C2 12.4802 2 11.9201 2 10.8V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
+                                      d="M14.25 10V10.8C14.25 11.9201 14.25 12.4802 14.032 12.908C13.8403 13.2843 13.5343 13.5903 13.158 13.782C12.7302 14 12.1701 14 11.05 14H5.45C4.32989 14 3.76984 14 3.34202 13.782C2.96569 13.5903 2.65973 13.2843 2.46799 12.908C2.25 12.4802 2.25 11.9201 2.25 10.8V10M11.5833 6.66667L8.25 10M8.25 10L4.91667 6.66667M8.25 10V2"
                                       stroke="#A4A7AE"
                                       strokeWidth="1.66667"
                                       strokeLinecap="round"
@@ -4233,7 +4186,7 @@ const InvitesAndOrders: React.FC = () => {
                                         style={{
                                           fontFamily:
                                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                          fontWeight: 600,
+                                          fontWeight: 700,
                                           fontSize: "14px",
                                           color: "rgba(65,70,81,1)",
                                         }}
