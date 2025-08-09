@@ -6701,9 +6701,11 @@ const InvitesAndOrders: React.FC = () => {
         <div
           style={{
             position: "fixed",
-            right: "32px",
-            top: "32px",
-            zIndex: 1000,
+            right: "16px",
+            top: "16px",
+            zIndex: 9999,
+            backgroundColor: "rgba(255, 0, 0, 0.1)", // Temporary debug background
+            padding: "2px",
           }}
         >
           <SelectionBadge
