@@ -1366,9 +1366,12 @@ const InvitesAndOrders: React.FC = () => {
 
   const handleSelectAll = (checked: boolean) => {
     if (checked) {
-      setSelectedItems(invitesData.map((item) => item.id));
+      const allIds = invitesData.map((item) => item.id);
+      setSelectedItems(allIds);
+      setShowActionsPanel(true);
     } else {
       setSelectedItems([]);
+      setShowActionsPanel(false);
     }
   };
 
