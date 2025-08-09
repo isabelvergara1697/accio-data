@@ -6692,6 +6692,14 @@ const InvitesAndOrders: React.FC = () => {
         onColumnOrderChange={setColumnOrder}
         onResetToDefault={() => setColumnOrder(defaultColumnOrder)}
       />
+
+      {/* Selection Badge */}
+      {selectedItems.length > 0 && (
+        <SelectionBadge
+          count={selectedItems.length}
+          onClear={handleClearSelection}
+        />
+      )}
     </div>
   );
 };
