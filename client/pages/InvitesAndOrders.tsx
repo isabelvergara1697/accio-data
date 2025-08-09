@@ -3192,7 +3192,7 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Mobile: View Toggle + Search Row */}
-                            {
+                            {!showActionsPanel && (
                               <div
                                 style={{
                                   display: "flex",
@@ -3569,7 +3569,7 @@ const InvitesAndOrders: React.FC = () => {
                                   />
                                 </div>
                               </div>
-                            }
+                            )}
 
                             <div style={{ position: "relative" }}>
                               {false && (
