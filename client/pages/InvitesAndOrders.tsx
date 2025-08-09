@@ -1395,7 +1395,9 @@ const InvitesAndOrders: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  width: "80px",
+                  minWidth: "70px",
+                  maxWidth: "90px",
+                  flex: "0 0 auto",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "8px",
@@ -1432,11 +1434,13 @@ const InvitesAndOrders: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  width: "80px",
+                  minWidth: "70px",
+                  flex: "1 1 auto",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "8px",
                   position: "relative",
+                  overflow: "hidden",
                 }}
               >
                 <div
@@ -1478,6 +1482,10 @@ const InvitesAndOrders: React.FC = () => {
                       fontWeight: 500,
                       lineHeight: "20px",
                       position: "relative",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                      width: "100%",
                     }}
                   >
                     <span
@@ -1620,11 +1628,13 @@ const InvitesAndOrders: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  width: "80px",
+                  minWidth: "70px",
+                  flex: "1 1 auto",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "8px",
                   position: "relative",
+                  overflow: "hidden",
                 }}
               >
                 <div
@@ -1667,6 +1677,10 @@ const InvitesAndOrders: React.FC = () => {
                       fontWeight: 500,
                       lineHeight: "20px",
                       position: "relative",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                      width: "100%",
                     }}
                   >
                     <span
@@ -1688,7 +1702,8 @@ const InvitesAndOrders: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  width: "93px",
+                  minWidth: "85px",
+                  flex: "0 0 auto",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "8px",
@@ -1721,7 +1736,8 @@ const InvitesAndOrders: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    width: "88px",
+                    width: "100%",
+                    maxWidth: "88px",
                     alignItems: "center",
                     position: "relative",
                   }}
@@ -1737,8 +1753,10 @@ const InvitesAndOrders: React.FC = () => {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "8px",
-                  flex: "1 0 0",
+                  flex: "2 1 auto",
+                  minWidth: "120px",
                   position: "relative",
+                  overflow: "hidden",
                 }}
               >
                 <div
@@ -7391,18 +7409,21 @@ const InvitesAndOrders: React.FC = () => {
                         </div>
                       ) : (
                         /* Cards Container */
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "12px 16px 16px 16px",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            flex: "1 0 0",
-                            alignSelf: "stretch",
-                            position: "relative",
-                            gap: "12px",
-                          }}
-                        >
+        <div
+          style={{
+            display: "flex",
+            padding: isMobile ? "12px 8px 16px 8px" : "12px 16px 16px 16px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            flex: "1 0 0",
+            alignSelf: "stretch",
+            position: "relative",
+            gap: "12px",
+            overflow: "hidden",
+            width: "100%",
+            boxSizing: "border-box",
+          }}
+        >
                           {paginatedData.map((invite) => (
                             <InviteCard
                               key={invite.id}
