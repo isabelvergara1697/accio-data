@@ -4040,7 +4040,7 @@ const InvitesAndOrders: React.FC = () => {
                                     border: "1px solid #D5D7DA",
                                     background:
                                       hoveredButton === "customize"
-                                        ? "#F5F5F5"
+                                        ? "#FDFDFD"
                                         : "#FFF",
                                     width: "100%",
                                     boxShadow:
