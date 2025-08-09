@@ -134,56 +134,24 @@ export const DownloadDropdown: React.FC<DownloadDropdownProps> = ({
             }}
           >
             {/* XLSX File Icon */}
-            <div style={{ width: "24px", height: "24px", position: "relative" }}>
-              <svg
-                width="20"
-                height="24"
-                viewBox="0 0 20 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  position: "absolute",
-                  left: "2px",
-                  top: "0px"
-                }}
-              >
-                <path
-                  d="M4.2002 0.75H12.1895L18.6504 7.20996V20C18.6504 21.7949 17.1952 23.2499 15.4004 23.25H4.2002C2.40527 23.25 0.950195 21.7949 0.950195 20V4C0.950196 2.20508 2.40527 0.75 4.2002 0.75Z"
-                  stroke="#D5D7DA"
-                  strokeWidth="1.5"
-                />
-                <path
-                  d="M12.2002 0.300781V3.20078C12.2002 5.40992 13.9911 7.20078 16.2002 7.20078H19.1002"
-                  stroke="#D5D7DA"
-                  strokeWidth="1.5"
-                />
-              </svg>
+            <div style={{ width: "24px", height: "20px", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
               <div
                 style={{
-                  position: "absolute",
-                  left: "-4px",
-                  top: "8px",
-                  display: "inline-flex",
-                  padding: "2px 3px",
+                  width: "24px",
+                  height: "20px",
+                  display: "flex",
                   alignItems: "center",
-                  borderRadius: "2px",
+                  justifyContent: "center",
+                  borderRadius: "3px",
                   background: "#079455",
-                  width: "33px",
-                  height: "16px",
-                  justifyContent: "center"
+                  color: "#FFF",
+                  fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "8px",
+                  fontWeight: 700,
+                  lineHeight: "1"
                 }}
               >
-                <span
-                  style={{
-                    color: "#FFF",
-                    fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "10px",
-                    fontWeight: 700,
-                    lineHeight: "normal"
-                  }}
-                >
-                  XLSX
-                </span>
+                XLSX
               </div>
             </div>
             <span
