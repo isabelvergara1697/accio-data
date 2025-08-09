@@ -17,8 +17,8 @@ export const DownloadDropdown: React.FC<DownloadDropdownProps> = ({
       style={{
         position: "absolute",
         top: "calc(100% + 4px)",
+        left: "0",
         right: "0",
-        width: "172px",
         borderRadius: "8px",
         border: "1px solid rgba(10, 13, 18, 0.04)",
         background: "rgba(255, 255, 255, 1)",
