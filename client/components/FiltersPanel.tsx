@@ -18,8 +18,8 @@ interface FilterState {
   activate: string[];
   ews: string[];
   dateRange: {
-    start: Date;
-    end: Date;
+    start: Date | null;
+    end: Date | null;
   };
 }
 
