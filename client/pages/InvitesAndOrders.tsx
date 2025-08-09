@@ -186,6 +186,7 @@ const InvitesAndOrders: React.FC = () => {
   const [showMobileFiltersModal, setShowMobileFiltersModal] = useState(false);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
+  const [showActionsPanel, setShowActionsPanel] = useState(false);
 
   // Column ordering configuration
   const defaultColumnOrder = [
