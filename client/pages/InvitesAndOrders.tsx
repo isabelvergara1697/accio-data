@@ -4532,7 +4532,7 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Tablet: Action Buttons Row */}
                             <div
                               style={{
-                                display: "flex",
+                                display: showActionsPanel ? "none" : "flex",
                                 alignItems: "center",
                                 gap: "12px",
                                 alignSelf: "stretch",
