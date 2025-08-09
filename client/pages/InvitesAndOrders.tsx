@@ -165,6 +165,7 @@ const InvitesAndOrders: React.FC = () => {
   const [showActionMenu, setShowActionMenu] = useState<string | null>(null);
   const [showMobileDotsMenu, setShowMobileDotsMenu] = useState(false);
   const [tableView, setTableView] = useState<"table" | "rows">("table");
+  const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
@@ -1330,6 +1331,601 @@ const InvitesAndOrders: React.FC = () => {
       />
     </svg>
   );
+
+  // Card Component for Rows View
+  const InviteCard: React.FC<{ invite: InviteData; isExpanded: boolean; onToggleExpand: () => void; onToggleSelect: (checked: boolean) => void; isSelected: boolean }> = ({
+    invite,
+    isExpanded,
+    onToggleExpand,
+    onToggleSelect,
+    isSelected
+  }) => {
+    return (
+      <div
+        style={{
+          display: "flex",
+          padding: "12px 8px",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: isExpanded ? "8px" : "0px",
+          alignSelf: "stretch",
+          borderRadius: "8px",
+          border: isExpanded ? "1px solid #E9EAEB" : "1px solid #F5F5F5",
+          background: isExpanded ? "#F5F5F5" : "#FFF",
+          position: "relative",
+        }}
+      >
+        {/* Card Top Row */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: isExpanded ? "12px" : "13px",
+            alignSelf: "stretch",
+            position: "relative",
+          }}
+        >
+          {/* Checkbox */}
+          <div
+            style={{
+              display: "flex",
+              width: "18px",
+              height: "18px",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "10px",
+              position: "relative",
+            }}
+          >
+            <Checkbox
+              checked={isSelected}
+              onCheckedChange={onToggleSelect}
+              className="h-4 w-4 rounded border border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-[#344698] data-[state=checked]:text-white"
+            />
+          </div>
+
+          {/* Status Container */}
+          <div
+            style={{
+              display: "flex",
+              width: "80px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "8px",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                color: "#717680",
+                fontFamily: "Public Sans",
+                fontSize: "12px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "18px",
+                position: "relative",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "12px",
+                  color: "rgba(113,118,128,1)",
+                }}
+              >
+                Status
+              </span>
+            </div>
+            <StatusBadge status={invite.status} />
+          </div>
+
+          {/* First Name Container */}
+          <div
+            style={{
+              display: "flex",
+              width: "80px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "8px",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                color: "#717680",
+                fontFamily: "Public Sans",
+                fontSize: "12px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "18px",
+                position: "relative",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "12px",
+                  color: "rgba(113,118,128,1)",
+                }}
+              >
+                First Name
+              </span>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    color: "rgba(24,29,39,1)",
+                  }}
+                >
+                  {invite.firstName}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Last Name Container */}
+          <div
+            style={{
+              display: "flex",
+              width: "80px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "8px",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                color: "#717680",
+                fontFamily: "Public Sans",
+                fontSize: "12px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "18px",
+                position: "relative",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "12px",
+                  color: "rgba(113,118,128,1)",
+                }}
+              >
+                Last Name
+              </span>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    color: "rgba(24,29,39,1)",
+                  }}
+                >
+                  {invite.lastName}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Invitation Email Container */}
+          <div
+            style={{
+              display: "flex",
+              width: "136px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "8px",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                color: "#717680",
+                fontFamily: "Public Sans",
+                fontSize: "12px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "18px",
+                position: "relative",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "12px",
+                  color: "rgba(113,118,128,1)",
+                }}
+              >
+                Invitation Email
+              </span>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "-webkit-box",
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: 1,
+                  flex: "1 0 0",
+                  overflow: "hidden",
+                  color: "#181D27",
+                  textOverflow: "ellipsis",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    color: "rgba(24,29,39,1)",
+                  }}
+                >
+                  {invite.email}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Completed Container */}
+          <div
+            style={{
+              display: "flex",
+              width: "93px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "8px",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                color: "#717680",
+                fontFamily: "Public Sans",
+                fontSize: "12px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "18px",
+                position: "relative",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "12px",
+                  color: "rgba(113,118,128,1)",
+                }}
+              >
+                Completed
+              </span>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <ProgressBar percentage={invite.completion} />
+            </div>
+          </div>
+
+          {/* Action Button Container */}
+          <div
+            style={{
+              display: "flex",
+              height: "42px",
+              alignItems: "center",
+              gap: "8px",
+              position: "relative",
+            }}
+          >
+            {/* Expand/Collapse Button */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                position: "relative",
+              }}
+            >
+              <button
+                onClick={onToggleExpand}
+                style={{
+                  display: "flex",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "8px",
+                  border: "none",
+                  background: isExpanded ? "#FDFDFD" : "transparent",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  if (!isExpanded) {
+                    e.currentTarget.style.background = "#F5F5F5";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isExpanded) {
+                    e.currentTarget.style.background = "transparent";
+                  }
+                }}
+              >
+                {isExpanded ? (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 10L8 6L4 10"
+                      stroke="#717680"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 6L8 10L12 6"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
+
+            {/* Dots Menu Button */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                position: "relative",
+              }}
+            >
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowActionMenu(
+                    showActionMenu === invite.id ? null : invite.id
+                  );
+                }}
+                style={{
+                  display: "flex",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "8px",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                }}
+              >
+                <ActionDotsIcon />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Expanded Content */}
+        {isExpanded && (
+          <div
+            style={{
+              display: "flex",
+              paddingLeft: "31px",
+              alignItems: "flex-start",
+              gap: "12px",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            {/* I-9 Filled Container */}
+            <div
+              style={{
+                display: "flex",
+                width: "80px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "8px",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#717680",
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "18px",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "12px",
+                    color: "rgba(113,118,128,1)",
+                  }}
+                >
+                  I-9 Filled
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  position: "relative",
+                }}
+              >
+                {invite.i9Filled && <CheckIcon />}
+              </div>
+            </div>
+
+            {/* Activate Container */}
+            <div
+              style={{
+                display: "flex",
+                width: "80px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "8px",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#717680",
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "18px",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "12px",
+                    color: "rgba(113,118,128,1)",
+                  }}
+                >
+                  Activate
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  position: "relative",
+                }}
+              >
+                {invite.activated && <CheckIcon />}
+              </div>
+            </div>
+
+            {/* EWS Container */}
+            <div
+              style={{
+                display: "flex",
+                width: "80px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "8px",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#717680",
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "18px",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "12px",
+                    color: "rgba(113,118,128,1)",
+                  }}
+                >
+                  EWS
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  position: "relative",
+                }}
+              >
+                {invite.ews && <CheckIcon />}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   const ActionDotsIcon = () => (
     <svg
@@ -5560,26 +6156,27 @@ const InvitesAndOrders: React.FC = () => {
                         overflow: "hidden",
                       }}
                     >
-                      {/* Table Container with Horizontal Scroll */}
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          position: "relative",
-                          width: "100%",
-                          maxWidth:
-                            showFiltersModal && isDesktop
-                              ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"} - 258px - 80px)` // Subtracting sidebar, filters panel, margins, and padding
-                              : "100%",
-                          overflowX: "auto",
-                          overflowY: "hidden",
-                          scrollbarWidth: "thin",
-                          scrollbarColor: "#D5D7DA #F9FAFB",
-                          WebkitOverflowScrolling: "touch",
-                          padding: "12px 16px 0 16px",
-                        }}
-                      >
+                      {tableView === "table" ? (
+                        /* Table Container with Horizontal Scroll */
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            position: "relative",
+                            width: "100%",
+                            maxWidth:
+                              showFiltersModal && isDesktop
+                                ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"} - 258px - 80px)` // Subtracting sidebar, filters panel, margins, and padding
+                                : "100%",
+                            overflowX: "auto",
+                            overflowY: "hidden",
+                            scrollbarWidth: "thin",
+                            scrollbarColor: "#D5D7DA #F9FAFB",
+                            WebkitOverflowScrolling: "touch",
+                            padding: "12px 16px 0 16px",
+                          }}
+                        >
                         {/* Table Content */}
                         <div
                           style={{
@@ -6315,7 +6912,37 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
                           ))}
                         </div>
-                      </div>
+                        </div>
+                      ) : (
+                        /* Cards Container */
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "12px 16px 16px 16px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flex: "1 0 0",
+                            alignSelf: "stretch",
+                            position: "relative",
+                            gap: "12px",
+                          }}
+                        >
+                          {paginatedData.map((invite) => (
+                            <InviteCard
+                              key={invite.id}
+                              invite={invite}
+                              isExpanded={expandedCardId === invite.id}
+                              onToggleExpand={() =>
+                                setExpandedCardId(
+                                  expandedCardId === invite.id ? null : invite.id
+                                )
+                              }
+                              onToggleSelect={handleSelectItem(invite.id)}
+                              isSelected={selectedItems.includes(invite.id)}
+                            />
+                          ))}
+                        </div>
+                      )}
 
                       {/* Pagination - moved outside scroll container */}
                       <div
