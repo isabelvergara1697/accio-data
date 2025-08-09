@@ -3085,21 +3085,10 @@ const InvitesAndOrders: React.FC = () => {
                                       <div
                                         style={{
                                           display: "flex",
-                                          padding: "1px 4px",
+                                          padding: "0px",
                                           alignItems: "center",
                                           alignSelf: "stretch",
                                           cursor: "pointer",
-                                        }}
-                                        onMouseEnter={(e) => {
-                                          e.currentTarget.querySelector(
-                                            ".content",
-                                          ).style.backgroundColor = "#FDFDFD";
-                                        }}
-                                        onMouseLeave={(e) => {
-                                          e.currentTarget.querySelector(
-                                            ".content",
-                                          ).style.backgroundColor =
-                                            "transparent";
                                         }}
                                         onClick={() => {
                                           console.log("Customize clicked");
@@ -3110,13 +3099,16 @@ const InvitesAndOrders: React.FC = () => {
                                           className="content"
                                           style={{
                                             display: "flex",
-                                            padding: "8px 12px",
+                                            minHeight: "36px",
+                                            padding: "6px 8px",
                                             alignItems: "center",
-                                            gap: "12px",
+                                            gap: "4px",
                                             flex: "1 0 0",
-                                            borderRadius: "6px",
-                                            transition:
-                                              "background-color 0.2s ease",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            transition: "background-color 0.2s ease",
                                           }}
                                         >
                                           <svg
