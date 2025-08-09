@@ -141,8 +141,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
       activate: [],
       ews: [],
       dateRange: {
-        start: new Date(2025, 0, 10), // Jan 10, 2025
-        end: new Date(2025, 0, 16), // Jan 16, 2025
+        start: null,
+        end: null,
       },
     };
     setLocalFilters(clearedFilters);

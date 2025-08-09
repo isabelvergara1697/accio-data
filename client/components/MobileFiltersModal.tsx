@@ -119,8 +119,8 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
       activate: [],
       ews: [],
       dateRange: {
-        start: new Date(2025, 0, 10),
-        end: new Date(2025, 0, 16),
+        start: null,
+        end: null,
       },
     };
     setLocalFilters(clearedFilters);
