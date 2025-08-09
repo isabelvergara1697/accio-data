@@ -1978,11 +1978,11 @@ const InvitesAndOrders: React.FC = () => {
                 position: "relative",
                 minWidth: 0, // Allow container to shrink below content size
                 width:
-                  showFiltersModal && (isDesktop || isTablet)
+                  (showFiltersModal || showActionsPanel) && (isDesktop || isTablet)
                     ? `calc(100% - 268px - 16px)`
                     : "100%",
                 maxWidth:
-                  showFiltersModal && (isDesktop || isTablet)
+                  (showFiltersModal || showActionsPanel) && (isDesktop || isTablet)
                     ? `calc(100% - 268px - 16px)`
                     : "100%",
               }}
