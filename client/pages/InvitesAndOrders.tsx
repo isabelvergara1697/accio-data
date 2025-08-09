@@ -6697,13 +6697,13 @@ const InvitesAndOrders: React.FC = () => {
         onResetToDefault={() => setColumnOrder(defaultColumnOrder)}
       />
 
-      {/* Selection Badge - positioned within the main container */}
+      {/* Selection Badge - positioned as per Figma design */}
       {selectedItems.length > 0 && (
         <div
           style={{
             position: "fixed",
-            top: "220px",
-            right: "48px",
+            right: "16px",
+            top: "19px",
             zIndex: 1000,
           }}
         >
