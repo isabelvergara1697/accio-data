@@ -20,9 +20,9 @@ export const SelectionBadge: React.FC<SelectionBadgeProps> = ({
         borderRadius: "6px",
         border: "1px solid #D5D7DA",
         background: "#FFF",
-        position: "absolute",
-        right: "16px",
-        top: "19px",
+        position: "fixed",
+        right: "32px",
+        top: "140px",
         zIndex: 1000,
       }}
     >
