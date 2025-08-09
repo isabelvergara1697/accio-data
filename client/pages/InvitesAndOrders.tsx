@@ -1670,20 +1670,54 @@ const InvitesAndOrders: React.FC = () => {
         <div
           style={{
             position: "fixed",
-            right: "16px",
-            top: "16px",
-            zIndex: 9999,
-            backgroundColor: "rgba(255, 255, 255, 0.95)",
-            padding: "4px",
+            right: "20px",
+            top: "80px", // Below the header
+            zIndex: 10000,
+            backgroundColor: "#344698", // Blue background to make it stand out
+            padding: "8px 12px",
             borderRadius: "8px",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-            border: "1px solid #E9EAEB",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.25)",
+            border: "2px solid #fff",
+            color: "white",
+            fontFamily: "Public Sans",
+            fontSize: "14px",
+            fontWeight: "600",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
           }}
         >
-          <SelectionBadge
-            count={selectedItems.length}
-            onClear={handleClearSelection}
-          />
+          <span>{selectedItems.length} Invite{selectedItems.length !== 1 ? "s" : ""} Selected</span>
+          <button
+            onClick={handleClearSelection}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "white",
+              cursor: "pointer",
+              padding: "2px",
+              borderRadius: "4px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.3334 4.66663L4.66675 11.3333M4.66675 4.66663L11.3334 11.3333"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       )}
 
