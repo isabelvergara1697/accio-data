@@ -279,65 +279,73 @@ export const ActionsPanel: React.FC<ActionsPanelProps> = ({
           ))}
         </div>
         
-        {/* Save PDF Button */}
-        <button
-          onClick={() => onAction("save-pdf")}
+        {/* Save PDF Button - separate row */}
+        <div
           style={{
             display: "flex",
-            minHeight: "36px",
-            padding: "6px 8px",
-            alignItems: "center",
-            gap: "4px",
-            alignSelf: "stretch",
-            borderRadius: "8px",
-            border: "1px solid #D5D7DA",
-            background: "#FFF",
-            boxShadow:
-              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-            cursor: "pointer",
-            transition: "background-color 0.2s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#F5F5F5";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "#FFF";
+            width: "100%",
           }}
         >
-          <div
+          <button
+            onClick={() => onAction("save-pdf")}
             style={{
               display: "flex",
-              padding: "0 2px",
-              justifyContent: "center",
+              minHeight: "36px",
+              padding: "6px 8px",
               alignItems: "center",
-              position: "relative",
+              gap: "4px",
+              flex: "1",
+              borderRadius: "8px",
+              border: "1px solid #D5D7DA",
+              background: "#FFF",
+              boxShadow:
+                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+              cursor: "pointer",
+              transition: "background-color 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#F5F5F5";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "#FFF";
             }}
           >
             <div
               style={{
-                color: "#535862",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 600,
-                lineHeight: "20px",
+                display: "flex",
+                padding: "0 2px",
+                justifyContent: "center",
+                alignItems: "center",
                 position: "relative",
               }}
             >
-              <span
+              <div
                 style={{
-                  fontFamily:
-                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  color: "#535862",
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontStyle: "normal",
                   fontWeight: 600,
-                  fontSize: "14px",
-                  color: "rgba(83,88,98,1)",
+                  lineHeight: "18px",
+                  position: "relative",
+                  textAlign: "center",
                 }}
               >
-                Save PDF
-              </span>
+                <span
+                  style={{
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 600,
+                    fontSize: "12px",
+                    color: "rgba(83,88,98,1)",
+                  }}
+                >
+                  Save PDF
+                </span>
+              </div>
             </div>
-          </div>
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   );
