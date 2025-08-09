@@ -1665,6 +1665,28 @@ const InvitesAndOrders: React.FC = () => {
         position: "relative",
       }}
     >
+      {/* Selection Badge - positioned at top level to avoid container constraints */}
+      {selectedItems.length > 0 && (
+        <div
+          style={{
+            position: "fixed",
+            right: "16px",
+            top: "16px",
+            zIndex: 9999,
+            backgroundColor: "rgba(255, 255, 255, 0.95)",
+            padding: "4px",
+            borderRadius: "8px",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+            border: "1px solid #E9EAEB",
+          }}
+        >
+          <SelectionBadge
+            count={selectedItems.length}
+            onClear={handleClearSelection}
+          />
+        </div>
+      )}
+
       <Sidebar
         isDesktop={isDesktop}
         isMobile={isMobile}
