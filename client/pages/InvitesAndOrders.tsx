@@ -4204,13 +4204,14 @@ const InvitesAndOrders: React.FC = () => {
                               </div>
 
                               {/* Right-aligned: View Toggle + Search */}
-                              <div
-                                style={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: "12px",
-                                  position: "relative",
-                                }}
+                              {!showActionsPanel && (
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "12px",
+                                    position: "relative",
+                                  }}
                               >
                                 {/* View Toggle */}
                                 <div
@@ -4523,10 +4524,11 @@ const InvitesAndOrders: React.FC = () => {
                                           width: "auto",
                                         }}
                                       />
-                                    </div>
-                                  )}
+                                      </div>
+                                    )}
+                                  </div>
                                 </div>
-                              </div>
+                              )}
                             </div>
 
                             {/* Tablet: Action Buttons Row */}
