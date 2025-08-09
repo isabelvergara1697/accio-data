@@ -187,7 +187,7 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
           localFilters.dateRange.start &&
           localFilters.dateRange.end &&
           (localFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
-          localFilters.dateRange.end.getTime() !== defaultEnd.getTime())
+            localFilters.dateRange.end.getTime() !== defaultEnd.getTime())
         ) {
           appliedFilters.push({
             key: "dateRange",
@@ -238,7 +238,10 @@ export const MobileFiltersModal: React.FC<MobileFiltersModalProps> = ({
     return getAppliedFilters().length > 0;
   };
 
-  const formatDateRange = (startDate: Date | null, endDate: Date | null): string => {
+  const formatDateRange = (
+    startDate: Date | null,
+    endDate: Date | null,
+  ): string => {
     if (!startDate || !endDate) {
       // Return a default date range display when dates are null
       return "Jan 10, 2025 – Jan 16, 2025";

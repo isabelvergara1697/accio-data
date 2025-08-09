@@ -1333,13 +1333,13 @@ const InvitesAndOrders: React.FC = () => {
   );
 
   // Card Component for Rows View
-  const InviteCard: React.FC<{ invite: InviteData; isExpanded: boolean; onToggleExpand: () => void; onToggleSelect: (checked: boolean) => void; isSelected: boolean }> = ({
-    invite,
-    isExpanded,
-    onToggleExpand,
-    onToggleSelect,
-    isSelected
-  }) => {
+  const InviteCard: React.FC<{
+    invite: InviteData;
+    isExpanded: boolean;
+    onToggleExpand: () => void;
+    onToggleSelect: (checked: boolean) => void;
+    isSelected: boolean;
+  }> = ({ invite, isExpanded, onToggleExpand, onToggleSelect, isSelected }) => {
     return (
       <div
         style={{
@@ -1408,7 +1408,8 @@ const InvitesAndOrders: React.FC = () => {
             >
               <span
                 style={{
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontWeight: 700,
                   fontSize: "12px",
                   color: "rgba(113,118,128,1)",
@@ -1444,7 +1445,8 @@ const InvitesAndOrders: React.FC = () => {
             >
               <span
                 style={{
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontWeight: 700,
                   fontSize: "12px",
                   color: "rgba(113,118,128,1)",
@@ -1473,7 +1475,8 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <span
                   style={{
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 400,
                     fontSize: "14px",
                     color: "rgba(24,29,39,1)",
@@ -1509,7 +1512,8 @@ const InvitesAndOrders: React.FC = () => {
             >
               <span
                 style={{
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontWeight: 700,
                   fontSize: "12px",
                   color: "rgba(113,118,128,1)",
@@ -1539,7 +1543,8 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <span
                   style={{
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 400,
                     fontSize: "14px",
                     color: "rgba(24,29,39,1)",
@@ -1575,7 +1580,8 @@ const InvitesAndOrders: React.FC = () => {
             >
               <span
                 style={{
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontWeight: 700,
                   fontSize: "12px",
                   color: "rgba(113,118,128,1)",
@@ -1611,7 +1617,8 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <span
                   style={{
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 400,
                     fontSize: "14px",
                     color: "rgba(24,29,39,1)",
@@ -1647,7 +1654,8 @@ const InvitesAndOrders: React.FC = () => {
             >
               <span
                 style={{
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontWeight: 700,
                   fontSize: "12px",
                   color: "rgba(113,118,128,1)",
@@ -1758,7 +1766,7 @@ const InvitesAndOrders: React.FC = () => {
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowActionMenu(
-                    showActionMenu === invite.id ? null : invite.id
+                    showActionMenu === invite.id ? null : invite.id,
                   );
                 }}
                 style={{
@@ -1814,7 +1822,8 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <span
                   style={{
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 700,
                     fontSize: "12px",
                     color: "rgba(113,118,128,1)",
@@ -1858,7 +1867,8 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <span
                   style={{
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 700,
                     fontSize: "12px",
                     color: "rgba(113,118,128,1)",
@@ -1902,7 +1912,8 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <span
                   style={{
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 700,
                     fontSize: "12px",
                     color: "rgba(113,118,128,1)",
@@ -2774,7 +2785,9 @@ const InvitesAndOrders: React.FC = () => {
                                         }}
                                       >
                                         {selectedItems.length} Invite
-                                        {selectedItems.length !== 1 ? "s" : ""}{" "}
+                                        {selectedItems.length !== 1
+                                          ? "s"
+                                          : ""}{" "}
                                         Selected
                                       </span>
                                     </div>
@@ -3703,8 +3716,10 @@ const InvitesAndOrders: React.FC = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            transition: "background-color 0.2s ease",
+                                            boxShadow:
+                                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            transition:
+                                              "background-color 0.2s ease",
                                           }}
                                         >
                                           <svg
@@ -3769,8 +3784,10 @@ const InvitesAndOrders: React.FC = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            transition: "background-color 0.2s ease",
+                                            boxShadow:
+                                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            transition:
+                                              "background-color 0.2s ease",
                                           }}
                                         >
                                           <svg
@@ -6177,741 +6194,744 @@ const InvitesAndOrders: React.FC = () => {
                             padding: "12px 16px 0 16px",
                           }}
                         >
-                        {/* Table Content */}
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            position: "relative",
-                            minWidth: showFiltersModal
-                              ? isMobile
-                                ? "800px" // Reduced for mobile with filters
-                                : isTablet
-                                  ? "830px" // Reduced for tablet with filters
-                                  : isLargeDesktop
-                                    ? "900px" // Reduced for large desktop with filters
-                                    : "800px" // Reduced for desktop with filters
-                              : isMobile
-                                ? "1140px"
-                                : isTablet
-                                  ? "1130px"
-                                  : isLargeDesktop
-                                    ? "1220px"
-                                    : "1100px",
-                            width: "100%",
-                            height: "556px", // Fixed height for header (36px) + 10 rows (10 × 52px)
-                            overflow: "visible",
-                          }}
-                        >
-                          {/* Table Header */}
+                          {/* Table Content */}
                           <div
                             style={{
                               display: "flex",
+                              flexDirection: "column",
                               alignItems: "flex-start",
-                              alignSelf: "stretch",
                               position: "relative",
+                              minWidth: showFiltersModal
+                                ? isMobile
+                                  ? "800px" // Reduced for mobile with filters
+                                  : isTablet
+                                    ? "830px" // Reduced for tablet with filters
+                                    : isLargeDesktop
+                                      ? "900px" // Reduced for large desktop with filters
+                                      : "800px" // Reduced for desktop with filters
+                                : isMobile
+                                  ? "1140px"
+                                  : isTablet
+                                    ? "1130px"
+                                    : isLargeDesktop
+                                      ? "1220px"
+                                      : "1100px",
+                              width: "100%",
+                              height: "556px", // Fixed height for header (36px) + 10 rows (10 × 52px)
+                              overflow: "visible",
                             }}
                           >
-                            {/* Checkbox Column */}
+                            {/* Table Header */}
                             <div
-                              style={{
-                                display: "flex",
-                                width: "40px",
-                                height: "36px",
-                                padding: "6px 12px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                gap: "12px",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            >
-                              <Checkbox
-                                checked={
-                                  selectedItems.length === invitesData.length
-                                }
-                                onCheckedChange={handleSelectAll}
-                                className="h-4 w-4 rounded border border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-[#344698] data-[state=checked]:text-white"
-                              />
-                            </div>
-
-                            {/* Dynamic Columns */}
-                            {visibleColumns.map((column) => (
-                              <TableHeaderColumn
-                                key={column.id}
-                                columnId={column.id}
-                              />
-                            ))}
-
-                            {/* Last Email Column */}
-                            <div
-                              style={{
-                                display: "flex",
-                                width: "103px",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: "4px",
-                                  position: "relative",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    color:
-                                      sortField === "lastEmail"
-                                        ? "#34479A"
-                                        : "#717680",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "12px",
-                                    fontStyle: "normal",
-                                    fontWeight: 600,
-                                    lineHeight: "18px",
-                                    position: "relative",
-                                  }}
-                                >
-                                  <span
-                                    style={{
-                                      fontFamily:
-                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                      fontWeight: 600,
-                                      fontSize: "12px",
-                                      color:
-                                        sortField === "lastEmail"
-                                          ? "#34479A"
-                                          : "rgba(113,118,128,1)",
-                                    }}
-                                  >
-                                    Last Email
-                                  </span>
-                                </div>
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "1px",
-                                  }}
-                                >
-                                  <button
-                                    onClick={() => {
-                                      if (
-                                        sortField === "lastEmail" &&
-                                        sortDirection === "asc"
-                                      ) {
-                                        setSortField(null);
-                                        setSortDirection(null);
-                                      } else {
-                                        setSortField("lastEmail");
-                                        setSortDirection("asc");
-                                      }
-                                    }}
-                                    style={{
-                                      background: "none",
-                                      border: "none",
-                                      padding: 0,
-                                      cursor: "pointer",
-                                      display: "flex",
-                                      alignItems: "center",
-                                      justifyContent: "center",
-                                    }}
-                                  >
-                                    <svg
-                                      width="10"
-                                      height="6"
-                                      viewBox="0 0 10 6"
-                                      fill="none"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                        stroke={
-                                          sortField === "lastEmail" &&
-                                          sortDirection === "asc"
-                                            ? "#34479A"
-                                            : "#A4A7AE"
-                                        }
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      />
-                                    </svg>
-                                  </button>
-                                  <button
-                                    onClick={() => {
-                                      if (
-                                        sortField === "lastEmail" &&
-                                        sortDirection === "desc"
-                                      ) {
-                                        setSortField(null);
-                                        setSortDirection(null);
-                                      } else {
-                                        setSortField("lastEmail");
-                                        setSortDirection("desc");
-                                      }
-                                    }}
-                                    style={{
-                                      background: "none",
-                                      border: "none",
-                                      padding: 0,
-                                      cursor: "pointer",
-                                      display: "flex",
-                                      alignItems: "center",
-                                      justifyContent: "center",
-                                    }}
-                                  >
-                                    <svg
-                                      width="10"
-                                      height="6"
-                                      viewBox="0 0 10 6"
-                                      fill="none"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      style={{ transform: "rotate(180deg)" }}
-                                    >
-                                      <path
-                                        d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
-                                        stroke={
-                                          sortField === "lastEmail" &&
-                                          sortDirection === "desc"
-                                            ? "#34479A"
-                                            : "#A4A7AE"
-                                        }
-                                        strokeWidth="1.5"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                      />
-                                    </svg>
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Actions Column */}
-                            <div
-                              style={{
-                                display: "flex",
-                                width: "48px",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            />
-                          </div>
-
-                          {/* Table Rows */}
-                          {paginatedData.map((invite) => (
-                            <div
-                              key={invite.id}
-                              onMouseEnter={() => setHoveredRowId(invite.id)}
-                              onMouseLeave={() => setHoveredRowId(null)}
                               style={{
                                 display: "flex",
                                 alignItems: "flex-start",
                                 alignSelf: "stretch",
                                 position: "relative",
-                                background: selectedItems.includes(invite.id)
-                                  ? "#F5F5F5"
-                                  : hoveredRowId === invite.id
-                                    ? "#F5F5F5"
-                                    : "transparent",
-                                transition: "background-color 0.15s ease",
-                                cursor: "pointer",
                               }}
                             >
-                              {/* Checkbox Cell */}
+                              {/* Checkbox Column */}
                               <div
                                 style={{
                                   display: "flex",
                                   width: "40px",
-                                  height: "52px",
-                                  padding: "12px",
+                                  height: "36px",
+                                  padding: "6px 12px",
                                   justifyContent: "center",
                                   alignItems: "center",
                                   gap: "12px",
                                   borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
                                   position: "relative",
                                 }}
                               >
                                 <Checkbox
-                                  checked={selectedItems.includes(invite.id)}
-                                  onCheckedChange={handleSelectItem(invite.id)}
+                                  checked={
+                                    selectedItems.length === invitesData.length
+                                  }
+                                  onCheckedChange={handleSelectAll}
                                   className="h-4 w-4 rounded border border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-[#344698] data-[state=checked]:text-white"
                                 />
                               </div>
 
-                              {/* Dynamic Cells */}
+                              {/* Dynamic Columns */}
                               {visibleColumns.map((column) => (
-                                <TableCell
+                                <TableHeaderColumn
                                   key={column.id}
                                   columnId={column.id}
-                                  invite={invite}
                                 />
                               ))}
 
-                              {/* Last Email Cell */}
+                              {/* Last Email Column */}
                               <div
                                 style={{
                                   display: "flex",
                                   width: "103px",
-                                  height: "52px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  position: "relative",
-                                  minWidth: 0,
-                                }}
-                              >
-                                <TruncatedText
-                                  text={invite.lastEmail}
-                                  style={{
-                                    color: "#181D27",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
-                                  }}
-                                />
-                              </div>
-
-                              {/* Actions Cell */}
-                              <div
-                                style={{
-                                  display: "flex",
-                                  width: "48px",
-                                  height: "52px",
-                                  padding: "12px",
+                                  height: "36px",
+                                  padding: "6px 12px",
                                   alignItems: "center",
                                   gap: "12px",
                                   borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
                                   position: "relative",
                                 }}
                               >
                                 <div
                                   style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "4px",
                                     position: "relative",
                                   }}
                                 >
                                   <div
                                     style={{
-                                      cursor: "pointer",
-                                      padding: "4px",
-                                      borderRadius: "4px",
-                                      transition: "background-color 0.2s ease",
-                                      background:
-                                        showActionMenu === invite.id
-                                          ? "#FDFDFD"
-                                          : "transparent",
-                                    }}
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      setShowActionMenu(
-                                        showActionMenu === invite.id
-                                          ? null
-                                          : invite.id,
-                                      );
+                                      color:
+                                        sortField === "lastEmail"
+                                          ? "#34479A"
+                                          : "#717680",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 600,
+                                      lineHeight: "18px",
+                                      position: "relative",
                                     }}
                                   >
-                                    <ActionDotsIcon />
-                                  </div>
-
-                                  {/* Action Menu Dropdown */}
-                                  {showActionMenu === invite.id && (
-                                    <div
-                                      ref={actionMenuRef}
+                                    <span
                                       style={{
-                                        position: "absolute",
-                                        top: "100%",
-                                        right: "0",
-                                        marginTop: "4px",
-                                        width: isMobile ? "200px" : "248px",
-                                        borderRadius: "8px",
-                                        border:
-                                          "1px solid rgba(10, 13, 18, 0.04)",
-                                        background: "rgba(255, 255, 255, 1)",
-                                        boxShadow:
-                                          "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
-                                        zIndex: 9999,
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 600,
+                                        fontSize: "12px",
+                                        color:
+                                          sortField === "lastEmail"
+                                            ? "#34479A"
+                                            : "rgba(113,118,128,1)",
                                       }}
                                     >
+                                      Last Email
+                                    </span>
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "1px",
+                                    }}
+                                  >
+                                    <button
+                                      onClick={() => {
+                                        if (
+                                          sortField === "lastEmail" &&
+                                          sortDirection === "asc"
+                                        ) {
+                                          setSortField(null);
+                                          setSortDirection(null);
+                                        } else {
+                                          setSortField("lastEmail");
+                                          setSortDirection("asc");
+                                        }
+                                      }}
+                                      style={{
+                                        background: "none",
+                                        border: "none",
+                                        padding: 0,
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                      }}
+                                    >
+                                      <svg
+                                        width="10"
+                                        height="6"
+                                        viewBox="0 0 10 6"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                          stroke={
+                                            sortField === "lastEmail" &&
+                                            sortDirection === "asc"
+                                              ? "#34479A"
+                                              : "#A4A7AE"
+                                          }
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </button>
+                                    <button
+                                      onClick={() => {
+                                        if (
+                                          sortField === "lastEmail" &&
+                                          sortDirection === "desc"
+                                        ) {
+                                          setSortField(null);
+                                          setSortDirection(null);
+                                        } else {
+                                          setSortField("lastEmail");
+                                          setSortDirection("desc");
+                                        }
+                                      }}
+                                      style={{
+                                        background: "none",
+                                        border: "none",
+                                        padding: 0,
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                      }}
+                                    >
+                                      <svg
+                                        width="10"
+                                        height="6"
+                                        viewBox="0 0 10 6"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style={{ transform: "rotate(180deg)" }}
+                                      >
+                                        <path
+                                          d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
+                                          stroke={
+                                            sortField === "lastEmail" &&
+                                            sortDirection === "desc"
+                                              ? "#34479A"
+                                              : "#A4A7AE"
+                                          }
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Actions Column */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "48px",
+                                  height: "36px",
+                                  padding: "6px 12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
+                                  position: "relative",
+                                }}
+                              />
+                            </div>
+
+                            {/* Table Rows */}
+                            {paginatedData.map((invite) => (
+                              <div
+                                key={invite.id}
+                                onMouseEnter={() => setHoveredRowId(invite.id)}
+                                onMouseLeave={() => setHoveredRowId(null)}
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                  background: selectedItems.includes(invite.id)
+                                    ? "#F5F5F5"
+                                    : hoveredRowId === invite.id
+                                      ? "#F5F5F5"
+                                      : "transparent",
+                                  transition: "background-color 0.15s ease",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                {/* Checkbox Cell */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "40px",
+                                    height: "52px",
+                                    padding: "12px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "12px",
+                                    borderBottom: "1px solid #E9EAEB",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <Checkbox
+                                    checked={selectedItems.includes(invite.id)}
+                                    onCheckedChange={handleSelectItem(
+                                      invite.id,
+                                    )}
+                                    className="h-4 w-4 rounded border border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-[#344698] data-[state=checked]:text-white"
+                                  />
+                                </div>
+
+                                {/* Dynamic Cells */}
+                                {visibleColumns.map((column) => (
+                                  <TableCell
+                                    key={column.id}
+                                    columnId={column.id}
+                                    invite={invite}
+                                  />
+                                ))}
+
+                                {/* Last Email Cell */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "103px",
+                                    height: "52px",
+                                    padding: "12px",
+                                    alignItems: "center",
+                                    borderBottom: "1px solid #E9EAEB",
+                                    position: "relative",
+                                    minWidth: 0,
+                                  }}
+                                >
+                                  <TruncatedText
+                                    text={invite.lastEmail}
+                                    style={{
+                                      color: "#181D27",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  />
+                                </div>
+
+                                {/* Actions Cell */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "48px",
+                                    height: "52px",
+                                    padding: "12px",
+                                    alignItems: "center",
+                                    gap: "12px",
+                                    borderBottom: "1px solid #E9EAEB",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      position: "relative",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        cursor: "pointer",
+                                        padding: "4px",
+                                        borderRadius: "4px",
+                                        transition:
+                                          "background-color 0.2s ease",
+                                        background:
+                                          showActionMenu === invite.id
+                                            ? "#FDFDFD"
+                                            : "transparent",
+                                      }}
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        setShowActionMenu(
+                                          showActionMenu === invite.id
+                                            ? null
+                                            : invite.id,
+                                        );
+                                      }}
+                                    >
+                                      <ActionDotsIcon />
+                                    </div>
+
+                                    {/* Action Menu Dropdown */}
+                                    {showActionMenu === invite.id && (
                                       <div
+                                        ref={actionMenuRef}
                                         style={{
-                                          display: "flex",
-                                          padding: "4px 0",
-                                          flexDirection: "column",
-                                          alignItems: "flex-start",
-                                          alignSelf: "stretch",
+                                          position: "absolute",
+                                          top: "100%",
+                                          right: "0",
+                                          marginTop: "4px",
+                                          width: isMobile ? "200px" : "248px",
+                                          borderRadius: "8px",
+                                          border:
+                                            "1px solid rgba(10, 13, 18, 0.04)",
+                                          background: "rgba(255, 255, 255, 1)",
+                                          boxShadow:
+                                            "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                          zIndex: 9999,
                                         }}
                                       >
-                                        {/* Invite Summary */}
                                         <div
                                           style={{
                                             display: "flex",
-                                            padding: "1px 4px",
-                                            alignItems: "center",
+                                            padding: "4px 0",
+                                            flexDirection: "column",
+                                            alignItems: "flex-start",
                                             alignSelf: "stretch",
-                                            cursor: "pointer",
-                                          }}
-                                          onMouseEnter={(e) => {
-                                            const content =
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ) as HTMLElement;
-                                            if (content)
-                                              content.style.backgroundColor =
-                                                "#F5F5F5";
-                                          }}
-                                          onMouseLeave={(e) => {
-                                            const content =
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ) as HTMLElement;
-                                            if (content)
-                                              content.style.backgroundColor =
-                                                "transparent";
-                                          }}
-                                          onClick={() => {
-                                            console.log(
-                                              "Invite Summary clicked for:",
-                                              invite.id,
-                                            );
-                                            setShowActionMenu(null);
                                           }}
                                         >
+                                          {/* Invite Summary */}
                                           <div
-                                            className="content"
                                             style={{
                                               display: "flex",
-                                              padding: "6px 6px",
+                                              padding: "1px 4px",
                                               alignItems: "center",
-                                              gap: "12px",
-                                              flex: "1 0 0",
-                                              borderRadius: "6px",
-                                              transition:
-                                                "background-color 0.2s ease",
+                                              alignSelf: "stretch",
+                                              cursor: "pointer",
+                                            }}
+                                            onMouseEnter={(e) => {
+                                              const content =
+                                                e.currentTarget.querySelector(
+                                                  ".content",
+                                                ) as HTMLElement;
+                                              if (content)
+                                                content.style.backgroundColor =
+                                                  "#F5F5F5";
+                                            }}
+                                            onMouseLeave={(e) => {
+                                              const content =
+                                                e.currentTarget.querySelector(
+                                                  ".content",
+                                                ) as HTMLElement;
+                                              if (content)
+                                                content.style.backgroundColor =
+                                                  "transparent";
+                                            }}
+                                            onClick={() => {
+                                              console.log(
+                                                "Invite Summary clicked for:",
+                                                invite.id,
+                                              );
+                                              setShowActionMenu(null);
                                             }}
                                           >
                                             <div
+                                              className="content"
                                               style={{
                                                 display: "flex",
+                                                padding: "6px 6px",
                                                 alignItems: "center",
-                                                gap: "8px",
+                                                gap: "12px",
                                                 flex: "1 0 0",
+                                                borderRadius: "6px",
+                                                transition:
+                                                  "background-color 0.2s ease",
                                               }}
                                             >
-                                              <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                              >
-                                                <path
-                                                  d="M14 11H8M10 15H8M16 7H8M20 10.5V6.8C20 5.11984 20 4.27976 19.673 3.63803C19.3854 3.07354 18.9265 2.6146 18.362 2.32698C17.7202 2 16.8802 2 15.2 2H8.8C7.11984 2 6.27976 2 5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803C4 4.27976 4 5.11984 4 6.8V17.2C4 18.8802 4 19.7202 4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673C6.27976 22 7.11984 22 8.8 22H11.5M22 22L20.5 20.5M21.5 18C21.5 19.933 19.933 21.5 18 21.5C16.067 21.5 14.5 19.933 14.5 18C14.5 16.067 16.067 14.5 18 14.5C19.933 14.5 21.5 16.067 21.5 18Z"
-                                                  stroke="#A4A7AE"
-                                                  strokeWidth="1.5"
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                />
-                                              </svg>
                                               <div
                                                 style={{
+                                                  display: "flex",
+                                                  alignItems: "center",
+                                                  gap: "8px",
                                                   flex: "1 0 0",
-                                                  color: "#414651",
-                                                  fontFamily: "Public Sans",
-                                                  fontSize: "14px",
-                                                  fontWeight: 600,
-                                                  lineHeight: "20px",
                                                 }}
                                               >
-                                                Invite Summary
+                                                <svg
+                                                  width="24"
+                                                  height="24"
+                                                  viewBox="0 0 24 24"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <path
+                                                    d="M14 11H8M10 15H8M16 7H8M20 10.5V6.8C20 5.11984 20 4.27976 19.673 3.63803C19.3854 3.07354 18.9265 2.6146 18.362 2.32698C17.7202 2 16.8802 2 15.2 2H8.8C7.11984 2 6.27976 2 5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803C4 4.27976 4 5.11984 4 6.8V17.2C4 18.8802 4 19.7202 4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673C6.27976 22 7.11984 22 8.8 22H11.5M22 22L20.5 20.5M21.5 18C21.5 19.933 19.933 21.5 18 21.5C16.067 21.5 14.5 19.933 14.5 18C14.5 16.067 16.067 14.5 18 14.5C19.933 14.5 21.5 16.067 21.5 18Z"
+                                                    stroke="#A4A7AE"
+                                                    strokeWidth="1.5"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                  />
+                                                </svg>
+                                                <div
+                                                  style={{
+                                                    flex: "1 0 0",
+                                                    color: "#414651",
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "14px",
+                                                    fontWeight: 600,
+                                                    lineHeight: "20px",
+                                                  }}
+                                                >
+                                                  Invite Summary
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
 
-                                        {/* Manage Invitation */}
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            padding: "1px 4px",
-                                            alignItems: "center",
-                                            alignSelf: "stretch",
-                                            cursor: "pointer",
-                                          }}
-                                          onMouseEnter={(e) => {
-                                            const content =
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ) as HTMLElement;
-                                            if (content)
-                                              content.style.backgroundColor =
-                                                "#F5F5F5";
-                                          }}
-                                          onMouseLeave={(e) => {
-                                            const content =
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ) as HTMLElement;
-                                            if (content)
-                                              content.style.backgroundColor =
-                                                "transparent";
-                                          }}
-                                          onClick={() => {
-                                            console.log(
-                                              "Manage Invitation clicked for:",
-                                              invite.id,
-                                            );
-                                            setShowActionMenu(null);
-                                          }}
-                                        >
+                                          {/* Manage Invitation */}
                                           <div
-                                            className="content"
                                             style={{
                                               display: "flex",
-                                              padding: "6px 6px",
+                                              padding: "1px 4px",
                                               alignItems: "center",
-                                              gap: "12px",
-                                              flex: "1 0 0",
-                                              borderRadius: "6px",
-                                              transition:
-                                                "background-color 0.2s ease",
+                                              alignSelf: "stretch",
+                                              cursor: "pointer",
+                                            }}
+                                            onMouseEnter={(e) => {
+                                              const content =
+                                                e.currentTarget.querySelector(
+                                                  ".content",
+                                                ) as HTMLElement;
+                                              if (content)
+                                                content.style.backgroundColor =
+                                                  "#F5F5F5";
+                                            }}
+                                            onMouseLeave={(e) => {
+                                              const content =
+                                                e.currentTarget.querySelector(
+                                                  ".content",
+                                                ) as HTMLElement;
+                                              if (content)
+                                                content.style.backgroundColor =
+                                                  "transparent";
+                                            }}
+                                            onClick={() => {
+                                              console.log(
+                                                "Manage Invitation clicked for:",
+                                                invite.id,
+                                              );
+                                              setShowActionMenu(null);
                                             }}
                                           >
                                             <div
+                                              className="content"
                                               style={{
                                                 display: "flex",
+                                                padding: "6px 6px",
                                                 alignItems: "center",
-                                                gap: "8px",
+                                                gap: "12px",
                                                 flex: "1 0 0",
+                                                borderRadius: "6px",
+                                                transition:
+                                                  "background-color 0.2s ease",
                                               }}
                                             >
-                                              <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                              >
-                                                <path
-                                                  d="M2.87604 18.1157C2.92198 17.7022 2.94496 17.4955 3.00751 17.3022C3.06301 17.1308 3.14143 16.9676 3.24064 16.8172C3.35246 16.6476 3.49955 16.5005 3.79373 16.2063L17 3.00006C18.1046 1.89549 19.8955 1.89549 21 3.00006C22.1046 4.10463 22.1046 5.89549 21 7.00006L7.79373 20.2063C7.49955 20.5005 7.35245 20.6476 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.0551 6.29786 21.0781 5.88437 21.124L2.5 21.5001L2.87604 18.1157Z"
-                                                  stroke="#A4A7AE"
-                                                  strokeWidth="1.5"
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                />
-                                              </svg>
                                               <div
                                                 style={{
+                                                  display: "flex",
+                                                  alignItems: "center",
+                                                  gap: "8px",
                                                   flex: "1 0 0",
-                                                  color: "#414651",
-                                                  fontFamily: "Public Sans",
-                                                  fontSize: "14px",
-                                                  fontWeight: 600,
-                                                  lineHeight: "20px",
                                                 }}
                                               >
-                                                Manage Invitation
+                                                <svg
+                                                  width="24"
+                                                  height="24"
+                                                  viewBox="0 0 24 24"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <path
+                                                    d="M2.87604 18.1157C2.92198 17.7022 2.94496 17.4955 3.00751 17.3022C3.06301 17.1308 3.14143 16.9676 3.24064 16.8172C3.35246 16.6476 3.49955 16.5005 3.79373 16.2063L17 3.00006C18.1046 1.89549 19.8955 1.89549 21 3.00006C22.1046 4.10463 22.1046 5.89549 21 7.00006L7.79373 20.2063C7.49955 20.5005 7.35245 20.6476 7.18289 20.7594C7.03245 20.8586 6.86929 20.937 6.69785 20.9925C6.5046 21.0551 6.29786 21.0781 5.88437 21.124L2.5 21.5001L2.87604 18.1157Z"
+                                                    stroke="#A4A7AE"
+                                                    strokeWidth="1.5"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                  />
+                                                </svg>
+                                                <div
+                                                  style={{
+                                                    flex: "1 0 0",
+                                                    color: "#414651",
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "14px",
+                                                    fontWeight: 600,
+                                                    lineHeight: "20px",
+                                                  }}
+                                                >
+                                                  Manage Invitation
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
 
-                                        {/* HTML */}
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            padding: "1px 4px",
-                                            alignItems: "center",
-                                            alignSelf: "stretch",
-                                            cursor: "pointer",
-                                          }}
-                                          onMouseEnter={(e) => {
-                                            const content =
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ) as HTMLElement;
-                                            if (content)
-                                              content.style.backgroundColor =
-                                                "#F5F5F5";
-                                          }}
-                                          onMouseLeave={(e) => {
-                                            const content =
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ) as HTMLElement;
-                                            if (content)
-                                              content.style.backgroundColor =
-                                                "transparent";
-                                          }}
-                                          onClick={() => {
-                                            console.log(
-                                              "HTML clicked for:",
-                                              invite.id,
-                                            );
-                                            setShowActionMenu(null);
-                                          }}
-                                        >
+                                          {/* HTML */}
                                           <div
-                                            className="content"
                                             style={{
                                               display: "flex",
-                                              padding: "6px 6px",
+                                              padding: "1px 4px",
                                               alignItems: "center",
-                                              gap: "12px",
-                                              flex: "1 0 0",
-                                              borderRadius: "6px",
-                                              transition:
-                                                "background-color 0.2s ease",
+                                              alignSelf: "stretch",
+                                              cursor: "pointer",
+                                            }}
+                                            onMouseEnter={(e) => {
+                                              const content =
+                                                e.currentTarget.querySelector(
+                                                  ".content",
+                                                ) as HTMLElement;
+                                              if (content)
+                                                content.style.backgroundColor =
+                                                  "#F5F5F5";
+                                            }}
+                                            onMouseLeave={(e) => {
+                                              const content =
+                                                e.currentTarget.querySelector(
+                                                  ".content",
+                                                ) as HTMLElement;
+                                              if (content)
+                                                content.style.backgroundColor =
+                                                  "transparent";
+                                            }}
+                                            onClick={() => {
+                                              console.log(
+                                                "HTML clicked for:",
+                                                invite.id,
+                                              );
+                                              setShowActionMenu(null);
                                             }}
                                           >
                                             <div
+                                              className="content"
                                               style={{
                                                 display: "flex",
+                                                padding: "6px 6px",
                                                 alignItems: "center",
-                                                gap: "8px",
+                                                gap: "12px",
                                                 flex: "1 0 0",
+                                                borderRadius: "6px",
+                                                transition:
+                                                  "background-color 0.2s ease",
                                               }}
                                             >
-                                              <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                              >
-                                                <path
-                                                  d="M14 2.26953V6.40007C14 6.96012 14 7.24015 14.109 7.45406C14.2049 7.64222 14.3578 7.7952 14.546 7.89108C14.7599 8.00007 15.0399 8.00007 15.6 8.00007H19.7305M14 17.5L16.5 15L14 12.5M10 12.5L7.5 15L10 17.5M20 9.98822V17.2C20 18.8802 20 19.7202 19.673 20.362C19.3854 20.9265 18.9265 21.3854 18.362 21.673C17.7202 22 16.8802 22 15.2 22H8.8C7.11984 22 6.27976 22 5.63803 21.673C5.07354 21.3854 4.6146 20.9265 4.32698 20.362C4 19.7202 4 18.8802 4 17.2V6.8C4 5.11984 4 4.27976 4.32698 3.63803C4.6146 3.07354 5.07354 2.6146 5.63803 2.32698C6.27976 2 7.11984 2 8.8 2H12.0118C12.7455 2 13.1124 2 13.4577 2.08289C13.7638 2.15638 14.0564 2.27759 14.3249 2.44208C14.6276 2.6276 14.887 2.88703 15.4059 3.40589L18.5941 6.59411C19.113 7.11297 19.3724 7.3724 19.5579 7.67515C19.7224 7.94356 19.8436 8.2362 19.9171 8.5423C20 8.88757 20 9.25445 20 9.98822Z"
-                                                  stroke="#A4A7AE"
-                                                  strokeWidth="1.5"
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                />
-                                              </svg>
                                               <div
                                                 style={{
+                                                  display: "flex",
+                                                  alignItems: "center",
+                                                  gap: "8px",
                                                   flex: "1 0 0",
-                                                  color: "#414651",
-                                                  fontFamily: "Public Sans",
-                                                  fontSize: "14px",
-                                                  fontWeight: 600,
-                                                  lineHeight: "20px",
                                                 }}
                                               >
-                                                HTML
+                                                <svg
+                                                  width="24"
+                                                  height="24"
+                                                  viewBox="0 0 24 24"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <path
+                                                    d="M14 2.26953V6.40007C14 6.96012 14 7.24015 14.109 7.45406C14.2049 7.64222 14.3578 7.7952 14.546 7.89108C14.7599 8.00007 15.0399 8.00007 15.6 8.00007H19.7305M14 17.5L16.5 15L14 12.5M10 12.5L7.5 15L10 17.5M20 9.98822V17.2C20 18.8802 20 19.7202 19.673 20.362C19.3854 20.9265 18.9265 21.3854 18.362 21.673C17.7202 22 16.8802 22 15.2 22H8.8C7.11984 22 6.27976 22 5.63803 21.673C5.07354 21.3854 4.6146 20.9265 4.32698 20.362C4 19.7202 4 18.8802 4 17.2V6.8C4 5.11984 4 4.27976 4.32698 3.63803C4.6146 3.07354 5.07354 2.6146 5.63803 2.32698C6.27976 2 7.11984 2 8.8 2H12.0118C12.7455 2 13.1124 2 13.4577 2.08289C13.7638 2.15638 14.0564 2.27759 14.3249 2.44208C14.6276 2.6276 14.887 2.88703 15.4059 3.40589L18.5941 6.59411C19.113 7.11297 19.3724 7.3724 19.5579 7.67515C19.7224 7.94356 19.8436 8.2362 19.9171 8.5423C20 8.88757 20 9.25445 20 9.98822Z"
+                                                    stroke="#A4A7AE"
+                                                    strokeWidth="1.5"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                  />
+                                                </svg>
+                                                <div
+                                                  style={{
+                                                    flex: "1 0 0",
+                                                    color: "#414651",
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "14px",
+                                                    fontWeight: 600,
+                                                    lineHeight: "20px",
+                                                  }}
+                                                >
+                                                  HTML
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
 
-                                        {/* PDF */}
-                                        <div
-                                          style={{
-                                            display: "flex",
-                                            padding: "1px 4px",
-                                            alignItems: "center",
-                                            alignSelf: "stretch",
-                                            cursor: "pointer",
-                                          }}
-                                          onMouseEnter={(e) => {
-                                            const content =
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ) as HTMLElement;
-                                            if (content)
-                                              content.style.backgroundColor =
-                                                "#F5F5F5";
-                                          }}
-                                          onMouseLeave={(e) => {
-                                            const content =
-                                              e.currentTarget.querySelector(
-                                                ".content",
-                                              ) as HTMLElement;
-                                            if (content)
-                                              content.style.backgroundColor =
-                                                "transparent";
-                                          }}
-                                          onClick={() => {
-                                            console.log(
-                                              "PDF clicked for:",
-                                              invite.id,
-                                            );
-                                            setShowActionMenu(null);
-                                          }}
-                                        >
+                                          {/* PDF */}
                                           <div
-                                            className="content"
                                             style={{
                                               display: "flex",
-                                              padding: "6px 6px",
+                                              padding: "1px 4px",
                                               alignItems: "center",
-                                              gap: "12px",
-                                              flex: "1 0 0",
-                                              borderRadius: "6px",
-                                              transition:
-                                                "background-color 0.2s ease",
+                                              alignSelf: "stretch",
+                                              cursor: "pointer",
+                                            }}
+                                            onMouseEnter={(e) => {
+                                              const content =
+                                                e.currentTarget.querySelector(
+                                                  ".content",
+                                                ) as HTMLElement;
+                                              if (content)
+                                                content.style.backgroundColor =
+                                                  "#F5F5F5";
+                                            }}
+                                            onMouseLeave={(e) => {
+                                              const content =
+                                                e.currentTarget.querySelector(
+                                                  ".content",
+                                                ) as HTMLElement;
+                                              if (content)
+                                                content.style.backgroundColor =
+                                                  "transparent";
+                                            }}
+                                            onClick={() => {
+                                              console.log(
+                                                "PDF clicked for:",
+                                                invite.id,
+                                              );
+                                              setShowActionMenu(null);
                                             }}
                                           >
                                             <div
+                                              className="content"
                                               style={{
                                                 display: "flex",
+                                                padding: "6px 6px",
                                                 alignItems: "center",
-                                                gap: "8px",
+                                                gap: "12px",
                                                 flex: "1 0 0",
+                                                borderRadius: "6px",
+                                                transition:
+                                                  "background-color 0.2s ease",
                                               }}
                                             >
-                                              <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                              >
-                                                <path
-                                                  d="M14 2.26953V6.40007C14 6.96012 14 7.24015 14.109 7.45406C14.2049 7.64222 14.3578 7.7952 14.546 7.89108C14.7599 8.00007 15.0399 8.00007 15.6 8.00007H19.7305M9 15L12 18M12 18L15 15M12 18L12 12M14 2H8.8C7.11984 2 6.27976 2 5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803C4 4.27976 4 5.11984 4 6.8V17.2C4 18.8802 4 19.7202 4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673C6.27976 22 7.11984 22 8.8 22H15.2C16.8802 22 17.7202 22 18.362 21.673C18.9265 21.3854 19.3854 20.9265 19.673 20.362C20 19.7202 20 18.8802 20 17.2V8L14 2Z"
-                                                  stroke="#A4A7AE"
-                                                  strokeWidth="1.5"
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                />
-                                              </svg>
                                               <div
                                                 style={{
+                                                  display: "flex",
+                                                  alignItems: "center",
+                                                  gap: "8px",
                                                   flex: "1 0 0",
-                                                  color: "#414651",
-                                                  fontFamily: "Public Sans",
-                                                  fontSize: "14px",
-                                                  fontWeight: 600,
-                                                  lineHeight: "20px",
                                                 }}
                                               >
-                                                PDF
+                                                <svg
+                                                  width="24"
+                                                  height="24"
+                                                  viewBox="0 0 24 24"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <path
+                                                    d="M14 2.26953V6.40007C14 6.96012 14 7.24015 14.109 7.45406C14.2049 7.64222 14.3578 7.7952 14.546 7.89108C14.7599 8.00007 15.0399 8.00007 15.6 8.00007H19.7305M9 15L12 18M12 18L15 15M12 18L12 12M14 2H8.8C7.11984 2 6.27976 2 5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803C4 4.27976 4 5.11984 4 6.8V17.2C4 18.8802 4 19.7202 4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673C6.27976 22 7.11984 22 8.8 22H15.2C16.8802 22 17.7202 22 18.362 21.673C18.9265 21.3854 19.3854 20.9265 19.673 20.362C20 19.7202 20 18.8802 20 17.2V8L14 2Z"
+                                                    stroke="#A4A7AE"
+                                                    strokeWidth="1.5"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                  />
+                                                </svg>
+                                                <div
+                                                  style={{
+                                                    flex: "1 0 0",
+                                                    color: "#414651",
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "14px",
+                                                    fontWeight: 600,
+                                                    lineHeight: "20px",
+                                                  }}
+                                                >
+                                                  PDF
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-                                    </div>
-                                  )}
+                                    )}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          ))}
-                        </div>
+                            ))}
+                          </div>
                         </div>
                       ) : (
                         /* Cards Container */
@@ -6934,7 +6954,9 @@ const InvitesAndOrders: React.FC = () => {
                               isExpanded={expandedCardId === invite.id}
                               onToggleExpand={() =>
                                 setExpandedCardId(
-                                  expandedCardId === invite.id ? null : invite.id
+                                  expandedCardId === invite.id
+                                    ? null
+                                    : invite.id,
                                 )
                               }
                               onToggleSelect={handleSelectItem(invite.id)}
