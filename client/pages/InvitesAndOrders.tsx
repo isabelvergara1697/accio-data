@@ -2363,7 +2363,7 @@ const InvitesAndOrders: React.FC = () => {
                               style={{
                                 display: showFiltersModal ? "none" : "flex",
                                 alignItems: "center",
-                                gap: isTablet ? "8px" : "12px",
+                                gap: "12px",
                                 position: "relative",
                                 flexShrink: isTablet ? 1 : 0,
                                 minWidth: 0,
