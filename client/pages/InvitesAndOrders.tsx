@@ -3903,7 +3903,7 @@ const InvitesAndOrders: React.FC = () => {
                             {/* Mobile: Filters + Download Buttons Row */}
                             <div
                               style={{
-                                display: "flex",
+                                display: showActionsPanel ? "none" : "flex",
                                 alignItems: "center",
                                 gap: "12px",
                                 alignSelf: "stretch",
