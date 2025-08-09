@@ -4158,6 +4158,105 @@ const InvitesAndOrders: React.FC = () => {
                                     </div>
                                   )}
                               </div>
+
+                              {/* Download Button */}
+                              <div
+                                style={{
+                                  position: "relative",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <button
+                                  onClick={() =>
+                                    setShowDownloadDropdown(
+                                      !showDownloadDropdown,
+                                    )
+                                  }
+                                  onMouseEnter={() =>
+                                    setHoveredButton("download")
+                                  }
+                                  onMouseLeave={() => setHoveredButton(null)}
+                                  style={{
+                                    display: "flex",
+                                    minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background:
+                                      hoveredButton === "download" ||
+                                      showDownloadDropdown
+                                        ? "#FDFDFD"
+                                        : "#FFF",
+                                    width: "100%",
+                                    boxShadow:
+                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    cursor: "pointer",
+                                    transition: "background-color 0.2s ease",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 17 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M14.25 10V10.8C14.25 11.9201 14.25 12.4802 14.032 12.908C13.8403 13.2843 13.5343 13.5903 13.158 13.782C12.7302 14 12.1701 14 11.05 14H5.45C4.32989 14 3.76984 14 3.34202 13.782C2.96569 13.5903 2.65973 13.2843 2.46799 12.908C2.25 12.4802 2.25 11.9201 2.25 10.8V10M11.5833 6.66667L8.25 10M8.25 10L4.91667 6.66667M8.25 10V2"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "0 2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontWeight: 600,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 600,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Download
+                                      </span>
+                                    </div>
+                                  </div>
+                                </button>
+                                {showDownloadDropdown && (
+                                  <DownloadDropdown
+                                    downloadDropdownRef={downloadDropdownRef}
+                                    onDownloadCSV={() => {
+                                      console.log("Download CSV");
+                                      setShowDownloadDropdown(false);
+                                    }}
+                                    onDownloadXLSX={() => {
+                                      console.log("Download XLSX");
+                                      setShowDownloadDropdown(false);
+                                    }}
+                                  />
+                                )}
+                              </div>
                             </div>
                           </>
                         ) : (
