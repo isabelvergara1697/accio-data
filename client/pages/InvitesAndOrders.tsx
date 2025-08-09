@@ -1377,11 +1377,14 @@ const InvitesAndOrders: React.FC = () => {
 
   const handleSelectItem = (id: string) => {
     return (checked: boolean) => {
+      let newSelectedItems: string[];
       if (checked) {
-        setSelectedItems([...selectedItems, id]);
+        newSelectedItems = [...selectedItems, id];
       } else {
-        setSelectedItems(selectedItems.filter((item) => item !== id));
+        newSelectedItems = selectedItems.filter((item) => item !== id);
       }
+      setSelectedItems(newSelectedItems);
+      setShowActionsPanel(newSelectedItems.length > 0);
     };
   };
 
