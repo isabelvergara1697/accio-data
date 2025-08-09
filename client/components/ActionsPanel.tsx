@@ -247,6 +247,10 @@ export const ActionsPanel: React.FC<ActionsPanelProps> = ({
                   fontWeight: 600,
                   lineHeight: "20px",
                   position: "relative",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                  width: "100%",
                 }}
               >
                 <span
