@@ -6701,9 +6701,9 @@ const InvitesAndOrders: React.FC = () => {
       {selectedItems.length > 0 && showActionsPanel && (
         <div
           style={{
-            position: "absolute",
-            right: "16px",
-            top: "19px",
+            position: "fixed",
+            right: "32px",
+            top: "32px",
             zIndex: 1000,
           }}
         >
