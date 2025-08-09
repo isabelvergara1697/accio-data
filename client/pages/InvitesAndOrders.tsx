@@ -1388,6 +1388,16 @@ const InvitesAndOrders: React.FC = () => {
     };
   };
 
+  const handleClearSelection = () => {
+    setSelectedItems([]);
+    setShowActionsPanel(false);
+  };
+
+  const handleAction = (action: string) => {
+    console.log(`Action ${action} clicked for ${selectedItems.length} items:`, selectedItems);
+    // Here you would implement the actual action logic
+  };
+
   const handleSort = (field: keyof InviteData) => {
     if (sortField === field) {
       if (sortDirection === "asc") {
