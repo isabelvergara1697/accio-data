@@ -4004,7 +4004,7 @@ const InvitesAndOrders: React.FC = () => {
                               )}
                             </div>
 
-                            {/* Mobile: Filters + Download Buttons Row */}
+                            {/* Mobile: Customize + Download + Filters Buttons Row */}
                             <div
                               style={{
                                 display: showActionsPanel ? "none" : "flex",
