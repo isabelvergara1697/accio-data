@@ -667,14 +667,14 @@ const InvitesAndOrders: React.FC = () => {
     { id: "default", name: "Default", isDefault: true },
   ]);
   const [appliedFilters, setAppliedFilters] = useState({
-    status: ["canceled", "expired"] as string[], // Test filters
+    status: [] as string[], // Clear test filters - start with empty state
     typeOfPackage: [] as string[],
     i9Filled: [] as string[],
     activate: [] as string[],
     ews: [] as string[],
     dateRange: {
-      start: new Date(2025, 0, 10), // Jan 10, 2025
-      end: new Date(2025, 0, 16), // Jan 16, 2025
+      start: null, // Clear test date range - start with no date filter
+      end: null,
     },
   });
 
