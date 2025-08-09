@@ -2123,6 +2123,98 @@ const InvitesAndOrders: React.FC = () => {
                                       Invites
                                     </span>
                                   </div>
+
+                                  {/* Selection Badge - positioned in table header */}
+                                  {selectedItems.length > 0 && (
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        padding: "3px 4px 3px 8px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "3px",
+                                        borderRadius: "6px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        position: "relative",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "4px",
+                                          position: "relative",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#414651",
+                                            textAlign: "center",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "12px",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "18px",
+                                            position: "relative",
+                                          }}
+                                        >
+                                          <span
+                                            style={{
+                                              fontFamily:
+                                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontWeight: 400,
+                                              fontSize: "12px",
+                                              color: "rgba(65,70,81,1)",
+                                            }}
+                                          >
+                                            {selectedItems.length} Invite{selectedItems.length !== 1 ? "s" : ""} Selected
+                                          </span>
+                                        </div>
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "18px",
+                                          padding: "2px",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          borderRadius: "3px",
+                                          position: "relative",
+                                        }}
+                                      >
+                                        <button
+                                          onClick={handleClearSelection}
+                                          style={{
+                                            background: "transparent",
+                                            border: "none",
+                                            cursor: "pointer",
+                                            padding: "0",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            width: "14px",
+                                            height: "14px",
+                                          }}
+                                        >
+                                          <svg
+                                            width="14"
+                                            height="14"
+                                            viewBox="0 0 14 14"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                                              stroke="#A4A7AE"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  )}
                                 </div>
                               </div>
                             </div>
