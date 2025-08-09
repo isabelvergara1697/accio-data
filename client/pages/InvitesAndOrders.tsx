@@ -1934,9 +1934,9 @@ const InvitesAndOrders: React.FC = () => {
           <div
             style={{
               display: "flex",
-              flexDirection: showFiltersModal ? "row" : "column",
+              flexDirection: (showFiltersModal || showActionsPanel) ? "row" : "column",
               alignItems: "flex-start",
-              gap: showFiltersModal ? "16px" : "24px",
+              gap: (showFiltersModal || showActionsPanel) ? "16px" : "24px",
               flex: "1 0 0",
               alignSelf: "stretch",
               position: "relative",
@@ -1947,12 +1947,22 @@ const InvitesAndOrders: React.FC = () => {
             }}
           >
             {/* Filters Panel */}
-            {showFiltersModal && (isDesktop || isTablet) && (
+            {showFiltersModal && !showActionsPanel && (isDesktop || isTablet) && (
               <FiltersPanel
                 isVisible={showFiltersModal}
                 onClose={() => setShowFiltersModal(false)}
                 onFiltersChange={setAppliedFilters}
                 filters={appliedFilters}
+              />
+            )}
+
+            {/* Actions Panel */}
+            {showActionsPanel && (isDesktop || isTablet) && (
+              <ActionsPanel
+                isVisible={showActionsPanel}
+                onClose={handleClearSelection}
+                selectedCount={selectedItems.length}
+                onAction={handleAction}
               />
             )}
 
