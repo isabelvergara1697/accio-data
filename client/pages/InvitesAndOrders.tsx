@@ -2616,27 +2616,29 @@ const InvitesAndOrders: React.FC = () => {
                                   </button>
 
                                   {/* Table Views Dropdown */}
-                                  <div ref={tableViewsDropdownRef}>
-                                    <TableViewsDropdown
-                                      currentView={currentTableView}
-                                      views={tableViews}
-                                      onViewChange={handleViewChange}
-                                      onSaveTableView={handleSaveTableView}
-                                      onCreateNewView={handleCreateNewTableView}
-                                      onDeleteTableView={handleDeleteTableView}
-                                      onRenameTableView={handleRenameTableView}
-                                      isOpen={tableViewsDropdownOpen}
-                                      onToggle={() =>
-                                        setTableViewsDropdownOpen(
-                                          !tableViewsDropdownOpen,
-                                        )
-                                      }
-                                      onClose={() =>
-                                        setTableViewsDropdownOpen(false)
-                                      }
-                                      isMobile={isMobile}
-                                    />
-                                  </div>
+                                  {tableViewsDropdownOpen && (
+                                    <div ref={tableViewsDropdownRef}>
+                                      <TableViewsDropdown
+                                        currentView={currentTableView}
+                                        views={tableViews}
+                                        onViewChange={handleViewChange}
+                                        onSaveTableView={handleSaveTableView}
+                                        onCreateNewView={handleCreateNewTableView}
+                                        onDeleteTableView={handleDeleteTableView}
+                                        onRenameTableView={handleRenameTableView}
+                                        isOpen={tableViewsDropdownOpen}
+                                        onToggle={() =>
+                                          setTableViewsDropdownOpen(
+                                            !tableViewsDropdownOpen,
+                                          )
+                                        }
+                                        onClose={() =>
+                                          setTableViewsDropdownOpen(false)
+                                        }
+                                        isMobile={isMobile}
+                                      />
+                                    </div>
+                                  )}
 
                                   {/* Download Button */}
                                   <div style={{ position: "relative" }}>
