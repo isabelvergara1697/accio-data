@@ -3061,8 +3061,8 @@ const InvitesAndOrders: React.FC = () => {
                                     style={{
                                       position: "absolute",
                                       top: "calc(100% + 4px)",
+                                      left: "calc(-100vw + 100px)",
                                       right: "0",
-                                      width: "200px",
                                       borderRadius: "8px",
                                       border:
                                         "1px solid rgba(10, 13, 18, 0.04)",
