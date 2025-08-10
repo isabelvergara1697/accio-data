@@ -3150,7 +3150,7 @@ const InvitesAndOrders: React.FC = () => {
                       maxWidth: "100%",
                       boxSizing: "border-box",
                       overflow: "visible",
-                      minHeight: "500px",
+                      minHeight: tableView === "rows" ? "auto" : "500px",
                       height: "auto",
                     }}
                   >
