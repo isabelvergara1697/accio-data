@@ -3047,13 +3047,14 @@ const InvitesAndOrders: React.FC = () => {
                 showFiltersModal || showActionsPanel ? "row" : "column",
               alignItems: "flex-start",
               gap: showFiltersModal || showActionsPanel ? "16px" : "24px",
-              flex: "1 0 0",
+              flex: "1 0 auto",
               alignSelf: "stretch",
               position: "relative",
               maxWidth: "100%",
               overflow: "visible",
               boxSizing: "border-box",
               minHeight: "600px",
+              height: "auto",
             }}
           >
             {/* Filters Panel */}
