@@ -3108,13 +3108,14 @@ const InvitesAndOrders: React.FC = () => {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "20px",
-                  flex: "1 0 0",
+                  flex: "1 0 auto",
                   alignSelf: "stretch",
                   position: "relative",
                   maxWidth: "100%",
                   overflow: "visible",
                   boxSizing: "border-box",
                   minHeight: "500px",
+                  height: "auto",
                 }}
               >
                 <div
@@ -3122,12 +3123,13 @@ const InvitesAndOrders: React.FC = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-start",
-                    flex: "1 0 0",
+                    flex: "1 0 auto",
                     alignSelf: "stretch",
                     position: "relative",
                     maxWidth: "100%",
                     overflow: "visible",
                     boxSizing: "border-box",
+                    minHeight: "auto",
                   }}
                 >
                   <div
