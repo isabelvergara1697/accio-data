@@ -3085,10 +3085,12 @@ const InvitesAndOrders: React.FC = () => {
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "24px",
-                flex: "1 0 0",
+                flex: "1 0 auto",
                 alignSelf: "stretch",
                 position: "relative",
                 minWidth: 0, // Allow container to shrink below content size
+                minHeight: "600px",
+                height: "auto",
                 width:
                   (showFiltersModal || showActionsPanel) &&
                   (isDesktop || isTablet)
