@@ -1347,7 +1347,7 @@ const InvitesAndOrders: React.FC = () => {
       <div
         style={{
           display: "flex",
-          padding: "12px 8px",
+          padding: cardLayout === "mobile" ? "12px 4px" : "12px 8px",
           flexDirection: "column",
           alignItems: "flex-start",
           gap: isExpanded ? "8px" : cardLayout === "mobile" ? "12px" : "0px",
@@ -1356,6 +1356,9 @@ const InvitesAndOrders: React.FC = () => {
           border: isExpanded ? "1px solid #E9EAEB" : "1px solid #F5F5F5",
           background: isExpanded ? "#F5F5F5" : "#FFF",
           position: "relative",
+          width: "100%",
+          boxSizing: "border-box",
+          overflow: "hidden",
         }}
       >
         {/* Card Top Row - Mobile Layout */}
@@ -1367,9 +1370,11 @@ const InvitesAndOrders: React.FC = () => {
               style={{
                 display: "flex",
                 alignItems: "flex-start",
-                gap: "12px",
+                gap: cardLayout === "mobile" ? "8px" : "12px",
                 alignSelf: "stretch",
                 position: "relative",
+                width: "100%",
+                overflow: "hidden",
               }}
             >
               {/* Checkbox */}
@@ -1509,9 +1514,10 @@ const InvitesAndOrders: React.FC = () => {
                   display: "flex",
                   height: "42px",
                   alignItems: "center",
-                  gap: "8px",
+                  gap: "4px",
                   marginLeft: "auto",
                   position: "relative",
+                  flexShrink: 0,
                 }}
               >
                 {/* Expand/Collapse Button */}
@@ -1619,9 +1625,11 @@ const InvitesAndOrders: React.FC = () => {
               style={{
                 display: "flex",
                 alignItems: "flex-start",
-                gap: "12px",
+                gap: cardLayout === "mobile" ? "8px" : "12px",
                 alignSelf: "stretch",
                 position: "relative",
+                width: "100%",
+                overflow: "hidden",
               }}
             >
               {/* Last Name Container */}
