@@ -7441,12 +7441,13 @@ const InvitesAndOrders: React.FC = () => {
             padding: isMobile ? "12px 8px 16px 8px" : "12px 16px 16px 16px",
             flexDirection: "column",
             alignItems: "flex-start",
-            flex: "1 0 0",
+            flex: "1 0 auto",
             alignSelf: "stretch",
             position: "relative",
             gap: "12px",
-            overflow: "hidden",
+            overflow: "visible",
             width: "100%",
+            minHeight: "200px",
             boxSizing: "border-box",
           }}
         >
