@@ -1400,8 +1400,8 @@ const InvitesAndOrders: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  minWidth: "70px",
-                  maxWidth: "90px",
+                  minWidth: cardLayout === "mobile" ? "65px" : "70px",
+                  maxWidth: cardLayout === "mobile" ? "85px" : "90px",
                   flex: "0 0 auto",
                   flexDirection: "column",
                   alignItems: "flex-start",
@@ -1439,13 +1439,14 @@ const InvitesAndOrders: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  minWidth: "70px",
+                  minWidth: cardLayout === "mobile" ? "60px" : "70px",
                   flex: "1 1 auto",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "8px",
                   position: "relative",
                   overflow: "hidden",
+                  maxWidth: cardLayout === "mobile" ? "120px" : "none",
                 }}
               >
                 <div
@@ -1636,13 +1637,14 @@ const InvitesAndOrders: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  minWidth: "70px",
+                  minWidth: cardLayout === "mobile" ? "60px" : "70px",
                   flex: "1 1 auto",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "8px",
                   position: "relative",
                   overflow: "hidden",
+                  maxWidth: cardLayout === "mobile" ? "100px" : "none",
                 }}
               >
                 <div
@@ -1710,7 +1712,8 @@ const InvitesAndOrders: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  minWidth: "85px",
+                  minWidth: cardLayout === "mobile" ? "75px" : "85px",
+                  maxWidth: cardLayout === "mobile" ? "95px" : "none",
                   flex: "0 0 auto",
                   flexDirection: "column",
                   alignItems: "flex-start",
@@ -1761,8 +1764,8 @@ const InvitesAndOrders: React.FC = () => {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "8px",
-                  flex: "2 1 auto",
-                  minWidth: "120px",
+                  flex: cardLayout === "mobile" ? "2 1 auto" : "2 1 auto",
+                  minWidth: cardLayout === "mobile" ? "100px" : "120px",
                   position: "relative",
                   overflow: "hidden",
                 }}
