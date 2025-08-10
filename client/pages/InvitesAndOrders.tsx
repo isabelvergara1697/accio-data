@@ -2284,12 +2284,13 @@ const InvitesAndOrders: React.FC = () => {
             <div
               style={{
                 display: "flex",
-                width: cardLayout === "mobile" ? "calc(33.33% - 8px)" : "80px",
+                width: cardLayout === "mobile" ? "auto" : "80px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "8px",
                 position: "relative",
-                flex: cardLayout === "mobile" ? "1 0 0" : "none",
+                flex: cardLayout === "mobile" ? "1 1 auto" : "none",
+                minWidth: cardLayout === "mobile" ? "60px" : "80px",
               }}
             >
               <div
@@ -2330,12 +2331,13 @@ const InvitesAndOrders: React.FC = () => {
             <div
               style={{
                 display: "flex",
-                width: cardLayout === "mobile" ? "calc(33.33% - 8px)" : "80px",
+                width: cardLayout === "mobile" ? "auto" : "80px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "8px",
                 position: "relative",
-                flex: cardLayout === "mobile" ? "1 0 0" : "none",
+                flex: cardLayout === "mobile" ? "1 1 auto" : "none",
+                minWidth: cardLayout === "mobile" ? "60px" : "80px",
               }}
             >
               <div
@@ -2376,12 +2378,13 @@ const InvitesAndOrders: React.FC = () => {
             <div
               style={{
                 display: "flex",
-                width: cardLayout === "mobile" ? "calc(33.33% - 8px)" : "80px",
+                width: cardLayout === "mobile" ? "auto" : "80px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "8px",
                 position: "relative",
-                flex: cardLayout === "mobile" ? "1 0 0" : "none",
+                flex: cardLayout === "mobile" ? "1 1 auto" : "none",
+                minWidth: cardLayout === "mobile" ? "60px" : "80px",
               }}
             >
               <div
