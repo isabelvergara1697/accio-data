@@ -742,10 +742,22 @@ const InvitesAndOrders: React.FC = () => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsDesktop(width >= 1024);
-      setIsLargeDesktop(width >= 1440);
-      setIsMobile(width < 768);
-      setIsTablet(width >= 768 && width < 1024);
+      const newIsDesktop = width >= 1024;
+      const newIsLargeDesktop = width >= 1440;
+      const newIsMobile = width < 768;
+      const newIsTablet = width >= 768 && width < 1024;
+
+      setIsDesktop(newIsDesktop);
+      setIsLargeDesktop(newIsLargeDesktop);
+      setIsMobile(newIsMobile);
+      setIsTablet(newIsTablet);
+
+      // Auto-switch to appropriate view based on screen size
+      if (newIsMobile || newIsTablet) {
+        setTableView("rows");
+      } else {
+        setTableView("table");
+      }
     };
 
     // Call immediately on mount to set initial values
