@@ -1748,7 +1748,7 @@ const InvitesAndOrders: React.FC = () => {
                   style={{
                     display: "flex",
                     width: "100%",
-                    maxWidth: "88px",
+                    maxWidth: cardLayout === "mobile" ? "75px" : "88px",
                     alignItems: "center",
                     position: "relative",
                   }}
