@@ -164,7 +164,7 @@ const InvitesAndOrders: React.FC = () => {
   const [showInformationDrawer, setShowInformationDrawer] = useState(false);
   const [showActionMenu, setShowActionMenu] = useState<string | null>(null);
   const [showMobileDotsMenu, setShowMobileDotsMenu] = useState(false);
-  const [tableView, setTableView] = useState<"table" | "rows">("table");
+  const [tableView, setTableView] = useState<"table" | "rows">(isMobile || isTablet ? "rows" : "table");
   const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchActive, setIsSearchActive] = useState(false);
