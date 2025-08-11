@@ -7063,9 +7063,11 @@ const InvitesAndOrders: React.FC = () => {
                                       <div
                                         ref={actionMenuRef}
                                         style={{
-                                          position: "absolute",
-                                          top: "100%",
-                                          right: "0",
+                                          position: "fixed",
+                                          top: "auto",
+                                          bottom: "auto",
+                                          right: isMobile || isTablet ? "16px" : "auto",
+                                          left: isMobile || isTablet ? "auto" : "auto",
                                           marginTop: "4px",
                                           width: isMobile ? "200px" : "248px",
                                           borderRadius: "8px",
@@ -7074,7 +7076,18 @@ const InvitesAndOrders: React.FC = () => {
                                           background: "rgba(255, 255, 255, 1)",
                                           boxShadow:
                                             "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
-                                          zIndex: 99999,
+                                          zIndex: 999999,
+                                          transform: `translateY(calc(-100% - 8px))`,
+                                        }}
+                                        onMouseEnter={(e) => {
+                                          // Calculate position relative to button
+                                          const button = e.currentTarget.parentElement?.querySelector('div[style*="cursor: pointer"]');
+                                          if (button) {
+                                            const rect = button.getBoundingClientRect();
+                                            e.currentTarget.style.top = `${rect.bottom + 4}px`;
+                                            e.currentTarget.style.right = isMobile || isTablet ? "16px" : `${window.innerWidth - rect.right}px`;
+                                            e.currentTarget.style.transform = "none";
+                                          }
                                         }}
                                       >
                                         <div
