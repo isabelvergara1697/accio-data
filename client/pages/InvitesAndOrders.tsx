@@ -752,12 +752,7 @@ const InvitesAndOrders: React.FC = () => {
       setIsMobile(newIsMobile);
       setIsTablet(newIsTablet);
 
-      // Auto-switch to appropriate view based on screen size
-      if (newIsMobile || newIsTablet) {
-        setTableView("rows");
-      } else {
-        setTableView("table");
-      }
+      // Remove automatic view switching - let users control the view
     };
 
     // Call immediately on mount to set initial values
