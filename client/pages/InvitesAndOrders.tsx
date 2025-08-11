@@ -7025,7 +7025,11 @@ const InvitesAndOrders: React.FC = () => {
                                     alignItems: "center",
                                     gap: "12px",
                                     borderBottom: "1px solid #E9EAEB",
-                                    position: "relative",
+                                    position: (isMobile || isTablet) ? "sticky" : "relative",
+                                    right: (isMobile || isTablet) ? "0" : "auto",
+                                    zIndex: (isMobile || isTablet) ? 10 : "auto",
+                                    background: selectedItems.includes(invite.id) ? "#F5F5F5" : hoveredRowId === invite.id ? "#F5F5F5" : "#FFF",
+                                    boxShadow: (isMobile || isTablet) ? "-2px 0 4px rgba(0, 0, 0, 0.05)" : "none",
                                   }}
                                 >
                                   <div
