@@ -6926,8 +6926,9 @@ const InvitesAndOrders: React.FC = () => {
                                   background: "#FFF",
                                   position: (isMobile || isTablet) ? "sticky" : "relative",
                                   right: (isMobile || isTablet) ? "0" : "auto",
-                                  zIndex: (isMobile || isTablet) ? 10 : "auto",
-                                  boxShadow: (isMobile || isTablet) ? "-2px 0 4px rgba(0, 0, 0, 0.05)" : "none",
+                                  zIndex: (isMobile || isTablet) ? 20 : "auto",
+                                  boxShadow: (isMobile || isTablet) ? "-4px 0 8px rgba(0, 0, 0, 0.1)" : "none",
+                                  borderLeft: (isMobile || isTablet) ? "1px solid #E9EAEB" : "none",
                                 }}
                               />
                             </div>
