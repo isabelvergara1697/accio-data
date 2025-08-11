@@ -7065,9 +7065,7 @@ const InvitesAndOrders: React.FC = () => {
                                         style={{
                                           position: "absolute",
                                           top: "100%",
-                                          right: (isMobile || isTablet) ? "0" : "0",
-                                          left: (isMobile || isTablet) ? "auto" : "auto",
-                                          transform: (isMobile || isTablet) ? "translateX(-100%)" : "none",
+                                          right: (isMobile || isTablet) ? "calc(100% - 200px)" : "0",
                                           marginTop: "4px",
                                           width: isMobile ? "200px" : "248px",
                                           borderRadius: "8px",
