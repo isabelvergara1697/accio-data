@@ -7922,6 +7922,319 @@ const InvitesAndOrders: React.FC = () => {
         </main>
       </div>
 
+      {/* Floating Actions Column for Mobile and Tablet */}
+      {(isMobile || isTablet) && (
+        <div
+          style={{
+            position: "fixed",
+            top: "50%",
+            right: "16px",
+            transform: "translateY(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "12px",
+            zIndex: 1000,
+            background: "#FFF",
+            borderRadius: "12px",
+            border: "1px solid #E9EAEB",
+            boxShadow: "0 4px 16px 0 rgba(10, 13, 18, 0.1), 0 1px 3px 0 rgba(10, 13, 18, 0.06)",
+            padding: "12px 8px",
+            minWidth: "48px",
+          }}
+        >
+          {/* Filter Button */}
+          <button
+            onClick={() => setShowMobileFiltersModal(true)}
+            style={{
+              display: "flex",
+              width: "32px",
+              height: "32px",
+              padding: "8px",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "8px",
+              border: "none",
+              background: hasAppliedFilters() ? "#ECEEF9" : "transparent",
+              cursor: "pointer",
+              position: "relative",
+            }}
+            onMouseEnter={(e) => {
+              if (!hasAppliedFilters()) {
+                e.currentTarget.style.background = "#F5F5F5";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!hasAppliedFilters()) {
+                e.currentTarget.style.background = "transparent";
+              }
+            }}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.66669 4.66666H13.3334M5.33335 8H10.6667M7.33335 11.3333H8.66669"
+                stroke={hasAppliedFilters() ? "#344698" : "#A4A7AE"}
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {hasAppliedFilters() && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-4px",
+                  right: "-4px",
+                  width: "16px",
+                  height: "16px",
+                  borderRadius: "50%",
+                  background: "#344698",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "10px",
+                  fontWeight: 600,
+                  color: "#FFF",
+                  fontFamily: "Public Sans",
+                }}
+              >
+                {getAppliedFiltersCount()}
+              </div>
+            )}
+          </button>
+
+          {/* Download Button */}
+          <div style={{ position: "relative" }} ref={downloadDropdownRef}>
+            <button
+              onClick={() => setShowDownloadDropdown(!showDownloadDropdown)}
+              style={{
+                display: "flex",
+                width: "32px",
+                height: "32px",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "8px",
+                border: "none",
+                background: showDownloadDropdown ? "#ECEEF9" : "transparent",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => {
+                if (!showDownloadDropdown) {
+                  e.currentTarget.style.background = "#F5F5F5";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!showDownloadDropdown) {
+                  e.currentTarget.style.background = "transparent";
+                }
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10M11.3333 6.66667L8 10M8 10L4.66667 6.66667M8 10V2"
+                  stroke={showDownloadDropdown ? "#344698" : "#A4A7AE"}
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {showDownloadDropdown && (
+              <DownloadDropdown
+                selectedItems={selectedItems}
+                onClose={() => setShowDownloadDropdown(false)}
+                onDownload={(format) => {
+                  console.log("Download format:", format);
+                  setShowDownloadDropdown(false);
+                }}
+                style={{
+                  position: "absolute",
+                  right: "40px",
+                  top: "0",
+                  zIndex: 1001,
+                }}
+              />
+            )}
+          </div>
+
+          {/* Customize Columns Button */}
+          <button
+            onClick={() => setShowCustomizeColumnsModal(true)}
+            style={{
+              display: "flex",
+              width: "32px",
+              height: "32px",
+              padding: "8px",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "8px",
+              border: "none",
+              background: "transparent",
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#F5F5F5";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+            }}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 2V14M10 2V14M2.66667 8H4M12 8H13.3333M2.66667 4.66667H4M12 4.66667H13.3333M2.66667 11.3333H4M12 11.3333H13.3333"
+                stroke="#A4A7AE"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          {/* Actions Button - only show when items are selected */}
+          {selectedItems.length > 0 && (
+            <button
+              onClick={() => setShowActionsPanel(true)}
+              style={{
+                display: "flex",
+                width: "32px",
+                height: "32px",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "8px",
+                border: "none",
+                background: "#ECEEF9",
+                cursor: "pointer",
+                position: "relative",
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 4.66667C8.36819 4.66667 8.66667 4.36819 8.66667 4C8.66667 3.63181 8.36819 3.33333 8 3.33333C7.63181 3.33333 7.33333 3.63181 7.33333 4C7.33333 4.36819 7.63181 4.66667 8 4.66667Z"
+                  stroke="#344698"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M8 8.66667C8.36819 8.66667 8.66667 8.36819 8.66667 8C8.66667 7.63181 8.36819 7.33333 8 7.33333C7.63181 7.33333 7.33333 7.63181 7.33333 8C7.33333 8.36819 7.63181 8.66667 8 8.66667Z"
+                  stroke="#344698"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M8 12.6667C8.36819 12.6667 8.66667 12.3682 8.66667 12C8.66667 11.6318 8.36819 11.3333 8 11.3333C7.63181 11.3333 7.33333 11.6318 7.33333 12C7.33333 12.3682 7.63181 12.6667 8 12.6667Z"
+                  stroke="#344698"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <div
+                style={{
+                  position: "absolute",
+                  top: "-4px",
+                  right: "-4px",
+                  width: "16px",
+                  height: "16px",
+                  borderRadius: "50%",
+                  background: "#344698",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "10px",
+                  fontWeight: 600,
+                  color: "#FFF",
+                  fontFamily: "Public Sans",
+                }}
+              >
+                {selectedItems.length}
+              </div>
+            </button>
+          )}
+
+          {/* Information Button */}
+          <button
+            onClick={() => setShowInformationDrawer(true)}
+            style={{
+              display: "flex",
+              width: "32px",
+              height: "32px",
+              padding: "8px",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "8px",
+              border: "none",
+              background: "transparent",
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#F5F5F5";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+            }}
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 14.6667C11.6819 14.6667 14.6667 11.6819 14.6667 8C14.6667 4.3181 11.6819 1.33333 8 1.33333C4.3181 1.33333 1.33333 4.3181 1.33333 8C1.33333 11.6819 4.3181 14.6667 8 14.6667Z"
+                stroke="#A4A7AE"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M8 10.6667V8"
+                stroke="#A4A7AE"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M8 5.33333H8.00667"
+                stroke="#A4A7AE"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
+
       {/* Information Drawer */}
       <InformationDrawer
         isOpen={showInformationDrawer}
