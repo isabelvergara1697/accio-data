@@ -287,7 +287,7 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
     return getAppliedFilters().length > 0;
   };
 
-  const formatDateRange = (startDate: Date, endDate: Date): string => {
+  const formatDateRange = (startDate: Date | null, endDate: Date | null): string => {
     const months = [
       "Jan",
       "Feb",
@@ -303,7 +303,8 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
       "Dec",
     ];
 
-    const formatSingleDate = (date: Date) => {
+    const formatSingleDate = (date: Date | null) => {
+      if (!date) return "N/A";
       return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
     };
 
