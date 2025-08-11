@@ -229,8 +229,10 @@ const FiltersPanel: React.FC<FiltersPanelProps> = ({
         const defaultStart = new Date(2025, 0, 10);
         const defaultEnd = new Date(2025, 0, 16);
         if (
-          localFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
-          localFilters.dateRange.end.getTime() !== defaultEnd.getTime()
+          localFilters.dateRange.start &&
+          localFilters.dateRange.end &&
+          (localFilters.dateRange.start.getTime() !== defaultStart.getTime() ||
+          localFilters.dateRange.end.getTime() !== defaultEnd.getTime())
         ) {
           appliedFilters.push({
             key: "dateRange",
