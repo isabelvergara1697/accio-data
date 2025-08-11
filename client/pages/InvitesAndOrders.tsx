@@ -6926,7 +6926,7 @@ const InvitesAndOrders: React.FC = () => {
                                   background: "#FFF",
                                   position: (isMobile || isTablet) ? "sticky" : "relative",
                                   right: (isMobile || isTablet) ? "0" : "auto",
-                                  zIndex: (isMobile || isTablet) ? 20 : "auto",
+                                  zIndex: (isMobile || isTablet) ? 5 : "auto",
                                   boxShadow: (isMobile || isTablet) ? "-4px 0 8px rgba(0, 0, 0, 0.1)" : "none",
                                   borderLeft: (isMobile || isTablet) ? "1px solid #E9EAEB" : "none",
                                 }}
@@ -7023,7 +7023,7 @@ const InvitesAndOrders: React.FC = () => {
                                     borderBottom: "1px solid #E9EAEB",
                                     position: (isMobile || isTablet) ? "sticky" : "relative",
                                     right: (isMobile || isTablet) ? "0" : "auto",
-                                    zIndex: (isMobile || isTablet) ? 20 : "auto",
+                                    zIndex: (isMobile || isTablet) ? 5 : "auto",
                                     background: selectedItems.includes(invite.id) ? "#F5F5F5" : hoveredRowId === invite.id ? "#F5F5F5" : "#FFF",
                                     boxShadow: (isMobile || isTablet) ? "-4px 0 8px rgba(0, 0, 0, 0.1)" : "none",
                                     borderLeft: (isMobile || isTablet) ? "1px solid #E9EAEB" : "none",
