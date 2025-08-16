@@ -63,7 +63,11 @@ interface OrderData {
   lastUpdate: string;
   e1a: string;
   dotId: string;
-  dispositionByComponent: string;
+  dispositionByComponent: {
+    mvr: "success" | "error" | "pending";
+    criminal: "success" | "error" | "pending";
+    verification: "success" | "error" | "pending";
+  };
   flags: string[];
 }
 
@@ -526,17 +530,11 @@ const InvitesAndOrders: React.FC = () => {
             );
           case "dispositionByComponent":
             return (
-              <TruncatedText
-                text={orderData.dispositionByComponent}
-                style={{
-                  color: "#181D27",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                }}
-              />
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "4px" }}>
+                <DispositionBadge type="mvr" status={orderData.dispositionByComponent.mvr} />
+                <DispositionBadge type="criminal" status={orderData.dispositionByComponent.criminal} />
+                <DispositionBadge type="verification" status={orderData.dispositionByComponent.verification} />
+              </div>
             );
           case "flags":
             return (
