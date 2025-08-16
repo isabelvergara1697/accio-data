@@ -1675,8 +1675,9 @@ const InvitesAndOrders: React.FC = () => {
     if (!config) return null;
 
     // Determine if this status needs truncation and flex layout (for longer statuses)
-    const needsFlexLayout =
-      status === "waiting-for-recruitee" || status === "expires-today";
+    const needsFlexLayout = activeTab === "orders"
+      ? status === "pending-review" || status === "on-hold"
+      : status === "waiting-for-recruitee" || status === "expires-today" || status === "unsolicited";
     const needsTooltip = needsFlexLayout; // Only long statuses get tooltips
 
     const badgeElement = needsFlexLayout ? (
