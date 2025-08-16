@@ -7210,21 +7210,37 @@ const InvitesAndOrders: React.FC = () => {
                               flexDirection: "column",
                               alignItems: "flex-start",
                               position: "relative",
-                              minWidth: showFiltersModal
-                                ? isMobile
-                                  ? "800px" // Reduced for mobile with filters
-                                  : isTablet
-                                    ? "830px" // Reduced for tablet with filters
-                                    : isLargeDesktop
-                                      ? "900px" // Reduced for large desktop with filters
-                                      : "800px" // Reduced for desktop with filters
-                                : isMobile
-                                  ? "1140px"
-                                  : isTablet
-                                    ? "1130px"
-                                    : isLargeDesktop
-                                      ? "1220px"
-                                      : "1100px",
+                              minWidth: activeTab === "orders"
+                                ? showFiltersModal
+                                  ? isMobile
+                                    ? "1400px" // Orders need more width due to more columns
+                                    : isTablet
+                                      ? "1450px"
+                                      : isLargeDesktop
+                                        ? "1500px"
+                                        : "1400px"
+                                  : isMobile
+                                    ? "1600px" // Full width for orders table
+                                    : isTablet
+                                      ? "1650px"
+                                      : isLargeDesktop
+                                        ? "1700px"
+                                        : "1600px"
+                                : showFiltersModal
+                                  ? isMobile
+                                    ? "800px" // Original invites table width with filters
+                                    : isTablet
+                                      ? "830px"
+                                      : isLargeDesktop
+                                        ? "900px"
+                                        : "800px"
+                                  : isMobile
+                                    ? "1140px" // Original invites table width
+                                    : isTablet
+                                      ? "1130px"
+                                      : isLargeDesktop
+                                        ? "1220px"
+                                        : "1100px",
                               width: "100%",
                               height: "556px", // Fixed height for header (36px) + 10 rows (10 × 52px)
                               overflow: "visible",
