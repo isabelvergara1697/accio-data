@@ -1532,7 +1532,11 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "07/19/22",
       e1a: "User ID",
       dotId: "Verification",
-      dispositionByComponent: "Document",
+      dispositionByComponent: {
+        mvr: "error",
+        criminal: "success",
+        verification: "pending",
+      },
       flags: ["Exempt", "Criminal"],
     },
     {
