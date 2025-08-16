@@ -789,7 +789,10 @@ const InvitesAndOrders: React.FC = () => {
 
     // Handle flexible width for email column
     const getColumnStyle = () => {
-      if (columnId === "invtEmail") {
+      const isEmailColumn = (activeTab === "orders" && columnId === "email") ||
+                           (activeTab === "invites" && columnId === "invtEmail");
+
+      if (isEmailColumn) {
         return {
           display: "flex",
           ...(showFiltersModal
