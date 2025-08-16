@@ -2726,7 +2726,7 @@ const InvitesAndOrders: React.FC = () => {
     // Note: Date Range filter would need to be implemented when date fields are clarified
 
     return data;
-  }, [searchQuery, appliedFilters]);
+  }, [currentData, searchQuery, appliedFilters]);
 
   // Update sortedData to use filteredData instead of invitesData
   const sortedData = React.useMemo(() => {
