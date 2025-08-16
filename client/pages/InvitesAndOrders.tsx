@@ -2658,7 +2658,7 @@ const InvitesAndOrders: React.FC = () => {
     // Here you would implement the actual action logic
   };
 
-  const handleSort = (field: keyof InviteData) => {
+  const handleSort = (field: keyof (InviteData | OrderData)) => {
     if (sortField === field) {
       if (sortDirection === "asc") {
         setSortDirection("desc");
