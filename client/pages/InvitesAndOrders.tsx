@@ -524,10 +524,10 @@ const InvitesAndOrders: React.FC = () => {
                 }}
               />
             );
-          case "descriptionByComponent":
+          case "dispositionByComponent":
             return (
               <TruncatedText
-                text={orderData.descriptionByComponent}
+                text={orderData.dispositionByComponent}
                 style={{
                   color: "#181D27",
                   fontFamily: "Public Sans",
