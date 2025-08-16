@@ -728,12 +728,11 @@ const InvitesAndOrders: React.FC = () => {
       }
     };
 
-    // Handle flexible width for email column
+    // Handle flexible width for email column (only for invites)
     const getCellStyle = () => {
-      const isEmailColumn = (activeTab === "orders" && columnId === "email") ||
-                           (activeTab === "invites" && columnId === "invtEmail");
+      const isInviteEmailColumn = (activeTab === "invites" && columnId === "invtEmail");
 
-      if (isEmailColumn) {
+      if (isInviteEmailColumn) {
         return {
           display: "flex",
           ...(showFiltersModal
