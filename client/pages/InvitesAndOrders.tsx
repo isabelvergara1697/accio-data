@@ -386,175 +386,345 @@ const InvitesAndOrders: React.FC = () => {
     if (!config) return null;
 
     const renderCellContent = () => {
-      switch (columnId) {
-        case "status":
-          return <StatusBadge status={invite.status} />;
-        case "firstName":
-          return (
-            <TruncatedText
-              text={invite.firstName}
-              highlightedText={highlightText(invite.firstName, searchQuery)}
-              style={{
-                color: "#181D27",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 500,
-                lineHeight: "20px",
-              }}
-            />
-          );
-        case "lastName":
-          return (
-            <TruncatedText
-              text={invite.lastName}
-              highlightedText={highlightText(invite.lastName, searchQuery)}
-              style={{
-                color: "#181D27",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 500,
-                lineHeight: "20px",
-              }}
-            />
-          );
-        case "invtEmail":
-          return (
-            <div
-              style={{
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                onMouseEnter={(e) => {
-                  // Clear any existing tooltip first
-                  if (e.target._tooltip) {
-                    document.body.removeChild(e.target._tooltip);
-                    delete e.target._tooltip;
-                  }
-
-                  const tooltip = document.createElement("div");
-                  tooltip.textContent = invite.email;
-                  tooltip.style.cssText = `
-                    position: fixed;
-                    background: #0A0D12;
-                    color: white;
-                    padding: 8px 12px;
-                    border-radius: 8px;
-                    font-size: 12px;
-                    font-weight: 600;
-                    z-index: 999999;
-                    pointer-events: none;
-                    max-width: 300px;
-                    word-break: break-all;
-                  `;
-                  const rect = e.target.getBoundingClientRect();
-                  tooltip.style.left = rect.left + "px";
-                  tooltip.style.top = rect.top - 40 + "px";
-                  document.body.appendChild(tooltip);
-                  e.target._tooltip = tooltip;
-
-                  // Auto-hide tooltip after 3 seconds as backup
-                  setTimeout(() => {
-                    if (
-                      e.target._tooltip &&
-                      document.body.contains(e.target._tooltip)
-                    ) {
-                      document.body.removeChild(e.target._tooltip);
-                      delete e.target._tooltip;
-                    }
-                  }, 3000);
-                }}
-                onMouseLeave={(e) => {
-                  if (e.target._tooltip) {
-                    try {
-                      document.body.removeChild(e.target._tooltip);
-                      delete e.target._tooltip;
-                    } catch (error) {
-                      // Tooltip might already be removed
-                      delete e.target._tooltip;
-                    }
-                  }
-                }}
+      if (activeTab === "orders") {
+        const orderData = invite as OrderData;
+        switch (columnId) {
+          case "status":
+            return <StatusBadge status={orderData.status} />;
+          case "firstName":
+            return (
+              <TruncatedText
+                text={orderData.firstName}
+                highlightedText={highlightText(orderData.firstName, searchQuery)}
                 style={{
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                  fontFamily:
-                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                  fontWeight: 400,
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
                   fontSize: "14px",
-                  color: "rgba(24,29,39,1)",
+                  fontStyle: "normal",
+                  fontWeight: 500,
                   lineHeight: "20px",
+                }}
+              />
+            );
+          case "lastName":
+            return (
+              <TruncatedText
+                text={orderData.lastName}
+                highlightedText={highlightText(orderData.lastName, searchQuery)}
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          case "email":
+            return (
+              <div style={{ position: "relative", width: "100%" }}>
+                <div
+                  style={{
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                    fontFamily: "Public Sans",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    color: "#181D27",
+                    lineHeight: "20px",
+                    width: "100%",
+                  }}
+                >
+                  {highlightText(orderData.email, searchQuery)}
+                </div>
+              </div>
+            );
+          case "phone":
+            return (
+              <TruncatedText
+                text={orderData.phone}
+                highlightedText={highlightText(orderData.phone, searchQuery)}
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          case "newQuote":
+            return (
+              <TruncatedText
+                text={orderData.newQuote}
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          case "completed":
+            return <ProgressBar percentage={orderData.completion} />;
+          case "lastUpdate":
+            return (
+              <TruncatedText
+                text={orderData.lastUpdate}
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          case "e1a":
+            return (
+              <TruncatedText
+                text={orderData.e1a}
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          case "dotId":
+            return (
+              <TruncatedText
+                text={orderData.dotId}
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          case "descriptionByComponent":
+            return (
+              <TruncatedText
+                text={orderData.descriptionByComponent}
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          case "flags":
+            return (
+              <div style={{ display: "flex", gap: "4px", flexWrap: "wrap" }}>
+                {orderData.flags.map((flag, index) => (
+                  <span
+                    key={index}
+                    style={{
+                      padding: "2px 6px",
+                      background: "#F0F9FF",
+                      border: "1px solid #B9E6FE",
+                      borderRadius: "4px",
+                      fontSize: "11px",
+                      fontFamily: "Public Sans",
+                      fontWeight: 500,
+                      color: "#026AA2",
+                    }}
+                  >
+                    {flag}
+                  </span>
+                ))}
+              </div>
+            );
+          default:
+            return null;
+        }
+      } else {
+        const inviteData = invite as InviteData;
+        switch (columnId) {
+          case "status":
+            return <StatusBadge status={inviteData.status} />;
+          case "firstName":
+            return (
+              <TruncatedText
+                text={inviteData.firstName}
+                highlightedText={highlightText(inviteData.firstName, searchQuery)}
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          case "lastName":
+            return (
+              <TruncatedText
+                text={inviteData.lastName}
+                highlightedText={highlightText(inviteData.lastName, searchQuery)}
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          case "invtEmail":
+            return (
+              <div
+                style={{
+                  position: "relative",
                   width: "100%",
-                  cursor: "default",
                 }}
               >
-                {highlightText(invite.email, searchQuery)}
+                <div
+                  onMouseEnter={(e) => {
+                    // Clear any existing tooltip first
+                    if (e.target._tooltip) {
+                      document.body.removeChild(e.target._tooltip);
+                      delete e.target._tooltip;
+                    }
+
+                    const tooltip = document.createElement("div");
+                    tooltip.textContent = inviteData.email;
+                    tooltip.style.cssText = `
+                      position: fixed;
+                      background: #0A0D12;
+                      color: white;
+                      padding: 8px 12px;
+                      border-radius: 8px;
+                      font-size: 12px;
+                      font-weight: 600;
+                      z-index: 999999;
+                      pointer-events: none;
+                      max-width: 300px;
+                      word-break: break-all;
+                    `;
+                    const rect = e.target.getBoundingClientRect();
+                    tooltip.style.left = rect.left + "px";
+                    tooltip.style.top = rect.top - 40 + "px";
+                    document.body.appendChild(tooltip);
+                    e.target._tooltip = tooltip;
+
+                    // Auto-hide tooltip after 3 seconds as backup
+                    setTimeout(() => {
+                      if (
+                        e.target._tooltip &&
+                        document.body.contains(e.target._tooltip)
+                      ) {
+                        document.body.removeChild(e.target._tooltip);
+                        delete e.target._tooltip;
+                      }
+                    }, 3000);
+                  }}
+                  onMouseLeave={(e) => {
+                    if (e.target._tooltip) {
+                      try {
+                        document.body.removeChild(e.target._tooltip);
+                        delete e.target._tooltip;
+                      } catch (error) {
+                        // Tooltip might already be removed
+                        delete e.target._tooltip;
+                      }
+                    }
+                  }}
+                  style={{
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    color: "rgba(24,29,39,1)",
+                    lineHeight: "20px",
+                    width: "100%",
+                    cursor: "default",
+                  }}
+                >
+                  {highlightText(inviteData.email, searchQuery)}
+                </div>
               </div>
-            </div>
-          );
-        case "completed":
-          return <ProgressBar percentage={invite.completion} />;
-        case "i9Filled":
-          return (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-              }}
-            >
-              {invite.i9Filled && <CheckIcon />}
-            </div>
-          );
-        case "activate":
-          return (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-              }}
-            >
-              {invite.activated && <CheckIcon />}
-            </div>
-          );
-        case "ews":
-          return (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-              }}
-            >
-              {invite.ews && <CheckIcon />}
-            </div>
-          );
-        case "package":
-          return (
-            <TruncatedText
-              text={invite.packageType}
-              highlightedText={highlightText(invite.packageType, searchQuery)}
-              maxWidth="116px"
-              style={{
-                color: "#181D27",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 500,
-                lineHeight: "20px",
-              }}
-            />
-          );
-        default:
-          return null;
+            );
+          case "completed":
+            return <ProgressBar percentage={inviteData.completion} />;
+          case "i9Filled":
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
+                {inviteData.i9Filled && <CheckIcon />}
+              </div>
+            );
+          case "activate":
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
+                {inviteData.activated && <CheckIcon />}
+              </div>
+            );
+          case "ews":
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
+                {inviteData.ews && <CheckIcon />}
+              </div>
+            );
+          case "package":
+            return (
+              <TruncatedText
+                text={inviteData.packageType}
+                highlightedText={highlightText(inviteData.packageType, searchQuery)}
+                maxWidth="116px"
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                }}
+              />
+            );
+          default:
+            return null;
+        }
       }
     };
 
