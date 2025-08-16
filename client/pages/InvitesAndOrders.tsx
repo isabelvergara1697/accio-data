@@ -284,7 +284,7 @@ const InvitesAndOrders: React.FC = () => {
     .sort((a, b) => a.order - b.order);
 
   // Component for rendering a table cell
-  const TableCell: React.FC<{ columnId: string; invite: InviteData }> = ({
+  const TableCell: React.FC<{ columnId: string; invite: InviteData | OrderData }> = ({
     columnId,
     invite,
   }) => {
