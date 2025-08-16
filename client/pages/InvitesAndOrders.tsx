@@ -1250,7 +1250,7 @@ const InvitesAndOrders: React.FC = () => {
   ];
 
   // Pixel-perfect StatusBadge component matching Figma design
-  const StatusBadge: React.FC<{ status: InviteData["status"] }> = ({
+  const StatusBadge: React.FC<{ status: InviteData["status"] | OrderData["status"] }> = ({
     status,
   }) => {
     const statusConfig = {
