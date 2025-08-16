@@ -3089,9 +3089,12 @@ const InvitesAndOrders: React.FC = () => {
                       ].map((tab, index, array) => (
                         <div
                           key={tab.key}
-                          onClick={() =>
-                            setActiveTab(tab.key as typeof activeTab)
-                          }
+                          onClick={() => {
+                            setActiveTab(tab.key as typeof activeTab);
+                            setSelectedItems([]);
+                            setShowActionsPanel(false);
+                            setCurrentPage(1);
+                          }}
                           style={{
                             display: "flex",
                             minHeight: "40px",
