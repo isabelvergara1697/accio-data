@@ -3395,7 +3395,7 @@ const InvitesAndOrders: React.FC = () => {
                                         color: "rgba(24,29,39,1)",
                                       }}
                                     >
-                                      Invites
+                                      {activeTab === "invites" ? "Invites" : "Orders"}
                                     </span>
                                   </div>
                                 </div>
