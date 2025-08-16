@@ -173,7 +173,7 @@ const InvitesAndOrders: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
-  const [sortField, setSortField] = useState<keyof InviteData | null>(null);
+  const [sortField, setSortField] = useState<keyof (InviteData | OrderData) | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc" | null>(
     null,
   );
