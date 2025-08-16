@@ -1419,7 +1419,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "07/19/22",
       e1a: "User ID",
       dotId: "Verification",
-      descriptionByComponent: "Document",
+      dispositionByComponent: "Document",
       flags: ["Exempt", "Criminal"],
     },
     {
@@ -1434,7 +1434,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "09/30/23",
       e1a: "MVR",
       dotId: "Criminal",
-      descriptionByComponent: "Local Grant",
+      dispositionByComponent: "Local Grant",
       flags: ["MVR", "Criminal"],
     },
     {
@@ -1449,7 +1449,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "02/14/25",
       e1a: "MVR",
       dotId: "Optional",
-      descriptionByComponent: "Olivia Sparks",
+      dispositionByComponent: "Olivia Sparks",
       flags: ["MVR", "Optional"],
     },
     {
@@ -1464,7 +1464,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "08/15/25",
       e1a: "MVR",
       dotId: "Criminal",
-      descriptionByComponent: "Ethan Brooks",
+      dispositionByComponent: "Ethan Brooks",
       flags: ["MVR", "Criminal"],
     },
     {
@@ -1479,7 +1479,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "12/01/24",
       e1a: "MVR",
       dotId: "Criminal",
-      descriptionByComponent: "Local Grant",
+      dispositionByComponent: "Local Grant",
       flags: ["MVR", "Criminal"],
     },
     {
@@ -1494,7 +1494,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "11/30/23",
       e1a: "MVR",
       dotId: "Criminal",
-      descriptionByComponent: "Ava Stone",
+      dispositionByComponent: "Ava Stone",
       flags: ["MVR", "Criminal"],
     },
     {
@@ -1509,7 +1509,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "05/22/24",
       e1a: "MVR",
       dotId: "Criminal",
-      descriptionByComponent: "Maya Rivera",
+      dispositionByComponent: "Maya Rivera",
       flags: ["MVR", "Criminal"],
     },
     {
@@ -1524,7 +1524,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "03/10/23",
       e1a: "MVR",
       dotId: "Criminal",
-      descriptionByComponent: "Jasper Fields",
+      dispositionByComponent: "Jasper Fields",
       flags: ["MVR", "Criminal"],
     },
     {
@@ -1539,7 +1539,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "02/14/25",
       e1a: "MVR",
       dotId: "Criminal",
-      descriptionByComponent: "Mia Fernandez",
+      dispositionByComponent: "Mia Fernandez",
       flags: ["MVR", "Criminal"],
     },
     {
@@ -1554,7 +1554,7 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "03/10/23",
       e1a: "MVR",
       dotId: "Criminal",
-      descriptionByComponent: "Liam Hart",
+      dispositionByComponent: "Liam Hart",
       flags: ["MVR", "Criminal"],
     },
   ];
