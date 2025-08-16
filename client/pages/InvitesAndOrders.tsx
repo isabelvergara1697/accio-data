@@ -43,6 +43,28 @@ interface InviteData {
   packageType: string;
 }
 
+interface OrderData {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  status:
+    | "waiting"
+    | "unsolicited"
+    | "canceled"
+    | "expired"
+    | "waiting-for-recruitee"
+    | "expires-today"
+    | "reviewed"
+    | "archived";
+  completion: number;
+  lastEmail: string;
+  i9Filled: boolean;
+  activated: boolean;
+  ews: boolean;
+  packageType: string;
+}
+
 // Component to handle text truncation with tooltip
 const TruncatedText: React.FC<{
   text: string;
