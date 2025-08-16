@@ -2672,9 +2672,14 @@ const InvitesAndOrders: React.FC = () => {
     }
   };
 
+  // Get current data based on active tab
+  const currentData = React.useMemo(() => {
+    return activeTab === "invites" ? invitesData : ordersData;
+  }, [activeTab]);
+
   // Filter data based on search query and applied filters
   const filteredData = React.useMemo(() => {
-    let data = [...invitesData];
+    let data = [...currentData];
 
     // Apply search filter
     if (searchQuery.trim()) {
