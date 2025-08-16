@@ -230,8 +230,8 @@ const InvitesAndOrders: React.FC = () => {
         { id: "e1a", name: "E1A", order: 9, isSelected: true },
         { id: "dotId", name: "DOT ID", order: 10, isSelected: true },
         {
-          id: "descriptionByComponent",
-          name: "Description by Component",
+          id: "dispositionByComponent",
+          name: "Disposition by Component",
           order: 11,
           isSelected: true,
         },
