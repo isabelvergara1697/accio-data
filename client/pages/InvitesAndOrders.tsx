@@ -63,7 +63,7 @@ interface OrderData {
   lastUpdate: string;
   e1a: string;
   dotId: string;
-  descriptionByComponent: string;
+  dispositionByComponent: string;
   flags: string[];
 }
 
