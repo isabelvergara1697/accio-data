@@ -175,7 +175,9 @@ const InvitesAndOrders: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
-  const [sortField, setSortField] = useState<keyof (InviteData | OrderData) | null>(null);
+  const [sortField, setSortField] = useState<
+    keyof (InviteData | OrderData) | null
+  >(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc" | null>(
     null,
   );
@@ -227,7 +229,12 @@ const InvitesAndOrders: React.FC = () => {
         { id: "lastUpdate", name: "Last Update", order: 8, isSelected: true },
         { id: "e1a", name: "E1A", order: 9, isSelected: true },
         { id: "dotId", name: "DOT ID", order: 10, isSelected: true },
-        { id: "descriptionByComponent", name: "Description by Component", order: 11, isSelected: true },
+        {
+          id: "descriptionByComponent",
+          name: "Description by Component",
+          order: 11,
+          isSelected: true,
+        },
         { id: "flags", name: "Flags", order: 12, isSelected: true },
       ];
     } else {
@@ -378,10 +385,10 @@ const InvitesAndOrders: React.FC = () => {
     .sort((a, b) => a.order - b.order);
 
   // Component for rendering a table cell
-  const TableCell: React.FC<{ columnId: string; invite: InviteData | OrderData }> = ({
-    columnId,
-    invite,
-  }) => {
+  const TableCell: React.FC<{
+    columnId: string;
+    invite: InviteData | OrderData;
+  }> = ({ columnId, invite }) => {
     const config = getColumnConfig(columnId);
     if (!config) return null;
 
@@ -395,7 +402,10 @@ const InvitesAndOrders: React.FC = () => {
             return (
               <TruncatedText
                 text={orderData.firstName}
-                highlightedText={highlightText(orderData.firstName, searchQuery)}
+                highlightedText={highlightText(
+                  orderData.firstName,
+                  searchQuery,
+                )}
                 style={{
                   color: "#181D27",
                   fontFamily: "Public Sans",
@@ -562,7 +572,10 @@ const InvitesAndOrders: React.FC = () => {
             return (
               <TruncatedText
                 text={inviteData.firstName}
-                highlightedText={highlightText(inviteData.firstName, searchQuery)}
+                highlightedText={highlightText(
+                  inviteData.firstName,
+                  searchQuery,
+                )}
                 style={{
                   color: "#181D27",
                   fontFamily: "Public Sans",
@@ -577,7 +590,10 @@ const InvitesAndOrders: React.FC = () => {
             return (
               <TruncatedText
                 text={inviteData.lastName}
-                highlightedText={highlightText(inviteData.lastName, searchQuery)}
+                highlightedText={highlightText(
+                  inviteData.lastName,
+                  searchQuery,
+                )}
                 style={{
                   color: "#181D27",
                   fontFamily: "Public Sans",
@@ -710,7 +726,10 @@ const InvitesAndOrders: React.FC = () => {
             return (
               <TruncatedText
                 text={inviteData.packageType}
-                highlightedText={highlightText(inviteData.packageType, searchQuery)}
+                highlightedText={highlightText(
+                  inviteData.packageType,
+                  searchQuery,
+                )}
                 maxWidth="116px"
                 style={{
                   color: "#181D27",
@@ -730,7 +749,8 @@ const InvitesAndOrders: React.FC = () => {
 
     // Handle flexible width for email column (only for invites)
     const getCellStyle = () => {
-      const isInviteEmailColumn = (activeTab === "invites" && columnId === "invtEmail");
+      const isInviteEmailColumn =
+        activeTab === "invites" && columnId === "invtEmail";
 
       if (isInviteEmailColumn) {
         return {
@@ -788,7 +808,8 @@ const InvitesAndOrders: React.FC = () => {
 
     // Handle flexible width for email column (only for invites)
     const getColumnStyle = () => {
-      const isInviteEmailColumn = (activeTab === "invites" && columnId === "invtEmail");
+      const isInviteEmailColumn =
+        activeTab === "invites" && columnId === "invtEmail";
 
       if (isInviteEmailColumn) {
         return {
@@ -1539,9 +1560,9 @@ const InvitesAndOrders: React.FC = () => {
   ];
 
   // StatusBadge component with different configs for invites vs orders
-  const StatusBadge: React.FC<{ status: InviteData["status"] | OrderData["status"] }> = ({
-    status,
-  }) => {
+  const StatusBadge: React.FC<{
+    status: InviteData["status"] | OrderData["status"];
+  }> = ({ status }) => {
     // Order-specific status configuration
     const orderStatusConfig = {
       processing: {
@@ -1647,7 +1668,8 @@ const InvitesAndOrders: React.FC = () => {
     };
 
     // Use appropriate config based on current tab
-    const statusConfig = activeTab === "orders" ? orderStatusConfig : inviteStatusConfig;
+    const statusConfig =
+      activeTab === "orders" ? orderStatusConfig : inviteStatusConfig;
 
     const config = statusConfig[status as keyof typeof statusConfig];
     if (!config) return null;
@@ -3743,7 +3765,9 @@ const InvitesAndOrders: React.FC = () => {
                                         color: "rgba(24,29,39,1)",
                                       }}
                                     >
-                                      {activeTab === "invites" ? "Invites" : "Orders"}
+                                      {activeTab === "invites"
+                                        ? "Invites"
+                                        : "Orders"}
                                     </span>
                                   </div>
                                 </div>
@@ -4641,7 +4665,9 @@ const InvitesAndOrders: React.FC = () => {
                                       color: "rgba(24,29,39,1)",
                                     }}
                                   >
-                                    {activeTab === "invites" ? "Invites" : "Orders"}
+                                    {activeTab === "invites"
+                                      ? "Invites"
+                                      : "Orders"}
                                   </span>
                                 </div>
                               </div>
@@ -5908,7 +5934,9 @@ const InvitesAndOrders: React.FC = () => {
                                       color: "rgba(24,29,39,1)",
                                     }}
                                   >
-                                    {activeTab === "invites" ? "Invites" : "Orders"}
+                                    {activeTab === "invites"
+                                      ? "Invites"
+                                      : "Orders"}
                                   </span>
                                 </div>
                               </div>
@@ -7200,7 +7228,10 @@ const InvitesAndOrders: React.FC = () => {
                             scrollbarWidth: "thin",
                             scrollbarColor: "#D5D7DA #F9FAFB",
                             WebkitOverflowScrolling: "touch",
-                            padding: isMobile || isTablet ? "12px 0 0 16px" : "12px 16px 0 16px",
+                            padding:
+                              isMobile || isTablet
+                                ? "12px 0 0 16px"
+                                : "12px 16px 0 16px",
                           }}
                         >
                           {/* Table Content */}
@@ -7210,37 +7241,38 @@ const InvitesAndOrders: React.FC = () => {
                               flexDirection: "column",
                               alignItems: "flex-start",
                               position: "relative",
-                              minWidth: activeTab === "orders"
-                                ? showFiltersModal
-                                  ? isMobile
-                                    ? "1400px" // Orders need more width due to more columns
-                                    : isTablet
-                                      ? "1450px"
-                                      : isLargeDesktop
-                                        ? "1500px"
-                                        : "1400px"
-                                  : isMobile
-                                    ? "1600px" // Full width for orders table
-                                    : isTablet
-                                      ? "1650px"
-                                      : isLargeDesktop
-                                        ? "1700px"
-                                        : "1600px"
-                                : showFiltersModal
-                                  ? isMobile
-                                    ? "800px" // Original invites table width with filters
-                                    : isTablet
-                                      ? "830px"
-                                      : isLargeDesktop
-                                        ? "900px"
-                                        : "800px"
-                                  : isMobile
-                                    ? "1140px" // Original invites table width
-                                    : isTablet
-                                      ? "1130px"
-                                      : isLargeDesktop
-                                        ? "1220px"
-                                        : "1100px",
+                              minWidth:
+                                activeTab === "orders"
+                                  ? showFiltersModal
+                                    ? isMobile
+                                      ? "1400px" // Orders need more width due to more columns
+                                      : isTablet
+                                        ? "1450px"
+                                        : isLargeDesktop
+                                          ? "1500px"
+                                          : "1400px"
+                                    : isMobile
+                                      ? "1600px" // Full width for orders table
+                                      : isTablet
+                                        ? "1650px"
+                                        : isLargeDesktop
+                                          ? "1700px"
+                                          : "1600px"
+                                  : showFiltersModal
+                                    ? isMobile
+                                      ? "800px" // Original invites table width with filters
+                                      : isTablet
+                                        ? "830px"
+                                        : isLargeDesktop
+                                          ? "900px"
+                                          : "800px"
+                                    : isMobile
+                                      ? "1140px" // Original invites table width
+                                      : isTablet
+                                        ? "1130px"
+                                        : isLargeDesktop
+                                          ? "1220px"
+                                          : "1100px",
                               width: "100%",
                               height: "556px", // Fixed height for header (36px) + 10 rows (10 × 52px)
                               overflow: "visible",
@@ -7449,11 +7481,20 @@ const InvitesAndOrders: React.FC = () => {
                                   gap: "12px",
                                   borderBottom: "1px solid #E9EAEB",
                                   background: "#FFF",
-                                  position: (isMobile || isTablet) ? "sticky" : "relative",
-                                  right: (isMobile || isTablet) ? "0" : "auto",
-                                  zIndex: (isMobile || isTablet) ? 5 : "auto",
-                                  boxShadow: (isMobile || isTablet) ? "-4px 0 8px rgba(0, 0, 0, 0.1)" : "none",
-                                  borderLeft: (isMobile || isTablet) ? "1px solid #E9EAEB" : "none",
+                                  position:
+                                    isMobile || isTablet
+                                      ? "sticky"
+                                      : "relative",
+                                  right: isMobile || isTablet ? "0" : "auto",
+                                  zIndex: isMobile || isTablet ? 5 : "auto",
+                                  boxShadow:
+                                    isMobile || isTablet
+                                      ? "-4px 0 8px rgba(0, 0, 0, 0.1)"
+                                      : "none",
+                                  borderLeft:
+                                    isMobile || isTablet
+                                      ? "1px solid #E9EAEB"
+                                      : "none",
                                 }}
                               />
                             </div>
@@ -7546,12 +7587,27 @@ const InvitesAndOrders: React.FC = () => {
                                     alignItems: "center",
                                     gap: "12px",
                                     borderBottom: "1px solid #E9EAEB",
-                                    position: (isMobile || isTablet) ? "sticky" : "relative",
-                                    right: (isMobile || isTablet) ? "0" : "auto",
-                                    zIndex: (isMobile || isTablet) ? 5 : "auto",
-                                    background: selectedItems.includes(invite.id) ? "#F5F5F5" : hoveredRowId === invite.id ? "#F5F5F5" : "#FFF",
-                                    boxShadow: (isMobile || isTablet) ? "-4px 0 8px rgba(0, 0, 0, 0.1)" : "none",
-                                    borderLeft: (isMobile || isTablet) ? "1px solid #E9EAEB" : "none",
+                                    position:
+                                      isMobile || isTablet
+                                        ? "sticky"
+                                        : "relative",
+                                    right: isMobile || isTablet ? "0" : "auto",
+                                    zIndex: isMobile || isTablet ? 5 : "auto",
+                                    background: selectedItems.includes(
+                                      invite.id,
+                                    )
+                                      ? "#F5F5F5"
+                                      : hoveredRowId === invite.id
+                                        ? "#F5F5F5"
+                                        : "#FFF",
+                                    boxShadow:
+                                      isMobile || isTablet
+                                        ? "-4px 0 8px rgba(0, 0, 0, 0.1)"
+                                        : "none",
+                                    borderLeft:
+                                      isMobile || isTablet
+                                        ? "1px solid #E9EAEB"
+                                        : "none",
                                   }}
                                 >
                                   <div
@@ -7590,7 +7646,8 @@ const InvitesAndOrders: React.FC = () => {
                                         style={{
                                           position: "absolute",
                                           top: "100%",
-                                          right: (isMobile || isTablet) ? "24px" : "0",
+                                          right:
+                                            isMobile || isTablet ? "24px" : "0",
                                           marginTop: "4px",
                                           width: isMobile ? "200px" : "248px",
                                           borderRadius: "8px",
@@ -7969,22 +8026,24 @@ const InvitesAndOrders: React.FC = () => {
                         </div>
                       ) : (
                         /* Cards Container */
-        <div
-          style={{
-            display: "flex",
-            padding: isMobile ? "12px 8px 16px 8px" : "12px 16px 16px 16px",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            flex: "1 0 auto",
-            alignSelf: "stretch",
-            position: "relative",
-            gap: "12px",
-            overflow: "visible",
-            width: "100%",
-            minHeight: "200px",
-            boxSizing: "border-box",
-          }}
-        >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: isMobile
+                              ? "12px 8px 16px 8px"
+                              : "12px 16px 16px 16px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flex: "1 0 auto",
+                            alignSelf: "stretch",
+                            position: "relative",
+                            gap: "12px",
+                            overflow: "visible",
+                            width: "100%",
+                            minHeight: "200px",
+                            boxSizing: "border-box",
+                          }}
+                        >
                           {paginatedData.map((invite) => (
                             <InviteCard
                               key={invite.id}
