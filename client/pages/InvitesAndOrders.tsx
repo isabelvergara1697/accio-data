@@ -259,42 +259,42 @@ const InvitesAndOrders: React.FC = () => {
     if (activeTab === "orders") {
       const ordersConfigs = {
         status: {
-          width: "118px",
+          width: "120px",
           label: "Status",
           sortField: "status",
         },
         firstName: {
-          width: "108px",
+          width: "100px",
           label: "First Name",
           sortField: "firstName",
         },
         lastName: {
-          width: "108px",
+          width: "100px",
           label: "Last Name",
           sortField: "lastName",
         },
         email: {
-          width: "flexible",
+          width: "200px",
           label: "Applicant Email",
           sortField: "email",
         },
         phone: {
-          width: "130px",
+          width: "140px",
           label: "Phone",
           sortField: "phone",
         },
         newQuote: {
-          width: "120px",
+          width: "100px",
           label: "New Quote",
           sortField: "newQuote",
         },
         completed: {
-          width: "113px",
+          width: "120px",
           label: "Completed",
           sortField: "completion",
         },
         lastUpdate: {
-          width: "120px",
+          width: "110px",
           label: "Last Update",
           sortField: "lastUpdate",
         },
@@ -304,17 +304,17 @@ const InvitesAndOrders: React.FC = () => {
           sortField: "e1a",
         },
         dotId: {
-          width: "100px",
+          width: "90px",
           label: "DOT ID",
           sortField: "dotId",
         },
         descriptionByComponent: {
-          width: "180px",
+          width: "160px",
           label: "Description by Component",
           sortField: "descriptionByComponent",
         },
         flags: {
-          width: "100px",
+          width: "120px",
           label: "Flags",
           sortField: "flags",
         },
