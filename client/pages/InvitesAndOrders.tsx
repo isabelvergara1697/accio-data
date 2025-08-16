@@ -48,6 +48,8 @@ interface OrderData {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
+  newQuote: string;
   status:
     | "waiting"
     | "unsolicited"
@@ -58,11 +60,11 @@ interface OrderData {
     | "reviewed"
     | "archived";
   completion: number;
-  lastEmail: string;
-  i9Filled: boolean;
-  activated: boolean;
-  ews: boolean;
-  packageType: string;
+  lastUpdate: string;
+  e1a: string;
+  dotId: string;
+  descriptionByComponent: string;
+  flags: string[];
 }
 
 // Component to handle text truncation with tooltip
@@ -211,71 +213,163 @@ const InvitesAndOrders: React.FC = () => {
     useState(false);
   const [showActionsPanel, setShowActionsPanel] = useState(false);
 
-  // Column ordering configuration
-  const defaultColumnOrder = [
-    { id: "status", name: "Status", order: 1, isSelected: true },
-    { id: "firstName", name: "First Name", order: 2, isSelected: true },
-    { id: "lastName", name: "Last Name", order: 3, isSelected: true },
-    { id: "invtEmail", name: "Invt Email", order: 4, isSelected: true },
-    { id: "completed", name: "Completed", order: 5, isSelected: true },
-    { id: "i9Filled", name: "I-9 Filled", order: 6, isSelected: true },
-    { id: "activate", name: "Activate", order: 7, isSelected: true },
-    { id: "ews", name: "EWS", order: 8, isSelected: true },
-    { id: "package", name: "Package", order: 9, isSelected: true },
-  ];
+  // Column ordering configuration - different for invites vs orders
+  const getDefaultColumnOrder = () => {
+    if (activeTab === "orders") {
+      return [
+        { id: "status", name: "Status", order: 1, isSelected: true },
+        { id: "firstName", name: "First Name", order: 2, isSelected: true },
+        { id: "lastName", name: "Last Name", order: 3, isSelected: true },
+        { id: "email", name: "Applicant Email", order: 4, isSelected: true },
+        { id: "phone", name: "Phone", order: 5, isSelected: true },
+        { id: "newQuote", name: "New Quote", order: 6, isSelected: true },
+        { id: "completed", name: "Completed", order: 7, isSelected: true },
+        { id: "lastUpdate", name: "Last Update", order: 8, isSelected: true },
+        { id: "e1a", name: "E1A", order: 9, isSelected: true },
+        { id: "dotId", name: "DOT ID", order: 10, isSelected: true },
+        { id: "descriptionByComponent", name: "Description by Component", order: 11, isSelected: true },
+        { id: "flags", name: "Flags", order: 12, isSelected: true },
+      ];
+    } else {
+      return [
+        { id: "status", name: "Status", order: 1, isSelected: true },
+        { id: "firstName", name: "First Name", order: 2, isSelected: true },
+        { id: "lastName", name: "Last Name", order: 3, isSelected: true },
+        { id: "invtEmail", name: "Invt Email", order: 4, isSelected: true },
+        { id: "completed", name: "Completed", order: 5, isSelected: true },
+        { id: "i9Filled", name: "I-9 Filled", order: 6, isSelected: true },
+        { id: "activate", name: "Activate", order: 7, isSelected: true },
+        { id: "ews", name: "EWS", order: 8, isSelected: true },
+        { id: "package", name: "Package", order: 9, isSelected: true },
+      ];
+    }
+  };
+
+  const defaultColumnOrder = getDefaultColumnOrder();
 
   const [columnOrder, setColumnOrder] = useState(defaultColumnOrder);
 
+  // Update column order when tab changes
+  useEffect(() => {
+    setColumnOrder(getDefaultColumnOrder());
+  }, [activeTab]);
+
   // Function to get column configuration for rendering
   const getColumnConfig = (columnId: string) => {
-    const configs = {
-      status: {
-        width: "118px",
-        label: "Status",
-        sortField: "status",
-      },
-      firstName: {
-        width: "108px",
-        label: "First Name",
-        sortField: "firstName",
-      },
-      lastName: {
-        width: "108px",
-        label: "Last Name",
-        sortField: "lastName",
-      },
-      invtEmail: {
-        width: "flexible",
-        label: "Invitation Email",
-        sortField: "email",
-      },
-      completed: {
-        width: "113px",
-        label: "Completed",
-        sortField: "completion",
-      },
-      i9Filled: {
-        width: "110px",
-        label: "I-9 Filled",
-        sortField: "i9Filled",
-      },
-      activate: {
-        width: "110px",
-        label: "Activate",
-        sortField: "activated",
-      },
-      ews: {
-        width: "110px",
-        label: "EWS",
-        sortField: "ews",
-      },
-      package: {
-        width: "140px",
-        label: "Package",
-        sortField: "packageType",
-      },
-    };
-    return configs[columnId as keyof typeof configs];
+    if (activeTab === "orders") {
+      const ordersConfigs = {
+        status: {
+          width: "118px",
+          label: "Status",
+          sortField: "status",
+        },
+        firstName: {
+          width: "108px",
+          label: "First Name",
+          sortField: "firstName",
+        },
+        lastName: {
+          width: "108px",
+          label: "Last Name",
+          sortField: "lastName",
+        },
+        email: {
+          width: "flexible",
+          label: "Applicant Email",
+          sortField: "email",
+        },
+        phone: {
+          width: "130px",
+          label: "Phone",
+          sortField: "phone",
+        },
+        newQuote: {
+          width: "120px",
+          label: "New Quote",
+          sortField: "newQuote",
+        },
+        completed: {
+          width: "113px",
+          label: "Completed",
+          sortField: "completion",
+        },
+        lastUpdate: {
+          width: "120px",
+          label: "Last Update",
+          sortField: "lastUpdate",
+        },
+        e1a: {
+          width: "80px",
+          label: "E1A",
+          sortField: "e1a",
+        },
+        dotId: {
+          width: "100px",
+          label: "DOT ID",
+          sortField: "dotId",
+        },
+        descriptionByComponent: {
+          width: "180px",
+          label: "Description by Component",
+          sortField: "descriptionByComponent",
+        },
+        flags: {
+          width: "100px",
+          label: "Flags",
+          sortField: "flags",
+        },
+      };
+      return ordersConfigs[columnId as keyof typeof ordersConfigs];
+    } else {
+      const invitesConfigs = {
+        status: {
+          width: "118px",
+          label: "Status",
+          sortField: "status",
+        },
+        firstName: {
+          width: "108px",
+          label: "First Name",
+          sortField: "firstName",
+        },
+        lastName: {
+          width: "108px",
+          label: "Last Name",
+          sortField: "lastName",
+        },
+        invtEmail: {
+          width: "flexible",
+          label: "Invitation Email",
+          sortField: "email",
+        },
+        completed: {
+          width: "113px",
+          label: "Completed",
+          sortField: "completion",
+        },
+        i9Filled: {
+          width: "110px",
+          label: "I-9 Filled",
+          sortField: "i9Filled",
+        },
+        activate: {
+          width: "110px",
+          label: "Activate",
+          sortField: "activated",
+        },
+        ews: {
+          width: "110px",
+          label: "EWS",
+          sortField: "ews",
+        },
+        package: {
+          width: "140px",
+          label: "Package",
+          sortField: "packageType",
+        },
+      };
+      return invitesConfigs[columnId as keyof typeof invitesConfigs];
+    }
   };
 
   // Get visible columns in order
