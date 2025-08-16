@@ -51,14 +51,14 @@ interface OrderData {
   phone: string;
   newQuote: string;
   status:
-    | "waiting"
-    | "unsolicited"
+    | "processing"
+    | "pending-review"
+    | "approved"
+    | "rejected"
+    | "on-hold"
+    | "completed"
     | "canceled"
-    | "expired"
-    | "waiting-for-recruitee"
-    | "expires-today"
-    | "reviewed"
-    | "archived";
+    | "expired";
   completion: number;
   lastUpdate: string;
   e1a: string;
@@ -1540,11 +1540,64 @@ const InvitesAndOrders: React.FC = () => {
     },
   ];
 
-  // StatusBadge component matching Figma design colors
+  // StatusBadge component with different configs for invites vs orders
   const StatusBadge: React.FC<{ status: InviteData["status"] | OrderData["status"] }> = ({
     status,
   }) => {
-    const statusConfig = {
+    // Order-specific status configuration
+    const orderStatusConfig = {
+      processing: {
+        label: "Processing",
+        bg: "#ECFDF3",
+        border: "#A7F3D0",
+        text: "#047857",
+      },
+      "pending-review": {
+        label: "Pending Review",
+        bg: "#F0F4FF",
+        border: "#C7D2FE",
+        text: "#3730A3",
+      },
+      approved: {
+        label: "Approved",
+        bg: "#ECFDF3",
+        border: "#A7F3D0",
+        text: "#047857",
+      },
+      rejected: {
+        label: "Rejected",
+        bg: "#FEF2F2",
+        border: "#FECACA",
+        text: "#DC2626",
+      },
+      "on-hold": {
+        label: "On Hold",
+        bg: "#FEF3C7",
+        border: "#FCD34D",
+        text: "#D97706",
+      },
+      completed: {
+        label: "Completed",
+        bg: "#DBEAFE",
+        border: "#93C5FD",
+        text: "#1D4ED8",
+      },
+      canceled: {
+        label: "Canceled",
+        bg: "#FCE7F3",
+        border: "#F9A8D4",
+        text: "#BE185D",
+      },
+      expired: {
+        label: "Expired",
+        bg: "#F9FAFB",
+        border: "#E5E7EB",
+        text: "#6B7280",
+      },
+    };
+
+    // Invite-specific status configuration
+    const inviteStatusConfig = {
       waiting: {
         label: "Waiting",
         bg: "#ECFDF3",
@@ -1553,9 +1606,9 @@ const InvitesAndOrders: React.FC = () => {
       },
       unsolicited: {
         label: "Unsolicited",
-        bg: "#F3F4F6",
-        border: "#D1D5DB",
-        text: "#6B7280",
+        bg: "#F0F4FF",
+        border: "#C7D2FE",
+        text: "#3730A3",
       },
       canceled: {
         label: "Canceled",
@@ -1595,7 +1648,10 @@ const InvitesAndOrders: React.FC = () => {
       },
     };
 
-    const config = statusConfig[status];
+    // Use appropriate config based on current tab
+    const statusConfig = activeTab === "orders" ? orderStatusConfig : inviteStatusConfig;
+
+    const config = statusConfig[status as keyof typeof statusConfig];
     if (!config) return null;
 
     // Determine if this status needs truncation and flex layout (for longer statuses)
