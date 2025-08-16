@@ -1540,58 +1540,58 @@ const InvitesAndOrders: React.FC = () => {
     },
   ];
 
-  // Pixel-perfect StatusBadge component matching Figma design
+  // StatusBadge component matching Figma design colors
   const StatusBadge: React.FC<{ status: InviteData["status"] | OrderData["status"] }> = ({
     status,
   }) => {
     const statusConfig = {
       waiting: {
         label: "Waiting",
-        bg: "#F0F9FF",
-        border: "#B9E6FE",
-        text: "#026AA2",
+        bg: "#ECFDF3",
+        border: "#A7F3D0",
+        text: "#047857",
       },
       unsolicited: {
         label: "Unsolicited",
-        bg: "#F8F9FC",
-        border: "#D5D9EB",
-        text: "#363F72",
+        bg: "#F3F4F6",
+        border: "#D1D5DB",
+        text: "#6B7280",
       },
       canceled: {
         label: "Canceled",
-        bg: "#FEF6EE",
-        border: "#F9DBAF",
-        text: "#B93815",
+        bg: "#ECFDF3",
+        border: "#A7F3D0",
+        text: "#047857",
       },
       expired: {
         label: "Expired",
-        bg: "#FAFAFA",
-        border: "#E9EAEB",
-        text: "#414651",
+        bg: "#F9FAFB",
+        border: "#E5E7EB",
+        text: "#6B7280",
       },
       "waiting-for-recruitee": {
         label: "Waiting for Recruitee",
-        bg: "#FEF3F2",
-        border: "#FECDCA",
-        text: "#B42318",
+        bg: "#FEF3C7",
+        border: "#FCD34D",
+        text: "#D97706",
       },
       "expires-today": {
         label: "Expires Today",
-        bg: "#FFFAEB",
-        border: "#FEDF89",
-        text: "#B54708",
+        bg: "#DBEAFE",
+        border: "#93C5FD",
+        text: "#1D4ED8",
       },
       reviewed: {
         label: "Reviewed",
-        bg: "#FDF2FA",
-        border: "#FCCEEE",
-        text: "#C11574",
+        bg: "#FCE7F3",
+        border: "#F9A8D4",
+        text: "#BE185D",
       },
       archived: {
         label: "Archived",
-        bg: "#FAFAFA",
-        border: "#E9EAEB",
-        text: "#414651",
+        bg: "#F9FAFB",
+        border: "#E5E7EB",
+        text: "#6B7280",
       },
     };
 
