@@ -1497,7 +1497,7 @@ const InvitesAndOrders: React.FC = () => {
 
   // Card Component for Rows View with responsive design
   const InviteCard: React.FC<{
-    invite: InviteData;
+    invite: InviteData | OrderData;
     isExpanded: boolean;
     onToggleExpand: () => void;
     onToggleSelect: (checked: boolean) => void;
