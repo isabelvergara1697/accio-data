@@ -86,32 +86,27 @@ export function TooltipContent({
     throw new Error("TooltipContent must be used within a Tooltip");
   }
 
-  const { isOpen } = context;
+  const { isOpen, triggerRef } = context;
 
   useEffect(() => {
-    if (isOpen && tooltipRef.current) {
-      const trigger = tooltipRef.current.parentElement?.querySelector('[data-tooltip-trigger]') ||
-                     tooltipRef.current.parentElement?.previousElementSibling;
+    if (isOpen && tooltipRef.current && triggerRef?.current) {
+      const rect = triggerRef.current.getBoundingClientRect();
+      const tooltipRect = tooltipRef.current.getBoundingClientRect();
 
-      if (trigger) {
-        const rect = trigger.getBoundingClientRect();
-        const tooltipRect = tooltipRef.current.getBoundingClientRect();
+      let x = rect.left + rect.width / 2 - tooltipRect.width / 2;
+      let y = rect.bottom + sideOffset;
 
-        let x = rect.left + rect.width / 2 - tooltipRect.width / 2;
-        let y = rect.bottom + sideOffset;
+      // Keep tooltip on screen horizontally
+      x = Math.max(8, Math.min(x, window.innerWidth - tooltipRect.width - 8));
 
-        // Keep tooltip on screen horizontally
-        x = Math.max(8, Math.min(x, window.innerWidth - tooltipRect.width - 8));
-
-        // Keep tooltip on screen vertically (if it would go off bottom, show above instead)
-        if (y + tooltipRect.height > window.innerHeight - 8) {
-          y = rect.top - tooltipRect.height - sideOffset;
-        }
-
-        setPosition({ x, y });
+      // Keep tooltip on screen vertically (if it would go off bottom, show above instead)
+      if (y + tooltipRect.height > window.innerHeight - 8) {
+        y = rect.top - tooltipRect.height - sideOffset;
       }
+
+      setPosition({ x, y });
     }
-  }, [isOpen, sideOffset]);
+  }, [isOpen, sideOffset, triggerRef]);
 
   if (!isOpen) return null;
 
