@@ -14,8 +14,6 @@ export function TooltipProvider({ children }: { children: React.ReactNode }) {
 export function Tooltip({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log("Tooltip state:", { isOpen });
-
   return (
     <TooltipContext.Provider value={{ isOpen, setIsOpen }}>
       <div style={{ position: "relative", display: "inline-block" }}>
