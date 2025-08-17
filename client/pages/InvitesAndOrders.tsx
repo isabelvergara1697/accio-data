@@ -760,11 +760,69 @@ const InvitesAndOrders: React.FC = () => {
                         };
                       case "chart":
                       case "success":
+                      case "analytics":
+                      case "trending":
                         return {
                           bg: "#DCFAE6",
                           icon: (
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M14 14H3.06667C2.6933 14 2.50661 14 2.36401 13.9273C2.23856 13.8634 2.13658 13.7614 2.07266 13.636C2 13.4934 2 13.3067 2 12.9333V2M13.3333 5.33333L10.7208 8.12177C10.6217 8.22745 10.5722 8.28029 10.5125 8.3076C10.4598 8.3317 10.4017 8.34164 10.344 8.33644C10.2786 8.33055 10.2143 8.29718 10.0858 8.23045L7.91421 7.10288C7.78569 7.03615 7.72143 7.00278 7.65602 6.99689C7.59829 6.99169 7.54021 7.00163 7.48749 7.02574C7.42777 7.05305 7.37826 7.10589 7.27925 7.21156L4.66667 10" stroke="#079455" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          )
+                        };
+                      case "education":
+                      case "edu":
+                      case "school":
+                        return {
+                          bg: "#EEF4FF",
+                          icon: (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M8.00016 10.0007L2.66683 7.33398L8.00016 4.66732L13.3335 7.33398L8.00016 10.0007ZM8.00016 10.0007L11.3335 8.33398V11.334C11.3335 11.334 10.0002 12.6673 8.00016 12.6673C6.00016 12.6673 4.66683 11.334 4.66683 11.334V8.33398L8.00016 10.0007Z" stroke="#3B82F6" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          )
+                        };
+                      case "employment":
+                      case "emp":
+                      case "work":
+                        return {
+                          bg: "#F0F9FF",
+                          icon: (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M10.6668 4.00065V3.33398C10.6668 2.59761 10.0698 2.00065 9.3335 2.00065H6.66683C5.93046 2.00065 5.3335 2.59761 5.3335 3.33398V4.00065M2.66683 5.33398H13.3335V12.0007C13.3335 12.7371 12.7365 13.334 12.0002 13.334H4.00016C3.2638 13.334 2.66683 12.7371 2.66683 12.0007V5.33398Z" stroke="#0891B2" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          )
+                        };
+                      case "document":
+                      case "file":
+                      case "report":
+                        return {
+                          bg: "#FFFBEB",
+                          icon: (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9.3335 1.33398H4.00016C3.2638 1.33398 2.66683 1.93095 2.66683 2.66732V13.334C2.66683 14.0704 3.2638 14.6673 4.00016 14.6673H12.0002C12.7365 14.6673 13.3335 14.0704 13.3335 13.334V6.00065L9.3335 1.33398Z" stroke="#D97706" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M9.3335 1.33398V6.00065H13.3335" stroke="#D97706" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          )
+                        };
+                      case "verification":
+                      case "verify":
+                      case "check":
+                        return {
+                          bg: "#F0FDF4",
+                          icon: (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12.6668 4L6.00016 10.6667L3.3335 8" stroke="#16A34A" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          )
+                        };
+                      case "pending":
+                      case "clock":
+                      case "time":
+                        return {
+                          bg: "#FEFCE8",
+                          icon: (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M8.00016 4.66732V8.00065L10.6668 9.33398M14.6668 8.00065C14.6668 11.6826 11.6821 14.6673 8.00016 14.6673C4.31826 14.6673 1.3335 11.6826 1.3335 8.00065C1.3335 4.31875 4.31826 1.33398 8.00016 1.33398C11.6821 1.33398 14.6668 4.31875 14.6668 8.00065Z" stroke="#CA8A04" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                           )
                         };
