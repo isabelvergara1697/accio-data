@@ -168,8 +168,22 @@ const DispositionBadge: React.FC<{
   };
   const label = getLabel();
 
+  const getTooltipText = () => {
+    switch (status) {
+      case "success":
+        return "Complete";
+      case "error":
+        return "Incomplete";
+      case "pending":
+        return "Unknown";
+      default:
+        return "";
+    }
+  };
+
   return (
     <div
+      title={getTooltipText()}
       style={{
         display: "flex",
         padding: "2px 6px 2px 8px",
@@ -178,6 +192,7 @@ const DispositionBadge: React.FC<{
         borderRadius: "9999px",
         border: `1px solid ${config.border}`,
         background: config.bg,
+        cursor: "help",
       }}
     >
       <div
