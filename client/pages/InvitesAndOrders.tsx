@@ -211,8 +211,14 @@ const DispositionBadge: React.FC<{
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
       <div
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
+        onMouseEnter={() => {
+          console.log(`Tooltip ENTER for ${type} - ${status}`);
+          setShowTooltip(true);
+        }}
+        onMouseLeave={() => {
+          console.log(`Tooltip LEAVE for ${type} - ${status}`);
+          setShowTooltip(false);
+        }}
         style={{
           display: "flex",
           padding: "2px 6px 2px 8px",
