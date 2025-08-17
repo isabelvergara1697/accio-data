@@ -98,10 +98,15 @@ export function TooltipContent({
         const tooltipRect = tooltipRef.current.getBoundingClientRect();
 
         let x = rect.left + rect.width / 2 - tooltipRect.width / 2;
-        let y = rect.top - tooltipRect.height - sideOffset;
+        let y = rect.bottom + sideOffset;
 
-        // Keep tooltip on screen
+        // Keep tooltip on screen horizontally
         x = Math.max(8, Math.min(x, window.innerWidth - tooltipRect.width - 8));
+
+        // Keep tooltip on screen vertically (if it would go off bottom, show above instead)
+        if (y + tooltipRect.height > window.innerHeight - 8) {
+          y = rect.top - tooltipRect.height - sideOffset;
+        }
 
         setPosition({ x, y });
       }
