@@ -682,8 +682,15 @@ const InvitesAndOrders: React.FC = () => {
             );
           case "flags":
             return (
-              <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                {orderData.flags.map((flag, index) => {
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+                flexWrap: "wrap",
+                width: "100%",
+                justifyContent: "flex-start"
+              }}>
+                {orderData.flags && orderData.flags.length > 0 ? orderData.flags.map((flag, index) => {
                   const getFlagIcon = (flagType: string) => {
                     switch (flagType.toLowerCase()) {
                       case "exempt":
@@ -774,12 +781,21 @@ const InvitesAndOrders: React.FC = () => {
                         borderRadius: "9999px",
                         background: flagConfig.bg,
                         position: "relative",
+                        flexShrink: 0,
                       }}
                     >
                       {flagConfig.icon}
                     </div>
                   );
-                })}
+                }) : (
+                  <div style={{
+                    color: "#9CA3AF",
+                    fontSize: "12px",
+                    fontStyle: "italic"
+                  }}>
+                    No flags
+                  </div>
+                )}
               </div>
             );
           default:
