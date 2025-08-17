@@ -3,6 +3,7 @@ import React, { useState, createContext, useContext, useEffect, useRef } from "r
 interface TooltipContextType {
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
+  triggerRef: React.RefObject<HTMLDivElement> | null;
 }
 
 const TooltipContext = createContext<TooltipContextType | undefined>(undefined);
