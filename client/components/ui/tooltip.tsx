@@ -57,14 +57,8 @@ export function TooltipTrigger({
 
   return (
     <div
-      onMouseEnter={() => {
-        console.log("TooltipTrigger: mouse enter");
-        setIsOpen(true);
-      }}
-      onMouseLeave={() => {
-        console.log("TooltipTrigger: mouse leave");
-        setIsOpen(false);
-      }}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
       style={{ display: "inline-block" }}
     >
       {children}
