@@ -693,7 +693,6 @@ const InvitesAndOrders: React.FC = () => {
               </div>
             );
           case "dispositionByComponent":
-            console.log("Rendering dispositionByComponent for order:", orderData.id, orderData.dispositionByComponent);
             return (
               <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flexWrap: "wrap" }}>
                 {orderData.dispositionByComponent && (
