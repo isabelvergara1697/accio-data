@@ -57,6 +57,7 @@ export function TooltipTrigger({
 
   return (
     <div
+      data-tooltip-trigger
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
       style={{ display: "inline-block" }}
