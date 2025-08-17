@@ -179,8 +179,11 @@ export function TooltipContent({
 
   return (
     <div
+      ref={tooltipRef}
       style={{
         position: "fixed",
+        left: position.x,
+        top: position.y,
         zIndex: 10002,
         pointerEvents: "none",
       }}
