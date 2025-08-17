@@ -258,48 +258,45 @@ const DispositionBadge: React.FC<{
         </div>
         {config.icon}
       </div>
-      {/* Render tooltip as a portal-style element */}
-      {showTooltip && typeof document !== 'undefined' && (
-        <>
-          {/* Create a portal-like tooltip */}
+      {/* Simple relative tooltip */}
+      {showTooltip && (
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(100% + 4px)",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10002,
+            pointerEvents: "none",
+            whiteSpace: "nowrap",
+          }}
+        >
           <div
             style={{
-              position: "absolute",
-              left: tooltipPosition.x,
-              top: tooltipPosition.y,
-              transform: "translateX(-50%)",
-              zIndex: 10002,
-              pointerEvents: "none",
-              whiteSpace: "nowrap",
+              display: "flex",
+              padding: "8px 12px",
+              alignItems: "center",
+              borderRadius: "8px",
+              background: "#0A0D12",
+              boxShadow:
+                "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
             }}
           >
             <div
               style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                borderRadius: "8px",
-                background: "#0A0D12",
-                boxShadow:
-                  "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                color: "#FFF",
+                textAlign: "center",
+                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontSize: "12px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "18px",
               }}
             >
-              <div
-                style={{
-                  color: "#FFF",
-                  textAlign: "center",
-                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "12px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "18px",
-                }}
-              >
-                {getTooltipText()}
-              </div>
+              {getTooltipText()}
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
