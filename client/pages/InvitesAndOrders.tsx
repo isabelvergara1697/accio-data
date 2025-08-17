@@ -62,7 +62,7 @@ interface OrderData {
   completion: number;
   lastUpdate: string;
   e1a: string;
-  dotId: string;
+  userId: string;
   dispositionByComponent: {
     mvr: "success" | "error" | "pending";
     criminal: "success" | "error" | "pending";
