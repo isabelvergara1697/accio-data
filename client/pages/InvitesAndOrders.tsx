@@ -213,8 +213,16 @@ const DispositionBadge: React.FC<{
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
       <div
+        ref={badgeRef}
         onMouseEnter={() => {
           console.log(`Tooltip ENTER for ${type} - ${status}`);
+          if (badgeRef.current) {
+            const rect = badgeRef.current.getBoundingClientRect();
+            setTooltipPosition({
+              x: rect.left + rect.width / 2,
+              y: rect.bottom + 4
+            });
+          }
           setShowTooltip(true);
         }}
         onMouseLeave={() => {
