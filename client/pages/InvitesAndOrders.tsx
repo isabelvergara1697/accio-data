@@ -780,7 +780,7 @@ const InvitesAndOrders: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  alignItems: "flex-start",
+                  alignItems: "center",
                   gap: "4px",
                   flexWrap: "nowrap",
                   width: "320px",
