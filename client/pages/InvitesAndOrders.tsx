@@ -78,6 +78,8 @@ const DispositionBadge: React.FC<{
   status: "success" | "error" | "pending";
 }> = ({ type, status }) => {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const badgeRef = useRef<HTMLDivElement>(null);
 
   // Add safety check
   if (!type || !status) {
