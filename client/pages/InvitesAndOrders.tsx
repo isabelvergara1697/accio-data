@@ -270,7 +270,8 @@ const DispositionBadge: React.FC<{
               style={{
                 color: "#FFF",
                 textAlign: "center",
-                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "12px",
                 fontStyle: "normal",
                 fontWeight: 600,
