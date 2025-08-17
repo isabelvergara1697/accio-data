@@ -708,6 +708,7 @@ const InvitesAndOrders: React.FC = () => {
                         };
                       case "medical":
                       case "mvr":
+                      case "optional":
                         return {
                           bg: "#B9E6FE",
                           icon: (
