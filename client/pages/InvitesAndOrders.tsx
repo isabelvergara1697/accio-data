@@ -668,9 +668,7 @@ const InvitesAndOrders: React.FC = () => {
             );
           case "phone":
             return (
-              <TruncatedText
-                text={orderData.phone}
-                highlightedText={highlightText(orderData.phone, searchQuery)}
+              <div
                 style={{
                   color: "#181D27",
                   fontFamily: "Public Sans",
@@ -678,8 +676,13 @@ const InvitesAndOrders: React.FC = () => {
                   fontStyle: "normal",
                   fontWeight: 400,
                   lineHeight: "20px",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
                 }}
-              />
+              >
+                {highlightText(orderData.phone, searchQuery) || orderData.phone}
+              </div>
             );
           case "newQuote":
             return (
