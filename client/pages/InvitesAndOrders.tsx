@@ -81,8 +81,6 @@ const DispositionBadge: React.FC<{
     console.warn("DispositionBadge: Missing type or status", { type, status });
     return null;
   }
-
-  console.log("DispositionBadge rendering:", { type, status });
   const getStatusConfig = () => {
     switch (status) {
       case "success":
