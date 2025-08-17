@@ -249,6 +249,7 @@ const DispositionBadge: React.FC<{
             zIndex: 10002,
             pointerEvents: "none",
             whiteSpace: "nowrap",
+            background: "red", // DEBUG: Make it visible
           }}
         >
           <div
@@ -273,7 +274,7 @@ const DispositionBadge: React.FC<{
                 lineHeight: "18px",
               }}
             >
-              {getTooltipText()}
+              DEBUG: {getTooltipText()}
             </div>
           </div>
         </div>
