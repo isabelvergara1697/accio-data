@@ -209,41 +209,76 @@ const DispositionBadge: React.FC<{
   };
 
   return (
-    <Tooltip>
-      <TooltipTrigger>
+    <div style={{ position: "relative", display: "inline-block" }}>
+      <div
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+        style={{
+          display: "flex",
+          padding: "2px 6px 2px 8px",
+          alignItems: "center",
+          gap: "2px",
+          borderRadius: "9999px",
+          border: `1px solid ${config.border}`,
+          background: config.bg,
+          cursor: "pointer",
+        }}
+      >
         <div
           style={{
-            display: "flex",
-            padding: "2px 6px 2px 8px",
-            alignItems: "center",
-            gap: "2px",
-            borderRadius: "9999px",
-            border: `1px solid ${config.border}`,
-            background: config.bg,
-            cursor: "pointer",
-            position: "relative",
+            color: config.text,
+            textAlign: "center",
+            fontFamily: "Public Sans",
+            fontSize: "12px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "18px",
+          }}
+        >
+          {label}
+        </div>
+        {config.icon}
+      </div>
+      {showTooltip && (
+        <div
+          style={{
+            position: "absolute",
+            top: "calc(100% + 4px)",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10002,
+            pointerEvents: "none",
+            whiteSpace: "nowrap",
           }}
         >
           <div
             style={{
-              color: config.text,
-              textAlign: "center",
-              fontFamily: "Public Sans",
-              fontSize: "12px",
-              fontStyle: "normal",
-              fontWeight: 500,
-              lineHeight: "18px",
+              display: "flex",
+              padding: "8px 12px",
+              alignItems: "center",
+              borderRadius: "8px",
+              background: "#0A0D12",
+              boxShadow:
+                "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
             }}
           >
-            {label}
+            <div
+              style={{
+                color: "#FFF",
+                textAlign: "center",
+                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontSize: "12px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "18px",
+              }}
+            >
+              {getTooltipText()}
+            </div>
           </div>
-          {config.icon}
         </div>
-      </TooltipTrigger>
-      <TooltipContent side="top">
-        {getTooltipText()}
-      </TooltipContent>
-    </Tooltip>
+      )}
+    </div>
   );
 };
 
