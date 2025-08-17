@@ -189,35 +189,40 @@ const DispositionBadge: React.FC<{
   };
 
   return (
-    <SimpleTooltip content={getTooltipText()} position="top">
-      <div
-        style={{
-          display: "flex",
-          padding: "2px 6px 2px 8px",
-          alignItems: "center",
-          gap: "2px",
-          borderRadius: "9999px",
-          border: `1px solid ${config.border}`,
-          background: config.bg,
-          cursor: "help",
-        }}
-      >
+    <Tooltip>
+      <TooltipTrigger asChild>
         <div
           style={{
-            color: config.text,
-            textAlign: "center",
-            fontFamily: "Public Sans",
-            fontSize: "12px",
-            fontStyle: "normal",
-            fontWeight: 500,
-            lineHeight: "18px",
+            display: "flex",
+            padding: "2px 6px 2px 8px",
+            alignItems: "center",
+            gap: "2px",
+            borderRadius: "9999px",
+            border: `1px solid ${config.border}`,
+            background: config.bg,
+            cursor: "help",
           }}
         >
-          {label}
+          <div
+            style={{
+              color: config.text,
+              textAlign: "center",
+              fontFamily: "Public Sans",
+              fontSize: "12px",
+              fontStyle: "normal",
+              fontWeight: 500,
+              lineHeight: "18px",
+            }}
+          >
+            {label}
+          </div>
+          {config.icon}
         </div>
-        {config.icon}
-      </div>
-    </SimpleTooltip>
+      </TooltipTrigger>
+      <TooltipContent side="top">
+        {getTooltipText()}
+      </TooltipContent>
+    </Tooltip>
   );
 };
 
