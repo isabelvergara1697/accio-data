@@ -14,9 +14,10 @@ export function TooltipProvider({ children }: { children: React.ReactNode }) {
 
 export function Tooltip({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <TooltipContext.Provider value={{ isOpen, setIsOpen }}>
+    <TooltipContext.Provider value={{ isOpen, setIsOpen, triggerRef }}>
       <div style={{ position: "relative", display: "inline-block" }}>
         {children}
       </div>
