@@ -37,6 +37,24 @@ export function TooltipTrigger({
 
   const { setIsOpen } = context;
 
+  if (asChild && React.isValidElement(children)) {
+    return React.cloneElement(children, {
+      ...children.props,
+      onMouseEnter: (e: React.MouseEvent) => {
+        setIsOpen(true);
+        if (children.props.onMouseEnter) {
+          children.props.onMouseEnter(e);
+        }
+      },
+      onMouseLeave: (e: React.MouseEvent) => {
+        setIsOpen(false);
+        if (children.props.onMouseLeave) {
+          children.props.onMouseLeave(e);
+        }
+      },
+    });
+  }
+
   return (
     <div
       onMouseEnter={() => setIsOpen(true)}
