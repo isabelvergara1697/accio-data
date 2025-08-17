@@ -188,13 +188,10 @@ const DispositionBadge: React.FC<{
     }
   };
 
-  console.log("Tooltip text:", getTooltipText());
-
   return (
     <Tooltip>
       <TooltipTrigger>
         <div
-          title={getTooltipText()}
           style={{
             display: "flex",
             padding: "2px 6px 2px 8px",
@@ -203,10 +200,8 @@ const DispositionBadge: React.FC<{
             borderRadius: "9999px",
             border: `1px solid ${config.border}`,
             background: config.bg,
-            cursor: "help",
+            cursor: "pointer",
           }}
-          onMouseEnter={() => console.log("Mouse enter on badge")}
-          onMouseLeave={() => console.log("Mouse leave on badge")}
         >
           <div
             style={{
@@ -225,7 +220,7 @@ const DispositionBadge: React.FC<{
         </div>
       </TooltipTrigger>
       <TooltipContent side="top">
-        <span style={{ color: "white" }}>{getTooltipText()}</span>
+        {getTooltipText()}
       </TooltipContent>
     </Tooltip>
   );
