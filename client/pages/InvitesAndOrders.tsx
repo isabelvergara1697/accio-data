@@ -7602,7 +7602,7 @@ const InvitesAndOrders: React.FC = () => {
                                         <path
                                           d="M1.6001 5.03353L4.93343 1.7002L8.26676 5.03353"
                                           stroke={
-                                            sortField === "lastEmail" &&
+                                            sortField === (activeTab === "orders" ? "lastUpdate" : "lastEmail") &&
                                             sortDirection === "asc"
                                               ? "#34479A"
                                               : "#A4A7AE"
