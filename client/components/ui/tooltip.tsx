@@ -37,11 +37,12 @@ export function TooltipTrigger({
     throw new Error("TooltipTrigger must be used within a Tooltip");
   }
 
-  const { setIsOpen } = context;
+  const { setIsOpen, triggerRef } = context;
 
   if (asChild && React.isValidElement(children)) {
     return React.cloneElement(children, {
       ...children.props,
+      ref: triggerRef,
       onMouseEnter: (e: React.MouseEvent) => {
         setIsOpen(true);
         if (children.props.onMouseEnter) {
@@ -59,6 +60,7 @@ export function TooltipTrigger({
 
   return (
     <div
+      ref={triggerRef}
       data-tooltip-trigger
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
