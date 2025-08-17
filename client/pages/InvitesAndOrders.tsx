@@ -196,6 +196,7 @@ const DispositionBadge: React.FC<{
     <Tooltip>
       <TooltipTrigger>
         <div
+          title={getTooltipText()}
           style={{
             display: "flex",
             padding: "2px 6px 2px 8px",
