@@ -324,7 +324,7 @@ const InvitesAndOrders: React.FC = () => {
     // Cleanup timer on component unmount
     return () => clearTimeout(timer);
   }, []);
-  const [activeTab, setActiveTab] = useState<"invites" | "orders">("invites");
+  const [activeTab, setActiveTab] = useState<"invites" | "orders">("orders");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showNotification] = useState(false);
