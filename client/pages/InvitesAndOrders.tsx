@@ -631,15 +631,15 @@ const InvitesAndOrders: React.FC = () => {
             );
           case "userId":
             return (
-              <div style={{ position: "relative", width: "100%" }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch", position: "relative" }}>
                 <div
                   style={{
-                    color: "#181D27",
+                    color: "var(--colors-text-text-primary-900, #181D27)",
                     fontFamily: "Public Sans",
-                    fontSize: "14px",
+                    fontSize: "var(--Font-size-text-sm, 14px)",
                     fontStyle: "normal",
                     fontWeight: 500,
-                    lineHeight: "20px",
+                    lineHeight: "var(--Line-height-text-sm, 20px)",
                     position: "relative",
                   }}
                 >
@@ -647,7 +647,7 @@ const InvitesAndOrders: React.FC = () => {
                     style={{
                       fontFamily:
                         "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 400,
+                      fontWeight: 500,
                       fontSize: "14px",
                       color: "rgba(24,29,39,1)",
                     }}
@@ -657,12 +657,12 @@ const InvitesAndOrders: React.FC = () => {
                 </div>
                 <div
                   style={{
-                    color: "#535862",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
+                    color: "var(--colors-text-text-tertiary-600, #535862)",
+                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                    fontSize: "var(--Font-size-text-sm, 14px)",
                     fontStyle: "normal",
                     fontWeight: 400,
-                    lineHeight: "20px",
+                    lineHeight: "var(--Line-height-text-sm, 20px)",
                     position: "relative",
                   }}
                 >
