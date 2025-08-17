@@ -264,7 +264,7 @@ const DispositionBadge: React.FC<{
           {/* Create a portal-like tooltip */}
           <div
             style={{
-              position: "fixed",
+              position: "absolute",
               left: tooltipPosition.x,
               top: tooltipPosition.y,
               transform: "translateX(-50%)",
