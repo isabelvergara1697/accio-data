@@ -162,13 +162,14 @@ export function TooltipContent({
 
   return (
     <div
-      ref={tooltipRef}
       style={{
-        position: "fixed",
-        left: position.x,
-        top: position.y,
+        position: "absolute",
+        top: `calc(100% + ${sideOffset}px)`,
+        left: "50%",
+        transform: "translateX(-50%)",
         zIndex: 10002,
         pointerEvents: "none",
+        whiteSpace: "nowrap",
       }}
     >
       <div
@@ -176,12 +177,11 @@ export function TooltipContent({
           display: "flex",
           padding: "8px 12px",
           flexDirection: "column",
-          alignItems: "flex-start",
+          alignItems: "center",
           borderRadius: "8px",
           background: "#0A0D12",
           boxShadow:
             "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
-          whiteSpace: "nowrap",
         }}
       >
         <div
