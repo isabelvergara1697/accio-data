@@ -78,11 +78,34 @@ export function TooltipContent({
   sideOffset?: number;
 }) {
   const context = useContext(TooltipContext);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const tooltipRef = useRef<HTMLDivElement>(null);
+
   if (!context) {
     throw new Error("TooltipContent must be used within a Tooltip");
   }
 
   const { isOpen } = context;
+
+  useEffect(() => {
+    if (isOpen && tooltipRef.current) {
+      const trigger = tooltipRef.current.parentElement?.querySelector('[data-tooltip-trigger]') ||
+                     tooltipRef.current.parentElement?.previousElementSibling;
+
+      if (trigger) {
+        const rect = trigger.getBoundingClientRect();
+        const tooltipRect = tooltipRef.current.getBoundingClientRect();
+
+        let x = rect.left + rect.width / 2 - tooltipRect.width / 2;
+        let y = rect.top - tooltipRect.height - sideOffset;
+
+        // Keep tooltip on screen
+        x = Math.max(8, Math.min(x, window.innerWidth - tooltipRect.width - 8));
+
+        setPosition({ x, y });
+      }
+    }
+  }, [isOpen, sideOffset]);
 
   if (!isOpen) return null;
 
