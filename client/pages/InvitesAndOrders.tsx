@@ -629,19 +629,56 @@ const InvitesAndOrders: React.FC = () => {
                 }}
               />
             );
-          case "dotId":
+          case "userId":
             return (
-              <TruncatedText
-                text={orderData.dotId}
-                style={{
-                  color: "#181D27",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                }}
-              />
+              <div style={{ position: "relative", width: "100%" }}>
+                <div
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "14px",
+                      color: "rgba(24,29,39,1)",
+                    }}
+                  >
+                    {orderData.firstName} {orderData.lastName}
+                  </span>
+                </div>
+                <div
+                  style={{
+                    color: "#535862",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "14px",
+                      color: "rgba(83,88,98,1)",
+                    }}
+                  >
+                    Accio Data
+                  </span>
+                </div>
+              </div>
             );
           case "dispositionByComponent":
             return (
