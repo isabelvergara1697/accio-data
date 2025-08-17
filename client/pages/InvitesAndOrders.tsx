@@ -76,11 +76,15 @@ const DispositionBadge: React.FC<{
   type: "mvr" | "criminal" | "verification";
   status: "success" | "error" | "pending";
 }> = ({ type, status }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+
   // Add safety check
   if (!type || !status) {
     console.warn("DispositionBadge: Missing type or status", { type, status });
     return null;
   }
+
   const getStatusConfig = () => {
     switch (status) {
       case "success":
@@ -186,35 +190,88 @@ const DispositionBadge: React.FC<{
     }
   };
 
+  const handleMouseEnter = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setTooltipPosition({
+      x: rect.left + rect.width / 2,
+      y: rect.top - 8
+    });
+    setShowTooltip(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowTooltip(false);
+  };
+
   return (
-    <div
-      title={getTooltipText()}
-      style={{
-        display: "flex",
-        padding: "2px 6px 2px 8px",
-        alignItems: "center",
-        gap: "2px",
-        borderRadius: "9999px",
-        border: `1px solid ${config.border}`,
-        background: config.bg,
-        cursor: "help",
-      }}
-    >
+    <>
       <div
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         style={{
-          color: config.text,
-          textAlign: "center",
-          fontFamily: "Public Sans",
-          fontSize: "12px",
-          fontStyle: "normal",
-          fontWeight: 500,
-          lineHeight: "18px",
+          display: "flex",
+          padding: "2px 6px 2px 8px",
+          alignItems: "center",
+          gap: "2px",
+          borderRadius: "9999px",
+          border: `1px solid ${config.border}`,
+          background: config.bg,
+          cursor: "help",
+          position: "relative",
         }}
       >
-        {label}
+        <div
+          style={{
+            color: config.text,
+            textAlign: "center",
+            fontFamily: "Public Sans",
+            fontSize: "12px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "18px",
+          }}
+        >
+          {label}
+        </div>
+        {config.icon}
       </div>
-      {config.icon}
-    </div>
+      {showTooltip && (
+        <div
+          style={{
+            position: "fixed",
+            left: tooltipPosition.x,
+            top: tooltipPosition.y,
+            transform: "translate(-50%, -100%)",
+            backgroundColor: "#2D3748",
+            color: "white",
+            padding: "4px 8px",
+            borderRadius: "4px",
+            fontSize: "12px",
+            fontFamily: "Public Sans",
+            fontWeight: 500,
+            whiteSpace: "nowrap",
+            zIndex: 1000,
+            pointerEvents: "none",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
+          }}
+        >
+          {getTooltipText()}
+          <div
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: 0,
+              height: 0,
+              borderLeft: "4px solid transparent",
+              borderRight: "4px solid transparent",
+              borderTop: "4px solid #2D3748",
+            }}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
@@ -694,7 +751,15 @@ const InvitesAndOrders: React.FC = () => {
             );
           case "dispositionByComponent":
             return (
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flexWrap: "wrap" }}>
+              <div style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "4px",
+                flexWrap: "wrap",
+                width: "240px",
+                minWidth: "240px",
+                maxWidth: "240px"
+              }}>
                 {orderData.dispositionByComponent && (
                   <>
                     <DispositionBadge type="mvr" status={orderData.dispositionByComponent.mvr} />
