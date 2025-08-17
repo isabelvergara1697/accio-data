@@ -1568,7 +1568,7 @@ const InvitesAndOrders: React.FC = () => {
       completion: 80,
       lastUpdate: "07/19/22",
       e1a: "User ID",
-      dotId: "Verification",
+      userId: "Verification",
       dispositionByComponent: {
         mvr: "error",
         criminal: "success",
