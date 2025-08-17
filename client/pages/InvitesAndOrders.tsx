@@ -218,9 +218,12 @@ const DispositionBadge: React.FC<{
           console.log(`Tooltip ENTER for ${type} - ${status}`);
           if (badgeRef.current) {
             const rect = badgeRef.current.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
             setTooltipPosition({
-              x: rect.left + rect.width / 2,
-              y: rect.bottom + 4
+              x: rect.left + scrollLeft + rect.width / 2,
+              y: rect.bottom + scrollTop + 4
             });
           }
           setShowTooltip(true);
