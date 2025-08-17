@@ -644,51 +644,27 @@ const InvitesAndOrders: React.FC = () => {
           case "userId":
             return (
               <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", alignSelf: "stretch", position: "relative" }}>
-                <div
-                  style={{
-                    color: "var(--colors-text-text-primary-900, #181D27)",
-                    fontFamily: "Public Sans",
-                    fontSize: "var(--Font-size-text-sm, 14px)",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "var(--Line-height-text-sm, 20px)",
-                    position: "relative",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 500,
-                      fontSize: "14px",
-                      color: "rgba(24,29,39,1)",
-                    }}
-                  >
-                    {orderData.firstName} {orderData.lastName}
-                  </span>
+                <div style={{
+                  color: "#181D27",
+                  fontFamily: "'Public Sans'",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                  position: "relative"
+                }}>
+                  {orderData.firstName} {orderData.lastName}
                 </div>
-                <div
-                  style={{
-                    color: "var(--colors-text-text-tertiary-600, #535862)",
-                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                    fontSize: "var(--Font-size-text-sm, 14px)",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "var(--Line-height-text-sm, 20px)",
-                    position: "relative",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      color: "rgba(83,88,98,1)",
-                    }}
-                  >
-                    Accio Data
-                  </span>
+                <div style={{
+                  color: "#535862",
+                  fontFamily: "'Public Sans'",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                  position: "relative"
+                }}>
+                  Accio Data
                 </div>
               </div>
             );
