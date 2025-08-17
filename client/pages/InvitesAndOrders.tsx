@@ -154,7 +154,19 @@ const DispositionBadge: React.FC<{
   };
 
   const config = getStatusConfig();
-  const label = type.charAt(0).toUpperCase() + type.slice(1);
+  const getLabel = () => {
+    switch (type) {
+      case "mvr":
+        return "MVR";
+      case "criminal":
+        return "Criminal";
+      case "verification":
+        return "Verification";
+      default:
+        return type.charAt(0).toUpperCase() + type.slice(1);
+    }
+  };
+  const label = getLabel();
 
   return (
     <div
