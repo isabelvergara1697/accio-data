@@ -84,8 +84,6 @@ export function TooltipContent({
 
   const { isOpen } = context;
 
-  console.log("TooltipContent render:", { isOpen, children });
-
   if (!isOpen) return null;
 
   const getPosition = () => {
