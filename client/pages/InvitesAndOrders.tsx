@@ -83,6 +83,8 @@ const DispositionBadge: React.FC<{
     return null;
   }
 
+  console.log("DispositionBadge rendering:", { type, status });
+
   const getStatusConfig = () => {
     switch (status) {
       case "success":
