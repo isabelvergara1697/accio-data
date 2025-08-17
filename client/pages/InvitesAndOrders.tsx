@@ -219,6 +219,7 @@ const DispositionBadge: React.FC<{
             border: `1px solid ${config.border}`,
             background: config.bg,
             cursor: "pointer",
+            position: "relative",
           }}
         >
           <div
