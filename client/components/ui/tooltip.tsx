@@ -75,7 +75,7 @@ export function TooltipContent({
   children,
   side = "top",
   align = "center",
-  sideOffset = 8,
+  sideOffset = 4,
 }: {
   children: React.ReactNode;
   side?: "top" | "bottom" | "left" | "right";
@@ -83,34 +83,12 @@ export function TooltipContent({
   sideOffset?: number;
 }) {
   const context = useContext(TooltipContext);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const tooltipRef = useRef<HTMLDivElement>(null);
 
   if (!context) {
     throw new Error("TooltipContent must be used within a Tooltip");
   }
 
-  const { isOpen, triggerRef } = context;
-
-  useEffect(() => {
-    if (isOpen && tooltipRef.current && triggerRef?.current) {
-      const rect = triggerRef.current.getBoundingClientRect();
-      const tooltipRect = tooltipRef.current.getBoundingClientRect();
-
-      let x = rect.left + rect.width / 2 - tooltipRect.width / 2;
-      let y = rect.bottom + sideOffset;
-
-      // Keep tooltip on screen horizontally
-      x = Math.max(8, Math.min(x, window.innerWidth - tooltipRect.width - 8));
-
-      // Keep tooltip on screen vertically (if it would go off bottom, show above instead)
-      if (y + tooltipRect.height > window.innerHeight - 8) {
-        y = rect.top - tooltipRect.height - sideOffset;
-      }
-
-      setPosition({ x, y });
-    }
-  }, [isOpen, sideOffset, triggerRef]);
+  const { isOpen } = context;
 
   if (!isOpen) return null;
 
