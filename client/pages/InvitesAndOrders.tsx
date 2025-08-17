@@ -7,6 +7,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
+  SimpleTooltip,
 } from "../components/ui/tooltip";
 import InformationDrawer from "../components/ui/information-drawer";
 import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
@@ -76,9 +77,6 @@ const DispositionBadge: React.FC<{
   type: "mvr" | "criminal" | "verification";
   status: "success" | "error" | "pending";
 }> = ({ type, status }) => {
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-
   // Add safety check
   if (!type || !status) {
     console.warn("DispositionBadge: Missing type or status", { type, status });
@@ -190,24 +188,9 @@ const DispositionBadge: React.FC<{
     }
   };
 
-  const handleMouseEnter = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setTooltipPosition({
-      x: rect.left + rect.width / 2,
-      y: rect.top - 8
-    });
-    setShowTooltip(true);
-  };
-
-  const handleMouseLeave = () => {
-    setShowTooltip(false);
-  };
-
   return (
-    <>
+    <SimpleTooltip content={getTooltipText()} position="top">
       <div
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         style={{
           display: "flex",
           padding: "2px 6px 2px 8px",
@@ -217,7 +200,6 @@ const DispositionBadge: React.FC<{
           border: `1px solid ${config.border}`,
           background: config.bg,
           cursor: "help",
-          position: "relative",
         }}
       >
         <div
@@ -235,43 +217,7 @@ const DispositionBadge: React.FC<{
         </div>
         {config.icon}
       </div>
-      {showTooltip && (
-        <div
-          style={{
-            position: "fixed",
-            left: tooltipPosition.x,
-            top: tooltipPosition.y,
-            transform: "translate(-50%, -100%)",
-            backgroundColor: "#2D3748",
-            color: "white",
-            padding: "4px 8px",
-            borderRadius: "4px",
-            fontSize: "12px",
-            fontFamily: "Public Sans",
-            fontWeight: 500,
-            whiteSpace: "nowrap",
-            zIndex: 1000,
-            pointerEvents: "none",
-            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
-          }}
-        >
-          {getTooltipText()}
-          <div
-            style={{
-              position: "absolute",
-              top: "100%",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: 0,
-              height: 0,
-              borderLeft: "4px solid transparent",
-              borderRight: "4px solid transparent",
-              borderTop: "4px solid #2D3748",
-            }}
-          />
-        </div>
-      )}
-    </>
+    </SimpleTooltip>
   );
 };
 
@@ -755,10 +701,11 @@ const InvitesAndOrders: React.FC = () => {
                 display: "flex",
                 alignItems: "flex-start",
                 gap: "4px",
-                flexWrap: "wrap",
-                width: "240px",
-                minWidth: "240px",
-                maxWidth: "240px"
+                flexWrap: "nowrap",
+                width: "320px",
+                minWidth: "320px",
+                maxWidth: "320px",
+                overflow: "hidden"
               }}>
                 {orderData.dispositionByComponent && (
                   <>
