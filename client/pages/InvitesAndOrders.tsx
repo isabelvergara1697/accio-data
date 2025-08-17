@@ -651,7 +651,11 @@ const InvitesAndOrders: React.FC = () => {
                   fontStyle: "normal",
                   fontWeight: 500,
                   lineHeight: "20px",
-                  position: "relative"
+                  position: "relative",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  width: "100%"
                 }}>
                   {orderData.firstName} {orderData.lastName}
                 </div>
