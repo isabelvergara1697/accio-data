@@ -1772,7 +1772,7 @@ const InvitesAndOrders: React.FC = () => {
         criminal: "error",
         verification: "success",
       },
-      flags: ["MVR", "Optional"],
+      flags: ["Education", "Optional"],
     },
     {
       id: "ord4",
@@ -1791,7 +1791,7 @@ const InvitesAndOrders: React.FC = () => {
         criminal: "pending",
         verification: "success",
       },
-      flags: ["MVR", "Criminal"],
+      flags: ["Employment", "Criminal"],
     },
     {
       id: "ord5",
@@ -1810,7 +1810,7 @@ const InvitesAndOrders: React.FC = () => {
         criminal: "error",
         verification: "success",
       },
-      flags: ["MVR", "Criminal"],
+      flags: ["Document", "Verification"],
     },
     {
       id: "ord6",
@@ -1829,7 +1829,7 @@ const InvitesAndOrders: React.FC = () => {
         criminal: "error",
         verification: "success",
       },
-      flags: ["MVR", "Criminal"],
+      flags: ["Chart", "Pending"],
     },
     {
       id: "ord7",
