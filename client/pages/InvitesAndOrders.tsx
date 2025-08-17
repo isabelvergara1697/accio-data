@@ -1018,7 +1018,6 @@ const InvitesAndOrders: React.FC = () => {
         minWidth: 0,
         ...(columnId === "completed" ? { gap: "12px" } : {}),
         ...(columnId === "status" ? { justifyContent: "flex-start" } : {}),
-        ...(columnId === "flags" ? { flexWrap: "wrap" } : {}),
       };
     };
 
