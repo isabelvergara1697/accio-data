@@ -239,9 +239,7 @@ const DispositionBadge: React.FC<{
         </div>
       </TooltipTrigger>
       <TooltipContent side="top">
-        <div style={{ background: "red", color: "white", padding: "4px" }}>
-          DEBUG: {getTooltipText()}
-        </div>
+        {getTooltipText()}
       </TooltipContent>
     </Tooltip>
   );
