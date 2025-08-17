@@ -429,10 +429,10 @@ const InvitesAndOrders: React.FC = () => {
           label: "E1A",
           sortField: "e1a",
         },
-        dotId: {
-          width: "90px",
-          label: "DOT ID",
-          sortField: "dotId",
+        userId: {
+          width: "108px",
+          label: "User ID",
+          sortField: "userId",
         },
         dispositionByComponent: {
           width: "240px",
