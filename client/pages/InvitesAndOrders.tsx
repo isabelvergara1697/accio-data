@@ -689,10 +689,14 @@ const InvitesAndOrders: React.FC = () => {
             );
           case "dispositionByComponent":
             return (
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "4px" }}>
-                <DispositionBadge type="mvr" status={orderData.dispositionByComponent.mvr} />
-                <DispositionBadge type="criminal" status={orderData.dispositionByComponent.criminal} />
-                <DispositionBadge type="verification" status={orderData.dispositionByComponent.verification} />
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flexWrap: "wrap" }}>
+                {orderData.dispositionByComponent && (
+                  <>
+                    <DispositionBadge type="mvr" status={orderData.dispositionByComponent.mvr} />
+                    <DispositionBadge type="criminal" status={orderData.dispositionByComponent.criminal} />
+                    <DispositionBadge type="verification" status={orderData.dispositionByComponent.verification} />
+                  </>
+                )}
               </div>
             );
           case "flags":
