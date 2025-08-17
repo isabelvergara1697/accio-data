@@ -7744,7 +7744,7 @@ const InvitesAndOrders: React.FC = () => {
                                   />
                                 ))}
 
-                                {/* Last Email Cell */}
+                                {/* Last Email/Update Cell */}
                                 <div
                                   style={{
                                     display: "flex",
@@ -7758,7 +7758,7 @@ const InvitesAndOrders: React.FC = () => {
                                   }}
                                 >
                                   <TruncatedText
-                                    text={invite.lastEmail}
+                                    text={activeTab === "orders" ? (invite as OrderData).lastUpdate : (invite as InviteData).lastEmail}
                                     style={{
                                       color: "#181D27",
                                       fontFamily: "Public Sans",
