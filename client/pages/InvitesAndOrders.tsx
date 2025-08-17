@@ -76,6 +76,11 @@ const DispositionBadge: React.FC<{
   type: "mvr" | "criminal" | "verification";
   status: "success" | "error" | "pending";
 }> = ({ type, status }) => {
+  // Add safety check
+  if (!type || !status) {
+    console.warn("DispositionBadge: Missing type or status", { type, status });
+    return null;
+  }
   const getStatusConfig = () => {
     switch (status) {
       case "success":
