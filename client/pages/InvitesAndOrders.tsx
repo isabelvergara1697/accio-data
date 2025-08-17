@@ -455,7 +455,7 @@ const InvitesAndOrders: React.FC = () => {
         },
         firstName: {
           width: "108px",
-          label: "First Name",
+          label: "First\u00A0Name",
           sortField: "firstName",
         },
         lastName: {
