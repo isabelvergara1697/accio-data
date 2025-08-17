@@ -1627,7 +1627,11 @@ const InvitesAndOrders: React.FC = () => {
       lastUpdate: "11/30/23",
       e1a: "MVR",
       dotId: "Criminal",
-      dispositionByComponent: "Ava Stone",
+      dispositionByComponent: {
+        mvr: "success",
+        criminal: "error",
+        verification: "success",
+      },
       flags: ["MVR", "Criminal"],
     },
     {
