@@ -408,7 +408,7 @@ const InvitesAndOrders: React.FC = () => {
         },
         lastName: {
           width: "108px",
-          label: "Last Name",
+          label: "Last\u00A0Name",
           sortField: "lastName",
         },
         email: {
