@@ -7570,14 +7570,15 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <button
                                       onClick={() => {
+                                        const field = activeTab === "orders" ? "lastUpdate" : "lastEmail";
                                         if (
-                                          sortField === "lastEmail" &&
+                                          sortField === field &&
                                           sortDirection === "asc"
                                         ) {
                                           setSortField(null);
                                           setSortDirection(null);
                                         } else {
-                                          setSortField("lastEmail");
+                                          setSortField(field);
                                           setSortDirection("asc");
                                         }
                                       }}
