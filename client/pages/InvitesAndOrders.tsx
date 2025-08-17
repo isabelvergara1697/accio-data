@@ -77,6 +77,8 @@ const DispositionBadge: React.FC<{
   type: "mvr" | "criminal" | "verification";
   status: "success" | "error" | "pending";
 }> = ({ type, status }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   // Add safety check
   if (!type || !status) {
     console.warn("DispositionBadge: Missing type or status", { type, status });
@@ -238,7 +240,9 @@ const DispositionBadge: React.FC<{
           {config.icon}
         </div>
       </TooltipTrigger>
-      <TooltipContent side="top">{getTooltipText()}</TooltipContent>
+      <TooltipContent side="top">
+        {getTooltipText()}
+      </TooltipContent>
     </Tooltip>
   );
 };
