@@ -238,9 +238,7 @@ const DispositionBadge: React.FC<{
           {config.icon}
         </div>
       </TooltipTrigger>
-      <TooltipContent side="top">
-        {getTooltipText()}
-      </TooltipContent>
+      <TooltipContent side="top">{getTooltipText()}</TooltipContent>
     </Tooltip>
   );
 };
