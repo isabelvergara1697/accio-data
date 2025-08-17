@@ -7510,7 +7510,7 @@ const InvitesAndOrders: React.FC = () => {
                                 />
                               ))}
 
-                              {/* Last Email Column */}
+                              {/* Last Email/Update Column */}
                               <div
                                 style={{
                                   display: "flex",
@@ -7535,7 +7535,7 @@ const InvitesAndOrders: React.FC = () => {
                                   <div
                                     style={{
                                       color:
-                                        sortField === "lastEmail"
+                                        sortField === (activeTab === "orders" ? "lastUpdate" : "lastEmail")
                                           ? "#34479A"
                                           : "#717680",
                                       fontFamily: "Public Sans",
@@ -7553,12 +7553,12 @@ const InvitesAndOrders: React.FC = () => {
                                         fontWeight: 600,
                                         fontSize: "12px",
                                         color:
-                                          sortField === "lastEmail"
+                                          sortField === (activeTab === "orders" ? "lastUpdate" : "lastEmail")
                                             ? "#34479A"
                                             : "rgba(113,118,128,1)",
                                       }}
                                     >
-                                      Last Email
+                                      {activeTab === "orders" ? "Last Update" : "Last Email"}
                                     </span>
                                   </div>
                                   <div
