@@ -442,7 +442,7 @@ const InvitesAndOrders: React.FC = () => {
           sortField: "e1a",
         },
         userId: {
-          width: "108px",
+          width: "160px",
           label: "User ID",
           sortField: "userId",
         },
@@ -452,7 +452,7 @@ const InvitesAndOrders: React.FC = () => {
           sortField: "dispositionByComponent",
         },
         flags: {
-          width: "120px",
+          width: "200px",
           label: "Flags",
           sortField: "flags",
         },
