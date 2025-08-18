@@ -9151,22 +9151,11 @@ const InvitesAndOrders: React.FC = () => {
         inviteData={selectedInviteData}
       />
 
-      {/* Orders Filters Modal - Desktop */}
-      <OrdersFiltersModal
-        isOpen={showOrdersFiltersModal}
-        onClose={() => setShowOrdersFiltersModal(false)}
-        filters={ordersFilters}
-        onFiltersChange={setOrdersFilters}
-        isMobile={false}
-      />
-
-      {/* Orders Filters Modal - Mobile */}
-      <OrdersFiltersModal
-        isOpen={showMobileOrdersFiltersModal}
-        onClose={() => setShowMobileOrdersFiltersModal(false)}
-        filters={ordersFilters}
-        onFiltersChange={setOrdersFilters}
-        isMobile={true}
+      {/* Orders Filters Dropdown */}
+      <OrdersFiltersDropdown
+        isOpen={showOrdersFiltersDropdown}
+        onClose={() => setShowOrdersFiltersDropdown(false)}
+        triggerRef={filtersButtonRef}
       />
     </div>
   );
