@@ -8756,6 +8756,7 @@ const InvitesAndOrders: React.FC = () => {
                                   cursor: "pointer",
                                   pointerEvents: "auto", // Ensure hover events work
                                   zIndex: 10, // Ensure table rows are above any sticky or floating elements
+                                  isolation: "isolate", // Create new stacking context to prevent interference
                                 }}
                               >
                                 {/* Checkbox Cell */}
