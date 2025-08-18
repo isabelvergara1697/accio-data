@@ -1472,6 +1472,9 @@ const InvitesAndOrders: React.FC = () => {
     const config = getColumnConfig(columnId);
     if (!config) return null;
 
+    // Check if this is the Status column in Orders tab
+    const isOrdersStatusColumn = activeTab === "orders" && columnId === "status";
+
     // Handle flexible width for email column (only for invites)
     const getColumnStyle = () => {
       const isInviteEmailColumn =
@@ -1523,7 +1526,7 @@ const InvitesAndOrders: React.FC = () => {
         >
           <div
             style={{
-              color: sortField === config.sortField ? "#34479A" : "#717680",
+              color: sortField === config.sortField ? "#273572" : "#717680",
               fontFamily: "Public Sans",
               fontSize: "12px",
               fontStyle: "normal",
@@ -1539,11 +1542,11 @@ const InvitesAndOrders: React.FC = () => {
               style={{
                 fontFamily:
                   "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                fontWeight: 600,
+                fontWeight: 700,
                 fontSize: "12px",
                 color:
                   sortField === config.sortField
-                    ? "#34479A"
+                    ? "rgba(39,53,114,1)"
                     : "rgba(113,118,128,1)",
                 whiteSpace: "nowrap",
               }}
@@ -1551,6 +1554,41 @@ const InvitesAndOrders: React.FC = () => {
               {config.label}
             </span>
           </div>
+
+          {/* Add filter icon for Status column in Orders tab */}
+          {isOrdersStatusColumn && (
+            <button
+              ref={statusFilterButtonRef}
+              onClick={() => setShowStatusFiltersDropdown(!showStatusFiltersDropdown)}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginRight: "4px",
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 8H12M2 4H14M6 12H10"
+                  stroke="#344698"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          )}
+
           <div
             style={{
               display: "flex",
