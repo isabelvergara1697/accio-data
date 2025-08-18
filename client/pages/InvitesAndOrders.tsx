@@ -4893,9 +4893,13 @@ const InvitesAndOrders: React.FC = () => {
                                 }}
                               >
                                 <button
-                                  onClick={() =>
-                                    setShowFiltersModal(!showFiltersModal)
-                                  }
+                                  onClick={() => {
+                                    // Only allow filters functionality for invites tab
+                                    if (activeTab === "invites") {
+                                      setShowFiltersModal(!showFiltersModal);
+                                    }
+                                    // For orders tab, button is visible but doesn't open filters
+                                  }}
                                   onMouseEnter={() =>
                                     setHoveredButton("filters")
                                   }
@@ -4909,14 +4913,14 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "4px",
                                     borderRadius: "8px",
                                     border:
-                                      hasAppliedFilters() && !showFiltersModal
+                                      activeTab === "invites" && hasAppliedFilters() && !showFiltersModal
                                         ? "1px solid #34479A"
                                         : "1px solid #D5D7DA",
                                     background:
-                                      hasAppliedFilters() && !showFiltersModal
+                                      activeTab === "invites" && hasAppliedFilters() && !showFiltersModal
                                         ? "#ECEEF9"
                                         : hoveredButton === "filters" ||
-                                            showFiltersModal
+                                            (activeTab === "invites" && showFiltersModal)
                                           ? "#F5F5F5"
                                           : "#FFF",
                                     boxShadow:
@@ -4935,9 +4939,9 @@ const InvitesAndOrders: React.FC = () => {
                                     <path
                                       d="M3.33333 14L3.33333 10M3.33333 10C4.06971 10 4.66667 9.40305 4.66667 8.66667C4.66667 7.93029 4.06971 7.33333 3.33333 7.33333C2.59695 7.33333 2 7.93029 2 8.66667C2 9.40305 2.59695 10 3.33333 10ZM3.33333 4.66667V2M8 14V10M8 4.66667V2M8 4.66667C7.26362 4.66667 6.66667 5.26362 6.66667 6C6.66667 6.73638 7.26362 7.33333 8 7.33333C8.73638 7.33333 9.33333 6.73638 9.33333 6C9.33333 5.26362 8.73638 4.66667 8 4.66667ZM12.6667 14V11.3333M12.6667 11.3333C13.403 11.3333 14 10.7364 14 10C14 9.26362 13.403 8.66667 12.6667 8.66667C11.9303 8.66667 11.3333 9.26362 11.3333 10C11.3333 10.7364 11.9303 11.3333 12.6667 11.3333ZM12.6667 6V2"
                                       stroke={
-                                        hasAppliedFilters() && !showFiltersModal
+                                        activeTab === "invites" && hasAppliedFilters() && !showFiltersModal
                                           ? "#344698"
-                                          : showFiltersModal
+                                          : activeTab === "invites" && showFiltersModal
                                             ? "#717680"
                                             : "#A4A7AE"
                                       }
@@ -4957,10 +4961,10 @@ const InvitesAndOrders: React.FC = () => {
                                     <div
                                       style={{
                                         color:
-                                          hasAppliedFilters() &&
+                                          activeTab === "invites" && hasAppliedFilters() &&
                                           !showFiltersModal
                                             ? "#344698"
-                                            : showFiltersModal
+                                            : activeTab === "invites" && showFiltersModal
                                               ? "#252B37"
                                               : "#414651",
                                         fontFamily: "Public Sans",
@@ -4974,18 +4978,18 @@ const InvitesAndOrders: React.FC = () => {
                                           fontFamily:
                                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                           fontWeight:
-                                            hasAppliedFilters() &&
+                                            activeTab === "invites" && hasAppliedFilters() &&
                                             !showFiltersModal
                                               ? 700
-                                              : showFiltersModal
+                                              : activeTab === "invites" && showFiltersModal
                                                 ? 700
                                                 : 600,
                                           fontSize: "14px",
                                           color:
-                                            hasAppliedFilters() &&
+                                            activeTab === "invites" && hasAppliedFilters() &&
                                             !showFiltersModal
                                               ? "rgba(52,70,152,1)"
-                                              : showFiltersModal
+                                              : activeTab === "invites" && showFiltersModal
                                                 ? "rgba(37,43,55,1)"
                                                 : "rgba(65,70,81,1)",
                                         }}
@@ -4994,7 +4998,7 @@ const InvitesAndOrders: React.FC = () => {
                                       </span>
                                     </div>
                                   </div>
-                                  {showFiltersModal && (
+                                  {activeTab === "invites" && showFiltersModal && (
                                     <svg
                                       width="16"
                                       height="16"
@@ -5013,7 +5017,7 @@ const InvitesAndOrders: React.FC = () => {
                                   )}
                                 </button>
                                 {/* Filter Count Badge */}
-                                {hasAppliedFilters() && !showFiltersModal && (
+                                {activeTab === "invites" && hasAppliedFilters() && !showFiltersModal && (
                                   <div
                                     style={{
                                       position: "absolute",
