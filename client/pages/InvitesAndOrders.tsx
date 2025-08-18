@@ -1038,20 +1038,6 @@ const InvitesAndOrders: React.FC = () => {
             );
           case "completed":
             return <ProgressBar percentage={orderData.completion} />;
-          case "lastUpdate":
-            return (
-              <TruncatedText
-                text={orderData.lastUpdate}
-                style={{
-                  color: "#181D27",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                }}
-              />
-            );
           case "eta":
             return (
               <TruncatedText
