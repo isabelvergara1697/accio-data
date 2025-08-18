@@ -92,7 +92,8 @@ export const FlagsFiltersDropdown: React.FC<FlagsFiltersDropdownProps> = ({
         style={{
           display: "flex",
           height: "auto",
-          maxHeight: "320px",
+          maxHeight: "300px", // Limit height for scroll
+          overflowY: "auto", // Add vertical scroll
           padding: "4px 0",
           flexDirection: "column",
           alignItems: "flex-start",
