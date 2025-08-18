@@ -1161,24 +1161,38 @@ const InvitesAndOrders: React.FC = () => {
                   gap: "4px",
                   flexWrap: "wrap",
                   width: "100%",
+                  minHeight: "28px",
                   justifyContent: "flex-start",
                 }}
               >
                 {orderData.flags && orderData.flags.length > 0 ? (
-                  <>
-                    {/* Render Flag Icons */}
-                    <FlagBadge type="flag" />
-                    <FlagBadge type="warning" />
-                    <FlagBadge type="archive" />
-                    <FlagBadge type="drug test" />
-                    <FlagBadge type="monitoring" />
-                    <FlagBadge type="rescreening" />
+                  (() => {
+                    const randomFlags = getRandomFlags(rowIndex);
+                    return (
+                      <>
+                        {/* Render Random Flag Icons */}
+                        {randomFlags.icons.map((flagType, index) => (
+                          <FlagBadge key={index} type={flagType} />
+                        ))}
 
-                    {/* Render Text Labels */}
-                    <TextLabel text="AA" tooltip="Adverse Action Letter" />
-                    <TextLabel text="PA" tooltip="Pre-Adverse Action Letter" />
-                    <TextLabel text="CA" tooltip="Client Activation Quote" />
-                  </>
+                        {/* Render Random Text Labels */}
+                        {randomFlags.labels.map((labelText, index) => {
+                          const tooltipMap: Record<string, string> = {
+                            "AA": "Adverse Action Letter",
+                            "PA": "Pre-Adverse Action Letter",
+                            "CA": "Client Activation Quote"
+                          };
+                          return (
+                            <TextLabel
+                              key={index}
+                              text={labelText}
+                              tooltip={tooltipMap[labelText]}
+                            />
+                          );
+                        })}
+                      </>
+                    );
+                  })()
                 ) : (
                   <div
                     style={{
