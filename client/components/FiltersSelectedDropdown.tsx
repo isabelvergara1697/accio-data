@@ -20,7 +20,13 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
   onClose,
   triggerRef,
   selectedStatusFilters,
+  selectedEwsFilters,
+  selectedDispositionFilters,
+  selectedFlagsFilters,
   onStatusFilterRemove,
+  onEwsFilterRemove,
+  onDispositionFilterRemove,
+  onFlagsFilterRemove,
   onClearAllFilters,
 }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
