@@ -21,12 +21,14 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
   // Status options for orders
   const statusOptions = [
     { value: "all", label: "All" },
+    { value: "processing", label: "Processing" },
+    { value: "pending-review", label: "Pending Review" },
+    { value: "approved", label: "Approved" },
+    { value: "rejected", label: "Rejected" },
+    { value: "on-hold", label: "On Hold" },
+    { value: "completed", label: "Completed" },
     { value: "canceled", label: "Canceled" },
     { value: "expired", label: "Expired" },
-    { value: "expires-today", label: "Expires Today" },
-    { value: "unsolicited", label: "Unsolicited" },
-    { value: "waiting", label: "Waiting" },
-    { value: "waiting-for-recruitee", label: "Waiting for Recruitee" },
   ];
 
   // Calculate position based on trigger button
