@@ -344,7 +344,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   ];
 
   const orderStatusColumns = [
-    { id: "orderStatus", name: "Status", isSelected: true, hasHelpIcon: true },
+    { id: "orderStatus", name: "Status", isSelected: false, hasHelpIcon: true },
     {
       id: "orderUpdate",
       name: "New Update",
