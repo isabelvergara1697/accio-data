@@ -9077,13 +9077,15 @@ const InvitesAndOrders: React.FC = () => {
 
       {/* Filters Panel will be inline in the layout */}
 
-      {/* Mobile Filters Modal */}
-      <MobileFiltersModal
-        isOpen={showMobileFiltersModal}
-        onClose={() => setShowMobileFiltersModal(false)}
-        filters={appliedFilters}
-        onFiltersChange={setAppliedFilters}
-      />
+      {/* Mobile Filters Modal - Only for invites tab */}
+      {activeTab === "invites" && (
+        <MobileFiltersModal
+          isOpen={showMobileFiltersModal}
+          onClose={() => setShowMobileFiltersModal(false)}
+          filters={appliedFilters}
+          onFiltersChange={setAppliedFilters}
+        />
+      )}
 
       {/* Customize Columns Modal */}
       <CustomizeColumnsModal
