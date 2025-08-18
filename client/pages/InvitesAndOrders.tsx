@@ -8770,6 +8770,7 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "12px",
                                     borderBottom: "1px solid #E9EAEB",
                                     position: "relative",
+                                    pointerEvents: "auto", // Ensure events bubble up
                                   }}
                                 >
                                   <Checkbox
