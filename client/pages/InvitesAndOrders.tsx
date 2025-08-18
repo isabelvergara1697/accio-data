@@ -4339,15 +4339,15 @@ const InvitesAndOrders: React.FC = () => {
           const orderData = order as OrderData;
           // Convert flag filter values to match actual flag names in data
           const flagMapping: { [key: string]: string[] } = {
-            "derogatory-information": ["Warning", "Criminal"],
-            alert: ["Warning"],
-            archive: ["Archive"],
-            "drug-test": ["Drug Test", "Medical"],
-            monitoring: ["Monitoring", "Chart"],
-            rescreening: ["Rescreening"],
-            "adverse-action-notice": ["Warning"],
-            "pre-adverse-action-notice": ["Warning"],
-            "client-activation-queue": ["Pending"],
+            "derogatory-information": ["Warning", "Criminal"], // Flag Red
+            alert: ["Warning"], // Alert Yellow
+            archive: ["Archive"], // Archive Grey
+            "drug-test": ["Drug Test", "Medical"], // Cross Blue
+            monitoring: ["Monitoring", "Chart"], // Monitoring Green
+            rescreening: ["Rescreening"], // Arrow Dark Blue
+            "adverse-action-notice": ["AA", "Warning"], // AA
+            "pre-adverse-action-notice": ["PA", "Warning"], // PA
+            "client-activation-queue": ["CA", "Pending"], // CA
           };
 
           return selectedFlagsFilters.some((filterFlag) => {
