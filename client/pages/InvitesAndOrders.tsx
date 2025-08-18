@@ -5035,7 +5035,7 @@ const InvitesAndOrders: React.FC = () => {
                                         (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
                                           ? "#344698"
                                           : (activeTab === "invites" && showFiltersModal) ||
-                                            (activeTab === "orders" && showOrdersFiltersDropdown)
+                                            (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))
                                             ? "#717680"
                                             : "#A4A7AE"
                                       }
