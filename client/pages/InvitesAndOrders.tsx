@@ -1527,7 +1527,9 @@ const InvitesAndOrders: React.FC = () => {
         >
           <div
             style={{
-              color: sortField === config.sortField ? "#273572" : "#717680",
+              color: (sortField === config.sortField || (isOrdersStatusColumn && selectedStatusFilters.length > 0))
+                ? "#273572"
+                : "#717680",
               fontFamily: "Public Sans",
               fontSize: "12px",
               fontStyle: "normal",
@@ -1546,7 +1548,7 @@ const InvitesAndOrders: React.FC = () => {
                 fontWeight: 700,
                 fontSize: "12px",
                 color:
-                  sortField === config.sortField
+                  (sortField === config.sortField || (isOrdersStatusColumn && selectedStatusFilters.length > 0))
                     ? "rgba(39,53,114,1)"
                     : "rgba(113,118,128,1)",
                 whiteSpace: "nowrap",
