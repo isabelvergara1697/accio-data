@@ -1562,10 +1562,7 @@ const InvitesAndOrders: React.FC = () => {
           {isOrdersStatusColumn && (
             <button
               ref={statusFilterButtonRef}
-              onClick={() => {
-                console.log("Status filter clicked! Current state:", showStatusFiltersDropdown);
-                setShowStatusFiltersDropdown(!showStatusFiltersDropdown);
-              }}
+              onClick={() => setShowStatusFiltersDropdown(!showStatusFiltersDropdown)}
               style={{
                 background: "none",
                 border: "none",
