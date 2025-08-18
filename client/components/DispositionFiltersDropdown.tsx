@@ -92,7 +92,8 @@ export const DispositionFiltersDropdown: React.FC<DispositionFiltersDropdownProp
         style={{
           display: "flex",
           height: "auto",
-          maxHeight: "320px",
+          maxHeight: "280px", // Limit height for scroll
+          overflowY: "auto", // Add vertical scroll
           padding: "4px 0",
           flexDirection: "column",
           alignItems: "flex-start",
