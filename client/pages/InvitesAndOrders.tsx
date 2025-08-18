@@ -9199,6 +9199,15 @@ const InvitesAndOrders: React.FC = () => {
         onClose={() => setShowOrdersFiltersDropdown(false)}
         triggerRef={filtersButtonRef}
       />
+
+      {/* Status Filters Dropdown for Orders */}
+      <StatusFiltersDropdown
+        isOpen={showStatusFiltersDropdown}
+        onClose={() => setShowStatusFiltersDropdown(false)}
+        triggerRef={statusFilterButtonRef}
+        selectedStatuses={selectedStatusFilters}
+        onStatusChange={setSelectedStatusFilters}
+      />
     </div>
   );
 };
