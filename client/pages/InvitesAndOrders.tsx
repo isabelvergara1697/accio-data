@@ -62,7 +62,8 @@ interface OrderData {
     | "expired";
   completion: number;
   lastUpdate: string;
-  e1a: string;
+  eta: string;
+  ews: boolean;
   userId: string;
   dispositionByComponent: {
     mvr: "success" | "error" | "pending";
@@ -790,15 +791,16 @@ const InvitesAndOrders: React.FC = () => {
         { id: "phone", name: "Phone", order: 5, isSelected: true },
         { id: "completed", name: "Completed", order: 6, isSelected: true },
         { id: "lastUpdate", name: "Last Update", order: 7, isSelected: true },
-        { id: "e1a", name: "E1A", order: 8, isSelected: true },
-        { id: "userId", name: "User ID", order: 9, isSelected: true },
+        { id: "eta", name: "ETA", order: 8, isSelected: true },
+        { id: "ews", name: "EWS", order: 9, isSelected: true },
+        { id: "userId", name: "User ID", order: 10, isSelected: true },
         {
           id: "dispositionByComponent",
           name: "Disposition by Component",
-          order: 10,
+          order: 11,
           isSelected: true,
         },
-        { id: "flags", name: "Flags", order: 11, isSelected: true },
+        { id: "flags", name: "Flags", order: 12, isSelected: true },
       ];
     } else {
       return [
@@ -863,10 +865,15 @@ const InvitesAndOrders: React.FC = () => {
           label: "Last Update",
           sortField: "lastUpdate",
         },
-        e1a: {
+        eta: {
+          width: "103px",
+          label: "ETA",
+          sortField: "eta",
+        },
+        ews: {
           width: "80px",
-          label: "E1A",
-          sortField: "e1a",
+          label: "EWS",
+          sortField: "ews",
         },
         userId: {
           width: "160px",
@@ -874,12 +881,12 @@ const InvitesAndOrders: React.FC = () => {
           sortField: "userId",
         },
         dispositionByComponent: {
-          width: "280px",
+          width: "320px",
           label: "Disposition\u00A0by\u00A0Component",
           sortField: "dispositionByComponent",
         },
         flags: {
-          width: "300px",
+          width: "320px",
           label: "Flags",
           sortField: "flags",
         },
@@ -1044,10 +1051,10 @@ const InvitesAndOrders: React.FC = () => {
                 }}
               />
             );
-          case "e1a":
+          case "eta":
             return (
               <TruncatedText
-                text={orderData.e1a}
+                text={orderData.eta}
                 style={{
                   color: "#181D27",
                   fontFamily: "Public Sans",
@@ -1057,6 +1064,20 @@ const InvitesAndOrders: React.FC = () => {
                   lineHeight: "20px",
                 }}
               />
+            );
+          case "ews":
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                {orderData.ews && <CheckIcon />}
+              </div>
             );
           case "userId":
             return (
@@ -1109,9 +1130,9 @@ const InvitesAndOrders: React.FC = () => {
                   alignItems: "center",
                   gap: "4px",
                   flexWrap: "nowrap",
-                  width: "280px",
-                  minWidth: "280px",
-                  maxWidth: "280px",
+                  width: "320px",
+                  minWidth: "320px",
+                  maxWidth: "320px",
                   overflow: "hidden",
                   justifyContent: "flex-start",
                 }}
@@ -1142,9 +1163,9 @@ const InvitesAndOrders: React.FC = () => {
                   alignItems: "center",
                   gap: "4px",
                   flexWrap: "nowrap",
-                  width: "300px",
-                  minWidth: "300px",
-                  maxWidth: "300px",
+                  width: "320px",
+                  minWidth: "320px",
+                  maxWidth: "320px",
                   minHeight: "28px",
                   justifyContent: "flex-start",
                   overflow: "hidden",
