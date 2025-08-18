@@ -4267,6 +4267,7 @@ const InvitesAndOrders: React.FC = () => {
                             // Reset status filters when switching tabs
                             setSelectedStatusFilters([]);
                             setShowStatusFiltersDropdown(false);
+                            setShowFiltersSelectedDropdown(false);
                           }}
                           style={{
                             display: "flex",
