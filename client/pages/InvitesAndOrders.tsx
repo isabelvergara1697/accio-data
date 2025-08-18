@@ -4250,19 +4250,39 @@ const InvitesAndOrders: React.FC = () => {
         });
       }
 
-      // Apply Disposition filter for orders
+      // Apply Disposition filter for orders (based on component status icons)
       if (selectedDispositionFilters.length > 0) {
         data = data.filter((order) => {
           const orderData = order as OrderData;
           return selectedDispositionFilters.some(disposition => {
-            // Check if any of the disposition components match the filter
-            switch (disposition) {
+            // Parse the disposition filter (e.g., "mvr-complete", "criminal-incomplete", etc.)
+            const [component, statusType] = disposition.split('-');
+
+            // Get the actual status from the order data
+            let actualStatus: string;
+            switch (component) {
               case "mvr":
-                return orderData.dispositionByComponent.mvr === "success" || orderData.dispositionByComponent.mvr === "error" || orderData.dispositionByComponent.mvr === "pending";
+                actualStatus = orderData.dispositionByComponent.mvr;
+                break;
               case "criminal":
-                return orderData.dispositionByComponent.criminal === "success" || orderData.dispositionByComponent.criminal === "error" || orderData.dispositionByComponent.criminal === "pending";
+                actualStatus = orderData.dispositionByComponent.criminal;
+                break;
               case "verification":
-                return orderData.dispositionByComponent.verification === "success" || orderData.dispositionByComponent.verification === "error" || orderData.dispositionByComponent.verification === "pending";
+                actualStatus = orderData.dispositionByComponent.verification;
+                break;
+              default:
+                return false;
+            }
+
+            // Map the status to the filter type
+            // success = complete, error = incomplete, pending = unknown
+            switch (statusType) {
+              case "complete":
+                return actualStatus === "success";
+              case "incomplete":
+                return actualStatus === "error";
+              case "unknown":
+                return actualStatus === "pending";
               default:
                 return false;
             }
