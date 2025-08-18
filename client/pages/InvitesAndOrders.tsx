@@ -324,8 +324,15 @@ const getRandomFlags = (rowIndex: number) => {
   // First row always shows all flags
   if (rowIndex === 0) {
     return {
-      icons: ["flag", "warning", "archive", "drug test", "monitoring", "rescreening"],
-      labels: ["AA", "PA", "CA"]
+      icons: [
+        "flag",
+        "warning",
+        "archive",
+        "drug test",
+        "monitoring",
+        "rescreening",
+      ],
+      labels: ["AA", "PA", "CA"],
     };
   }
 
@@ -1184,9 +1191,9 @@ const InvitesAndOrders: React.FC = () => {
                         {/* Render Random Text Labels */}
                         {randomFlags.labels.map((labelText, index) => {
                           const tooltipMap: Record<string, string> = {
-                            "AA": "Applicant has received Adverse Action Notice",
-                            "PA": "Applicant has received Pre-Adverse Action Notice",
-                            "CA": "Adverse Notice is in the Client Activation Queue"
+                            AA: "Applicant has received Adverse Action Notice",
+                            PA: "Applicant has received Pre-Adverse Action Notice",
+                            CA: "Adverse Notice is in the Client Activation Queue",
                           };
                           return (
                             <TextLabel
