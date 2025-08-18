@@ -80,6 +80,7 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
         padding: "12px",
         flexDirection: "column",
         alignItems: "flex-start",
+        gap: "6px",
         borderRadius: "8px",
         border: "1px solid rgba(0, 0, 0, 0.08)",
         background: "#FFF",
@@ -87,147 +88,130 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
         zIndex: 99999,
       }}
     >
+      {/* Header with Filters Selected title and Clear All button */}
       <div
         style={{
           display: "flex",
-          width: "240px",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "6px",
+          justifyContent: "space-between",
+          alignItems: "center",
+          alignSelf: "stretch",
         }}
       >
         <div
           style={{
+            color: "#414651",
+            fontFamily: "Public Sans",
+            fontSize: "14px",
+            fontStyle: "normal",
+            fontWeight: 500,
+            lineHeight: "20px",
+          }}
+        >
+          Filters Selected
+        </div>
+        <button
+          onClick={onClearAllFilters}
+          style={{
             display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "6px",
-            alignSelf: "stretch",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "4px",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
           }}
         >
           <div
             style={{
+              color: "#273572",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontStyle: "normal",
+              fontWeight: 600,
+              lineHeight: "20px",
+            }}
+          >
+            Clear All
+          </div>
+        </button>
+      </div>
+      
+      {/* Filter tags container */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          alignContent: "flex-start",
+          gap: "4px",
+          alignSelf: "stretch",
+          flexWrap: "wrap",
+        }}
+      >
+        {selectedStatusFilters.map((status) => (
+          <div
+            key={status}
+            style={{
               display: "flex",
-              justifyContent: "space-between",
+              padding: "3px 4px 3px 8px",
+              justifyContent: "center",
               alignItems: "center",
-              alignSelf: "stretch",
+              gap: "3px",
+              borderRadius: "6px",
+              border: "1px solid #D5D7DA",
+              background: "#FFF",
             }}
           >
             <div
               style={{
-                color: "#414651",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 500,
-                lineHeight: "20px",
-              }}
-            >
-              Filters Selected
-            </div>
-            <button
-              onClick={onClearAllFilters}
-              style={{
                 display: "flex",
-                justifyContent: "center",
                 alignItems: "center",
                 gap: "4px",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: 0,
               }}
             >
               <div
                 style={{
-                  color: "#273572",
+                  color: "#414651",
+                  textAlign: "center",
                   fontFamily: "Public Sans",
-                  fontSize: "14px",
+                  fontSize: "12px",
                   fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "20px",
+                  fontWeight: 500,
+                  lineHeight: "18px",
                 }}
               >
-                Clear All
+                Status: {formatStatusLabel(status)}
               </div>
-            </button>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-start",
-              alignContent: "flex-start",
-              gap: "4px",
-              alignSelf: "stretch",
-              flexWrap: "wrap",
-            }}
-          >
-            {selectedStatusFilters.map((status) => (
-              <div
-                key={status}
-                style={{
-                  display: "flex",
-                  padding: "3px 4px 3px 8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: "3px",
-                  borderRadius: "6px",
-                  border: "1px solid #D5D7DA",
-                  background: "#FFF",
-                }}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                width: "18px",
+                padding: "2px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                borderRadius: "3px",
+                cursor: "pointer",
+              }}
+              onClick={() => onStatusFilterRemove(status)}
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#414651",
-                      textAlign: "center",
-                      fontFamily: "Public Sans",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "18px",
-                    }}
-                  >
-                    Status: {formatStatusLabel(status)}
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    width: "18px",
-                    padding: "2px",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    borderRadius: "3px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => onStatusFilterRemove(status)}
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
-                      stroke="#A4A7AE"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </div>
-            ))}
+                <path
+                  d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                  stroke="#A4A7AE"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
