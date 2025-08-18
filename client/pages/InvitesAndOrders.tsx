@@ -8973,6 +8973,32 @@ const InvitesAndOrders: React.FC = () => {
         onColumnOrderChange={setColumnOrder}
         onResetToDefault={() => setColumnOrder(defaultColumnOrder)}
       />
+
+      {/* Order Summary Modal */}
+      <OrderSummaryModal
+        isOpen={showOrderSummaryModal}
+        onClose={() => setShowOrderSummaryModal(false)}
+        orderData={selectedOrderData ? {
+          orderNumber: selectedOrderData.id,
+          date: selectedOrderData.lastUpdate.split(' ')[0] || "00/00/00",
+          time: "11:41 AM Central",
+          package: "I-9",
+          timeFirstCompleted: "00/00/00",
+          userName: `${selectedOrderData.firstName}, ${selectedOrderData.lastName}`,
+          components: {
+            i9Form: {
+              lastUpdate: "00/00/00",
+              status: "Waiting",
+              statusId: "2839/4949",
+            },
+            eVerify: {
+              lastUpdate: "00/00/00",
+              status: "Waiting",
+              statusId: "2839/4949",
+            },
+          },
+        } : undefined}
+      />
     </div>
   );
 };
