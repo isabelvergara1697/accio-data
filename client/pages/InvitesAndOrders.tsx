@@ -77,11 +77,25 @@ const DispositionBadge: React.FC<{
   type: "mvr" | "criminal" | "verification";
   status: "success" | "error" | "pending";
 }> = ({ type, status }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const badgeRef = useRef<HTMLDivElement>(null);
+
   // Add safety check
   if (!type || !status) {
     console.warn("DispositionBadge: Missing type or status", { type, status });
     return null;
   }
+
+  useEffect(() => {
+    if (showTooltip && badgeRef.current) {
+      const rect = badgeRef.current.getBoundingClientRect();
+      setTooltipPosition({
+        x: rect.left + rect.width / 2,
+        y: rect.bottom + 4
+      });
+    }
+  }, [showTooltip]);
 
   const getStatusConfig = () => {
     switch (status) {
