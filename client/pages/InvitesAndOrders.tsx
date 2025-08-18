@@ -222,11 +222,43 @@ const DispositionBadge: React.FC<{
 
   const tooltipText = getTooltipText();
 
+  useEffect(() => {
+    if (!showTooltip) return;
+
+    // Create tooltip element and append to body
+    const tooltip = document.createElement('div');
+    tooltip.textContent = tooltipText;
+    tooltip.style.cssText = `
+      position: fixed;
+      left: ${tooltipPosition.x}px;
+      top: ${tooltipPosition.y}px;
+      transform: translateX(-50%);
+      background: #0A0D12;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'Public Sans', -apple-system, Roboto, Helvetica, sans-serif;
+      z-index: 999999;
+      pointer-events: none;
+      white-space: nowrap;
+      box-shadow: 0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04);
+      border: 2px solid red;
+    `;
+
+    document.body.appendChild(tooltip);
+
+    return () => {
+      if (document.body.contains(tooltip)) {
+        document.body.removeChild(tooltip);
+      }
+    };
+  }, [showTooltip, tooltipPosition.x, tooltipPosition.y, tooltipText]);
+
   return (
     <div
-      className="disposition-tooltip"
-      data-tooltip={tooltipText}
-      title={`BACKUP: ${tooltipText}`} // Backup native tooltip
+      ref={badgeRef}
       style={{
         display: "flex",
         padding: "2px 6px 2px 8px",
@@ -238,7 +270,14 @@ const DispositionBadge: React.FC<{
         cursor: "pointer",
         position: "relative",
       }}
-      onMouseEnter={() => console.log(`BADGE HOVER: ${type} - ${status} - Tooltip: "${tooltipText}"`)}
+      onMouseEnter={() => {
+        console.log(`BADGE HOVER: ${type} - ${status} - Tooltip: "${tooltipText}"`);
+        setShowTooltip(true);
+      }}
+      onMouseLeave={() => {
+        console.log(`BADGE LEAVE: ${type} - ${status}`);
+        setShowTooltip(false);
+      }}
     >
       <div
         style={{
