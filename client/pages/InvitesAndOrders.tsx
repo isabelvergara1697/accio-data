@@ -72,6 +72,319 @@ interface OrderData {
   flags: string[];
 }
 
+// Flag Component with tooltips
+const FlagBadge: React.FC<{
+  type: string;
+}> = ({ type }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const flagRef = useRef<HTMLDivElement>(null);
+
+  if (!type) {
+    console.warn("FlagBadge: Missing type", { type });
+    return null;
+  }
+
+  useEffect(() => {
+    if (showTooltip && flagRef.current) {
+      const rect = flagRef.current.getBoundingClientRect();
+      setTooltipPosition({
+        x: rect.left + rect.width / 2,
+        y: rect.bottom + 4,
+      });
+    }
+  }, [showTooltip]);
+
+  const getFlagConfig = (flagType: string) => {
+    switch (flagType.toLowerCase()) {
+      case "flag":
+      case "criminal":
+        return {
+          bg: "#FEE4E2",
+          tooltip: "Flag",
+          icon: (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.6665 14L2.6665 2.66667M2.6665 8.66667H7.59984C7.97321 8.66667 8.15989 8.66667 8.3025 8.594C8.42794 8.53009 8.52993 8.4281 8.59384 8.30266C8.6665 8.16005 8.6665 7.97337 8.6665 7.6V3.06667C8.6665 2.6933 8.6665 2.50661 8.59384 2.36401C8.52993 2.23856 8.42794 2.13658 8.3025 2.07266C8.15989 2 7.97321 2 7.59984 2H3.73317C3.3598 2 3.17312 2 3.03051 2.07266C2.90507 2.13658 2.80308 2.23856 2.73917 2.36401C2.6665 2.50661 2.6665 2.6933 2.6665 3.06667V8.66667ZM8.6665 3.33333H12.9332C13.3065 3.33333 13.4932 3.33333 13.6358 3.406C13.7613 3.46991 13.8633 3.5719 13.9272 3.69734C13.9998 3.83995 13.9998 4.02663 13.9998 4.4V8.93333C13.9998 9.3067 13.9998 9.49339 13.9272 9.63599C13.8633 9.76144 13.7613 9.86342 13.6358 9.92734C13.4932 10 13.3065 10 12.9332 10H9.73317C9.3598 10 9.17312 10 9.03051 9.92734C8.90507 9.86342 8.80308 9.76144 8.73917 9.63599C8.6665 9.49339 8.6665 9.3067 8.6665 8.93333V3.33333Z"
+                stroke="#D92D20"
+                strokeWidth="1.33333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          ),
+        };
+      case "warning":
+      case "alert":
+        return {
+          bg: "#FEF0C7",
+          tooltip: "Alert",
+          icon: (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 6.00015V8.66682M8 11.3335H8.00667M7.07688 2.59464L1.59362 12.0657C1.28948 12.591 1.13742 12.8537 1.15989 13.0693C1.1795 13.2573 1.27801 13.4282 1.43091 13.5394C1.60622 13.6668 1.90973 13.6668 2.51674 13.6668H13.4833C14.0903 13.6668 14.3938 13.6668 14.5691 13.5394C14.722 13.4282 14.8205 13.2573 14.8401 13.0693C14.8626 12.8537 14.7105 12.591 14.4064 12.0657L8.92312 2.59463C8.62007 2.07119 8.46855 1.80947 8.27087 1.72157C8.09843 1.64489 7.90157 1.64489 7.72913 1.72157C7.53145 1.80947 7.37992 2.07119 7.07688 2.59464Z"
+                stroke="#DC6803"
+                strokeWidth="1.33333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          ),
+        };
+      case "archive":
+        return {
+          bg: "#F5F5F5",
+          tooltip: "Archive",
+          icon: (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.66683 5.33106C2.55749 5.32824 2.47809 5.32191 2.40671 5.30771C1.87779 5.2025 1.46432 4.78904 1.35912 4.26012C1.3335 4.13132 1.3335 3.97644 1.3335 3.66667C1.3335 3.3569 1.3335 3.20201 1.35912 3.07321C1.46432 2.54429 1.87779 2.13083 2.40671 2.02562C2.53551 2 2.69039 2 3.00016 2H13.0002C13.3099 2 13.4648 2 13.5936 2.02562C14.1225 2.13083 14.536 2.54429 14.6412 3.07321C14.6668 3.20201 14.6668 3.3569 14.6668 3.66667C14.6668 3.97644 14.6668 4.13132 14.6412 4.26012C14.536 4.78904 14.1225 5.2025 13.5936 5.30771C13.5222 5.32191 13.4428 5.32824 13.3335 5.33106M6.66683 8.66667H9.3335M2.66683 5.33333H13.3335V10.8C13.3335 11.9201 13.3335 12.4802 13.1155 12.908C12.9238 13.2843 12.6178 13.5903 12.2415 13.782C11.8137 14 11.2536 14 10.1335 14H5.86683C4.74672 14 4.18667 14 3.75885 13.782C3.38252 13.5903 3.07656 13.2843 2.88482 12.908C2.66683 12.4802 2.66683 11.9201 2.66683 10.8V5.33333Z"
+                stroke="#717680"
+                strokeWidth="1.33333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          ),
+        };
+      case "drug test":
+      case "medical":
+      case "mvr":
+        return {
+          bg: "#B9E6FE",
+          tooltip: "Drug Test",
+          icon: (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 3.06667C10 2.6933 10 2.50661 9.92734 2.36401C9.86342 2.23856 9.76144 2.13658 9.63599 2.07266C9.49339 2 9.3067 2 8.93333 2H7.06667C6.6933 2 6.50661 2 6.36401 2.07266C6.23857 2.13658 6.13658 2.23856 6.07266 2.36401C6 2.50661 6 2.6933 6 3.06667V4.93333C6 5.3067 6 5.49339 5.92734 5.63599C5.86342 5.76143 5.76144 5.86342 5.63599 5.92734C5.49339 6 5.3067 6 4.93333 6H3.06667C2.6933 6 2.50661 6 2.36401 6.07266C2.23856 6.13658 2.13658 6.23856 2.07266 6.36401C2 6.50661 2 6.6933 2 7.06667V8.93333C2 9.3067 2 9.49339 2.07266 9.63599C2.13658 9.76144 2.23856 9.86342 2.36401 9.92734C2.50661 10 2.6933 10 3.06667 10H4.93333C5.3067 10 5.49339 10 5.63599 10.0727C5.76144 10.1366 5.86342 10.2386 5.92734 10.364C6 10.5066 6 10.6933 6 11.0667V12.9333C6 13.3067 6 13.4934 6.07266 13.636C6.13658 13.7614 6.23857 13.8634 6.36401 13.9273C6.50661 14 6.6933 14 7.06667 14H8.93333C9.3067 14 9.49339 14 9.63599 13.9273C9.76144 13.8634 9.86342 13.7614 9.92734 13.636C10 13.4934 10 13.3067 10 12.9333V11.0667C10 10.6933 10 10.5066 10.0727 10.364C10.1366 10.2386 10.2386 10.1366 10.364 10.0727C10.5066 10 10.6933 10 11.0667 10H12.9333C13.3067 10 13.4934 10 13.636 9.92734C13.7614 9.86342 13.8634 9.76144 13.9273 9.63599C14 9.49339 14 9.3067 14 8.93333V7.06667C14 6.6933 14 6.50661 13.9273 6.36401C13.8634 6.23857 13.7614 6.13658 13.636 6.07266C13.4934 6 13.3067 6 12.9333 6L11.0667 6C10.6933 6 10.5066 6 10.364 5.92734C10.2386 5.86342 10.1366 5.76143 10.0727 5.63599C10 5.49339 10 5.3067 10 4.93333V3.06667Z"
+                stroke="#0BA5EC"
+                strokeWidth="1.33333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          ),
+        };
+      case "monitoring":
+      case "chart":
+      case "analytics":
+        return {
+          bg: "#DCFAE6",
+          tooltip: "Monitoring",
+          icon: (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 14H3.06667C2.6933 14 2.50661 14 2.36401 13.9273C2.23856 13.8634 2.13658 13.7614 2.07266 13.636C2 13.4934 2 13.3067 2 12.9333V2M13.3333 5.33333L10.7208 8.12177C10.6217 8.22745 10.5722 8.28029 10.5125 8.3076C10.4598 8.3317 10.4017 8.34164 10.344 8.33644C10.2786 8.33055 10.2143 8.29718 10.0858 8.23045L7.91421 7.10288C7.78569 7.03615 7.72143 7.00278 7.65602 6.99689C7.59829 6.99169 7.54021 7.00163 7.48749 7.02574C7.42777 7.05305 7.37826 7.10589 7.27925 7.21156L4.66667 10"
+                stroke="#079455"
+                strokeWidth="1.33333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          ),
+        };
+      case "rescreening":
+      case "refresh":
+        return {
+          bg: "#D9DEF2",
+          tooltip: "Rescreening",
+          icon: (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.0002 6.66667C14.0002 6.66667 12.6635 4.84548 11.5776 3.75883C10.4917 2.67218 8.9911 2 7.3335 2C4.01979 2 1.3335 4.68629 1.3335 8C1.3335 11.3137 4.01979 14 7.3335 14C10.0689 14 12.3768 12.1695 13.099 9.66667M14.0002 6.66667V2.66667M14.0002 6.66667H10.0002"
+                stroke="#344698"
+                strokeWidth="1.33333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          ),
+        };
+      default:
+        return {
+          bg: "#F5F5F5",
+          tooltip: type,
+          icon: (
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.66683 5.33106C2.55749 5.32824 2.47809 5.32191 2.40671 5.30771C1.87779 5.2025 1.46432 4.78904 1.35912 4.26012C1.3335 4.13132 1.3335 3.97644 1.3335 3.66667C1.3335 3.3569 1.3335 3.20201 1.35912 3.07321C1.46432 2.54429 1.87779 2.13083 2.40671 2.02562C2.53551 2 2.69039 2 3.00016 2H13.0002C13.3099 2 13.4648 2 13.5936 2.02562C14.1225 2.13083 14.536 2.54429 14.6412 3.07321C14.6668 3.20201 14.6668 3.3569 14.6668 3.66667C14.6668 3.97644 14.6668 4.13132 14.6412 4.26012C14.536 4.78904 14.1225 5.2025 13.5936 5.30771C13.5222 5.32191 13.4428 5.32824 13.3335 5.33106M6.66683 8.66667H9.3335M2.66683 5.33333H13.3335V10.8C13.3335 11.9201 13.3335 12.4802 13.1155 12.908C12.9238 13.2843 12.6178 13.5903 12.2415 13.782C11.8137 14 11.2536 14 10.1335 14H5.86683C4.74672 14 4.18667 14 3.75885 13.782C3.38252 13.5903 3.07656 13.2843 2.88482 12.908C2.66683 12.4802 2.66683 11.9201 2.66683 10.8V5.33333Z"
+                stroke="#717680"
+                strokeWidth="1.33333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          ),
+        };
+    }
+  };
+
+  const flagConfig = getFlagConfig(type);
+
+  useEffect(() => {
+    if (!showTooltip) return;
+    const tooltip = document.createElement("div");
+    tooltip.textContent = flagConfig.tooltip;
+    tooltip.style.cssText = `
+      position: fixed;
+      left: ${tooltipPosition.x}px;
+      top: ${tooltipPosition.y}px;
+      transform: translateX(-50%);
+      background: #181D27;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 500;
+      white-space: nowrap;
+      z-index: 9999;
+      pointer-events: none;
+    `;
+    document.body.appendChild(tooltip);
+    return () => {
+      if (document.body.contains(tooltip)) {
+        document.body.removeChild(tooltip);
+      }
+    };
+  }, [showTooltip, tooltipPosition.x, tooltipPosition.y, flagConfig.tooltip]);
+
+  return (
+    <div
+      ref={flagRef}
+      style={
+        {
+          display: "flex",
+          width: "28px",
+          height: "28px",
+          padding: "6px",
+          justifyContent: "center",
+          alignItems: "center",
+          aspectRatio: "1/1",
+          borderRadius: "9999px",
+          background: flagConfig.bg,
+          position: "relative",
+          flexShrink: 0,
+          cursor: "pointer",
+        } as React.CSSProperties
+      }
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+    >
+      {flagConfig.icon}
+    </div>
+  );
+};
+
+// Text Label Component for flags
+const TextLabel: React.FC<{
+  text: string;
+  tooltip: string;
+}> = ({ text, tooltip }) => {
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const labelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (showTooltip && labelRef.current) {
+      const rect = labelRef.current.getBoundingClientRect();
+      setTooltipPosition({
+        x: rect.left + rect.width / 2,
+        y: rect.bottom + 4,
+      });
+    }
+  }, [showTooltip]);
+
+  useEffect(() => {
+    if (!showTooltip) return;
+    const tooltipEl = document.createElement("div");
+    tooltipEl.textContent = tooltip;
+    tooltipEl.style.cssText = `
+      position: fixed;
+      left: ${tooltipPosition.x}px;
+      top: ${tooltipPosition.y}px;
+      transform: translateX(-50%);
+      background: #181D27;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 500;
+      white-space: nowrap;
+      z-index: 9999;
+      pointer-events: none;
+    `;
+    document.body.appendChild(tooltipEl);
+    return () => {
+      if (document.body.contains(tooltipEl)) {
+        document.body.removeChild(tooltipEl);
+      }
+    };
+  }, [showTooltip, tooltipPosition.x, tooltipPosition.y, tooltip]);
+
+  return (
+    <div
+      ref={labelRef}
+      style={{
+        color: "#535862",
+        fontFamily: "Public Sans",
+        fontSize: "14px",
+        fontStyle: "normal",
+        fontWeight: 400,
+        lineHeight: "20px",
+        cursor: "pointer",
+      }}
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
+    >
+      {text}
+    </div>
+  );
+};
+
 // Disposition Badge Component
 const DispositionBadge: React.FC<{
   type: "mvr" | "criminal" | "verification";
