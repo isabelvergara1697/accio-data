@@ -92,7 +92,7 @@ const DispositionBadge: React.FC<{
       const rect = badgeRef.current.getBoundingClientRect();
       setTooltipPosition({
         x: rect.left + rect.width / 2,
-        y: rect.bottom + 4
+        y: rect.bottom + 4,
       });
     }
   }, [showTooltip]);
@@ -226,7 +226,7 @@ const DispositionBadge: React.FC<{
     if (!showTooltip) return;
 
     // Create tooltip element and append to body
-    const tooltip = document.createElement('div');
+    const tooltip = document.createElement("div");
     tooltip.textContent = tooltipText;
     tooltip.style.cssText = `
       position: fixed;

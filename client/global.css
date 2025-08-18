@@ -112,7 +112,12 @@
     border-radius: 8px;
     font-size: 14px !important;
     font-weight: 700 !important;
-    font-family: 'Public Sans', -apple-system, Roboto, Helvetica, sans-serif;
+    font-family:
+      "Public Sans",
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
     white-space: nowrap;
     z-index: 999999 !important;
     opacity: 1 !important; /* ALWAYS VISIBLE FOR DEBUG */
