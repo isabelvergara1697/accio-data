@@ -5086,7 +5086,7 @@ const InvitesAndOrders: React.FC = () => {
                                             (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
                                               ? "rgba(52,70,152,1)"
                                               : (activeTab === "invites" && showFiltersModal) ||
-                                                (activeTab === "orders" && showOrdersFiltersDropdown)
+                                                (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))
                                                 ? "rgba(37,43,55,1)"
                                                 : "rgba(65,70,81,1)",
                                         }}
