@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface InviteData {
   id: string;
@@ -33,7 +33,137 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
   onClose,
   inviteData,
 }) => {
+  // State for radio button groups
+  const [activateOrder, setActivateOrder] = useState<"yes" | "no">("yes");
+  const [applicantCompletesOrder, setApplicantCompletesOrder] = useState<"yes" | "no">("yes");
+  const [applicantCompletesI9, setApplicantCompletesI9] = useState<"yes" | "no">("yes");
+  const [collectEWS, setCollectEWS] = useState<"yes" | "no">("yes");
+
+  // State for form inputs
+  const [invitationEmail, setInvitationEmail] = useState("cody.reeves@acciodata.com");
+  const [emailSent, setEmailSent] = useState("Watch this video to understand the new process");
+  const [invitationPhone, setInvitationPhone] = useState("+1 000 000 000");
+  const [smsMessage, setSmsMessage] = useState("Add here SMS Message you'll like to sent.");
+  const [invitationNotes, setInvitationNotes] = useState("Watch this video to understand the new process");
+
   if (!isOpen || !inviteData) return null;
+
+  const RadioButton = ({ 
+    checked, 
+    onClick, 
+    label 
+  }: { 
+    checked: boolean; 
+    onClick: () => void; 
+    label: string;
+  }) => (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "12px",
+        position: "relative",
+        cursor: "pointer"
+      }}
+      onClick={onClick}
+    >
+      <div
+        style={{
+          display: "flex",
+          paddingTop: "2px",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            width: "20px",
+            height: "20px",
+            padding: checked ? "6px" : "0",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "9999px",
+            background: checked ? "#344698" : "transparent",
+            border: checked ? "none" : "1px solid #D5D7DA",
+            position: "relative",
+          }}
+        >
+          {checked && (
+            <div
+              style={{
+                width: "8px",
+                height: "8px",
+                flexShrink: 0,
+                borderRadius: "9999px",
+                background: "#FFF",
+                position: "absolute",
+                left: "6px",
+                top: "6px",
+              }}
+            />
+          )}
+        </div>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "2px",
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "4px",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              color: "#414651",
+              fontFamily: "Public Sans",
+              fontSize: "16px",
+              fontStyle: "normal",
+              fontWeight: 500,
+              lineHeight: "24px",
+              position: "relative",
+            }}
+          >
+            {label}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const Divider = () => (
+    <svg
+      width="352"
+      height="9"
+      viewBox="0 0 352 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{
+        display: "flex",
+        padding: "4px 0",
+        alignItems: "center",
+        alignSelf: "stretch",
+        position: "relative",
+      }}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M352 5H0V4H352V5Z"
+        fill="#E9EAEB"
+      />
+    </svg>
+  );
 
   return (
     <>
@@ -276,7 +406,7 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
               </div>
             </div>
 
-            {/* Form Section */}
+            {/* Form Section - Radio Button Groups */}
             <div
               style={{
                 display: "flex",
@@ -293,12 +423,13 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                   display: "flex",
                   alignItems: "center",
                   gap: "8px",
+                  alignSelf: "stretch",
                   position: "relative",
                 }}
               >
                 <div
                   style={{
-                    width: "236px",
+                    width: "160px",
                     color: "#535862",
                     fontFamily: "Public Sans",
                     fontSize: "18px",
@@ -310,145 +441,17 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                 >
                   Activate Order:
                 </div>
-                {/* Yes Radio */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      paddingTop: "2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "20px",
-                        height: "20px",
-                        padding: "6px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        borderRadius: "9999px",
-                        background: "#344698",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "8px",
-                          height: "8px",
-                          flexShrink: 0,
-                          borderRadius: "9999px",
-                          background: "#FFF",
-                          position: "absolute",
-                          left: "6px",
-                          top: "6px",
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "2px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "24px",
-                          position: "relative",
-                        }}
-                      >
-                        Yes
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* No Radio */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      paddingTop: "2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "20px",
-                        height: "20px",
-                        borderRadius: "9999px",
-                        border: "1px solid #D5D7DA",
-                        position: "relative",
-                      }}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "2px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "24px",
-                          position: "relative",
-                        }}
-                      >
-                        No
-                      </div>
-                    </div>
-                  </div>
+                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                  <RadioButton 
+                    checked={activateOrder === "yes"}
+                    onClick={() => setActivateOrder("yes")}
+                    label="Yes"
+                  />
+                  <RadioButton 
+                    checked={activateOrder === "no"}
+                    onClick={() => setActivateOrder("no")}
+                    label="No"
+                  />
                 </div>
               </div>
 
@@ -464,7 +467,7 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
               >
                 <div
                   style={{
-                    width: "236px",
+                    width: "160px",
                     color: "#535862",
                     fontFamily: "Public Sans",
                     fontSize: "18px",
@@ -476,146 +479,17 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                 >
                   Applicant Completes Order:
                 </div>
-                {/* Yes Radio */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      paddingTop: "2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "20px",
-                        height: "20px",
-                        padding: "6px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        borderRadius: "9999px",
-                        background: "#344698",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "8px",
-                          height: "8px",
-                          flexShrink: 0,
-                          borderRadius: "9999px",
-                          background: "#FFF",
-                          position: "absolute",
-                          left: "6px",
-                          top: "6px",
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "2px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "24px",
-                          position: "relative",
-                        }}
-                      >
-                        Yes
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* No Radio */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      paddingTop: "2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "20px",
-                        height: "20px",
-                        borderRadius: "9999px",
-                        border: "1px solid #D5D7DA",
-                        position: "relative",
-                      }}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "2px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "24px",
-                          position: "relative",
-                        }}
-                      >
-                        No
-                      </div>
-                    </div>
-                  </div>
+                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                  <RadioButton 
+                    checked={applicantCompletesOrder === "yes"}
+                    onClick={() => setApplicantCompletesOrder("yes")}
+                    label="Yes"
+                  />
+                  <RadioButton 
+                    checked={applicantCompletesOrder === "no"}
+                    onClick={() => setApplicantCompletesOrder("no")}
+                    label="No"
+                  />
                 </div>
               </div>
 
@@ -631,7 +505,7 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
               >
                 <div
                   style={{
-                    width: "236px",
+                    width: "160px",
                     color: "#535862",
                     fontFamily: "Public Sans",
                     fontSize: "18px",
@@ -643,146 +517,17 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                 >
                   Applicant Completes I-9:
                 </div>
-                {/* Yes Radio */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      paddingTop: "2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "20px",
-                        height: "20px",
-                        padding: "6px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        borderRadius: "9999px",
-                        background: "#344698",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "8px",
-                          height: "8px",
-                          flexShrink: 0,
-                          borderRadius: "9999px",
-                          background: "#FFF",
-                          position: "absolute",
-                          left: "6px",
-                          top: "6px",
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "2px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "24px",
-                          position: "relative",
-                        }}
-                      >
-                        Yes
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* No Radio */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      paddingTop: "2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "20px",
-                        height: "20px",
-                        borderRadius: "9999px",
-                        border: "1px solid #D5D7DA",
-                        position: "relative",
-                      }}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "2px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "24px",
-                          position: "relative",
-                        }}
-                      >
-                        No
-                      </div>
-                    </div>
-                  </div>
+                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                  <RadioButton 
+                    checked={applicantCompletesI9 === "yes"}
+                    onClick={() => setApplicantCompletesI9("yes")}
+                    label="Yes"
+                  />
+                  <RadioButton 
+                    checked={applicantCompletesI9 === "no"}
+                    onClick={() => setApplicantCompletesI9("no")}
+                    label="No"
+                  />
                 </div>
               </div>
 
@@ -798,7 +543,7 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
               >
                 <div
                   style={{
-                    width: "236px",
+                    width: "160px",
                     color: "#535862",
                     fontFamily: "Public Sans",
                     fontSize: "18px",
@@ -810,172 +555,22 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                 >
                   Collect EWS:
                 </div>
-                {/* Yes Radio */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      paddingTop: "2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "20px",
-                        height: "20px",
-                        padding: "6px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        borderRadius: "9999px",
-                        background: "#344698",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "8px",
-                          height: "8px",
-                          flexShrink: 0,
-                          borderRadius: "9999px",
-                          background: "#FFF",
-                          position: "absolute",
-                          left: "6px",
-                          top: "6px",
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "2px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "24px",
-                          position: "relative",
-                        }}
-                      >
-                        Yes
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* No Radio */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      paddingTop: "2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "20px",
-                        height: "20px",
-                        borderRadius: "9999px",
-                        border: "1px solid #D5D7DA",
-                        position: "relative",
-                      }}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "2px",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "4px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "24px",
-                          position: "relative",
-                        }}
-                      >
-                        No
-                      </div>
-                    </div>
-                  </div>
+                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+                  <RadioButton 
+                    checked={collectEWS === "yes"}
+                    onClick={() => setCollectEWS("yes")}
+                    label="Yes"
+                  />
+                  <RadioButton 
+                    checked={collectEWS === "no"}
+                    onClick={() => setCollectEWS("no")}
+                    label="No"
+                  />
                 </div>
               </div>
             </div>
 
-            {/* Divider */}
-            <svg
-              width="352"
-              height="9"
-              viewBox="0 0 352 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                display: "flex",
-                padding: "4px 0",
-                alignItems: "center",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M352 5H0V4H352V5Z"
-                fill="#E9EAEB"
-              />
-            </svg>
+            <Divider />
 
             {/* Email Section */}
             <div
@@ -1034,7 +629,10 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                     *
                   </div>
                 </div>
-                <div
+                <input
+                  type="email"
+                  value={invitationEmail}
+                  onChange={(e) => setInvitationEmail(e.target.value)}
                   style={{
                     display: "flex",
                     padding: "8px 12px",
@@ -1045,39 +643,15 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    position: "relative",
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                    outline: "none",
                   }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                      flex: "1 0 0",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "-webkit-box",
-                        WebkitBoxOrient: "vertical",
-                        WebkitLineClamp: 1,
-                        flex: "1 0 0",
-                        overflow: "hidden",
-                        color: "#181D27",
-                        textOverflow: "ellipsis",
-                        fontFamily: "Public Sans",
-                        fontSize: "16px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "24px",
-                        position: "relative",
-                      }}
-                    >
-                      cody.reeves@acciodata.com
-                    </div>
-                  </div>
-                </div>
+                />
               </div>
 
               {/* Email Sent Textarea */}
@@ -1114,7 +688,9 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                     Email Sent
                   </div>
                 </div>
-                <div
+                <textarea
+                  value={emailSent}
+                  onChange={(e) => setEmailSent(e.target.value)}
                   style={{
                     display: "flex",
                     padding: "12px 14px",
@@ -1126,25 +702,16 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    position: "relative",
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                    resize: "none",
+                    outline: "none",
                   }}
-                >
-                  <div
-                    style={{
-                      flex: "1 0 0",
-                      alignSelf: "stretch",
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "16px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "24px",
-                      position: "relative",
-                    }}
-                  >
-                    Watch this video to understand the new process
-                  </div>
-                </div>
+                />
               </div>
 
               {/* Resent Email Button */}
@@ -1161,32 +728,20 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                   background: "#FFF",
                   boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  position: "relative",
                   cursor: "pointer",
                 }}
               >
                 <div
                   style={{
-                    display: "flex",
-                    padding: "0 2px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    position: "relative",
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
                   }}
                 >
-                  <div
-                    style={{
-                      color: "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Resent Email Invitation
-                  </div>
+                  Resent Email Invitation
                 </div>
               </button>
 
@@ -1219,28 +774,7 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
               </div>
             </div>
 
-            {/* Divider */}
-            <svg
-              width="352"
-              height="9"
-              viewBox="0 0 352 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                display: "flex",
-                padding: "4px 0",
-                alignItems: "center",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M352 5H0V4H352V5Z"
-                fill="#E9EAEB"
-              />
-            </svg>
+            <Divider />
 
             {/* SMS Section */}
             <div
@@ -1266,27 +800,20 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
               >
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "2px",
-                    position: "relative",
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
                   }}
                 >
-                  <div
-                    style={{
-                      color: "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Invitation Phone
-                  </div>
+                  Invitation Phone
                 </div>
-                <div
+                <input
+                  type="tel"
+                  value={invitationPhone}
+                  onChange={(e) => setInvitationPhone(e.target.value)}
                   style={{
                     display: "flex",
                     padding: "8px 12px",
@@ -1297,39 +824,15 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    position: "relative",
+                    color: "#717680",
+                    fontFamily: "Public Sans",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                    outline: "none",
                   }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                      flex: "1 0 0",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "-webkit-box",
-                        WebkitBoxOrient: "vertical",
-                        WebkitLineClamp: 1,
-                        flex: "1 0 0",
-                        overflow: "hidden",
-                        color: "#717680",
-                        textOverflow: "ellipsis",
-                        fontFamily: "Public Sans",
-                        fontSize: "16px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "24px",
-                        position: "relative",
-                      }}
-                    >
-                      +1 000 000 000
-                    </div>
-                  </div>
-                </div>
+                />
               </div>
 
               {/* SMS Message Textarea */}
@@ -1346,27 +849,19 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
               >
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "2px",
-                    position: "relative",
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
                   }}
                 >
-                  <div
-                    style={{
-                      color: "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    SMS Invitation Sent
-                  </div>
+                  SMS Invitation Sent
                 </div>
-                <div
+                <textarea
+                  value={smsMessage}
+                  onChange={(e) => setSmsMessage(e.target.value)}
                   style={{
                     display: "flex",
                     padding: "12px 14px",
@@ -1378,25 +873,16 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    position: "relative",
+                    color: "#717680",
+                    fontFamily: "Public Sans",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                    resize: "none",
+                    outline: "none",
                   }}
-                >
-                  <div
-                    style={{
-                      flex: "1 0 0",
-                      alignSelf: "stretch",
-                      color: "#717680",
-                      fontFamily: "Public Sans",
-                      fontSize: "16px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "24px",
-                      position: "relative",
-                    }}
-                  >
-                    Add here SMS Message you'll like to sent.
-                  </div>
-                </div>
+                />
               </div>
 
               {/* Send SMS Button */}
@@ -1413,58 +899,25 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                   background: "#344698",
                   boxShadow:
                     "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  position: "relative",
                   cursor: "pointer",
                 }}
               >
                 <div
                   style={{
-                    display: "flex",
-                    padding: "0 2px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    position: "relative",
+                    color: "#FFF",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
                   }}
                 >
-                  <div
-                    style={{
-                      color: "#FFF",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Send SMS Invitation
-                  </div>
+                  Send SMS Invitation
                 </div>
               </button>
             </div>
 
-            {/* Divider */}
-            <svg
-              width="352"
-              height="9"
-              viewBox="0 0 352 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                display: "flex",
-                padding: "4px 0",
-                alignItems: "center",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M352 5H0V4H352V5Z"
-                fill="#E9EAEB"
-              />
-            </svg>
+            <Divider />
 
             {/* Notes Section */}
             <div
@@ -1491,27 +944,19 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
               >
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "2px",
-                    position: "relative",
+                    color: "#414651",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
                   }}
                 >
-                  <div
-                    style={{
-                      color: "#414651",
-                      fontFamily: "Public Sans",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Invitation Notes
-                  </div>
+                  Invitation Notes
                 </div>
-                <div
+                <textarea
+                  value={invitationNotes}
+                  onChange={(e) => setInvitationNotes(e.target.value)}
                   style={{
                     display: "flex",
                     padding: "12px 14px",
@@ -1523,50 +968,20 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    position: "relative",
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                    resize: "none",
+                    outline: "none",
                   }}
-                >
-                  <div
-                    style={{
-                      flex: "1 0 0",
-                      alignSelf: "stretch",
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "16px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "24px",
-                      position: "relative",
-                    }}
-                  >
-                    Watch this video to understand the new process
-                  </div>
-                </div>
+                />
               </div>
             </div>
 
-            {/* Divider */}
-            <svg
-              width="352"
-              height="9"
-              viewBox="0 0 352 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                display: "flex",
-                padding: "4px 0",
-                alignItems: "center",
-                alignSelf: "stretch",
-                position: "relative",
-              }}
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M352 5H0V4H352V5Z"
-                fill="#E9EAEB"
-              />
-            </svg>
+            <Divider />
 
             {/* Cancel Invitation Button */}
             <button
@@ -1582,32 +997,20 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                 background: "#D92D20",
                 boxShadow:
                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                position: "relative",
                 cursor: "pointer",
               }}
             >
               <div
                 style={{
-                  display: "flex",
-                  padding: "0 2px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  position: "relative",
+                  color: "#FFF",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "20px",
                 }}
               >
-                <div
-                  style={{
-                    color: "#FFF",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Cancel Invitation
-                </div>
+                Cancel Invitation
               </div>
             </button>
           </div>
