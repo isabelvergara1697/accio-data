@@ -41,7 +41,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     return columnOrder.some((col) => col.id === columnId && col.isSelected);
   };
 
-  // Core columns that should always be toggleable (the original 9 active columns)
+  // Core columns that should always be toggleable (the original 9 active columns + newly enabled ones)
   const coreColumnIds = [
     "status",
     "firstName",
@@ -52,6 +52,35 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     "activate",
     "ews",
     "package",
+    // Subject/Applicant enabled columns
+    "name",
+    "address",
+    "ssn",
+    "dateOfBirth",
+    "intlDriverLicenseState",
+    "noteTitle",
+    "hairColor",
+    "applicantId",
+    "subjectDisposition",
+    // Invitation/Portal enabled columns
+    "timesEmailed",
+    "inclusionExpired",
+    "smsTextSendGreen",
+    // Job Information enabled columns
+    "applicantType",
+    "jobZip",
+    // Order Status enabled columns
+    "orderStatus",
+    "orderUpdate",
+    "lastUpdate",
+    // Billing Identifiers enabled columns
+    "billingIdentifier1",
+    "billingIdentifier2",
+    "billingIdentifier3",
+    // Integration enabled columns
+    "outback1",
+    "outback2",
+    "outback3",
   ];
 
   // Helper function to check if a column can be toggled
