@@ -881,12 +881,12 @@ const InvitesAndOrders: React.FC = () => {
           sortField: "userId",
         },
         dispositionByComponent: {
-          width: "320px",
+          width: "280px",
           label: "Disposition\u00A0by\u00A0Component",
           sortField: "dispositionByComponent",
         },
         flags: {
-          width: "320px",
+          width: "300px",
           label: "Flags",
           sortField: "flags",
         },
@@ -1424,12 +1424,14 @@ const InvitesAndOrders: React.FC = () => {
       return {
         display: "flex",
         width: config.width,
+        minWidth: config.width,
+        maxWidth: config.width,
         height: "52px",
         padding: "12px",
         alignItems: "center",
         borderBottom: "1px solid #E9EAEB",
         position: "relative",
-        minWidth: 0,
+        boxSizing: "border-box",
         ...(columnId === "completed" ? { gap: "12px" } : {}),
         ...(columnId === "status" ? { justifyContent: "flex-start" } : {}),
       };
@@ -1483,6 +1485,8 @@ const InvitesAndOrders: React.FC = () => {
       return {
         display: "flex",
         width: config.width,
+        minWidth: config.width,
+        maxWidth: config.width,
         height: "36px",
         padding: "6px 12px",
         alignItems: "center",
@@ -1490,6 +1494,7 @@ const InvitesAndOrders: React.FC = () => {
         borderBottom: "1px solid #E9EAEB",
         background: "#FFF",
         position: "relative",
+        boxSizing: "border-box",
       };
     };
 
