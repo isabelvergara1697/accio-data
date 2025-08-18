@@ -8755,7 +8755,7 @@ const InvitesAndOrders: React.FC = () => {
                                   transition: "background-color 0.15s ease",
                                   cursor: "pointer",
                                   pointerEvents: "auto", // Ensure hover events work
-                                  zIndex: 1, // Ensure table rows are above any background elements
+                                  zIndex: 10, // Ensure table rows are above any sticky or floating elements
                                 }}
                               >
                                 {/* Checkbox Cell */}
