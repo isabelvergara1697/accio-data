@@ -1500,7 +1500,7 @@ const InvitesAndOrders: React.FC = () => {
     // Check if this is a filterable column in Orders tab
     const isOrdersStatusColumn = activeTab === "orders" && columnId === "status";
     const isOrdersEwsColumn = activeTab === "orders" && columnId === "ews";
-    const isOrdersDispositionColumn = activeTab === "orders" && columnId === "userId"; // Using userId as disposition
+    const isOrdersDispositionColumn = activeTab === "orders" && columnId === "dispositionByComponent";
     const isOrdersFlagsColumn = activeTab === "orders" && columnId === "flags";
 
     // Handle flexible width for email column (only for invites)
