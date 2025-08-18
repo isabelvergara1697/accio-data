@@ -5001,7 +5001,8 @@ const InvitesAndOrders: React.FC = () => {
                                         ? "1px solid #34479A"
                                         : "1px solid #D5D7DA",
                                     background:
-                                      activeTab === "invites" && hasAppliedFilters() && !showFiltersModal
+                                      (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
+                                      (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
                                         ? "#ECEEF9"
                                         : hoveredButton === "filters" ||
                                             (activeTab === "invites" && showFiltersModal) ||
