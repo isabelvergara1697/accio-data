@@ -101,7 +101,7 @@ const FlagBadge: React.FC<{
       case "criminal":
         return {
           bg: "#FEE4E2",
-          tooltip: "Flag",
+          tooltip: "Report contains discrepancies or derogatory information",
           icon: (
             <svg
               width="16"
