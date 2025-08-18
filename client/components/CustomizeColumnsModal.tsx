@@ -72,7 +72,6 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     // Order Status enabled columns
     "orderStatus",
     "orderUpdate",
-    "lastUpdate",
     // Billing Identifiers enabled columns
     "billingIdentifier1",
     "billingIdentifier2",
