@@ -13,7 +13,7 @@ import InformationDrawer from "../components/ui/information-drawer";
 import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
 import FiltersPanel from "../components/FiltersPanel";
 import { MobileFiltersModal } from "../components/MobileFiltersModal";
-import { OrdersFiltersModal, OrdersFilterState } from "../components/OrdersFiltersModal";
+import { OrdersFiltersDropdown } from "../components/OrdersFiltersDropdown";
 import { CustomizeColumnsModal } from "../components/CustomizeColumnsModal";
 import { DownloadDropdown } from "../components/DownloadDropdown";
 import {
