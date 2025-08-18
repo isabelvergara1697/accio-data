@@ -885,7 +885,7 @@ const InvitesAndOrders: React.FC = () => {
           sortField: "dispositionByComponent",
         },
         flags: {
-          width: "280px",
+          width: "400px",
           label: "Flags",
           sortField: "flags",
         },
