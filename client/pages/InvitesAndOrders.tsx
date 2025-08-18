@@ -1501,7 +1501,7 @@ const InvitesAndOrders: React.FC = () => {
     const isOrdersStatusColumn = activeTab === "orders" && columnId === "status";
     const isOrdersEwsColumn = activeTab === "orders" && columnId === "ews";
     const isOrdersDispositionColumn = activeTab === "orders" && columnId === "userId"; // Using userId as disposition
-    const isOrdersFlagsColumn = activeTab === "orders" && columnId === "flags"; // We'll need to check if this exists
+    const isOrdersFlagsColumn = activeTab === "orders" && columnId === "flags";
 
     // Handle flexible width for email column (only for invites)
     const getColumnStyle = () => {
