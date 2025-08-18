@@ -4240,10 +4240,12 @@ const InvitesAndOrders: React.FC = () => {
         );
       }
 
-      // Apply EWS filter for orders
+      // Apply EWS filter for orders (Yes: rows with icons, No: rows without icons)
       if (selectedEwsFilters.length > 0) {
         data = data.filter((order) => {
-          const ewsStatus = (order as OrderData).ews ? "yes" : "no";
+          const orderData = order as OrderData;
+          const hasIcon = orderData.ews; // Yes means has icon (ews: true), No means no icon (ews: false)
+          const ewsStatus = hasIcon ? "yes" : "no";
           return selectedEwsFilters.includes(ewsStatus);
         });
       }
