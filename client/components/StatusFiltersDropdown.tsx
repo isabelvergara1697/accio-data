@@ -96,8 +96,8 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
       ref={dropdownRef}
       style={{
         position: "fixed",
-        top: 200, // Fixed position for testing
-        left: 400, // Fixed position for testing
+        top: position.top,
+        left: position.left,
         width: "170px",
         display: "flex",
         alignItems: "flex-start",
