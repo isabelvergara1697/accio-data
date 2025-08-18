@@ -1573,7 +1573,11 @@ const InvitesAndOrders: React.FC = () => {
                 fontWeight: 700,
                 fontSize: "12px",
                 color:
-                  (sortField === config.sortField || (isOrdersStatusColumn && selectedStatusFilters.length > 0))
+                  (sortField === config.sortField ||
+                   (isOrdersStatusColumn && selectedStatusFilters.length > 0) ||
+                   (isOrdersEwsColumn && selectedEwsFilters.length > 0) ||
+                   (isOrdersDispositionColumn && selectedDispositionFilters.length > 0) ||
+                   (isOrdersFlagsColumn && selectedFlagsFilters.length > 0))
                     ? "rgba(39,53,114,1)"
                     : "rgba(113,118,128,1)",
                 whiteSpace: "nowrap",
