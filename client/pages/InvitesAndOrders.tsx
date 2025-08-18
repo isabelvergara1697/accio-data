@@ -8260,6 +8260,7 @@ const InvitesAndOrders: React.FC = () => {
                                     key={column.id}
                                     columnId={column.id}
                                     invite={invite}
+                                    rowIndex={index}
                                   />
                                 ))}
 
