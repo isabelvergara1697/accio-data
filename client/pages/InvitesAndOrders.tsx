@@ -1755,6 +1755,15 @@ const InvitesAndOrders: React.FC = () => {
     return getAppliedFiltersCount() > 0;
   };
 
+  // Helper function for orders filters
+  const getOrdersFiltersCount = () => {
+    return selectedStatusFilters.length;
+  };
+
+  const hasOrdersFilters = () => {
+    return getOrdersFiltersCount() > 0;
+  };
+
 
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
