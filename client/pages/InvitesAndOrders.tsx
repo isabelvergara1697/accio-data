@@ -6586,8 +6586,8 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
 
                                 {/* Filter Count Badge */}
-                                {activeTab === "invites" && hasAppliedFilters() &&
-                                  !showMobileFiltersModal && (
+                                {((activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal) ||
+                                  (activeTab === "orders" && hasOrdersFilters())) && (
                                     <div
                                       style={{
                                         position: "absolute",
