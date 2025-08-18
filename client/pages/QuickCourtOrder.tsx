@@ -186,7 +186,15 @@ const QuickCourtOrder: React.FC = () => {
         isMobile={isMobile}
         mobileMenuOpen={mobileMenuOpen}
         currentPage="quick-court-order"
+        showMobileUserMenu={showMobileUserMenu}
+        setShowMobileUserMenu={setShowMobileUserMenu}
         setMobileMenuOpen={setMobileMenuOpen}
+        userMenuOpen={userMenuOpen}
+        setUserMenuOpen={setUserMenuOpen}
+        userMenuHovered={userMenuHovered}
+        setUserMenuHovered={setUserMenuHovered}
+        handleSignOut={handleSignOut}
+        getUserMenuStyles={getUserMenuStyles}
         showNotification={showNotification}
         isCollapsed={sidebarCollapsed}
         setIsCollapsed={setSidebarCollapsed}
