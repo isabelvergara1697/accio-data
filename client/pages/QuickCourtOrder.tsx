@@ -34,6 +34,9 @@ const QuickCourtOrder: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [userMenuHovered, setUserMenuHovered] = useState(false);
+  const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
 
   // Sample state options
   const stateOptions = [
