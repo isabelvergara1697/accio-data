@@ -4190,6 +4190,62 @@ const InvitesAndOrders: React.FC = () => {
           selectedStatusFilters.includes(order.status),
         );
       }
+
+      // Apply EWS filter for orders
+      if (selectedEwsFilters.length > 0) {
+        data = data.filter((order) => {
+          const ewsStatus = (order as OrderData).ews ? "yes" : "no";
+          return selectedEwsFilters.includes(ewsStatus);
+        });
+      }
+
+      // Apply Disposition filter for orders
+      if (selectedDispositionFilters.length > 0) {
+        data = data.filter((order) => {
+          const orderData = order as OrderData;
+          return selectedDispositionFilters.some(disposition => {
+            // Check if any of the disposition components match the filter
+            switch (disposition) {
+              case "mvr":
+                return orderData.dispositionByComponent.mvr === "success" || orderData.dispositionByComponent.mvr === "error" || orderData.dispositionByComponent.mvr === "pending";
+              case "criminal":
+                return orderData.dispositionByComponent.criminal === "success" || orderData.dispositionByComponent.criminal === "error" || orderData.dispositionByComponent.criminal === "pending";
+              case "verification":
+                return orderData.dispositionByComponent.verification === "success" || orderData.dispositionByComponent.verification === "error" || orderData.dispositionByComponent.verification === "pending";
+              default:
+                return false;
+            }
+          });
+        });
+      }
+
+      // Apply Flags filter for orders
+      if (selectedFlagsFilters.length > 0) {
+        data = data.filter((order) => {
+          const orderData = order as OrderData;
+          // Convert flag filter values to match actual flag names in data
+          const flagMapping: { [key: string]: string[] } = {
+            "derogatory-information": ["Warning", "Criminal"],
+            "alert": ["Warning"],
+            "archive": ["Archive"],
+            "drug-test": ["Drug Test", "Medical"],
+            "monitoring": ["Monitoring", "Chart"],
+            "rescreening": ["Rescreening"],
+            "adverse-action-notice": ["Warning"],
+            "pre-adverse-action-notice": ["Warning"],
+            "client-activation-queue": ["Pending"],
+          };
+
+          return selectedFlagsFilters.some(filterFlag => {
+            const matchingFlags = flagMapping[filterFlag] || [filterFlag];
+            return orderData.flags.some(flag =>
+              matchingFlags.some(matchFlag =>
+                flag.toLowerCase().includes(matchFlag.toLowerCase())
+              )
+            );
+          });
+        });
+      }
     }
 
     // Note: Type of Package filter would need to be implemented when package type data is added to the invite records
