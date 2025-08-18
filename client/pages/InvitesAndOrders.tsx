@@ -1906,6 +1906,18 @@ const InvitesAndOrders: React.FC = () => {
     setSelectedStatusFilters(prev => prev.filter(status => status !== statusToRemove));
   };
 
+  const handleRemoveEwsFilter = (ewsToRemove: string) => {
+    setSelectedEwsFilters(prev => prev.filter(ews => ews !== ewsToRemove));
+  };
+
+  const handleRemoveDispositionFilter = (dispositionToRemove: string) => {
+    setSelectedDispositionFilters(prev => prev.filter(disposition => disposition !== dispositionToRemove));
+  };
+
+  const handleRemoveFlagsFilter = (flagToRemove: string) => {
+    setSelectedFlagsFilters(prev => prev.filter(flag => flag !== flagToRemove));
+  };
+
   const handleClearAllOrdersFilters = () => {
     setSelectedStatusFilters([]);
     setSelectedEwsFilters([]);
