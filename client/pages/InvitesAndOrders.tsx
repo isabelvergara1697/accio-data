@@ -788,18 +788,17 @@ const InvitesAndOrders: React.FC = () => {
         { id: "lastName", name: "Last Name", order: 3, isSelected: true },
         { id: "email", name: "Applicant Email", order: 4, isSelected: true },
         { id: "phone", name: "Phone", order: 5, isSelected: true },
-        { id: "newQuote", name: "New Quote", order: 6, isSelected: true },
-        { id: "completed", name: "Completed", order: 7, isSelected: true },
-        { id: "lastUpdate", name: "Last Update", order: 8, isSelected: true },
-        { id: "e1a", name: "E1A", order: 9, isSelected: true },
-        { id: "userId", name: "User ID", order: 10, isSelected: true },
+        { id: "completed", name: "Completed", order: 6, isSelected: true },
+        { id: "lastUpdate", name: "Last Update", order: 7, isSelected: true },
+        { id: "e1a", name: "E1A", order: 8, isSelected: true },
+        { id: "userId", name: "User ID", order: 9, isSelected: true },
         {
           id: "dispositionByComponent",
           name: "Disposition by Component",
-          order: 11,
+          order: 10,
           isSelected: true,
         },
-        { id: "flags", name: "Flags", order: 12, isSelected: true },
+        { id: "flags", name: "Flags", order: 11, isSelected: true },
       ];
     } else {
       return [
@@ -854,11 +853,6 @@ const InvitesAndOrders: React.FC = () => {
           label: "Phone",
           sortField: "phone",
         },
-        newQuote: {
-          width: "100px",
-          label: "New Quote",
-          sortField: "newQuote",
-        },
         completed: {
           width: "120px",
           label: "Completed",
@@ -880,12 +874,12 @@ const InvitesAndOrders: React.FC = () => {
           sortField: "userId",
         },
         dispositionByComponent: {
-          width: "320px",
-          label: "Disposition by Component",
+          width: "280px",
+          label: "Disposition\u00A0by\u00A0Component",
           sortField: "dispositionByComponent",
         },
         flags: {
-          width: "400px",
+          width: "300px",
           label: "Flags",
           sortField: "flags",
         },
@@ -1129,10 +1123,11 @@ const InvitesAndOrders: React.FC = () => {
                   alignItems: "center",
                   gap: "4px",
                   flexWrap: "nowrap",
-                  width: "320px",
-                  minWidth: "320px",
-                  maxWidth: "320px",
+                  width: "280px",
+                  minWidth: "280px",
+                  maxWidth: "280px",
                   overflow: "hidden",
+                  justifyContent: "flex-start",
                 }}
               >
                 {orderData.dispositionByComponent && (
@@ -1160,10 +1155,13 @@ const InvitesAndOrders: React.FC = () => {
                   display: "flex",
                   alignItems: "center",
                   gap: "4px",
-                  flexWrap: "wrap",
-                  width: "100%",
+                  flexWrap: "nowrap",
+                  width: "300px",
+                  minWidth: "300px",
+                  maxWidth: "300px",
                   minHeight: "28px",
                   justifyContent: "flex-start",
+                  overflow: "hidden",
                 }}
               >
                 {orderData.flags && orderData.flags.length > 0 ? (
