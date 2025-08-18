@@ -8291,6 +8291,93 @@ const InvitesAndOrders: React.FC = () => {
                                             </div>
                                           </div>
 
+                                          {/* Manage Invitation - Only for Invites */}
+                                          {activeTab === "invites" && (
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                padding: "1px 4px",
+                                                alignItems: "center",
+                                                alignSelf: "stretch",
+                                                cursor: "pointer",
+                                              }}
+                                              onMouseEnter={(e) => {
+                                                const content =
+                                                  e.currentTarget.querySelector(
+                                                    ".content",
+                                                  ) as HTMLElement;
+                                                if (content)
+                                                  content.style.backgroundColor =
+                                                    "#F5F5F5";
+                                              }}
+                                              onMouseLeave={(e) => {
+                                                const content =
+                                                  e.currentTarget.querySelector(
+                                                    ".content",
+                                                  ) as HTMLElement;
+                                                if (content)
+                                                  content.style.backgroundColor =
+                                                    "transparent";
+                                              }}
+                                              onClick={() => {
+                                                setSelectedInviteData(invite as InviteData);
+                                                setShowManageInvitationModal(true);
+                                                setShowActionMenu(null);
+                                              }}
+                                            >
+                                              <div
+                                                className="content"
+                                                style={{
+                                                  display: "flex",
+                                                  padding: "6px 6px",
+                                                  alignItems: "center",
+                                                  gap: "12px",
+                                                  flex: "1 0 0",
+                                                  borderRadius: "6px",
+                                                  transition:
+                                                    "background-color 0.2s ease",
+                                                }}
+                                              >
+                                                <div
+                                                  style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    gap: "8px",
+                                                    flex: "1 0 0",
+                                                  }}
+                                                >
+                                                  <svg
+                                                    width="24"
+                                                    height="24"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                  >
+                                                    <path
+                                                      d="M2.87604 18.1159C2.92198 17.7024 2.94496 17.4957 3.00751 17.3025C3.06301 17.131 3.14143 16.9679 3.24064 16.8174C3.35246 16.6478 3.49955 16.5008 3.79373 16.2066L17 3.0003C18.1046 1.89573 19.8955 1.89573 21 3.0003C22.1046 4.10487 22.1046 5.89573 21 7.0003L7.79373 20.2066C7.49955 20.5008 7.35245 20.6479 7.18289 20.7597C7.03245 20.8589 6.86929 20.9373 6.69785 20.9928C6.5046 21.0553 6.29786 21.0783 5.88437 21.1243L2.5 21.5003L2.87604 18.1159Z"
+                                                      stroke="#A4A7AE"
+                                                      strokeWidth="1.66667"
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                    />
+                                                  </svg>
+                                                  <div
+                                                    style={{
+                                                      flex: "1 0 0",
+                                                      color: "#414651",
+                                                      fontFamily: "Public Sans",
+                                                      fontSize: "14px",
+                                                      fontWeight: 600,
+                                                      lineHeight: "20px",
+                                                    }}
+                                                  >
+                                                    Manage Invitation
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          )}
+
                                           {/* HTML */}
                                           <div
                                             style={{
