@@ -194,7 +194,7 @@ const FlagBadge: React.FC<{
       case "analytics":
         return {
           bg: "#DCFAE6",
-          tooltip: "Monitoring",
+          tooltip: "Report contains monitoring",
           icon: (
             <svg
               width="16"
