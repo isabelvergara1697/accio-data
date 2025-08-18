@@ -6488,7 +6488,11 @@ const InvitesAndOrders: React.FC = () => {
                                         !showMobileFiltersModal,
                                       );
                                     } else if (activeTab === "orders") {
-                                      setShowOrdersFiltersDropdown(!showOrdersFiltersDropdown);
+                                      if (hasOrdersFilters()) {
+                                        setShowFiltersSelectedDropdown(!showFiltersSelectedDropdown);
+                                      } else {
+                                        setShowOrdersFiltersDropdown(!showOrdersFiltersDropdown);
+                                      }
                                     }
                                   }}
                                   onMouseEnter={() =>
