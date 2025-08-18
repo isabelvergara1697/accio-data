@@ -4623,10 +4623,16 @@ const InvitesAndOrders: React.FC = () => {
                             setSelectedItems([]);
                             setShowActionsPanel(false);
                             setCurrentPage(1);
-                            // Reset status filters when switching tabs
+                            // Reset all filters when switching tabs
                             setSelectedStatusFilters([]);
+                            setSelectedEwsFilters([]);
+                            setSelectedDispositionFilters([]);
+                            setSelectedFlagsFilters([]);
                             setShowStatusFiltersDropdown(false);
                             setShowFiltersSelectedDropdown(false);
+                            setShowEwsFiltersDropdown(false);
+                            setShowDispositionFiltersDropdown(false);
+                            setShowFlagsFiltersDropdown(false);
                           }}
                           style={{
                             display: "flex",
