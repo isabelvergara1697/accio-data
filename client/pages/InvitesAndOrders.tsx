@@ -8229,8 +8229,13 @@ const InvitesAndOrders: React.FC = () => {
                                                   "transparent";
                                             }}
                                             onClick={() => {
-                                              setSelectedOrderData(invite as OrderData);
-                                              setShowOrderSummaryModal(true);
+                                              if (activeTab === "orders") {
+                                                setSelectedOrderData(invite as OrderData);
+                                                setShowOrderSummaryModal(true);
+                                              } else {
+                                                setSelectedInviteData(invite as InviteData);
+                                                setShowInviteSummaryModal(true);
+                                              }
                                               setShowActionMenu(null);
                                             }}
                                           >
@@ -8280,7 +8285,7 @@ const InvitesAndOrders: React.FC = () => {
                                                     lineHeight: "20px",
                                                   }}
                                                 >
-                                                  Order Summary
+                                                  {activeTab === "orders" ? "Order Summary" : "Invite Summary"}
                                                 </div>
                                               </div>
                                             </div>
