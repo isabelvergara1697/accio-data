@@ -70,7 +70,6 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     "applicantType",
     "jobZip",
     // Order Status enabled columns
-    "orderStatus",
     // Billing Identifiers enabled columns
     "billingIdentifier1",
     "billingIdentifier2",
