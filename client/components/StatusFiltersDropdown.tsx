@@ -101,7 +101,7 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
         width: "170px",
         display: "flex",
         alignItems: "flex-start",
-        zIndex: 1000,
+        zIndex: 99999,
       }}
     >
       <div
