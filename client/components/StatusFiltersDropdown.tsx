@@ -21,7 +21,6 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
 
   // Status options for orders
   const statusOptions = [
-    { value: "all", label: "All" },
     { value: "canceled", label: "Canceled" },
     { value: "expired", label: "Expired" },
     { value: "processing", label: "Processing" },
