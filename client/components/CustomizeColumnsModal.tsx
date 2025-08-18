@@ -375,7 +375,12 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     },
     { id: "rankings", name: "Rankings", isSelected: false, hasHelpIcon: true },
     { id: "applicationNumber", name: "Application Number", isSelected: false },
-    { id: "lastUpdate", name: "Last Update", isSelected: true, hasHelpIcon: true },
+    {
+      id: "lastUpdate",
+      name: "Last Update",
+      isSelected: true,
+      hasHelpIcon: true,
+    },
   ];
 
   const billingIdentifiersColumns = [
