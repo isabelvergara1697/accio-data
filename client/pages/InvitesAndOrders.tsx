@@ -3822,49 +3822,59 @@ const InvitesAndOrders: React.FC = () => {
     // Apply search filter
     if (searchQuery.trim()) {
       data = data.filter(
-        (invite) =>
-          invite.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          invite.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          invite.email.toLowerCase().includes(searchQuery.toLowerCase()),
+        (item) =>
+          item.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.email.toLowerCase().includes(searchQuery.toLowerCase()),
       );
     }
 
-    // Apply status filter
-    if (appliedFilters.status.length > 0) {
-      data = data.filter((invite) =>
-        appliedFilters.status.includes(invite.status),
-      );
-    }
+    // Apply different filters based on the active tab
+    if (activeTab === "invites") {
+      // Apply status filter for invites (using appliedFilters)
+      if (appliedFilters.status.length > 0) {
+        data = data.filter((invite) =>
+          appliedFilters.status.includes(invite.status),
+        );
+      }
 
-    // Apply I-9 Filled filter
-    if (appliedFilters.i9Filled.length > 0) {
-      data = data.filter((invite) => {
-        const i9Status = invite.i9Filled ? "yes" : "no";
-        return appliedFilters.i9Filled.includes(i9Status);
-      });
-    }
+      // Apply I-9 Filled filter
+      if (appliedFilters.i9Filled.length > 0) {
+        data = data.filter((invite) => {
+          const i9Status = (invite as InviteData).i9Filled ? "yes" : "no";
+          return appliedFilters.i9Filled.includes(i9Status);
+        });
+      }
 
-    // Apply Activate filter
-    if (appliedFilters.activate.length > 0) {
-      data = data.filter((invite) => {
-        const activateStatus = invite.activated ? "yes" : "no";
-        return appliedFilters.activate.includes(activateStatus);
-      });
-    }
+      // Apply Activate filter
+      if (appliedFilters.activate.length > 0) {
+        data = data.filter((invite) => {
+          const activateStatus = (invite as InviteData).activated ? "yes" : "no";
+          return appliedFilters.activate.includes(activateStatus);
+        });
+      }
 
-    // Apply EWS filter
-    if (appliedFilters.ews.length > 0) {
-      data = data.filter((invite) => {
-        const ewsStatus = invite.ews ? "yes" : "no";
-        return appliedFilters.ews.includes(ewsStatus);
-      });
+      // Apply EWS filter
+      if (appliedFilters.ews.length > 0) {
+        data = data.filter((invite) => {
+          const ewsStatus = (invite as InviteData).ews ? "yes" : "no";
+          return appliedFilters.ews.includes(ewsStatus);
+        });
+      }
+    } else if (activeTab === "orders") {
+      // Apply status filter for orders (using selectedStatusFilters)
+      if (selectedStatusFilters.length > 0) {
+        data = data.filter((order) =>
+          selectedStatusFilters.includes(order.status),
+        );
+      }
     }
 
     // Note: Type of Package filter would need to be implemented when package type data is added to the invite records
     // Note: Date Range filter would need to be implemented when date fields are clarified
 
     return data;
-  }, [currentData, searchQuery, appliedFilters]);
+  }, [currentData, searchQuery, appliedFilters, activeTab, selectedStatusFilters]);
 
   // Update sortedData to use filteredData instead of invitesData
   const sortedData = React.useMemo(() => {
