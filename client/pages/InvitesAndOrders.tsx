@@ -206,14 +206,10 @@ const DispositionBadge: React.FC<{
     }
   };
 
-  const tooltipText = getTooltipText();
-  console.log("Badge rendering:", { type, status, tooltipText });
-
   return (
     <div
-      title={tooltipText}
-      onMouseEnter={() => console.log("HOVER ENTER:", tooltipText)}
-      onMouseLeave={() => console.log("HOVER LEAVE:", tooltipText)}
+      className="disposition-tooltip"
+      data-tooltip={getTooltipText()}
       style={{
         display: "flex",
         padding: "2px 6px 2px 8px",
@@ -223,7 +219,7 @@ const DispositionBadge: React.FC<{
         border: `1px solid ${config.border}`,
         background: config.bg,
         cursor: "pointer",
-        outline: "2px solid red", // DEBUG: Make badges visible
+        position: "relative",
       }}
     >
       <div
