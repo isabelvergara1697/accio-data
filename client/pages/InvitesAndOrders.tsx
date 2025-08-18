@@ -793,6 +793,21 @@ const InvitesAndOrders: React.FC = () => {
   const [showStatusFiltersDropdown, setShowStatusFiltersDropdown] = useState(false);
   const [selectedStatusFilters, setSelectedStatusFilters] = useState<string[]>([]);
   const [showFiltersSelectedDropdown, setShowFiltersSelectedDropdown] = useState(false);
+
+  // EWS filter state
+  const [showEwsFiltersDropdown, setShowEwsFiltersDropdown] = useState(false);
+  const [selectedEwsFilters, setSelectedEwsFilters] = useState<string[]>([]);
+  const ewsFilterButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Disposition filter state
+  const [showDispositionFiltersDropdown, setShowDispositionFiltersDropdown] = useState(false);
+  const [selectedDispositionFilters, setSelectedDispositionFilters] = useState<string[]>([]);
+  const dispositionFilterButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Flags filter state
+  const [showFlagsFiltersDropdown, setShowFlagsFiltersDropdown] = useState(false);
+  const [selectedFlagsFilters, setSelectedFlagsFilters] = useState<string[]>([]);
+  const flagsFilterButtonRef = useRef<HTMLButtonElement>(null);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
   const [showActionsPanel, setShowActionsPanel] = useState(false);
