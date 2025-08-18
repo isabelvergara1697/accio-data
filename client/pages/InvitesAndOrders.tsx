@@ -858,6 +858,7 @@ const InvitesAndOrders: React.FC = () => {
     } else {
       setShowOrdersFiltersDropdown(false);
       setShowStatusFiltersDropdown(false);
+      setShowFiltersSelectedDropdown(false);
     }
   }, [activeTab]);
 
