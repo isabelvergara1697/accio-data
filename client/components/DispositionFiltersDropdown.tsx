@@ -85,7 +85,7 @@ export const DispositionFiltersDropdown: React.FC<DispositionFiltersDropdownProp
         width: "250px", // Wider to fit content
         display: "flex",
         alignItems: "flex-start",
-        zIndex: 99999,
+        zIndex: 9999, // Reduced to prevent interference with table hover
       }}
     >
       <div
