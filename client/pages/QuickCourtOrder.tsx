@@ -227,9 +227,16 @@ const QuickCourtOrder: React.FC = () => {
         {/* Header */}
         {isDesktop ? (
           <Header
-            currentPage="quick-court-order"
+            isDesktop={isDesktop}
+            userMenuOpen={userMenuOpen}
+            setUserMenuOpen={setUserMenuOpen}
+            userMenuHovered={userMenuHovered}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={handleSignOut}
+            getUserMenuStyles={getUserMenuStyles}
+            showMobileUserMenu={showMobileUserMenu}
             showNotification={showNotification}
-            setShowNotification={setShowNotification}
+            sidebarCollapsed={sidebarCollapsed}
           />
         ) : (
           <MobileHeader
