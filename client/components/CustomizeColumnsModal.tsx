@@ -349,7 +349,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     {
       id: "orderUpdate",
       name: "New Update",
-      isSelected: true,
+      isSelected: false,
       hasHelpIcon: true,
     },
     {
