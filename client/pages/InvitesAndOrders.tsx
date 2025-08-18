@@ -9681,7 +9681,13 @@ const InvitesAndOrders: React.FC = () => {
         onClose={() => setShowFiltersSelectedDropdown(false)}
         triggerRef={filtersButtonRef}
         selectedStatusFilters={selectedStatusFilters}
+        selectedEwsFilters={selectedEwsFilters}
+        selectedDispositionFilters={selectedDispositionFilters}
+        selectedFlagsFilters={selectedFlagsFilters}
         onStatusFilterRemove={handleRemoveStatusFilter}
+        onEwsFilterRemove={handleRemoveEwsFilter}
+        onDispositionFilterRemove={handleRemoveDispositionFilter}
+        onFlagsFilterRemove={handleRemoveFlagsFilter}
         onClearAllFilters={handleClearAllOrdersFilters}
       />
 
