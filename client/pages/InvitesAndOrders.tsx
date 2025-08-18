@@ -1775,7 +1775,7 @@ const InvitesAndOrders: React.FC = () => {
 
   // Helper function for orders filters
   const getOrdersFiltersCount = () => {
-    return selectedStatusFilters.length;
+    return selectedStatusFilters.length + selectedEwsFilters.length + selectedDispositionFilters.length + selectedFlagsFilters.length;
   };
 
   const hasOrdersFilters = () => {
