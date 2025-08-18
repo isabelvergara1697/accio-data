@@ -265,19 +265,13 @@ const DispositionBadge: React.FC<{
         alignItems: "center",
         gap: "2px",
         borderRadius: "9999px",
-        border: `3px solid red`, // VERY VISIBLE DEBUG BORDER
+        border: `1px solid ${config.border}`,
         background: config.bg,
         cursor: "pointer",
         position: "relative",
       }}
-      onMouseEnter={() => {
-        console.log(`BADGE HOVER: ${type} - ${status} - Tooltip: "${tooltipText}"`);
-        setShowTooltip(true);
-      }}
-      onMouseLeave={() => {
-        console.log(`BADGE LEAVE: ${type} - ${status}`);
-        setShowTooltip(false);
-      }}
+      onMouseEnter={() => setShowTooltip(true)}
+      onMouseLeave={() => setShowTooltip(false)}
     >
       <div
         style={{
@@ -290,7 +284,7 @@ const DispositionBadge: React.FC<{
           lineHeight: "18px",
         }}
       >
-        {label} [DEBUG]
+        {label}
       </div>
       {config.icon}
     </div>
