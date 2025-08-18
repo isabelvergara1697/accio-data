@@ -8224,10 +8224,8 @@ const InvitesAndOrders: React.FC = () => {
                                                   "transparent";
                                             }}
                                             onClick={() => {
-                                              console.log(
-                                                "Order Summary clicked for:",
-                                                invite.id,
-                                              );
+                                              setSelectedOrderData(invite as OrderData);
+                                              setShowOrderSummaryModal(true);
                                               setShowActionMenu(null);
                                             }}
                                           >
