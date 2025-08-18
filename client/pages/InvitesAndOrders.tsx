@@ -9096,6 +9096,20 @@ const InvitesAndOrders: React.FC = () => {
           },
         } : undefined}
       />
+
+      {/* Invite Summary Modal */}
+      <InviteSummaryModal
+        isOpen={showInviteSummaryModal}
+        onClose={() => setShowInviteSummaryModal(false)}
+        inviteData={selectedInviteData}
+      />
+
+      {/* Manage Invitation Modal */}
+      <ManageInvitationModal
+        isOpen={showManageInvitationModal}
+        onClose={() => setShowManageInvitationModal(false)}
+        inviteData={selectedInviteData}
+      />
     </div>
   );
 };
