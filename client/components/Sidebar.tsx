@@ -484,7 +484,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             (currentPage === "resources" &&
                               item === "Resources") ||
                             (currentPage === "invites-orders" &&
-                              item === "Invites & Orders")
+                              item === "Invites & Orders") ||
+                            (currentPage === "quick-court-order" &&
+                              item === "Quick Court Order")
                               ? "#273572"
                               : "var(--colors-text-text-secondary-700, #414651)",
                           fontFamily:
