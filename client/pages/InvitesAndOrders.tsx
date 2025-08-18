@@ -4296,10 +4296,11 @@ const InvitesAndOrders: React.FC = () => {
               height: "auto",
             }}
           >
-            {/* Filters Panel */}
+            {/* Filters Panel - Only for invites tab */}
             {showFiltersModal &&
               !showActionsPanel &&
-              (isDesktop || isTablet) && (
+              (isDesktop || isTablet) &&
+              activeTab === "invites" && (
                 <FiltersPanel
                   isVisible={showFiltersModal}
                   onClose={() => setShowFiltersModal(false)}
