@@ -790,10 +790,14 @@ const InvitesAndOrders: React.FC = () => {
     useState(false);
   const [showActionsPanel, setShowActionsPanel] = useState(false);
   const [showOrderSummaryModal, setShowOrderSummaryModal] = useState(false);
-  const [selectedOrderData, setSelectedOrderData] = useState<OrderData | null>(null);
+  const [selectedOrderData, setSelectedOrderData] = useState<OrderData | null>(
+    null,
+  );
   const [showInviteSummaryModal, setShowInviteSummaryModal] = useState(false);
-  const [showManageInvitationModal, setShowManageInvitationModal] = useState(false);
-  const [selectedInviteData, setSelectedInviteData] = useState<InviteData | null>(null);
+  const [showManageInvitationModal, setShowManageInvitationModal] =
+    useState(false);
+  const [selectedInviteData, setSelectedInviteData] =
+    useState<InviteData | null>(null);
 
   // Column ordering configuration - different for invites vs orders
   const getDefaultColumnOrder = () => {
@@ -8230,10 +8234,14 @@ const InvitesAndOrders: React.FC = () => {
                                             }}
                                             onClick={() => {
                                               if (activeTab === "orders") {
-                                                setSelectedOrderData(invite as OrderData);
+                                                setSelectedOrderData(
+                                                  invite as OrderData,
+                                                );
                                                 setShowOrderSummaryModal(true);
                                               } else {
-                                                setSelectedInviteData(invite as InviteData);
+                                                setSelectedInviteData(
+                                                  invite as InviteData,
+                                                );
                                                 setShowInviteSummaryModal(true);
                                               }
                                               setShowActionMenu(null);
@@ -8285,7 +8293,9 @@ const InvitesAndOrders: React.FC = () => {
                                                     lineHeight: "20px",
                                                   }}
                                                 >
-                                                  {activeTab === "orders" ? "Order Summary" : "Invite Summary"}
+                                                  {activeTab === "orders"
+                                                    ? "Order Summary"
+                                                    : "Invite Summary"}
                                                 </div>
                                               </div>
                                             </div>
@@ -8320,8 +8330,12 @@ const InvitesAndOrders: React.FC = () => {
                                                     "transparent";
                                               }}
                                               onClick={() => {
-                                                setSelectedInviteData(invite as InviteData);
-                                                setShowManageInvitationModal(true);
+                                                setSelectedInviteData(
+                                                  invite as InviteData,
+                                                );
+                                                setShowManageInvitationModal(
+                                                  true,
+                                                );
                                                 setShowActionMenu(null);
                                               }}
                                             >
@@ -9075,26 +9089,30 @@ const InvitesAndOrders: React.FC = () => {
       <OrderSummaryModal
         isOpen={showOrderSummaryModal}
         onClose={() => setShowOrderSummaryModal(false)}
-        orderData={selectedOrderData ? {
-          orderNumber: selectedOrderData.id,
-          date: selectedOrderData.lastUpdate.split(' ')[0] || "00/00/00",
-          time: "11:41 AM Central",
-          package: "I-9",
-          timeFirstCompleted: "00/00/00",
-          userName: `${selectedOrderData.firstName}, ${selectedOrderData.lastName}`,
-          components: {
-            i9Form: {
-              lastUpdate: "00/00/00",
-              status: "Waiting",
-              statusId: "2839/4949",
-            },
-            eVerify: {
-              lastUpdate: "00/00/00",
-              status: "Waiting",
-              statusId: "2839/4949",
-            },
-          },
-        } : undefined}
+        orderData={
+          selectedOrderData
+            ? {
+                orderNumber: selectedOrderData.id,
+                date: selectedOrderData.lastUpdate.split(" ")[0] || "00/00/00",
+                time: "11:41 AM Central",
+                package: "I-9",
+                timeFirstCompleted: "00/00/00",
+                userName: `${selectedOrderData.firstName}, ${selectedOrderData.lastName}`,
+                components: {
+                  i9Form: {
+                    lastUpdate: "00/00/00",
+                    status: "Waiting",
+                    statusId: "2839/4949",
+                  },
+                  eVerify: {
+                    lastUpdate: "00/00/00",
+                    status: "Waiting",
+                    statusId: "2839/4949",
+                  },
+                },
+              }
+            : undefined
+        }
       />
 
       {/* Invite Summary Modal */}
