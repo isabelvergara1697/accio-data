@@ -8211,7 +8211,7 @@ const InvitesAndOrders: React.FC = () => {
                             </div>
 
                             {/* Table Rows */}
-                            {paginatedData.map((invite) => (
+                            {paginatedData.map((invite, index) => (
                               <div
                                 key={invite.id}
                                 onMouseEnter={() => setHoveredRowId(invite.id)}
