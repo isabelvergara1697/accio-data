@@ -5002,7 +5002,7 @@ const InvitesAndOrders: React.FC = () => {
                             <div
                               style={{
                                 display:
-                                  showFiltersModal || showActionsPanel
+                                  showFiltersModal || showOrdersFiltersModal || showActionsPanel
                                     ? "none"
                                     : "flex",
                                 alignItems: "center",
