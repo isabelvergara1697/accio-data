@@ -2354,7 +2354,7 @@ const InvitesAndOrders: React.FC = () => {
         criminal: "success",
         verification: "pending",
       },
-      flags: ["Warning", "Criminal"],
+      flags: ["Warning", "AA"],
     },
     {
       id: "ord2",
