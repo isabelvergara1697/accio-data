@@ -787,8 +787,7 @@ const InvitesAndOrders: React.FC = () => {
   const [isButtonClick, setIsButtonClick] = useState(false);
   const [showFiltersModal, setShowFiltersModal] = useState(false);
   const [showMobileFiltersModal, setShowMobileFiltersModal] = useState(false);
-  const [showOrdersFiltersModal, setShowOrdersFiltersModal] = useState(false);
-  const [showMobileOrdersFiltersModal, setShowMobileOrdersFiltersModal] = useState(false);
+  const [showOrdersFiltersDropdown, setShowOrdersFiltersDropdown] = useState(false);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
   const [showActionsPanel, setShowActionsPanel] = useState(false);
@@ -865,8 +864,7 @@ const InvitesAndOrders: React.FC = () => {
       setShowFiltersModal(false);
       setShowMobileFiltersModal(false);
     } else {
-      setShowOrdersFiltersModal(false);
-      setShowMobileOrdersFiltersModal(false);
+      setShowOrdersFiltersDropdown(false);
     }
   }, [activeTab]);
 
