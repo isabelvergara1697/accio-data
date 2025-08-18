@@ -107,7 +107,7 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
       >
         {statusOptions.map((option, index) => {
           const isSelected = isStatusSelected(option.value);
-          const isHighlighted = isSelected && option.value !== "all";
+          const isHighlighted = isSelected;
 
           return (
             <React.Fragment key={option.value}>
