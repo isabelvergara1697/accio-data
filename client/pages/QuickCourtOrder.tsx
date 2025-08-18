@@ -257,70 +257,50 @@ const QuickCourtOrder: React.FC = () => {
         <div
           style={{
             flex: 1,
-            padding: isDesktop ? "24px 40px" : "16px 20px",
-            paddingTop: showNotification && isDesktop ? "84px" : isDesktop ? "24px" : "16px",
+            padding: isDesktop ? "32px 40px 24px" : "16px 20px",
+            paddingTop: showNotification && isDesktop ? "84px" : isDesktop ? "32px" : "16px",
           }}
         >
-          {/* Page Title and Description */}
-          <div
-            style={{
-              marginBottom: "32px",
-            }}
-          >
-            <h1
-              style={{
-                color: "#181D27",
-                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: isDesktop ? "28px" : "24px",
-                fontWeight: 600,
-                lineHeight: isDesktop ? "36px" : "32px",
-                marginBottom: "8px",
-              }}
-            >
-              Quick Court Order
-            </h1>
+          {/* Page Header Section - Following established pattern */}
+          <div className="page-header-container">
             <div
               style={{
-                marginBottom: "4px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                alignSelf: "stretch",
               }}
             >
-              <span
+              <div
                 style={{
-                  color: "#414651",
-                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 400,
-                  lineHeight: "20px",
+                  display: "flex",
+                  ...(isMobile
+                    ? { flexDirection: "column", alignItems: "flex-start", gap: "16px", alignSelf: "stretch" }
+                    : { alignItems: "flex-end", alignContent: "flex-end", gap: "20px 16px", alignSelf: "stretch", flexWrap: "wrap" })
                 }}
               >
-                Enter subject details to create a court order. Add multiple rows as needed.
-              </span>
-            </div>
-            <div>
-              <span
-                style={{
-                  color: "#414651",
-                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                }}
-              >
-                Need to submit multiple subjects at once?{" "}
-              </span>
-              <a
-                href="#"
-                style={{
-                  color: "#34479A",
-                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  lineHeight: "20px",
-                  textDecoration: "underline",
-                }}
-              >
-                Use batch ordering
-              </a>
+                {/* Title and subtitle group - matches Dashboard pattern */}
+                <div className="page-title-group">
+                  <h1 className="page-title" style={{ alignSelf: "stretch" }}>
+                    Quick Court Order
+                  </h1>
+                  <div className="supporting-text" style={{ alignSelf: "stretch" }}>
+                    Enter subject details to create a court order. Add multiple rows as needed.{" "}
+                    Need to submit multiple subjects at once?{" "}
+                    <a
+                      href="#"
+                      style={{
+                        color: "#34479A",
+                        textDecoration: "underline",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Use batch ordering
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
