@@ -1695,6 +1695,40 @@ const InvitesAndOrders: React.FC = () => {
             </button>
           )}
 
+          {/* Add filter icon for Flags column in Orders tab */}
+          {isOrdersFlagsColumn && (
+            <button
+              ref={flagsFilterButtonRef}
+              onClick={() => setShowFlagsFiltersDropdown(!showFlagsFiltersDropdown)}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginRight: "4px",
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 8H12M2 4H14M6 12H10"
+                  stroke={selectedFlagsFilters.length > 0 ? "#344698" : "#A4A7AE"}
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          )}
+
           <div
             style={{
               display: "flex",
