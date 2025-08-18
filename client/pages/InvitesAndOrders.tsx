@@ -8102,36 +8102,6 @@ const InvitesAndOrders: React.FC = () => {
                                   />
                                 ))}
 
-                                {/* Last Email/Update Cell */}
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    width: "103px",
-                                    height: "52px",
-                                    padding: "12px",
-                                    alignItems: "center",
-                                    borderBottom: "1px solid #E9EAEB",
-                                    position: "relative",
-                                    minWidth: 0,
-                                  }}
-                                >
-                                  <TruncatedText
-                                    text={
-                                      activeTab === "orders"
-                                        ? (invite as OrderData).lastUpdate
-                                        : (invite as InviteData).lastEmail
-                                    }
-                                    style={{
-                                      color: "#181D27",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontStyle: "normal",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
-                                    }}
-                                  />
-                                </div>
-
                                 {/* Actions Cell */}
                                 <div
                                   style={{
