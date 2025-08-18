@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import DocumentLibrary from "./pages/DocumentLibrary";
 import Resources from "./pages/Resources";
 import InvitesAndOrders from "./pages/InvitesAndOrders";
+import QuickCourtOrder from "./pages/QuickCourtOrder";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
