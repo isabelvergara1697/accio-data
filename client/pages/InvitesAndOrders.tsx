@@ -2252,7 +2252,8 @@ const InvitesAndOrders: React.FC = () => {
       status: "canceled",
       completion: 60,
       lastUpdate: "03/10/23",
-      e1a: "MVR",
+      eta: "04/12/25",
+      ews: false,
       userId: "Criminal",
       dispositionByComponent: {
         mvr: "pending",
