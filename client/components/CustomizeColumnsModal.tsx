@@ -281,19 +281,19 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     {
       id: "timesEmailed",
       name: "Times Emailed Sent",
-      isSelected: false,
+      isSelected: true,
       hasHelpIcon: true,
     },
     {
       id: "inclusionExpired",
       name: "Inclusion Expired",
-      isSelected: false,
+      isSelected: true,
       hasHelpIcon: true,
     },
     {
       id: "smsTextSendGreen",
       name: "SMS Text Send Green",
-      isSelected: false,
+      isSelected: true,
       hasHelpIcon: true,
     },
     {
@@ -305,7 +305,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   ];
 
   const jobInformationColumns = [
-    { id: "applicantType", name: "Applicant Type", isSelected: false },
+    { id: "applicantType", name: "Applicant Type", isSelected: true },
     { id: "employmentStatus", name: "Employment Status", isSelected: false },
     { id: "positionRequested", name: "Position Requested", isSelected: false },
     { id: "managerName", name: "Manager Name", isSelected: false },
@@ -313,7 +313,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "jobCity", name: "Job City", isSelected: false },
     { id: "jobState", name: "Job State", isSelected: false },
     { id: "jobTitle", name: "Job Title", isSelected: false },
-    { id: "jobZip", name: "Job Zip", isSelected: false },
+    { id: "jobZip", name: "Job Zip", isSelected: true },
   ];
 
   const orderStatusColumns = [
