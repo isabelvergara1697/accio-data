@@ -5077,7 +5077,7 @@ const InvitesAndOrders: React.FC = () => {
                                             (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
                                               ? 700
                                               : (activeTab === "invites" && showFiltersModal) ||
-                                                (activeTab === "orders" && showOrdersFiltersDropdown)
+                                                (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))
                                                 ? 700
                                                 : 600,
                                           fontSize: "14px",
