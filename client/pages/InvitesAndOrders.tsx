@@ -792,10 +792,15 @@ const InvitesAndOrders: React.FC = () => {
   const [isButtonClick, setIsButtonClick] = useState(false);
   const [showFiltersModal, setShowFiltersModal] = useState(false);
   const [showMobileFiltersModal, setShowMobileFiltersModal] = useState(false);
-  const [showOrdersFiltersDropdown, setShowOrdersFiltersDropdown] = useState(false);
-  const [showStatusFiltersDropdown, setShowStatusFiltersDropdown] = useState(false);
-  const [selectedStatusFilters, setSelectedStatusFilters] = useState<string[]>([]);
-  const [showFiltersSelectedDropdown, setShowFiltersSelectedDropdown] = useState(false);
+  const [showOrdersFiltersDropdown, setShowOrdersFiltersDropdown] =
+    useState(false);
+  const [showStatusFiltersDropdown, setShowStatusFiltersDropdown] =
+    useState(false);
+  const [selectedStatusFilters, setSelectedStatusFilters] = useState<string[]>(
+    [],
+  );
+  const [showFiltersSelectedDropdown, setShowFiltersSelectedDropdown] =
+    useState(false);
 
   // EWS filter state
   const [showEwsFiltersDropdown, setShowEwsFiltersDropdown] = useState(false);
@@ -803,13 +808,19 @@ const InvitesAndOrders: React.FC = () => {
   const ewsFilterButtonRef = useRef<HTMLButtonElement>(null);
 
   // Disposition filter state
-  const [showDispositionFiltersDropdown, setShowDispositionFiltersDropdown] = useState(false);
-  const [selectedDispositionFilters, setSelectedDispositionFilters] = useState<string[]>([]);
+  const [showDispositionFiltersDropdown, setShowDispositionFiltersDropdown] =
+    useState(false);
+  const [selectedDispositionFilters, setSelectedDispositionFilters] = useState<
+    string[]
+  >([]);
   const dispositionFilterButtonRef = useRef<HTMLButtonElement>(null);
 
   // Flags filter state
-  const [showFlagsFiltersDropdown, setShowFlagsFiltersDropdown] = useState(false);
-  const [selectedFlagsFilters, setSelectedFlagsFilters] = useState<string[]>([]);
+  const [showFlagsFiltersDropdown, setShowFlagsFiltersDropdown] =
+    useState(false);
+  const [selectedFlagsFilters, setSelectedFlagsFilters] = useState<string[]>(
+    [],
+  );
   const flagsFilterButtonRef = useRef<HTMLButtonElement>(null);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
@@ -823,7 +834,6 @@ const InvitesAndOrders: React.FC = () => {
     useState(false);
   const [selectedInviteData, setSelectedInviteData] =
     useState<InviteData | null>(null);
-
 
   // Column ordering configuration - different for invites vs orders
   const getDefaultColumnOrder = () => {
@@ -1498,9 +1508,11 @@ const InvitesAndOrders: React.FC = () => {
     if (!config) return null;
 
     // Check if this is a filterable column in Orders tab
-    const isOrdersStatusColumn = activeTab === "orders" && columnId === "status";
+    const isOrdersStatusColumn =
+      activeTab === "orders" && columnId === "status";
     const isOrdersEwsColumn = activeTab === "orders" && columnId === "ews";
-    const isOrdersDispositionColumn = activeTab === "orders" && columnId === "dispositionByComponent";
+    const isOrdersDispositionColumn =
+      activeTab === "orders" && columnId === "dispositionByComponent";
     const isOrdersFlagsColumn = activeTab === "orders" && columnId === "flags";
 
     // Handle flexible width for email column (only for invites)
@@ -1554,13 +1566,15 @@ const InvitesAndOrders: React.FC = () => {
         >
           <div
             style={{
-              color: (sortField === config.sortField ||
-                      (isOrdersStatusColumn && selectedStatusFilters.length > 0) ||
-                      (isOrdersEwsColumn && selectedEwsFilters.length > 0) ||
-                      (isOrdersDispositionColumn && selectedDispositionFilters.length > 0) ||
-                      (isOrdersFlagsColumn && selectedFlagsFilters.length > 0))
-                ? "#273572"
-                : "#717680",
+              color:
+                sortField === config.sortField ||
+                (isOrdersStatusColumn && selectedStatusFilters.length > 0) ||
+                (isOrdersEwsColumn && selectedEwsFilters.length > 0) ||
+                (isOrdersDispositionColumn &&
+                  selectedDispositionFilters.length > 0) ||
+                (isOrdersFlagsColumn && selectedFlagsFilters.length > 0)
+                  ? "#273572"
+                  : "#717680",
               fontFamily: "Public Sans",
               fontSize: "12px",
               fontStyle: "normal",
@@ -1579,11 +1593,12 @@ const InvitesAndOrders: React.FC = () => {
                 fontWeight: 700,
                 fontSize: "12px",
                 color:
-                  (sortField === config.sortField ||
-                   (isOrdersStatusColumn && selectedStatusFilters.length > 0) ||
-                   (isOrdersEwsColumn && selectedEwsFilters.length > 0) ||
-                   (isOrdersDispositionColumn && selectedDispositionFilters.length > 0) ||
-                   (isOrdersFlagsColumn && selectedFlagsFilters.length > 0))
+                  sortField === config.sortField ||
+                  (isOrdersStatusColumn && selectedStatusFilters.length > 0) ||
+                  (isOrdersEwsColumn && selectedEwsFilters.length > 0) ||
+                  (isOrdersDispositionColumn &&
+                    selectedDispositionFilters.length > 0) ||
+                  (isOrdersFlagsColumn && selectedFlagsFilters.length > 0)
                     ? "rgba(39,53,114,1)"
                     : "rgba(113,118,128,1)",
                 whiteSpace: "nowrap",
@@ -1597,7 +1612,9 @@ const InvitesAndOrders: React.FC = () => {
           {isOrdersStatusColumn && (
             <button
               ref={statusFilterButtonRef}
-              onClick={() => setShowStatusFiltersDropdown(!showStatusFiltersDropdown)}
+              onClick={() =>
+                setShowStatusFiltersDropdown(!showStatusFiltersDropdown)
+              }
               style={{
                 background: "none",
                 border: "none",
@@ -1618,7 +1635,9 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <path
                   d="M4 8H12M2 4H14M6 12H10"
-                  stroke={selectedStatusFilters.length > 0 ? "#344698" : "#A4A7AE"}
+                  stroke={
+                    selectedStatusFilters.length > 0 ? "#344698" : "#A4A7AE"
+                  }
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -1665,7 +1684,11 @@ const InvitesAndOrders: React.FC = () => {
           {isOrdersDispositionColumn && (
             <button
               ref={dispositionFilterButtonRef}
-              onClick={() => setShowDispositionFiltersDropdown(!showDispositionFiltersDropdown)}
+              onClick={() =>
+                setShowDispositionFiltersDropdown(
+                  !showDispositionFiltersDropdown,
+                )
+              }
               style={{
                 background: "none",
                 border: "none",
@@ -1686,7 +1709,11 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <path
                   d="M4 8H12M2 4H14M6 12H10"
-                  stroke={selectedDispositionFilters.length > 0 ? "#344698" : "#A4A7AE"}
+                  stroke={
+                    selectedDispositionFilters.length > 0
+                      ? "#344698"
+                      : "#A4A7AE"
+                  }
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -1699,7 +1726,9 @@ const InvitesAndOrders: React.FC = () => {
           {isOrdersFlagsColumn && (
             <button
               ref={flagsFilterButtonRef}
-              onClick={() => setShowFlagsFiltersDropdown(!showFlagsFiltersDropdown)}
+              onClick={() =>
+                setShowFlagsFiltersDropdown(!showFlagsFiltersDropdown)
+              }
               style={{
                 background: "none",
                 border: "none",
@@ -1720,7 +1749,9 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <path
                   d="M4 8H12M2 4H14M6 12H10"
-                  stroke={selectedFlagsFilters.length > 0 ? "#344698" : "#A4A7AE"}
+                  stroke={
+                    selectedFlagsFilters.length > 0 ? "#344698" : "#A4A7AE"
+                  }
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -1894,7 +1925,12 @@ const InvitesAndOrders: React.FC = () => {
 
   // Helper function for orders filters
   const getOrdersFiltersCount = () => {
-    return selectedStatusFilters.length + selectedEwsFilters.length + selectedDispositionFilters.length + selectedFlagsFilters.length;
+    return (
+      selectedStatusFilters.length +
+      selectedEwsFilters.length +
+      selectedDispositionFilters.length +
+      selectedFlagsFilters.length
+    );
   };
 
   const hasOrdersFilters = () => {
@@ -1903,19 +1939,25 @@ const InvitesAndOrders: React.FC = () => {
 
   // Handlers for orders filters
   const handleRemoveStatusFilter = (statusToRemove: string) => {
-    setSelectedStatusFilters(prev => prev.filter(status => status !== statusToRemove));
+    setSelectedStatusFilters((prev) =>
+      prev.filter((status) => status !== statusToRemove),
+    );
   };
 
   const handleRemoveEwsFilter = (ewsToRemove: string) => {
-    setSelectedEwsFilters(prev => prev.filter(ews => ews !== ewsToRemove));
+    setSelectedEwsFilters((prev) => prev.filter((ews) => ews !== ewsToRemove));
   };
 
   const handleRemoveDispositionFilter = (dispositionToRemove: string) => {
-    setSelectedDispositionFilters(prev => prev.filter(disposition => disposition !== dispositionToRemove));
+    setSelectedDispositionFilters((prev) =>
+      prev.filter((disposition) => disposition !== dispositionToRemove),
+    );
   };
 
   const handleRemoveFlagsFilter = (flagToRemove: string) => {
-    setSelectedFlagsFilters(prev => prev.filter(flag => flag !== flagToRemove));
+    setSelectedFlagsFilters((prev) =>
+      prev.filter((flag) => flag !== flagToRemove),
+    );
   };
 
   const handleClearAllOrdersFilters = () => {
@@ -1925,7 +1967,6 @@ const InvitesAndOrders: React.FC = () => {
     setSelectedFlagsFilters([]);
     setShowFiltersSelectedDropdown(false);
   };
-
 
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
@@ -4220,7 +4261,9 @@ const InvitesAndOrders: React.FC = () => {
       // Apply Activate filter
       if (appliedFilters.activate.length > 0) {
         data = data.filter((invite) => {
-          const activateStatus = (invite as InviteData).activated ? "yes" : "no";
+          const activateStatus = (invite as InviteData).activated
+            ? "yes"
+            : "no";
           return appliedFilters.activate.includes(activateStatus);
         });
       }
@@ -4254,9 +4297,9 @@ const InvitesAndOrders: React.FC = () => {
       if (selectedDispositionFilters.length > 0) {
         data = data.filter((order) => {
           const orderData = order as OrderData;
-          return selectedDispositionFilters.some(disposition => {
+          return selectedDispositionFilters.some((disposition) => {
             // Parse the disposition filter (e.g., "mvr-complete", "criminal-incomplete", etc.)
-            const [component, statusType] = disposition.split('-');
+            const [component, statusType] = disposition.split("-");
 
             // Get the actual status from the order data
             let actualStatus: string;
@@ -4297,22 +4340,22 @@ const InvitesAndOrders: React.FC = () => {
           // Convert flag filter values to match actual flag names in data
           const flagMapping: { [key: string]: string[] } = {
             "derogatory-information": ["Warning", "Criminal"],
-            "alert": ["Warning"],
-            "archive": ["Archive"],
+            alert: ["Warning"],
+            archive: ["Archive"],
             "drug-test": ["Drug Test", "Medical"],
-            "monitoring": ["Monitoring", "Chart"],
-            "rescreening": ["Rescreening"],
+            monitoring: ["Monitoring", "Chart"],
+            rescreening: ["Rescreening"],
             "adverse-action-notice": ["Warning"],
             "pre-adverse-action-notice": ["Warning"],
             "client-activation-queue": ["Pending"],
           };
 
-          return selectedFlagsFilters.some(filterFlag => {
+          return selectedFlagsFilters.some((filterFlag) => {
             const matchingFlags = flagMapping[filterFlag] || [filterFlag];
-            return orderData.flags.some(flag =>
-              matchingFlags.some(matchFlag =>
-                flag.toLowerCase().includes(matchFlag.toLowerCase())
-              )
+            return orderData.flags.some((flag) =>
+              matchingFlags.some((matchFlag) =>
+                flag.toLowerCase().includes(matchFlag.toLowerCase()),
+              ),
             );
           });
         });
@@ -4323,7 +4366,16 @@ const InvitesAndOrders: React.FC = () => {
     // Note: Date Range filter would need to be implemented when date fields are clarified
 
     return data;
-  }, [currentData, searchQuery, appliedFilters, activeTab, selectedStatusFilters, selectedEwsFilters, selectedDispositionFilters, selectedFlagsFilters]);
+  }, [
+    currentData,
+    searchQuery,
+    appliedFilters,
+    activeTab,
+    selectedStatusFilters,
+    selectedEwsFilters,
+    selectedDispositionFilters,
+    selectedFlagsFilters,
+  ]);
 
   // Update sortedData to use filteredData instead of invitesData
   const sortedData = React.useMemo(() => {
@@ -5399,7 +5451,6 @@ const InvitesAndOrders: React.FC = () => {
                               </button>
                             )}
 
-
                             {/* Desktop: Action Buttons */}
                             <div
                               style={{
@@ -5428,9 +5479,13 @@ const InvitesAndOrders: React.FC = () => {
                                       setShowFiltersModal(!showFiltersModal);
                                     } else if (activeTab === "orders") {
                                       if (hasOrdersFilters()) {
-                                        setShowFiltersSelectedDropdown(!showFiltersSelectedDropdown);
+                                        setShowFiltersSelectedDropdown(
+                                          !showFiltersSelectedDropdown,
+                                        );
                                       } else {
-                                        setShowOrdersFiltersDropdown(!showOrdersFiltersDropdown);
+                                        setShowOrdersFiltersDropdown(
+                                          !showOrdersFiltersDropdown,
+                                        );
                                       }
                                     }
                                   }}
@@ -5447,17 +5502,28 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "4px",
                                     borderRadius: "8px",
                                     border:
-                                      (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
-                                      (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
+                                      (activeTab === "invites" &&
+                                        hasAppliedFilters() &&
+                                        !showFiltersModal) ||
+                                      (activeTab === "orders" &&
+                                        hasOrdersFilters() &&
+                                        !showOrdersFiltersDropdown)
                                         ? "1px solid #34479A"
                                         : "1px solid #D5D7DA",
                                     background:
-                                      (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
-                                      (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
+                                      (activeTab === "invites" &&
+                                        hasAppliedFilters() &&
+                                        !showFiltersModal) ||
+                                      (activeTab === "orders" &&
+                                        hasOrdersFilters() &&
+                                        !showOrdersFiltersDropdown)
                                         ? "#ECEEF9"
                                         : hoveredButton === "filters" ||
-                                            (activeTab === "invites" && showFiltersModal) ||
-                                            (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))
+                                            (activeTab === "invites" &&
+                                              showFiltersModal) ||
+                                            (activeTab === "orders" &&
+                                              (showOrdersFiltersDropdown ||
+                                                showFiltersSelectedDropdown))
                                           ? "#F5F5F5"
                                           : "#FFF",
                                     boxShadow:
@@ -5476,11 +5542,18 @@ const InvitesAndOrders: React.FC = () => {
                                     <path
                                       d="M3.33333 14L3.33333 10M3.33333 10C4.06971 10 4.66667 9.40305 4.66667 8.66667C4.66667 7.93029 4.06971 7.33333 3.33333 7.33333C2.59695 7.33333 2 7.93029 2 8.66667C2 9.40305 2.59695 10 3.33333 10ZM3.33333 4.66667V2M8 14V10M8 4.66667V2M8 4.66667C7.26362 4.66667 6.66667 5.26362 6.66667 6C6.66667 6.73638 7.26362 7.33333 8 7.33333C8.73638 7.33333 9.33333 6.73638 9.33333 6C9.33333 5.26362 8.73638 4.66667 8 4.66667ZM12.6667 14V11.3333M12.6667 11.3333C13.403 11.3333 14 10.7364 14 10C14 9.26362 13.403 8.66667 12.6667 8.66667C11.9303 8.66667 11.3333 9.26362 11.3333 10C11.3333 10.7364 11.9303 11.3333 12.6667 11.3333ZM12.6667 6V2"
                                       stroke={
-                                        (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
-                                        (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
+                                        (activeTab === "invites" &&
+                                          hasAppliedFilters() &&
+                                          !showFiltersModal) ||
+                                        (activeTab === "orders" &&
+                                          hasOrdersFilters() &&
+                                          !showOrdersFiltersDropdown)
                                           ? "#344698"
-                                          : (activeTab === "invites" && showFiltersModal) ||
-                                            (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))
+                                          : (activeTab === "invites" &&
+                                                showFiltersModal) ||
+                                              (activeTab === "orders" &&
+                                                (showOrdersFiltersDropdown ||
+                                                  showFiltersSelectedDropdown))
                                             ? "#717680"
                                             : "#A4A7AE"
                                       }
@@ -5500,11 +5573,18 @@ const InvitesAndOrders: React.FC = () => {
                                     <div
                                       style={{
                                         color:
-                                          (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
-                                          (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
+                                          (activeTab === "invites" &&
+                                            hasAppliedFilters() &&
+                                            !showFiltersModal) ||
+                                          (activeTab === "orders" &&
+                                            hasOrdersFilters() &&
+                                            !showOrdersFiltersDropdown)
                                             ? "#344698"
-                                            : (activeTab === "invites" && showFiltersModal) ||
-                                              (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))
+                                            : (activeTab === "invites" &&
+                                                  showFiltersModal) ||
+                                                (activeTab === "orders" &&
+                                                  (showOrdersFiltersDropdown ||
+                                                    showFiltersSelectedDropdown))
                                               ? "#252B37"
                                               : "#414651",
                                         fontFamily: "Public Sans",
@@ -5518,20 +5598,34 @@ const InvitesAndOrders: React.FC = () => {
                                           fontFamily:
                                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                           fontWeight:
-                                            (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
-                                            (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
+                                            (activeTab === "invites" &&
+                                              hasAppliedFilters() &&
+                                              !showFiltersModal) ||
+                                            (activeTab === "orders" &&
+                                              hasOrdersFilters() &&
+                                              !showOrdersFiltersDropdown)
                                               ? 700
-                                              : (activeTab === "invites" && showFiltersModal) ||
-                                                (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))
+                                              : (activeTab === "invites" &&
+                                                    showFiltersModal) ||
+                                                  (activeTab === "orders" &&
+                                                    (showOrdersFiltersDropdown ||
+                                                      showFiltersSelectedDropdown))
                                                 ? 700
                                                 : 600,
                                           fontSize: "14px",
                                           color:
-                                            (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
-                                            (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
+                                            (activeTab === "invites" &&
+                                              hasAppliedFilters() &&
+                                              !showFiltersModal) ||
+                                            (activeTab === "orders" &&
+                                              hasOrdersFilters() &&
+                                              !showOrdersFiltersDropdown)
                                               ? "rgba(52,70,152,1)"
-                                              : (activeTab === "invites" && showFiltersModal) ||
-                                                (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))
+                                              : (activeTab === "invites" &&
+                                                    showFiltersModal) ||
+                                                  (activeTab === "orders" &&
+                                                    (showOrdersFiltersDropdown ||
+                                                      showFiltersSelectedDropdown))
                                                 ? "rgba(37,43,55,1)"
                                                 : "rgba(65,70,81,1)",
                                         }}
@@ -5540,8 +5634,11 @@ const InvitesAndOrders: React.FC = () => {
                                       </span>
                                     </div>
                                   </div>
-                                  {((activeTab === "invites" && showFiltersModal) ||
-                                  (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))) && (
+                                  {((activeTab === "invites" &&
+                                    showFiltersModal) ||
+                                    (activeTab === "orders" &&
+                                      (showOrdersFiltersDropdown ||
+                                        showFiltersSelectedDropdown))) && (
                                     <svg
                                       width="16"
                                       height="16"
@@ -5560,8 +5657,12 @@ const InvitesAndOrders: React.FC = () => {
                                   )}
                                 </button>
                                 {/* Filter Count Badge */}
-                                {((activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
-                                  (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)) && (
+                                {((activeTab === "invites" &&
+                                  hasAppliedFilters() &&
+                                  !showFiltersModal) ||
+                                  (activeTab === "orders" &&
+                                    hasOrdersFilters() &&
+                                    !showOrdersFiltersDropdown)) && (
                                   <div
                                     style={{
                                       position: "absolute",
@@ -5589,7 +5690,9 @@ const InvitesAndOrders: React.FC = () => {
                                         lineHeight: "18px",
                                       }}
                                     >
-                                      {activeTab === "invites" ? getAppliedFiltersCount() : getOrdersFiltersCount()}
+                                      {activeTab === "invites"
+                                        ? getAppliedFiltersCount()
+                                        : getOrdersFiltersCount()}
                                     </div>
                                   </div>
                                 )}
@@ -6922,9 +7025,13 @@ const InvitesAndOrders: React.FC = () => {
                                       );
                                     } else if (activeTab === "orders") {
                                       if (hasOrdersFilters()) {
-                                        setShowFiltersSelectedDropdown(!showFiltersSelectedDropdown);
+                                        setShowFiltersSelectedDropdown(
+                                          !showFiltersSelectedDropdown,
+                                        );
                                       } else {
-                                        setShowOrdersFiltersDropdown(!showOrdersFiltersDropdown);
+                                        setShowOrdersFiltersDropdown(
+                                          !showOrdersFiltersDropdown,
+                                        );
                                       }
                                     }
                                   }}
@@ -6941,14 +7048,19 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "4px",
                                     borderRadius: "8px",
                                     border:
-                                      activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal
+                                      activeTab === "invites" &&
+                                      hasAppliedFilters() &&
+                                      !showMobileFiltersModal
                                         ? "1px solid #34479A"
                                         : "1px solid #D5D7DA",
                                     background:
-                                      activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal
+                                      activeTab === "invites" &&
+                                      hasAppliedFilters() &&
+                                      !showMobileFiltersModal
                                         ? "#ECEEF9"
                                         : hoveredButton === "filters" ||
-                                            activeTab === "invites" && showMobileFiltersModal
+                                            (activeTab === "invites" &&
+                                              showMobileFiltersModal)
                                           ? "#FDFDFD"
                                           : "#FFF",
                                     width: "100%",
@@ -6968,7 +7080,9 @@ const InvitesAndOrders: React.FC = () => {
                                     <path
                                       d="M3.83333 14L3.83333 10M3.83333 10C4.56971 10 5.16667 9.40305 5.16667 8.66667C5.16667 7.93029 4.56971 7.33333 3.83333 7.33333C3.09695 7.33333 2.5 7.93029 2.5 8.66667C2.5 9.40305 3.09695 10 3.83333 10ZM3.83333 4.66667V2M8.5 14V10M8.5 4.66667V2M8.5 4.66667C7.76362 4.66667 7.16667 5.26362 7.16667 6C7.16667 6.73638 7.76362 7.33333 8.5 7.33333C9.23638 7.33333 9.83333 6.73638 9.83333 6C9.83333 5.26362 9.23638 4.66667 8.5 4.66667ZM13.1667 14V11.3333M13.1667 11.3333C13.903 11.3333 14.5 10.7364 14.5 10C14.5 9.26362 13.903 8.66667 13.1667 8.66667C12.4303 8.66667 11.8333 9.26362 11.8333 10C11.8333 10.7364 12.4303 11.3333 13.1667 11.3333ZM13.1667 6V2"
                                       stroke={
-                                        activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal
+                                        activeTab === "invites" &&
+                                        hasAppliedFilters() &&
+                                        !showMobileFiltersModal
                                           ? "#344698"
                                           : "#A4A7AE"
                                       }
@@ -6988,13 +7102,17 @@ const InvitesAndOrders: React.FC = () => {
                                     <div
                                       style={{
                                         color:
-                                          activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal
+                                          activeTab === "invites" &&
+                                          hasAppliedFilters() &&
+                                          !showMobileFiltersModal
                                             ? "#273572"
                                             : "#414651",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
                                         fontWeight:
-                                          activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal
+                                          activeTab === "invites" &&
+                                          hasAppliedFilters() &&
+                                          !showMobileFiltersModal
                                             ? 600
                                             : 600,
                                         lineHeight: "20px",
@@ -7007,7 +7125,9 @@ const InvitesAndOrders: React.FC = () => {
                                           fontWeight: 600,
                                           fontSize: "14px",
                                           color:
-                                            activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal
+                                            activeTab === "invites" &&
+                                            hasAppliedFilters() &&
+                                            !showMobileFiltersModal
                                               ? "rgba(39,53,114,1)"
                                               : "rgba(65,70,81,1)",
                                         }}
@@ -7019,39 +7139,44 @@ const InvitesAndOrders: React.FC = () => {
                                 </button>
 
                                 {/* Filter Count Badge */}
-                                {((activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal) ||
-                                  (activeTab === "orders" && hasOrdersFilters())) && (
+                                {((activeTab === "invites" &&
+                                  hasAppliedFilters() &&
+                                  !showMobileFiltersModal) ||
+                                  (activeTab === "orders" &&
+                                    hasOrdersFilters())) && (
+                                  <div
+                                    style={{
+                                      position: "absolute",
+                                      top: "-6px",
+                                      right: "-10px",
+                                      display: "flex",
+                                      padding: "2px 8px",
+                                      alignItems: "center",
+                                      borderRadius: "9999px",
+                                      border: "1px solid #B3BCE5",
+                                      background: "#ECEEF9",
+                                      minWidth: "20px",
+                                      justifyContent: "center",
+                                      zIndex: 10,
+                                    }}
+                                  >
                                     <div
                                       style={{
-                                        position: "absolute",
-                                        top: "-6px",
-                                        right: "-10px",
-                                        display: "flex",
-                                        padding: "2px 8px",
-                                        alignItems: "center",
-                                        borderRadius: "9999px",
-                                        border: "1px solid #B3BCE5",
-                                        background: "#ECEEF9",
-                                        minWidth: "20px",
-                                        justifyContent: "center",
-                                        zIndex: 10,
+                                        color: "#273572",
+                                        textAlign: "center",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "12px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "18px",
                                       }}
                                     >
-                                      <div
-                                        style={{
-                                          color: "#273572",
-                                          textAlign: "center",
-                                          fontFamily: "Public Sans",
-                                          fontSize: "12px",
-                                          fontStyle: "normal",
-                                          fontWeight: 500,
-                                          lineHeight: "18px",
-                                        }}
-                                      >
-                                        {activeTab === "invites" ? getAppliedFiltersCount() : getOrdersFiltersCount()}
-                                      </div>
+                                      {activeTab === "invites"
+                                        ? getAppliedFiltersCount()
+                                        : getOrdersFiltersCount()}
                                     </div>
-                                  )}
+                                  </div>
+                                )}
                               </div>
 
                               {/* Download Button */}
