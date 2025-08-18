@@ -6498,8 +6498,8 @@ const InvitesAndOrders: React.FC = () => {
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
                                         fontWeight:
-                                          activeTab === "invites" && hasAppliedFilters() &&
-                                          !showMobileFiltersModal
+                                          (activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal) ||
+                                          (activeTab === "orders" && hasAppliedOrdersFilters() && !showMobileOrdersFiltersModal)
                                             ? 600
                                             : 600,
                                         lineHeight: "20px",
@@ -6512,8 +6512,8 @@ const InvitesAndOrders: React.FC = () => {
                                           fontWeight: 600,
                                           fontSize: "14px",
                                           color:
-                                            activeTab === "invites" && hasAppliedFilters() &&
-                                            !showMobileFiltersModal
+                                            (activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal) ||
+                                            (activeTab === "orders" && hasAppliedOrdersFilters() && !showMobileOrdersFiltersModal)
                                               ? "rgba(39,53,114,1)"
                                               : "rgba(65,70,81,1)",
                                         }}
