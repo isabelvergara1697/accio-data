@@ -1028,20 +1028,6 @@ const InvitesAndOrders: React.FC = () => {
                 {highlightText(orderData.phone, searchQuery) || orderData.phone}
               </div>
             );
-          case "newQuote":
-            return (
-              <TruncatedText
-                text={orderData.newQuote}
-                style={{
-                  color: "#181D27",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                }}
-              />
-            );
           case "completed":
             return <ProgressBar percentage={orderData.completion} />;
           case "lastUpdate":
