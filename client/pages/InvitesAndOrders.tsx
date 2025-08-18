@@ -5064,11 +5064,10 @@ const InvitesAndOrders: React.FC = () => {
                                     <div
                                       style={{
                                         color:
-                                          (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
-                                          (activeTab === "orders" && hasAppliedOrdersFilters() && !showOrdersFiltersModal)
+                                          activeTab === "invites" && hasAppliedFilters() && !showFiltersModal
                                             ? "#344698"
                                             : (activeTab === "invites" && showFiltersModal) ||
-                                              (activeTab === "orders" && showOrdersFiltersModal)
+                                              (activeTab === "orders" && showOrdersFiltersDropdown)
                                               ? "#252B37"
                                               : "#414651",
                                         fontFamily: "Public Sans",
