@@ -325,7 +325,7 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
                   lineHeight: "18px",
                 }}
               >
-                Disposition: {disposition.toUpperCase()}
+                Disposition: {disposition.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' - ')}
               </div>
             </div>
             <div
