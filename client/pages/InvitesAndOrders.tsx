@@ -4242,16 +4242,12 @@ const InvitesAndOrders: React.FC = () => {
 
       // Apply EWS filter for orders (Yes: rows with icons, No: rows without icons)
       if (selectedEwsFilters.length > 0) {
-        console.log("Applying EWS filter:", selectedEwsFilters);
-        const originalLength = data.length;
         data = data.filter((order) => {
           const orderData = order as OrderData;
           const hasIcon = orderData.ews; // Yes means has icon (ews: true), No means no icon (ews: false)
           const ewsStatus = hasIcon ? "yes" : "no";
-          const matches = selectedEwsFilters.includes(ewsStatus);
-          return matches;
+          return selectedEwsFilters.includes(ewsStatus);
         });
-        console.log(`EWS filter: ${originalLength} -> ${data.length} rows`);
       }
 
       // Apply Disposition filter for orders (based on component status icons)
