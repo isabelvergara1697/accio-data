@@ -8222,7 +8222,7 @@ const InvitesAndOrders: React.FC = () => {
                                             }}
                                             onClick={() => {
                                               console.log(
-                                                "Invite Summary clicked for:",
+                                                "Order Summary clicked for:",
                                                 invite.id,
                                               );
                                               setShowActionMenu(null);
