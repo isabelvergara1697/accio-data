@@ -6543,15 +6543,13 @@ const InvitesAndOrders: React.FC = () => {
                                     <div
                                       style={{
                                         color:
-                                          (activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal) ||
-                                          (activeTab === "orders" && hasAppliedOrdersFilters() && !showMobileOrdersFiltersModal)
+                                          activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal
                                             ? "#273572"
                                             : "#414651",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
                                         fontWeight:
-                                          (activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal) ||
-                                          (activeTab === "orders" && hasAppliedOrdersFilters() && !showMobileOrdersFiltersModal)
+                                          activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal
                                             ? 600
                                             : 600,
                                         lineHeight: "20px",
@@ -6564,8 +6562,7 @@ const InvitesAndOrders: React.FC = () => {
                                           fontWeight: 600,
                                           fontSize: "14px",
                                           color:
-                                            (activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal) ||
-                                            (activeTab === "orders" && hasAppliedOrdersFilters() && !showMobileOrdersFiltersModal)
+                                            activeTab === "invites" && hasAppliedFilters() && !showMobileFiltersModal
                                               ? "rgba(39,53,114,1)"
                                               : "rgba(65,70,81,1)",
                                         }}
