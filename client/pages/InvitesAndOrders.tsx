@@ -8193,7 +8193,7 @@ const InvitesAndOrders: React.FC = () => {
                                             alignSelf: "stretch",
                                           }}
                                         >
-                                          {/* Invite Summary */}
+                                          {/* Order Summary */}
                                           <div
                                             style={{
                                               display: "flex",
