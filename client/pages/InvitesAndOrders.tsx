@@ -855,6 +855,7 @@ const InvitesAndOrders: React.FC = () => {
       setShowMobileFiltersModal(false);
     } else {
       setShowOrdersFiltersDropdown(false);
+      setShowStatusFiltersDropdown(false);
     }
   }, [activeTab]);
 
