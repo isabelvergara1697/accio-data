@@ -9638,6 +9638,33 @@ const InvitesAndOrders: React.FC = () => {
         onStatusFilterRemove={handleRemoveStatusFilter}
         onClearAllFilters={handleClearAllOrdersFilters}
       />
+
+      {/* EWS Filters Dropdown for Orders */}
+      <EwsFiltersDropdown
+        isOpen={showEwsFiltersDropdown}
+        onClose={() => setShowEwsFiltersDropdown(false)}
+        triggerRef={ewsFilterButtonRef}
+        selectedOptions={selectedEwsFilters}
+        onOptionsChange={setSelectedEwsFilters}
+      />
+
+      {/* Disposition Filters Dropdown for Orders */}
+      <DispositionFiltersDropdown
+        isOpen={showDispositionFiltersDropdown}
+        onClose={() => setShowDispositionFiltersDropdown(false)}
+        triggerRef={dispositionFilterButtonRef}
+        selectedOptions={selectedDispositionFilters}
+        onOptionsChange={setSelectedDispositionFilters}
+      />
+
+      {/* Flags Filters Dropdown for Orders */}
+      <FlagsFiltersDropdown
+        isOpen={showFlagsFiltersDropdown}
+        onClose={() => setShowFlagsFiltersDropdown(false)}
+        triggerRef={flagsFilterButtonRef}
+        selectedOptions={selectedFlagsFilters}
+        onOptionsChange={setSelectedFlagsFilters}
+      />
     </div>
   );
 };
