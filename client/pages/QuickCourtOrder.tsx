@@ -225,11 +225,16 @@ const QuickCourtOrder: React.FC = () => {
           />
         ) : (
           <MobileHeader
-            currentPage="quick-court-order"
-            mobileMenuOpen={mobileMenuOpen}
+            isDesktop={isDesktop}
+            isMobile={isMobile}
             setMobileMenuOpen={setMobileMenuOpen}
-            showNotification={showNotification}
-            setShowNotification={setShowNotification}
+            userMenuOpen={userMenuOpen}
+            setUserMenuOpen={setUserMenuOpen}
+            userMenuHovered={userMenuHovered}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={handleSignOut}
+            getUserMenuStyles={getUserMenuStyles}
+            showMobileUserMenu={showMobileUserMenu}
           />
         )}
 
