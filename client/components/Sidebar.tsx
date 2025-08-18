@@ -456,6 +456,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         if (item === "Invites & Orders") {
                           navigate("/invites-orders");
                         }
+                      } else if (section === "tools") {
+                        if (item === "Quick Court Order") {
+                          navigate("/quick-court-order");
+                        }
                       }
                     }}
                   >
