@@ -2192,7 +2192,8 @@ const InvitesAndOrders: React.FC = () => {
       status: "completed",
       completion: 70,
       lastUpdate: "05/22/24",
-      e1a: "MVR",
+      eta: "12/05/25",
+      ews: true,
       userId: "Criminal",
       dispositionByComponent: {
         mvr: "success",
@@ -2211,7 +2212,8 @@ const InvitesAndOrders: React.FC = () => {
       status: "rejected",
       completion: 10,
       lastUpdate: "03/10/23",
-      e1a: "MVR",
+      eta: "06/18/25",
+      ews: false,
       userId: "Criminal",
       dispositionByComponent: {
         mvr: "success",
@@ -2230,7 +2232,8 @@ const InvitesAndOrders: React.FC = () => {
       status: "pending-review",
       completion: 80,
       lastUpdate: "02/14/25",
-      e1a: "MVR",
+      eta: "06/18/25",
+      ews: true,
       userId: "Criminal",
       dispositionByComponent: {
         mvr: "error",
