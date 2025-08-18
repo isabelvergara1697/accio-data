@@ -114,6 +114,20 @@ const QuickCourtOrder: React.FC = () => {
 
   const [selectedUser, setSelectedUser] = useState("Select User");
 
+  const handleSignOut = () => {
+    console.log("Sign out");
+  };
+
+  const getUserMenuStyles = () => {
+    if (userMenuHovered || userMenuOpen) {
+      return {
+        border: "1px solid #E9EAEB",
+        background: "#F5F5F5",
+      };
+    }
+    return {};
+  };
+
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
