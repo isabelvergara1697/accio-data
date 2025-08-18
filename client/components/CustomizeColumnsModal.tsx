@@ -378,7 +378,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     {
       id: "lastUpdate",
       name: "Last Update",
-      isSelected: true,
+      isSelected: false,
       hasHelpIcon: true,
     },
   ];
