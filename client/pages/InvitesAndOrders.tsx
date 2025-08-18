@@ -866,11 +866,6 @@ const InvitesAndOrders: React.FC = () => {
           label: "Completed",
           sortField: "completion",
         },
-        lastUpdate: {
-          width: "110px",
-          label: "Last Update",
-          sortField: "lastUpdate",
-        },
         eta: {
           width: "103px",
           label: "ETA",
