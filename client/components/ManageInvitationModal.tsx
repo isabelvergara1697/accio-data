@@ -35,26 +35,38 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
 }) => {
   // State for radio button groups
   const [activateOrder, setActivateOrder] = useState<"yes" | "no">("yes");
-  const [applicantCompletesOrder, setApplicantCompletesOrder] = useState<"yes" | "no">("yes");
-  const [applicantCompletesI9, setApplicantCompletesI9] = useState<"yes" | "no">("yes");
+  const [applicantCompletesOrder, setApplicantCompletesOrder] = useState<
+    "yes" | "no"
+  >("yes");
+  const [applicantCompletesI9, setApplicantCompletesI9] = useState<
+    "yes" | "no"
+  >("yes");
   const [collectEWS, setCollectEWS] = useState<"yes" | "no">("yes");
 
   // State for form inputs
-  const [invitationEmail, setInvitationEmail] = useState("cody.reeves@acciodata.com");
-  const [emailSent, setEmailSent] = useState("Watch this video to understand the new process");
+  const [invitationEmail, setInvitationEmail] = useState(
+    "cody.reeves@acciodata.com",
+  );
+  const [emailSent, setEmailSent] = useState(
+    "Watch this video to understand the new process",
+  );
   const [invitationPhone, setInvitationPhone] = useState("+1 000 000 000");
-  const [smsMessage, setSmsMessage] = useState("Add here SMS Message you'll like to sent.");
-  const [invitationNotes, setInvitationNotes] = useState("Watch this video to understand the new process");
+  const [smsMessage, setSmsMessage] = useState(
+    "Add here SMS Message you'll like to sent.",
+  );
+  const [invitationNotes, setInvitationNotes] = useState(
+    "Watch this video to understand the new process",
+  );
 
   if (!isOpen || !inviteData) return null;
 
-  const RadioButton = ({ 
-    checked, 
-    onClick, 
-    label 
-  }: { 
-    checked: boolean; 
-    onClick: () => void; 
+  const RadioButton = ({
+    checked,
+    onClick,
+    label,
+  }: {
+    checked: boolean;
+    onClick: () => void;
     label: string;
   }) => (
     <div
@@ -63,7 +75,7 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
         alignItems: "flex-start",
         gap: "12px",
         position: "relative",
-        cursor: "pointer"
+        cursor: "pointer",
       }}
       onClick={onClick}
     >
@@ -441,13 +453,15 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                 >
                   Activate Order:
                 </div>
-                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                  <RadioButton 
+                <div
+                  style={{ display: "flex", gap: "8px", alignItems: "center" }}
+                >
+                  <RadioButton
                     checked={activateOrder === "yes"}
                     onClick={() => setActivateOrder("yes")}
                     label="Yes"
                   />
-                  <RadioButton 
+                  <RadioButton
                     checked={activateOrder === "no"}
                     onClick={() => setActivateOrder("no")}
                     label="No"
@@ -479,13 +493,15 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                 >
                   Applicant Completes Order:
                 </div>
-                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                  <RadioButton 
+                <div
+                  style={{ display: "flex", gap: "8px", alignItems: "center" }}
+                >
+                  <RadioButton
                     checked={applicantCompletesOrder === "yes"}
                     onClick={() => setApplicantCompletesOrder("yes")}
                     label="Yes"
                   />
-                  <RadioButton 
+                  <RadioButton
                     checked={applicantCompletesOrder === "no"}
                     onClick={() => setApplicantCompletesOrder("no")}
                     label="No"
@@ -517,13 +533,15 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                 >
                   Applicant Completes I-9:
                 </div>
-                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                  <RadioButton 
+                <div
+                  style={{ display: "flex", gap: "8px", alignItems: "center" }}
+                >
+                  <RadioButton
                     checked={applicantCompletesI9 === "yes"}
                     onClick={() => setApplicantCompletesI9("yes")}
                     label="Yes"
                   />
-                  <RadioButton 
+                  <RadioButton
                     checked={applicantCompletesI9 === "no"}
                     onClick={() => setApplicantCompletesI9("no")}
                     label="No"
@@ -555,13 +573,15 @@ export const ManageInvitationModal: React.FC<ManageInvitationModalProps> = ({
                 >
                   Collect EWS:
                 </div>
-                <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                  <RadioButton 
+                <div
+                  style={{ display: "flex", gap: "8px", alignItems: "center" }}
+                >
+                  <RadioButton
                     checked={collectEWS === "yes"}
                     onClick={() => setCollectEWS("yes")}
                     label="Yes"
                   />
-                  <RadioButton 
+                  <RadioButton
                     checked={collectEWS === "no"}
                     onClick={() => setCollectEWS("no")}
                     label="No"
