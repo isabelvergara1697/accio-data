@@ -18,7 +18,6 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
-  console.log("StatusFiltersDropdown render - isOpen:", isOpen, "triggerRef:", triggerRef.current);
 
   // Status options for orders
   const statusOptions = [
