@@ -839,9 +839,15 @@ const InvitesAndOrders: React.FC = () => {
 
   const [columnOrder, setColumnOrder] = useState(defaultColumnOrder);
 
-  // Update column order when tab changes
+  // Update column order and close filter modals when tab changes
   useEffect(() => {
     setColumnOrder(getDefaultColumnOrder());
+
+    // Close any open filter modals when switching to orders tab
+    if (activeTab === "orders") {
+      setShowFiltersModal(false);
+      setShowMobileFiltersModal(false);
+    }
   }, [activeTab]);
 
   // Function to get column configuration for rendering
