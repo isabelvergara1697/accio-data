@@ -6585,7 +6585,7 @@ const InvitesAndOrders: React.FC = () => {
                                           lineHeight: "18px",
                                         }}
                                       >
-                                        {getAppliedFiltersCount()}
+                                        {activeTab === "invites" ? getAppliedFiltersCount() : getOrdersFiltersCount()}
                                       </div>
                                     </div>
                                   )}
