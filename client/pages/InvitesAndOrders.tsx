@@ -217,7 +217,7 @@ const FlagBadge: React.FC<{
       case "refresh":
         return {
           bg: "#D9DEF2",
-          tooltip: "Rescreening",
+          tooltip: "Report contains components registered for rescreening",
           icon: (
             <svg
               width="16"
