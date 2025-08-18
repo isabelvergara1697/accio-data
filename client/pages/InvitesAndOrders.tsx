@@ -1491,6 +1491,9 @@ const InvitesAndOrders: React.FC = () => {
               fontWeight: 600,
               lineHeight: "18px",
               position: "relative",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
             }}
           >
             <span
@@ -1503,6 +1506,7 @@ const InvitesAndOrders: React.FC = () => {
                   sortField === config.sortField
                     ? "#34479A"
                     : "rgba(113,118,128,1)",
+                whiteSpace: "nowrap",
               }}
             >
               {config.label}
