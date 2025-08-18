@@ -5089,7 +5089,8 @@ const InvitesAndOrders: React.FC = () => {
                                       </span>
                                     </div>
                                   </div>
-                                  {activeTab === "invites" && showFiltersModal && (
+                                  {((activeTab === "invites" && showFiltersModal) ||
+                                  (activeTab === "orders" && showOrdersFiltersDropdown)) && (
                                     <svg
                                       width="16"
                                       height="16"
