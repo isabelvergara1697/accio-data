@@ -1612,7 +1612,75 @@ const InvitesAndOrders: React.FC = () => {
               >
                 <path
                   d="M4 8H12M2 4H14M6 12H10"
-                  stroke="#344698"
+                  stroke={selectedStatusFilters.length > 0 ? "#344698" : "#A4A7AE"}
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          )}
+
+          {/* Add filter icon for EWS column in Orders tab */}
+          {isOrdersEwsColumn && (
+            <button
+              ref={ewsFilterButtonRef}
+              onClick={() => setShowEwsFiltersDropdown(!showEwsFiltersDropdown)}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginRight: "4px",
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 8H12M2 4H14M6 12H10"
+                  stroke={selectedEwsFilters.length > 0 ? "#344698" : "#A4A7AE"}
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          )}
+
+          {/* Add filter icon for Disposition column in Orders tab */}
+          {isOrdersDispositionColumn && (
+            <button
+              ref={dispositionFilterButtonRef}
+              onClick={() => setShowDispositionFiltersDropdown(!showDispositionFiltersDropdown)}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginRight: "4px",
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 8H12M2 4H14M6 12H10"
+                  stroke={selectedDispositionFilters.length > 0 ? "#344698" : "#A4A7AE"}
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
