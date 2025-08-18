@@ -37,10 +37,12 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
   useEffect(() => {
     if (isOpen && triggerRef.current) {
       const triggerRect = triggerRef.current.getBoundingClientRect();
-      setPosition({
+      const newPosition = {
         top: triggerRect.bottom + 4,
         left: triggerRect.left,
-      });
+      };
+      console.log("Calculating position:", newPosition, "from triggerRect:", triggerRect);
+      setPosition(newPosition);
     }
   }, [isOpen, triggerRef]);
 
