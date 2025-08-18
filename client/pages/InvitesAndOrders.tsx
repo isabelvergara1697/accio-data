@@ -8274,7 +8274,7 @@ const InvitesAndOrders: React.FC = () => {
                                                     lineHeight: "20px",
                                                   }}
                                                 >
-                                                  Invite Summary
+                                                  Order Summary
                                                 </div>
                                               </div>
                                             </div>
