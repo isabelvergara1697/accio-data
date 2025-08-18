@@ -1548,7 +1548,11 @@ const InvitesAndOrders: React.FC = () => {
         >
           <div
             style={{
-              color: (sortField === config.sortField || (isOrdersStatusColumn && selectedStatusFilters.length > 0))
+              color: (sortField === config.sortField ||
+                      (isOrdersStatusColumn && selectedStatusFilters.length > 0) ||
+                      (isOrdersEwsColumn && selectedEwsFilters.length > 0) ||
+                      (isOrdersDispositionColumn && selectedDispositionFilters.length > 0) ||
+                      (isOrdersFlagsColumn && selectedFlagsFilters.length > 0))
                 ? "#273572"
                 : "#717680",
               fontFamily: "Public Sans",
