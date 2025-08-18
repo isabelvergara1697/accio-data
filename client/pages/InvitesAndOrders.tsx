@@ -5012,7 +5012,7 @@ const InvitesAndOrders: React.FC = () => {
                                         ? "#ECEEF9"
                                         : hoveredButton === "filters" ||
                                             (activeTab === "invites" && showFiltersModal) ||
-                                            (activeTab === "orders" && showOrdersFiltersDropdown)
+                                            (activeTab === "orders" && (showOrdersFiltersDropdown || showFiltersSelectedDropdown))
                                           ? "#F5F5F5"
                                           : "#FFF",
                                     boxShadow:
