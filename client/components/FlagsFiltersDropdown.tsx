@@ -82,7 +82,7 @@ export const FlagsFiltersDropdown: React.FC<FlagsFiltersDropdownProps> = ({
         position: "fixed",
         top: position.top,
         left: position.left,
-        width: "220px", // Wider for longer flag names
+        width: "280px", // Even wider for longer flag names
         display: "flex",
         alignItems: "flex-start",
         zIndex: 99999,
