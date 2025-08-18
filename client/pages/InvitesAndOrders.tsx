@@ -4256,8 +4256,8 @@ const InvitesAndOrders: React.FC = () => {
 
       // Apply Disposition filter for orders (based on component status icons)
       if (selectedDispositionFilters.length > 0) {
-        console.log("Applying Disposition filter:", selectedDispositionFilters);
-        const originalLength = data.length;
+        console.log("🔍 Applying Disposition filter:", selectedDispositionFilters);
+        const beforeFilter = data.length;
         data = data.filter((order) => {
           const orderData = order as OrderData;
           return selectedDispositionFilters.some(disposition => {
