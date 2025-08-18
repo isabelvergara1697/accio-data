@@ -5067,10 +5067,11 @@ const InvitesAndOrders: React.FC = () => {
                                           fontFamily:
                                             "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                           fontWeight:
-                                            activeTab === "invites" && hasAppliedFilters() &&
-                                            !showFiltersModal
+                                            (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
+                                            (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
                                               ? 700
-                                              : activeTab === "invites" && showFiltersModal
+                                              : (activeTab === "invites" && showFiltersModal) ||
+                                                (activeTab === "orders" && showOrdersFiltersDropdown)
                                                 ? 700
                                                 : 600,
                                           fontSize: "14px",
