@@ -89,7 +89,8 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
     return selectedStatuses.includes(statusValue);
   };
 
-  if (!isOpen) return null;
+  // Temporarily force visible for debugging
+  // if (!isOpen) return null;
 
   return (
     <div
