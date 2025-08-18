@@ -4921,11 +4921,11 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    // Only allow filters functionality for invites tab
                                     if (activeTab === "invites") {
                                       setShowFiltersModal(!showFiltersModal);
+                                    } else if (activeTab === "orders") {
+                                      setShowOrdersFiltersModal(!showOrdersFiltersModal);
                                     }
-                                    // For orders tab, button is visible but doesn't open filters
                                   }}
                                   onMouseEnter={() =>
                                     setHoveredButton("filters")
@@ -6399,13 +6399,15 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <button
                                   onClick={() => {
-                                    // Only allow filters functionality for invites tab
                                     if (activeTab === "invites") {
                                       setShowMobileFiltersModal(
                                         !showMobileFiltersModal,
                                       );
+                                    } else if (activeTab === "orders") {
+                                      setShowMobileOrdersFiltersModal(
+                                        !showMobileOrdersFiltersModal,
+                                      );
                                     }
-                                    // For orders tab, button is visible but doesn't open filters
                                   }}
                                   onMouseEnter={() =>
                                     setHoveredButton("filters")
