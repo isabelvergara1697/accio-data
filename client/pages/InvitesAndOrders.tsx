@@ -16,6 +16,9 @@ import { MobileFiltersModal } from "../components/MobileFiltersModal";
 import { OrdersFiltersDropdown } from "../components/OrdersFiltersDropdown";
 import { StatusFiltersDropdown } from "../components/StatusFiltersDropdown";
 import { FiltersSelectedDropdown } from "../components/FiltersSelectedDropdown";
+import { EwsFiltersDropdown } from "../components/EwsFiltersDropdown";
+import { DispositionFiltersDropdown } from "../components/DispositionFiltersDropdown";
+import { FlagsFiltersDropdown } from "../components/FlagsFiltersDropdown";
 import { CustomizeColumnsModal } from "../components/CustomizeColumnsModal";
 import { DownloadDropdown } from "../components/DownloadDropdown";
 import {
