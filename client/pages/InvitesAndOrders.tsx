@@ -4996,7 +4996,8 @@ const InvitesAndOrders: React.FC = () => {
                                     gap: "4px",
                                     borderRadius: "8px",
                                     border:
-                                      activeTab === "invites" && hasAppliedFilters() && !showFiltersModal
+                                      (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
+                                      (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
                                         ? "1px solid #34479A"
                                         : "1px solid #D5D7DA",
                                     background:
