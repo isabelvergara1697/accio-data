@@ -275,30 +275,6 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
                   )}
                 </div>
               </div>
-              {/* Divider after "All" option */}
-              {index === 0 && (
-                <svg
-                  width="170"
-                  height="9"
-                  viewBox="0 0 170 9"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{
-                    display: "flex",
-                    padding: "4px 0",
-                    alignItems: "center",
-                    alignSelf: "stretch",
-                    position: "relative",
-                  }}
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M170 5H0V4H170V5Z"
-                    fill="#E9EAEB"
-                  />
-                </svg>
-              )}
             </React.Fragment>
           );
         })}
