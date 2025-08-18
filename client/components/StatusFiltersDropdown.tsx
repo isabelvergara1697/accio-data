@@ -103,8 +103,8 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
       <div
         style={{
           display: "flex",
-          height: "232px",
-          maxHeight: "256px",
+          height: "auto",
+          maxHeight: "320px",
           padding: "4px 0",
           flexDirection: "column",
           alignItems: "flex-start",
