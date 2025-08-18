@@ -124,7 +124,7 @@ const FlagBadge: React.FC<{
       case "alert":
         return {
           bg: "#FEF0C7",
-          tooltip: "Alert",
+          tooltip: "Report requires review for final evaluation",
           icon: (
             <svg
               width="16"
