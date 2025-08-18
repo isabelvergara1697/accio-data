@@ -61,10 +61,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const menuSections = {
     tools: [
       "Online Ordering",
-      "Quickscreen",
       "I-9 Order",
       "Batch Orders",
-      "Court Orders",
+      "Quick Order",
+      "Quick Court Order",
     ],
     screening: [
       "Invites & Orders",
