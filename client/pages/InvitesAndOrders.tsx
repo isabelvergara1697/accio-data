@@ -1789,6 +1789,9 @@ const InvitesAndOrders: React.FC = () => {
 
   const handleClearAllOrdersFilters = () => {
     setSelectedStatusFilters([]);
+    setSelectedEwsFilters([]);
+    setSelectedDispositionFilters([]);
+    setSelectedFlagsFilters([]);
     setShowFiltersSelectedDropdown(false);
   };
 
