@@ -4908,6 +4908,7 @@ const InvitesAndOrders: React.FC = () => {
                                 }}
                               >
                                 <button
+                                  ref={filtersButtonRef}
                                   onClick={() => {
                                     if (activeTab === "invites") {
                                       setShowFiltersModal(!showFiltersModal);
