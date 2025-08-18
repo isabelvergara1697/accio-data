@@ -114,7 +114,7 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
           alignItems: "flex-start",
           flex: "1 0 0",
           borderRadius: "8px",
-          border: "1px solid rgba(0, 0, 0, 0.08)",
+          border: "2px solid red", // Temporary for debugging
           background: "#FFF",
           boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
           position: "relative",
