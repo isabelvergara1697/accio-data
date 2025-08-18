@@ -4252,8 +4252,6 @@ const InvitesAndOrders: React.FC = () => {
 
       // Apply Disposition filter for orders (based on component status icons)
       if (selectedDispositionFilters.length > 0) {
-        console.log("🔍 Applying Disposition filter:", selectedDispositionFilters);
-        const beforeFilter = data.length;
         data = data.filter((order) => {
           const orderData = order as OrderData;
           return selectedDispositionFilters.some(disposition => {
@@ -4273,35 +4271,23 @@ const InvitesAndOrders: React.FC = () => {
                 actualStatus = orderData.dispositionByComponent.verification;
                 break;
               default:
-                console.log("Unknown component:", component);
                 return false;
             }
 
             // Map the status to the filter type
             // success = complete (green checkmark), error = incomplete (red X), pending = unknown (grey ?)
-            let matches = false;
             switch (statusType) {
               case "complete":
-                matches = actualStatus === "success"; // Green badge with checkmark
-                break;
+                return actualStatus === "success"; // Green badge with checkmark
               case "incomplete":
-                matches = actualStatus === "error"; // Red badge with X
-                break;
+                return actualStatus === "error"; // Red badge with X
               case "unknown":
-                matches = actualStatus === "pending"; // Grey badge with ?
-                break;
+                return actualStatus === "pending"; // Grey badge with ?
               default:
-                console.log("Unknown status type:", statusType);
                 return false;
             }
-
-            if (matches) {
-              console.log(`Match found: ${component}-${statusType} for order ${orderData.id} (${actualStatus})`);
-            }
-            return matches;
           });
         });
-        console.log(`✅ Disposition filter result: ${beforeFilter} → ${data.length} rows`);
       }
 
       // Apply Flags filter for orders
