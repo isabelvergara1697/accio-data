@@ -62,26 +62,15 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
   }, [isOpen, onClose, triggerRef]);
 
   const handleStatusToggle = (statusValue: string) => {
-    if (statusValue === "all") {
-      // Toggle all - if all are selected, clear selection, otherwise select all
-      if (selectedStatuses.length === statusOptions.length - 1) {
-        onStatusChange([]);
-      } else {
-        onStatusChange(statusOptions.slice(1).map(option => option.value));
-      }
+    // Toggle individual status
+    if (selectedStatuses.includes(statusValue)) {
+      onStatusChange(selectedStatuses.filter(s => s !== statusValue));
     } else {
-      // Toggle individual status
-      if (selectedStatuses.includes(statusValue)) {
-        onStatusChange(selectedStatuses.filter(s => s !== statusValue));
-      } else {
-        onStatusChange([...selectedStatuses, statusValue]);
-      }
+      onStatusChange([...selectedStatuses, statusValue]);
     }
   };
 
-  const isAllSelected = selectedStatuses.length === statusOptions.length - 1;
   const isStatusSelected = (statusValue: string) => {
-    if (statusValue === "all") return isAllSelected;
     return selectedStatuses.includes(statusValue);
   };
 
