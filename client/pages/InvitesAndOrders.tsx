@@ -4335,6 +4335,8 @@ const InvitesAndOrders: React.FC = () => {
 
       // Apply Flags filter for orders
       if (selectedFlagsFilters.length > 0) {
+        console.log("🏳️ Applying Flags filter:", selectedFlagsFilters);
+        const beforeFilter = data.length;
         data = data.filter((order) => {
           const orderData = order as OrderData;
           // Convert flag filter values to match actual flag names in data
@@ -4350,15 +4352,21 @@ const InvitesAndOrders: React.FC = () => {
             "client-activation-queue": ["CA", "Pending"], // CA
           };
 
-          return selectedFlagsFilters.some((filterFlag) => {
+          const hasMatch = selectedFlagsFilters.some((filterFlag) => {
             const matchingFlags = flagMapping[filterFlag] || [filterFlag];
-            return orderData.flags.some((flag) =>
+            const flagMatches = orderData.flags.some((flag) =>
               matchingFlags.some((matchFlag) =>
                 flag.toLowerCase().includes(matchFlag.toLowerCase()),
               ),
             );
+            if (flagMatches) {
+              console.log(`🎯 Match: Order ${orderData.id} has flags [${orderData.flags.join(', ')}] matching filter ${filterFlag}`);
+            }
+            return flagMatches;
           });
+          return hasMatch;
         });
+        console.log(`✅ Flags filter result: ${beforeFilter} → ${data.length} rows`);
       }
     }
 
