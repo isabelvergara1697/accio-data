@@ -1726,6 +1726,18 @@ const InvitesAndOrders: React.FC = () => {
     return getAppliedFiltersCount() > 0;
   };
 
+  const hasAppliedOrdersFilters = () => {
+    return (
+      ordersFilters.status.length > 0 ||
+      ordersFilters.firstName.trim() !== "" ||
+      ordersFilters.lastName.trim() !== "" ||
+      ordersFilters.email.trim() !== "" ||
+      ordersFilters.phone.trim() !== "" ||
+      ordersFilters.userID.trim() !== "" ||
+      (ordersFilters.dateRange.start !== null && ordersFilters.dateRange.end !== null)
+    );
+  };
+
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
   const mobileAdvancedSearchRef = useRef<HTMLDivElement>(null);
