@@ -86,7 +86,7 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
         width: "170px",
         display: "flex",
         alignItems: "flex-start",
-        zIndex: 99999,
+        zIndex: 9999, // Reduced to prevent interference with table hover
       }}
     >
       <div
