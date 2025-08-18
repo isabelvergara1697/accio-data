@@ -4305,7 +4305,7 @@ const InvitesAndOrders: React.FC = () => {
             return matches;
           });
         });
-        console.log(`Disposition filter: ${originalLength} -> ${data.length} rows`);
+        console.log(`✅ Disposition filter result: ${beforeFilter} → ${data.length} rows`);
       }
 
       // Apply Flags filter for orders
