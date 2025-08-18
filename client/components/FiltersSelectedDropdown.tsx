@@ -5,7 +5,13 @@ interface FiltersSelectedDropdownProps {
   onClose: () => void;
   triggerRef: React.RefObject<HTMLButtonElement>;
   selectedStatusFilters: string[];
+  selectedEwsFilters: string[];
+  selectedDispositionFilters: string[];
+  selectedFlagsFilters: string[];
   onStatusFilterRemove: (status: string) => void;
+  onEwsFilterRemove: (ews: string) => void;
+  onDispositionFilterRemove: (disposition: string) => void;
+  onFlagsFilterRemove: (flag: string) => void;
   onClearAllFilters: () => void;
 }
 
