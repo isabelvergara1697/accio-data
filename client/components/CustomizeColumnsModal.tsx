@@ -109,7 +109,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     { id: "ews", name: "EWS", isSelected: false },
     { id: "package", name: "Package", isSelected: false },
     // Additional columns that could be added
-    { id: "name", name: "Name", isSelected: false },
+    { id: "name", name: "Name", isSelected: true },
     { id: "maidenLastName", name: "Maiden Last Name", isSelected: false },
     { id: "mothersMaidenName", name: "Mothers Maiden Name", isSelected: false },
     {
@@ -123,12 +123,12 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
       isSelected: false,
     },
     { id: "middleName", name: "Middle Name", isSelected: false },
-    { id: "address", name: "Address", isSelected: false },
+    { id: "address", name: "Address", isSelected: true },
     { id: "addressLine2", name: "Address Line 2", isSelected: false },
     { id: "applicantCity", name: "Applicant City", isSelected: false },
     { id: "applicantCountry", name: "Applicant Country", isSelected: false },
-    { id: "ssn", name: "SSN", isSelected: false },
-    { id: "dateOfBirth", name: "Date of Birth", isSelected: false },
+    { id: "ssn", name: "SSN", isSelected: true },
+    { id: "dateOfBirth", name: "Date of Birth", isSelected: true },
     {
       id: "driverLicenseNumber",
       name: "Driver License Number",
@@ -149,7 +149,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     {
       id: "intlDriverLicenseState",
       name: "Intl. Driver License State",
-      isSelected: false,
+      isSelected: true,
     },
     { id: "intlGovernmentId", name: "Intl. Government Id", isSelected: false },
     {
@@ -158,8 +158,8 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
       isSelected: false,
       hasHelpIcon: true,
     },
-    { id: "noteTitle", name: "Note Title", isSelected: false },
-    { id: "hairColor", name: "Hair Color", isSelected: false },
+    { id: "noteTitle", name: "Note Title", isSelected: true },
+    { id: "hairColor", name: "Hair Color", isSelected: true },
     { id: "race", name: "Race", isSelected: false },
     {
       id: "yearsAtCurrentResidence",
@@ -168,7 +168,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     },
     { id: "monthlyIncome", name: "Monthly Income", isSelected: false },
     { id: "monthlyPayments", name: "Monthly Payments", isSelected: false },
-    { id: "applicantId", name: "Applicant ID", isSelected: false },
+    { id: "applicantId", name: "Applicant ID", isSelected: true },
     {
       id: "adjudicationStatus",
       name: "Adjudication Status",
@@ -182,7 +182,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     {
       id: "subjectDisposition",
       name: "Subject Disposition",
-      isSelected: false,
+      isSelected: true,
     },
     {
       id: "intlGovernmentIdDescription",
