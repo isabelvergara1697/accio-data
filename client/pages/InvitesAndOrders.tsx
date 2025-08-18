@@ -21,6 +21,7 @@ import {
 } from "../components/ui/table-views-dropdown";
 import { ActionsPanel } from "../components/ActionsPanel";
 import { SelectionBadge } from "../components/SelectionBadge";
+import { OrderSummaryModal } from "../components/OrderSummaryModal";
 
 interface InviteData {
   id: string;
