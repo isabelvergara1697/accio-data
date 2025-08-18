@@ -1766,6 +1766,16 @@ const InvitesAndOrders: React.FC = () => {
     return getOrdersFiltersCount() > 0;
   };
 
+  // Handlers for orders filters
+  const handleRemoveStatusFilter = (statusToRemove: string) => {
+    setSelectedStatusFilters(prev => prev.filter(status => status !== statusToRemove));
+  };
+
+  const handleClearAllOrdersFilters = () => {
+    setSelectedStatusFilters([]);
+    setShowFiltersSelectedDropdown(false);
+  };
+
 
   const downloadDropdownRef = useRef<HTMLDivElement>(null);
   const advancedSearchRef = useRef<HTMLDivElement>(null);
