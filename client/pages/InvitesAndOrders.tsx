@@ -952,7 +952,8 @@ const InvitesAndOrders: React.FC = () => {
   const TableCell: React.FC<{
     columnId: string;
     invite: InviteData | OrderData;
-  }> = ({ columnId, invite }) => {
+    rowIndex?: number;
+  }> = ({ columnId, invite, rowIndex = 0 }) => {
     const config = getColumnConfig(columnId);
     if (!config) return null;
 
