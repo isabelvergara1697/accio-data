@@ -206,21 +206,25 @@ const DispositionBadge: React.FC<{
     }
   };
 
+  const tooltipText = getTooltipText();
+
   return (
     <div
       className="disposition-tooltip"
-      data-tooltip={getTooltipText()}
+      data-tooltip={tooltipText}
+      title={`BACKUP: ${tooltipText}`} // Backup native tooltip
       style={{
         display: "flex",
         padding: "2px 6px 2px 8px",
         alignItems: "center",
         gap: "2px",
         borderRadius: "9999px",
-        border: `1px solid ${config.border}`,
+        border: `3px solid red`, // VERY VISIBLE DEBUG BORDER
         background: config.bg,
         cursor: "pointer",
         position: "relative",
       }}
+      onMouseEnter={() => console.log(`BADGE HOVER: ${type} - ${status} - Tooltip: "${tooltipText}"`)}
     >
       <div
         style={{
@@ -233,7 +237,7 @@ const DispositionBadge: React.FC<{
           lineHeight: "18px",
         }}
       >
-        {label}
+        {label} [DEBUG]
       </div>
       {config.icon}
     </div>
