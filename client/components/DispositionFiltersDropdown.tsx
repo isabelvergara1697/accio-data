@@ -18,11 +18,17 @@ export const DispositionFiltersDropdown: React.FC<DispositionFiltersDropdownProp
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
-  // Disposition by Component options
+  // Disposition by Component options with Complete/Incomplete/Unknown
   const dispositionOptions = [
-    { value: "mvr", label: "MVR" },
-    { value: "criminal", label: "Criminal" },
-    { value: "verification", label: "Verification" },
+    { value: "mvr-complete", label: "MVR - Complete" },
+    { value: "mvr-incomplete", label: "MVR - Incomplete" },
+    { value: "mvr-unknown", label: "MVR - Unknown" },
+    { value: "criminal-complete", label: "Criminal - Complete" },
+    { value: "criminal-incomplete", label: "Criminal - Incomplete" },
+    { value: "criminal-unknown", label: "Criminal - Unknown" },
+    { value: "verification-complete", label: "Verification - Complete" },
+    { value: "verification-incomplete", label: "Verification - Incomplete" },
+    { value: "verification-unknown", label: "Verification - Unknown" },
   ];
 
   // Calculate position based on trigger button
