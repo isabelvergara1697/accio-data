@@ -170,7 +170,7 @@ const FlagBadge: React.FC<{
       case "mvr":
         return {
           bg: "#B9E6FE",
-          tooltip: "Drug Test",
+          tooltip: "Report is a drug test",
           icon: (
             <svg
               width="16"
