@@ -1179,9 +1179,9 @@ const InvitesAndOrders: React.FC = () => {
                         {/* Render Random Text Labels */}
                         {randomFlags.labels.map((labelText, index) => {
                           const tooltipMap: Record<string, string> = {
-                            "AA": "Adverse Action Letter",
-                            "PA": "Pre-Adverse Action Letter",
-                            "CA": "Client Activation Quote"
+                            "AA": "Applicant has received Adverse Action Notice",
+                            "PA": "Applicant has received Pre-Adverse Action Notice",
+                            "CA": "Adverse Notice is in the Client Activation Queue"
                           };
                           return (
                             <TextLabel
