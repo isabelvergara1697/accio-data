@@ -146,7 +146,7 @@ const FlagBadge: React.FC<{
       case "archive":
         return {
           bg: "#F5F5F5",
-          tooltip: "Archive",
+          tooltip: "Report is archived",
           icon: (
             <svg
               width="16"
