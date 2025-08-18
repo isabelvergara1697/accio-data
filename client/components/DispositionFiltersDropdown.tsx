@@ -82,7 +82,7 @@ export const DispositionFiltersDropdown: React.FC<DispositionFiltersDropdownProp
         position: "fixed",
         top: position.top,
         left: position.left,
-        width: "170px",
+        width: "250px", // Wider to fit content
         display: "flex",
         alignItems: "flex-start",
         zIndex: 99999,
