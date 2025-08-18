@@ -318,6 +318,34 @@ const FlagBadge: React.FC<{
   );
 };
 
+// Function to generate random flag combinations for each row
+const getRandomFlags = (rowIndex: number) => {
+  // First row always shows all flags
+  if (rowIndex === 0) {
+    return {
+      icons: ["flag", "warning", "archive", "drug test", "monitoring", "rescreening"],
+      labels: ["AA", "PA", "CA"]
+    };
+  }
+
+  // Define possible combinations based on the Figma design
+  const flagCombinations = [
+    { icons: ["flag"], labels: ["CA"] },
+    { icons: ["warning", "archive"], labels: ["CA"] },
+    { icons: ["drug test", "rescreening"], labels: ["CA"] },
+    { icons: ["flag"], labels: ["PA"] },
+    { icons: ["warning"], labels: ["CA"] },
+    { icons: ["archive", "drug test"], labels: ["CA"] },
+    { icons: ["monitoring", "rescreening"], labels: ["AA", "CA"] },
+    { icons: ["archive"], labels: [] },
+    { icons: ["rescreening"], labels: ["CA"] },
+  ];
+
+  // Use rowIndex to deterministically select a combination (pseudo-random but consistent)
+  const combinationIndex = (rowIndex - 1) % flagCombinations.length;
+  return flagCombinations[combinationIndex];
+};
+
 // Text Label Component for flags
 const TextLabel: React.FC<{
   text: string;
