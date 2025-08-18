@@ -791,6 +791,9 @@ const InvitesAndOrders: React.FC = () => {
   const [showActionsPanel, setShowActionsPanel] = useState(false);
   const [showOrderSummaryModal, setShowOrderSummaryModal] = useState(false);
   const [selectedOrderData, setSelectedOrderData] = useState<OrderData | null>(null);
+  const [showInviteSummaryModal, setShowInviteSummaryModal] = useState(false);
+  const [showManageInvitationModal, setShowManageInvitationModal] = useState(false);
+  const [selectedInviteData, setSelectedInviteData] = useState<InviteData | null>(null);
 
   // Column ordering configuration - different for invites vs orders
   const getDefaultColumnOrder = () => {
