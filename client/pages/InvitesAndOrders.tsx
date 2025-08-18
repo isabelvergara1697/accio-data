@@ -14,6 +14,7 @@ import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
 import FiltersPanel from "../components/FiltersPanel";
 import { MobileFiltersModal } from "../components/MobileFiltersModal";
 import { OrdersFiltersDropdown } from "../components/OrdersFiltersDropdown";
+import { StatusFiltersDropdown } from "../components/StatusFiltersDropdown";
 import { CustomizeColumnsModal } from "../components/CustomizeColumnsModal";
 import { DownloadDropdown } from "../components/DownloadDropdown";
 import {
@@ -788,6 +789,8 @@ const InvitesAndOrders: React.FC = () => {
   const [showFiltersModal, setShowFiltersModal] = useState(false);
   const [showMobileFiltersModal, setShowMobileFiltersModal] = useState(false);
   const [showOrdersFiltersDropdown, setShowOrdersFiltersDropdown] = useState(false);
+  const [showStatusFiltersDropdown, setShowStatusFiltersDropdown] = useState(false);
+  const [selectedStatusFilters, setSelectedStatusFilters] = useState<string[]>([]);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
   const [showActionsPanel, setShowActionsPanel] = useState(false);
@@ -1721,6 +1724,7 @@ const InvitesAndOrders: React.FC = () => {
   const mobileDotsMenuRef = useRef<HTMLDivElement>(null);
   const tableViewsDropdownRef = useRef<HTMLDivElement>(null);
   const filtersButtonRef = useRef<HTMLButtonElement>(null);
+  const statusFilterButtonRef = useRef<HTMLButtonElement>(null);
 
   // Window resize handler
   useEffect(() => {
