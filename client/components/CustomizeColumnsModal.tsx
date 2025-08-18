@@ -353,17 +353,17 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     {
       id: "billingIdentifier1",
       name: "Billing Identifier 1",
-      isSelected: false,
+      isSelected: true,
     },
     {
       id: "billingIdentifier2",
       name: "Billing Identifier 2",
-      isSelected: false,
+      isSelected: true,
     },
     {
       id: "billingIdentifier3",
       name: "Billing Identifier 3",
-      isSelected: false,
+      isSelected: true,
     },
     {
       id: "billingIdentifier4",
@@ -403,9 +403,9 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   ];
 
   const integrationColumns = [
-    { id: "outbackId", name: "Outback Id", isSelected: false },
-    { id: "outback2", name: "Outback 2", isSelected: false },
-    { id: "outback3", name: "Outback 3", isSelected: false },
+    { id: "outback1", name: "Outback 1", isSelected: true },
+    { id: "outback2", name: "Outback 2", isSelected: true },
+    { id: "outback3", name: "Outback 3", isSelected: true },
     {
       id: "remoteOrderNumber",
       name: "Remote Order Number",
