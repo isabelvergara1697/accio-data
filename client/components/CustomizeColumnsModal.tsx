@@ -317,11 +317,11 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
   ];
 
   const orderStatusColumns = [
-    { id: "orderStatus", name: "Status", isSelected: false, hasHelpIcon: true },
+    { id: "orderStatus", name: "Status", isSelected: true, hasHelpIcon: true },
     {
       id: "orderUpdate",
-      name: "Order Update",
-      isSelected: false,
+      name: "New Update",
+      isSelected: true,
       hasHelpIcon: true,
     },
     {
@@ -346,6 +346,7 @@ export const CustomizeColumnsModal: React.FC<CustomizeColumnsModalProps> = ({
     },
     { id: "rankings", name: "Rankings", isSelected: false, hasHelpIcon: true },
     { id: "applicationNumber", name: "Application Number", isSelected: false },
+    { id: "lastUpdate", name: "Last Update", isSelected: true, hasHelpIcon: true },
   ];
 
   const billingIdentifiersColumns = [
