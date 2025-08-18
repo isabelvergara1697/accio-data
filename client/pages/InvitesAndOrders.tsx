@@ -797,8 +797,7 @@ const InvitesAndOrders: React.FC = () => {
         { id: "email", name: "Applicant Email", order: 4, isSelected: true },
         { id: "phone", name: "Phone", order: 5, isSelected: true },
         { id: "completed", name: "Completed", order: 6, isSelected: true },
-        { id: "lastUpdate", name: "Last Update", order: 7, isSelected: true },
-        { id: "eta", name: "ETA", order: 8, isSelected: true },
+        { id: "eta", name: "ETA", order: 7, isSelected: true },
         { id: "ews", name: "EWS", order: 9, isSelected: true },
         { id: "userId", name: "User ID", order: 10, isSelected: true },
         {
