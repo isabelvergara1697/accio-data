@@ -13,6 +13,7 @@ import InformationDrawer from "../components/ui/information-drawer";
 import { AdvancedSearchDropdown } from "../components/AdvancedSearchDropdown";
 import FiltersPanel from "../components/FiltersPanel";
 import { MobileFiltersModal } from "../components/MobileFiltersModal";
+import { OrdersFiltersModal, OrdersFilterState } from "../components/OrdersFiltersModal";
 import { CustomizeColumnsModal } from "../components/CustomizeColumnsModal";
 import { DownloadDropdown } from "../components/DownloadDropdown";
 import {
@@ -786,6 +787,8 @@ const InvitesAndOrders: React.FC = () => {
   const [isButtonClick, setIsButtonClick] = useState(false);
   const [showFiltersModal, setShowFiltersModal] = useState(false);
   const [showMobileFiltersModal, setShowMobileFiltersModal] = useState(false);
+  const [showOrdersFiltersModal, setShowOrdersFiltersModal] = useState(false);
+  const [showMobileOrdersFiltersModal, setShowMobileOrdersFiltersModal] = useState(false);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
   const [showActionsPanel, setShowActionsPanel] = useState(false);
@@ -798,6 +801,20 @@ const InvitesAndOrders: React.FC = () => {
     useState(false);
   const [selectedInviteData, setSelectedInviteData] =
     useState<InviteData | null>(null);
+
+  // Orders filter state
+  const [ordersFilters, setOrdersFilters] = useState<OrdersFilterState>({
+    status: [],
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    userID: "",
+    dateRange: {
+      start: null,
+      end: null,
+    },
+  });
 
   // Column ordering configuration - different for invites vs orders
   const getDefaultColumnOrder = () => {
@@ -843,10 +860,13 @@ const InvitesAndOrders: React.FC = () => {
   useEffect(() => {
     setColumnOrder(getDefaultColumnOrder());
 
-    // Close any open filter modals when switching to orders tab
+    // Close any open filter modals when switching tabs
     if (activeTab === "orders") {
       setShowFiltersModal(false);
       setShowMobileFiltersModal(false);
+    } else {
+      setShowOrdersFiltersModal(false);
+      setShowMobileOrdersFiltersModal(false);
     }
   }, [activeTab]);
 
