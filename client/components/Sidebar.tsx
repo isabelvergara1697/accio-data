@@ -510,7 +510,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                               (currentPage === "resources" &&
                                 item === "Resources") ||
                               (currentPage === "invites-orders" &&
-                                item === "Invites & Orders")
+                                item === "Invites & Orders") ||
+                              (currentPage === "quick-court-order" &&
+                                item === "Quick Court Order")
                                 ? "#273572"
                                 : "rgba(65,70,81,1)",
                           }}
