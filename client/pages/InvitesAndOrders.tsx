@@ -5076,10 +5076,11 @@ const InvitesAndOrders: React.FC = () => {
                                                 : 600,
                                           fontSize: "14px",
                                           color:
-                                            activeTab === "invites" && hasAppliedFilters() &&
-                                            !showFiltersModal
+                                            (activeTab === "invites" && hasAppliedFilters() && !showFiltersModal) ||
+                                            (activeTab === "orders" && hasOrdersFilters() && !showOrdersFiltersDropdown)
                                               ? "rgba(52,70,152,1)"
-                                              : activeTab === "invites" && showFiltersModal
+                                              : (activeTab === "invites" && showFiltersModal) ||
+                                                (activeTab === "orders" && showOrdersFiltersDropdown)
                                                 ? "rgba(37,43,55,1)"
                                                 : "rgba(65,70,81,1)",
                                         }}
