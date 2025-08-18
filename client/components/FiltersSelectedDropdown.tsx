@@ -160,9 +160,10 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
           flexWrap: "wrap",
         }}
       >
+        {/* Status filters */}
         {selectedStatusFilters.map((status) => (
           <div
-            key={status}
+            key={`status-${status}`}
             style={{
               display: "flex",
               padding: "3px 4px 3px 8px",
@@ -206,6 +207,204 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
                 cursor: "pointer",
               }}
               onClick={() => onStatusFilterRemove(status)}
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                  stroke="#A4A7AE"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        ))}
+
+        {/* EWS filters */}
+        {selectedEwsFilters.map((ews) => (
+          <div
+            key={`ews-${ews}`}
+            style={{
+              display: "flex",
+              padding: "3px 4px 3px 8px",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "3px",
+              borderRadius: "6px",
+              border: "1px solid #D5D7DA",
+              background: "#FFF",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  textAlign: "center",
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "18px",
+                }}
+              >
+                EWS: {ews === "yes" ? "Yes" : "No"}
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                width: "18px",
+                padding: "2px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                borderRadius: "3px",
+                cursor: "pointer",
+              }}
+              onClick={() => onEwsFilterRemove(ews)}
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                  stroke="#A4A7AE"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        ))}
+
+        {/* Disposition filters */}
+        {selectedDispositionFilters.map((disposition) => (
+          <div
+            key={`disposition-${disposition}`}
+            style={{
+              display: "flex",
+              padding: "3px 4px 3px 8px",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "3px",
+              borderRadius: "6px",
+              border: "1px solid #D5D7DA",
+              background: "#FFF",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  textAlign: "center",
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "18px",
+                }}
+              >
+                Disposition: {disposition.toUpperCase()}
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                width: "18px",
+                padding: "2px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                borderRadius: "3px",
+                cursor: "pointer",
+              }}
+              onClick={() => onDispositionFilterRemove(disposition)}
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.5 3.5L3.5 10.5M3.5 3.5L10.5 10.5"
+                  stroke="#A4A7AE"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        ))}
+
+        {/* Flags filters */}
+        {selectedFlagsFilters.map((flag) => (
+          <div
+            key={`flag-${flag}`}
+            style={{
+              display: "flex",
+              padding: "3px 4px 3px 8px",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "3px",
+              borderRadius: "6px",
+              border: "1px solid #D5D7DA",
+              background: "#FFF",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  textAlign: "center",
+                  fontFamily: "Public Sans",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "18px",
+                }}
+              >
+                Flag: {flag.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                width: "18px",
+                padding: "2px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                borderRadius: "3px",
+                cursor: "pointer",
+              }}
+              onClick={() => onFlagsFilterRemove(flag)}
             >
               <svg
                 width="14"
