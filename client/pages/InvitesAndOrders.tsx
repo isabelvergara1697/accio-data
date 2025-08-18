@@ -22,6 +22,8 @@ import {
 import { ActionsPanel } from "../components/ActionsPanel";
 import { SelectionBadge } from "../components/SelectionBadge";
 import { OrderSummaryModal } from "../components/OrderSummaryModal";
+import { InviteSummaryModal } from "../components/InviteSummaryModal";
+import { ManageInvitationModal } from "../components/ManageInvitationModal";
 
 interface InviteData {
   id: string;
