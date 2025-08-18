@@ -792,6 +792,7 @@ const InvitesAndOrders: React.FC = () => {
   const [showOrdersFiltersDropdown, setShowOrdersFiltersDropdown] = useState(false);
   const [showStatusFiltersDropdown, setShowStatusFiltersDropdown] = useState(false);
   const [selectedStatusFilters, setSelectedStatusFilters] = useState<string[]>([]);
+  const [showFiltersSelectedDropdown, setShowFiltersSelectedDropdown] = useState(false);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
   const [showActionsPanel, setShowActionsPanel] = useState(false);
