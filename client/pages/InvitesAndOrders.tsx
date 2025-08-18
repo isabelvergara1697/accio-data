@@ -15,6 +15,7 @@ import FiltersPanel from "../components/FiltersPanel";
 import { MobileFiltersModal } from "../components/MobileFiltersModal";
 import { OrdersFiltersDropdown } from "../components/OrdersFiltersDropdown";
 import { StatusFiltersDropdown } from "../components/StatusFiltersDropdown";
+import { FiltersSelectedDropdown } from "../components/FiltersSelectedDropdown";
 import { CustomizeColumnsModal } from "../components/CustomizeColumnsModal";
 import { DownloadDropdown } from "../components/DownloadDropdown";
 import {
