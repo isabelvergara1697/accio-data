@@ -568,6 +568,7 @@ const QuickOrder: React.FC = () => {
                           }}
                         >
                           <div
+                            data-package-dropdown-container
                             style={{
                               display: "flex",
                               minHeight: "36px",
@@ -576,20 +577,29 @@ const QuickOrder: React.FC = () => {
                               alignItems: "center",
                               gap: "4px",
                               borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
-                              background: "#FFF",
+                              border: packageDropdownOpen ? "2px solid #34479A" : "1px solid #D5D7DA",
+                              background: packageDropdownOpen ? "#F9FAFB" : "#FFF",
                               boxShadow:
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               transition: "all 0.2s ease",
+                              position: "relative",
+                            }}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setPackageDropdownOpen(!packageDropdownOpen);
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.background = "#F9FAFB";
-                              e.currentTarget.style.borderColor = "#98A2B3";
+                              if (!packageDropdownOpen) {
+                                e.currentTarget.style.background = "#F9FAFB";
+                                e.currentTarget.style.borderColor = "#98A2B3";
+                              }
                             }}
                             onMouseLeave={(e) => {
-                              e.currentTarget.style.background = "#FFF";
-                              e.currentTarget.style.borderColor = "#D5D7DA";
+                              if (!packageDropdownOpen) {
+                                e.currentTarget.style.background = "#FFF";
+                                e.currentTarget.style.borderColor = "#D5D7DA";
+                              }
                             }}
                           >
                             <div
@@ -602,22 +612,45 @@ const QuickOrder: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color:
-                                    "var(--colors-text-text-secondary-700, #414651)",
-                                  fontFamily:
-                                    "var(--Font-family-font-family-body, 'Public Sans')",
-                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "14px",
                                   fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight:
-                                    "var(--Line-height-text-sm, 20px)",
+                                  fontWeight: selectedPackage ? 400 : 400,
+                                  lineHeight: "20px",
                                 }}
                               >
-                                Submit Order For: Select User
+                                <span
+                                  style={{
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: "14px",
+                                    color: "rgba(65,70,81,1)",
+                                  }}
+                                >
+                                  Package:{" "}
+                                </span>
+                                <span
+                                  style={{
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: selectedPackage ? 700 : 400,
+                                    fontSize: "14px",
+                                    color: "rgba(65,70,81,1)",
+                                  }}
+                                >
+                                  {selectedPackage
+                                    ? packageOptions.find(p => p.value === selectedPackage)?.label
+                                    : "Select"}
+                                </span>
                               </div>
                             </div>
                             <svg
-                              style={{ width: "16px", height: "16px" }}
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                transform: packageDropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                                transition: "transform 0.2s ease"
+                              }}
                               width="16"
                               height="16"
                               viewBox="0 0 16 16"
@@ -632,6 +665,97 @@ const QuickOrder: React.FC = () => {
                                 strokeLinejoin="round"
                               />
                             </svg>
+
+                            {/* Package Dropdown Options */}
+                            {packageDropdownOpen && (
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  top: "100%",
+                                  left: 0,
+                                  width: "248px",
+                                  marginTop: "4px",
+                                  borderRadius: "8px",
+                                  border: "1px solid rgba(0, 0, 0, 0.08)",
+                                  background: "#FFF",
+                                  boxShadow:
+                                    "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                  zIndex: 1000,
+                                }}
+                              >
+                                <div style={{ padding: "4px 0" }}>
+                                  {packageOptions.map((packageOption) => {
+                                    const isSelected = packageOption.value === selectedPackage;
+                                    return (
+                                      <div
+                                        key={packageOption.value}
+                                        style={{
+                                          padding: "1px 6px",
+                                          cursor: "pointer",
+                                        }}
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setSelectedPackage(packageOption.value);
+                                          setPackageDropdownOpen(false);
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            padding: "8px",
+                                            alignItems: "center",
+                                            borderRadius: "6px",
+                                            background: isSelected ? "#F5F5F5" : "transparent",
+                                            transition: "background 0.2s ease",
+                                          }}
+                                          onMouseEnter={(e) => {
+                                            if (!isSelected) {
+                                              e.currentTarget.style.background = "#F5F5F5";
+                                            }
+                                          }}
+                                          onMouseLeave={(e) => {
+                                            if (!isSelected) {
+                                              e.currentTarget.style.background = "transparent";
+                                            }
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#181D27",
+                                              fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: isSelected ? 600 : 400,
+                                              lineHeight: "20px",
+                                              flex: "1 0 0",
+                                            }}
+                                          >
+                                            {packageOption.label}
+                                          </div>
+                                          {isSelected && (
+                                            <svg
+                                              width="16"
+                                              height="16"
+                                              viewBox="0 0 16 16"
+                                              fill="none"
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <path
+                                                d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                                                stroke="#344698"
+                                                strokeWidth="1.33333"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                              />
+                                            </svg>
+                                          )}
+                                        </div>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
