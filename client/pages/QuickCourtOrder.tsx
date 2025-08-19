@@ -843,74 +843,114 @@ const QuickCourtOrder: React.FC = () => {
                   </TableBody>
                 </Table>
               </div>
-            </div>
 
-            {/* Action Buttons */}
-            <div
-              style={{
-                display: "flex",
-                gap: "12px",
-                flexWrap: "wrap",
-                alignItems: "center",
-              }}
-            >
-              <Button
-                variant="outline"
-                onClick={addTenRows}
+              {/* Button Group - Matching Figma */}
+              <div
                 style={{
                   display: "flex",
-                  padding: "10px 16px",
+                  padding: "12px 0 0 12px",
                   alignItems: "center",
                   gap: "8px",
-                  borderRadius: "8px",
-                  border: "1px solid #D5D7DA",
-                  background: "#FFF",
-                  color: "#414651",
-                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#F5F5F5";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#FFF";
+                  alignSelf: "stretch",
+                  borderTop: "1px solid #D5D7DA",
                 }}
               >
-                Add 10 Rows
-              </Button>
-              
-              <Button
-                onClick={handleSubmit}
-                style={{
-                  display: "flex",
-                  padding: "10px 20px",
-                  alignItems: "center",
-                  gap: "8px",
-                  borderRadius: "8px",
-                  border: "1px solid #34479A",
-                  background: "#34479A",
-                  color: "#FFF",
-                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#273572";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#34479A";
-                }}
-              >
-                Submit Court Order
-              </Button>
+                <div
+                  onClick={addTenRows}
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 700,
+                          fontSize: "14px",
+                          color: "rgba(65,70,81,1)",
+                        }}
+                      >
+                        Add 10 Rows
+                      </span>
+                    </div>
+                  </div>
                 </div>
+                <div
+                  onClick={handleSubmit}
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                    background: "#344698",
+                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#FFF",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 700,
+                          fontSize: "14px",
+                          color: "rgba(255,255,255,1)",
+                        }}
+                      >
+                        Submit Court Order
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
               </div>
             </div>
           </div>
