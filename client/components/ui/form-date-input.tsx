@@ -33,9 +33,38 @@ export default function FormDateInput({
   const inputRef = useRef<HTMLInputElement>(null);
   const calendarButtonRef = useRef<HTMLButtonElement>(null);
 
-  const handleDateClick = () => {
+  // Sync input value with prop value
+  useEffect(() => {
+    setInputValue(formatDisplayDate(value));
+  }, [value]);
+
+  const handleCalendarClick = () => {
     setIsCalendarOpen(!isCalendarOpen);
+  };
+
+  const handleInputFocus = () => {
     onFocus?.();
+  };
+
+  const handleInputBlur = () => {
+    // Parse and validate the typed date when user leaves the input
+    const parsedDate = parseTypedDate(inputValue);
+    if (parsedDate) {
+      // Convert to YYYY-MM-DD format for storage
+      const year = parsedDate.getFullYear();
+      const month = String(parsedDate.getMonth() + 1).padStart(2, '0');
+      const day = String(parsedDate.getDate()).padStart(2, '0');
+      const dateString = `${year}-${month}-${day}`;
+      onChange(dateString);
+    } else if (inputValue.trim() === "") {
+      // Clear the date if input is empty
+      onChange("");
+    }
+    onBlur?.();
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
   };
 
   const handleCalendarClose = () => {
