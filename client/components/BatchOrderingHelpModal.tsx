@@ -553,6 +553,16 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
             }}
           />
 
+          {/* Divider */}
+          <div
+            style={{
+              height: "1px",
+              alignSelf: "stretch",
+              background: "#E9EAEB",
+              position: "relative",
+            }}
+          />
+
           {/* Batch Operations */}
           <div
             style={{
@@ -685,6 +695,384 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
             }}
           >
             Note: If a batch has already started processing, stopping, rescheduling and starting the batch will cause the system to delay processing until the currently specified start time is reached regardless of the original start time
+          </div>
+
+          {/* Divider */}
+          <div
+            style={{
+              height: "1px",
+              alignSelf: "stretch",
+              background: "#E9EAEB",
+              position: "relative",
+            }}
+          />
+
+          {/* Batch Order Details Section */}
+          <div
+            style={{
+              alignSelf: "stretch",
+              color: "#181D27",
+              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontSize: "16px",
+              fontStyle: "normal",
+              fontWeight: 400,
+              lineHeight: "24px",
+              position: "relative",
+            }}
+          >
+            Batch Order Details
+          </div>
+
+          <div
+            style={{
+              alignSelf: "stretch",
+              color: "#414651",
+              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontSize: "12px",
+              fontStyle: "normal",
+              fontWeight: 400,
+              lineHeight: "18px",
+              position: "relative",
+            }}
+          >
+            If the "Details" option for a batch is clicked a dialog containing a list of the orders with the batch is displayed. The list contains the following information for each order:
+          </div>
+
+          {/* Batch Order Details Table */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "8px",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            {/* Table Header */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "16px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "94px",
+                  color: "#717680",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "18px",
+                  position: "relative",
+                }}
+              >
+                Key
+              </div>
+              <div
+                style={{
+                  width: "146px",
+                  color: "#717680",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "18px",
+                  position: "relative",
+                }}
+              >
+                Description
+              </div>
+            </div>
+
+            {/* Batch Order Details Rows */}
+            {[
+              { key: "Index", description: "Unique identifier for the order" },
+              { key: "Processed On", description: "When the order was processed" },
+              { key: "Order #", description: "The resulting order number, click link to access the HTML order report" },
+              { key: "First", description: "The first name of the order subject" },
+              { key: "Last", description: "The last name of the subject" },
+              { key: "SSN", description: "The masked SSN of the subject" },
+            ].map((row, index) => (
+              <div
+                key={index}
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "94px",
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "12px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "18px",
+                    position: "relative",
+                  }}
+                >
+                  {row.key}
+                </div>
+                <div
+                  style={{
+                    flex: "1 0 0",
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "12px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "18px",
+                    position: "relative",
+                  }}
+                >
+                  {row.description}
+                </div>
+              </div>
+            ))}
+
+            {/* Status Section for Orders */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "16px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "94px",
+                  color: "#414651",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "18px",
+                  position: "relative",
+                }}
+              >
+                Status
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  flex: "1 0 0",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    alignSelf: "stretch",
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "12px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "18px",
+                    position: "relative",
+                  }}
+                >
+                  There are four possible statuses:
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  {[
+                    { status: "Success", color: "#067647", bg: "#ECFDF3", border: "#ABEFC6", description: "The batch has finished processing" },
+                    { status: "Processing", color: "#175CD3", bg: "#EFF8FF", border: "#B2DDFF", description: "The batch has started processing" },
+                    { status: "Error", color: "#B42318", bg: "#FEF3F2", border: "#FECDCA", description: "The batch has stopped and will not continue until re-started by clicking \"start\" link to the right" },
+                    { status: "Failed", color: "#B54708", bg: "#FFFAEB", border: "#FEDF89", description: "The batch has stopped and will not continue until re-started by clicking \"start\" link to the right" },
+                  ].map((status, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        display: "flex",
+                        width: "242px",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "2px 8px",
+                          alignItems: "center",
+                          borderRadius: "9999px",
+                          border: `1px solid ${status.border}`,
+                          background: status.bg,
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: status.color,
+                            textAlign: "center",
+                            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontSize: "12px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "18px",
+                            position: "relative",
+                          }}
+                        >
+                          {status.status}
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          flex: "1 0 0",
+                          color: "#414651",
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontSize: "12px",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "18px",
+                          position: "relative",
+                        }}
+                      >
+                        {status.description}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Order Operations Description */}
+          <div
+            style={{
+              alignSelf: "stretch",
+              color: "#414651",
+              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontSize: "12px",
+              fontStyle: "normal",
+              fontWeight: 400,
+              lineHeight: "18px",
+              position: "relative",
+            }}
+          >
+            On the far right of each row is a list of operations currently available for the order, they are.
+          </div>
+
+          {/* Order Operations Table */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "8px",
+              alignSelf: "stretch",
+              position: "relative",
+            }}
+          >
+            {/* Table Header */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "16px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  width: "94px",
+                  color: "#717680",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "18px",
+                  position: "relative",
+                }}
+              >
+                Key
+              </div>
+              <div
+                style={{
+                  width: "146px",
+                  color: "#717680",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "12px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "18px",
+                  position: "relative",
+                }}
+              >
+                Description
+              </div>
+            </div>
+
+            {/* Order Operations */}
+            {[
+              { key: "Data", description: "Download a copy of the data related to this order" },
+              { key: "Delete", description: "This option is only available if the order is unprocessed, and the batch is in a stopped state." },
+            ].map((row, index) => (
+              <div
+                key={index}
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    width: "94px",
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "12px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "18px",
+                    position: "relative",
+                  }}
+                >
+                  {row.key}
+                </div>
+                <div
+                  style={{
+                    flex: "1 0 0",
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "12px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "18px",
+                    position: "relative",
+                  }}
+                >
+                  {row.description}
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Final Link */}
