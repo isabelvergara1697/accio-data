@@ -590,7 +590,6 @@ const QuickCourtOrder: React.FC = () => {
                     </div>
                   </div>
                 </div>
-
                 {/* Table */}
                 <div
                   style={{
