@@ -9,6 +9,7 @@ import DocumentLibrary from "./pages/DocumentLibrary";
 import Resources from "./pages/Resources";
 import InvitesAndOrders from "./pages/InvitesAndOrders";
 import QuickCourtOrder from "./pages/QuickCourtOrder";
+import QuickOrder from "./pages/QuickOrder";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
