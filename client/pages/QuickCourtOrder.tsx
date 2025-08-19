@@ -404,8 +404,10 @@ const QuickCourtOrder: React.FC = () => {
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "20px",
-                flex: "1 0 0",
-                alignSelf: "stretch",
+                width: "100%",
+                maxWidth: "100%",
+                minWidth: 0,
+                overflow: "hidden",
               }}
             >
               {/* Form Section */}
