@@ -1718,6 +1718,13 @@ const BatchOrders: React.FC = () => {
         onSubmit={handleBatchSubmit}
       />
 
+      {/* MVR Orders Batch Modal */}
+      <MVROrdersBatchModal
+        isOpen={mvrBatchModalOpen}
+        onClose={() => setMvrBatchModalOpen(false)}
+        onSubmit={handleMvrBatchSubmit}
+      />
+
       {/* Batch Ordering Details Modal */}
       <BatchOrderingDetailsModal
         isOpen={batchDetailsModalOpen}
