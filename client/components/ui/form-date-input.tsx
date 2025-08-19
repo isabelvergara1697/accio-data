@@ -174,7 +174,7 @@ export default function FormDateInput({
             borderRadius: "8px",
             border: error
               ? "1px solid #FDA29B"
-              : isFocused
+              : (isFocused || isCalendarOpen)
                 ? "2px solid #34479A"
                 : "1px solid #D5D7DA",
             background: "#FFF",
