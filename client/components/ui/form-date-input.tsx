@@ -31,7 +31,12 @@ export default function FormDateInput({
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleDateClick = () => {
-    setIsCalendarOpen(true);
+    // For now, just focus on the hidden input to trigger the browser's date picker
+    const hiddenInput = buttonRef.current?.nextElementSibling as HTMLInputElement;
+    if (hiddenInput) {
+      hiddenInput.click();
+      hiddenInput.focus();
+    }
     onFocus?.();
   };
 
@@ -41,15 +46,15 @@ export default function FormDateInput({
 
   const formatDisplayDate = (dateValue: string) => {
     if (!dateValue) return placeholder || "";
-    
+
     // If it's already in MM/DD/YY format, return as is
     if (dateValue.match(/^\d{2}\/\d{2}\/\d{2}$/)) {
       return dateValue;
     }
-    
-    // Try to parse and format other date formats
+
+    // Try to parse and format date from YYYY-MM-DD (HTML date input format) to MM/DD/YY
     try {
-      const date = new Date(dateValue);
+      const date = new Date(dateValue + 'T00:00:00'); // Add time to avoid timezone issues
       if (!isNaN(date.getTime())) {
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
@@ -59,7 +64,7 @@ export default function FormDateInput({
     } catch {
       // Fall back to original value if parsing fails
     }
-    
+
     return dateValue;
   };
 
