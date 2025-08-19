@@ -76,6 +76,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
     support: ["Document Library", "Resources"],
   };
 
+  // Define which menu items are disabled (don't have content yet)
+  const disabledMenuItems = [
+    "Online Ordering",
+    "I-9 Order",
+    "Auto-Screening",
+    "Adverse Letters",
+    "Bulk Report Export",
+    "CSV Reports",
+    "Turn Around Time Reports",
+    "Billing Reports"
+  ];
+
   const NavIcon = ({
     section,
     isOpen,
