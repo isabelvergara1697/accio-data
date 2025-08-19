@@ -1668,6 +1668,12 @@ const BatchOrders: React.FC = () => {
         onSubmit={handleBatchSubmit}
       />
 
+      {/* Batch Ordering Details Modal */}
+      <BatchOrderingDetailsModal
+        isOpen={batchDetailsModalOpen}
+        onClose={() => setBatchDetailsModalOpen(false)}
+      />
+
       {/* Spinning animation for loading icon */}
       <style>
         {`
