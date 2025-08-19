@@ -5,6 +5,7 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import BatchOrderingHelpModal from "../components/BatchOrderingHelpModal";
 import StandardOrdersBatchModal from "../components/StandardOrdersBatchModal";
+import BatchOrderingDetailsModal from "../components/BatchOrderingDetailsModal";
 
 const BatchOrders: React.FC = () => {
   const navigate = useNavigate();
