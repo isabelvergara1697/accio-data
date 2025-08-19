@@ -257,9 +257,9 @@ export default function FormDateInput({
           isOpen={isCalendarOpen}
           onClose={handleCalendarClose}
           triggerRef={buttonRef}
-          selectedStartDate={selectedDate}
-          selectedEndDate={selectedDate}
-          onDateRangeChange={handleDateSelect}
+          selectedStartDate={selectedDate || new Date()}
+          selectedEndDate={selectedDate || new Date()}
+          onDateChange={handleDateSelect}
         />
       )}
       {isCalendarOpen && !isDesktop && !isTablet && (
@@ -267,9 +267,9 @@ export default function FormDateInput({
           isOpen={isCalendarOpen}
           onClose={handleCalendarClose}
           triggerRef={buttonRef}
-          selectedStartDate={selectedDate}
-          selectedEndDate={selectedDate}
-          onDateRangeChange={handleDateSelect}
+          selectedStartDate={selectedDate || new Date()}
+          selectedEndDate={selectedDate || new Date()}
+          onDateChange={handleDateSelect}
         />
       )}
     </div>
