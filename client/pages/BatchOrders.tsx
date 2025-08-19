@@ -14,6 +14,7 @@ const BatchOrders: React.FC = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   const [activeTab, setActiveTab] = useState<"standard" | "mvr">("standard");
 
   useEffect(() => {
