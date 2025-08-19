@@ -87,6 +87,24 @@ const QuickOrder: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Close package dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (packageDropdownOpen && target && !target.closest('[data-package-dropdown-container]')) {
+        setPackageDropdownOpen(false);
+      }
+    };
+
+    if (packageDropdownOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [packageDropdownOpen]);
+
   const handleSignOut = () => {
     console.log("Sign out");
   };
