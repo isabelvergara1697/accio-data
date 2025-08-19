@@ -482,8 +482,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         (currentPage === "quick-court-order" &&
                           item === "Quick Court Order") ||
                         (currentPage === "batch-orders" &&
-                          item === "Batch Orders")
+                          item === "Batch Orders") ||
+                        (currentPage === "quick-order" &&
+                          item === "Quick Order")
                       ) &&
+                      !disabledMenuItems.includes(item) &&
                       setHoveredItem(
                         `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
                       )
