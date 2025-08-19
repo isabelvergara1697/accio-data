@@ -299,11 +299,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
               borderRadius: "6px",
               background: isActive ? "#ECEEF9" : "#FFF",
               position: "relative",
-              cursor: hasChevron ? "pointer" : "default",
-              ...(!isActive ? getHoverStyles(section) : {}),
+              cursor: isDisabled ? "not-allowed" : hasChevron ? "pointer" : "default",
+              opacity: isDisabled ? 0.5 : 1,
+              ...(!isActive && !isDisabled ? getHoverStyles(section) : {}),
             }}
-            onClick={onClick}
-            onMouseEnter={() => !isActive && setHoveredItem(section)}
+            onClick={isDisabled ? undefined : onClick}
+            onMouseEnter={() => !isActive && !isDisabled && setHoveredItem(section)}
             onMouseLeave={() => setHoveredItem(null)}
           >
             <div
