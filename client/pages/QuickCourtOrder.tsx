@@ -1892,11 +1892,6 @@ const QuickCourtOrder: React.FC = () => {
         </div>
       </main>
 
-      {/* Loading Screen */}
-      <QuickCourtOrderLoading
-        isVisible={isLoading}
-        onClose={() => setIsLoading(false)}
-      />
     </div>
   );
 };
