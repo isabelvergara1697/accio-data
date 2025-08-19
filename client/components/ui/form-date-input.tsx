@@ -177,7 +177,7 @@ export default function FormDateInput({
               : (isFocused || isCalendarOpen)
                 ? "2px solid #34479A"
                 : "1px solid #D5D7DA",
-            background: "#FFF",
+            background: isCalendarOpen ? "#ECEEF9" : "#FFF",
             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
             cursor: "pointer",
             outline: "none",
