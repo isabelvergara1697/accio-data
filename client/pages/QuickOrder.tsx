@@ -1671,6 +1671,303 @@ const QuickOrder: React.FC = () => {
                             </div>
                           ))}
                         </div>
+
+                        {/* Billing Identifier 1 Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "100px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flexShrink: 0,
+                          }}
+                        >
+                          {/* Billing Identifier 1 Column Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 700,
+                                    fontSize: "12px",
+                                    color: "rgba(113,118,128,1)",
+                                  }}
+                                >
+                                  Billing Identifier 1
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Billing Identifier 1 Column Rows */}
+                          {subjects.map((subject, index) => (
+                            <div
+                              key={`billingIdentifier1-${subject.id}`}
+                              style={{
+                                display: "flex",
+                                height: "52px",
+                                padding: "12px 6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom:
+                                  index < subjects.length - 1
+                                    ? "1px solid #E9EAEB"
+                                    : "none",
+                              }}
+                            >
+                              <FormInput
+                                label=""
+                                value={subject.billingIdentifier1}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "billingIdentifier1",
+                                    e.target.value,
+                                  )
+                                }
+                                onFocus={() =>
+                                  setFocusedInput(`billingIdentifier1-${subject.id}`)
+                                }
+                                onBlur={() => setFocusedInput(null)}
+                                isFocused={
+                                  focusedInput === `billingIdentifier1-${subject.id}`
+                                }
+                                placeholder=""
+                                style={{
+                                  width: "100%",
+                                  gap: "0px",
+                                  justifyContent: "center",
+                                }}
+                              />
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Billing Identifier 2 Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "100px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flexShrink: 0,
+                          }}
+                        >
+                          {/* Billing Identifier 2 Column Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 700,
+                                    fontSize: "12px",
+                                    color: "rgba(113,118,128,1)",
+                                  }}
+                                >
+                                  Billing Identifier 2
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Billing Identifier 2 Column Rows */}
+                          {subjects.map((subject, index) => (
+                            <div
+                              key={`billingIdentifier2-${subject.id}`}
+                              style={{
+                                display: "flex",
+                                height: "52px",
+                                padding: "12px 6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom:
+                                  index < subjects.length - 1
+                                    ? "1px solid #E9EAEB"
+                                    : "none",
+                              }}
+                            >
+                              <FormInput
+                                label=""
+                                value={subject.billingIdentifier2}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "billingIdentifier2",
+                                    e.target.value,
+                                  )
+                                }
+                                onFocus={() =>
+                                  setFocusedInput(`billingIdentifier2-${subject.id}`)
+                                }
+                                onBlur={() => setFocusedInput(null)}
+                                isFocused={
+                                  focusedInput === `billingIdentifier2-${subject.id}`
+                                }
+                                placeholder=""
+                                style={{
+                                  width: "100%",
+                                  gap: "0px",
+                                  justifyContent: "center",
+                                }}
+                              />
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Billing Identifier 3 Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "100px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flexShrink: 0,
+                          }}
+                        >
+                          {/* Billing Identifier 3 Column Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 700,
+                                    fontSize: "12px",
+                                    color: "rgba(113,118,128,1)",
+                                  }}
+                                >
+                                  Billing Identifier 3
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Billing Identifier 3 Column Rows */}
+                          {subjects.map((subject, index) => (
+                            <div
+                              key={`billingIdentifier3-${subject.id}`}
+                              style={{
+                                display: "flex",
+                                height: "52px",
+                                padding: "12px 6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom:
+                                  index < subjects.length - 1
+                                    ? "1px solid #E9EAEB"
+                                    : "none",
+                              }}
+                            >
+                              <FormInput
+                                label=""
+                                value={subject.billingIdentifier3}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "billingIdentifier3",
+                                    e.target.value,
+                                  )
+                                }
+                                onFocus={() =>
+                                  setFocusedInput(`billingIdentifier3-${subject.id}`)
+                                }
+                                onBlur={() => setFocusedInput(null)}
+                                isFocused={
+                                  focusedInput === `billingIdentifier3-${subject.id}`
+                                }
+                                placeholder=""
+                                style={{
+                                  width: "100%",
+                                  gap: "0px",
+                                  justifyContent: "center",
+                                }}
+                              />
+                            </div>
+                          ))}
+                        </div>
                       </div>
 
                       {/* Divider */}
