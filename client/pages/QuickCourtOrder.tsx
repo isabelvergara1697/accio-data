@@ -1522,7 +1522,7 @@ const QuickCourtOrder: React.FC = () => {
                                 isFocused={
                                   focusedInput === `dateOfBirth-${subject.id}`
                                 }
-                                placeholder=""
+                                placeholder={index === 0 ? "01/32/90" : ""}
                                 style={{
                                   width: "100%",
                                   gap: "0px",
