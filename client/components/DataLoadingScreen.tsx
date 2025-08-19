@@ -372,7 +372,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
               position: "relative",
             }}
           >
-            {/* Admin Input Field */}
+            {/* Admin Input field */}
             <div
               style={{
                 display: "flex",
@@ -483,7 +483,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
                 </div>
               </div>
             </div>
-            {/* User Input Field */}
+            {/* User Input field */}
             <div
               style={{
                 display: "flex",
