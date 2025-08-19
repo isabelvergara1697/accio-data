@@ -62,6 +62,23 @@ const QuickCourtOrder: React.FC = () => {
   // Focus state for inputs
   const [focusedInput, setFocusedInput] = useState<string | null>(null);
 
+  // Submit Order For dropdown state
+  const [submitOrderForDropdownOpen, setSubmitOrderForDropdownOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<string>("");
+
+  // Validation state
+  const [validationErrors, setValidationErrors] = useState<Record<string, string[]>>({});
+  const [showValidationBadge, setShowValidationBadge] = useState(false);
+
+  // Mock users data
+  const mockUsers = [
+    { id: "user1", name: "John Smith", email: "john.smith@company.com" },
+    { id: "user2", name: "Sarah Johnson", email: "sarah.johnson@company.com" },
+    { id: "user3", name: "Michael Brown", email: "michael.brown@company.com" },
+    { id: "user4", name: "Emily Davis", email: "emily.davis@company.com" },
+    { id: "user5", name: "David Wilson", email: "david.wilson@company.com" }
+  ];
+
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -132,8 +149,60 @@ const QuickCourtOrder: React.FC = () => {
     setSubjects((prev) => [...prev, ...newSubjects]);
   };
 
+  const validateFormData = () => {
+    const errors: Record<string, string[]> = {};
+    let hasActiveRow = false;
+
+    subjects.forEach((subject, index) => {
+      const fieldErrors: string[] = [];
+      const rowHasData = Object.entries(subject).some(([key, value]) => {
+        if (key === 'id' || key === 'search') return false;
+        return value && value.trim() !== '';
+      });
+
+      if (rowHasData) {
+        hasActiveRow = true;
+        // Check required fields for rows that have data
+        if (!subject.firstName.trim()) fieldErrors.push('firstName');
+        if (!subject.lastName.trim()) fieldErrors.push('lastName');
+        if (!subject.state.trim()) fieldErrors.push('state');
+        if (!subject.county.trim()) fieldErrors.push('county');
+        if (!subject.dateOfBirth.trim()) fieldErrors.push('dateOfBirth');
+
+        if (fieldErrors.length > 0) {
+          errors[subject.id] = fieldErrors;
+        }
+      }
+    });
+
+    return { errors, hasActiveRow };
+  };
+
   const handleSubmit = () => {
+    const { errors, hasActiveRow } = validateFormData();
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      setShowValidationBadge(true);
+      // Auto hide badge after 10 seconds
+      setTimeout(() => {
+        setShowValidationBadge(false);
+      }, 10000);
+      return;
+    }
+
+    if (!hasActiveRow) {
+      // No data entered, show a different validation message
+      alert('Please enter at least one subject\'s information before submitting.');
+      return;
+    }
+
+    // Clear any previous validation errors
+    setValidationErrors({});
+    setShowValidationBadge(false);
+
     console.log("Submitting court order with subjects:", subjects);
+    console.log("Selected user for submission:", selectedUser);
     setIsLoading(true);
 
     // Simulate processing time - replace with actual API call
@@ -141,6 +210,16 @@ const QuickCourtOrder: React.FC = () => {
       setIsLoading(false);
       setShowConfirmation(true);
     }, 5000);
+  };
+
+  const getFieldError = (subjectId: string, fieldName: string): string | undefined => {
+    const errors = validationErrors[subjectId];
+    return errors && errors.includes(fieldName) ? "This field is required" : undefined;
+  };
+
+  const hasFieldError = (subjectId: string, fieldName: string): boolean => {
+    const errors = validationErrors[subjectId];
+    return !!(errors && errors.includes(fieldName));
   };
 
   const handleSeeAllOrders = () => {
@@ -567,20 +646,26 @@ const QuickCourtOrder: React.FC = () => {
                               alignItems: "center",
                               gap: "4px",
                               borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
-                              background: "#FFF",
+                              border: submitOrderForDropdownOpen ? "2px solid #34479A" : "1px solid #D5D7DA",
+                              background: submitOrderForDropdownOpen ? "#F9FAFB" : "#FFF",
                               boxShadow:
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               transition: "all 0.2s ease",
+                              position: "relative",
                             }}
+                            onClick={() => setSubmitOrderForDropdownOpen(!submitOrderForDropdownOpen)}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.background = "#F9FAFB";
-                              e.currentTarget.style.borderColor = "#98A2B3";
+                              if (!submitOrderForDropdownOpen) {
+                                e.currentTarget.style.background = "#F9FAFB";
+                                e.currentTarget.style.borderColor = "#98A2B3";
+                              }
                             }}
                             onMouseLeave={(e) => {
-                              e.currentTarget.style.background = "#FFF";
-                              e.currentTarget.style.borderColor = "#D5D7DA";
+                              if (!submitOrderForDropdownOpen) {
+                                e.currentTarget.style.background = "#FFF";
+                                e.currentTarget.style.borderColor = "#D5D7DA";
+                              }
                             }}
                           >
                             <div
@@ -604,11 +689,19 @@ const QuickCourtOrder: React.FC = () => {
                                     "var(--Line-height-text-sm, 20px)",
                                 }}
                               >
-                                Submit Order For: Select User
+                                {selectedUser ?
+                                  mockUsers.find(u => u.id === selectedUser)?.name || "Select User" :
+                                  "Submit Order For: Select User"
+                                }
                               </div>
                             </div>
                             <svg
-                              style={{ width: "16px", height: "16px" }}
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                transform: submitOrderForDropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                                transition: "transform 0.2s ease"
+                              }}
                               width="16"
                               height="16"
                               viewBox="0 0 16 16"
@@ -623,6 +716,124 @@ const QuickCourtOrder: React.FC = () => {
                                 strokeLinejoin="round"
                               />
                             </svg>
+
+                            {/* Dropdown Options */}
+                            {submitOrderForDropdownOpen && (
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  top: "100%",
+                                  left: 0,
+                                  right: 0,
+                                  marginTop: "4px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow:
+                                    "0px 4px 8px -2px rgba(10, 13, 18, 0.10), 0px 2px 4px -2px rgba(10, 13, 18, 0.06)",
+                                  zIndex: 1000,
+                                  maxHeight: "256px",
+                                  overflowY: "auto",
+                                  minWidth: "300px",
+                                }}
+                              >
+                                <div style={{ padding: "4px 0" }}>
+                                  {mockUsers.map((user) => {
+                                    const isSelected = user.id === selectedUser;
+                                    return (
+                                      <div
+                                        key={user.id}
+                                        style={{
+                                          padding: "1px 6px",
+                                          cursor: "pointer",
+                                        }}
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setSelectedUser(user.id);
+                                          setSubmitOrderForDropdownOpen(false);
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            padding: "8px 10px 8px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            borderRadius: "6px",
+                                            background: isSelected ? "#F5F5F5" : "transparent",
+                                            transition: "background 0.2s ease",
+                                          }}
+                                          onMouseEnter={(e) => {
+                                            if (!isSelected) {
+                                              e.currentTarget.style.background = "#F5F5F5";
+                                            }
+                                          }}
+                                          onMouseLeave={(e) => {
+                                            if (!isSelected) {
+                                              e.currentTarget.style.background = "transparent";
+                                            }
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              flexDirection: "column",
+                                              alignItems: "flex-start",
+                                              gap: "2px",
+                                              flex: "1 0 0",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                color: "#181D27",
+                                                fontFamily:
+                                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontSize: "14px",
+                                                fontStyle: "normal",
+                                                fontWeight: isSelected ? 600 : 400,
+                                                lineHeight: "20px",
+                                              }}
+                                            >
+                                              {user.name}
+                                            </div>
+                                            <div
+                                              style={{
+                                                color: "#717680",
+                                                fontFamily:
+                                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontSize: "12px",
+                                                fontStyle: "normal",
+                                                fontWeight: 400,
+                                                lineHeight: "18px",
+                                              }}
+                                            >
+                                              {user.email}
+                                            </div>
+                                          </div>
+                                          {isSelected && (
+                                            <svg
+                                              width="16"
+                                              height="16"
+                                              viewBox="0 0 16 16"
+                                              fill="none"
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <path
+                                                d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                                                stroke="#344698"
+                                                strokeWidth="1.33333"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                              />
+                                            </svg>
+                                          )}
+                                        </div>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
