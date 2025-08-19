@@ -20,6 +20,8 @@ const BatchOrders: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"standard" | "mvr">("standard");
   const [helpModalOpen, setHelpModalOpen] = useState(false);
   const [standardBatchModalOpen, setStandardBatchModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(20);
 
   useEffect(() => {
     const handleResize = () => {
