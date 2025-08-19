@@ -294,10 +294,9 @@ const QuickOrder: React.FC = () => {
                 county: previousSubject.county,
                 dlNumber: previousSubject.dlNumber,
                 mvrType: previousSubject.mvrType,
-                dateOfBirth: previousSubject.dateOfBirth,
                 socialSecurityTrace: previousSubject.socialSecurityTrace,
-                yearsIn: previousSubject.yearsIn,
-                comments: previousSubject.comments,
+                gender: previousSubject.gender,
+                dateOfBirth: previousSubject.dateOfBirth,
               }
             : subject,
         ),
