@@ -1338,7 +1338,6 @@ const BatchOrders: React.FC = () => {
                           ))}
 
 
-                          {/* Uploaded On Column */}
                           <div
                             style={{
                               display: "flex",
