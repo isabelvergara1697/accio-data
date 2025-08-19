@@ -898,8 +898,9 @@ const I9Order: React.FC = () => {
                                 Select the correct person from the list of persons
                               </span>
                             </div>
-                            {/* Search Input */}
+                            {/* Search Input Container */}
                             <div
+                              data-search-container
                               style={{
                                 display: "flex",
                                 width: "100%",
@@ -907,6 +908,7 @@ const I9Order: React.FC = () => {
                                 flexDirection: "column",
                                 alignItems: "flex-start",
                                 gap: "6px",
+                                position: "relative",
                               }}
                             >
                               <div
@@ -963,7 +965,7 @@ const I9Order: React.FC = () => {
                                       type="text"
                                       placeholder="Search"
                                       value={searchQuery}
-                                      onChange={(e) => setSearchQuery(e.target.value)}
+                                      onChange={(e) => handleSearchChange(e.target.value)}
                                       style={{
                                         display: "flex",
                                         height: "20px",
@@ -983,6 +985,92 @@ const I9Order: React.FC = () => {
                                   </div>
                                 </div>
                               </div>
+
+                              {/* Search Results Dropdown */}
+                              {showSearchDropdown && searchResults.length > 0 && (
+                                <div
+                                  style={{
+                                    position: "absolute",
+                                    top: "46px",
+                                    left: "0",
+                                    width: "100%",
+                                    maxHeight: "200px",
+                                    overflowY: "auto",
+                                    backgroundColor: "#FFF",
+                                    border: "1px solid #E9EAEB",
+                                    borderRadius: "8px",
+                                    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                                    zIndex: 1000,
+                                  }}
+                                >
+                                  {/* Search Header */}
+                                  <div
+                                    style={{
+                                      padding: "8px 12px",
+                                      borderBottom: "1px solid #E9EAEB",
+                                      backgroundColor: "#F9FAFB",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#374151",
+                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "12px",
+                                        fontWeight: 600,
+                                        lineHeight: "16px",
+                                      }}
+                                    >
+                                      Background Checked Individuals ({searchResults.length})
+                                    </div>
+                                  </div>
+
+                                  {/* Search Results */}
+                                  <div style={{ padding: "4px 0" }}>
+                                    {searchResults.map((person) => (
+                                      <div
+                                        key={person.id}
+                                        onClick={() => handleSelectPerson(person)}
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          padding: "8px 12px",
+                                          cursor: "pointer",
+                                          borderBottom: "1px solid #F3F4F6",
+                                        }}
+                                        onMouseEnter={(e) => {
+                                          e.currentTarget.style.backgroundColor = "#F9FAFB";
+                                        }}
+                                        onMouseLeave={(e) => {
+                                          e.currentTarget.style.backgroundColor = "transparent";
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#111827",
+                                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          {person.firstName} {person.lastName}
+                                        </div>
+                                        <div
+                                          style={{
+                                            color: "#6B7280",
+                                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "12px",
+                                            fontWeight: 400,
+                                            lineHeight: "16px",
+                                          }}
+                                        >
+                                          {person.email}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </div>
