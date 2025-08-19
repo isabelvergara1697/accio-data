@@ -1041,7 +1041,8 @@ const BatchOrders: React.FC = () => {
                               flexDirection: "column",
                               alignItems: "center",
                               gap: "8px",
-                              alignSelf: "stretch",
+                              width: "100%",
+                              maxWidth: "600px",
                               position: "relative",
                             }}
                           >
