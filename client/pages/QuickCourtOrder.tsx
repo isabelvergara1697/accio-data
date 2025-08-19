@@ -477,24 +477,15 @@ const QuickCourtOrder: React.FC = () => {
                       >
                         <div
                           style={{
-                            color: "#181D27",
-                            fontFamily: "'Public Sans'",
-                            fontSize: "18px",
+                            color: "var(--colors-text-text-primary-900, #181D27)",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-lg, 18px)",
                             fontStyle: "normal",
                             fontWeight: 600,
-                            lineHeight: "28px",
+                            lineHeight: "var(--Line-height-text-lg, 28px)",
                           }}
                         >
-                          <span
-                            style={{
-                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                              fontWeight: 700,
-                              fontSize: "18px",
-                              color: "rgba(24,29,39,1)",
-                            }}
-                          >
-                            Create Quick Court Order
-                          </span>
+                          Create Quick Court Order
                         </div>
                       </div>
                     </div>
@@ -593,6 +584,8 @@ const QuickCourtOrder: React.FC = () => {
                 style={{
                   overflowX: "auto",
                   alignSelf: "stretch",
+                  width: "100%",
+                  minWidth: "0",
                 }}
               >
                 <Table>
