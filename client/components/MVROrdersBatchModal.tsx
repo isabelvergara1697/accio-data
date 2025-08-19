@@ -893,16 +893,66 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
             >
               <div
                 style={{
-                  color: "#414651",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "2px",
                   position: "relative",
                 }}
               >
-                Notifications
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  Notifications Upon Completion To
+                </div>
+                <div
+                  style={{
+                    color: "#344698",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  *
+                </div>
+                <svg
+                  style={{
+                    width: "16px",
+                    height: "16px",
+                    marginLeft: "4px",
+                    position: "relative",
+                  }}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#clip0_6134_109899)">
+                    <path
+                      d="M6.06016 6.00016C6.2169 5.55461 6.52626 5.1789 6.93347 4.93958C7.34067 4.70027 7.81943 4.61279 8.28495 4.69264C8.75047 4.77249 9.17271 5.01451 9.47688 5.37585C9.78106 5.73718 9.94753 6.19451 9.94683 6.66683C9.94683 8.00016 7.94683 8.66683 7.94683 8.66683M8.00016 11.3335H8.00683M14.6668 8.00016C14.6668 11.6821 11.6821 14.6668 8.00016 14.6668C4.31826 14.6668 1.3335 11.6821 1.3335 8.00016C1.3335 4.31826 4.31826 1.3335 8.00016 1.3335C11.6821 1.3335 14.6668 4.31826 14.6668 8.00016Z"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.33333"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_6134_109899">
+                      <rect width="16" height="16" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
               </div>
               <div
                 style={{
@@ -922,17 +972,27 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
               >
                 <div
                   style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
                     flex: "1 0 0",
-                    color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "16px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "24px",
                     position: "relative",
                   }}
                 >
-                  {notificationSelection}
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#181D27",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "24px",
+                      position: "relative",
+                    }}
+                  >
+                    {notificationSelection}
+                  </div>
                 </div>
                 <svg
                   style={{
@@ -973,11 +1033,12 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                     boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
                   }}
                 >
-                  {["Uploading User", "Ordering User", "No Notification"].map((option) => (
+                  {NOTIFICATION_OPTIONS.map((option) => (
                     <div
                       key={option}
                       onClick={() => {
                         setNotificationSelection(option);
+                        setShowCustomEmail(option === "Custom");
                         setNotificationDropdownOpen(false);
                       }}
                       style={{
@@ -1002,6 +1063,100 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 </div>
               )}
             </div>
+
+            {/* Custom User Email - Only show when Custom is selected */}
+            {showCustomEmail && (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "2px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#414651",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    Custom User Email
+                  </div>
+                  <div
+                    style={{
+                      color: "#344698",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    *
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "10px 14px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      flex: "1 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 1,
+                        flex: "1 0 0",
+                        overflow: "hidden",
+                        color: "#181D27",
+                        textOverflow: "ellipsis",
+                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "16px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                        position: "relative",
+                      }}
+                    >
+                      {customUserEmail}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* File Upload Section */}
             <div
