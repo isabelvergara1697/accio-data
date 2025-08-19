@@ -29,7 +29,9 @@ export default function FormDateInput({
   className,
 }: FormDateInputProps) {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const calendarButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleDateClick = () => {
     setIsCalendarOpen(!isCalendarOpen);
