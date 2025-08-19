@@ -1366,32 +1366,6 @@ const BatchOrders: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontSize: "12px",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
-                                  position: "relative",
-                                }}
-                              >
-                                Status
-                              </div>
-                            </div>
                             {[
                               { status: "Success", color: "Green" },
                               { status: "Processing", color: "Blue" },
