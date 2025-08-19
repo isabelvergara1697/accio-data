@@ -771,7 +771,6 @@ const QuickCourtOrder: React.FC = () => {
                                 index < subjects.length - 1
                                   ? "1px solid #E9EAEB"
                                   : "none",
-                              borderLeft: "1px solid #E9EAEB",
                             }}
                           >
                             {index > 0 && (
