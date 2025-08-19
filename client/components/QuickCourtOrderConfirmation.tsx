@@ -13,37 +13,31 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
   const isMobile = useIsMobile();
   const isTablet = !isMobile && window.innerWidth < 1024;
 
-  // Order data
+  // Order data - Court orders have different fields than MVR
   const orders = [
     {
       id: 1,
-      type: "CSD Standard",
+      type: "County Criminal",
       order: "849235",
       name: "Sandra Lopez",
       dl: "129503923",
-      dlState: "TX",
-      socialSecurityTrace: "365-125-012",
-      mvrType: "Standard",
+      state: "TX",
+      county: "AK",
       dob: "01/02/23",
-      gender: "F",
-      billingIdentifier1: "XXXXX",
-      billingIdentifier2: "XXXXX",
-      billingIdentifier3: "XXXXX",
+      yearsToSearch: "00",
+      comments: "I need more information on this, that, and that.",
     },
     {
       id: 2,
-      type: "CSD Standard",
+      type: "County Criminal",
       order: "849235",
       name: "Sandra Lopez",
       dl: "129503923",
-      dlState: "TX",
-      socialSecurityTrace: "365-125-012",
-      mvrType: "Standard",
+      state: "TX",
+      county: "AK",
       dob: "01/02/23",
-      gender: "F",
-      billingIdentifier1: "XXXXX",
-      billingIdentifier2: "XXXXX",
-      billingIdentifier3: "XXXXX",
+      yearsToSearch: "00",
+      comments: "I need more information on this, that, and that.",
     },
   ];
 
@@ -68,7 +62,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-start",
-            gap: "20px",
+            gap: index === 0 ? "20px" : "16px",
             alignSelf: "stretch",
           }}
         >
@@ -78,7 +72,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "flex-start",
-              gap: "16px",
+              gap: index === 0 ? "16px" : "8px",
               alignSelf: "stretch",
             }}
           >
@@ -156,11 +150,9 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
             <div
               style={{
                 display: "flex",
+                justifyContent: "space-between",
                 alignItems: "center",
-                alignContent: "center",
-                gap: "8px 24px",
                 alignSelf: "stretch",
-                flexWrap: "wrap",
               }}
             >
               {/* Order */}
@@ -271,7 +263,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 </div>
               </div>
 
-              {/* DL State */}
+              {/* State */}
               <div
                 style={{
                   display: "flex",
@@ -291,7 +283,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                     lineHeight: "20px",
                   }}
                 >
-                  DL State
+                  State
                 </div>
                 <div
                   style={{
@@ -303,11 +295,11 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                     lineHeight: "20px",
                   }}
                 >
-                  {order.dlState}
+                  {order.state}
                 </div>
               </div>
 
-              {/* Social Security Trace */}
+              {/* County */}
               <div
                 style={{
                   display: "flex",
@@ -327,7 +319,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                     lineHeight: "20px",
                   }}
                 >
-                  Social Security Trace
+                  County
                 </div>
                 <div
                   style={{
@@ -339,43 +331,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                     lineHeight: "20px",
                   }}
                 >
-                  {order.socialSecurityTrace}
-                </div>
-              </div>
-
-              {/* MVR Type */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "flex-start",
-                  gap: "4px",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "20px",
-                  }}
-                >
-                  MVR Type
-                </div>
-                <div
-                  style={{
-                    color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "20px",
-                  }}
-                >
-                  {order.mvrType}
+                  {order.county}
                 </div>
               </div>
 
@@ -415,7 +371,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 </div>
               </div>
 
-              {/* Gender */}
+              {/* Years to Search */}
               <div
                 style={{
                   display: "flex",
@@ -435,7 +391,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                     lineHeight: "20px",
                   }}
                 >
-                  Gender
+                  Years to Search
                 </div>
                 <div
                   style={{
@@ -447,118 +403,57 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                     lineHeight: "20px",
                   }}
                 >
-                  {order.gender}
-                </div>
-              </div>
-
-              {/* Billing Identifier 1 */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "flex-start",
-                  gap: "4px",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "20px",
-                  }}
-                >
-                  Billing Identifier 1
-                </div>
-                <div
-                  style={{
-                    color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "20px",
-                  }}
-                >
-                  {order.billingIdentifier1}
-                </div>
-              </div>
-
-              {/* Billing Identifier 2 */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "flex-start",
-                  gap: "4px",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "20px",
-                  }}
-                >
-                  Billing Identifier 2
-                </div>
-                <div
-                  style={{
-                    color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "20px",
-                  }}
-                >
-                  {order.billingIdentifier2}
-                </div>
-              </div>
-
-              {/* Billing Identifier 3 */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "flex-start",
-                  gap: "4px",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "20px",
-                  }}
-                >
-                  Billing Identifier 3
-                </div>
-                <div
-                  style={{
-                    color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "20px",
-                  }}
-                >
-                  {order.billingIdentifier3}
+                  {order.yearsToSearch}
                 </div>
               </div>
             </div>
+
+            {/* Comments Row - Only in first order */}
+            {index === 0 && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "flex-start",
+                    gap: "4px",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#414651",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Comments
+                  </div>
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    {order.comments}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -652,7 +547,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                       position: "relative",
                     }}
                   >
-                    Create MVR Order
+                    Create Quick Court Order
                   </div>
                 </div>
               </div>
@@ -909,7 +804,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                     position: "relative",
                   }}
                 >
-                  New MVR Order
+                  New Quick Court Order
                 </div>
               </div>
             </button>
