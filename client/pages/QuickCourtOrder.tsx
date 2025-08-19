@@ -319,9 +319,11 @@ const QuickCourtOrder: React.FC = () => {
                       alignSelf: "stretch",
                     }}
                   >
-                    {/* Title - Exact Figma styling */}
-                    <div
+                    {/* Title - Exact Figma styling with proper positioning */}
+                    <h1
                       style={{
+                        margin: 0,
+                        padding: 0,
                         alignSelf: "stretch",
                         color: "#181D27",
                         fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
@@ -329,11 +331,13 @@ const QuickCourtOrder: React.FC = () => {
                         fontStyle: "normal",
                         fontWeight: 600,
                         lineHeight: "32px",
+                        position: "relative",
+                        zIndex: 1,
                       }}
                     >
                       Quick Court Order
-                    </div>
-                    {/* Supporting text - Exact Figma styling and color */}
+                    </h1>
+                    {/* Supporting text - Exact Figma styling and color with proper positioning */}
                     <div
                       style={{
                         alignSelf: "stretch",
@@ -343,6 +347,8 @@ const QuickCourtOrder: React.FC = () => {
                         fontStyle: "normal",
                         fontWeight: 400,
                         lineHeight: "24px",
+                        position: "relative",
+                        zIndex: 1,
                       }}
                     >
                       Enter subject details to create a court order. Add multiple rows as needed.{" "}
