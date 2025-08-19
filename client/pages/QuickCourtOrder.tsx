@@ -658,92 +658,40 @@ const QuickCourtOrder: React.FC = () => {
                                   : "none",
                             }}
                           >
-                            <div
+                            <FormSelect
+                              label=""
+                              value={subject.search}
+                              onChange={(value) =>
+                                handleSubjectChange(subject.id, "search", value)
+                              }
+                              options={[
+                                {
+                                  value: "County Criminal",
+                                  label: "County Criminal",
+                                },
+                                {
+                                  value: "County Civil Lower",
+                                  label: "County Civil Lower",
+                                },
+                                {
+                                  value: "County Civil Upper",
+                                  label: "County Civil Upper",
+                                },
+                                {
+                                  value: "Federal Criminal",
+                                  label: "Federal Criminal",
+                                },
+                                {
+                                  value: "Statewide Criminal",
+                                  label: "Statewide Criminal",
+                                },
+                              ]}
+                              placeholder="Select search type"
                               style={{
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "center",
-                                alignItems: "flex-start",
-                                gap: "6px",
                                 flex: "1 0 0",
                                 alignSelf: "stretch",
                               }}
-                            >
-                              <div
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  alignItems: "flex-start",
-                                  gap: "6px",
-                                  alignSelf: "stretch",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    height: "32px",
-                                    padding: "6px 8px",
-                                    alignItems: "center",
-                                    gap: "8px",
-                                    alignSelf: "stretch",
-                                    borderRadius: "8px",
-                                    border: "1px solid #D5D7DA",
-                                    background: "#FFF",
-                                    boxShadow:
-                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      alignItems: "center",
-                                      gap: "8px",
-                                      flex: "1 0 0",
-                                    }}
-                                  >
-                                    <div
-                                      style={{
-                                        flex: "1 0 0",
-                                        color: "#181D27",
-                                        fontFamily: "'Public Sans'",
-                                        fontSize: "14px",
-                                        fontStyle: "normal",
-                                        fontWeight: 500,
-                                        lineHeight: "20px",
-                                      }}
-                                    >
-                                      <span
-                                        style={{
-                                          fontFamily:
-                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                          fontWeight: 400,
-                                          fontSize: "14px",
-                                          color: "rgba(24,29,39,1)",
-                                        }}
-                                      >
-                                        County Criminal
-                                      </span>
-                                    </div>
-                                  </div>
-                                  <svg
-                                    style={{ width: "16px", height: "16px" }}
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M4 6L8 10L12 6"
-                                      stroke="#A4A7AE"
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </div>
-                              </div>
-                            </div>
+                            />
                           </div>
                         ))}
                       </div>
