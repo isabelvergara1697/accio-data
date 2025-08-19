@@ -253,118 +253,69 @@ const QuickCourtOrder: React.FC = () => {
           />
         )}
 
-        {/* Main - Exact Figma structure */}
+        {/* Page Content - Clean structure */}
         <div
           style={{
-            display: "flex",
+            flex: 1,
+            paddingTop: showNotification && isDesktop ? "84px" : isDesktop ? "32px" : "16px",
             paddingBottom: "24px",
-            paddingTop: showNotification && isDesktop ? "84px" : "0",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "32px",
-            flex: "1 0 0",
-            alignSelf: "stretch",
           }}
         >
-          {/* Header section - Figma structure */}
+          {/* Page Title Section - From scratch based on Figma */}
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "24px",
-              alignSelf: "stretch",
+              padding: isDesktop ? "0 32px" : "0 20px",
+              marginBottom: "32px",
             }}
           >
-            {/* Container - Figma padding: 0 32px */}
-            <div
+            {/* Title - Exact Figma specifications */}
+            <h1
               style={{
-                display: "flex",
-                padding: isDesktop ? "0 32px" : "0 20px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "20px",
+                margin: 0,
+                padding: 0,
                 alignSelf: "stretch",
+                color: "#181D27",
+                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontSize: "24px",
+                fontStyle: "normal",
+                fontWeight: 600,
+                lineHeight: "32px",
+                marginBottom: "4px",
               }}
             >
-              {/* Page header - Figma gap: 16px */}
-              <div
+              Quick Court Order
+            </h1>
+
+            {/* Supporting text - Exact Figma specifications */}
+            <div
+              style={{
+                margin: 0,
+                padding: 0,
+                alignSelf: "stretch",
+                color: "#535862",
+                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontSize: "16px",
+                fontStyle: "normal",
+                fontWeight: 400,
+                lineHeight: "24px",
+              }}
+            >
+              Enter subject details to create a court order. Add multiple rows as needed.{" "}
+              Need to submit multiple subjects at once?{" "}
+              <a
+                href="#"
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "16px",
-                  alignSelf: "stretch",
+                  color: "#34479A",
+                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "24px",
+                  textDecoration: "underline",
                 }}
               >
-                {/* Content - Figma gap: 20px */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-end",
-                    alignItems: "flex-start",
-                    gap: "20px",
-                    alignSelf: "stretch",
-                  }}
-                >
-                  {/* Title and supporting text group - Exact Figma structure */}
-                  <div
-                    style={{
-                      display: "flex",
-                      minWidth: isDesktop ? "320px" : "auto",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "4px",
-                      alignSelf: "stretch",
-                    }}
-                  >
-                    {/* Title - Exact Figma styling */}
-                    <div
-                      style={{
-                        alignSelf: "stretch",
-                        color: "#181D27",
-                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                        fontSize: "24px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        lineHeight: "32px",
-                      }}
-                    >
-                      Quick Court Order
-                    </div>
-                    {/* Supporting text - Exact Figma styling and color */}
-                    <div
-                      style={{
-                        alignSelf: "stretch",
-                        color: "#535862",
-                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                        fontSize: "16px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "24px",
-                      }}
-                    >
-                      Enter subject details to create a court order. Add multiple rows as needed.{" "}
-                      Need to submit multiple subjects at once?{" "}
-                      <a
-                        href="#"
-                        style={{
-                          color: "#34479A",
-                          fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: 400,
-                          lineHeight: "24px",
-                          textDecoration: "underline",
-                        }}
-                      >
-                        Use batch ordering
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                Use batch ordering
+              </a>
             </div>
           </div>
 
