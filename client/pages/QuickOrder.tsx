@@ -18,6 +18,7 @@ interface SubjectData {
   lastName: string;
   state: string;
   county: string;
+  dlNumber: string;
   dateOfBirth: string;
   socialSecurityTrace: string;
   yearsIn: string;
