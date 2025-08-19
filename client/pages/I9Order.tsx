@@ -19,6 +19,22 @@ const I9Order: React.FC = () => {
   // Form state
   const [selectedIndividualType, setSelectedIndividualType] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [showSearchDropdown, setShowSearchDropdown] = useState<boolean>(false);
+  const [searchResults, setSearchResults] = useState<Array<{id: string, firstName: string, lastName: string, email: string}>>([]);
+
+  // Sample background check data
+  const backgroundCheckData = [
+    { id: "bg1", firstName: "John", lastName: "Smith", email: "john.smith@email.com" },
+    { id: "bg2", firstName: "Sarah", lastName: "Smith", email: "sarah.smith@email.com" },
+    { id: "bg3", firstName: "Michael", lastName: "Smith", email: "michael.smith@email.com" },
+    { id: "bg4", firstName: "Emily", lastName: "Johnson", email: "emily.johnson@email.com" },
+    { id: "bg5", firstName: "David", lastName: "Williams", email: "david.williams@email.com" },
+    { id: "bg6", firstName: "Lisa", lastName: "Brown", email: "lisa.brown@email.com" },
+    { id: "bg7", firstName: "Robert", lastName: "Davis", email: "robert.davis@email.com" },
+    { id: "bg8", firstName: "Jennifer", lastName: "Miller", email: "jennifer.miller@email.com" },
+    { id: "bg9", firstName: "William", lastName: "Wilson", email: "william.wilson@email.com" },
+    { id: "bg10", firstName: "Amanda", lastName: "Moore", email: "amanda.moore@email.com" },
+  ];
 
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
