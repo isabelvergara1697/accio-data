@@ -604,11 +604,11 @@ const QuickCourtOrder: React.FC = () => {
                         minWidth: 0,
                       }}
                     >
+                      {/* Search Column */}
                       <div
                         style={{
                           display: "flex",
-                          width: "100%",
-                          minWidth: "171px",
+                          width: "171px",
                           flexDirection: "column",
                           alignItems: "flex-start",
                           flexShrink: 0,
@@ -665,7 +665,8 @@ const QuickCourtOrder: React.FC = () => {
                             style={{
                               display: "flex",
                               height: "52px",
-                              padding: "12px 6px",
+                              padding: "8px 6px",
+                              justifyContent: "center",
                               alignItems: "center",
                               alignSelf: "stretch",
                               borderBottom:
@@ -704,10 +705,104 @@ const QuickCourtOrder: React.FC = () => {
                               ]}
                               placeholder="Select search type"
                               style={{
-                                flex: "1 0 0",
-                                alignSelf: "stretch",
+                                width: "100%",
                               }}
                             />
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Copy Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "60px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {/* Copy Column Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            borderLeft: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Copy
+                            </div>
+                          </div>
+                        </div>
+                        {/* Copy Column Rows */}
+                        {subjects.map((subject, index) => (
+                          <div
+                            key={`copy-${subject.id}`}
+                            style={{
+                              display: "flex",
+                              height: "52px",
+                              padding: "8px 6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              borderBottom:
+                                index < subjects.length - 1
+                                  ? "1px solid #E9EAEB"
+                                  : "none",
+                              borderLeft: "1px solid #E9EAEB",
+                            }}
+                          >
+                            {index > 0 && (
+                              <button
+                                onClick={() => copyFromPreviousRow(index)}
+                                style={{
+                                  background: "transparent",
+                                  border: "none",
+                                  color: "#344698",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "14px",
+                                  fontWeight: 600,
+                                  cursor: "pointer",
+                                  textDecoration: "underline",
+                                  padding: "4px 8px",
+                                  borderRadius: "4px",
+                                  transition: "all 0.2s ease",
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.currentTarget.style.background = "#F0F4FF";
+                                  e.currentTarget.style.textDecoration = "none";
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.currentTarget.style.background = "transparent";
+                                  e.currentTarget.style.textDecoration = "underline";
+                                }}
+                              >
+                                Copy
+                              </button>
+                            )}
                           </div>
                         ))}
                       </div>
