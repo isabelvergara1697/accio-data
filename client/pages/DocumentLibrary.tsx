@@ -458,6 +458,16 @@ export default function DocumentLibrary() {
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
+  // Auto-minimize sidebar after 30 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSidebarCollapsed(true);
+    }, 30000); // 30 seconds
+
+    // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
+
   // Handle window resize for responsive behavior
   useEffect(() => {
     const handleResize = () => {
