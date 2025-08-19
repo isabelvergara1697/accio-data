@@ -57,6 +57,19 @@ const BatchOrders: React.FC = () => {
         setIsCollapsed={setSidebarCollapsed}
       />
 
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && !isDesktop && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            zIndex: 999,
+          }}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Main Content */}
       <div
         style={{
