@@ -186,11 +186,15 @@ export default function FormDateInput({
           type="date"
           value={value}
           onChange={handleDateChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
           style={{
             position: "absolute",
+            left: "-9999px",
             opacity: 0,
-            pointerEvents: "none",
-            zIndex: -1,
+            pointerEvents: "auto",
+            width: "1px",
+            height: "1px",
           }}
         />
       </div>
