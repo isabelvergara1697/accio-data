@@ -41,7 +41,13 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
     },
   ];
 
-  const OrderCard = ({ order, index }: { order: typeof orders[0]; index: number }) => {
+  const OrderCard = ({
+    order,
+    index,
+  }: {
+    order: (typeof orders)[0];
+    index: number;
+  }) => {
     return (
       <div
         style={{
@@ -88,7 +94,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
               <div
                 style={{
                   color: "#181D27",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "16px",
                   fontStyle: "normal",
                   fontWeight: 500,
@@ -133,7 +140,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -168,7 +176,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -180,7 +189,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -204,7 +214,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -216,7 +227,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -240,7 +252,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -252,7 +265,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -276,7 +290,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -288,7 +303,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -312,7 +328,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -324,7 +341,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -348,7 +366,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -360,7 +379,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -384,7 +404,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -396,7 +417,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -430,7 +452,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 400,
@@ -442,7 +465,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   <div
                     style={{
                       color: "#181D27",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -539,7 +563,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   <div
                     style={{
                       color: "#181D27",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "18px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -645,7 +670,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
               <div
                 style={{
                   color: "#181D27",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "16px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -659,7 +685,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 style={{
                   color: "#344698",
                   textAlign: "center",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 400,
@@ -675,7 +702,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
               >
                 <span
                   style={{
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 400,
                     fontSize: "14px",
                     color: "rgba(83,88,98,1)",
@@ -685,7 +713,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 </span>
                 <span
                   style={{
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontWeight: 400,
                     fontSize: "14px",
                     color: "rgba(52,70,152,1)",
@@ -747,7 +776,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 600,
@@ -796,7 +826,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#FFF",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 600,

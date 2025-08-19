@@ -4,7 +4,9 @@ interface DataLoadingScreenProps {
   onComplete: () => void;
 }
 
-const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => {
+const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({
+  onComplete,
+}) => {
   return (
     <div
       style={{
@@ -217,8 +219,8 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
                 lineHeight: "20px",
               }}
             >
-              Please wait while we calculate your total and verify the spreadsheet
-              data. This can take several minutes for large uploads.
+              Please wait while we calculate your total and verify the
+              spreadsheet data. This can take several minutes for large uploads.
             </div>
           </div>
 

@@ -29,18 +29,18 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
       dl: "129503923",
       state: "TX",
       request: "849235",
-      price: 8.00,
+      price: 8.0,
       taxes: 1.15,
       total: 15.15,
       checked: true,
     },
     {
-      id: "2", 
+      id: "2",
       name: "Lopez, Sandra",
       dl: "129503923",
       state: "TX",
       request: "849235",
-      price: 8.00,
+      price: 8.0,
       taxes: 1.15,
       total: 15.15,
       checked: true,
@@ -48,16 +48,16 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
   ]);
 
   const toggleItemCheck = (id: string) => {
-    setOrderItems(prev =>
-      prev.map(item =>
-        item.id === id ? { ...item, checked: !item.checked } : item
-      )
+    setOrderItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, checked: !item.checked } : item,
+      ),
     );
   };
 
   const calculateTotal = () => {
     return orderItems
-      .filter(item => item.checked)
+      .filter((item) => item.checked)
       .reduce((sum, item) => sum + item.total, 0)
       .toFixed(2);
   };
@@ -67,12 +67,12 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
     onSeeDetails();
   };
 
-  const Checkbox = ({ 
-    checked, 
-    onClick 
-  }: { 
-    checked: boolean; 
-    onClick: () => void; 
+  const Checkbox = ({
+    checked,
+    onClick,
+  }: {
+    checked: boolean;
+    onClick: () => void;
   }) => (
     <div
       onClick={onClick}
@@ -206,7 +206,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                   <div
                     style={{
                       color: "#181D27",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "18px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -258,7 +259,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               alignSelf: "stretch",
               color: "#181D27",
               textAlign: "center",
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "16px",
               fontStyle: "normal",
               fontWeight: 600,
@@ -315,7 +317,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                 <div
                   style={{
                     color: "#FFF",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 600,
@@ -342,7 +345,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               <div
                 style={{
                   color: "#273572",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -381,7 +385,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               maxWidth: "480px",
               color: "#344698",
               textAlign: "center",
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "14px",
               fontStyle: "normal",
               fontWeight: 400,
@@ -397,17 +402,21 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
           >
             <span
               style={{
-                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                 fontWeight: 400,
                 fontSize: "14px",
                 color: "rgba(83,88,98,1)",
               }}
             >
-              By authorizing this payment, automatic searches will be done and you'll be charged to your [Billing Setup]. Get more information{" "}
+              By authorizing this payment, automatic searches will be done and
+              you'll be charged to your [Billing Setup]. Get more
+              information{" "}
             </span>
             <span
               style={{
-                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                 fontWeight: 400,
                 fontSize: "14px",
                 color: "rgba(52,70,152,1)",
@@ -448,9 +457,9 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     position: "relative",
                   }}
                 >
-                  <Checkbox 
-                    checked={item.checked} 
-                    onClick={() => toggleItemCheck(item.id)} 
+                  <Checkbox
+                    checked={item.checked}
+                    onClick={() => toggleItemCheck(item.id)}
                   />
                   <div
                     style={{
@@ -464,7 +473,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "14px",
                         fontStyle: "normal",
                         fontWeight: 500,
@@ -487,7 +497,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                         style={{
                           color: item.checked ? "#414651" : "#717680",
                           textAlign: "center",
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
                           fontStyle: "normal",
                           fontWeight: 400,
@@ -501,7 +512,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                         style={{
                           color: item.checked ? "#181D27" : "#717680",
                           textAlign: "center",
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
                           fontStyle: "normal",
                           fontWeight: 500,
@@ -509,7 +521,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                           position: "relative",
                         }}
                       >
-                        {item.dl} 
+                        {item.dl}
                       </div>
                     </div>
                     {/* State Row */}
@@ -525,7 +537,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                         style={{
                           color: item.checked ? "#414651" : "#717680",
                           textAlign: "center",
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
                           fontStyle: "normal",
                           fontWeight: 400,
@@ -539,7 +552,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                         style={{
                           color: item.checked ? "#181D27" : "#717680",
                           textAlign: "center",
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
                           fontStyle: "normal",
                           fontWeight: 500,
@@ -563,7 +577,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                         style={{
                           color: item.checked ? "#414651" : "#717680",
                           textAlign: "center",
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
                           fontStyle: "normal",
                           fontWeight: 400,
@@ -577,7 +592,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                         style={{
                           color: item.checked ? "#181D27" : "#717680",
                           textAlign: "center",
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
                           fontStyle: "normal",
                           fontWeight: 500,
@@ -615,7 +631,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -630,7 +647,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -653,7 +671,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -667,7 +686,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "14px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -694,7 +714,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -709,7 +730,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -732,7 +754,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -746,7 +769,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -774,7 +798,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -788,7 +813,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -824,7 +850,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -839,7 +866,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -862,7 +890,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -876,7 +905,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -890,7 +920,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -917,7 +948,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -932,7 +964,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -955,7 +988,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -968,7 +1002,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -982,7 +1017,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1009,7 +1045,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1024,7 +1061,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1047,7 +1085,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1060,7 +1099,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1074,7 +1114,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1101,7 +1142,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1116,7 +1158,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1140,7 +1183,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                         width: "34px",
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1153,7 +1197,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1168,7 +1213,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                         width: "34px",
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1195,7 +1241,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1210,7 +1257,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1233,7 +1281,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1246,7 +1295,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     <div
                       style={{
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1260,7 +1310,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1282,7 +1333,8 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       style={{
                         color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 700,

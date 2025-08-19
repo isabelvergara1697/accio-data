@@ -233,7 +233,8 @@ const BatchOrders: React.FC = () => {
                         lineHeight: "24px",
                       }}
                     >
-                      Easily create batch orders by uploading a spreadsheet with the required information.
+                      Easily create batch orders by uploading a spreadsheet with
+                      the required information.
                     </div>
                   </div>
 
@@ -252,7 +253,8 @@ const BatchOrders: React.FC = () => {
                         alignItems: "flex-start",
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         position: "relative",
                       }}
                     >
@@ -266,7 +268,8 @@ const BatchOrders: React.FC = () => {
                           alignItems: "center",
                           gap: "6px",
                           borderRight: "1px solid #D5D7DA",
-                          background: activeTab === "standard" ? "#ECEEF9" : "#FFF",
+                          background:
+                            activeTab === "standard" ? "#ECEEF9" : "#FFF",
                           cursor: "pointer",
                           border: "none",
                           position: "relative",
@@ -274,8 +277,10 @@ const BatchOrders: React.FC = () => {
                       >
                         <div
                           style={{
-                            color: activeTab === "standard" ? "#273572" : "#414651",
-                            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            color:
+                              activeTab === "standard" ? "#273572" : "#414651",
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                             fontSize: "14px",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -305,7 +310,8 @@ const BatchOrders: React.FC = () => {
                         <div
                           style={{
                             color: activeTab === "mvr" ? "#273572" : "#414651",
-                            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                             fontSize: "14px",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -431,7 +437,8 @@ const BatchOrders: React.FC = () => {
                               <div
                                 style={{
                                   color: "#181D27",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "18px",
                                   fontStyle: "normal",
                                   fontWeight: 600,
@@ -439,7 +446,9 @@ const BatchOrders: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                Batch {activeTab === "standard" ? "Standard" : "MVR"} Orders
+                                Batch{" "}
+                                {activeTab === "standard" ? "Standard" : "MVR"}{" "}
+                                Orders
                               </div>
                             </div>
                           </div>
@@ -466,7 +475,8 @@ const BatchOrders: React.FC = () => {
                               borderRadius: "8px",
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               position: "relative",
                             }}
@@ -510,7 +520,8 @@ const BatchOrders: React.FC = () => {
                               <div
                                 style={{
                                   color: "#414651",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "14px",
                                   fontStyle: "normal",
                                   fontWeight: 600,
@@ -535,7 +546,8 @@ const BatchOrders: React.FC = () => {
                               borderRadius: "8px",
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               position: "relative",
                             }}
@@ -572,7 +584,8 @@ const BatchOrders: React.FC = () => {
                               <div
                                 style={{
                                   color: "#414651",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "14px",
                                   fontStyle: "normal",
                                   fontWeight: 600,
@@ -597,7 +610,8 @@ const BatchOrders: React.FC = () => {
                               borderRadius: "8px",
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               position: "relative",
                             }}
@@ -634,7 +648,8 @@ const BatchOrders: React.FC = () => {
                               <div
                                 style={{
                                   color: "#414651",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "14px",
                                   fontStyle: "normal",
                                   fontWeight: 600,
@@ -660,7 +675,8 @@ const BatchOrders: React.FC = () => {
                               borderRadius: "8px",
                               border: "2px solid rgba(255, 255, 255, 0.12)",
                               background: "#344698",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               position: "relative",
                             }}
@@ -704,7 +720,8 @@ const BatchOrders: React.FC = () => {
                               <div
                                 style={{
                                   color: "#FFF",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "14px",
                                   fontStyle: "normal",
                                   fontWeight: 600,
@@ -783,7 +800,8 @@ const BatchOrders: React.FC = () => {
                             <div
                               style={{
                                 color: "#717680",
-                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                 fontSize: "12px",
                                 fontStyle: "normal",
                                 fontWeight: 600,
@@ -798,7 +816,16 @@ const BatchOrders: React.FC = () => {
                       </div>
 
                       {/* Other columns */}
-                      {["Uploaded By", "Uploaded On", "Ordered By", "Status", "Count", "Success", "Failed", "Message"].map((header) => (
+                      {[
+                        "Uploaded By",
+                        "Uploaded On",
+                        "Ordered By",
+                        "Status",
+                        "Count",
+                        "Success",
+                        "Failed",
+                        "Message",
+                      ].map((header) => (
                         <div
                           key={header}
                           style={{
@@ -833,7 +860,8 @@ const BatchOrders: React.FC = () => {
                               <div
                                 style={{
                                   color: "#717680",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "12px",
                                   fontStyle: "normal",
                                   fontWeight: 600,
@@ -904,7 +932,8 @@ const BatchOrders: React.FC = () => {
                                 borderRadius: "10px",
                                 border: "1px solid #D5D7DA",
                                 background: "#FFF",
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 position: "relative",
                               }}
                             >
@@ -949,7 +978,8 @@ const BatchOrders: React.FC = () => {
                                   alignSelf: "stretch",
                                   color: "#181D27",
                                   textAlign: "center",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "16px",
                                   fontStyle: "normal",
                                   fontWeight: 600,
@@ -964,7 +994,8 @@ const BatchOrders: React.FC = () => {
                                   alignSelf: "stretch",
                                   color: "#535862",
                                   textAlign: "center",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "14px",
                                   fontStyle: "normal",
                                   fontWeight: 400,
@@ -998,7 +1029,8 @@ const BatchOrders: React.FC = () => {
                                 borderRadius: "8px",
                                 border: "2px solid rgba(255, 255, 255, 0.12)",
                                 background: "#344698",
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 position: "relative",
                               }}
@@ -1035,7 +1067,8 @@ const BatchOrders: React.FC = () => {
                                 <div
                                   style={{
                                     color: "#FFF",
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontSize: "14px",
                                     fontStyle: "normal",
                                     fontWeight: 600,
