@@ -6,26 +6,6 @@ interface MVROrdersBatchModalProps {
   onSubmit?: () => void;
 }
 
-const MVR_PACKAGE_OPTIONS = [
-  "MVR Standard",
-  "MVR Premium",
-  "MVR Basic",
-  "MVR Extended",
-  "MVR Plus",
-  "MVR Express",
-  "MVR Professional",
-  "MVR Complete",
-  "MVR Advanced"
-];
-
-const MVR_PURPOSE_OPTIONS = [
-  "Driver Verification",
-  "Employment Screening",
-  "Insurance Underwriting",
-  "Background Check",
-  "Pre-Employment Verification",
-  "Tenant Screening"
-];
 
 const NOTIFICATION_OPTIONS = [
   "Uploading User",
