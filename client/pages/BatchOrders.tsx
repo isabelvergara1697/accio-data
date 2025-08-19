@@ -1048,11 +1048,11 @@ const BatchOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
+                                width: "100%",
                                 maxWidth: "352px",
                                 flexDirection: "column",
                                 alignItems: "center",
                                 gap: "4px",
-                                alignSelf: "stretch",
                                 position: "relative",
                               }}
                             >
