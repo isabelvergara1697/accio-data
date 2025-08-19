@@ -1153,19 +1153,9 @@ const QuickOrder: React.FC = () => {
                                   // Clear county when state changes
                                   handleSubjectChange(subject.id, "county", "");
                                 }}
-                                options={[
-                                  { value: "TX", label: "TX" },
-                                  { value: "CA", label: "CA" },
-                                  { value: "NY", label: "NY" },
-                                  { value: "FL", label: "FL" },
-                                  { value: "IL", label: "IL" },
-                                  { value: "PA", label: "PA" },
-                                  { value: "OH", label: "OH" },
-                                  { value: "GA", label: "GA" },
-                                  { value: "NC", label: "NC" },
-                                  { value: "MI", label: "MI" },
-                                ]}
+                                options={usStatesOptions}
                                 placeholder={index === 0 ? "TX" : ""}
+                                searchable={true}
                                 style={{
                                   width: "100%",
                                   gap: "0px",
