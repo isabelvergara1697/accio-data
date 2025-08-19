@@ -1645,65 +1645,27 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
               )}
             </div>
 
-            {/* Custom User Email */}
+            {/* Content divider */}
             <div
               style={{
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "6px",
+                alignItems: "center",
+                gap: "8px",
                 alignSelf: "stretch",
                 position: "relative",
               }}
             >
               <div
                 style={{
-                  color: "#414651",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "20px",
+                  height: "1px",
+                  flex: "1 0 0",
+                  background: "#E9EAEB",
                   position: "relative",
                 }}
-              >
-                Custom user Email
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  padding: "10px 14px",
-                  alignItems: "center",
-                  gap: "8px",
-                  alignSelf: "stretch",
-                  borderRadius: "8px",
-                  border: "1px solid #D5D7DA",
-                  background: "#FFF",
-                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  position: "relative",
-                }}
-              >
-                <input
-                  type="email"
-                  value={customUserEmail}
-                  onChange={(e) => setCustomUserEmail(e.target.value)}
-                  style={{
-                    flex: "1 0 0",
-                    border: "none",
-                    outline: "none",
-                    background: "transparent",
-                    color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "16px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "24px",
-                  }}
-                />
-              </div>
+              />
             </div>
 
-            {/* Checkboxes */}
+            {/* I Agree Checkbox */}
             <div
               style={{
                 display: "flex",
