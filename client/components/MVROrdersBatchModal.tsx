@@ -329,7 +329,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 position: "relative",
               }}
             >
-              Before uploading your MVR batch order, please review{" "}
+              Before uploading your MVR batch, please review{" "}
               <span
                 style={{
                   color: "#344698",
@@ -337,9 +337,9 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   cursor: "pointer",
                 }}
               >
-                the MVR uploading process
+                the uploading process
               </span>
-              . You can download an example template here:{" "}
+              {" "}and ensure that you're using the latest version of the{" "}
               <span
                 style={{
                   color: "#344698",
@@ -347,7 +347,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   cursor: "pointer",
                 }}
               >
-                MVR batch order upload spreadsheet
+                batch upload spreadsheet
               </span>
               .
             </div>
