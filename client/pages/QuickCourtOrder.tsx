@@ -1641,6 +1641,7 @@ const QuickCourtOrder: React.FC = () => {
                                   }
                                   options={getCountyOptions(subject.state || "TX")}
                                   placeholder={index === 0 ? "Harris" : ""}
+                                  error={getFieldError(subject.id, "county")}
                                   style={{
                                     width: "100%",
                                     gap: "0px",
