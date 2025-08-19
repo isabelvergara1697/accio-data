@@ -385,7 +385,7 @@ const QuickCourtOrder: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: isDesktop ? "0 32px" : "0 20px",
+                  padding: "0 32px",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "20px",
@@ -396,7 +396,8 @@ const QuickCourtOrder: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    width: isDesktop ? "1080px" : "100%",
+                    width: "100%",
+                    maxWidth: "100%",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     position: "relative",
