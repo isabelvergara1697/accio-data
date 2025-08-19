@@ -830,7 +830,9 @@ const InvitesAndOrders: React.FC = () => {
   const flagsFilterButtonRef = useRef<HTMLButtonElement>(null);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
-  const [showActionsPanel, setShowActionsPanel] = useState(false);
+  const [showActionsPanel, setShowActionsPanel] = useState(
+    (location.state as { activeTab?: "orders" | "invites"; showActionsPanel?: boolean; selectedItems?: string[] })?.showActionsPanel || false
+  );
   const [showOrderSummaryModal, setShowOrderSummaryModal] = useState(false);
   const [selectedOrderData, setSelectedOrderData] = useState<OrderData | null>(
     null,
