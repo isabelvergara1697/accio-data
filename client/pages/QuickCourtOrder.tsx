@@ -368,15 +368,38 @@ const QuickCourtOrder: React.FC = () => {
             </div>
           </div>
 
-          {/* Form Section */}
+          {/* Section - Figma structure for form content */}
           <div
             style={{
               display: "flex",
               flexDirection: "column",
+              alignItems: "flex-start",
               gap: "24px",
-              marginBottom: "32px",
+              flex: "1 0 0",
+              alignSelf: "stretch",
             }}
           >
+            {/* Container - Figma padding: 0 32px */}
+            <div
+              style={{
+                display: "flex",
+                padding: isDesktop ? "0 32px" : "0 20px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "20px",
+                flex: "1 0 0",
+                alignSelf: "stretch",
+              }}
+            >
+              {/* Form Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "24px",
+                  alignSelf: "stretch",
+                }}
+              >
             {/* Section Header */}
             <div
               style={{
@@ -761,6 +784,8 @@ const QuickCourtOrder: React.FC = () => {
               >
                 Submit Court Order
               </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
