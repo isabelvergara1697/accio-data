@@ -2,30 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
-import FormInput from "../components/ui/form-input";
-import FormSelect from "../components/ui/form-select";
-import { Button } from "../components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../components/ui/table";
 
-interface SubjectData {
-  id: string;
-  search: string;
-  firstName: string;
-  middle: string;
-  lastName: string;
-  state: string;
-  county: string;
-  dateOfBirth: string;
-  socialSecurityTrace: string;
-  yearsIn: string;
-}
 
 const QuickCourtOrder: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -48,81 +25,6 @@ const QuickCourtOrder: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Sample state options
-  const stateOptions = [
-    { value: "AL", label: "Alabama" },
-    { value: "AK", label: "Alaska" },
-    { value: "AZ", label: "Arizona" },
-    { value: "AR", label: "Arkansas" },
-    { value: "CA", label: "California" },
-    { value: "CO", label: "Colorado" },
-    { value: "CT", label: "Connecticut" },
-    { value: "DE", label: "Delaware" },
-    { value: "FL", label: "Florida" },
-    { value: "GA", label: "Georgia" },
-    { value: "HI", label: "Hawaii" },
-    { value: "ID", label: "Idaho" },
-    { value: "IL", label: "Illinois" },
-    { value: "IN", label: "Indiana" },
-    { value: "IA", label: "Iowa" },
-    { value: "KS", label: "Kansas" },
-    { value: "KY", label: "Kentucky" },
-    { value: "LA", label: "Louisiana" },
-    { value: "ME", label: "Maine" },
-    { value: "MD", label: "Maryland" },
-    { value: "MA", label: "Massachusetts" },
-    { value: "MI", label: "Michigan" },
-    { value: "MN", label: "Minnesota" },
-    { value: "MS", label: "Mississippi" },
-    { value: "MO", label: "Missouri" },
-    { value: "MT", label: "Montana" },
-    { value: "NE", label: "Nebraska" },
-    { value: "NV", label: "Nevada" },
-    { value: "NH", label: "New Hampshire" },
-    { value: "NJ", label: "New Jersey" },
-    { value: "NM", label: "New Mexico" },
-    { value: "NY", label: "New York" },
-    { value: "NC", label: "North Carolina" },
-    { value: "ND", label: "North Dakota" },
-    { value: "OH", label: "Ohio" },
-    { value: "OK", label: "Oklahoma" },
-    { value: "OR", label: "Oregon" },
-    { value: "PA", label: "Pennsylvania" },
-    { value: "RI", label: "Rhode Island" },
-    { value: "SC", label: "South Carolina" },
-    { value: "SD", label: "South Dakota" },
-    { value: "TN", label: "Tennessee" },
-    { value: "TX", label: "Texas" },
-    { value: "UT", label: "Utah" },
-    { value: "VT", label: "Vermont" },
-    { value: "VA", label: "Virginia" },
-    { value: "WA", label: "Washington" },
-    { value: "WV", label: "West Virginia" },
-    { value: "WI", label: "Wisconsin" },
-    { value: "WY", label: "Wyoming" },
-  ];
-
-  // Initial subject data with 10 rows
-  const [subjects, setSubjects] = useState<SubjectData[]>(() => {
-    const initialSubjects: SubjectData[] = [];
-    for (let i = 0; i < 10; i++) {
-      initialSubjects.push({
-        id: `subject-${i + 1}`,
-        search: i === 0 ? "County Criminal" : "County Criminal",
-        firstName: i === 0 ? "John" : "",
-        middle: i === 0 ? "R" : "",
-        lastName: i === 0 ? "Doe" : "",
-        state: i === 0 ? "TX" : "",
-        county: i === 0 ? "AK" : "",
-        dateOfBirth: i === 0 ? "01/25/90" : "",
-        socialSecurityTrace: i === 0 ? "000-000-000" : "",
-        yearsIn: i === 0 ? "00" : "",
-      });
-    }
-    return initialSubjects;
-  });
-
-  const [selectedUser, setSelectedUser] = useState("Select User");
 
   const handleSignOut = () => {
     console.log("Sign out");
@@ -151,42 +53,6 @@ const QuickCourtOrder: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleSubjectChange = (
-    subjectId: string,
-    field: keyof SubjectData,
-    value: string,
-  ) => {
-    setSubjects((prev) =>
-      prev.map((subject) =>
-        subject.id === subjectId ? { ...subject, [field]: value } : subject,
-      ),
-    );
-  };
-
-  const addTenRows = () => {
-    const newSubjects: SubjectData[] = [];
-    const currentLength = subjects.length;
-    for (let i = 0; i < 10; i++) {
-      newSubjects.push({
-        id: `subject-${currentLength + i + 1}`,
-        search: "County Criminal",
-        firstName: "",
-        middle: "",
-        lastName: "",
-        state: "",
-        county: "",
-        dateOfBirth: "",
-        socialSecurityTrace: "",
-        yearsIn: "",
-      });
-    }
-    setSubjects((prev) => [...prev, ...newSubjects]);
-  };
-
-  const handleSubmit = () => {
-    console.log("Submitting court order with subjects:", subjects);
-    // TODO: Implement submission logic
-  };
 
   return (
     <div style={{ display: "flex", minHeight: "100vh", background: "#FAFAFA" }}>
