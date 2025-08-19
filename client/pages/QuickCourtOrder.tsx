@@ -668,7 +668,7 @@ const QuickCourtOrder: React.FC = () => {
                             style={{
                               display: "flex",
                               height: "52px",
-                              padding: "10px 6px",
+                              padding: "12px 6px",
                               justifyContent: "center",
                               alignItems: "center",
                               alignSelf: "stretch",
@@ -766,7 +766,7 @@ const QuickCourtOrder: React.FC = () => {
                             style={{
                               display: "flex",
                               height: "52px",
-                              padding: "10px 6px",
+                              padding: "12px 6px",
                               justifyContent: "center",
                               alignItems: "center",
                               alignSelf: "stretch",
@@ -869,7 +869,7 @@ const QuickCourtOrder: React.FC = () => {
                             style={{
                               display: "flex",
                               height: "52px",
-                              padding: "10px 6px",
+                              padding: "12px 6px",
                               justifyContent: "center",
                               alignItems: "center",
                               alignSelf: "stretch",
@@ -958,7 +958,7 @@ const QuickCourtOrder: React.FC = () => {
                             style={{
                               display: "flex",
                               height: "52px",
-                              padding: "10px 6px",
+                              padding: "12px 6px",
                               justifyContent: "center",
                               alignItems: "center",
                               alignSelf: "stretch",
