@@ -1881,6 +1881,65 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 </div>
               </button>
             </div>
+
+            {/* Content divider */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  height: "1px",
+                  flex: "1 0 0",
+                  background: "#E9EAEB",
+                  position: "relative",
+                }}
+              />
+            </div>
+
+            {/* Billing Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                Billing
+              </div>
+              <div
+                style={{
+                  alignSelf: "stretch",
+                  color: "#535862",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                Credit card users Note : Each MVR search that we run will be billed to your credit card individually. The order # we assign to that search will be listed on your billing statement if this feature is supported by your credit card vendor.
+              </div>
+            </div>
           </div>
         </div>
       </div>
