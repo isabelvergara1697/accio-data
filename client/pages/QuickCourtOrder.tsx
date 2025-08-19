@@ -1896,10 +1896,11 @@ const QuickCourtOrder: React.FC = () => {
                       <div
                         style={{
                           display: "flex",
-                          justifyContent: "space-between",
+                          padding: "12px 0 0 12px",
                           alignItems: "center",
+                          gap: "8px",
                           alignSelf: "stretch",
-                          paddingTop: "16px",
+                          borderTop: "1px solid #D5D7DA",
                         }}
                       >
                         <div
