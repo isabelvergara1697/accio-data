@@ -18,6 +18,7 @@ const I9Order: React.FC = () => {
 
   // Form state
   const [selectedIndividualType, setSelectedIndividualType] = useState<string>("");
+  const [selectedNewIndividualOption, setSelectedNewIndividualOption] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [showSearchDropdown, setShowSearchDropdown] = useState<boolean>(false);
   const [searchResults, setSearchResults] = useState<Array<{id: string, firstName: string, lastName: string, email: string}>>([]);
