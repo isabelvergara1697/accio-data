@@ -1169,6 +1169,104 @@ const QuickOrder: React.FC = () => {
                           ))}
                         </div>
 
+                        {/* DL Number Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "102px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flexShrink: 0,
+                          }}
+                        >
+                          {/* DL Number Column Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 700,
+                                    fontSize: "12px",
+                                    color: "rgba(113,118,128,1)",
+                                  }}
+                                >
+                                  DL Number
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          {/* DL Number Column Rows */}
+                          {subjects.map((subject, index) => (
+                            <div
+                              key={`dlNumber-${subject.id}`}
+                              style={{
+                                display: "flex",
+                                height: "52px",
+                                padding: "12px 6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom:
+                                  index < subjects.length - 1
+                                    ? "1px solid #E9EAEB"
+                                    : "none",
+                              }}
+                            >
+                              <FormInput
+                                label=""
+                                value={subject.dlNumber}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "dlNumber",
+                                    e.target.value,
+                                  )
+                                }
+                                onFocus={() =>
+                                  setFocusedInput(`dlNumber-${subject.id}`)
+                                }
+                                onBlur={() => setFocusedInput(null)}
+                                isFocused={
+                                  focusedInput === `dlNumber-${subject.id}`
+                                }
+                                placeholder={index === 0 ? "123456789" : ""}
+                                style={{
+                                  width: "100%",
+                                  gap: "0px",
+                                  justifyContent: "center",
+                                }}
+                              />
+                            </div>
+                          ))}
+                        </div>
 
                         {/* Date of Birth Column */}
                         <div
