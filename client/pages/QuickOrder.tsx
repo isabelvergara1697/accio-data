@@ -251,13 +251,13 @@ const QuickOrder: React.FC = () => {
 
   const handleSubmit = () => {
     console.log("Submitting order with subjects:", subjects);
-    setIsLoading(true);
+    setShowDataLoading(true);
 
-    // Simulate processing time - replace with actual API call
+    // Simulate data loading - replace with actual API call
     setTimeout(() => {
-      setIsLoading(false);
-      setShowConfirmation(true);
-    }, 5000);
+      setShowDataLoading(false);
+      setShowPaymentScreen(true);
+    }, 3000);
   };
 
   const handleSeeAllOrders = () => {
