@@ -588,7 +588,7 @@ const QuickCourtOrder: React.FC = () => {
                   minWidth: "0",
                 }}
               >
-                <Table>
+                <Table style={{ minWidth: "1000px" }}>
                   <TableHeader>
                     <TableRow>
                       <TableHead style={{ minWidth: "140px", padding: "12px 16px" }}>
