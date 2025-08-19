@@ -1664,6 +1664,106 @@ const QuickCourtOrder: React.FC = () => {
                           </div>
                         ))}
                       </div>
+
+                      {/* Comments Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "309px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {/* Comments Column Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Comments
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Comments Column Rows */}
+                        {subjects.map((subject, index) => (
+                          <div
+                            key={`comments-${subject.id}`}
+                            style={{
+                              display: "flex",
+                              height: "52px",
+                              padding: "12px 6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              borderBottom:
+                                index < subjects.length - 1
+                                  ? "1px solid #E9EAEB"
+                                  : "none",
+                            }}
+                          >
+                            <FormTextarea
+                              label=""
+                              value={subject.comments}
+                              onChange={(e) =>
+                                handleSubjectChange(
+                                  subject.id,
+                                  "comments",
+                                  e.target.value,
+                                )
+                              }
+                              onFocus={() =>
+                                setFocusedInput(`comments-${subject.id}`)
+                              }
+                              onBlur={() => setFocusedInput(null)}
+                              isFocused={
+                                focusedInput === `comments-${subject.id}`
+                              }
+                              placeholder=""
+                              rows={1}
+                              style={{
+                                width: "100%",
+                                gap: "0px",
+                                justifyContent: "center",
+                              }}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                     {/* Button Group */}
                     <div
