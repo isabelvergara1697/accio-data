@@ -577,6 +577,19 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 >
                   MVR Purpose
                 </div>
+                <div
+                  style={{
+                    color: "#344698",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  *
+                </div>
                 <svg
                   style={{
                     width: "16px",
@@ -592,7 +605,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 >
                   <g clipPath="url(#clip0_6134_79678)">
                     <path
-                      d="M6.06016 6C6.2169 5.55444 6.52626 5.17873 6.93347 4.93942C7.34067 4.7001 7.81943 4.61262 8.28495 4.69247C8.75047 4.77232 9.17271 5.01434 9.47688 5.37568C9.78106 5.73702 9.94753 6.19434 9.94683 6.66666C9.94683 8 7.94683 8.66666 7.94683 8.66666M8.00016 11.3333H8.00683M14.6668 8C14.6668 11.6819 11.6821 14.6667 8.00016 14.6667C4.31826 14.6667 1.3335 11.6819 1.3335 8C1.3335 4.3181 4.31826 1.33333 8.00016 1.33333C11.6821 1.33333 14.6668 4.3181 14.6668 8Z"
+                      d="M6.06016 6.00016C6.2169 5.55461 6.52626 5.1789 6.93347 4.93958C7.34067 4.70027 7.81943 4.61279 8.28495 4.69264C8.75047 4.77249 9.17271 5.01451 9.47688 5.37585C9.78106 5.73718 9.94753 6.19451 9.94683 6.66683C9.94683 8.00016 7.94683 8.66683 7.94683 8.66683M8.00016 11.3335H8.00683M14.6668 8.00016C14.6668 11.6821 11.6821 14.6668 8.00016 14.6668C4.31826 14.6668 1.3335 11.6821 1.3335 8.00016C1.3335 4.31826 4.31826 1.3335 8.00016 1.3335C11.6821 1.3335 14.6668 4.31826 14.6668 8.00016Z"
                       stroke="#A4A7AE"
                       strokeWidth="1.33333"
                       strokeLinecap="round"
@@ -625,7 +638,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 <div
                   style={{
                     flex: "1 0 0",
-                    color: "#181D27",
+                    color: mvrPurpose ? "#181D27" : "#717680",
                     fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "16px",
                     fontStyle: "normal",
@@ -634,7 +647,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                     position: "relative",
                   }}
                 >
-                  {mvrPurpose}
+                  {mvrPurpose || "Select MVR purpose"}
                 </div>
                 <svg
                   style={{
