@@ -1177,6 +1177,12 @@ const BatchOrders: React.FC = () => {
           </div>
         </div>
       </main>
+
+      {/* Help Modal */}
+      <BatchOrderingHelpModal
+        isOpen={helpModalOpen}
+        onClose={() => setHelpModalOpen(false)}
+      />
     </div>
   );
 };
