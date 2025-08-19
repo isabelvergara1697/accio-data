@@ -1084,6 +1084,324 @@ const I9Order: React.FC = () => {
                         </div>
                       </>
                     )}
+
+                    {/* Conditional content for New Individual */}
+                    {selectedIndividualType === "new-individual" && (
+                      <>
+                        {/* Select one of the options text */}
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily:
+                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 400,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Select one of the options
+                          </span>
+                        </div>
+
+                        {/* New Individual Options Radio Group */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "24px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          {/* Option 1: Send employee email */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              cursor: "pointer",
+                            }}
+                            onClick={() => setSelectedNewIndividualOption("send-email")}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  borderRadius: "9999px",
+                                  border: selectedNewIndividualOption === "send-email"
+                                    ? "none"
+                                    : "1px solid #D5D7DA",
+                                  background: selectedNewIndividualOption === "send-email"
+                                    ? "#344698"
+                                    : "#FFF",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  position: "relative",
+                                }}
+                              >
+                                {selectedNewIndividualOption === "send-email" && (
+                                  <div
+                                    style={{
+                                      width: "6px",
+                                      height: "6px",
+                                      borderRadius: "9999px",
+                                      background: "#FFF",
+                                      position: "absolute",
+                                    }}
+                                  />
+                                )}
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "100%",
+                                  maxWidth: "320px",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily:
+                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Send employee email to fill/verify and sign Section I
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Option 2: Employer and Employee together */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              cursor: "pointer",
+                            }}
+                            onClick={() => setSelectedNewIndividualOption("together")}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  borderRadius: "9999px",
+                                  border: selectedNewIndividualOption === "together"
+                                    ? "none"
+                                    : "1px solid #D5D7DA",
+                                  background: selectedNewIndividualOption === "together"
+                                    ? "#344698"
+                                    : "#FFF",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  position: "relative",
+                                }}
+                              >
+                                {selectedNewIndividualOption === "together" && (
+                                  <div
+                                    style={{
+                                      width: "6px",
+                                      height: "6px",
+                                      borderRadius: "9999px",
+                                      background: "#FFF",
+                                      position: "absolute",
+                                    }}
+                                  />
+                                )}
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    flex: "1 0 0",
+                                    color: "#414651",
+                                    fontFamily:
+                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Employer and Employee will fill all sections of I-9 Form together
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Option 3: Remote Employee */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              cursor: "pointer",
+                            }}
+                            onClick={() => setSelectedNewIndividualOption("remote")}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  borderRadius: "9999px",
+                                  border: selectedNewIndividualOption === "remote"
+                                    ? "none"
+                                    : "1px solid #D5D7DA",
+                                  background: selectedNewIndividualOption === "remote"
+                                    ? "#344698"
+                                    : "#FFF",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  position: "relative",
+                                }}
+                              >
+                                {selectedNewIndividualOption === "remote" && (
+                                  <div
+                                    style={{
+                                      width: "6px",
+                                      height: "6px",
+                                      borderRadius: "9999px",
+                                      background: "#FFF",
+                                      position: "absolute",
+                                    }}
+                                  />
+                                )}
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "100%",
+                                  maxWidth: "320px",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily:
+                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Remote Employee — Send employee email to fill/verify and sign section 1, then send section 2 to an authorized representative.
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
