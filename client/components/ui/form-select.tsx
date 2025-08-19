@@ -37,32 +37,19 @@ export default function FormSelect({
   disabled = false,
 }: FormSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const handleOptionClick = (optionValue: string) => {
     onChange(optionValue);
     setIsOpen(false);
-    setSearchTerm("");
     if (onBlur) onBlur();
   };
 
   const handleToggle = () => {
     if (disabled) return;
-    if (!isOpen) {
-      setSearchTerm("");
-    }
     setIsOpen(!isOpen);
     if (!isOpen && onFocus) onFocus();
     if (isOpen && onBlur) onBlur();
   };
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const filteredOptions = options.filter((option) =>
-    option.label.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
 
   const selectedOption = options.find((option) => option.value === value);
 
