@@ -1492,6 +1492,7 @@ const QuickCourtOrder: React.FC = () => {
                                   { value: "MI", label: "MI" },
                                 ]}
                                 placeholder={index === 0 ? "TX" : ""}
+                                error={getFieldError(subject.id, "state")}
                                 style={{
                                   width: "100%",
                                   gap: "0px",
