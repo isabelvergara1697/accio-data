@@ -754,6 +754,14 @@ const InvitesAndOrders: React.FC = () => {
     // Cleanup timer on component unmount
     return () => clearTimeout(timer);
   }, []);
+
+  // Handle initial navigation state from I9Order page
+  useEffect(() => {
+    const navState = location.state as { activeTab?: "orders" | "invites"; showActionsPanel?: boolean; selectedItems?: string[] };
+    if (navState?.selectedItems && navState.selectedItems.length > 0) {
+      setShowActionsPanel(true);
+    }
+  }, [location.state]);
   const [activeTab, setActiveTab] = useState<"invites" | "orders">(
     (location.state as { activeTab?: "orders" | "invites"; showActionsPanel?: boolean; selectedItems?: string[] })?.activeTab || "orders"
   );
