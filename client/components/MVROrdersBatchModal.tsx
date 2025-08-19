@@ -67,13 +67,6 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
     setShowCustomEmail(notificationSelection === "Custom");
   }, [notificationSelection]);
 
-  const filteredPackageOptions = MVR_PACKAGE_OPTIONS.filter(option =>
-    option.toLowerCase().includes(packageSearchTerm.toLowerCase())
-  );
-
-  const filteredPurposeOptions = MVR_PURPOSE_OPTIONS.filter(option =>
-    option.toLowerCase().includes(purposeSearchTerm.toLowerCase())
-  );
 
   if (!isOpen) return null;
 
