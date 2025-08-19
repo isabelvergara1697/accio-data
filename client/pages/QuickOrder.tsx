@@ -135,6 +135,15 @@ const QuickOrder: React.FC = () => {
     { value: "DC", label: "DC" }
   ];
 
+  // MVR Type options
+  const mvrTypeOptions = [
+    { value: "standard", label: "Standard" },
+    { value: "extended", label: "Extended" },
+    { value: "unlimited", label: "Unlimited" },
+    { value: "commercial-use", label: "Commercial-use" },
+    { value: "cdl", label: "CDL" }
+  ];
+
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
