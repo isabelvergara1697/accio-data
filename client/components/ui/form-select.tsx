@@ -36,8 +36,10 @@ export default function FormSelect({
   style,
   className,
   disabled = false,
+  searchable = false,
 }: FormSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleOptionClick = (optionValue: string) => {
     onChange(optionValue);
