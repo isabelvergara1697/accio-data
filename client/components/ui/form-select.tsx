@@ -44,6 +44,7 @@ export default function FormSelect({
   const handleOptionClick = (optionValue: string) => {
     onChange(optionValue);
     setIsOpen(false);
+    setSearchTerm("");
     if (onBlur) onBlur();
   };
 
@@ -52,7 +53,19 @@ export default function FormSelect({
     setIsOpen(!isOpen);
     if (!isOpen && onFocus) onFocus();
     if (isOpen && onBlur) onBlur();
+    if (!isOpen) setSearchTerm("");
   };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredOptions = searchable && searchTerm
+    ? options.filter(option =>
+        option.label.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        option.value.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : options;
 
   const selectedOption = options.find((option) => option.value === value);
 
