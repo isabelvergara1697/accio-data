@@ -328,7 +328,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
               {!(isDesktop && isCollapsed) && (
                 <div
                   style={{
-                    color: isActive
+                    color: isDisabled
+                      ? "#A4A7AE"
+                      : isActive
                       ? "#273572"
                       : "var(--colors-text-text-secondary-700, #414651)",
                     fontFamily:
