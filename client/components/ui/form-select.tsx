@@ -230,9 +230,31 @@ export default function FormSelect({
             overflowY: "auto",
           }}
         >
+          {/* Search Input */}
+          {searchable && (
+            <div style={{ padding: "8px" }}>
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                placeholder="Type to search..."
+                style={{
+                  width: "100%",
+                  padding: "6px 8px",
+                  border: "1px solid #D5D7DA",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  outline: "none",
+                }}
+                autoFocus
+              />
+            </div>
+          )}
+
           {/* Options */}
           <div style={{ padding: "4px 0" }}>
-            {options.map((option) => {
+            {filteredOptions.map((option) => {
               const isSelected = option.value === value;
               return (
                 <div
