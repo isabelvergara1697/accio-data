@@ -1171,6 +1171,7 @@ const BatchOrders: React.FC = () => {
                         <div
                           style={{
                             display: "flex",
+                            flexDirection: "column",
                             alignItems: "flex-start",
                             alignSelf: "stretch",
                             background: "#FFF",
@@ -1179,6 +1180,162 @@ const BatchOrders: React.FC = () => {
                             overflowX: "auto",
                           }}
                         >
+                          {/* Table Headers */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              alignSelf: "stretch",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div style={{ display: "flex", width: "110px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Batch Number</div>
+                            </div>
+                            <div style={{ display: "flex", width: "95px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Uploaded By</div>
+                            </div>
+                            <div style={{ display: "flex", width: "100px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Uploaded On</div>
+                            </div>
+                            <div style={{ display: "flex", width: "106px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Ordered By</div>
+                            </div>
+                            <div style={{ display: "flex", width: "100px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Status</div>
+                            </div>
+                            <div style={{ display: "flex", width: "69px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Count</div>
+                            </div>
+                            <div style={{ display: "flex", width: "69px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Success</div>
+                            </div>
+                            <div style={{ display: "flex", width: "61px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Failed</div>
+                            </div>
+                            <div style={{ display: "flex", width: "70px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Combined</div>
+                            </div>
+                            <div style={{ display: "flex", width: "100px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Start At</div>
+                            </div>
+                            <div style={{ display: "flex", flex: "1 0 0", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                              <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Message</div>
+                            </div>
+                            <div style={{ display: "flex", width: "48px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
+                            </div>
+                          </div>
+
+                          {/* Table Data Rows */}
+                          {[0, 1, 2, 3].map((rowIdx) => (
+                            <div
+                              key={rowIdx}
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                alignSelf: "stretch",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Batch Number Cell */}
+                              <div style={{ display: "flex", width: "110px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                                  12345678_234567
+                                </div>
+                              </div>
+
+                              {/* Uploaded By Cell */}
+                              <div style={{ display: "flex", width: "95px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
+                                  [username]
+                                </div>
+                              </div>
+
+                              {/* Uploaded On Cell */}
+                              <div style={{ display: "flex", width: "100px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                                  <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>00/00/00</div>
+                                  <div style={{ color: "#535862", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>00:00:00</div>
+                                </div>
+                              </div>
+
+                              {/* Ordered By Cell */}
+                              <div style={{ display: "flex", width: "106px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
+                                  [username]
+                                </div>
+                              </div>
+
+                              {/* Status Cell */}
+                              <div style={{ display: "flex", width: "100px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{
+                                  display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px",
+                                  border: `1px solid ${rowIdx === 0 ? "#ABEFC6" : rowIdx === 1 ? "#B2DDFF" : rowIdx === 2 ? "#FECDCA" : "#FEDF89"}`,
+                                  background: rowIdx === 0 ? "#ECFDF3" : rowIdx === 1 ? "#EFF8FF" : rowIdx === 2 ? "#FEF3F2" : "#FFFAEB"
+                                }}>
+                                  <div style={{
+                                    color: rowIdx === 0 ? "#067647" : rowIdx === 1 ? "#175CD3" : rowIdx === 2 ? "#B42318" : "#B54708",
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 500, lineHeight: "18px"
+                                  }}>
+                                    {rowIdx === 0 ? "Success" : rowIdx === 1 ? "Processing" : rowIdx === 2 ? "Error" : "Failed"}
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Count Cell */}
+                              <div style={{ display: "flex", width: "69px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
+                                  {rowIdx < 2 ? "10" : rowIdx === 2 ? "0" : "1"}
+                                </div>
+                              </div>
+
+                              {/* Success Cell */}
+                              <div style={{ display: "flex", width: "69px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
+                                  {rowIdx < 2 ? "3" : rowIdx === 2 ? "0" : "1"}
+                                </div>
+                              </div>
+
+                              {/* Failed Cell */}
+                              <div style={{ display: "flex", width: "61px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
+                                  {rowIdx === 3 ? "1" : "0"}
+                                </div>
+                              </div>
+
+                              {/* Combined Cell */}
+                              <div style={{ display: "flex", width: "70px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
+                                  {rowIdx === 1 ? "Y" : rowIdx === 3 ? "1" : "0"}
+                                </div>
+                              </div>
+
+                              {/* Start At Cell */}
+                              <div style={{ display: "flex", width: "100px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                                  <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>00/00/00</div>
+                                  <div style={{ color: "#535862", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 400, lineHeight: "20px" }}>00:00:00</div>
+                                </div>
+                              </div>
+
+                              {/* Message Cell */}
+                              <div style={{ display: "flex", flex: "1 0 0", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                              </div>
+
+                              {/* Actions Cell */}
+                              <div style={{ display: "flex", width: "48px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB" }}>
+                                <button style={{ display: "flex", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "none", background: "transparent", cursor: "pointer" }}>
+                                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 8.66663C8.36819 8.66663 8.66667 8.36815 8.66667 7.99996C8.66667 7.63177 8.36819 7.33329 8 7.33329C7.63181 7.33329 7.33333 7.63177 7.33333 7.99996C7.33333 8.36815 7.63181 8.66663 8 8.66663Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M8 3.99996C8.36819 3.99996 8.66667 3.70148 8.66667 3.33329C8.66667 2.9651 8.36819 2.66663 8 2.66663C7.63181 2.66663 7.33333 2.9651 7.33333 3.33329C7.33333 3.70148 7.63181 3.99996 8 3.99996Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M8 13.3333C8.36819 13.3333 8.66667 13.0348 8.66667 12.6666C8.66667 12.2984 8.36819 12 8 12C7.63181 12 7.33333 12.2984 7.33333 12.6666C7.33333 13.0348 7.63181 13.3333 8 13.3333Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+                          ))}
                           {/* Batch Number Column */}
                           <div style={{ display: "flex", width: "110px", flexDirection: "column", alignItems: "flex-start", position: "relative" }}>
                             {/* Batch Number Data */}
