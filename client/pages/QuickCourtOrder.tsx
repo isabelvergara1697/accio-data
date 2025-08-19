@@ -2244,48 +2244,6 @@ const QuickCourtOrder: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Validation Error Badge */}
-                      {showValidationBadge && Object.keys(validationErrors).length > 0 && (
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            alignSelf: "stretch",
-                            borderTop: "1px solid #D5D7DA",
-                            padding: "12px 0 0 12px",
-                            marginTop: "0px",
-                          }}
-                        >
-                          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                            {/* Add 10 Rows and Submit buttons would go here in the real layout */}
-                          </div>
-                          <div
-                            style={{
-                              display: "flex",
-                              padding: "2px 8px",
-                              alignItems: "center",
-                              borderRadius: "9999px",
-                              border: "1px solid #FECDCA",
-                              background: "#FEF3F2",
-                            }}
-                          >
-                            <div
-                              style={{
-                                color: "#B42318",
-                                textAlign: "center",
-                                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                                fontSize: "12px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "18px",
-                              }}
-                            >
-                              There are missing fields in this Quick Court Order, please review highlighted fields.
-                            </div>
-                          </div>
-                        </div>
-                      )}
                     </div>
                     </div>
                   )}
