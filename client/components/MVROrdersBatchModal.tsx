@@ -6,12 +6,11 @@ interface MVROrdersBatchModalProps {
   onSubmit?: () => void;
 }
 
-
 const NOTIFICATION_OPTIONS = [
   "Uploading User",
   "Ordering User",
   "Custom",
-  "No Notification"
+  "No Notification",
 ];
 
 export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
@@ -25,15 +24,19 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
   const [showCustomEmail, setShowCustomEmail] = useState(true);
   const [iAgree, setIAgree] = useState(true);
   const [fileUploaded, setFileUploaded] = useState(true);
-  
+
   // Dropdown states
-  const [notificationDropdownOpen, setNotificationDropdownOpen] = useState(false);
+  const [notificationDropdownOpen, setNotificationDropdownOpen] =
+    useState(false);
 
   const notificationDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (notificationDropdownRef.current && !notificationDropdownRef.current.contains(event.target as Node)) {
+      if (
+        notificationDropdownRef.current &&
+        !notificationDropdownRef.current.contains(event.target as Node)
+      ) {
         setNotificationDropdownOpen(false);
       }
     };
@@ -46,7 +49,6 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
   useEffect(() => {
     setShowCustomEmail(notificationSelection === "Custom");
   }, [notificationSelection]);
-
 
   if (!isOpen) return null;
 
@@ -179,7 +181,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 style={{
                   alignSelf: "stretch",
                   color: "#181D27",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "18px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -193,7 +196,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 style={{
                   alignSelf: "stretch",
                   color: "#535862",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 400,
@@ -283,7 +287,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
               style={{
                 alignSelf: "stretch",
                 color: "#414651",
-                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "14px",
                 fontStyle: "normal",
                 fontWeight: 400,
@@ -300,8 +305,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 }}
               >
                 the uploading process
-              </span>
-              {" "}and ensure that you're using the latest version of the{" "}
+              </span>{" "}
+              and ensure that you're using the latest version of the{" "}
               <span
                 style={{
                   color: "#344698",
@@ -333,7 +338,6 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 }}
               />
             </div>
-
 
             {/* Start Importing At */}
             <div
@@ -368,7 +372,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -381,7 +386,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   <div
                     style={{
                       color: "#344698",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -444,7 +450,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                         overflow: "hidden",
                         color: "#717680",
                         textOverflow: "ellipsis",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "16px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -481,7 +488,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 style={{
                   alignSelf: "stretch",
                   color: "#535862",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 400,
@@ -489,7 +497,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   position: "relative",
                 }}
               >
-                If you leave the start time in blank, the process of importing the order will start after 7:00pm
+                If you leave the start time in blank, the process of importing
+                the order will start after 7:00pm
               </div>
             </div>
 
@@ -516,7 +525,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 600,
@@ -529,7 +539,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 <div
                   style={{
                     color: "#344698",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -582,7 +593,9 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   position: "relative",
                   cursor: "pointer",
                 }}
-                onClick={() => setNotificationDropdownOpen(!notificationDropdownOpen)}
+                onClick={() =>
+                  setNotificationDropdownOpen(!notificationDropdownOpen)
+                }
               >
                 <div
                   style={{
@@ -597,7 +610,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                     style={{
                       flex: "1 0 0",
                       color: "#181D27",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "16px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -613,7 +627,9 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                     width: "24px",
                     height: "24px",
                     position: "relative",
-                    transform: notificationDropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    transform: notificationDropdownOpen
+                      ? "rotate(180deg)"
+                      : "rotate(0deg)",
                     transition: "transform 0.2s ease",
                   }}
                   width="24"
@@ -644,7 +660,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
-                    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                    boxShadow:
+                      "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
                   }}
                 >
                   {NOTIFICATION_OPTIONS.map((option) => (
@@ -658,17 +675,27 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                       style={{
                         padding: "10px 14px",
                         fontSize: "14px",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         cursor: "pointer",
-                        borderBottom: option !== "No Notification" ? "1px solid #F3F4F6" : "none",
+                        borderBottom:
+                          option !== "No Notification"
+                            ? "1px solid #F3F4F6"
+                            : "none",
                         transition: "background 0.2s ease",
-                        background: option === notificationSelection ? "#F3F4F6" : "transparent",
+                        background:
+                          option === notificationSelection
+                            ? "#F3F4F6"
+                            : "transparent",
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background = "#F9FAFB";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = option === notificationSelection ? "#F3F4F6" : "transparent";
+                        e.currentTarget.style.background =
+                          option === notificationSelection
+                            ? "#F3F4F6"
+                            : "transparent";
                       }}
                     >
                       {option}
@@ -701,7 +728,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -714,7 +742,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   <div
                     style={{
                       color: "#344698",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -757,7 +786,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                         overflow: "hidden",
                         color: "#181D27",
                         textOverflow: "ellipsis",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "16px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -820,7 +850,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
                         background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         position: "relative",
                       }}
                     >
@@ -877,7 +908,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                           <div
                             style={{
                               color: "#273572",
-                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                               fontSize: "14px",
                               fontStyle: "normal",
                               fontWeight: 600,
@@ -891,7 +923,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                         <div
                           style={{
                             color: "#535862",
-                            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                             fontSize: "14px",
                             fontStyle: "normal",
                             fontWeight: 400,
@@ -907,7 +940,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                           alignSelf: "stretch",
                           color: "#535862",
                           textAlign: "center",
-                          fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "12px",
                           fontStyle: "normal",
                           fontWeight: 400,
@@ -1006,7 +1040,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                             style={{
                               color: "#FFF",
                               textAlign: "center",
-                              fontFamily: "Inter, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontFamily:
+                                "Inter, -apple-system, Roboto, Helvetica, sans-serif",
                               fontSize: "10px",
                               fontStyle: "normal",
                               fontWeight: 700,
@@ -1049,7 +1084,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                               overflow: "hidden",
                               color: "#414651",
                               textOverflow: "ellipsis",
-                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                               fontSize: "14px",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1076,7 +1112,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                                 overflow: "hidden",
                                 color: "#535862",
                                 textOverflow: "ellipsis",
-                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                 fontSize: "14px",
                                 fontStyle: "normal",
                                 fontWeight: 400,
@@ -1100,7 +1137,11 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <path d="M1 1V13" stroke="#D5D7DA" strokeLinecap="round" />
+                              <path
+                                d="M1 1V13"
+                                stroke="#D5D7DA"
+                                strokeLinecap="round"
+                              />
                             </svg>
                             <div
                               style={{
@@ -1140,7 +1181,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                               <div
                                 style={{
                                   color: "#079455",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                   fontSize: "14px",
                                   fontStyle: "normal",
                                   fontWeight: 500,
@@ -1199,7 +1241,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                           <div
                             style={{
                               color: "#414651",
-                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                               fontSize: "14px",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1353,7 +1396,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                     style={{
                       alignSelf: "stretch",
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -1365,7 +1409,6 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   </div>
                 </div>
               </div>
-
             </div>
 
             {/* Submit Button */}
@@ -1408,7 +1451,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 <div
                   style={{
                     color: "#FFF",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "16px",
                     fontStyle: "normal",
                     fontWeight: 600,
@@ -1454,7 +1498,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
               <div
                 style={{
                   color: "#414651",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 500,
@@ -1468,7 +1513,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 style={{
                   alignSelf: "stretch",
                   color: "#535862",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 400,
@@ -1476,7 +1522,10 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   position: "relative",
                 }}
               >
-                Credit card users Note : Each MVR search that we run will be billed to your credit card individually. The order # we assign to that search will be listed on your billing statement if this feature is supported by your credit card vendor.
+                Credit card users Note : Each MVR search that we run will be
+                billed to your credit card individually. The order # we assign
+                to that search will be listed on your billing statement if this
+                feature is supported by your credit card vendor.
               </div>
             </div>
           </div>
