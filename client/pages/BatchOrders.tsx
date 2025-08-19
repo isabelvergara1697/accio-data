@@ -1351,14 +1351,14 @@ const BatchOrders: React.FC = () => {
                               </div>
 
                               {/* Success Cell */}
-                              <div style={{ display: "flex", width: "69px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: hoveredRowIndex === rowIdx ? "#F5F5F5" : "transparent" }}>
+                              <div style={{ display: "flex", width: "69px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "transparent" }}>
                                 <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
                                   {rowIdx < 2 ? "3" : rowIdx === 2 ? "0" : "1"}
                                 </div>
                               </div>
 
                               {/* Failed Cell */}
-                              <div style={{ display: "flex", width: "61px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: hoveredRowIndex === rowIdx ? "#F5F5F5" : "transparent" }}>
+                              <div style={{ display: "flex", width: "61px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "transparent" }}>
                                 <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
                                   {rowIdx === 3 ? "1" : "0"}
                                 </div>
