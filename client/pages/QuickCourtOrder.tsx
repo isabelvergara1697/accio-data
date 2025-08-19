@@ -50,6 +50,9 @@ const QuickCourtOrder: React.FC = () => {
     return initialSubjects;
   });
 
+  // Focus state for inputs
+  const [focusedInput, setFocusedInput] = useState<string | null>(null);
+
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
