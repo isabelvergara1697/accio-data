@@ -1290,23 +1290,23 @@ const BatchOrders: React.FC = () => {
                                 display: "flex",
                                 alignItems: "flex-start",
                                 alignSelf: "stretch",
-                                background: hoveredRowIndex === rowIdx ? "#F5F5F5" : "#FFF",
+                                background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "#FFF",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
                               }}
-                              onMouseEnter={() => setHoveredRowIndex(rowIdx)}
-                              onMouseLeave={() => setHoveredRowIndex(null)}
+                              onMouseEnter={() => activeTab === "standard" ? setHoveredRowIndex(rowIdx) : setMvrHoveredRowIndex(rowIdx)}
+                              onMouseLeave={() => activeTab === "standard" ? setHoveredRowIndex(null) : setMvrHoveredRowIndex(null)}
                             >
                               {/* Batch Number Cell */}
-                              <div style={{ display: "flex", width: "110px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: hoveredRowIndex === rowIdx ? "#F5F5F5" : "transparent" }}>
+                              <div style={{ display: "flex", width: "110px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "transparent" }}>
                                 <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                                   12345678_234567
                                 </div>
                               </div>
 
                               {/* Uploaded By Cell */}
-                              <div style={{ display: "flex", width: "95px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: hoveredRowIndex === rowIdx ? "#F5F5F5" : "transparent" }}>
+                              <div style={{ display: "flex", width: "95px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "transparent" }}>
                                 <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
                                   [username]
                                 </div>
