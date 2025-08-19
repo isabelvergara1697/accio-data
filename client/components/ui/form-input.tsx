@@ -81,7 +81,8 @@ export default function FormInput({
         <div
           style={{
             display: "flex",
-            padding: "10px 14px",
+            height: "32px",
+            padding: "6px 8px",
             alignItems: "center",
             gap: "8px",
             alignSelf: "stretch",
@@ -101,6 +102,7 @@ export default function FormInput({
               alignItems: "center",
               gap: "8px",
               flex: "1 0 0",
+              height: "100%",
             }}
           >
             <input
@@ -117,10 +119,11 @@ export default function FormInput({
                 color: value ? "#181D27" : "#717680",
                 fontFamily:
                   "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: "16px",
+                fontSize: "14px",
                 fontStyle: "normal",
                 fontWeight: 400,
-                lineHeight: "24px",
+                lineHeight: "20px",
+                height: "100%",
               }}
               placeholder={placeholder}
             />
