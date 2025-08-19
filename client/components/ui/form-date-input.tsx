@@ -225,23 +225,6 @@ export default function FormDateInput({
             </div>
           </div>
         </button>
-        
-        {/* Hidden input for actual value storage */}
-        <input
-          type="date"
-          value={value}
-          onChange={handleDateChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          style={{
-            position: "absolute",
-            left: "-9999px",
-            opacity: 0,
-            pointerEvents: "auto",
-            width: "1px",
-            height: "1px",
-          }}
-        />
       </div>
       {error && (
         <div
@@ -258,6 +241,28 @@ export default function FormDateInput({
         >
           {error}
         </div>
+      )}
+
+      {/* Calendar Components - Use DesktopCalendar for desktop and tablet, DatePickerCalendar for mobile */}
+      {isCalendarOpen && (isDesktop || isTablet) && (
+        <DesktopCalendar
+          isOpen={isCalendarOpen}
+          onClose={handleCalendarClose}
+          triggerRef={buttonRef}
+          selectedStartDate={selectedDate}
+          selectedEndDate={selectedDate}
+          onDateRangeChange={handleDateSelect}
+        />
+      )}
+      {isCalendarOpen && !isDesktop && !isTablet && (
+        <DatePickerCalendar
+          isOpen={isCalendarOpen}
+          onClose={handleCalendarClose}
+          triggerRef={buttonRef}
+          selectedStartDate={selectedDate}
+          selectedEndDate={selectedDate}
+          onDateRangeChange={handleDateSelect}
+        />
       )}
     </div>
   );
