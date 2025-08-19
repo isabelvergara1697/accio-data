@@ -344,11 +344,42 @@ export default function FormDateInput({
                 : isCalendarOpen
                   ? "#273572"
                   : "#717680",
-              fontFamily:
-                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "14px",
               fontWeight: 400,
               lineHeight: "20px",
+            }}
+            {...{ /* Add placeholder styles using CSS variable */
+              style: {
+                ...{
+                  flex: "1",
+                  height: "100%",
+                  padding: "0 8px 0 2px",
+                  border: "none",
+                  outline: "none",
+                  background: "transparent",
+                  color: inputValue
+                    ? isCalendarOpen
+                      ? "#273572"
+                      : "#181D27"
+                    : isCalendarOpen
+                      ? "#273572"
+                      : "#717680",
+                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                },
+                // Placeholder styles
+                "::placeholder": {
+                  color: "#717680",
+                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                },
+              } as React.CSSProperties & { "::placeholder"?: React.CSSProperties },
             }}
           />
         </div>
