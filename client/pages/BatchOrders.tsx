@@ -1227,16 +1227,8 @@ const BatchOrders: React.FC = () => {
                             overflowX: "auto",
                           }}
                         >
-                          {/* Table Headers */}
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              width: "110px",
-                              position: "relative",
-                            }}
-                          >
+                          {/* Batch Number Column */}
+                          <div style={{ display: "flex", width: "110px", flexDirection: "column", alignItems: "flex-start", position: "relative" }}>
                             <div
                               style={{
                                 display: "flex",
