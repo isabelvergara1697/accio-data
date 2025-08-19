@@ -20,10 +20,9 @@ interface SubjectData {
   county: string;
   dlNumber: string;
   mvrType: string;
-  dateOfBirth: string;
   socialSecurityTrace: string;
-  yearsIn: string;
-  comments: string;
+  gender: string;
+  dateOfBirth: string;
 }
 
 const QuickOrder: React.FC = () => {
