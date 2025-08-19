@@ -547,13 +547,16 @@ const I9Order: React.FC = () => {
                                 width: "16px",
                                 height: "16px",
                                 borderRadius: "9999px",
-                                border: selectedIndividualType === "background-checked" 
-                                  ? "1px solid #34479A" 
+                                border: selectedIndividualType === "background-checked"
+                                  ? "none"
                                   : "1px solid #D5D7DA",
-                                background: "#FFF",
+                                background: selectedIndividualType === "background-checked"
+                                  ? "#344698"
+                                  : "#FFF",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
+                                position: "relative",
                               }}
                             >
                               {selectedIndividualType === "background-checked" && (
@@ -562,7 +565,8 @@ const I9Order: React.FC = () => {
                                     width: "6px",
                                     height: "6px",
                                     borderRadius: "9999px",
-                                    background: "#34479A",
+                                    background: "#FFF",
+                                    position: "absolute",
                                   }}
                                 />
                               )}
