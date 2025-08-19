@@ -1613,6 +1613,7 @@ const QuickCourtOrder: React.FC = () => {
                                   fontWeight: 700,
                                   fontSize: "12px",
                                   color: "rgba(113,118,128,1)",
+                                  whiteSpace: "nowrap",
                                 }}
                               >
                                 Years to Search
