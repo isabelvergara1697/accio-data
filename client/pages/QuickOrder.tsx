@@ -521,7 +521,7 @@ const QuickOrder: React.FC = () => {
                                     "var(--Line-height-text-lg, 28px)",
                                 }}
                               >
-                                Create Quick Order
+                                Create Quick MVR Order
                               </div>
                             </div>
                           </div>
