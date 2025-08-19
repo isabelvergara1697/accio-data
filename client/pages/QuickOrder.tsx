@@ -213,6 +213,7 @@ const QuickOrder: React.FC = () => {
         lastName: "",
         state: "",
         county: "",
+        dlNumber: "",
         dateOfBirth: "",
         socialSecurityTrace: "",
         yearsIn: "",
