@@ -1201,7 +1201,7 @@ const QuickCourtOrder: React.FC = () => {
                                 { value: "NC", label: "NC" },
                                 { value: "MI", label: "MI" },
                               ]}
-                              placeholder={index === 0 ? "TX" : "Select state"}
+                              placeholder={index === 0 ? "TX" : ""}
                               style={{
                                 width: "100%",
                                 gap: "0px",
