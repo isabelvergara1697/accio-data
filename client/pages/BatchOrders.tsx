@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import BatchOrderingHelpModal from "../components/BatchOrderingHelpModal";
 
 const BatchOrders: React.FC = () => {
   const navigate = useNavigate();
