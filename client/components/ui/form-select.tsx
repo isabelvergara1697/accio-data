@@ -139,6 +139,9 @@ export default function FormSelect({
                 fontStyle: "normal",
                 fontWeight: 500,
                 lineHeight: "20px",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
               }}
             >
               {selectedOption ? selectedOption.label : placeholder}
