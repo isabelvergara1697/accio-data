@@ -60,9 +60,15 @@ export default function FormDateInput({
     onBlur?.();
   };
 
-  const handleDateSelect = (startDate: string, endDate: string) => {
+  const handleDateSelect = (startDate: Date, endDate: Date) => {
     // For single date selection, we only use the start date
-    onChange(startDate);
+    // Convert Date back to string format (YYYY-MM-DD for consistency)
+    const year = startDate.getFullYear();
+    const month = String(startDate.getMonth() + 1).padStart(2, '0');
+    const day = String(startDate.getDate()).padStart(2, '0');
+    const dateString = `${year}-${month}-${day}`;
+
+    onChange(dateString);
     setIsCalendarOpen(false);
     onBlur?.();
   };
