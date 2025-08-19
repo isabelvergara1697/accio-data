@@ -139,8 +139,34 @@ const QuickCourtOrder: React.FC = () => {
     // Simulate processing time - replace with actual API call
     setTimeout(() => {
       setIsLoading(false);
-      // Handle success/redirect here
+      setShowConfirmation(true);
     }, 5000);
+  };
+
+  const handleSeeAllOrders = () => {
+    navigate("/invites-orders", { state: { activeTab: "orders" } });
+  };
+
+  const handleNewQuickCourtOrder = () => {
+    setShowConfirmation(false);
+    // Reset all form data
+    const initialSubjects: SubjectData[] = [];
+    for (let i = 0; i < 10; i++) {
+      initialSubjects.push({
+        id: `subject-${i + 1}`,
+        search: "County Criminal",
+        firstName: "",
+        middle: "",
+        lastName: "",
+        state: "",
+        county: "",
+        dateOfBirth: "",
+        socialSecurityTrace: "",
+        yearsIn: "",
+        comments: "",
+      });
+    }
+    setSubjects(initialSubjects);
   };
 
   const copyFromPreviousRow = (currentIndex: number) => {
