@@ -616,7 +616,7 @@ const QuickCourtOrder: React.FC = () => {
                       position: "relative",
                     }}
                   >
-                    <Table style={{ minWidth: "600px", width: "auto" }}>
+                    <Table style={{ minWidth: "600px", width: "auto", marginTop: "-12px" }}>
                       <TableHeader>
                         <TableRow>
                           <TableHead
