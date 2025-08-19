@@ -732,7 +732,6 @@ const QuickCourtOrder: React.FC = () => {
                             gap: "12px",
                             alignSelf: "stretch",
                             borderBottom: "1px solid #E9EAEB",
-                            borderLeft: "1px solid #E9EAEB",
                             background: "#FFF",
                           }}
                         >
