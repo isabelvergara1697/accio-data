@@ -592,6 +592,7 @@ const QuickCourtOrder: React.FC = () => {
               <div
                 style={{
                   overflowX: "auto",
+                  alignSelf: "stretch",
                 }}
               >
                 <Table>
