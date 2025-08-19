@@ -1287,6 +1287,891 @@ const BatchOrders: React.FC = () => {
                             </div>
                           </div>
                         </>
+                      ) : showTable ? (
+                        /* Table State */
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            alignSelf: "stretch",
+                            background: "#FFF",
+                            position: "relative",
+                            width: "100%",
+                            overflowX: "auto",
+                          }}
+                        >
+                          {/* Table Headers */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "110px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Batch Number
+                              </div>
+                            </div>
+                            {/* Batch Number Data */}
+                            {["12345678_234567", "12345678_234567", "12345678_234567", "12345678_234567"].map((batchNum, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 1,
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
+                                    color: "#181D27",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {batchNum}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Uploaded By Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "95px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Uploaded By
+                              </div>
+                            </div>
+                            {["[username]", "[username]", "[username]", "[username]"].map((username, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {username}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Uploaded On Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "100px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Uploaded On
+                              </div>
+                            </div>
+                            {["00/00/00", "00/00/00", "00/00/00", "00/00/00"].map((date, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    alignSelf: "stretch",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#181D27",
+                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {date}
+                                  </div>
+                                  <div
+                                    style={{
+                                      color: "#535862",
+                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontWeight: 400,
+                                      lineHeight: "20px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    00:00:00
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Ordered By Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "106px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Ordered By
+                              </div>
+                            </div>
+                            {["[username]", "[username]", "[username]", "[username]"].map((username, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {username}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Status Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "100px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Status
+                              </div>
+                            </div>
+                            {[
+                              { status: "Success", color: "Green" },
+                              { status: "Processing", color: "Blue" },
+                              { status: "Error", color: "Error" },
+                              { status: "Failed", color: "Warning" },
+                            ].map((item, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: item.color === "Green" ? "1px solid #ABEFC6" :
+                                           item.color === "Blue" ? "1px solid #B2DDFF" :
+                                           item.color === "Error" ? "1px solid #FECDCA" : "1px solid #FEDF89",
+                                    background: item.color === "Green" ? "#ECFDF3" :
+                                               item.color === "Blue" ? "#EFF8FF" :
+                                               item.color === "Error" ? "#FEF3F2" : "#FFFAEB",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: item.color === "Green" ? "#067647" :
+                                             item.color === "Blue" ? "#175CD3" :
+                                             item.color === "Error" ? "#B42318" : "#B54708",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {item.status}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Count Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "69px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Count
+                              </div>
+                            </div>
+                            {["10", "10", "0", "1"].map((count, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {count}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Success Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "69px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Success
+                              </div>
+                            </div>
+                            {["3", "3", "0", "1"].map((success, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {success}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Failed Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "61px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Failed
+                              </div>
+                            </div>
+                            {["0", "0", "0", "1"].map((failed, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {failed}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Combined Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "70px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Combined
+                              </div>
+                            </div>
+                            {["0", "Y", "0", "1"].map((combined, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {combined}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Start At Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              width: "100px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Start At
+                              </div>
+                            </div>
+                            {["00/00/00", "00/00/00", "00/00/00", "00/00/00"].map((date, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    alignSelf: "stretch",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#181D27",
+                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {date}
+                                  </div>
+                                  <div
+                                    style={{
+                                      color: "#535862",
+                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontWeight: 400,
+                                      lineHeight: "20px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    00:00:00
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Message Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontSize: "12px",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Message
+                              </div>
+                            </div>
+                            {[1, 2, 3, 4].map((_, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Actions Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "48px",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            ></div>
+                            {[1, 2, 3, 4].map((_, idx) => (
+                              <div
+                                key={idx}
+                                style={{
+                                  display: "flex",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <button
+                                  style={{
+                                    display: "flex",
+                                    padding: "8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "8px",
+                                    border: "none",
+                                    background: "transparent",
+                                    cursor: "pointer",
+                                    position: "relative",
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = "#F9FAFB";
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = "transparent";
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      position: "relative",
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M8.00016 8.66663C8.36835 8.66663 8.66683 8.36815 8.66683 7.99996C8.66683 7.63177 8.36835 7.33329 8.00016 7.33329C7.63197 7.33329 7.3335 7.63177 7.3335 7.99996C7.3335 8.36815 7.63197 8.66663 8.00016 8.66663Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                    <path
+                                      d="M8.00016 3.99996C8.36835 3.99996 8.66683 3.70148 8.66683 3.33329C8.66683 2.9651 8.36835 2.66663 8.00016 2.66663C7.63197 2.66663 7.3335 2.9651 7.3335 3.33329C7.3335 3.70148 7.63197 3.99996 8.00016 3.99996Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                    <path
+                                      d="M8.00016 13.3333C8.36835 13.3333 8.66683 13.0348 8.66683 12.6666C8.66683 12.2984 8.36835 12 8.00016 12C7.63197 12 7.3335 12.2984 7.3335 12.6666C7.3335 13.0348 7.63197 13.3333 8.00016 13.3333Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.66667"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       ) : (
                         /* Empty State */
                         <>
