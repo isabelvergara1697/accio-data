@@ -1939,15 +1939,12 @@ const QuickCourtOrder: React.FC = () => {
                           >
                             <div
                               style={{
-                                color:
-                                  "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily:
-                                  "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                color: "#414651",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "14px",
                                 fontStyle: "normal",
                                 fontWeight: 600,
-                                lineHeight:
-                                  "var(--Line-height-text-sm, 20px)",
+                                lineHeight: "20px",
                               }}
                             >
                               Add 10 Rows
@@ -1988,14 +1985,12 @@ const QuickCourtOrder: React.FC = () => {
                           >
                             <div
                               style={{
-                                color: "var(--Colors-Text-text-white, #FFF)",
-                                fontFamily:
-                                  "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                color: "#FFF",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "14px",
                                 fontStyle: "normal",
                                 fontWeight: 600,
-                                lineHeight:
-                                  "var(--Line-height-text-sm, 20px)",
+                                lineHeight: "20px",
                               }}
                             >
                               Submit Court Order
