@@ -257,8 +257,8 @@ const QuickCourtOrder: React.FC = () => {
         <div
           style={{
             flex: 1,
-            padding: isDesktop ? "32px 40px 24px" : "16px 20px",
-            paddingTop: showNotification && isDesktop ? "84px" : isDesktop ? "32px" : "16px",
+            padding: isDesktop ? "0 32px 24px" : "0 20px 24px",
+            paddingTop: showNotification && isDesktop ? "84px" : "0",
           }}
         >
           {/* Page Header Section - Following established pattern */}
