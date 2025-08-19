@@ -45,16 +45,24 @@ const BatchOrders: React.FC = () => {
       }}
     >
       {/* Sidebar */}
-      {!isMobile && (
-        <Sidebar
-          isCollapsed={sidebarCollapsed}
-          onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
-          userMenuOpen={userMenuOpen}
-          setUserMenuOpen={setUserMenuOpen}
-          userMenuHovered={userMenuHovered}
-          setUserMenuHovered={setUserMenuHovered}
-        />
-      )}
+      <Sidebar
+        isDesktop={isDesktop}
+        isMobile={isMobile}
+        mobileMenuOpen={mobileMenuOpen}
+        currentPage="batch-orders"
+        showMobileUserMenu={showMobileUserMenu}
+        setShowMobileUserMenu={setShowMobileUserMenu}
+        setMobileMenuOpen={setMobileMenuOpen}
+        userMenuOpen={userMenuOpen}
+        setUserMenuOpen={setUserMenuOpen}
+        userMenuHovered={userMenuHovered}
+        setUserMenuHovered={setUserMenuHovered}
+        handleSignOut={() => console.log("Sign out")}
+        getUserMenuStyles={() => ({})}
+        showNotification={false}
+        isCollapsed={sidebarCollapsed}
+        setIsCollapsed={setSidebarCollapsed}
+      />
 
       {/* Main Content */}
       <div
