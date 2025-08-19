@@ -557,7 +557,7 @@ const QuickOrder: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: "0 32px",
+                  padding: isDesktop ? "0 32px" : "0 20px",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "20px",
