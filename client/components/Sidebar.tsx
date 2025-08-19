@@ -84,7 +84,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     "Bulk Report Export",
     "CSV Reports",
     "Turn Around Time Reports",
-    "Billing Reports"
+    "Billing Reports",
   ];
 
   const NavIcon = ({
@@ -298,12 +298,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
               borderRadius: "6px",
               background: isActive ? "#ECEEF9" : "#FFF",
               position: "relative",
-              cursor: isDisabled ? "not-allowed" : hasChevron ? "pointer" : "default",
+              cursor: isDisabled
+                ? "not-allowed"
+                : hasChevron
+                  ? "pointer"
+                  : "default",
               opacity: isDisabled ? 0.5 : 1,
               ...(!isActive && !isDisabled ? getHoverStyles(section) : {}),
             }}
             onClick={isDisabled ? undefined : onClick}
-            onMouseEnter={() => !isActive && !isDisabled && setHoveredItem(section)}
+            onMouseEnter={() =>
+              !isActive && !isDisabled && setHoveredItem(section)
+            }
             onMouseLeave={() => setHoveredItem(null)}
           >
             <div
@@ -330,8 +336,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     color: isDisabled
                       ? "#A4A7AE"
                       : isActive
-                      ? "#273572"
-                      : "var(--colors-text-text-secondary-700, #414651)",
+                        ? "#273572"
+                        : "var(--colors-text-text-secondary-700, #414651)",
                     fontFamily:
                       "var(--Font-family-font-family-body, 'Public Sans')",
                     fontSize: "var(--Font-size-text-sm, 14px)",
@@ -350,8 +356,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       color: isDisabled
                         ? "#A4A7AE"
                         : isActive
-                        ? "#273572"
-                        : "rgba(65,70,81,1)",
+                          ? "#273572"
+                          : "rgba(65,70,81,1)",
                     }}
                   >
                     {label}
@@ -450,12 +456,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           item === "Batch Orders") ||
                         (currentPage === "quick-order" &&
                           item === "Quick Order") ||
-                        (currentPage === "i9-order" &&
-                          item === "I-9 Order")
+                        (currentPage === "i9-order" && item === "I-9 Order")
                           ? "#ECEEF9"
                           : "#FFF",
                       position: "relative",
-                      cursor: disabledMenuItems.includes(item) ? "not-allowed" : "pointer",
+                      cursor: disabledMenuItems.includes(item)
+                        ? "not-allowed"
+                        : "pointer",
                       opacity: disabledMenuItems.includes(item) ? 0.5 : 1,
                       ...(!(
                         (currentPage === "document-library" &&
@@ -469,11 +476,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           item === "Batch Orders") ||
                         (currentPage === "quick-order" &&
                           item === "Quick Order") ||
-                        (currentPage === "i9-order" &&
-                          item === "I-9 Order")
-                      ) && !disabledMenuItems.includes(item) ? getHoverStyles(
-                        `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
-                      ) : {}),
+                        (currentPage === "i9-order" && item === "I-9 Order")
+                      ) && !disabledMenuItems.includes(item)
+                        ? getHoverStyles(
+                            `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
+                          )
+                        : {}),
                     }}
                     onMouseEnter={() =>
                       !(
@@ -488,8 +496,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           item === "Batch Orders") ||
                         (currentPage === "quick-order" &&
                           item === "Quick Order") ||
-                        (currentPage === "i9-order" &&
-                          item === "I-9 Order")
+                        (currentPage === "i9-order" && item === "I-9 Order")
                       ) &&
                       !disabledMenuItems.includes(item) &&
                       setHoveredItem(
@@ -542,19 +549,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
                           color: disabledMenuItems.includes(item)
                             ? "#A4A7AE"
                             : (currentPage === "document-library" &&
-                              item === "Document Library") ||
-                            (currentPage === "resources" &&
-                              item === "Resources") ||
-                            (currentPage === "invites-orders" &&
-                              item === "Invites & Orders") ||
-                            (currentPage === "quick-court-order" &&
-                              item === "Quick Court Order") ||
-                            (currentPage === "batch-orders" &&
-                              item === "Batch Orders") ||
-                            (currentPage === "quick-order" &&
-                              item === "Quick Order") ||
-                            (currentPage === "i9-order" &&
-                              item === "I-9 Order")
+                                  item === "Document Library") ||
+                                (currentPage === "resources" &&
+                                  item === "Resources") ||
+                                (currentPage === "invites-orders" &&
+                                  item === "Invites & Orders") ||
+                                (currentPage === "quick-court-order" &&
+                                  item === "Quick Court Order") ||
+                                (currentPage === "batch-orders" &&
+                                  item === "Batch Orders") ||
+                                (currentPage === "quick-order" &&
+                                  item === "Quick Order") ||
+                                (currentPage === "i9-order" &&
+                                  item === "I-9 Order")
                               ? "#273572"
                               : "var(--colors-text-text-secondary-700, #414651)",
                           fontFamily:
@@ -575,19 +582,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             color: disabledMenuItems.includes(item)
                               ? "#A4A7AE"
                               : (currentPage === "document-library" &&
-                                item === "Document Library") ||
-                              (currentPage === "resources" &&
-                                item === "Resources") ||
-                              (currentPage === "invites-orders" &&
-                                item === "Invites & Orders") ||
-                              (currentPage === "quick-court-order" &&
-                                item === "Quick Court Order") ||
-                              (currentPage === "batch-orders" &&
-                                item === "Batch Orders") ||
-                              (currentPage === "quick-order" &&
-                                item === "Quick Order") ||
-                              (currentPage === "i9-order" &&
-                                item === "I-9 Order")
+                                    item === "Document Library") ||
+                                  (currentPage === "resources" &&
+                                    item === "Resources") ||
+                                  (currentPage === "invites-orders" &&
+                                    item === "Invites & Orders") ||
+                                  (currentPage === "quick-court-order" &&
+                                    item === "Quick Court Order") ||
+                                  (currentPage === "batch-orders" &&
+                                    item === "Batch Orders") ||
+                                  (currentPage === "quick-order" &&
+                                    item === "Quick Order") ||
+                                  (currentPage === "i9-order" &&
+                                    item === "I-9 Order")
                                 ? "#273572"
                                 : "rgba(65,70,81,1)",
                           }}

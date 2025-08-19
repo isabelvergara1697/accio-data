@@ -757,17 +757,33 @@ const InvitesAndOrders: React.FC = () => {
 
   // Handle initial navigation state from I9Order page
   useEffect(() => {
-    const navState = location.state as { activeTab?: "orders" | "invites"; showActionsPanel?: boolean; selectedItems?: string[] };
+    const navState = location.state as {
+      activeTab?: "orders" | "invites";
+      showActionsPanel?: boolean;
+      selectedItems?: string[];
+    };
     if (navState?.selectedItems && navState.selectedItems.length > 0) {
       setShowActionsPanel(true);
     }
   }, [location.state]);
   const [activeTab, setActiveTab] = useState<"invites" | "orders">(
-    (location.state as { activeTab?: "orders" | "invites"; showActionsPanel?: boolean; selectedItems?: string[] })?.activeTab || "orders"
+    (
+      location.state as {
+        activeTab?: "orders" | "invites";
+        showActionsPanel?: boolean;
+        selectedItems?: string[];
+      }
+    )?.activeTab || "orders",
   );
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>(
-    (location.state as { activeTab?: "orders" | "invites"; showActionsPanel?: boolean; selectedItems?: string[] })?.selectedItems || []
+    (
+      location.state as {
+        activeTab?: "orders" | "invites";
+        showActionsPanel?: boolean;
+        selectedItems?: string[];
+      }
+    )?.selectedItems || [],
   );
   const [showNotification] = useState(false);
   const [sortField, setSortField] = useState<
@@ -839,7 +855,13 @@ const InvitesAndOrders: React.FC = () => {
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
   const [showActionsPanel, setShowActionsPanel] = useState(
-    (location.state as { activeTab?: "orders" | "invites"; showActionsPanel?: boolean; selectedItems?: string[] })?.showActionsPanel || false
+    (
+      location.state as {
+        activeTab?: "orders" | "invites";
+        showActionsPanel?: boolean;
+        selectedItems?: string[];
+      }
+    )?.showActionsPanel || false,
   );
   const [showOrderSummaryModal, setShowOrderSummaryModal] = useState(false);
   const [selectedOrderData, setSelectedOrderData] = useState<OrderData | null>(

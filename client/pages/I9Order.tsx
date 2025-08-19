@@ -17,24 +17,78 @@ const I9Order: React.FC = () => {
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
 
   // Form state
-  const [selectedIndividualType, setSelectedIndividualType] = useState<string>("");
-  const [selectedNewIndividualOption, setSelectedNewIndividualOption] = useState<string>("");
+  const [selectedIndividualType, setSelectedIndividualType] =
+    useState<string>("");
+  const [selectedNewIndividualOption, setSelectedNewIndividualOption] =
+    useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [showSearchDropdown, setShowSearchDropdown] = useState<boolean>(false);
-  const [searchResults, setSearchResults] = useState<Array<{id: string, firstName: string, lastName: string, email: string}>>([]);
+  const [searchResults, setSearchResults] = useState<
+    Array<{ id: string; firstName: string; lastName: string; email: string }>
+  >([]);
 
   // Sample background check data
   const backgroundCheckData = [
-    { id: "bg1", firstName: "John", lastName: "Smith", email: "john.smith@email.com" },
-    { id: "bg2", firstName: "Sarah", lastName: "Smith", email: "sarah.smith@email.com" },
-    { id: "bg3", firstName: "Michael", lastName: "Smith", email: "michael.smith@email.com" },
-    { id: "bg4", firstName: "Emily", lastName: "Johnson", email: "emily.johnson@email.com" },
-    { id: "bg5", firstName: "David", lastName: "Williams", email: "david.williams@email.com" },
-    { id: "bg6", firstName: "Lisa", lastName: "Brown", email: "lisa.brown@email.com" },
-    { id: "bg7", firstName: "Robert", lastName: "Davis", email: "robert.davis@email.com" },
-    { id: "bg8", firstName: "Jennifer", lastName: "Miller", email: "jennifer.miller@email.com" },
-    { id: "bg9", firstName: "William", lastName: "Wilson", email: "william.wilson@email.com" },
-    { id: "bg10", firstName: "Amanda", lastName: "Moore", email: "amanda.moore@email.com" },
+    {
+      id: "bg1",
+      firstName: "John",
+      lastName: "Smith",
+      email: "john.smith@email.com",
+    },
+    {
+      id: "bg2",
+      firstName: "Sarah",
+      lastName: "Smith",
+      email: "sarah.smith@email.com",
+    },
+    {
+      id: "bg3",
+      firstName: "Michael",
+      lastName: "Smith",
+      email: "michael.smith@email.com",
+    },
+    {
+      id: "bg4",
+      firstName: "Emily",
+      lastName: "Johnson",
+      email: "emily.johnson@email.com",
+    },
+    {
+      id: "bg5",
+      firstName: "David",
+      lastName: "Williams",
+      email: "david.williams@email.com",
+    },
+    {
+      id: "bg6",
+      firstName: "Lisa",
+      lastName: "Brown",
+      email: "lisa.brown@email.com",
+    },
+    {
+      id: "bg7",
+      firstName: "Robert",
+      lastName: "Davis",
+      email: "robert.davis@email.com",
+    },
+    {
+      id: "bg8",
+      firstName: "Jennifer",
+      lastName: "Miller",
+      email: "jennifer.miller@email.com",
+    },
+    {
+      id: "bg9",
+      firstName: "William",
+      lastName: "Wilson",
+      email: "william.wilson@email.com",
+    },
+    {
+      id: "bg10",
+      firstName: "Amanda",
+      lastName: "Moore",
+      email: "amanda.moore@email.com",
+    },
   ];
 
   // Auto-minimize sidebar after 30 seconds
@@ -55,11 +109,15 @@ const I9Order: React.FC = () => {
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
 
-    if (selectedIndividualType === "background-checked" && value.trim().length > 0) {
+    if (
+      selectedIndividualType === "background-checked" &&
+      value.trim().length > 0
+    ) {
       // Filter results by last name (case-insensitive)
-      const filtered = backgroundCheckData.filter(person =>
-        person.lastName.toLowerCase().includes(value.toLowerCase()) ||
-        person.firstName.toLowerCase().includes(value.toLowerCase())
+      const filtered = backgroundCheckData.filter(
+        (person) =>
+          person.lastName.toLowerCase().includes(value.toLowerCase()) ||
+          person.firstName.toLowerCase().includes(value.toLowerCase()),
       );
       setSearchResults(filtered);
       setShowSearchDropdown(true);
@@ -70,7 +128,12 @@ const I9Order: React.FC = () => {
   };
 
   // Handle selecting a person from dropdown
-  const handleSelectPerson = (person: {id: string, firstName: string, lastName: string, email: string}) => {
+  const handleSelectPerson = (person: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+  }) => {
     setSearchQuery(`${person.firstName} ${person.lastName}`);
     setShowSearchDropdown(false);
     console.log("Selected person:", person);
@@ -80,17 +143,17 @@ const I9Order: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
-      if (!target.closest('[data-search-container]')) {
+      if (!target.closest("[data-search-container]")) {
         setShowSearchDropdown(false);
       }
     };
 
     if (showSearchDropdown) {
-      document.addEventListener('click', handleClickOutside);
+      document.addEventListener("click", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [showSearchDropdown]);
 
@@ -319,7 +382,9 @@ const I9Order: React.FC = () => {
                           color: "rgba(83,88,98,1)",
                         }}
                       >
-                        Start a new I-9 form by linking it to an existing background check or entering a new individual's information.
+                        Start a new I-9 form by linking it to an existing
+                        background check or entering a new individual's
+                        information.
                       </span>
                     </div>
                   </div>
@@ -455,7 +520,10 @@ const I9Order: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    minHeight: selectedIndividualType === "background-checked" ? "350px" : "218px",
+                    minHeight:
+                      selectedIndividualType === "background-checked"
+                        ? "350px"
+                        : "218px",
                     padding: "12px 16px 40px 16px",
                     flexDirection: "column",
                     alignItems: "flex-start",
@@ -509,7 +577,8 @@ const I9Order: React.FC = () => {
                             color: "rgba(65,70,81,1)",
                           }}
                         >
-                          Select the type of individual you'd like to create an I-9 for:
+                          Select the type of individual you'd like to create an
+                          I-9 for:
                         </span>
                       </div>
 
@@ -531,7 +600,9 @@ const I9Order: React.FC = () => {
                             gap: "8px",
                             cursor: "pointer",
                           }}
-                          onClick={() => setSelectedIndividualType("background-checked")}
+                          onClick={() =>
+                            setSelectedIndividualType("background-checked")
+                          }
                         >
                           {/* Radio Input */}
                           <div
@@ -547,19 +618,24 @@ const I9Order: React.FC = () => {
                                 width: "16px",
                                 height: "16px",
                                 borderRadius: "9999px",
-                                border: selectedIndividualType === "background-checked"
-                                  ? "none"
-                                  : "1px solid #D5D7DA",
-                                background: selectedIndividualType === "background-checked"
-                                  ? "#344698"
-                                  : "#FFF",
+                                border:
+                                  selectedIndividualType ===
+                                  "background-checked"
+                                    ? "none"
+                                    : "1px solid #D5D7DA",
+                                background:
+                                  selectedIndividualType ===
+                                  "background-checked"
+                                    ? "#344698"
+                                    : "#FFF",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
                                 position: "relative",
                               }}
                             >
-                              {selectedIndividualType === "background-checked" && (
+                              {selectedIndividualType ===
+                                "background-checked" && (
                                 <div
                                   style={{
                                     width: "6px",
@@ -623,7 +699,9 @@ const I9Order: React.FC = () => {
                             gap: "8px",
                             cursor: "pointer",
                           }}
-                          onClick={() => setSelectedIndividualType("new-individual")}
+                          onClick={() =>
+                            setSelectedIndividualType("new-individual")
+                          }
                         >
                           {/* Radio Input */}
                           <div
@@ -639,12 +717,14 @@ const I9Order: React.FC = () => {
                                 width: "16px",
                                 height: "16px",
                                 borderRadius: "9999px",
-                                border: selectedIndividualType === "new-individual"
-                                  ? "none"
-                                  : "1px solid #D5D7DA",
-                                background: selectedIndividualType === "new-individual"
-                                  ? "#344698"
-                                  : "#FFF",
+                                border:
+                                  selectedIndividualType === "new-individual"
+                                    ? "none"
+                                    : "1px solid #D5D7DA",
+                                background:
+                                  selectedIndividualType === "new-individual"
+                                    ? "#344698"
+                                    : "#FFF",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
@@ -799,10 +879,15 @@ const I9Order: React.FC = () => {
                                   color: "rgba(65,70,81,1)",
                                 }}
                               >
-                                Option 1: Go to the Reports Page<br />
-                                Search and select the person you'd like to add an I-9 for<br />
-                                Open their background report<br />
-                                Use the "Add I-9 to this order" link from the Actions menu on the right
+                                Option 1: Go to the Reports Page
+                                <br />
+                                Search and select the person you'd like to add
+                                an I-9 for
+                                <br />
+                                Open their background report
+                                <br />
+                                Use the "Add I-9 to this order" link from the
+                                Actions menu on the right
                               </span>
                             </div>
                             <button
@@ -816,16 +901,19 @@ const I9Order: React.FC = () => {
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
                                 background: "#FFF",
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                               }}
-                              onClick={() => navigate("/invites-orders", {
-                                state: {
-                                  activeTab: "orders",
-                                  showActionsPanel: true,
-                                  selectedItems: ["ord1"] // This will trigger the actions panel to show
-                                }
-                              })}
+                              onClick={() =>
+                                navigate("/invites-orders", {
+                                  state: {
+                                    activeTab: "orders",
+                                    showActionsPanel: true,
+                                    selectedItems: ["ord1"], // This will trigger the actions panel to show
+                                  },
+                                })
+                              }
                               onMouseEnter={(e) => {
                                 e.currentTarget.style.background = "#F5F5F5";
                               }}
@@ -902,9 +990,13 @@ const I9Order: React.FC = () => {
                                   color: "rgba(65,70,81,1)",
                                 }}
                               >
-                                Option 2: Search by name<br />
-                                Fill in the first few characters of the person's last name<br />
-                                Select the correct person from the list of persons
+                                Option 2: Search by name
+                                <br />
+                                Fill in the first few characters of the person's
+                                last name
+                                <br />
+                                Select the correct person from the list of
+                                persons
                               </span>
                             </div>
                             {/* Search Input Container */}
@@ -940,7 +1032,8 @@ const I9Order: React.FC = () => {
                                     borderRadius: "8px",
                                     border: "1px solid #D5D7DA",
                                     background: "#FFF",
-                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   }}
                                 >
                                   <div
@@ -974,7 +1067,9 @@ const I9Order: React.FC = () => {
                                       type="text"
                                       placeholder="Search"
                                       value={searchQuery}
-                                      onChange={(e) => handleSearchChange(e.target.value)}
+                                      onChange={(e) =>
+                                        handleSearchChange(e.target.value)
+                                      }
                                       style={{
                                         display: "flex",
                                         height: "20px",
@@ -982,7 +1077,9 @@ const I9Order: React.FC = () => {
                                         border: "none",
                                         outline: "none",
                                         background: "transparent",
-                                        color: searchQuery ? "#414651" : "#717680",
+                                        color: searchQuery
+                                          ? "#414651"
+                                          : "#717680",
                                         fontFamily:
                                           "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                                         fontSize: "14px",
@@ -996,89 +1093,99 @@ const I9Order: React.FC = () => {
                               </div>
 
                               {/* Search Results Dropdown */}
-                              {showSearchDropdown && searchResults.length > 0 && (
-                                <div
-                                  style={{
-                                    position: "absolute",
-                                    top: "46px",
-                                    left: "0",
-                                    width: "100%",
-                                    maxHeight: "200px",
-                                    overflowY: "auto",
-                                    backgroundColor: "#FFF",
-                                    border: "1px solid #E9EAEB",
-                                    borderRadius: "8px",
-                                    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-                                    zIndex: 1000,
-                                  }}
-                                >
-                                  {/* Search Header */}
+                              {showSearchDropdown &&
+                                searchResults.length > 0 && (
                                   <div
                                     style={{
-                                      padding: "8px 12px",
-                                      borderBottom: "1px solid #E9EAEB",
-                                      backgroundColor: "#F9FAFB",
+                                      position: "absolute",
+                                      top: "46px",
+                                      left: "0",
+                                      width: "100%",
+                                      maxHeight: "200px",
+                                      overflowY: "auto",
+                                      backgroundColor: "#FFF",
+                                      border: "1px solid #E9EAEB",
+                                      borderRadius: "8px",
+                                      boxShadow:
+                                        "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                                      zIndex: 1000,
                                     }}
                                   >
+                                    {/* Search Header */}
                                     <div
                                       style={{
-                                        color: "#374151",
-                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontSize: "12px",
-                                        fontWeight: 600,
-                                        lineHeight: "16px",
+                                        padding: "8px 12px",
+                                        borderBottom: "1px solid #E9EAEB",
+                                        backgroundColor: "#F9FAFB",
                                       }}
                                     >
-                                      Background Checked Individuals ({searchResults.length})
-                                    </div>
-                                  </div>
-
-                                  {/* Search Results */}
-                                  <div style={{ padding: "4px 0" }}>
-                                    {searchResults.map((person) => (
                                       <div
-                                        key={person.id}
-                                        onClick={() => handleSelectPerson(person)}
                                         style={{
-                                          display: "flex",
-                                          flexDirection: "column",
-                                          padding: "8px 12px",
-                                          cursor: "pointer",
-                                        }}
-                                        onMouseEnter={(e) => {
-                                          e.currentTarget.style.backgroundColor = "#F9FAFB";
-                                        }}
-                                        onMouseLeave={(e) => {
-                                          e.currentTarget.style.backgroundColor = "transparent";
+                                          color: "#374151",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "12px",
+                                          fontWeight: 600,
+                                          lineHeight: "16px",
                                         }}
                                       >
-                                        <div
-                                          style={{
-                                            color: "#111827",
-                                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                                            fontSize: "14px",
-                                            fontWeight: 500,
-                                            lineHeight: "20px",
-                                          }}
-                                        >
-                                          {person.firstName} {person.lastName}
-                                        </div>
-                                        <div
-                                          style={{
-                                            color: "#6B7280",
-                                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                                            fontSize: "12px",
-                                            fontWeight: 400,
-                                            lineHeight: "16px",
-                                          }}
-                                        >
-                                          {person.email}
-                                        </div>
+                                        Background Checked Individuals (
+                                        {searchResults.length})
                                       </div>
-                                    ))}
+                                    </div>
+
+                                    {/* Search Results */}
+                                    <div style={{ padding: "4px 0" }}>
+                                      {searchResults.map((person) => (
+                                        <div
+                                          key={person.id}
+                                          onClick={() =>
+                                            handleSelectPerson(person)
+                                          }
+                                          style={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            padding: "8px 12px",
+                                            cursor: "pointer",
+                                          }}
+                                          onMouseEnter={(e) => {
+                                            e.currentTarget.style.backgroundColor =
+                                              "#F9FAFB";
+                                          }}
+                                          onMouseLeave={(e) => {
+                                            e.currentTarget.style.backgroundColor =
+                                              "transparent";
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#111827",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            {person.firstName} {person.lastName}
+                                          </div>
+                                          <div
+                                            style={{
+                                              color: "#6B7280",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "12px",
+                                              fontWeight: 400,
+                                              lineHeight: "16px",
+                                            }}
+                                          >
+                                            {person.email}
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
                                   </div>
-                                </div>
-                              )}
+                                )}
                             </div>
                           </div>
                         </div>
@@ -1132,7 +1239,9 @@ const I9Order: React.FC = () => {
                               alignSelf: "stretch",
                               cursor: "pointer",
                             }}
-                            onClick={() => setSelectedNewIndividualOption("send-email")}
+                            onClick={() =>
+                              setSelectedNewIndividualOption("send-email")
+                            }
                           >
                             <div
                               style={{
@@ -1147,19 +1256,22 @@ const I9Order: React.FC = () => {
                                   width: "16px",
                                   height: "16px",
                                   borderRadius: "9999px",
-                                  border: selectedNewIndividualOption === "send-email"
-                                    ? "none"
-                                    : "1px solid #D5D7DA",
-                                  background: selectedNewIndividualOption === "send-email"
-                                    ? "#344698"
-                                    : "#FFF",
+                                  border:
+                                    selectedNewIndividualOption === "send-email"
+                                      ? "none"
+                                      : "1px solid #D5D7DA",
+                                  background:
+                                    selectedNewIndividualOption === "send-email"
+                                      ? "#344698"
+                                      : "#FFF",
                                   display: "flex",
                                   alignItems: "center",
                                   justifyContent: "center",
                                   position: "relative",
                                 }}
                               >
-                                {selectedNewIndividualOption === "send-email" && (
+                                {selectedNewIndividualOption ===
+                                  "send-email" && (
                                   <div
                                     style={{
                                       width: "6px",
@@ -1208,7 +1320,8 @@ const I9Order: React.FC = () => {
                                       color: "rgba(65,70,81,1)",
                                     }}
                                   >
-                                    Send employee email to fill/verify and sign Section I
+                                    Send employee email to fill/verify and sign
+                                    Section I
                                   </span>
                                 </div>
                               </div>
@@ -1224,7 +1337,9 @@ const I9Order: React.FC = () => {
                               alignSelf: "stretch",
                               cursor: "pointer",
                             }}
-                            onClick={() => setSelectedNewIndividualOption("together")}
+                            onClick={() =>
+                              setSelectedNewIndividualOption("together")
+                            }
                           >
                             <div
                               style={{
@@ -1239,12 +1354,14 @@ const I9Order: React.FC = () => {
                                   width: "16px",
                                   height: "16px",
                                   borderRadius: "9999px",
-                                  border: selectedNewIndividualOption === "together"
-                                    ? "none"
-                                    : "1px solid #D5D7DA",
-                                  background: selectedNewIndividualOption === "together"
-                                    ? "#344698"
-                                    : "#FFF",
+                                  border:
+                                    selectedNewIndividualOption === "together"
+                                      ? "none"
+                                      : "1px solid #D5D7DA",
+                                  background:
+                                    selectedNewIndividualOption === "together"
+                                      ? "#344698"
+                                      : "#FFF",
                                   display: "flex",
                                   alignItems: "center",
                                   justifyContent: "center",
@@ -1301,7 +1418,8 @@ const I9Order: React.FC = () => {
                                       color: "rgba(65,70,81,1)",
                                     }}
                                   >
-                                    Employer and Employee will fill all sections of I-9 Form together
+                                    Employer and Employee will fill all sections
+                                    of I-9 Form together
                                   </span>
                                 </div>
                               </div>
@@ -1317,7 +1435,9 @@ const I9Order: React.FC = () => {
                               alignSelf: "stretch",
                               cursor: "pointer",
                             }}
-                            onClick={() => setSelectedNewIndividualOption("remote")}
+                            onClick={() =>
+                              setSelectedNewIndividualOption("remote")
+                            }
                           >
                             <div
                               style={{
@@ -1332,12 +1452,14 @@ const I9Order: React.FC = () => {
                                   width: "16px",
                                   height: "16px",
                                   borderRadius: "9999px",
-                                  border: selectedNewIndividualOption === "remote"
-                                    ? "none"
-                                    : "1px solid #D5D7DA",
-                                  background: selectedNewIndividualOption === "remote"
-                                    ? "#344698"
-                                    : "#FFF",
+                                  border:
+                                    selectedNewIndividualOption === "remote"
+                                      ? "none"
+                                      : "1px solid #D5D7DA",
+                                  background:
+                                    selectedNewIndividualOption === "remote"
+                                      ? "#344698"
+                                      : "#FFF",
                                   display: "flex",
                                   alignItems: "center",
                                   justifyContent: "center",
@@ -1393,7 +1515,9 @@ const I9Order: React.FC = () => {
                                       color: "rgba(65,70,81,1)",
                                     }}
                                   >
-                                    Remote Employee — Send employee email to fill/verify and sign section 1, then send section 2 to an authorized representative.
+                                    Remote Employee — Send employee email to
+                                    fill/verify and sign section 1, then send
+                                    section 2 to an authorized representative.
                                   </span>
                                 </div>
                               </div>
