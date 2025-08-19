@@ -39,14 +39,14 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
   onClose,
   onSubmit,
 }) => {
-  const [defaultPackage, setDefaultPackage] = useState("MVR Standard");
-  const [mvrPurpose, setMvrPurpose] = useState("Driver Verification");
+  const [defaultPackage, setDefaultPackage] = useState("");
+  const [mvrPurpose, setMvrPurpose] = useState("");
   const [customUserEmail, setCustomUserEmail] = useState("user@mail.com");
   const [startTime, setStartTime] = useState("01/31/2025 10:45 A.M");
   const [notificationSelection, setNotificationSelection] = useState("Uploading User");
-  const [iAgree, setIAgree] = useState(true);
-  const [iNeedCertificate, setINeedCertificate] = useState(true);
-  const [fileUploaded, setFileUploaded] = useState(true);
+  const [showCustomEmail, setShowCustomEmail] = useState(false);
+  const [iAgree, setIAgree] = useState(false);
+  const [fileUploaded, setFileUploaded] = useState(false);
   
   // Dropdown states
   const [packageDropdownOpen, setPackageDropdownOpen] = useState(false);
