@@ -1222,7 +1222,7 @@ const BatchOrders: React.FC = () => {
                             </div>
                           </div>
                         </>
-                      ) : showTable ? (
+                      ) : (activeTab === "standard" ? showTable : mvrShowTable) ? (
                         /* Table State */
                         <div
                           style={{
