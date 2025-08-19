@@ -1795,34 +1795,98 @@ const QuickCourtOrder: React.FC = () => {
                                     : "none",
                               }}
                             >
-                              <FormTextarea
-                                label=""
-                                value={subject.comments}
-                                onChange={(e) =>
-                                  handleSubjectChange(
-                                    subject.id,
-                                    "comments",
-                                    e.target.value,
-                                  )
-                                }
-                                onFocus={() =>
-                                  setFocusedInput(`comments-${subject.id}`)
-                                }
-                                onBlur={() => setFocusedInput(null)}
-                                isFocused={
-                                  focusedInput === `comments-${subject.id}`
-                                }
-                                placeholder={index === 0 ? "Add any notes..." : ""}
+                              <div
                                 style={{
-                                  width: "100%",
-                                  gap: "0px",
-                                  justifyContent: "center",
-                                  height: "28px",
-                                  minHeight: "28px",
-                                  maxHeight: "28px",
-                                  resize: "none",
+                                  display: "flex",
+                                  height: "35px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                  flexShrink: 0,
+                                  alignSelf: "stretch",
                                 }}
-                              />
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "6px",
+                                    flex: "1 0 0",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "12px 14px",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      flex: "1 0 0",
+                                      alignSelf: "stretch",
+                                      borderRadius: "8px",
+                                      border: focusedInput === `comments-${subject.id}` ? "1px solid #344698" : "1px solid #D5D7DA",
+                                      background: "#FFF",
+                                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    <textarea
+                                      value={subject.comments}
+                                      onChange={(e) =>
+                                        handleSubjectChange(
+                                          subject.id,
+                                          "comments",
+                                          e.target.value,
+                                        )
+                                      }
+                                      onFocus={() =>
+                                        setFocusedInput(`comments-${subject.id}`)
+                                      }
+                                      onBlur={() => setFocusedInput(null)}
+                                      placeholder={index === 0 ? "Add any notes..." : ""}
+                                      style={{
+                                        border: "none",
+                                        outline: "none",
+                                        resize: "none",
+                                        background: "transparent",
+                                        width: "100%",
+                                        height: "11px",
+                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        color: "#181D27",
+                                      }}
+                                    />
+                                    <svg
+                                      style={{
+                                        width: "12px",
+                                        height: "12px",
+                                        position: "absolute",
+                                        right: "6px",
+                                        bottom: "6px",
+                                      }}
+                                      width="12"
+                                      height="13"
+                                      viewBox="0 0 12 13"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M10 2.5L2 10.5"
+                                        stroke="#D5D7DA"
+                                        strokeLinecap="round"
+                                      />
+                                      <path
+                                        d="M11 7.5L7 11.5"
+                                        stroke="#D5D7DA"
+                                        strokeLinecap="round"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           ))}
                         </div>
