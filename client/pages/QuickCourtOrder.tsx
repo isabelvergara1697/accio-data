@@ -221,10 +221,15 @@ const QuickCourtOrder: React.FC = () => {
           flexDirection: "column",
           minHeight: "100vh",
           marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
-          width: isDesktop ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})` : "100vw",
-          maxWidth: isDesktop ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})` : "100vw",
+          width: isDesktop
+            ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})`
+            : "100vw",
+          maxWidth: isDesktop
+            ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})`
+            : "100vw",
           overflow: "hidden",
-          transition: "margin-left 0.3s ease, width 0.3s ease, max-width 0.3s ease",
+          transition:
+            "margin-left 0.3s ease, width 0.3s ease, max-width 0.3s ease",
         }}
       >
         {/* Header */}
@@ -261,7 +266,12 @@ const QuickCourtOrder: React.FC = () => {
           style={{
             display: "flex",
             paddingBottom: "24px",
-            paddingTop: showNotification && isDesktop ? "136px" : isDesktop ? "104px" : "88px",
+            paddingTop:
+              showNotification && isDesktop
+                ? "136px"
+                : isDesktop
+                  ? "104px"
+                  : "88px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "32px",
@@ -329,7 +339,8 @@ const QuickCourtOrder: React.FC = () => {
                       style={{
                         alignSelf: "stretch",
                         color: "#181D27",
-                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "24px",
                         fontStyle: "normal",
                         fontWeight: 600,
@@ -338,7 +349,8 @@ const QuickCourtOrder: React.FC = () => {
                     >
                       <span
                         style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontWeight: 700,
                           fontSize: "24px",
                           color: "rgba(24,29,39,1)",
@@ -352,7 +364,8 @@ const QuickCourtOrder: React.FC = () => {
                       style={{
                         alignSelf: "stretch",
                         color: "#535862",
-                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "16px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -361,18 +374,21 @@ const QuickCourtOrder: React.FC = () => {
                     >
                       <span
                         style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontWeight: 400,
                           fontSize: "16px",
                           color: "rgba(83,88,98,1)",
                         }}
                       >
-                        Enter subject details to create a court order. Add multiple rows as needed.{" "}
-                        Need to submit multiple subjects at once?{" "}
+                        Enter subject details to create a court order. Add
+                        multiple rows as needed. Need to submit multiple
+                        subjects at once?{" "}
                       </span>
                       <span
                         style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontWeight: 400,
                           fontSize: "16px",
                           color: "rgba(52,70,152,1)",
@@ -424,88 +440,512 @@ const QuickCourtOrder: React.FC = () => {
                   overflow: "hidden",
                 }}
               >
-            {/* Section Headers - Matching Figma */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "20px",
-                width: "100%",
-                borderRadius: "12px 12px 0 0",
-                border: "1px solid #E9EAEB",
-                background: "#FFF",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  padding: "16px 16px 12px 16px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "16px",
-                  alignSelf: "stretch",
-                }}
-              >
+                {/* Section Headers - Matching Figma */}
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "center",
-                    gap: "16px",
-                    alignSelf: "stretch",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                    width: "100%",
+                    borderRadius: "12px 12px 0 0",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
                   }}
                 >
-                  {/* Title */}
                   <div
                     style={{
                       display: "flex",
+                      padding: "16px 16px 12px 16px",
+                      flexDirection: "column",
                       alignItems: "flex-start",
-                      gap: "4px",
-                      flex: "1 0 0",
+                      gap: "16px",
+                      alignSelf: "stretch",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "flex-start",
-                        gap: "2px",
-                        flex: "1 0 0",
+                        alignItems: "center",
+                        gap: "16px",
+                        alignSelf: "stretch",
                       }}
                     >
+                      {/* Title */}
                       <div
                         style={{
                           display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
                         }}
                       >
                         <div
                           style={{
-                            color: "var(--colors-text-text-primary-900, #181D27)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                            fontSize: "var(--Font-size-text-lg, 18px)",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            lineHeight: "var(--Line-height-text-lg, 28px)",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
                           }}
                         >
-                          Create Quick Court Order
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color:
+                                  "var(--colors-text-text-primary-900, #181D27)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-lg, 18px)",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "var(--Line-height-text-lg, 28px)",
+                              }}
+                            >
+                              Create Quick Court Order
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Actions */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            minHeight: "36px",
+                            padding: "6px 8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "0 2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#414651",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "14px",
+                                  color: "rgba(65,70,81,1)",
+                                }}
+                              >
+                                Submit Order For: Select User
+                              </span>
+                            </div>
+                          </div>
+                          <svg
+                            style={{ width: "16px", height: "16px" }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
                         </div>
                       </div>
                     </div>
                   </div>
-                  {/* Actions */}
+                </div>
+
+                {/* Table */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 16px 16px 16px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    width: "100%",
+                    borderRadius: "0px 0px 12px 12px",
+                    borderRight: "1px solid #E9EAEB",
+                    borderBottom: "1px solid #E9EAEB",
+                    borderLeft: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      overflowX: "auto",
+                      overflowY: "hidden",
+                      width: "100%",
+                      maxWidth: "100%",
+                      position: "relative",
+                    }}
+                  >
+                    <Table style={{ minWidth: "600px", width: "auto" }}>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead
+                            style={{ minWidth: "140px", padding: "12px 16px" }}
+                          >
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
+                              }}
+                            >
+                              Search
+                            </span>
+                          </TableHead>
+                          <TableHead
+                            style={{ minWidth: "120px", padding: "12px 16px" }}
+                          >
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
+                              }}
+                            >
+                              First Name
+                            </span>
+                          </TableHead>
+                          <TableHead
+                            style={{ minWidth: "100px", padding: "12px 16px" }}
+                          >
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
+                              }}
+                            >
+                              Middle
+                            </span>
+                          </TableHead>
+                          <TableHead
+                            style={{ minWidth: "120px", padding: "12px 16px" }}
+                          >
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
+                              }}
+                            >
+                              Last Name
+                            </span>
+                          </TableHead>
+                          <TableHead
+                            style={{ minWidth: "100px", padding: "12px 16px" }}
+                          >
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
+                              }}
+                            >
+                              State
+                            </span>
+                          </TableHead>
+                          <TableHead
+                            style={{ minWidth: "100px", padding: "12px 16px" }}
+                          >
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
+                              }}
+                            >
+                              County
+                            </span>
+                          </TableHead>
+                          <TableHead
+                            style={{ minWidth: "140px", padding: "12px 16px" }}
+                          >
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
+                              }}
+                            >
+                              Date of Birth
+                            </span>
+                          </TableHead>
+                          <TableHead
+                            style={{ minWidth: "160px", padding: "12px 16px" }}
+                          >
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
+                              }}
+                            >
+                              Social Security Trace
+                            </span>
+                          </TableHead>
+                          <TableHead
+                            style={{ minWidth: "100px", padding: "12px 16px" }}
+                          >
+                            <span
+                              style={{
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
+                              }}
+                            >
+                              Years In
+                            </span>
+                          </TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {subjects.map((subject, index) => (
+                          <TableRow key={subject.id}>
+                            <TableCell style={{ padding: "8px 16px" }}>
+                              <FormSelect
+                                label=""
+                                value={subject.search}
+                                onChange={(value) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "search",
+                                    value,
+                                  )
+                                }
+                                options={[
+                                  {
+                                    value: "County Criminal",
+                                    label: "County Criminal",
+                                  },
+                                  {
+                                    value: "State Criminal",
+                                    label: "State Criminal",
+                                  },
+                                  {
+                                    value: "Federal Criminal",
+                                    label: "Federal Criminal",
+                                  },
+                                ]}
+                                placeholder="Select search type"
+                              />
+                            </TableCell>
+                            <TableCell style={{ padding: "8px 16px" }}>
+                              <FormInput
+                                label=""
+                                value={subject.firstName}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "firstName",
+                                    e.target.value,
+                                  )
+                                }
+                                placeholder="First name"
+                              />
+                            </TableCell>
+                            <TableCell style={{ padding: "8px 16px" }}>
+                              <FormInput
+                                label=""
+                                value={subject.middle}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "middle",
+                                    e.target.value,
+                                  )
+                                }
+                                placeholder="Middle"
+                              />
+                            </TableCell>
+                            <TableCell style={{ padding: "8px 16px" }}>
+                              <FormInput
+                                label=""
+                                value={subject.lastName}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "lastName",
+                                    e.target.value,
+                                  )
+                                }
+                                placeholder="Last name"
+                              />
+                            </TableCell>
+                            <TableCell style={{ padding: "8px 16px" }}>
+                              <FormSelect
+                                label=""
+                                value={subject.state}
+                                onChange={(value) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "state",
+                                    value,
+                                  )
+                                }
+                                options={stateOptions}
+                                placeholder="State"
+                              />
+                            </TableCell>
+                            <TableCell style={{ padding: "8px 16px" }}>
+                              <FormInput
+                                label=""
+                                value={subject.county}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "county",
+                                    e.target.value,
+                                  )
+                                }
+                                placeholder="County"
+                              />
+                            </TableCell>
+                            <TableCell style={{ padding: "8px 16px" }}>
+                              <FormInput
+                                label=""
+                                value={subject.dateOfBirth}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "dateOfBirth",
+                                    e.target.value,
+                                  )
+                                }
+                                placeholder="MM/DD/YY"
+                              />
+                            </TableCell>
+                            <TableCell style={{ padding: "8px 16px" }}>
+                              <FormInput
+                                label=""
+                                value={subject.socialSecurityTrace}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "socialSecurityTrace",
+                                    e.target.value,
+                                  )
+                                }
+                                placeholder="000-000-000"
+                              />
+                            </TableCell>
+                            <TableCell style={{ padding: "8px 16px" }}>
+                              <FormInput
+                                label=""
+                                value={subject.yearsIn}
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "yearsIn",
+                                    e.target.value,
+                                  )
+                                }
+                                placeholder="00"
+                              />
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+
+                  {/* Button Group - Matching Figma */}
                   <div
                     style={{
                       display: "flex",
+                      padding: "12px 0 0 12px",
                       alignItems: "center",
-                      gap: "12px",
+                      gap: "8px",
+                      alignSelf: "stretch",
+                      borderTop: "1px solid #D5D7DA",
                     }}
                   >
                     <div
+                      onClick={addTenRows}
                       style={{
                         display: "flex",
                         minHeight: "36px",
@@ -516,7 +956,9 @@ const QuickCourtOrder: React.FC = () => {
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
                         background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
                       }}
                     >
                       <div
@@ -539,419 +981,69 @@ const QuickCourtOrder: React.FC = () => {
                         >
                           <span
                             style={{
-                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                               fontWeight: 700,
                               fontSize: "14px",
                               color: "rgba(65,70,81,1)",
                             }}
                           >
-                            Submit Order For: Select User
+                            Add 10 Rows
                           </span>
                         </div>
                       </div>
-                      <svg
-                        style={{ width: "16px", height: "16px" }}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 6L8 10L12 6"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Table */}
-            <div
-              style={{
-                display: "flex",
-                padding: "12px 16px 16px 16px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                width: "100%",
-                borderRadius: "0px 0px 12px 12px",
-                borderRight: "1px solid #E9EAEB",
-                borderBottom: "1px solid #E9EAEB",
-                borderLeft: "1px solid #E9EAEB",
-                background: "#FFF",
-                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-              }}
-            >
-              <div
-                style={{
-                  overflowX: "auto",
-                  overflowY: "hidden",
-                  width: "100%",
-                  maxWidth: "100%",
-                  position: "relative",
-                }}
-              >
-                <Table style={{ minWidth: "600px", width: "auto" }}>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead style={{ minWidth: "140px", padding: "12px 16px" }}>
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Search
-                        </span>
-                      </TableHead>
-                      <TableHead style={{ minWidth: "120px", padding: "12px 16px" }}>
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          First Name
-                        </span>
-                      </TableHead>
-                      <TableHead style={{ minWidth: "100px", padding: "12px 16px" }}>
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Middle
-                        </span>
-                      </TableHead>
-                      <TableHead style={{ minWidth: "120px", padding: "12px 16px" }}>
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Last Name
-                        </span>
-                      </TableHead>
-                      <TableHead style={{ minWidth: "100px", padding: "12px 16px" }}>
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          State
-                        </span>
-                      </TableHead>
-                      <TableHead style={{ minWidth: "100px", padding: "12px 16px" }}>
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          County
-                        </span>
-                      </TableHead>
-                      <TableHead style={{ minWidth: "140px", padding: "12px 16px" }}>
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Date of Birth
-                        </span>
-                      </TableHead>
-                      <TableHead style={{ minWidth: "160px", padding: "12px 16px" }}>
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Social Security Trace
-                        </span>
-                      </TableHead>
-                      <TableHead style={{ minWidth: "100px", padding: "12px 16px" }}>
-                        <span
-                          style={{
-                            color: "#535862",
-                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.5px",
-                          }}
-                        >
-                          Years In
-                        </span>
-                      </TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {subjects.map((subject, index) => (
-                      <TableRow key={subject.id}>
-                        <TableCell style={{ padding: "8px 16px" }}>
-                          <FormSelect
-                            label=""
-                            value={subject.search}
-                            onChange={(value) =>
-                              handleSubjectChange(subject.id, "search", value)
-                            }
-                            options={[
-                              { value: "County Criminal", label: "County Criminal" },
-                              { value: "State Criminal", label: "State Criminal" },
-                              { value: "Federal Criminal", label: "Federal Criminal" },
-                            ]}
-                            placeholder="Select search type"
-                          />
-                        </TableCell>
-                        <TableCell style={{ padding: "8px 16px" }}>
-                          <FormInput
-                            label=""
-                            value={subject.firstName}
-                            onChange={(e) =>
-                              handleSubjectChange(subject.id, "firstName", e.target.value)
-                            }
-                            placeholder="First name"
-                          />
-                        </TableCell>
-                        <TableCell style={{ padding: "8px 16px" }}>
-                          <FormInput
-                            label=""
-                            value={subject.middle}
-                            onChange={(e) =>
-                              handleSubjectChange(subject.id, "middle", e.target.value)
-                            }
-                            placeholder="Middle"
-                          />
-                        </TableCell>
-                        <TableCell style={{ padding: "8px 16px" }}>
-                          <FormInput
-                            label=""
-                            value={subject.lastName}
-                            onChange={(e) =>
-                              handleSubjectChange(subject.id, "lastName", e.target.value)
-                            }
-                            placeholder="Last name"
-                          />
-                        </TableCell>
-                        <TableCell style={{ padding: "8px 16px" }}>
-                          <FormSelect
-                            label=""
-                            value={subject.state}
-                            onChange={(value) =>
-                              handleSubjectChange(subject.id, "state", value)
-                            }
-                            options={stateOptions}
-                            placeholder="State"
-                          />
-                        </TableCell>
-                        <TableCell style={{ padding: "8px 16px" }}>
-                          <FormInput
-                            label=""
-                            value={subject.county}
-                            onChange={(e) =>
-                              handleSubjectChange(subject.id, "county", e.target.value)
-                            }
-                            placeholder="County"
-                          />
-                        </TableCell>
-                        <TableCell style={{ padding: "8px 16px" }}>
-                          <FormInput
-                            label=""
-                            value={subject.dateOfBirth}
-                            onChange={(e) =>
-                              handleSubjectChange(subject.id, "dateOfBirth", e.target.value)
-                            }
-                            placeholder="MM/DD/YY"
-                          />
-                        </TableCell>
-                        <TableCell style={{ padding: "8px 16px" }}>
-                          <FormInput
-                            label=""
-                            value={subject.socialSecurityTrace}
-                            onChange={(e) =>
-                              handleSubjectChange(
-                                subject.id,
-                                "socialSecurityTrace",
-                                e.target.value,
-                              )
-                            }
-                            placeholder="000-000-000"
-                          />
-                        </TableCell>
-                        <TableCell style={{ padding: "8px 16px" }}>
-                          <FormInput
-                            label=""
-                            value={subject.yearsIn}
-                            onChange={(e) =>
-                              handleSubjectChange(subject.id, "yearsIn", e.target.value)
-                            }
-                            placeholder="00"
-                          />
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
-
-              {/* Button Group - Matching Figma */}
-              <div
-                style={{
-                  display: "flex",
-                  padding: "12px 0 0 12px",
-                  alignItems: "center",
-                  gap: "8px",
-                  alignSelf: "stretch",
-                  borderTop: "1px solid #D5D7DA",
-                }}
-              >
-                <div
-                  onClick={addTenRows}
-                  style={{
-                    display: "flex",
-                    minHeight: "36px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: "1px solid #D5D7DA",
-                    background: "#FFF",
-                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "0 2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
                     <div
+                      onClick={handleSubmit}
                       style={{
-                        color: "#414651",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        lineHeight: "20px",
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "2px solid rgba(255, 255, 255, 0.12)",
+                        background: "#344698",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
                       }}
                     >
-                      <span
+                      <div
                         style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 700,
-                          fontSize: "14px",
-                          color: "rgba(65,70,81,1)",
+                          display: "flex",
+                          padding: "0 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
                         }}
                       >
-                        Add 10 Rows
-                      </span>
+                        <div
+                          style={{
+                            color: "#FFF",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 700,
+                              fontSize: "14px",
+                              color: "rgba(255,255,255,1)",
+                            }}
+                          >
+                            Submit Court Order
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div
-                  onClick={handleSubmit}
-                  style={{
-                    display: "flex",
-                    minHeight: "36px",
-                    padding: "6px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "4px",
-                    borderRadius: "8px",
-                    border: "2px solid rgba(255, 255, 255, 0.12)",
-                    background: "#344698",
-                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "0 2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#FFF",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 700,
-                          fontSize: "14px",
-                          color: "rgba(255,255,255,1)",
-                        }}
-                      >
-                        Submit Court Order
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
               </div>
             </div>
           </div>

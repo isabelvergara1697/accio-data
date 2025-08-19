@@ -50,13 +50,14 @@ export const EwsFiltersDropdown: React.FC<EwsFiltersDropdownProps> = ({
 
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [isOpen, onClose, triggerRef]);
 
   const handleOptionToggle = (optionValue: string) => {
     if (selectedOptions.includes(optionValue)) {
-      onOptionsChange(selectedOptions.filter(s => s !== optionValue));
+      onOptionsChange(selectedOptions.filter((s) => s !== optionValue));
     } else {
       onOptionsChange([...selectedOptions, optionValue]);
     }
@@ -93,14 +94,15 @@ export const EwsFiltersDropdown: React.FC<EwsFiltersDropdownProps> = ({
           borderRadius: "8px",
           border: "1px solid rgba(0, 0, 0, 0.08)",
           background: "#FFF",
-          boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+          boxShadow:
+            "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
           position: "relative",
         }}
       >
         {ewsOptions.map((option) => {
           const isSelected = isOptionSelected(option.value);
           const isHighlighted = isSelected;
-          
+
           return (
             <div
               key={option.value}
@@ -230,7 +232,8 @@ export const EwsFiltersDropdown: React.FC<EwsFiltersDropdownProps> = ({
                         >
                           <span
                             style={{
-                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                               fontWeight: 400,
                               fontSize: "14px",
                               color: "rgba(24,29,39,1)",

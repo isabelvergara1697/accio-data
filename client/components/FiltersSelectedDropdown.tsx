@@ -15,7 +15,9 @@ interface FiltersSelectedDropdownProps {
   onClearAllFilters: () => void;
 }
 
-export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = ({
+export const FiltersSelectedDropdown: React.FC<
+  FiltersSelectedDropdownProps
+> = ({
   isOpen,
   onClose,
   triggerRef,
@@ -46,7 +48,8 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
 
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [isOpen, onClose, triggerRef]);
 
@@ -68,14 +71,14 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
   const formatStatusLabel = (status: string) => {
     // Convert status to readable format
     const statusMap: { [key: string]: string } = {
-      'canceled': 'Canceled',
-      'expired': 'Expired',
-      'processing': 'Processing',
-      'pending-review': 'Pending Review',
-      'approved': 'Approved',
-      'rejected': 'Rejected',
-      'on-hold': 'On Hold',
-      'completed': 'Completed',
+      canceled: "Canceled",
+      expired: "Expired",
+      processing: "Processing",
+      "pending-review": "Pending Review",
+      approved: "Approved",
+      rejected: "Rejected",
+      "on-hold": "On Hold",
+      completed: "Completed",
     };
     return statusMap[status] || status;
   };
@@ -96,7 +99,8 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
         borderRadius: "8px",
         border: "1px solid rgba(0, 0, 0, 0.08)",
         background: "#FFF",
-        boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+        boxShadow:
+          "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
         zIndex: 9999, // Reduced to prevent interference with table hover
       }}
     >
@@ -148,7 +152,7 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
           </div>
         </button>
       </div>
-      
+
       {/* Filter tags container */}
       <div
         style={{
@@ -325,7 +329,11 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
                   lineHeight: "18px",
                 }}
               >
-                Disposition: {disposition.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' - ')}
+                Disposition:{" "}
+                {disposition
+                  .split("-")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" - ")}
               </div>
             </div>
             <div
@@ -391,7 +399,11 @@ export const FiltersSelectedDropdown: React.FC<FiltersSelectedDropdownProps> = (
                   lineHeight: "18px",
                 }}
               >
-                Flag: {flag.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
+                Flag:{" "}
+                {flag
+                  .split("-")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ")}
               </div>
             </div>
             <div

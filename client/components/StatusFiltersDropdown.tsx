@@ -18,7 +18,6 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
-
   // Status options for orders
   const statusOptions = [
     { value: "canceled", label: "Canceled" },
@@ -57,14 +56,15 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
 
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [isOpen, onClose, triggerRef]);
 
   const handleStatusToggle = (statusValue: string) => {
     // Toggle individual status
     if (selectedStatuses.includes(statusValue)) {
-      onStatusChange(selectedStatuses.filter(s => s !== statusValue));
+      onStatusChange(selectedStatuses.filter((s) => s !== statusValue));
     } else {
       onStatusChange([...selectedStatuses, statusValue]);
     }
@@ -101,7 +101,8 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
           borderRadius: "8px",
           border: "1px solid rgba(0, 0, 0, 0.08)",
           background: "#FFF",
-          boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+          boxShadow:
+            "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
           position: "relative",
         }}
       >
@@ -238,7 +239,8 @@ export const StatusFiltersDropdown: React.FC<StatusFiltersDropdownProps> = ({
                           >
                             <span
                               style={{
-                                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                fontFamily:
+                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                 fontWeight: 400,
                                 fontSize: "14px",
                                 color: "rgba(24,29,39,1)",
