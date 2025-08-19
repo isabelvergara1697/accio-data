@@ -102,7 +102,8 @@ export default function FormSelect({
         <div
           style={{
             display: "flex",
-            padding: "10px 14px",
+            height: "32px",
+            padding: "6px 8px",
             alignItems: "center",
             gap: "8px",
             alignSelf: "stretch",
