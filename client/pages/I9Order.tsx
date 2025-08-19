@@ -50,6 +50,49 @@ const I9Order: React.FC = () => {
     console.log("Sign out");
   };
 
+  // Handle search input changes
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
+
+    if (selectedIndividualType === "background-checked" && value.trim().length > 0) {
+      // Filter results by last name (case-insensitive)
+      const filtered = backgroundCheckData.filter(person =>
+        person.lastName.toLowerCase().includes(value.toLowerCase()) ||
+        person.firstName.toLowerCase().includes(value.toLowerCase())
+      );
+      setSearchResults(filtered);
+      setShowSearchDropdown(true);
+    } else {
+      setShowSearchDropdown(false);
+      setSearchResults([]);
+    }
+  };
+
+  // Handle selecting a person from dropdown
+  const handleSelectPerson = (person: {id: string, firstName: string, lastName: string, email: string}) => {
+    setSearchQuery(`${person.firstName} ${person.lastName}`);
+    setShowSearchDropdown(false);
+    console.log("Selected person:", person);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('[data-search-container]')) {
+        setShowSearchDropdown(false);
+      }
+    };
+
+    if (showSearchDropdown) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [showSearchDropdown]);
+
   const getUserMenuStyles = () => {
     if (userMenuHovered || userMenuOpen) {
       return {
