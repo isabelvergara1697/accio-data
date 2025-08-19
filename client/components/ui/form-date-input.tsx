@@ -30,23 +30,6 @@ export default function FormDateInput({
 }: FormDateInputProps) {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const isMobile = useIsMobile();
-
-  // Determine if we're on tablet (768px - 1024px)
-  const [isTablet, setIsTablet] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setIsTablet(width >= 768 && width < 1024);
-      setIsDesktop(width >= 1024);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleDateClick = () => {
     setIsCalendarOpen(!isCalendarOpen);
