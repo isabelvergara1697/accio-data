@@ -639,13 +639,16 @@ const I9Order: React.FC = () => {
                                 width: "16px",
                                 height: "16px",
                                 borderRadius: "9999px",
-                                border: selectedIndividualType === "new-individual" 
-                                  ? "1px solid #34479A" 
+                                border: selectedIndividualType === "new-individual"
+                                  ? "none"
                                   : "1px solid #D5D7DA",
-                                background: "#FFF",
+                                background: selectedIndividualType === "new-individual"
+                                  ? "#344698"
+                                  : "#FFF",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
+                                position: "relative",
                               }}
                             >
                               {selectedIndividualType === "new-individual" && (
@@ -654,7 +657,8 @@ const I9Order: React.FC = () => {
                                     width: "6px",
                                     height: "6px",
                                     borderRadius: "9999px",
-                                    background: "#34479A",
+                                    background: "#FFF",
+                                    position: "absolute",
                                   }}
                                 />
                               )}
