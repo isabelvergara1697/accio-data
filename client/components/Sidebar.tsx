@@ -448,14 +448,29 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         (currentPage === "quick-court-order" &&
                           item === "Quick Court Order") ||
                         (currentPage === "batch-orders" &&
-                          item === "Batch Orders")
+                          item === "Batch Orders") ||
+                        (currentPage === "quick-order" &&
+                          item === "Quick Order")
                           ? "#ECEEF9"
                           : "#FFF",
                       position: "relative",
-                      cursor: "pointer",
-                      ...getHoverStyles(
+                      cursor: disabledMenuItems.includes(item) ? "not-allowed" : "pointer",
+                      opacity: disabledMenuItems.includes(item) ? 0.5 : 1,
+                      ...(!(
+                        (currentPage === "document-library" &&
+                          item === "Document Library") ||
+                        (currentPage === "resources" && item === "Resources") ||
+                        (currentPage === "invites-orders" &&
+                          item === "Invites & Orders") ||
+                        (currentPage === "quick-court-order" &&
+                          item === "Quick Court Order") ||
+                        (currentPage === "batch-orders" &&
+                          item === "Batch Orders") ||
+                        (currentPage === "quick-order" &&
+                          item === "Quick Order")
+                      ) && !disabledMenuItems.includes(item) ? getHoverStyles(
                         `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
-                      ),
+                      ) : {}),
                     }}
                     onMouseEnter={() =>
                       !(
