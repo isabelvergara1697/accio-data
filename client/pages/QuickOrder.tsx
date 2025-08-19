@@ -144,6 +144,12 @@ const QuickOrder: React.FC = () => {
     { value: "cdl", label: "CDL" }
   ];
 
+  // Gender options
+  const genderOptions = [
+    { value: "F", label: "F" },
+    { value: "M", label: "M" }
+  ];
+
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
