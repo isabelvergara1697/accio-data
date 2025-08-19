@@ -1157,7 +1157,8 @@ const BatchOrders: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "412px",
+                              width: "100%",
+                              maxWidth: "412px",
                               padding: "16px",
                               alignItems: "flex-start",
                               gap: "8px",
