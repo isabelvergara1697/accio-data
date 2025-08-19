@@ -17,27 +17,33 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
   const orders = [
     {
       id: 1,
-      type: "County Criminal",
+      type: "CSD Standard",
       order: "849235",
       name: "Sandra Lopez",
       dl: "129503923",
-      state: "TX",
-      county: "AK",
+      dlState: "TX",
+      socialSecurityTrace: "365-125-012",
+      mvrType: "Standard",
       dob: "01/02/23",
-      yearsToSearch: "00",
-      comments: "I need more information on this, that, and that.",
+      gender: "F",
+      billingIdentifier1: "XXXXX",
+      billingIdentifier2: "XXXXX",
+      billingIdentifier3: "XXXXX",
     },
     {
       id: 2,
-      type: "County Criminal",
+      type: "CSD Standard",
       order: "849235",
       name: "Sandra Lopez",
       dl: "129503923",
-      state: "TX",
-      county: "AK",
+      dlState: "TX",
+      socialSecurityTrace: "365-125-012",
+      mvrType: "Standard",
       dob: "01/02/23",
-      yearsToSearch: "00",
-      comments: "I need more information on this, that, and that.",
+      gender: "F",
+      billingIdentifier1: "XXXXX",
+      billingIdentifier2: "XXXXX",
+      billingIdentifier3: "XXXXX",
     },
   ];
 
@@ -62,7 +68,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "flex-start",
-            gap: index === 0 ? "20px" : "16px",
+            gap: "20px",
             alignSelf: "stretch",
           }}
         >
@@ -72,7 +78,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "flex-start",
-              gap: index === 0 ? "16px" : "8px",
+              gap: "16px",
               alignSelf: "stretch",
             }}
           >
@@ -88,8 +94,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
               <div
                 style={{
                   color: "#181D27",
-                  fontFamily:
-                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "16px",
                   fontStyle: "normal",
                   fontWeight: 500,
@@ -134,8 +139,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily:
-                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -152,13 +156,14 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-between",
                 alignItems: "center",
+                alignContent: "center",
+                gap: "8px 24px",
                 alignSelf: "stretch",
-                flexWrap: isMobile ? "wrap" : "nowrap",
-                gap: isMobile ? "16px" : "0",
+                flexWrap: "wrap",
               }}
             >
+              {/* Order */}
               <div
                 style={{
                   display: "flex",
@@ -166,14 +171,12 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   justifyContent: "center",
                   alignItems: "flex-start",
                   gap: "4px",
-                  flex: isMobile ? "1 1 calc(50% - 8px)" : "none",
                 }}
               >
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -185,8 +188,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -196,6 +198,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   {order.order}
                 </div>
               </div>
+
+              {/* Name */}
               <div
                 style={{
                   display: "flex",
@@ -203,14 +207,12 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   justifyContent: "center",
                   alignItems: "flex-start",
                   gap: "4px",
-                  flex: isMobile ? "1 1 calc(50% - 8px)" : "none",
                 }}
               >
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -222,8 +224,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -233,6 +234,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   {order.name}
                 </div>
               </div>
+
+              {/* DL */}
               <div
                 style={{
                   display: "flex",
@@ -240,14 +243,12 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   justifyContent: "center",
                   alignItems: "flex-start",
                   gap: "4px",
-                  flex: isMobile ? "1 1 calc(50% - 8px)" : "none",
                 }}
               >
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -259,8 +260,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -270,6 +270,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   {order.dl}
                 </div>
               </div>
+
+              {/* DL State */}
               <div
                 style={{
                   display: "flex",
@@ -277,36 +279,35 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   justifyContent: "center",
                   alignItems: "flex-start",
                   gap: "4px",
-                  flex: isMobile ? "1 1 calc(50% - 8px)" : "none",
                 }}
               >
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "20px",
                   }}
                 >
-                  State
+                  DL State
                 </div>
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
                     lineHeight: "20px",
                   }}
                 >
-                  {order.state}
+                  {order.dlState}
                 </div>
               </div>
+
+              {/* Social Security Trace */}
               <div
                 style={{
                   display: "flex",
@@ -314,36 +315,35 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   justifyContent: "center",
                   alignItems: "flex-start",
                   gap: "4px",
-                  flex: isMobile ? "1 1 calc(50% - 8px)" : "none",
                 }}
               >
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "20px",
                   }}
                 >
-                  County
+                  Social Security Trace
                 </div>
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
                     lineHeight: "20px",
                   }}
                 >
-                  {order.county}
+                  {order.socialSecurityTrace}
                 </div>
               </div>
+
+              {/* MVR Type */}
               <div
                 style={{
                   display: "flex",
@@ -351,14 +351,48 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   justifyContent: "center",
                   alignItems: "flex-start",
                   gap: "4px",
-                  flex: isMobile ? "1 1 calc(50% - 8px)" : "none",
                 }}
               >
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                  }}
+                >
+                  MVR Type
+                </div>
+                <div
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                  }}
+                >
+                  {order.mvrType}
+                </div>
+              </div>
+
+              {/* DOB */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  gap: "4px",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -370,8 +404,7 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
@@ -381,6 +414,8 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   {order.dob}
                 </div>
               </div>
+
+              {/* Gender */}
               <div
                 style={{
                   display: "flex",
@@ -388,47 +423,35 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                   justifyContent: "center",
                   alignItems: "flex-start",
                   gap: "4px",
-                  flex: isMobile ? "1 1 calc(50% - 8px)" : "none",
                 }}
               >
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "20px",
                   }}
                 >
-                  Years to Search
+                  Gender
                 </div>
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
                     lineHeight: "20px",
                   }}
                 >
-                  {order.yearsToSearch}
+                  {order.gender}
                 </div>
               </div>
-            </div>
 
-            {/* Comments Row */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                alignSelf: "stretch",
-              }}
-            >
+              {/* Billing Identifier 1 */}
               <div
                 style={{
                   display: "flex",
@@ -441,28 +464,98 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
                 <div
                   style={{
                     color: "#414651",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
                     lineHeight: "20px",
                   }}
                 >
-                  Comments
+                  Billing Identifier 1
                 </div>
                 <div
                   style={{
                     color: "#181D27",
-                    fontFamily:
-                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 500,
                     lineHeight: "20px",
                   }}
                 >
-                  {order.comments}
+                  {order.billingIdentifier1}
+                </div>
+              </div>
+
+              {/* Billing Identifier 2 */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  gap: "4px",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Billing Identifier 2
+                </div>
+                <div
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                  }}
+                >
+                  {order.billingIdentifier2}
+                </div>
+              </div>
+
+              {/* Billing Identifier 3 */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  gap: "4px",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Billing Identifier 3
+                </div>
+                <div
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                  }}
+                >
+                  {order.billingIdentifier3}
                 </div>
               </div>
             </div>
@@ -476,260 +569,378 @@ const QuickCourtOrderConfirmation: React.FC<ConfirmationProps> = ({
     <div
       style={{
         display: "flex",
-        padding: isTablet ? "20px 24px" : isMobile ? "16px" : "20px 24px",
+        height: "700px",
         flexDirection: "column",
         alignItems: "flex-start",
-        gap: "12px",
-        flex: "1 0 0",
         alignSelf: "stretch",
-        borderRadius: "0px 0px 12px 12px",
-        borderRight: "1px solid #E9EAEB",
-        borderBottom: "1px solid #E9EAEB",
-        borderLeft: "1px solid #E9EAEB",
-        background: "#FFF",
-        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+        position: "relative",
       }}
     >
-      {/* Success message and actions */}
+      {/* Section Headers */}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: isMobile ? "flex-start" : "flex-start",
+          height: "64px",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "20px",
+          flexShrink: 0,
           alignSelf: "stretch",
-          flexDirection: isMobile ? "column" : "row",
-          gap: isMobile ? "16px" : "0",
+          borderRadius: "12px 12px 0 0",
+          border: "1px solid #E9EAEB",
+          background: "#FFF",
+          position: "relative",
         }}
       >
-        {/* Message */}
         <div
           style={{
             display: "flex",
+            padding: "16px 16px 12px 16px",
+            flexDirection: "column",
             alignItems: "flex-start",
-            gap: "4px",
-            flex: isMobile ? "1" : "none",
+            gap: "16px",
+            alignSelf: "stretch",
+            position: "relative",
           }}
         >
           <div
             style={{
               display: "flex",
-              width: "32px",
-              height: "32px",
-              padding: "8px",
-              justifyContent: "center",
               alignItems: "center",
-              borderRadius: "9999px",
-              background: "#DCFAE6",
-              flexShrink: 0,
-            }}
-          >
-            <svg
-              style={{
-                width: "16px",
-                height: "16px",
-                flexShrink: 0,
-              }}
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.3332 4L5.99984 11.3333L2.6665 8"
-                stroke="#079455"
-                strokeWidth="1.33333"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "flex-start",
-              gap: "4px",
+              gap: "16px",
+              alignSelf: "stretch",
+              position: "relative",
             }}
           >
             <div
               style={{
-                color: "#181D27",
-                fontFamily:
-                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: "16px",
-                fontStyle: "normal",
-                fontWeight: 600,
-                lineHeight: "24px",
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "4px",
+                flex: "1 0 0",
+                position: "relative",
               }}
             >
-              2 Orders Created Successfully
-            </div>
-            <div
-              style={{
-                color: "#535862",
-                fontFamily:
-                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 400,
-                lineHeight: "20px",
-              }}
-            >
-              Get your billing details{" "}
-              <span
+              <div
                 style={{
-                  color: "#344698",
-                  textDecoration: "underline",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#273572";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#344698";
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  gap: "2px",
+                  flex: "1 0 0",
+                  position: "relative",
                 }}
               >
-                here.
-              </span>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "18px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                      position: "relative",
+                    }}
+                  >
+                    Create MVR Order
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Action buttons */}
+      {/* Table/Content */}
+      <div
+        style={{
+          display: "flex",
+          padding: "20px 24px",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "12px",
+          flex: "1 0 0",
+          alignSelf: "stretch",
+          borderRadius: "0px 0px 12px 12px",
+          borderRight: "1px solid #E9EAEB",
+          borderBottom: "1px solid #E9EAEB",
+          borderLeft: "1px solid #E9EAEB",
+          background: "#FFF",
+          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+          position: "relative",
+        }}
+      >
+        {/* Success message and actions */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            alignSelf: "stretch",
+            position: "relative",
+          }}
+        >
+          {/* Message */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "4px",
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                width: "32px",
+                height: "32px",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                aspectRatio: "1/1",
+                borderRadius: "9999px",
+                background: "#DCFAE6",
+                position: "relative",
+              }}
+            >
+              <svg
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  flexShrink: 0,
+                  position: "absolute",
+                  left: "8px",
+                  top: "8px",
+                }}
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.3327 4L5.99935 11.3333L2.66602 8"
+                  stroke="#079455"
+                  strokeWidth="1.33333"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                gap: "4px",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#181D27",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "24px",
+                  position: "relative",
+                }}
+              >
+                2 Orders Created Successfully
+              </div>
+              <div
+                style={{
+                  color: "#344698",
+                  textAlign: "center",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 400,
+                  lineHeight: "20px",
+                  textDecorationLine: "underline",
+                  textDecorationStyle: "solid",
+                  textDecorationSkipInk: "none",
+                  textDecorationThickness: "auto",
+                  textUnderlineOffset: "auto",
+                  textUnderlinePosition: "from-font",
+                  position: "relative",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    color: "rgba(83,88,98,1)",
+                  }}
+                >
+                  Get your billing details{" "}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontWeight: 400,
+                    fontSize: "14px",
+                    color: "rgba(52,70,152,1)",
+                    textDecoration: "underline",
+                    cursor: "pointer",
+                  }}
+                >
+                  here.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              position: "relative",
+            }}
+          >
+            <button
+              onClick={onSeeAllOrders}
+              style={{
+                display: "flex",
+                minHeight: "36px",
+                padding: "6px 8px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                borderRadius: "8px",
+                border: "1px solid #D5D7DA",
+                background: "#FFF",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                position: "relative",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#F9FAFB";
+                e.currentTarget.style.borderColor = "#98A2B3";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "#FFF";
+                e.currentTarget.style.borderColor = "#D5D7DA";
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0 2px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  See all Orders
+                </div>
+              </div>
+            </button>
+            <button
+              onClick={onNewQuickCourtOrder}
+              style={{
+                display: "flex",
+                minHeight: "36px",
+                padding: "6px 8px",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "4px",
+                borderRadius: "8px",
+                border: "2px solid rgba(255, 255, 255, 0.12)",
+                background: "#344698",
+                boxShadow:
+                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                position: "relative",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#2A3B87";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "#344698";
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0 2px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#FFF",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  New MVR Order
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Content divider */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
             gap: "8px",
-            alignSelf: isMobile ? "stretch" : "auto",
-            flexDirection: isMobile ? "column" : "row",
+            alignSelf: "stretch",
+            position: "relative",
           }}
         >
-          <button
-            onClick={onSeeAllOrders}
+          <div
             style={{
-              display: "flex",
-              minHeight: "36px",
-              padding: "6px 8px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "4px",
-              borderRadius: "8px",
-              border: "1px solid #D5D7DA",
-              background: "#FFF",
-              boxShadow:
-                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-              cursor: "pointer",
-              transition: "all 0.2s ease",
-              width: isMobile ? "100%" : "auto",
+              height: "1px",
+              flex: "1 0 0",
+              background: "#E9EAEB",
+              position: "relative",
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-              e.currentTarget.style.borderColor = "#98A2B3";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "#FFF";
-              e.currentTarget.style.borderColor = "#D5D7DA";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "0 2px",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div
-                style={{
-                  color: "#414651",
-                  fontFamily:
-                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                }}
-              >
-                See all Orders
-              </div>
-            </div>
-          </button>
-          <button
-            onClick={onNewQuickCourtOrder}
-            style={{
-              display: "flex",
-              minHeight: "36px",
-              padding: "6px 8px",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "4px",
-              borderRadius: "8px",
-              border: "2px solid rgba(255, 255, 255, 0.12)",
-              background: "#344698",
-              boxShadow:
-                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-              cursor: "pointer",
-              transition: "all 0.2s ease",
-              width: isMobile ? "100%" : "auto",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#2A3B87";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "#344698";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "0 2px",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div
-                style={{
-                  color: "#FFF",
-                  fontFamily:
-                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                }}
-              >
-                New Quick Court Order
-              </div>
-            </div>
-          </button>
+          ></div>
         </div>
-      </div>
 
-      {/* Content divider */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "8px",
-          alignSelf: "stretch",
-        }}
-      >
-        <div
-          style={{
-            height: "1px",
-            flex: "1 0 0",
-            background: "#E9EAEB",
-          }}
-        ></div>
+        {/* Order cards */}
+        {orders.map((order, index) => (
+          <OrderCard key={order.id} order={order} index={index} />
+        ))}
       </div>
-
-      {/* Order cards */}
-      {orders.map((order, index) => (
-        <OrderCard key={order.id} order={order} index={index} />
-      ))}
     </div>
   );
 };
