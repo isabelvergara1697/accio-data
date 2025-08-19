@@ -38,6 +38,16 @@ const QuickCourtOrder: React.FC = () => {
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
 
+  // Auto-minimize sidebar after 30 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSidebarCollapsed(true);
+    }, 30000); // 30 seconds
+
+    // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
+
   // Sample state options
   const stateOptions = [
     { value: "AL", label: "Alabama" },
@@ -585,7 +595,7 @@ const QuickCourtOrder: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    padding: "12px 16px 16px 16px",
+                    padding: "0px 16px 16px 16px",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     width: "100%",
