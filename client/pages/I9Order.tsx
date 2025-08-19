@@ -395,7 +395,7 @@ const I9Order: React.FC = () => {
                 <div
                   style={{
                     display: "flex",
-                    height: "218px",
+                    minHeight: selectedIndividualType === "background-checked" ? "350px" : "218px",
                     padding: "12px 16px 40px 16px",
                     flexDirection: "column",
                     alignItems: "flex-start",
