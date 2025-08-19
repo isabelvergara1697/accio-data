@@ -967,7 +967,7 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                     boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
                   }}
                 >
-                  {["Uploading User", "Custom"].map((option) => (
+                  {["Uploading User", "Ordering User", "No Notification", "Custom"].map((option) => (
                     <div
                       key={option}
                       onClick={() => {
