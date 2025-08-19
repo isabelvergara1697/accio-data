@@ -18,6 +18,7 @@ const I9Order: React.FC = () => {
 
   // Form state
   const [selectedIndividualType, setSelectedIndividualType] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
