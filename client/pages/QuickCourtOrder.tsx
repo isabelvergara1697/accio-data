@@ -590,11 +590,11 @@ const QuickCourtOrder: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                {/* Table */}
+                {/* Table - Custom Figma Structure */}
                 <div
                   style={{
                     display: "flex",
-                    padding: "0px 16px 16px 16px",
+                    padding: "12px 16px 16px 16px",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     width: "100%",
@@ -604,7 +604,6 @@ const QuickCourtOrder: React.FC = () => {
                     borderLeft: "1px solid #E9EAEB",
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    marginTop: "-1px",
                   }}
                 >
                   <div
