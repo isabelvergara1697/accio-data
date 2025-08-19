@@ -1067,7 +1067,7 @@ const BatchOrders: React.FC = () => {
                                 />
                                 <div
                                   style={{
-                                    width: `${loadingProgress}%`,
+                                    width: `${activeTab === "standard" ? loadingProgress : mvrLoadingProgress}%`,
                                     height: "8px",
                                     borderRadius: "9999px",
                                     background: "#344698",
@@ -1090,7 +1090,7 @@ const BatchOrders: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                {loadingProgress}%
+                                {activeTab === "standard" ? loadingProgress : mvrLoadingProgress}%
                               </div>
                             </div>
                           </div>
