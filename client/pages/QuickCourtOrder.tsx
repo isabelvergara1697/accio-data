@@ -869,7 +869,7 @@ const QuickCourtOrder: React.FC = () => {
                             style={{
                               display: "flex",
                               height: "52px",
-                              padding: "8px 6px",
+                              padding: "10px 6px",
                               justifyContent: "center",
                               alignItems: "center",
                               alignSelf: "stretch",
@@ -885,10 +885,12 @@ const QuickCourtOrder: React.FC = () => {
                               onChange={(e) =>
                                 handleSubjectChange(subject.id, "firstName", e.target.value)
                               }
+                              onFocus={() => setFocusedInput(`firstName-${subject.id}`)}
+                              onBlur={() => setFocusedInput(null)}
+                              isFocused={focusedInput === `firstName-${subject.id}`}
                               placeholder={index === 0 ? "John" : ""}
                               style={{
                                 width: "100%",
-                                height: "32px",
                               }}
                             />
                           </div>
