@@ -2218,10 +2218,101 @@ const QuickCourtOrder: React.FC = () => {
                               }}
                             >
                               Submit Court Order
-                            </div>
                           </div>
                         </div>
                       </div>
+
+                      {/* Validation Error Badge */}
+                      {showValidationBadge && Object.keys(validationErrors).length > 0 && (
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "12px 16px",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            borderRadius: "8px",
+                            border: "1px solid #FDA29B",
+                            background: "#FEF3F2",
+                            marginTop: "12px",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                              flexShrink: 0,
+                            }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8 5.33325V7.99992M8 10.6666H8.00667M14.6667 7.99992C14.6667 11.6818 11.6819 14.6666 8 14.6666C4.31814 14.6666 1.33333 11.6818 1.33333 7.99992C1.33333 4.31802 4.31814 1.33325 8 1.33325C11.6819 1.33325 14.6667 4.31802 14.6667 7.99992Z"
+                              stroke="#F04438"
+                              strokeWidth="1.33333"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <div
+                            style={{
+                              flex: "1 0 0",
+                              color: "#B42318",
+                              fontFamily:
+                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            There are missing fields in this Quick Court Order, please review highlighted fields.
+                          </div>
+                          <button
+                            onClick={() => setShowValidationBadge(false)}
+                            style={{
+                              display: "flex",
+                              padding: "4px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "6px",
+                              border: "none",
+                              background: "transparent",
+                              cursor: "pointer",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "rgba(180, 35, 24, 0.1)";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "transparent";
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12 4L4 12M4 4L12 12"
+                                stroke="#B42318"
+                                strokeWidth="1.33333"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      )}
+                    </div>
                     </div>
                   )}
                 </div>
