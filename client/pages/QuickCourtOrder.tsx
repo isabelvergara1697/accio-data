@@ -6,7 +6,7 @@ import FormInput from "../components/ui/form-input";
 import FormSelect from "../components/ui/form-select";
 import FormDateInput from "../components/ui/form-date-input";
 import FormTextarea from "../components/ui/form-textarea";
-import QuickCourtOrderLoading from "../components/QuickCourtOrderLoading";
+import TableLoadingState from "../components/TableLoadingState";
 
 interface SubjectData {
   id: string;
@@ -1892,11 +1892,6 @@ const QuickCourtOrder: React.FC = () => {
         </div>
       </main>
 
-      {/* Loading Screen */}
-      <QuickCourtOrderLoading
-        isVisible={isLoading}
-        onClose={() => setIsLoading(false)}
-      />
     </div>
   );
 };
