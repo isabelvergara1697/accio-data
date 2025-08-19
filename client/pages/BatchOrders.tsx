@@ -25,6 +25,7 @@ const BatchOrders: React.FC = () => {
   const [showTable, setShowTable] = useState(false);
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
   const [actionMenuOpen, setActionMenuOpen] = useState<number | null>(null);
+  const [batchDetailsModalOpen, setBatchDetailsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -860,7 +861,7 @@ const BatchOrders: React.FC = () => {
                   <div
                     style={{
                       display: "flex",
-                      height: "600px",
+                      minHeight: "400px",
                       padding: "12px 16px 16px 16px",
                       flexDirection: "column",
                       alignItems: "flex-start",
@@ -886,7 +887,7 @@ const BatchOrders: React.FC = () => {
                         alignSelf: "stretch",
                         position: "relative",
                         minHeight: "500px",
-                        padding: showTable ? "12px 16px 16px 16px" : "60px 20px",
+                        padding: showTable ? "0" : "60px 20px",
                       }}
                     >
                       {isLoading ? (
@@ -1193,7 +1194,6 @@ const BatchOrders: React.FC = () => {
                             background: "#FFF",
                             position: "relative",
                             width: "100%",
-                            overflowX: "auto",
                           }}
                         >
                           {/* Table Headers */}
@@ -1427,6 +1427,10 @@ const BatchOrders: React.FC = () => {
                                           alignItems: "center",
                                           alignSelf: "stretch",
                                           cursor: "pointer"
+                                        }}
+                                        onClick={() => {
+                                          setBatchDetailsModalOpen(true);
+                                          setActionMenuOpen(null);
                                         }}
                                         onMouseEnter={(e) => {
                                           e.currentTarget.querySelector('.menu-content').style.background = "#F9FAFB";
