@@ -1096,7 +1096,8 @@ const BatchOrders: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "320px",
+                                width: "100%",
+                                maxWidth: "320px",
                                 alignItems: "center",
                                 gap: "12px",
                                 position: "relative",
@@ -1112,9 +1113,8 @@ const BatchOrders: React.FC = () => {
                               >
                                 <div
                                   style={{
-                                    width: "278px",
+                                    width: "100%",
                                     height: "8px",
-                                    flexShrink: 0,
                                     borderRadius: "9999px",
                                     background: "#D5D7DA",
                                     position: "absolute",
@@ -1124,9 +1124,8 @@ const BatchOrders: React.FC = () => {
                                 />
                                 <div
                                   style={{
-                                    width: `${(loadingProgress / 100) * 278}px`,
+                                    width: `${loadingProgress}%`,
                                     height: "8px",
-                                    flexShrink: 0,
                                     borderRadius: "9999px",
                                     background: "#344698",
                                     position: "absolute",
