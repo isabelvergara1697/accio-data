@@ -128,6 +128,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
           position: "relative",
         }}
       >
+        {/* Content */}
         <div
           style={{
             display: "flex",
@@ -138,6 +139,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
             position: "relative",
           }}
         >
+          {/* Loading message */}
           <div
             style={{
               display: "flex",
@@ -148,6 +150,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
               position: "relative",
             }}
           >
+            {/* Empty state */}
             <div
               style={{
                 display: "flex",
@@ -167,6 +170,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
                   position: "relative",
                 }}
               >
+                {/* Content */}
                 <div
                   style={{
                     display: "flex",
@@ -177,7 +181,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
                     position: "relative",
                   }}
                 >
-                  {/* Featured Icon */}
+                  {/* Featured icon */}
                   <div
                     style={{
                       display: "flex",
@@ -286,7 +290,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
                 </div>
               </div>
             </div>
-            {/* Progress Bar */}
+            {/* Progress bar */}
             <div
               style={{
                 display: "flex",
@@ -354,7 +358,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
               </div>
             </div>
           </div>
-          {/* Admin Section */}
+          {/* Admin */}
           <div
             style={{
               display: "flex",
@@ -368,6 +372,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
               position: "relative",
             }}
           >
+            {/* Admin Input Field */}
             <div
               style={{
                 display: "flex",
@@ -478,6 +483,7 @@ const DataLoadingScreen: React.FC<DataLoadingScreenProps> = ({ onComplete }) => 
                 </div>
               </div>
             </div>
+            {/* User Input Field */}
             <div
               style={{
                 display: "flex",
