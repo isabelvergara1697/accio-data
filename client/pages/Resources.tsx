@@ -896,6 +896,16 @@ export default function Resources() {
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
+  // Auto-minimize sidebar after 30 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSidebarCollapsed(true);
+    }, 30000); // 30 seconds
+
+    // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
+
   // Tab and content state
   const [currentTab, setCurrentTab] = useState("onboarding");
   const [openAccordions, setOpenAccordions] = useState<string[]>([
