@@ -23,6 +23,9 @@ interface SubjectData {
   socialSecurityTrace: string;
   gender: string;
   dateOfBirth: string;
+  billingIdentifier1: string;
+  billingIdentifier2: string;
+  billingIdentifier3: string;
 }
 
 const QuickOrder: React.FC = () => {
