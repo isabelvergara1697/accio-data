@@ -19,6 +19,7 @@ interface SubjectData {
   state: string;
   county: string;
   dlNumber: string;
+  mvrType: string;
   dateOfBirth: string;
   socialSecurityTrace: string;
   yearsIn: string;
