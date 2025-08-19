@@ -84,6 +84,66 @@ export default function FormDateInput({
     onBlur?.();
   };
 
+  // Parse typed date in various formats
+  const parseTypedDate = (input: string): Date | null => {
+    if (!input || input.trim() === "") return null;
+
+    const trimmed = input.trim();
+
+    // Try MM/DD/YY format
+    const mmddyyMatch = trimmed.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+    if (mmddyyMatch) {
+      const month = parseInt(mmddyyMatch[1]);
+      const day = parseInt(mmddyyMatch[2]);
+      let year = parseInt(mmddyyMatch[3]);
+
+      // Handle 2-digit years
+      if (year < 100) {
+        year = year < 50 ? 2000 + year : 1900 + year;
+      }
+
+      if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+        const date = new Date(year, month - 1, day);
+        // Verify the date is valid (handles invalid dates like 2/30)
+        if (date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day) {
+          return date;
+        }
+      }
+    }
+
+    // Try MM/DD format (assume current year)
+    const mmddMatch = trimmed.match(/^(\d{1,2})\/(\d{1,2})$/);
+    if (mmddMatch) {
+      const month = parseInt(mmddMatch[1]);
+      const day = parseInt(mmddMatch[2]);
+      const year = new Date().getFullYear();
+
+      if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+        const date = new Date(year, month - 1, day);
+        if (date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day) {
+          return date;
+        }
+      }
+    }
+
+    // Try YYYY-MM-DD format
+    const yyyymmddMatch = trimmed.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if (yyyymmddMatch) {
+      const year = parseInt(yyyymmddMatch[1]);
+      const month = parseInt(yyyymmddMatch[2]);
+      const day = parseInt(yyyymmddMatch[3]);
+
+      if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+        const date = new Date(year, month - 1, day);
+        if (date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day) {
+          return date;
+        }
+      }
+    }
+
+    return null;
+  };
+
   // Convert string date to Date object for calendar components
   const getDateFromValue = (dateValue: string): Date | null => {
     if (!dateValue) return null;
