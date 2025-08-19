@@ -232,7 +232,7 @@ const QuickCourtOrder: React.FC = () => {
 
   const getFieldError = (subjectId: string, fieldName: string): string | undefined => {
     const errors = validationErrors[subjectId];
-    return errors && errors.includes(fieldName) ? "Missing Field" : undefined;
+    return errors && errors.includes(fieldName) ? "" : undefined;
   };
 
   const hasFieldError = (subjectId: string, fieldName: string): boolean => {
