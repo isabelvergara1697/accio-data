@@ -5,16 +5,127 @@ interface PaymentScreenProps {
   onSeeDetails: () => void;
 }
 
+interface OrderItem {
+  id: string;
+  name: string;
+  dl: string;
+  state: string;
+  request: string;
+  price: number;
+  taxes: number;
+  total: number;
+  checked: boolean;
+}
+
 const PaymentScreen: React.FC<PaymentScreenProps> = ({
   onAuthorizePayment,
   onSeeDetails,
 }) => {
   const [showDetails, setShowDetails] = useState(false);
+  const [orderItems, setOrderItems] = useState<OrderItem[]>([
+    {
+      id: "1",
+      name: "Lopez, Sandra",
+      dl: "129503923",
+      state: "TX",
+      request: "849235",
+      price: 8.00,
+      taxes: 1.15,
+      total: 15.15,
+      checked: true,
+    },
+    {
+      id: "2", 
+      name: "Lopez, Sandra",
+      dl: "129503923",
+      state: "TX",
+      request: "849235",
+      price: 8.00,
+      taxes: 1.15,
+      total: 15.15,
+      checked: true,
+    },
+  ]);
+
+  const toggleItemCheck = (id: string) => {
+    setOrderItems(prev =>
+      prev.map(item =>
+        item.id === id ? { ...item, checked: !item.checked } : item
+      )
+    );
+  };
+
+  const calculateTotal = () => {
+    return orderItems
+      .filter(item => item.checked)
+      .reduce((sum, item) => sum + item.total, 0)
+      .toFixed(2);
+  };
 
   const handleSeeDetails = () => {
     setShowDetails(!showDetails);
-    onSeeDetails(); // Keep the original callback
+    onSeeDetails();
   };
+
+  const Checkbox = ({ 
+    checked, 
+    onClick 
+  }: { 
+    checked: boolean; 
+    onClick: () => void; 
+  }) => (
+    <div
+      onClick={onClick}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        cursor: "pointer",
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          width: "16px",
+          height: "16px",
+          padding: "1px",
+          justifyContent: "center",
+          alignItems: "center",
+          borderRadius: "4px",
+          background: checked ? "#344698" : "transparent",
+          border: checked ? "none" : "1px solid #D5D7DA",
+          position: "relative",
+        }}
+      >
+        {checked && (
+          <svg
+            style={{
+              width: "14px",
+              height: "14px",
+              flexShrink: 0,
+              position: "absolute",
+              left: "1px",
+              top: "1px",
+            }}
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.6663 3.5L5.24967 9.91667L2.33301 7"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
+      </div>
+    </div>
+  );
 
   return (
     <div
@@ -95,25 +206,15 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                   <div
                     style={{
                       color: "#181D27",
-                      fontFamily: "'Public Sans'",
+                      fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "18px",
                       fontStyle: "normal",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       lineHeight: "28px",
                       position: "relative",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 700,
-                        fontSize: "18px",
-                        color: "rgba(24,29,39,1)",
-                      }}
-                    >
-                      Create MVR Order
-                    </span>
+                    Create MVR Order
                   </div>
                 </div>
               </div>
@@ -157,25 +258,15 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               alignSelf: "stretch",
               color: "#181D27",
               textAlign: "center",
-              fontFamily: "'Public Sans'",
+              fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "16px",
               fontStyle: "normal",
-              fontWeight: 600,
+              fontWeight: 700,
               lineHeight: "24px",
               position: "relative",
             }}
           >
-            <span
-              style={{
-                fontFamily:
-                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                fontWeight: 700,
-                fontSize: "16px",
-                color: "rgba(24,29,39,1)",
-              }}
-            >
-              Your total is $30.30
-            </span>
+            Your total is ${calculateTotal()}
           </div>
           {/* Button Group */}
           <div
@@ -224,25 +315,15 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                 <div
                   style={{
                     color: "#FFF",
-                    fontFamily: "'Public Sans'",
+                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
-                    fontWeight: 600,
+                    fontWeight: 700,
                     lineHeight: "20px",
                     position: "relative",
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 700,
-                      fontSize: "14px",
-                      color: "rgba(255,255,255,1)",
-                    }}
-                  >
-                    Authorize Payment
-                  </span>
+                  Authorize Payment
                 </div>
               </div>
             </div>
@@ -261,32 +342,22 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               <div
                 style={{
                   color: "#273572",
-                  fontFamily: "'Public Sans'",
+                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   lineHeight: "20px",
                   position: "relative",
                 }}
               >
-                <span
-                  style={{
-                    fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "14px",
-                    color: "rgba(39,53,114,1)",
-                  }}
-                >
-                  See details
-                </span>
+                See details
               </div>
               <svg
                 style={{
                   width: "16px",
                   height: "16px",
                   position: "relative",
-                  transform: showDetails ? "rotate(180deg)" : "rotate(0deg)",
+                  transform: showDetails ? "rotate(0deg)" : "rotate(180deg)",
                   transition: "transform 0.2s ease",
                 }}
                 width="16"
@@ -296,7 +367,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M4 6L8 10L12 6"
+                  d="M12 10L8 6L4 10"
                   stroke="#34479A"
                   strokeWidth="1.66667"
                   strokeLinecap="round"
@@ -310,7 +381,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               maxWidth: "480px",
               color: "#535862",
               textAlign: "center",
-              fontFamily: "'Public Sans'",
+              fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "14px",
               fontStyle: "normal",
               fontWeight: 400,
@@ -318,25 +389,11 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               position: "relative",
             }}
           >
+            By authorizing this payment, automatic searches will be done and
+            you'll be charged to your [Billing Setup]. Get more information{" "}
             <span
               style={{
-                fontFamily:
-                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                fontWeight: 400,
-                fontSize: "14px",
-                color: "rgba(83,88,98,1)",
-              }}
-            >
-              By authorizing this payment, automatic searches will be done and
-              you'll be charged to your [Billing Setup]. Get more information{" "}
-            </span>
-            <span
-              style={{
-                fontFamily:
-                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                fontWeight: 400,
-                fontSize: "14px",
-                color: "rgba(52,70,152,1)",
+                color: "#344698",
                 textDecoration: "underline",
                 cursor: "pointer",
               }}
@@ -349,124 +406,49 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
         {/* Detailed Receipt - Show when details are expanded */}
         {showDetails && (
           <>
-            {/* Receipt 1 */}
-            <div
-              style={{
-                display: "flex",
-                padding: "12px 8px",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "8px",
-                alignSelf: "stretch",
-                borderRadius: "8px",
-                border: "1px solid #E9EAEB",
-                background: "#FAFAFA",
-                position: "relative",
-              }}
-            >
-              {/* Order Info */}
+            {orderItems.map((item, index) => (
               <div
+                key={item.id}
                 style={{
                   display: "flex",
+                  padding: "12px 8px",
+                  flexDirection: "column",
                   alignItems: "center",
                   gap: "8px",
                   alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border: "1px solid #E9EAEB",
+                  background: item.checked ? "#FAFAFA" : "#F5F5F5",
                   position: "relative",
                 }}
               >
-                {/* Checkbox */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "16px",
-                      height: "16px",
-                      padding: "1px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      borderRadius: "4px",
-                      background: "#344698",
-                      position: "relative",
-                    }}
-                  >
-                    <svg
-                      style={{
-                        width: "14px",
-                        height: "14px",
-                        flexShrink: 0,
-                        position: "absolute",
-                        left: "1px",
-                        top: "1px",
-                      }}
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.6663 3.5L5.24967 9.91667L2.33301 7"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
+                {/* Order Info */}
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    gap: "163px",
+                    gap: "8px",
+                    alignSelf: "stretch",
                     position: "relative",
                   }}
                 >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        color: "rgba(24,29,39,1)",
-                      }}
-                    >
-                      Lopez, Sandra
-                    </span>
-                  </div>
-                  {/* DL Row */}
+                  <Checkbox 
+                    checked={item.checked} 
+                    onClick={() => toggleItemCheck(item.id)} 
+                  />
                   <div
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "4px",
+                      gap: "163px",
                       position: "relative",
                     }}
                   >
                     <div
                       style={{
-                        color: "#414651",
+                        color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "'Public Sans'",
+                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "14px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -474,1222 +456,729 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                         position: "relative",
                       }}
                     >
-                      <span
+                      {item.name}
+                    </div>
+                    {/* DL Row */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
+                        position: "relative",
+                      }}
+                    >
+                      <div
                         style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
+                          color: item.checked ? "#414651" : "#717680",
+                          textAlign: "center",
+                          fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
-                          color: "rgba(65,70,81,1)",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          position: "relative",
                         }}
                       >
                         DL
-                      </span>
-                    </div>
-                    <div
-                      style={{
-                        color: "#181D27",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "20px",
-                        position: "relative",
-                      }}
-                    >
-                      <span
+                      </div>
+                      <div
                         style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
+                          color: item.checked ? "#181D27" : "#717680",
+                          textAlign: "center",
+                          fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
-                          color: "rgba(24,29,39,1)",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          position: "relative",
                         }}
                       >
-                        129503923
-                      </span>
+                        {item.dl}
+                      </div>
                     </div>
-                  </div>
-                  {/* State Row */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "4px",
-                      position: "relative",
-                    }}
-                  >
+                    {/* State Row */}
                     <div
                       style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
                         position: "relative",
                       }}
                     >
-                      <span
+                      <div
                         style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
+                          color: item.checked ? "#414651" : "#717680",
+                          textAlign: "center",
+                          fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
-                          color: "rgba(65,70,81,1)",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          position: "relative",
                         }}
                       >
                         State
-                      </span>
-                    </div>
-                    <div
-                      style={{
-                        color: "#181D27",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "20px",
-                        position: "relative",
-                      }}
-                    >
-                      <span
+                      </div>
+                      <div
                         style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
+                          color: item.checked ? "#181D27" : "#717680",
+                          textAlign: "center",
+                          fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
-                          color: "rgba(24,29,39,1)",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          position: "relative",
                         }}
                       >
-                        TX
-                      </span>
+                        {item.state}
+                      </div>
                     </div>
-                  </div>
-                  {/* Request Row */}
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "4px",
-                      position: "relative",
-                    }}
-                  >
+                    {/* Request Row */}
                     <div
                       style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "4px",
                         position: "relative",
                       }}
                     >
-                      <span
+                      <div
                         style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
+                          color: item.checked ? "#414651" : "#717680",
+                          textAlign: "center",
+                          fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
-                          color: "rgba(65,70,81,1)",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          position: "relative",
                         }}
                       >
                         Request
-                      </span>
+                      </div>
+                      <div
+                        style={{
+                          color: item.checked ? "#181D27" : "#717680",
+                          textAlign: "center",
+                          fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          position: "relative",
+                        }}
+                      >
+                        {item.request}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Detailed Table Row */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  {/* Inc Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "10px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        fontVariant: "small-caps",
+                        position: "relative",
+                      }}
+                    >
+                      Inc
                     </div>
                     <div
                       style={{
-                        color: "#181D27",
+                        width: "22px",
+                        height: "1px",
+                        background: "#D5D7DA",
+                        position: "relative",
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
                         textAlign: "center",
-                        fontFamily: "'Public Sans'",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      N
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "14px",
                         fontStyle: "normal",
-                        fontWeight: 500,
+                        fontWeight: 400,
                         lineHeight: "20px",
                         position: "relative",
                       }}
                     >
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "14px",
-                          color: "rgba(24,29,39,1)",
-                        }}
-                      >
-                        849235
-                      </span>
+                      Y
+                    </div>
+                  </div>
+                  {/* Search Type Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "139px",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      gap: "10px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        fontVariant: "small-caps",
+                        position: "relative",
+                      }}
+                    >
+                      Search Type
+                    </div>
+                    <div
+                      style={{
+                        width: "139px",
+                        height: "1px",
+                        background: "#D5D7DA",
+                        position: "relative",
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      MVR Package
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      Motor Vehicle Driving History/TX/CDL
+                    </div>
+                  </div>
+                  {/* Location Adjustment Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "160px",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        fontVariant: "small-caps",
+                        position: "relative",
+                      }}
+                    >
+                      Location/Adjustment
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        fontVariant: "small-caps",
+                        position: "relative",
+                      }}
+                    >
+                      Reason
+                    </div>
+                    <div
+                      style={{
+                        width: "160px",
+                        height: "1px",
+                        background: "#D5D7DA",
+                        position: "relative",
+                      }}
+                    ></div>
+                  </div>
+                  {/* Price Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "144px",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        fontVariant: "small-caps",
+                        position: "relative",
+                      }}
+                    >
+                      Price
+                    </div>
+                    <div
+                      style={{
+                        width: "144px",
+                        height: "1px",
+                        background: "#D5D7DA",
+                        position: "relative",
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      {item.price.toFixed(2)}
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      Included in package
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      0.00
+                    </div>
+                  </div>
+                  {/* Adjustment Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "73px",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        fontVariant: "small-caps",
+                        position: "relative",
+                      }}
+                    >
+                      Adjustment
+                    </div>
+                    <div
+                      style={{
+                        width: "73px",
+                        height: "1px",
+                        background: "#D5D7DA",
+                        position: "relative",
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      0.00
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      Included in package
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      0.00
+                    </div>
+                  </div>
+                  {/* 3rd Party Fees Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "105px",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        fontVariant: "small-caps",
+                        position: "relative",
+                      }}
+                    >
+                      3rd Party Fees
+                    </div>
+                    <div
+                      style={{
+                        width: "105px",
+                        height: "1px",
+                        background: "#D5D7DA",
+                        position: "relative",
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      0.00
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      Included in package
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      0.00
+                    </div>
+                  </div>
+                  {/* Taxes Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "53px",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        fontVariant: "small-caps",
+                        position: "relative",
+                      }}
+                    >
+                      Taxes
+                    </div>
+                    <div
+                      style={{
+                        width: "53px",
+                        height: "1px",
+                        background: "#D5D7DA",
+                        position: "relative",
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        width: "34px",
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      {item.taxes.toFixed(2)}
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      Included in package
+                    </div>
+                    <div
+                      style={{
+                        width: "34px",
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      0.00
+                    </div>
+                  </div>
+                  {/* Total Column */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "68px",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        fontVariant: "small-caps",
+                        position: "relative",
+                      }}
+                    >
+                      Total
+                    </div>
+                    <div
+                      style={{
+                        width: "68px",
+                        height: "1px",
+                        background: "#D5D7DA",
+                        position: "relative",
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      9.15
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      Included in package
+                    </div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      6.00
+                    </div>
+                    <div
+                      style={{
+                        width: "68px",
+                        height: "1px",
+                        background: "#D5D7DA",
+                        position: "relative",
+                      }}
+                    ></div>
+                    <div
+                      style={{
+                        color: item.checked ? "#181D27" : "#717680",
+                        textAlign: "center",
+                        fontFamily: "'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: item.checked ? 700 : 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      {item.total.toFixed(2)}
                     </div>
                   </div>
                 </div>
               </div>
-              {/* Detailed Table Row */}
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "flex-start",
-                  alignSelf: "stretch",
-                  position: "relative",
-                  fontSize: "12px",
-                  fontFamily: "'Roboto Mono'",
-                }}
-              >
-                {/* Inc Column */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "10px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Inc
-                  </div>
-                  <div
-                    style={{
-                      width: "22px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    N
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Y
-                  </div>
-                </div>
-                {/* Search Type Column */}
-                <div
-                  style={{
-                    display: "flex",
-                    width: "139px",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    gap: "10px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Search Type
-                  </div>
-                  <div
-                    style={{
-                      width: "139px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    MVR Package
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Motor Vehicle Driving History/TX/CDL
-                  </div>
-                </div>
-                {/* Price Column */}
-                <div
-                  style={{
-                    display: "flex",
-                    width: "144px",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    gap: "8px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Price
-                  </div>
-                  <div
-                    style={{
-                      width: "144px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    8.00
-                  </div>
-                  <div
-                    style={{
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Included in package
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    0.00
-                  </div>
-                </div>
-                {/* Taxes Column */}
-                <div
-                  style={{
-                    display: "flex",
-                    width: "53px",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    gap: "8px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Taxes
-                  </div>
-                  <div
-                    style={{
-                      width: "53px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      width: "34px",
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    1.15
-                  </div>
-                  <div
-                    style={{
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Included in package
-                  </div>
-                  <div
-                    style={{
-                      width: "34px",
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    0.00
-                  </div>
-                </div>
-                {/* Total Column */}
-                <div
-                  style={{
-                    display: "flex",
-                    width: "68px",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    gap: "8px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Total
-                  </div>
-                  <div
-                    style={{
-                      width: "68px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    9.15
-                  </div>
-                  <div
-                    style={{
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Included in package
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    6.00
-                  </div>
-                  <div
-                    style={{
-                      width: "68px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 700,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    15.15
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Receipt 2 - Second entry */}
-            <div
-              style={{
-                display: "flex",
-                padding: "12px 8px",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "8px",
-                alignSelf: "stretch",
-                borderRadius: "8px",
-                border: "1px solid #E9EAEB",
-                background: "#FAFAFA",
-                position: "relative",
-              }}
-            >
-              {/* Checkbox Row */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  alignSelf: "stretch",
-                  position: "relative",
-                }}
-              >
-                {/* Checkbox */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "16px",
-                      height: "16px",
-                      padding: "1px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      borderRadius: "4px",
-                      background: "#344698",
-                      position: "relative",
-                    }}
-                  >
-                    <svg
-                      style={{
-                        width: "14px",
-                        height: "14px",
-                        flexShrink: 0,
-                        position: "absolute",
-                        left: "1px",
-                        top: "1px",
-                      }}
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M11.6663 3.5L5.24967 9.91667L2.33301 7"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    color: "#181D27",
-                    textAlign: "center",
-                    fontFamily: "'Public Sans'",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily:
-                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                      fontWeight: 400,
-                      fontSize: "14px",
-                      color: "rgba(24,29,39,1)",
-                    }}
-                  >
-                    Lopez, Sandra
-                  </span>
-                </div>
-                {/* DL Row */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#414651",
-                      textAlign: "center",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      DL
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        color: "rgba(24,29,39,1)",
-                      }}
-                    >
-                      129503923
-                    </span>
-                  </div>
-                </div>
-                {/* State Row */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#414651",
-                      textAlign: "center",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      State
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        color: "rgba(24,29,39,1)",
-                      }}
-                    >
-                      TX
-                    </span>
-                  </div>
-                </div>
-                {/* Request Row */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#414651",
-                      textAlign: "center",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        color: "rgba(65,70,81,1)",
-                      }}
-                    >
-                      Request
-                    </span>
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 500,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily:
-                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        color: "rgba(24,29,39,1)",
-                      }}
-                    >
-                      849235
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {/* Same detailed table structure as above */}
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "flex-start",
-                  alignSelf: "stretch",
-                  position: "relative",
-                  fontSize: "12px",
-                  fontFamily: "'Roboto Mono'",
-                }}
-              >
-                {/* Same column structure but with final totals showing 15.15 */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "10px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Inc
-                  </div>
-                  <div
-                    style={{
-                      width: "22px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    N
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "14px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "20px",
-                      position: "relative",
-                    }}
-                  >
-                    Y
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    width: "139px",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    gap: "10px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Search Type
-                  </div>
-                  <div
-                    style={{
-                      width: "139px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    MVR Package
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Motor Vehicle Driving History/TX/CDL
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    width: "144px",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    gap: "8px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Price
-                  </div>
-                  <div
-                    style={{
-                      width: "144px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    8.00
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Included in package
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    0.00
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    width: "53px",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    gap: "8px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Taxes
-                  </div>
-                  <div
-                    style={{
-                      width: "53px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      width: "34px",
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    1.15
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Included in package
-                  </div>
-                  <div
-                    style={{
-                      width: "34px",
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    0.00
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    width: "68px",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    gap: "8px",
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      fontVariant: "small-caps",
-                      position: "relative",
-                    }}
-                  >
-                    Total
-                  </div>
-                  <div
-                    style={{
-                      width: "68px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    9.15
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Included in package
-                  </div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 400,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    6.00
-                  </div>
-                  <div
-                    style={{
-                      width: "68px",
-                      height: "1px",
-                      background: "#D5D7DA",
-                      position: "relative",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      color: "#181D27",
-                      textAlign: "center",
-                      fontFamily: "'Roboto Mono'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 700,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    15.15
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </>
         )}
       </div>
