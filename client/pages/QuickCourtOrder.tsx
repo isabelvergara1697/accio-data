@@ -620,18 +620,21 @@ const QuickCourtOrder: React.FC = () => {
                       <TableHeader>
                         <TableRow>
                           <TableHead
-                            style={{ minWidth: "140px", padding: "12px 16px" }}
+                            style={{
+                              height: "36px",
+                              padding: "6px 12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              minWidth: "171px",
+                            }}
                           >
                             <span
                               style={{
-                                color: "#535862",
-                                fontFamily:
-                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                                fontSize: "12px",
+                                color: "var(--colors-text-text-quaternary-500, #717680)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-xs, 12px)",
                                 fontWeight: 600,
-                                lineHeight: "18px",
-                                textTransform: "uppercase",
-                                letterSpacing: "0.5px",
+                                lineHeight: "var(--Line-height-text-xs, 18px)",
                               }}
                             >
                               Search
