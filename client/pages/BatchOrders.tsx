@@ -1380,11 +1380,11 @@ const BatchOrders: React.FC = () => {
                               </div>
 
                               {/* Message Cell */}
-                              <div style={{ display: "flex", flex: "1 0 0", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: hoveredRowIndex === rowIdx ? "#F5F5F5" : "transparent" }}>
+                              <div style={{ display: "flex", flex: "1 0 0", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "transparent" }}>
                               </div>
 
                               {/* Actions Cell */}
-                              <div style={{ display: "flex", width: "48px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: hoveredRowIndex === rowIdx ? "#F5F5F5" : "transparent", position: "relative" }}>
+                              <div style={{ display: "flex", width: "48px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "transparent", position: "relative" }}>
                                 <button
                                   onClick={() => setActionMenuOpen(actionMenuOpen === rowIdx ? null : rowIdx)}
                                   style={{
