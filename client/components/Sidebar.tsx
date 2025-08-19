@@ -531,8 +531,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     >
                       <div
                         style={{
-                          color:
-                            (currentPage === "document-library" &&
+                          color: disabledMenuItems.includes(item)
+                            ? "#A4A7AE"
+                            : (currentPage === "document-library" &&
                               item === "Document Library") ||
                             (currentPage === "resources" &&
                               item === "Resources") ||
@@ -541,7 +542,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                             (currentPage === "quick-court-order" &&
                               item === "Quick Court Order") ||
                             (currentPage === "batch-orders" &&
-                              item === "Batch Orders")
+                              item === "Batch Orders") ||
+                            (currentPage === "quick-order" &&
+                              item === "Quick Order")
                               ? "#273572"
                               : "var(--colors-text-text-secondary-700, #414651)",
                           fontFamily:
