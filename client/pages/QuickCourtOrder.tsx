@@ -1604,17 +1604,24 @@ const QuickCourtOrder: React.FC = () => {
                                     : "none",
                               }}
                             >
-                              <FormSelect
+                              <FormInput
                                 label=""
                                 value={subject.socialSecurityTrace}
-                                onChange={(value) =>
-                                  handleSubjectChange(subject.id, "socialSecurityTrace", value)
+                                onChange={(e) =>
+                                  handleSubjectChange(
+                                    subject.id,
+                                    "socialSecurityTrace",
+                                    e.target.value,
+                                  )
                                 }
-                                options={[
-                                  { value: "Yes", label: "Yes" },
-                                  { value: "No", label: "No" },
-                                ]}
-                                placeholder={index === 0 ? "Yes" : ""}
+                                onFocus={() =>
+                                  setFocusedInput(`socialSecurityTrace-${subject.id}`)
+                                }
+                                onBlur={() => setFocusedInput(null)}
+                                isFocused={
+                                  focusedInput === `socialSecurityTrace-${subject.id}`
+                                }
+                                placeholder={index === 0 ? "000-000-000" : ""}
                                 style={{
                                   width: "100%",
                                   gap: "0px",
@@ -1798,11 +1805,12 @@ const QuickCourtOrder: React.FC = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  height: "35px",
+                                  height: "32px",
                                   flexDirection: "column",
+                                  justifyContent: "center",
                                   alignItems: "flex-start",
                                   gap: "6px",
-                                  flexShrink: 0,
+                                  flex: "1 0 0",
                                   alignSelf: "stretch",
                                 }}
                               >
@@ -1819,8 +1827,8 @@ const QuickCourtOrder: React.FC = () => {
                                   <div
                                     style={{
                                       display: "flex",
-                                      padding: "12px 14px",
-                                      alignItems: "flex-start",
+                                      padding: "6px 8px",
+                                      alignItems: "center",
                                       gap: "8px",
                                       flex: "1 0 0",
                                       alignSelf: "stretch",
@@ -1851,7 +1859,7 @@ const QuickCourtOrder: React.FC = () => {
                                         resize: "none",
                                         background: "transparent",
                                         width: "100%",
-                                        height: "11px",
+                                        height: "20px",
                                         fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                                         fontSize: "14px",
                                         fontWeight: 400,
