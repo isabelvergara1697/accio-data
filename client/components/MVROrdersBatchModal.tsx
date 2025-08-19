@@ -725,6 +725,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
             <div
               style={{
                 display: "flex",
+                height: "116px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "6px",
@@ -734,48 +735,147 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
             >
               <div
                 style={{
-                  color: "#414651",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "6px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "2px",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#414651",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    Start Importing At
+                  </div>
+                  <div
+                    style={{
+                      color: "#344698",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    *
+                  </div>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "10px 14px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      flex: "1 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      style={{
+                        width: "24px",
+                        height: "24px",
+                        position: "relative",
+                      }}
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <div
+                      style={{
+                        display: "-webkit-box",
+                        WebkitBoxOrient: "vertical",
+                        WebkitLineClamp: 1,
+                        flex: "1 0 0",
+                        overflow: "hidden",
+                        color: "#717680",
+                        textOverflow: "ellipsis",
+                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "16px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                        position: "relative",
+                      }}
+                    >
+                      {startTime}
+                    </div>
+                  </div>
+                  <svg
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      position: "relative",
+                    }}
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 9L12 15L18 9"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                style={{
+                  alignSelf: "stretch",
+                  color: "#535862",
                   fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
-                  fontWeight: 600,
+                  fontWeight: 400,
                   lineHeight: "20px",
                   position: "relative",
                 }}
               >
-                Start importing at
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  padding: "10px 14px",
-                  alignItems: "center",
-                  gap: "8px",
-                  alignSelf: "stretch",
-                  borderRadius: "8px",
-                  border: "1px solid #D5D7DA",
-                  background: "#FFF",
-                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  position: "relative",
-                }}
-              >
-                <input
-                  type="text"
-                  value={startTime}
-                  onChange={(e) => setStartTime(e.target.value)}
-                  style={{
-                    flex: "1 0 0",
-                    border: "none",
-                    outline: "none",
-                    background: "transparent",
-                    color: "#181D27",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "16px",
-                    fontStyle: "normal",
-                    fontWeight: 400,
-                    lineHeight: "24px",
-                  }}
-                />
+                If you leave the start time in blank, the process of importing the order will start after 7:00pm
               </div>
             </div>
 
