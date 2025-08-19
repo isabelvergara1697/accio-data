@@ -4,6 +4,7 @@ import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import BatchOrderingHelpModal from "../components/BatchOrderingHelpModal";
+import StandardOrdersBatchModal from "../components/StandardOrdersBatchModal";
 
 const BatchOrders: React.FC = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const BatchOrders: React.FC = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [activeTab, setActiveTab] = useState<"standard" | "mvr">("standard");
   const [helpModalOpen, setHelpModalOpen] = useState(false);
+  const [standardBatchModalOpen, setStandardBatchModalOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,8 +45,7 @@ const BatchOrders: React.FC = () => {
   }, []);
 
   const handleStartNewBatch = () => {
-    // Handle starting new batch
-    console.log("Start new batch");
+    setStandardBatchModalOpen(true);
   };
 
   const handleHelpClick = () => {
@@ -960,215 +961,172 @@ const BatchOrders: React.FC = () => {
                         flexDirection: "column",
                         justifyContent: "center",
                         alignItems: "center",
-                        gap: "10px",
+                        gap: "24px",
                         flex: "1 0 0",
                         alignSelf: "stretch",
                         position: "relative",
                         minHeight: "500px",
-                        padding: "60px 40px",
+                        padding: "60px 20px",
                       }}
                     >
+                      {/* Featured Icon */}
                       <div
                         style={{
                           display: "flex",
-                          width: "100%",
-                          maxWidth: "512px",
+                          width: "48px",
+                          height: "48px",
+                          padding: "12px",
                           justifyContent: "center",
                           alignItems: "center",
+                          aspectRatio: "1/1",
+                          borderRadius: "10px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          position: "relative",
+                        }}
+                      >
+                        <svg
+                          style={{
+                            width: "24px",
+                            height: "24px",
+                            flexShrink: 0,
+                            position: "absolute",
+                            left: "12px",
+                            top: "12px",
+                          }}
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
+                            stroke="#414651"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+
+                      {/* Text Content */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          gap: "4px",
+                          width: "100%",
+                          maxWidth: "352px",
                           position: "relative",
                         }}
                       >
                         <div
                           style={{
+                            color: "#181D27",
+                            textAlign: "center",
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "24px",
+                            position: "relative",
+                          }}
+                        >
+                          No Batches Found
+                        </div>
+                        <div
+                          style={{
+                            color: "#535862",
+                            textAlign: "center",
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          You haven't uploaded any Batch Orders yet.
+                        </div>
+                      </div>
+
+                      {/* Action Button */}
+                      <button
+                        onClick={handleStartNewBatch}
+                        style={{
+                          display: "flex",
+                          height: "44px",
+                          padding: "12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                          position: "relative",
+                          transition: "all 0.2s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "#2A3B87";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "#344698";
+                        }}
+                      >
+                        <svg
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            position: "relative",
+                          }}
+                          width="21"
+                          height="20"
+                          viewBox="0 0 21 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.5 6.66667V13.3333M7.16666 10H13.8333M18.8333 10C18.8333 14.6024 15.1024 18.3333 10.5 18.3333C5.89762 18.3333 2.16666 14.6024 2.16666 10C2.16666 5.39763 5.89762 1.66667 10.5 1.66667C15.1024 1.66667 18.8333 5.39763 18.8333 10Z"
+                            stroke="#8D9BD8"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        <div
+                          style={{
                             display: "flex",
-                            flexDirection: "column",
+                            padding: "0 2px",
+                            justifyContent: "center",
                             alignItems: "center",
-                            gap: "24px",
-                            flex: "1 0 0",
                             position: "relative",
                           }}
                         >
                           <div
                             style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "center",
-                              gap: "16px",
-                              alignSelf: "stretch",
+                              color: "#FFF",
+                              fontFamily:
+                                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
                               position: "relative",
                             }}
                           >
-                            {/* Featured Icon */}
-                            <div
-                              style={{
-                                display: "flex",
-                                width: "48px",
-                                height: "48px",
-                                padding: "12px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                aspectRatio: "1/1",
-                                borderRadius: "10px",
-                                border: "1px solid #D5D7DA",
-                                background: "#FFF",
-                                boxShadow:
-                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                position: "relative",
-                              }}
-                            >
-                              <svg
-                                style={{
-                                  width: "24px",
-                                  height: "24px",
-                                  flexShrink: 0,
-                                  position: "absolute",
-                                  left: "12px",
-                                  top: "12px",
-                                }}
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M21 21L17.5001 17.5M20 11.5C20 16.1944 16.1944 20 11.5 20C6.80558 20 3 16.1944 3 11.5C3 6.80558 6.80558 3 11.5 3C16.1944 3 20 6.80558 20 11.5Z"
-                                  stroke="#414651"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </div>
-
-                            <div
-                              style={{
-                                display: "flex",
-                                maxWidth: "352px",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                gap: "4px",
-                                alignSelf: "stretch",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  alignSelf: "stretch",
-                                  color: "#181D27",
-                                  textAlign: "center",
-                                  fontFamily:
-                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontSize: "16px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "24px",
-                                  position: "relative",
-                                }}
-                              >
-                                No Batches Found
-                              </div>
-                              <div
-                                style={{
-                                  alignSelf: "stretch",
-                                  color: "#535862",
-                                  textAlign: "center",
-                                  fontFamily:
-                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 400,
-                                  lineHeight: "20px",
-                                  position: "relative",
-                                }}
-                              >
-                                You haven't uploaded any Batch Orders yet.
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Actions */}
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "flex-start",
-                              gap: "12px",
-                              position: "relative",
-                            }}
-                          >
-                            <button
-                              onClick={handleStartNewBatch}
-                              style={{
-                                display: "flex",
-                                height: "44px",
-                                padding: "12px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                gap: "4px",
-                                borderRadius: "8px",
-                                border: "2px solid rgba(255, 255, 255, 0.12)",
-                                background: "#344698",
-                                boxShadow:
-                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                cursor: "pointer",
-                                position: "relative",
-                                transition: "all 0.2s ease",
-                              }}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.background = "#2A3B87";
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.background = "#344698";
-                              }}
-                            >
-                              <svg
-                                style={{
-                                  width: "20px",
-                                  height: "20px",
-                                  position: "relative",
-                                }}
-                                width="21"
-                                height="20"
-                                viewBox="0 0 21 20"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M10.5 6.66667V13.3333M7.16666 10H13.8333M18.8333 10C18.8333 14.6024 15.1024 18.3333 10.5 18.3333C5.89762 18.3333 2.16666 14.6024 2.16666 10C2.16666 5.39763 5.89762 1.66667 10.5 1.66667C15.1024 1.66667 18.8333 5.39763 18.8333 10Z"
-                                  stroke="#8D9BD8"
-                                  strokeWidth="1.66667"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                              <div
-                                style={{
-                                  display: "flex",
-                                  padding: "0 2px",
-                                  justifyContent: "center",
-                                  alignItems: "center",
-                                  position: "relative",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    color: "#FFF",
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 600,
-                                    lineHeight: "20px",
-                                    position: "relative",
-                                  }}
-                                >
-                                  Start New Batch
-                                </div>
-                              </div>
-                            </button>
+                            Start New Batch
                           </div>
                         </div>
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1182,6 +1140,12 @@ const BatchOrders: React.FC = () => {
       <BatchOrderingHelpModal
         isOpen={helpModalOpen}
         onClose={() => setHelpModalOpen(false)}
+      />
+
+      {/* Standard Orders Batch Modal */}
+      <StandardOrdersBatchModal
+        isOpen={standardBatchModalOpen}
+        onClose={() => setStandardBatchModalOpen(false)}
       />
     </div>
   );
