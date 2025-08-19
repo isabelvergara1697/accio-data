@@ -896,6 +896,95 @@ const QuickCourtOrder: React.FC = () => {
                           </div>
                         ))}
                       </div>
+
+                      {/* Middle Name Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "106px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {/* Middle Name Column Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Middle
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Middle Name Column Rows */}
+                        {subjects.map((subject, index) => (
+                          <div
+                            key={`middle-${subject.id}`}
+                            style={{
+                              display: "flex",
+                              height: "52px",
+                              padding: "10px 6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              borderBottom:
+                                index < subjects.length - 1
+                                  ? "1px solid #E9EAEB"
+                                  : "none",
+                            }}
+                          >
+                            <FormInput
+                              label=""
+                              value={subject.middle}
+                              onChange={(e) =>
+                                handleSubjectChange(subject.id, "middle", e.target.value)
+                              }
+                              onFocus={() => setFocusedInput(`middle-${subject.id}`)}
+                              onBlur={() => setFocusedInput(null)}
+                              isFocused={focusedInput === `middle-${subject.id}`}
+                              placeholder=""
+                              style={{
+                                width: "100%",
+                              }}
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                     {/* Button Group */}
                     <div
