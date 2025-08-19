@@ -64,7 +64,29 @@ export default function FormDateInput({
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    const value = e.target.value;
+
+    // Format as MM/DD/YY while typing
+    const formattedValue = formatAsMMDDYY(value);
+    setInputValue(formattedValue);
+  };
+
+  // Format input as MM/DD/YY while typing
+  const formatAsMMDDYY = (input: string): string => {
+    // Remove all non-digit characters
+    const digits = input.replace(/\D/g, '');
+
+    // Limit to 6 digits (MMDDYY)
+    const limitedDigits = digits.slice(0, 6);
+
+    // Add slashes at appropriate positions
+    if (limitedDigits.length <= 2) {
+      return limitedDigits;
+    } else if (limitedDigits.length <= 4) {
+      return `${limitedDigits.slice(0, 2)}/${limitedDigits.slice(2)}`;
+    } else {
+      return `${limitedDigits.slice(0, 2)}/${limitedDigits.slice(2, 4)}/${limitedDigits.slice(4)}`;
+    }
   };
 
   const handleCalendarClose = () => {
