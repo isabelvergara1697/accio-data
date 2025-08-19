@@ -285,15 +285,29 @@ const QuickCourtOrder: React.FC = () => {
                   <h1 className="page-title" style={{ alignSelf: "stretch" }}>
                     Quick Court Order
                   </h1>
-                  <div className="supporting-text" style={{ alignSelf: "stretch" }}>
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#535862",
+                      fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                    }}
+                  >
                     Enter subject details to create a court order. Add multiple rows as needed.{" "}
                     Need to submit multiple subjects at once?{" "}
                     <a
                       href="#"
                       style={{
                         color: "#34479A",
+                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "16px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "24px",
                         textDecoration: "underline",
-                        fontWeight: 500,
                       }}
                     >
                       Use batch ordering
