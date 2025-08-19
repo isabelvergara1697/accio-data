@@ -584,6 +584,8 @@ const QuickCourtOrder: React.FC = () => {
                         alignSelf: "stretch",
                         background: "#FFF",
                         overflowX: "auto",
+                        width: "100%",
+                        minWidth: 0,
                       }}
                     >
                       <div
