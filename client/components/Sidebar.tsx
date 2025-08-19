@@ -258,6 +258,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     hasChevron = true,
     badge,
     onClick,
+    isDisabled = false,
   }: {
     section: string;
     label: string;
@@ -265,6 +266,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     hasChevron?: boolean;
     badge?: string;
     onClick?: () => void;
+    isDisabled?: boolean;
   }) => {
     const isOpen = isAccordionOpen(section);
 
