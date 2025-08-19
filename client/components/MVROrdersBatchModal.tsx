@@ -78,6 +78,11 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Initialize showCustomEmail based on notification selection
+  useEffect(() => {
+    setShowCustomEmail(notificationSelection === "Custom");
+  }, [notificationSelection]);
+
   const filteredPackageOptions = MVR_PACKAGE_OPTIONS.filter(option =>
     option.toLowerCase().includes(packageSearchTerm.toLowerCase())
   );
