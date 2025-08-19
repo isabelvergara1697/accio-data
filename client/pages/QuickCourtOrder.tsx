@@ -446,7 +446,7 @@ const QuickCourtOrder: React.FC = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "flex-start",
-                    gap: "20px",
+                    gap: "0px",
                     width: "100%",
                     borderRadius: "12px 12px 0 0",
                     border: "1px solid #E9EAEB",
@@ -548,25 +548,15 @@ const QuickCourtOrder: React.FC = () => {
                           >
                             <div
                               style={{
-                                color: "#414651",
-                                fontFamily: "'Public Sans'",
-                                fontSize: "14px",
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 600,
-                                lineHeight: "20px",
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
                               }}
                             >
-                              <span
-                                style={{
-                                  fontFamily:
-                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
-                                  fontSize: "14px",
-                                  color: "rgba(65,70,81,1)",
-                                }}
-                              >
-                                Submit Order For: Select User
-                              </span>
+                              Submit Order For: Select User
                             </div>
                           </div>
                           <svg
