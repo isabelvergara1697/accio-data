@@ -50,6 +50,22 @@ const BatchOrders: React.FC = () => {
     setStandardBatchModalOpen(true);
   };
 
+  const handleBatchSubmit = () => {
+    setStandardBatchModalOpen(false);
+    setIsLoading(true);
+
+    // Simulate progress updates
+    const progressInterval = setInterval(() => {
+      setLoadingProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(progressInterval);
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 1000);
+  };
+
   const handleHelpClick = () => {
     setHelpModalOpen(true);
   };
