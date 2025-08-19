@@ -372,7 +372,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
               />
             </div>
 
-            {/* Default Package */}
+            {/* Default MVR Package */}
             <div
               ref={packageDropdownRef}
               style={{
@@ -386,16 +386,38 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
             >
               <div
                 style={{
-                  color: "#414651",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "2px",
                   position: "relative",
                 }}
               >
-                Default MVR Package
+                <div
+                  style={{
+                    color: "#414651",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  Default MVR Package
+                </div>
+                <div
+                  style={{
+                    color: "#344698",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "14px",
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    lineHeight: "20px",
+                    position: "relative",
+                  }}
+                >
+                  *
+                </div>
               </div>
               <div
                 style={{
@@ -416,7 +438,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 <div
                   style={{
                     flex: "1 0 0",
-                    color: "#181D27",
+                    color: defaultPackage ? "#181D27" : "#717680",
                     fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "16px",
                     fontStyle: "normal",
@@ -425,7 +447,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                     position: "relative",
                   }}
                 >
-                  {defaultPackage}
+                  {defaultPackage || "Select MVR package"}
                 </div>
                 <svg
                   style={{
