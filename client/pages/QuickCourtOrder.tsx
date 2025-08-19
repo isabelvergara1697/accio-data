@@ -414,7 +414,9 @@ const QuickCourtOrder: React.FC = () => {
                   display: "flex",
                   flexDirection: "column",
                   gap: "24px",
-                  alignSelf: "stretch",
+                  width: "100%",
+                  maxWidth: "100%",
+                  overflow: "hidden",
                 }}
               >
             {/* Section Headers - Matching Figma */}
