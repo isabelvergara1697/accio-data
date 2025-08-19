@@ -49,6 +49,20 @@ const BatchOrders: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Close dropdown menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (actionMenuOpen !== null && !(event.target as Element).closest('[data-dropdown-menu]')) {
+        setActionMenuOpen(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [actionMenuOpen]);
+
   const handleStartNewBatch = () => {
     setStandardBatchModalOpen(true);
   };
