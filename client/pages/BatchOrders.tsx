@@ -36,15 +36,7 @@ const BatchOrders: React.FC = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100vw",
-        height: "100vh",
-        background: "#FAFAFA",
-        overflow: "hidden",
-      }}
-    >
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FAFAFA" }}>
       {/* Sidebar */}
       <Sidebar
         isDesktop={isDesktop}
