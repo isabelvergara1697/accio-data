@@ -1164,38 +1164,23 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "6px",
+                gap: "16px",
                 alignSelf: "stretch",
                 position: "relative",
               }}
             >
-              <div
-                style={{
-                  color: "#414651",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "14px",
-                  fontStyle: "normal",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                  position: "relative",
-                }}
-              >
-                Upload MVR batch file
-              </div>
-
               {!fileUploaded ? (
                 // Upload Area
                 <div
                   style={{
                     display: "flex",
-                    padding: "16px",
+                    padding: "16px 24px",
                     flexDirection: "column",
-                    justifyContent: "center",
                     alignItems: "center",
-                    gap: "12px",
+                    gap: "4px",
                     alignSelf: "stretch",
-                    borderRadius: "8px",
-                    border: "1px dashed #D5D7DA",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
                     background: "#FFF",
                     position: "relative",
                     cursor: "pointer",
@@ -1205,75 +1190,119 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                   <div
                     style={{
                       display: "flex",
-                      width: "40px",
-                      height: "40px",
-                      padding: "10px",
                       justifyContent: "center",
-                      alignItems: "center",
-                      aspectRatio: "1/1",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#F9FAFB",
-                      position: "relative",
-                    }}
-                  >
-                    <svg
-                      style={{
-                        width: "20px",
-                        height: "20px",
-                        position: "relative",
-                      }}
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M6.66667 13.3333L10 10M10 10L13.3333 13.3333M10 10V17.5M16.6667 13.9524C17.6846 13.1117 18.3333 11.8399 18.3333 10.4167C18.3333 7.88536 16.2813 5.83333 13.75 5.83333C13.5679 5.83333 13.3975 5.73833 13.3051 5.58145C12.2183 3.73736 10.212 2.5 7.91667 2.5C4.46489 2.5 1.66667 5.29822 1.66667 8.75C1.66667 10.4718 2.36289 12.0309 3.48913 13.1613"
-                        stroke="#A4A7AE"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: "4px",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                      alignSelf: "stretch",
                       position: "relative",
                     }}
                   >
                     <div
                       style={{
-                        color: "#344698",
-                        textAlign: "center",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        lineHeight: "20px",
+                        display: "flex",
+                        padding: "10px",
+                        alignItems: "center",
+                        gap: "10px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         position: "relative",
                       }}
                     >
-                      Click to upload
+                      <svg
+                        style={{
+                          width: "24px",
+                          height: "24px",
+                          position: "relative",
+                        }}
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 16L12 12M12 12L16 16M12 12V21M20 16.7428C21.2215 15.734 22 14.2079 22 12.5C22 9.46243 19.5376 7 16.5 7C16.2815 7 16.0771 6.886 15.9661 6.69774C14.6621 4.48484 12.2544 3 9.5 3C5.35786 3 2 6.35786 2 10.5C2 12.5661 2.83545 14.4371 4.18695 15.7935"
+                          stroke="#414651"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </div>
                     <div
                       style={{
-                        color: "#535862",
-                        textAlign: "center",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 400,
-                        lineHeight: "20px",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "4px",
+                        flex: "1 0 0",
                         position: "relative",
                       }}
                     >
-                      CSV, XLS, XLSX up to 10MB
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#273572",
+                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            Click to upload
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            color: "#535862",
+                            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          or drag and drop
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          alignSelf: "stretch",
+                          color: "#535862",
+                          textAlign: "center",
+                          fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontSize: "12px",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "18px",
+                          position: "relative",
+                        }}
+                      >
+                        Only XLS
+                      </div>
                     </div>
                   </div>
                 </div>
