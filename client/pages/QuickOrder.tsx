@@ -1123,7 +1123,7 @@ const QuickOrder: React.FC = () => {
                                     color: "rgba(113,118,128,1)",
                                   }}
                                 >
-                                  State
+                                  DL State
                                 </span>
                               </div>
                             </div>
