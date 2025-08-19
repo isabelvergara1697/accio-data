@@ -231,24 +231,13 @@ export default function FormDateInput({
         </div>
       )}
 
-      {/* Calendar Components - Use DesktopCalendar for desktop and tablet, DatePickerCalendar for mobile */}
-      {isCalendarOpen && (isDesktop || isTablet) && (
-        <DesktopCalendar
+      {/* Single Date Calendar */}
+      {isCalendarOpen && (
+        <SingleDateCalendar
           isOpen={isCalendarOpen}
           onClose={handleCalendarClose}
           triggerRef={buttonRef}
-          selectedStartDate={selectedDate || new Date()}
-          selectedEndDate={selectedDate || new Date()}
-          onDateChange={handleDateSelect}
-        />
-      )}
-      {isCalendarOpen && !isDesktop && !isTablet && (
-        <DatePickerCalendar
-          isOpen={isCalendarOpen}
-          onClose={handleCalendarClose}
-          triggerRef={buttonRef}
-          selectedStartDate={selectedDate || new Date()}
-          selectedEndDate={selectedDate || new Date()}
+          selectedDate={selectedDate || new Date()}
           onDateChange={handleDateSelect}
         />
       )}
