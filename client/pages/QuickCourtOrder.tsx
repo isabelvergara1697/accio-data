@@ -606,13 +606,14 @@ const QuickCourtOrder: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
+                  {/* Widget Content - Matching Figma Structure */}
                   <div
                     style={{
-                      overflowX: "auto",
-                      overflowY: "hidden",
+                      display: "flex",
+                      alignItems: "flex-start",
                       width: "100%",
-                      maxWidth: "100%",
-                      position: "relative",
+                      overflowX: "auto",
+                      background: "#FFF",
                     }}
                   >
                     <Table style={{ minWidth: "600px", width: "auto", margin: "0", borderSpacing: "0", borderCollapse: "separate" }}>
