@@ -124,6 +124,32 @@ const QuickCourtOrder: React.FC = () => {
     console.log("Submitting court order with subjects:", subjects);
   };
 
+  const copyFromPreviousRow = (currentIndex: number) => {
+    if (currentIndex > 0) {
+      const previousSubject = subjects[currentIndex - 1];
+      const currentSubject = subjects[currentIndex];
+
+      setSubjects((prev) =>
+        prev.map((subject, index) =>
+          index === currentIndex
+            ? {
+                ...subject,
+                search: previousSubject.search,
+                firstName: previousSubject.firstName,
+                middle: previousSubject.middle,
+                lastName: previousSubject.lastName,
+                state: previousSubject.state,
+                county: previousSubject.county,
+                dateOfBirth: previousSubject.dateOfBirth,
+                socialSecurityTrace: previousSubject.socialSecurityTrace,
+                yearsIn: previousSubject.yearsIn,
+              }
+            : subject,
+        ),
+      );
+    }
+  };
+
 
   return (
     <div style={{ display: "flex", minHeight: "100vh", background: "#FAFAFA" }}>
