@@ -316,7 +316,7 @@ export default function FormDateInput({
             onChange={handleInputChange}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
-            placeholder={placeholder || "MM/DD/YY"}
+            placeholder={placeholder || ""}
             style={{
               flex: "1",
               height: "100%",
