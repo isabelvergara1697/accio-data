@@ -19,6 +19,7 @@ export interface FormSelectProps {
   style?: React.CSSProperties;
   className?: string;
   disabled?: boolean;
+  searchable?: boolean;
 }
 
 export default function FormSelect({
