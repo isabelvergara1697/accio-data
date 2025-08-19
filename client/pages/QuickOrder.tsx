@@ -2053,54 +2053,6 @@ const QuickOrder: React.FC = () => {
                           }}
                         >
                           <div
-                            onClick={addTenRows}
-                            style={{
-                              display: "flex",
-                              minHeight: "36px",
-                              padding: "6px 8px",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              gap: "4px",
-                              borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
-                              background: "#FFF",
-                              boxShadow:
-                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              cursor: "pointer",
-                              transition: "all 0.2s ease",
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.background = "#F9FAFB";
-                              e.currentTarget.style.borderColor = "#98A2B3";
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.background = "#FFF";
-                              e.currentTarget.style.borderColor = "#D5D7DA";
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                padding: "0 2px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#414651",
-                                  fontFamily: "'Public Sans'",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "20px",
-                                }}
-                              >
-                                Add 10 Rows
-                              </div>
-                            </div>
-                          </div>
-                          <div
                             onClick={handleSubmit}
                             style={{
                               display: "flex",
@@ -2142,7 +2094,7 @@ const QuickOrder: React.FC = () => {
                                   lineHeight: "20px",
                                 }}
                               >
-                                Submit Order
+                                Submit MVR Order
                               </div>
                             </div>
                           </div>
