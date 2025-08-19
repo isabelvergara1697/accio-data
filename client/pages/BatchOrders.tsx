@@ -1337,44 +1337,6 @@ const BatchOrders: React.FC = () => {
                             </div>
                           ))}
 
-                          {/* Uploaded By Column */}
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              width: "95px",
-                              position: "relative",
-                            }}
-                          >
-                            {["[username]", "[username]", "[username]", "[username]"].map((username, idx) => (
-                              <div
-                                key={idx}
-                                style={{
-                                  display: "flex",
-                                  height: "52px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  position: "relative",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    color: "#181D27",
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontSize: "14px",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
-                                    position: "relative",
-                                  }}
-                                >
-                                  {username}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
 
                           {/* Uploaded On Column */}
                           <div
