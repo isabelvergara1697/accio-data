@@ -41,6 +41,8 @@ const QuickOrder: React.FC = () => {
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showDataLoading, setShowDataLoading] = useState(false);
+  const [showPaymentScreen, setShowPaymentScreen] = useState(false);
 
   // Table data state
   const [subjects, setSubjects] = useState<SubjectData[]>(() => {
