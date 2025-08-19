@@ -264,6 +264,7 @@ const QuickOrder: React.FC = () => {
         state: "",
         county: "",
         dlNumber: "",
+        mvrType: "",
         dateOfBirth: "",
         socialSecurityTrace: "",
         yearsIn: "",
