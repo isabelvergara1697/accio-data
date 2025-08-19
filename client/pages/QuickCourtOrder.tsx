@@ -321,11 +321,9 @@ const QuickCourtOrder: React.FC = () => {
                       alignSelf: "stretch",
                     }}
                   >
-                    {/* Title - Exact Figma styling with proper positioning */}
-                    <h1
+                    {/* Title - Exact Figma styling */}
+                    <div
                       style={{
-                        margin: 0,
-                        padding: 0,
                         alignSelf: "stretch",
                         color: "#181D27",
                         fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
@@ -333,13 +331,20 @@ const QuickCourtOrder: React.FC = () => {
                         fontStyle: "normal",
                         fontWeight: 600,
                         lineHeight: "32px",
-                        position: "relative",
-                        zIndex: 1,
                       }}
                     >
-                      Quick Court Order
-                    </h1>
-                    {/* Supporting text - Exact Figma styling and color with proper positioning */}
+                      <span
+                        style={{
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 700,
+                          fontSize: "24px",
+                          color: "rgba(24,29,39,1)",
+                        }}
+                      >
+                        Quick Court Order
+                      </span>
+                    </div>
+                    {/* Supporting text - Exact Figma styling */}
                     <div
                       style={{
                         alignSelf: "stretch",
@@ -349,26 +354,30 @@ const QuickCourtOrder: React.FC = () => {
                         fontStyle: "normal",
                         fontWeight: 400,
                         lineHeight: "24px",
-                        position: "relative",
-                        zIndex: 1,
                       }}
                     >
-                      Enter subject details to create a court order. Add multiple rows as needed.{" "}
-                      Need to submit multiple subjects at once?{" "}
-                      <a
-                        href="#"
+                      <span
                         style={{
-                          color: "#34479A",
-                          fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                          fontSize: "16px",
-                          fontStyle: "normal",
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontWeight: 400,
-                          lineHeight: "24px",
+                          fontSize: "16px",
+                          color: "rgba(83,88,98,1)",
+                        }}
+                      >
+                        Enter subject details to create a court order. Add multiple rows as needed.{" "}
+                        Need to submit multiple subjects at once?{" "}
+                      </span>
+                      <span
+                        style={{
+                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontWeight: 400,
+                          fontSize: "16px",
+                          color: "rgba(52,70,152,1)",
                           textDecoration: "underline",
                         }}
                       >
                         Use batch ordering
-                      </a>
+                      </span>
                     </div>
                   </div>
                 </div>
