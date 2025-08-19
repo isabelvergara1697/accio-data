@@ -1477,7 +1477,11 @@ const BatchOrders: React.FC = () => {
                                         }}
                                         onClick={() => {
                                           setBatchDetailsModalOpen(true);
-                                          setActionMenuOpen(null);
+                                          if (activeTab === "standard") {
+                                            setActionMenuOpen(null);
+                                          } else {
+                                            setMvrActionMenuOpen(null);
+                                          }
                                         }}
                                         onMouseEnter={(e) => {
                                           e.currentTarget.querySelector('.menu-content').style.background = "#F9FAFB";
