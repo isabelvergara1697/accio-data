@@ -979,19 +979,19 @@ const BatchOrders: React.FC = () => {
                       ))}
                     </div>
 
-                    {/* Content - Loading State or Empty State */}
+                    {/* Content - Loading State, Table State, or Empty State */}
                     <div
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
+                        justifyContent: showTable ? "flex-start" : "center",
+                        alignItems: showTable ? "flex-start" : "center",
                         gap: "20px",
                         flex: "1 0 0",
                         alignSelf: "stretch",
                         position: "relative",
                         minHeight: "500px",
-                        padding: "60px 20px",
+                        padding: showTable ? "12px 16px 16px 16px" : "60px 20px",
                       }}
                     >
                       {isLoading ? (
