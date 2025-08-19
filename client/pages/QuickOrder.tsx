@@ -1150,8 +1150,6 @@ const QuickOrder: React.FC = () => {
                                 value={subject.state}
                                 onChange={(value) => {
                                   handleSubjectChange(subject.id, "state", value);
-                                  // Clear county when state changes
-                                  handleSubjectChange(subject.id, "county", "");
                                 }}
                                 options={usStatesOptions}
                                 placeholder={index === 0 ? "TX" : ""}
