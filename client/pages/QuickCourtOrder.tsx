@@ -17,6 +17,7 @@ interface SubjectData {
   dateOfBirth: string;
   socialSecurityTrace: string;
   yearsIn: string;
+  comments: string;
 }
 
 const QuickCourtOrder: React.FC = () => {
@@ -45,6 +46,7 @@ const QuickCourtOrder: React.FC = () => {
         dateOfBirth: "",
         socialSecurityTrace: "",
         yearsIn: "",
+        comments: "",
       });
     }
     return initialSubjects;
@@ -117,6 +119,7 @@ const QuickCourtOrder: React.FC = () => {
         dateOfBirth: "",
         socialSecurityTrace: "",
         yearsIn: "",
+        comments: "",
       });
     }
     setSubjects((prev) => [...prev, ...newSubjects]);
@@ -145,6 +148,7 @@ const QuickCourtOrder: React.FC = () => {
                 dateOfBirth: previousSubject.dateOfBirth,
                 socialSecurityTrace: previousSubject.socialSecurityTrace,
                 yearsIn: previousSubject.yearsIn,
+                comments: previousSubject.comments,
               }
             : subject,
         ),
