@@ -32,6 +32,7 @@ const QuickCourtOrder: React.FC = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Table data state
   const [subjects, setSubjects] = useState<SubjectData[]>(() => {
