@@ -237,14 +237,10 @@ export default function FormDateInput({
             </div>
           </div>
         )}
-        <button
-          ref={buttonRef}
-          onClick={handleDateClick}
-          onBlur={onBlur}
+        <div
           style={{
             display: "flex",
             height: "32px",
-            padding: "6px 8px",
             alignItems: "center",
             gap: "4px",
             alignSelf: "stretch",
@@ -256,54 +252,67 @@ export default function FormDateInput({
                 : "1px solid #D5D7DA",
             background: isCalendarOpen ? "#ECEEF9" : "#FFF",
             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-            cursor: "pointer",
-            outline: "none",
           }}
         >
-          <svg
-            style={{ width: "16px", height: "16px", flexShrink: 0 }}
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M14 6.66659H2M10.6667 1.33325V3.99992M5.33333 1.33325V3.99992M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4486C13.2843 14.2569 13.5903 13.9509 13.782 13.5746C14 13.1467 14 12.5867 14 11.4666V5.86659C14 4.74648 14 4.18643 13.782 3.7586C13.5903 3.38228 13.2843 3.07632 12.908 2.88457C12.4802 2.66659 11.9201 2.66659 10.8 2.66659H5.2C4.0799 2.66659 3.51984 2.66659 3.09202 2.88457C2.71569 3.07632 2.40973 3.38228 2.21799 3.7586C2 4.18643 2 4.74648 2 5.86659V11.4666C2 12.5867 2 13.1467 2.21799 13.5746C2.40973 13.9509 2.71569 14.2569 3.09202 14.4486C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
-              stroke={isCalendarOpen ? "#273572" : "#A4A7AE"}
-              strokeWidth="1.66667"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <div
+          <button
+            ref={calendarButtonRef}
+            onClick={handleCalendarClick}
             style={{
               display: "flex",
-              padding: "0 2px",
-              justifyContent: "center",
+              padding: "6px 8px",
               alignItems: "center",
-              flex: "1 0 0",
+              justifyContent: "center",
+              height: "100%",
+              border: "none",
+              background: "transparent",
+              cursor: "pointer",
+              outline: "none",
+              borderRadius: "6px 0 0 6px",
             }}
           >
-            <div
-              style={{
-                color: value
-                  ? (isCalendarOpen ? "#273572" : "#181D27")
-                  : (isCalendarOpen ? "#273572" : "#717680"),
-                fontFamily:
-                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 400,
-                lineHeight: "20px",
-                textAlign: "left",
-                width: "100%",
-              }}
+            <svg
+              style={{ width: "16px", height: "16px", flexShrink: 0 }}
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              {value ? formatDisplayDate(value) : (placeholder || "")}
-            </div>
-          </div>
-        </button>
+              <path
+                d="M14 6.66659H2M10.6667 1.33325V3.99992M5.33333 1.33325V3.99992M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4486C13.2843 14.2569 13.5903 13.9509 13.782 13.5746C14 13.1467 14 12.5867 14 11.4666V5.86659C14 4.74648 14 4.18643 13.782 3.7586C13.5903 3.38228 13.2843 3.07632 12.908 2.88457C12.4802 2.66659 11.9201 2.66659 10.8 2.66659H5.2C4.0799 2.66659 3.51984 2.66659 3.09202 2.88457C2.71569 3.07632 2.40973 3.38228 2.21799 3.7586C2 4.18643 2 4.74648 2 5.86659V11.4666C2 12.5867 2 13.1467 2.21799 13.5746C2.40973 13.9509 2.71569 14.2569 3.09202 14.4486C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                stroke={isCalendarOpen ? "#273572" : "#A4A7AE"}
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <input
+            ref={inputRef}
+            type="text"
+            value={inputValue}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
+            placeholder={placeholder || "MM/DD/YY"}
+            style={{
+              flex: "1",
+              height: "100%",
+              padding: "0 8px 0 2px",
+              border: "none",
+              outline: "none",
+              background: "transparent",
+              color: inputValue
+                ? (isCalendarOpen ? "#273572" : "#181D27")
+                : (isCalendarOpen ? "#273572" : "#717680"),
+              fontFamily:
+                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+              fontSize: "14px",
+              fontWeight: 400,
+              lineHeight: "20px",
+            }}
+          />
+        </div>
       </div>
       {error && (
         <div
