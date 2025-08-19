@@ -709,6 +709,8 @@ const QuickCourtOrder: React.FC = () => {
                               placeholder="Select search type"
                               style={{
                                 width: "100%",
+                                gap: "0px",
+                                justifyContent: "center",
                               }}
                             />
                           </div>
@@ -891,6 +893,8 @@ const QuickCourtOrder: React.FC = () => {
                               placeholder={index === 0 ? "John" : ""}
                               style={{
                                 width: "100%",
+                                gap: "0px",
+                                justifyContent: "center",
                               }}
                             />
                           </div>
@@ -980,6 +984,8 @@ const QuickCourtOrder: React.FC = () => {
                               placeholder={index === 0 ? "R" : ""}
                               style={{
                                 width: "100%",
+                                gap: "0px",
+                                justifyContent: "center",
                               }}
                             />
                           </div>
