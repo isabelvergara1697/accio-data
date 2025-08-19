@@ -17,6 +17,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
         flexDirection: "column",
         alignItems: "flex-start",
         alignSelf: "stretch",
+        position: "relative",
       }}
     >
       {/* Section Headers */}
@@ -32,6 +33,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
           borderRadius: "12px 12px 0 0",
           border: "1px solid #E9EAEB",
           background: "#FFF",
+          position: "relative",
         }}
       >
         <div
@@ -42,6 +44,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
             alignItems: "flex-start",
             gap: "16px",
             alignSelf: "stretch",
+            position: "relative",
           }}
         >
           <div
@@ -50,6 +53,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               alignItems: "center",
               gap: "16px",
               alignSelf: "stretch",
+              position: "relative",
             }}
           >
             <div
@@ -58,6 +62,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                 alignItems: "flex-start",
                 gap: "4px",
                 flex: "1 0 0",
+                position: "relative",
               }}
             >
               <div
@@ -68,6 +73,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                   alignItems: "flex-start",
                   gap: "2px",
                   flex: "1 0 0",
+                  position: "relative",
                 }}
               >
                 <div
@@ -76,6 +82,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     alignItems: "center",
                     gap: "8px",
                     alignSelf: "stretch",
+                    position: "relative",
                   }}
                 >
                   <div
@@ -86,6 +93,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                       fontStyle: "normal",
                       fontWeight: 600,
                       lineHeight: "28px",
+                      position: "relative",
                     }}
                   >
                     <span
@@ -124,6 +132,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
           borderLeft: "1px solid #E9EAEB",
           background: "#FFF",
           boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+          position: "relative",
         }}
       >
         <div
@@ -133,6 +142,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
             alignItems: "center",
             gap: "8px",
             alignSelf: "stretch",
+            position: "relative",
           }}
         >
           <div
@@ -145,6 +155,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               fontStyle: "normal",
               fontWeight: 600,
               lineHeight: "24px",
+              position: "relative",
             }}
           >
             <span
@@ -165,6 +176,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               display: "flex",
               alignItems: "center",
               gap: "16px",
+              position: "relative",
             }}
           >
             {/* Authorize Payment Button */}
@@ -184,6 +196,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                 cursor: "pointer",
                 transition: "all 0.2s ease",
+                position: "relative",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#2D3985";
@@ -198,6 +211,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                   padding: "0 2px",
                   justifyContent: "center",
                   alignItems: "center",
+                  position: "relative",
                 }}
               >
                 <div
@@ -208,6 +222,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                     fontStyle: "normal",
                     fontWeight: 600,
                     lineHeight: "20px",
+                    position: "relative",
                   }}
                 >
                   <span
@@ -233,6 +248,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                 alignItems: "center",
                 gap: "4px",
                 cursor: "pointer",
+                position: "relative",
               }}
             >
               <div
@@ -243,6 +259,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                   fontStyle: "normal",
                   fontWeight: 600,
                   lineHeight: "20px",
+                  position: "relative",
                 }}
               >
                 <span
@@ -261,6 +278,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
                 style={{
                   width: "16px",
                   height: "16px",
+                  position: "relative",
                 }}
                 width="16"
                 height="16"
@@ -288,6 +306,7 @@ const PaymentScreen: React.FC<PaymentScreenProps> = ({
               fontStyle: "normal",
               fontWeight: 400,
               lineHeight: "20px",
+              position: "relative",
             }}
           >
             <span
