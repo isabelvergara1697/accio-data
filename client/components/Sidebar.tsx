@@ -425,7 +425,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         (currentPage === "invites-orders" &&
                           item === "Invites & Orders") ||
                         (currentPage === "quick-court-order" &&
-                          item === "Quick Court Order")
+                          item === "Quick Court Order") ||
+                        (currentPage === "batch-orders" &&
+                          item === "Batch Orders")
                           ? "#ECEEF9"
                           : "#FFF",
                       position: "relative",
