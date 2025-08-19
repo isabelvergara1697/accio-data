@@ -755,7 +755,7 @@ const I9Order: React.FC = () => {
                                 state: {
                                   activeTab: "orders",
                                   showActionsPanel: true,
-                                  selectedItems: ["order-1"] // This will trigger the actions panel to show
+                                  selectedItems: ["ord1"] // This will trigger the actions panel to show
                                 }
                               })}
                               onMouseEnter={(e) => {
