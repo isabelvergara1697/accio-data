@@ -417,57 +417,159 @@ const QuickCourtOrder: React.FC = () => {
                   alignSelf: "stretch",
                 }}
               >
-            {/* Section Header */}
+            {/* Section Headers - Matching Figma */}
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                flexWrap: "wrap",
-                gap: "16px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "20px",
+                alignSelf: "stretch",
+                borderRadius: "12px 12px 0 0",
+                border: "1px solid #E9EAEB",
+                background: "#FFF",
               }}
             >
-              <h2
-                style={{
-                  color: "#181D27",
-                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  fontSize: "18px",
-                  fontWeight: 600,
-                  lineHeight: "24px",
-                }}
-              >
-                Create Quick Court Order
-              </h2>
               <div
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
+                  padding: "16px 16px 12px 16px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  alignSelf: "stretch",
                 }}
               >
-                <span
+                <div
                   style={{
-                    color: "#414651",
-                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    lineHeight: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "16px",
+                    alignSelf: "stretch",
                   }}
                 >
-                  Submit Order For:
-                </span>
-                <FormSelect
-                  label=""
-                  value={selectedUser}
-                  onChange={setSelectedUser}
-                  options={[
-                    { value: "Select User", label: "Select User" },
-                    { value: "current-user", label: "Current User" },
-                    { value: "admin", label: "Admin" },
-                  ]}
-                  placeholder="Select User"
-                  style={{ minWidth: "160px" }}
-                />
+                  {/* Title */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "4px",
+                      flex: "1 0 0",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "flex-start",
+                        gap: "2px",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "18px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "28px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 700,
+                              fontSize: "18px",
+                              color: "rgba(24,29,39,1)",
+                            }}
+                          >
+                            Create Quick Court Order
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Actions */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                              fontWeight: 700,
+                              fontSize: "14px",
+                              color: "rgba(65,70,81,1)",
+                            }}
+                          >
+                            Submit Order For: Select User
+                          </span>
+                        </div>
+                      </div>
+                      <svg
+                        style={{ width: "16px", height: "16px" }}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 6L8 10L12 6"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
