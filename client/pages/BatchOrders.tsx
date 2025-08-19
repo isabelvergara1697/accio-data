@@ -79,19 +79,31 @@ const BatchOrders: React.FC = () => {
         }}
       >
         {/* Header */}
-        {isMobile ? (
-          <MobileHeader
-            isMenuOpen={mobileMenuOpen}
-            onMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
-            showUserMenu={showMobileUserMenu}
-            setShowUserMenu={setShowMobileUserMenu}
-          />
-        ) : (
+        {isDesktop ? (
           <Header
+            isDesktop={isDesktop}
             userMenuOpen={userMenuOpen}
             setUserMenuOpen={setUserMenuOpen}
             userMenuHovered={userMenuHovered}
             setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={() => console.log("Sign out")}
+            getUserMenuStyles={() => ({})}
+            showMobileUserMenu={showMobileUserMenu}
+            showNotification={false}
+            sidebarCollapsed={sidebarCollapsed}
+          />
+        ) : (
+          <MobileHeader
+            isDesktop={isDesktop}
+            isMobile={isMobile}
+            setMobileMenuOpen={setMobileMenuOpen}
+            userMenuOpen={userMenuOpen}
+            setUserMenuOpen={setUserMenuOpen}
+            userMenuHovered={userMenuHovered}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={() => console.log("Sign out")}
+            getUserMenuStyles={() => ({})}
+            showMobileUserMenu={showMobileUserMenu}
           />
         )}
 
