@@ -374,7 +374,7 @@ const QuickOrder: React.FC = () => {
                           color: "rgba(24,29,39,1)",
                         }}
                       >
-                        Quick Order
+                        Quick MVR Order
                       </span>
                     </div>
                     {/* Supporting text - Exact Figma styling */}
