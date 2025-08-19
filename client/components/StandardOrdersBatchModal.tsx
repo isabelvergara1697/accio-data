@@ -46,6 +46,7 @@ const FCRA_PURPOSE_OPTIONS = [
 export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> = ({
   isOpen,
   onClose,
+  onSubmit,
 }) => {
   const [defaultPackage, setDefaultPackage] = useState("CSD Standard");
   const [fcrapPurpose, setFcraPurpose] = useState("Employment by Hire or Contract");
