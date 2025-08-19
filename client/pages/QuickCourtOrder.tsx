@@ -1186,9 +1186,11 @@ const QuickCourtOrder: React.FC = () => {
                             <FormSelect
                               label=""
                               value={subject.state}
-                              onChange={(value) =>
-                                handleSubjectChange(subject.id, "state", value)
-                              }
+                              onChange={(value) => {
+                                handleSubjectChange(subject.id, "state", value);
+                                // Clear county when state changes
+                                handleSubjectChange(subject.id, "county", "");
+                              }}
                               options={[
                                 { value: "TX", label: "TX" },
                                 { value: "CA", label: "CA" },
@@ -1210,6 +1212,155 @@ const QuickCourtOrder: React.FC = () => {
                             />
                           </div>
                         ))}
+                      </div>
+
+                      {/* County Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "96px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {/* County Column Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                County
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        {/* County Column Rows */}
+                        {subjects.map((subject, index) => {
+                          // Get county options based on selected state
+                          const getCountyOptions = (state: string) => {
+                            switch (state) {
+                              case "TX":
+                                return [
+                                  { value: "Harris", label: "Harris" },
+                                  { value: "Dallas", label: "Dallas" },
+                                  { value: "Tarrant", label: "Tarrant" },
+                                  { value: "Bexar", label: "Bexar" },
+                                  { value: "Travis", label: "Travis" },
+                                  { value: "Collin", label: "Collin" },
+                                  { value: "Hidalgo", label: "Hidalgo" },
+                                  { value: "El Paso", label: "El Paso" },
+                                  { value: "Denton", label: "Denton" },
+                                  { value: "Fort Bend", label: "Fort Bend" },
+                                ];
+                              case "CA":
+                                return [
+                                  { value: "Los Angeles", label: "Los Angeles" },
+                                  { value: "San Diego", label: "San Diego" },
+                                  { value: "Orange", label: "Orange" },
+                                  { value: "Riverside", label: "Riverside" },
+                                  { value: "San Bernardino", label: "San Bernardino" },
+                                  { value: "Santa Clara", label: "Santa Clara" },
+                                  { value: "Alameda", label: "Alameda" },
+                                  { value: "Sacramento", label: "Sacramento" },
+                                  { value: "Contra Costa", label: "Contra Costa" },
+                                  { value: "Fresno", label: "Fresno" },
+                                ];
+                              case "NY":
+                                return [
+                                  { value: "New York", label: "New York" },
+                                  { value: "Kings", label: "Kings" },
+                                  { value: "Queens", label: "Queens" },
+                                  { value: "Suffolk", label: "Suffolk" },
+                                  { value: "Bronx", label: "Bronx" },
+                                  { value: "Nassau", label: "Nassau" },
+                                  { value: "Westchester", label: "Westchester" },
+                                  { value: "Erie", label: "Erie" },
+                                  { value: "Monroe", label: "Monroe" },
+                                  { value: "Richmond", label: "Richmond" },
+                                ];
+                              default:
+                                return [
+                                  { value: "Harris", label: "Harris" },
+                                  { value: "Dallas", label: "Dallas" },
+                                  { value: "Tarrant", label: "Tarrant" },
+                                  { value: "Bexar", label: "Bexar" },
+                                  { value: "Travis", label: "Travis" },
+                                  { value: "Collin", label: "Collin" },
+                                  { value: "Hidalgo", label: "Hidalgo" },
+                                  { value: "El Paso", label: "El Paso" },
+                                  { value: "Denton", label: "Denton" },
+                                  { value: "Fort Bend", label: "Fort Bend" },
+                                ];
+                            }
+                          };
+
+                          return (
+                            <div
+                              key={`county-${subject.id}`}
+                              style={{
+                                display: "flex",
+                                height: "52px",
+                                padding: "12px 6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom:
+                                  index < subjects.length - 1
+                                    ? "1px solid #E9EAEB"
+                                    : "none",
+                              }}
+                            >
+                              <FormSelect
+                                label=""
+                                value={subject.county}
+                                onChange={(value) =>
+                                  handleSubjectChange(subject.id, "county", value)
+                                }
+                                options={getCountyOptions(subject.state || "TX")}
+                                placeholder={index === 0 ? "Harris" : ""}
+                                style={{
+                                  width: "100%",
+                                  gap: "0px",
+                                  justifyContent: "center",
+                                }}
+                              />
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                     {/* Button Group */}
