@@ -89,6 +89,23 @@ const QuickCourtOrder: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (submitOrderForDropdownOpen) {
+        setSubmitOrderForDropdownOpen(false);
+      }
+    };
+
+    if (submitOrderForDropdownOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [submitOrderForDropdownOpen]);
+
   const handleSignOut = () => {
     console.log("Sign out");
   };
