@@ -27,6 +27,13 @@ const MVR_PURPOSE_OPTIONS = [
   "Tenant Screening"
 ];
 
+const NOTIFICATION_OPTIONS = [
+  "Uploading User",
+  "Ordering User",
+  "Custom",
+  "No Notification"
+];
+
 export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
   isOpen,
   onClose,
