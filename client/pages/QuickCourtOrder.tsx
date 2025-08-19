@@ -1738,6 +1738,7 @@ const QuickCourtOrder: React.FC = () => {
                                   focusedInput === `dateOfBirth-${subject.id}`
                                 }
                                 placeholder={index === 0 ? "01/32/90" : ""}
+                                error={getFieldError(subject.id, "dateOfBirth")}
                                 style={{
                                   width: "100%",
                                   gap: "0px",
