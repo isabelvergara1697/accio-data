@@ -1328,7 +1328,7 @@ const BatchOrders: React.FC = () => {
                               </div>
 
                               {/* Status Cell */}
-                              <div style={{ display: "flex", width: "100px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: hoveredRowIndex === rowIdx ? "#F5F5F5" : "transparent" }}>
+                              <div style={{ display: "flex", width: "100px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "transparent" }}>
                                 <div style={{
                                   display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px",
                                   border: `1px solid ${rowIdx === 0 ? "#ABEFC6" : rowIdx === 1 ? "#B2DDFF" : rowIdx === 2 ? "#FECDCA" : "#FEDF89"}`,
@@ -1344,7 +1344,7 @@ const BatchOrders: React.FC = () => {
                               </div>
 
                               {/* Count Cell */}
-                              <div style={{ display: "flex", width: "69px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: hoveredRowIndex === rowIdx ? "#F5F5F5" : "transparent" }}>
+                              <div style={{ display: "flex", width: "69px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "transparent" }}>
                                 <div style={{ color: "#181D27", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
                                   {rowIdx < 2 ? "10" : rowIdx === 2 ? "0" : "1"}
                                 </div>
