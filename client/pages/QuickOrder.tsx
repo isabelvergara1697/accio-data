@@ -62,6 +62,21 @@ const QuickOrder: React.FC = () => {
   // Focus state for inputs
   const [focusedInput, setFocusedInput] = useState<string | null>(null);
 
+  // Package dropdown state
+  const [packageDropdownOpen, setPackageDropdownOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string>("");
+
+  // Package options
+  const packageOptions = [
+    { value: "csd-standard", label: "CSD Standard" },
+    { value: "a-la-carte", label: "A la Carte" },
+    { value: "mvr", label: "MVR" },
+    { value: "sales", label: "Sales" },
+    { value: "dot", label: "DOT" },
+    { value: "just-mvr", label: "Just MVR" },
+    { value: "hasc-contractor", label: "HASC Contractor" }
+  ];
+
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
