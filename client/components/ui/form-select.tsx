@@ -262,6 +262,10 @@ export default function FormSelect({
                           fontStyle: "normal",
                           fontWeight: isSelected ? 600 : 400,
                           lineHeight: "20px",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                          maxWidth: "100%",
                         }}
                       >
                         {option.label}
