@@ -493,6 +493,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     }
                     onMouseLeave={() => setHoveredItem(null)}
                     onClick={() => {
+                      if (disabledMenuItems.includes(item)) {
+                        return; // Do nothing if disabled
+                      }
+
                       if (section === "support") {
                         if (item === "Document Library") {
                           navigate("/document-library");
