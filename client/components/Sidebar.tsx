@@ -522,6 +522,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         if (item === "Batch Orders") {
                           navigate("/batch-orders");
                         }
+                        if (item === "I-9 Order") {
+                          navigate("/i9-order");
+                        }
                       }
                     }}
                   >
