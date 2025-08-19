@@ -258,7 +258,7 @@ const QuickCourtOrder: React.FC = () => {
           style={{
             display: "flex",
             paddingBottom: "24px",
-            paddingTop: showNotification && isDesktop ? "84px" : "0",
+            paddingTop: showNotification && isDesktop ? "84px" : isDesktop ? "24px" : "16px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "32px",
