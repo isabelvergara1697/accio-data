@@ -221,7 +221,10 @@ const QuickCourtOrder: React.FC = () => {
           flexDirection: "column",
           minHeight: "100vh",
           marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
-          transition: "margin-left 0.3s ease",
+          width: isDesktop ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})` : "100vw",
+          maxWidth: isDesktop ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})` : "100vw",
+          overflow: "hidden",
+          transition: "margin-left 0.3s ease, width 0.3s ease, max-width 0.3s ease",
         }}
       >
         {/* Header */}
