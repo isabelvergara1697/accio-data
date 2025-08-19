@@ -1229,32 +1229,6 @@ const BatchOrders: React.FC = () => {
                         >
                           {/* Batch Number Column */}
                           <div style={{ display: "flex", width: "110px", flexDirection: "column", alignItems: "flex-start", position: "relative" }}>
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontSize: "12px",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
-                                  position: "relative",
-                                }}
-                              >
-                                Batch Number
-                              </div>
-                            </div>
                             {/* Batch Number Data */}
                             {["12345678_234567", "12345678_234567", "12345678_234567", "12345678_234567"].map((batchNum, idx) => (
                               <div
