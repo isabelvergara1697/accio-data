@@ -1423,7 +1423,7 @@ const BatchOrders: React.FC = () => {
                                 </button>
 
                                 {/* Dropdown Menu */}
-                                {actionMenuOpen === rowIdx && (
+                                {(activeTab === "standard" ? actionMenuOpen : mvrActionMenuOpen) === rowIdx && (
                                   <div
                                     data-dropdown-menu
                                     style={{
