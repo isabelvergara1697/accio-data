@@ -1386,7 +1386,13 @@ const BatchOrders: React.FC = () => {
                               {/* Actions Cell */}
                               <div style={{ display: "flex", width: "48px", height: "52px", padding: "12px", alignItems: "center", borderBottom: "1px solid #E9EAEB", background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#F5F5F5" : "transparent", position: "relative" }}>
                                 <button
-                                  onClick={() => setActionMenuOpen(actionMenuOpen === rowIdx ? null : rowIdx)}
+                                  onClick={() => {
+                                    if (activeTab === "standard") {
+                                      setActionMenuOpen(actionMenuOpen === rowIdx ? null : rowIdx);
+                                    } else {
+                                      setMvrActionMenuOpen(mvrActionMenuOpen === rowIdx ? null : rowIdx);
+                                    }
+                                  }}
                                   style={{
                                     display: "flex",
                                     padding: "8px",
@@ -1394,7 +1400,7 @@ const BatchOrders: React.FC = () => {
                                     alignItems: "center",
                                     borderRadius: "8px",
                                     border: "none",
-                                    background: hoveredRowIndex === rowIdx ? "#FDFDFD" : "transparent",
+                                    background: (activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#FDFDFD" : "transparent",
                                     cursor: "pointer",
                                     transition: "background-color 0.2s ease"
                                   }}
@@ -1402,15 +1408,17 @@ const BatchOrders: React.FC = () => {
                                     e.currentTarget.style.background = "#FDFDFD";
                                   }}
                                   onMouseLeave={(e) => {
-                                    if (actionMenuOpen !== rowIdx) {
-                                      e.currentTarget.style.background = hoveredRowIndex === rowIdx ? "#FDFDFD" : "transparent";
+                                    const currentActionMenuOpen = activeTab === "standard" ? actionMenuOpen : mvrActionMenuOpen;
+                                    const currentHoveredRowIndex = activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex;
+                                    if (currentActionMenuOpen !== rowIdx) {
+                                      e.currentTarget.style.background = currentHoveredRowIndex === rowIdx ? "#FDFDFD" : "transparent";
                                     }
                                   }}
                                 >
                                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M8 8.66663C8.36819 8.66663 8.66667 8.36815 8.66667 7.99996C8.66667 7.63177 8.36819 7.33329 8 7.33329C7.63181 7.33329 7.33333 7.63177 7.33333 7.99996C7.33333 8.36815 7.63181 8.66663 8 8.66663Z" stroke={hoveredRowIndex === rowIdx ? "#717680" : "#A4A7AE"} strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M8 3.99996C8.36819 3.99996 8.66667 3.70148 8.66667 3.33329C8.66667 2.9651 8.36819 2.66663 8 2.66663C7.63181 2.66663 7.33333 2.9651 7.33333 3.33329C7.33333 3.70148 7.63181 3.99996 8 3.99996Z" stroke={hoveredRowIndex === rowIdx ? "#717680" : "#A4A7AE"} strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M8 13.3333C8.36819 13.3333 8.66667 13.0348 8.66667 12.6666C8.66667 12.2984 8.36819 12 8 12C7.63181 12 7.33333 12.2984 7.33333 12.6666C7.33333 13.0348 7.63181 13.3333 8 13.3333Z" stroke={hoveredRowIndex === rowIdx ? "#717680" : "#A4A7AE"} strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M8 8.66663C8.36819 8.66663 8.66667 8.36815 8.66667 7.99996C8.66667 7.63177 8.36819 7.33329 8 7.33329C7.63181 7.33329 7.33333 7.63177 7.33333 7.99996C7.33333 8.36815 7.63181 8.66663 8 8.66663Z" stroke={(activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#717680" : "#A4A7AE"} strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M8 3.99996C8.36819 3.99996 8.66667 3.70148 8.66667 3.33329C8.66667 2.9651 8.36819 2.66663 8 2.66663C7.63181 2.66663 7.33333 2.9651 7.33333 3.33329C7.33333 3.70148 7.63181 3.99996 8 3.99996Z" stroke={(activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#717680" : "#A4A7AE"} strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M8 13.3333C8.36819 13.3333 8.66667 13.0348 8.66667 12.6666C8.66667 12.2984 8.36819 12 8 12C7.63181 12 7.33333 12.2984 7.33333 12.6666C7.33333 13.0348 7.63181 13.3333 8 13.3333Z" stroke={(activeTab === "standard" ? hoveredRowIndex : mvrHoveredRowIndex) === rowIdx ? "#717680" : "#A4A7AE"} strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
                                   </svg>
                                 </button>
 
