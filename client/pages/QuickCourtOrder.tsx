@@ -609,6 +609,9 @@ const QuickCourtOrder: React.FC = () => {
                         overflowX: "auto",
                         width: "100%",
                         minWidth: 0,
+                        // Ensure horizontal scrolling works properly
+                        scrollbarWidth: "thin",
+                        scrollbarColor: "#D5D7DA #F5F5F5",
                       }}
                     >
                       {/* Search Column */}
@@ -1449,6 +1452,204 @@ const QuickCourtOrder: React.FC = () => {
                                 focusedInput === `dateOfBirth-${subject.id}`
                               }
                               placeholder={index === 0 ? "01/32/90" : ""}
+                              style={{
+                                width: "100%",
+                                gap: "0px",
+                                justifyContent: "center",
+                              }}
+                            />
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Social Security Trace Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "132px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {/* Social Security Trace Column Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Social Security Trace
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Social Security Trace Column Rows */}
+                        {subjects.map((subject, index) => (
+                          <div
+                            key={`socialSecurityTrace-${subject.id}`}
+                            style={{
+                              display: "flex",
+                              height: "52px",
+                              padding: "12px 6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              borderBottom:
+                                index < subjects.length - 1
+                                  ? "1px solid #E9EAEB"
+                                  : "none",
+                            }}
+                          >
+                            <FormInput
+                              label=""
+                              value={subject.socialSecurityTrace}
+                              onChange={(e) =>
+                                handleSubjectChange(
+                                  subject.id,
+                                  "socialSecurityTrace",
+                                  e.target.value,
+                                )
+                              }
+                              onFocus={() =>
+                                setFocusedInput(`socialSecurityTrace-${subject.id}`)
+                              }
+                              onBlur={() => setFocusedInput(null)}
+                              isFocused={
+                                focusedInput === `socialSecurityTrace-${subject.id}`
+                              }
+                              placeholder={index === 0 ? "000-000-000" : ""}
+                              style={{
+                                width: "100%",
+                                gap: "0px",
+                                justifyContent: "center",
+                              }}
+                            />
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Years to Search Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "96px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {/* Years to Search Column Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  fontFamily:
+                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                  fontWeight: 700,
+                                  fontSize: "12px",
+                                  color: "rgba(113,118,128,1)",
+                                }}
+                              >
+                                Years to Search
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        {/* Years to Search Column Rows */}
+                        {subjects.map((subject, index) => (
+                          <div
+                            key={`yearsIn-${subject.id}`}
+                            style={{
+                              display: "flex",
+                              height: "52px",
+                              padding: "12px 6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              borderBottom:
+                                index < subjects.length - 1
+                                  ? "1px solid #E9EAEB"
+                                  : "none",
+                            }}
+                          >
+                            <FormInput
+                              label=""
+                              value={subject.yearsIn}
+                              onChange={(e) =>
+                                handleSubjectChange(
+                                  subject.id,
+                                  "yearsIn",
+                                  e.target.value,
+                                )
+                              }
+                              onFocus={() =>
+                                setFocusedInput(`yearsIn-${subject.id}`)
+                              }
+                              onBlur={() => setFocusedInput(null)}
+                              isFocused={
+                                focusedInput === `yearsIn-${subject.id}`
+                              }
+                              placeholder={index === 0 ? "00" : ""}
                               style={{
                                 width: "100%",
                                 gap: "0px",
