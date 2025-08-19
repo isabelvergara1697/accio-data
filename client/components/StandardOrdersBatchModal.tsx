@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 interface StandardOrdersBatchModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onSubmit?: () => void;
 }
 
 const DEFAULT_PACKAGE_OPTIONS = [
