@@ -562,15 +562,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
                               "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                             fontWeight: 600,
                             fontSize: "14px",
-                            color:
-                              (currentPage === "document-library" &&
+                            color: disabledMenuItems.includes(item)
+                              ? "#A4A7AE"
+                              : (currentPage === "document-library" &&
                                 item === "Document Library") ||
                               (currentPage === "resources" &&
                                 item === "Resources") ||
                               (currentPage === "invites-orders" &&
                                 item === "Invites & Orders") ||
                               (currentPage === "quick-court-order" &&
-                                item === "Quick Court Order")
+                                item === "Quick Court Order") ||
+                              (currentPage === "batch-orders" &&
+                                item === "Batch Orders") ||
+                              (currentPage === "quick-order" &&
+                                item === "Quick Order")
                                 ? "#273572"
                                 : "rgba(65,70,81,1)",
                           }}
