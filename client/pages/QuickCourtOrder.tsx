@@ -699,7 +699,6 @@ const QuickCourtOrder: React.FC = () => {
                                 fontSize: "var(--Font-size-text-xs, 12px)",
                                 fontWeight: 600,
                                 lineHeight: "var(--Line-height-text-xs, 18px)",
-                                letterSpacing: "0.5px",
                               }}
                             >
                               Last Name
