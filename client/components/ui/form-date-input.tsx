@@ -336,7 +336,7 @@ export default function FormDateInput({
         <SingleDateCalendar
           isOpen={isCalendarOpen}
           onClose={handleCalendarClose}
-          triggerRef={buttonRef}
+          triggerRef={calendarButtonRef}
           selectedDate={selectedDate || new Date()}
           onDateChange={handleDateSelect}
         />
