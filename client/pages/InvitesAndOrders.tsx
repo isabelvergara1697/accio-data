@@ -755,10 +755,12 @@ const InvitesAndOrders: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
   const [activeTab, setActiveTab] = useState<"invites" | "orders">(
-    (location.state as { activeTab?: "orders" | "invites" })?.activeTab || "orders"
+    (location.state as { activeTab?: "orders" | "invites"; showActionsPanel?: boolean; selectedItems?: string[] })?.activeTab || "orders"
   );
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const [selectedItems, setSelectedItems] = useState<string[]>(
+    (location.state as { activeTab?: "orders" | "invites"; showActionsPanel?: boolean; selectedItems?: string[] })?.selectedItems || []
+  );
   const [showNotification] = useState(false);
   const [sortField, setSortField] = useState<
     keyof (InviteData | OrderData) | null
