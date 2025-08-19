@@ -625,6 +625,7 @@ const QuickCourtOrder: React.FC = () => {
                               padding: "6px 12px",
                               borderBottom: "1px solid #E9EAEB",
                               background: "#FFF",
+                              width: "171px",
                               minWidth: "171px",
                             }}
                           >
