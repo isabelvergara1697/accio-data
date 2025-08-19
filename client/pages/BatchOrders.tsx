@@ -54,12 +54,18 @@ const BatchOrders: React.FC = () => {
   const handleBatchSubmit = () => {
     setStandardBatchModalOpen(false);
     setIsLoading(true);
+    setShowTable(false);
 
     // Simulate progress updates
     const progressInterval = setInterval(() => {
       setLoadingProgress(prev => {
         if (prev >= 100) {
           clearInterval(progressInterval);
+          // Show table after loading completes
+          setTimeout(() => {
+            setIsLoading(false);
+            setShowTable(true);
+          }, 1000);
           return 100;
         }
         return prev + 10;
