@@ -679,9 +679,658 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
               )}
             </div>
 
-            {/* Rest of the form remains the same structure but abbreviated for brevity */}
-            {/* Start Importing At, Notifications, File Upload, Checkboxes, Submit Button */}
-            {/* ... (same structure as StandardOrdersBatchModal but with MVR-specific text) ... */}
+            {/* Start Importing At */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                Start importing at
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "10px 14px",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border: "1px solid #D5D7DA",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  position: "relative",
+                }}
+              >
+                <input
+                  type="text"
+                  value={startTime}
+                  onChange={(e) => setStartTime(e.target.value)}
+                  style={{
+                    flex: "1 0 0",
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
+                    color: "#181D27",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Notifications */}
+            <div
+              ref={notificationDropdownRef}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                Notifications
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "10px 14px",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border: "1px solid #D5D7DA",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  position: "relative",
+                  cursor: "pointer",
+                }}
+                onClick={() => setNotificationDropdownOpen(!notificationDropdownOpen)}
+              >
+                <div
+                  style={{
+                    flex: "1 0 0",
+                    color: "#181D27",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                    position: "relative",
+                  }}
+                >
+                  {notificationSelection}
+                </div>
+                <svg
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    position: "relative",
+                    transform: notificationDropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    transition: "transform 0.2s ease",
+                  }}
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 9L12 15L18 9"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              {notificationDropdownOpen && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: 0,
+                    right: 0,
+                    zIndex: 1000,
+                    marginTop: "4px",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                  }}
+                >
+                  {["Uploading User", "Ordering User", "No Notification"].map((option) => (
+                    <div
+                      key={option}
+                      onClick={() => {
+                        setNotificationSelection(option);
+                        setNotificationDropdownOpen(false);
+                      }}
+                      style={{
+                        padding: "10px 14px",
+                        fontSize: "14px",
+                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        cursor: "pointer",
+                        borderBottom: option !== "No Notification" ? "1px solid #F3F4F6" : "none",
+                        transition: "background 0.2s ease",
+                        background: option === notificationSelection ? "#F3F4F6" : "transparent",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#F9FAFB";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = option === notificationSelection ? "#F3F4F6" : "transparent";
+                      }}
+                    >
+                      {option}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* File Upload Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                Upload MVR batch file
+              </div>
+
+              {!fileUploaded ? (
+                // Upload Area
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "16px",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px dashed #D5D7DA",
+                    background: "#FFF",
+                    position: "relative",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setFileUploaded(true)}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "40px",
+                      height: "40px",
+                      padding: "10px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      aspectRatio: "1/1",
+                      borderRadius: "8px",
+                      border: "1px solid #D5D7DA",
+                      background: "#F9FAFB",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        position: "relative",
+                      }}
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.66667 13.3333L10 10M10 10L13.3333 13.3333M10 10V17.5M16.6667 13.9524C17.6846 13.1117 18.3333 11.8399 18.3333 10.4167C18.3333 7.88536 16.2813 5.83333 13.75 5.83333C13.5679 5.83333 13.3975 5.73833 13.3051 5.58145C12.2183 3.73736 10.212 2.5 7.91667 2.5C4.46489 2.5 1.66667 5.29822 1.66667 8.75C1.66667 10.4718 2.36289 12.0309 3.48913 13.1613"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "4px",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#344698",
+                        textAlign: "center",
+                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      Click to upload
+                    </div>
+                    <div
+                      style={{
+                        color: "#535862",
+                        textAlign: "center",
+                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      CSV, XLS, XLSX up to 10MB
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                // Uploaded File
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px",
+                    alignItems: "center",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "40px",
+                      height: "40px",
+                      padding: "10px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      aspectRatio: "1/1",
+                      borderRadius: "8px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        position: "relative",
+                      }}
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.6673 5L7.50065 14.1667L3.33398 10"
+                        stroke="#067647"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "4px",
+                      flex: "1 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#181D27",
+                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      mvr_batch_upload.csv
+                    </div>
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "18px",
+                        position: "relative",
+                      }}
+                    >
+                      200 KB
+                    </div>
+                  </div>
+                  <button
+                    onClick={handleFileRemove}
+                    style={{
+                      display: "flex",
+                      width: "20px",
+                      height: "20px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderRadius: "4px",
+                      border: "none",
+                      background: "transparent",
+                      cursor: "pointer",
+                      position: "relative",
+                    }}
+                  >
+                    <svg
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        position: "relative",
+                      }}
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 5L5 15M5 5L15 15"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Custom User Email */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "6px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  color: "#414651",
+                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "20px",
+                  position: "relative",
+                }}
+              >
+                Custom user Email
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "10px 14px",
+                  alignItems: "center",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  borderRadius: "8px",
+                  border: "1px solid #D5D7DA",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  position: "relative",
+                }}
+              >
+                <input
+                  type="email"
+                  value={customUserEmail}
+                  onChange={(e) => setCustomUserEmail(e.target.value)}
+                  style={{
+                    flex: "1 0 0",
+                    border: "none",
+                    outline: "none",
+                    background: "transparent",
+                    color: "#181D27",
+                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontSize: "16px",
+                    fontStyle: "normal",
+                    fontWeight: 400,
+                    lineHeight: "24px",
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Checkboxes */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "12px",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              {/* I Agree Checkbox */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "12px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  onClick={() => setIAgree(!iAgree)}
+                  style={{
+                    display: "flex",
+                    width: "20px",
+                    height: "20px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    aspectRatio: "1/1",
+                    borderRadius: "6px",
+                    border: `2px solid ${iAgree ? "#344698" : "#D5D7DA"}`,
+                    background: iAgree ? "#344698" : "#FFF",
+                    cursor: "pointer",
+                    position: "relative",
+                  }}
+                >
+                  {iAgree && (
+                    <svg
+                      style={{
+                        width: "12px",
+                        height: "12px",
+                        position: "relative",
+                      }}
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10 3L4.5 8.5L2 6"
+                        stroke="#FFF"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "2px",
+                    flex: "1 0 0",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#414651",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    I agree to receive MVR reports and understand the charges
+                  </div>
+                </div>
+              </div>
+
+              {/* I Need Certificate Checkbox */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "12px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                <div
+                  onClick={() => setINeedCertificate(!iNeedCertificate)}
+                  style={{
+                    display: "flex",
+                    width: "20px",
+                    height: "20px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    aspectRatio: "1/1",
+                    borderRadius: "6px",
+                    border: `2px solid ${iNeedCertificate ? "#344698" : "#D5D7DA"}`,
+                    background: iNeedCertificate ? "#344698" : "#FFF",
+                    cursor: "pointer",
+                    position: "relative",
+                  }}
+                >
+                  {iNeedCertificate && (
+                    <svg
+                      style={{
+                        width: "12px",
+                        height: "12px",
+                        position: "relative",
+                      }}
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10 3L4.5 8.5L2 6"
+                        stroke="#FFF"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "2px",
+                    flex: "1 0 0",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#414651",
+                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    I need MVR certificate
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Submit Button */}
             <div
