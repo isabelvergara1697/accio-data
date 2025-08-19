@@ -977,7 +977,7 @@ const QuickCourtOrder: React.FC = () => {
                               onFocus={() => setFocusedInput(`middle-${subject.id}`)}
                               onBlur={() => setFocusedInput(null)}
                               isFocused={focusedInput === `middle-${subject.id}`}
-                              placeholder=""
+                              placeholder={index === 0 ? "R" : ""}
                               style={{
                                 width: "100%",
                               }}
