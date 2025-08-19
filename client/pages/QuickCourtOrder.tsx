@@ -463,25 +463,15 @@ const QuickCourtOrder: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: "#181D27",
-                                  fontFamily: "'Public Sans'",
-                                  fontSize: "18px",
+                                  color: "var(--colors-text-text-primary-900, #181D27)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-lg, 18px)",
                                   fontStyle: "normal",
                                   fontWeight: 600,
-                                  lineHeight: "28px",
+                                  lineHeight: "var(--Line-height-text-lg, 28px)",
                                 }}
                               >
-                                <span
-                                  style={{
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
-                                    fontSize: "18px",
-                                    color: "rgba(24,29,39,1)",
-                                  }}
-                                >
-                                  Create Quick Court Order
-                                </span>
+                                Create Quick Court Order
                               </div>
                             </div>
                           </div>
@@ -507,6 +497,16 @@ const QuickCourtOrder: React.FC = () => {
                               background: "#FFF",
                               boxShadow:
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                              transition: "all 0.2s ease",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "#F9FAFB";
+                              e.currentTarget.style.borderColor = "#98A2B3";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "#FFF";
+                              e.currentTarget.style.borderColor = "#D5D7DA";
                             }}
                           >
                             <div
@@ -519,25 +519,15 @@ const QuickCourtOrder: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: "#414651",
-                                  fontFamily: "'Public Sans'",
-                                  fontSize: "14px",
+                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
                                   fontStyle: "normal",
                                   fontWeight: 600,
-                                  lineHeight: "20px",
+                                  lineHeight: "var(--Line-height-text-sm, 20px)",
                                 }}
                               >
-                                <span
-                                  style={{
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
-                                    fontSize: "14px",
-                                    color: "rgba(65,70,81,1)",
-                                  }}
-                                >
-                                  Submit Order For: Select User
-                                </span>
+                                Submit Order For: Select User
                               </div>
                             </div>
                             <svg
@@ -722,6 +712,15 @@ const QuickCourtOrder: React.FC = () => {
                           boxShadow:
                             "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           cursor: "pointer",
+                          transition: "all 0.2s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "#F9FAFB";
+                          e.currentTarget.style.borderColor = "#98A2B3";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "#FFF";
+                          e.currentTarget.style.borderColor = "#D5D7DA";
                         }}
                       >
                         <div
@@ -734,25 +733,15 @@ const QuickCourtOrder: React.FC = () => {
                         >
                           <div
                             style={{
-                              color: "#414651",
-                              fontFamily: "'Public Sans'",
-                              fontSize: "14px",
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 600,
-                              lineHeight: "20px",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
                           >
-                            <span
-                              style={{
-                                fontFamily:
-                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                color: "rgba(65,70,81,1)",
-                              }}
-                            >
-                              Add 10 Rows
-                            </span>
+                            Add 10 Rows
                           </div>
                         </div>
                       </div>
@@ -771,6 +760,13 @@ const QuickCourtOrder: React.FC = () => {
                           boxShadow:
                             "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           cursor: "pointer",
+                          transition: "all 0.2s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "#2D3985";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "#344698";
                         }}
                       >
                         <div
@@ -783,25 +779,15 @@ const QuickCourtOrder: React.FC = () => {
                         >
                           <div
                             style={{
-                              color: "#FFF",
-                              fontFamily: "'Public Sans'",
-                              fontSize: "14px",
+                              color: "var(--Colors-Text-text-white, #FFF)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 600,
-                              lineHeight: "20px",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
                           >
-                            <span
-                              style={{
-                                fontFamily:
-                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                fontWeight: 700,
-                                fontSize: "14px",
-                                color: "rgba(255,255,255,1)",
-                              }}
-                            >
-                              Submit Court Order
-                            </span>
+                            Submit Court Order
                           </div>
                         </div>
                       </div>
