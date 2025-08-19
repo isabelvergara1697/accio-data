@@ -39,12 +39,12 @@ export default function FormSelect({
   searchable = false,
 }: FormSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const handleOptionClick = (optionValue: string) => {
     onChange(optionValue);
     setIsOpen(false);
-    setSearchTerm("");
+    setInputValue("");
     if (onBlur) onBlur();
   };
 
@@ -53,17 +53,19 @@ export default function FormSelect({
     setIsOpen(!isOpen);
     if (!isOpen && onFocus) onFocus();
     if (isOpen && onBlur) onBlur();
-    if (!isOpen) setSearchTerm("");
   };
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+    onChange(newValue);
+    if (!isOpen) setIsOpen(true);
   };
 
-  const filteredOptions = searchable && searchTerm
+  const filteredOptions = searchable && inputValue
     ? options.filter(option =>
-        option.label.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        option.value.toLowerCase().includes(searchTerm.toLowerCase())
+        option.label.toLowerCase().includes(inputValue.toLowerCase()) ||
+        option.value.toLowerCase().includes(inputValue.toLowerCase())
       )
     : options;
 
@@ -131,11 +133,10 @@ export default function FormSelect({
                 : "1px solid #D5D7DA",
             background: disabled ? "#F9FAFB" : "#FFF",
             boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-            cursor: disabled ? "not-allowed" : "pointer",
+            cursor: disabled ? "not-allowed" : "text",
             opacity: disabled ? 0.6 : 1,
             position: "relative",
           }}
-          onClick={handleToggle}
         >
           <div
             style={{
@@ -145,23 +146,57 @@ export default function FormSelect({
               flex: "1 0 0",
             }}
           >
-            <div
-              style={{
-                flex: "1 0 0",
-                color: selectedOption ? "#181D27" : "#717680",
-                fontFamily:
-                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 500,
-                lineHeight: "20px",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-              }}
-            >
-              {selectedOption ? selectedOption.label : placeholder}
-            </div>
+            {searchable ? (
+              <input
+                type="text"
+                value={value}
+                onChange={handleInputChange}
+                onFocus={() => {
+                  setIsOpen(true);
+                  if (onFocus) onFocus();
+                }}
+                onBlur={() => {
+                  setTimeout(() => {
+                    setIsOpen(false);
+                    if (onBlur) onBlur();
+                  }, 150);
+                }}
+                placeholder={placeholder}
+                disabled={disabled}
+                style={{
+                  border: "none",
+                  outline: "none",
+                  background: "transparent",
+                  flex: "1 0 0",
+                  color: "#181D27",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                }}
+              />
+            ) : (
+              <div
+                style={{
+                  flex: "1 0 0",
+                  color: selectedOption ? "#181D27" : "#717680",
+                  fontFamily:
+                    "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 500,
+                  lineHeight: "20px",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+                onClick={handleToggle}
+              >
+                {selectedOption ? selectedOption.label : placeholder}
+              </div>
+            )}
           </div>
           <svg
             style={{
@@ -170,12 +205,14 @@ export default function FormSelect({
               flexShrink: 0,
               transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 0.2s ease",
+              cursor: "pointer",
             }}
             width="16"
             height="16"
             viewBox="0 0 16 16"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            onClick={handleToggle}
           >
             <path
               d="M4 6L8 10L12 6"
@@ -230,27 +267,6 @@ export default function FormSelect({
             overflowY: "auto",
           }}
         >
-          {/* Search Input */}
-          {searchable && (
-            <div style={{ padding: "8px" }}>
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                placeholder="Type to search..."
-                style={{
-                  width: "100%",
-                  padding: "6px 8px",
-                  border: "1px solid #D5D7DA",
-                  borderRadius: "6px",
-                  fontSize: "14px",
-                  fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                  outline: "none",
-                }}
-                autoFocus
-              />
-            </div>
-          )}
 
           {/* Options */}
           <div style={{ padding: "4px 0" }}>
