@@ -4,6 +4,7 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import FormInput from "../components/ui/form-input";
 import FormSelect from "../components/ui/form-select";
+import FormDateInput from "../components/ui/form-date-input";
 
 interface SubjectData {
   id: string;
