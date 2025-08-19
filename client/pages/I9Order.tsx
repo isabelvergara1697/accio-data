@@ -1035,7 +1035,6 @@ const I9Order: React.FC = () => {
                                           flexDirection: "column",
                                           padding: "8px 12px",
                                           cursor: "pointer",
-                                          borderBottom: "1px solid #F3F4F6",
                                         }}
                                         onMouseEnter={(e) => {
                                           e.currentTarget.style.backgroundColor = "#F9FAFB";
