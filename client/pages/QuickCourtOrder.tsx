@@ -585,8 +585,10 @@ const QuickCourtOrder: React.FC = () => {
               <div
                 style={{
                   overflowX: "auto",
+                  overflowY: "hidden",
                   width: "100%",
                   maxWidth: "100%",
+                  position: "relative",
                 }}
               >
                 <Table style={{ minWidth: "800px", width: "100%" }}>
