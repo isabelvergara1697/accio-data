@@ -41,12 +41,11 @@ export default function FormDateInput({
     onBlur?.();
   };
 
-  const handleDateSelect = (startDate: Date, endDate: Date) => {
-    // For single date selection, we only use the start date
+  const handleDateSelect = (selectedDate: Date) => {
     // Convert Date back to string format (YYYY-MM-DD for consistency)
-    const year = startDate.getFullYear();
-    const month = String(startDate.getMonth() + 1).padStart(2, '0');
-    const day = String(startDate.getDate()).padStart(2, '0');
+    const year = selectedDate.getFullYear();
+    const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
+    const day = String(selectedDate.getDate()).padStart(2, '0');
     const dateString = `${year}-${month}-${day}`;
 
     onChange(dateString);
