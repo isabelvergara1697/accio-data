@@ -130,6 +130,13 @@ const QuickCourtOrder: React.FC = () => {
 
   const handleSubmit = () => {
     console.log("Submitting court order with subjects:", subjects);
+    setIsLoading(true);
+
+    // Simulate processing time - replace with actual API call
+    setTimeout(() => {
+      setIsLoading(false);
+      // Handle success/redirect here
+    }, 5000);
   };
 
   const copyFromPreviousRow = (currentIndex: number) => {
