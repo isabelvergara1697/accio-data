@@ -1378,6 +1378,7 @@ const BatchOrders: React.FC = () => {
                                 {/* Dropdown Menu */}
                                 {actionMenuOpen === rowIdx && (
                                   <div
+                                    data-dropdown-menu
                                     style={{
                                       position: "absolute",
                                       top: "100%",
