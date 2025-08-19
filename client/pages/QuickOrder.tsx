@@ -309,6 +309,9 @@ const QuickOrder: React.FC = () => {
                 socialSecurityTrace: previousSubject.socialSecurityTrace,
                 gender: previousSubject.gender,
                 dateOfBirth: previousSubject.dateOfBirth,
+                billingIdentifier1: previousSubject.billingIdentifier1,
+                billingIdentifier2: previousSubject.billingIdentifier2,
+                billingIdentifier3: previousSubject.billingIdentifier3,
               }
             : subject,
         ),
