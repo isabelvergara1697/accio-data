@@ -1461,7 +1461,18 @@ const BatchOrders: React.FC = () => {
       <StandardOrdersBatchModal
         isOpen={standardBatchModalOpen}
         onClose={() => setStandardBatchModalOpen(false)}
+        onSubmit={handleBatchSubmit}
       />
+
+      {/* Spinning animation for loading icon */}
+      <style>
+        {`
+          @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+        `}
+      </style>
     </div>
   );
 };
