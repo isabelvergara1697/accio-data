@@ -399,31 +399,7 @@ const QuickOrder: React.FC = () => {
                           color: "rgba(83,88,98,1)",
                         }}
                       >
-                        Enter subject details to create an order. Add
-                        multiple rows as needed.{" "}
-                      </span>
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "16px",
-                          color: "rgba(83,88,98,1)",
-                        }}
-                      >
-                        Need to submit multiple subjects at once?{" "}
-                      </span>
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 400,
-                          fontSize: "16px",
-                          color: "rgba(52,70,152,1)",
-                          textDecoration: "underline",
-                        }}
-                      >
-                        Use batch ordering
+                        Easily create batch MVR orders by entering applicant details. Use the placeholders as a guide for required input.
                       </span>
                     </div>
                   </div>
