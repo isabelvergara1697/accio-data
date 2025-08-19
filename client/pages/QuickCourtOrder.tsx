@@ -591,7 +591,8 @@ const QuickCourtOrder: React.FC = () => {
                       <div
                         style={{
                           display: "flex",
-                          width: "171px",
+                          width: "100%",
+                          minWidth: "171px",
                           flexDirection: "column",
                           alignItems: "flex-start",
                           flexShrink: 0,
