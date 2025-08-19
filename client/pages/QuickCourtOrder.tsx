@@ -789,7 +789,13 @@ const QuickCourtOrder: React.FC = () => {
                       <TableBody>
                         {subjects.map((subject, index) => (
                           <TableRow key={subject.id}>
-                            <TableCell style={{ padding: "8px 16px" }}>
+                            <TableCell
+                              style={{
+                                height: "52px",
+                                padding: "12px 6px",
+                                borderBottom: "1px solid #E9EAEB",
+                              }}
+                            >
                               <FormSelect
                                 label=""
                                 value={subject.search}
@@ -815,6 +821,13 @@ const QuickCourtOrder: React.FC = () => {
                                   },
                                 ]}
                                 placeholder="Select search type"
+                                style={{
+                                  height: "32px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                }}
                               />
                             </TableCell>
                             <TableCell style={{ padding: "8px 16px" }}>
