@@ -264,6 +264,8 @@ const QuickCourtOrder: React.FC = () => {
             gap: "32px",
             flex: "1 0 0",
             alignSelf: "stretch",
+            position: "relative",
+            zIndex: 1,
           }}
         >
           {/* Header section - Figma structure */}
