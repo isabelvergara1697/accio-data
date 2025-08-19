@@ -6,6 +6,7 @@ import { MobileHeader } from "../components/MobileHeader";
 import BatchOrderingHelpModal from "../components/BatchOrderingHelpModal";
 import StandardOrdersBatchModal from "../components/StandardOrdersBatchModal";
 import BatchOrderingDetailsModal from "../components/BatchOrderingDetailsModal";
+import MVROrdersBatchModal from "../components/MVROrdersBatchModal";
 
 const BatchOrders: React.FC = () => {
   const navigate = useNavigate();
@@ -27,6 +28,14 @@ const BatchOrders: React.FC = () => {
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
   const [actionMenuOpen, setActionMenuOpen] = useState<number | null>(null);
   const [batchDetailsModalOpen, setBatchDetailsModalOpen] = useState(false);
+
+  // MVR specific states
+  const [mvrBatchModalOpen, setMvrBatchModalOpen] = useState(false);
+  const [mvrIsLoading, setMvrIsLoading] = useState(false);
+  const [mvrLoadingProgress, setMvrLoadingProgress] = useState(20);
+  const [mvrShowTable, setMvrShowTable] = useState(false);
+  const [mvrHoveredRowIndex, setMvrHoveredRowIndex] = useState<number | null>(null);
+  const [mvrActionMenuOpen, setMvrActionMenuOpen] = useState<number | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -57,16 +66,23 @@ const BatchOrders: React.FC = () => {
       if (actionMenuOpen !== null && !(event.target as Element).closest('[data-dropdown-menu]')) {
         setActionMenuOpen(null);
       }
+      if (mvrActionMenuOpen !== null && !(event.target as Element).closest('[data-dropdown-menu]')) {
+        setMvrActionMenuOpen(null);
+      }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [actionMenuOpen]);
+  }, [actionMenuOpen, mvrActionMenuOpen]);
 
   const handleStartNewBatch = () => {
-    setStandardBatchModalOpen(true);
+    if (activeTab === "standard") {
+      setStandardBatchModalOpen(true);
+    } else {
+      setMvrBatchModalOpen(true);
+    }
   };
 
   const handleBatchSubmit = () => {
@@ -83,6 +99,28 @@ const BatchOrders: React.FC = () => {
           setTimeout(() => {
             setIsLoading(false);
             setShowTable(true);
+          }, 1000);
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 1000);
+  };
+
+  const handleMvrBatchSubmit = () => {
+    setMvrBatchModalOpen(false);
+    setMvrIsLoading(true);
+    setMvrShowTable(false);
+
+    // Simulate progress updates
+    const progressInterval = setInterval(() => {
+      setMvrLoadingProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(progressInterval);
+          // Show table after loading completes
+          setTimeout(() => {
+            setMvrIsLoading(false);
+            setMvrShowTable(true);
           }, 1000);
           return 100;
         }
