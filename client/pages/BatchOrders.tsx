@@ -16,6 +16,7 @@ const BatchOrders: React.FC = () => {
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [activeTab, setActiveTab] = useState<"standard" | "mvr">("standard");
+  const [helpModalOpen, setHelpModalOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,6 +29,16 @@ const BatchOrders: React.FC = () => {
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Auto-minimize sidebar after 30 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSidebarCollapsed(true);
+    }, 30000); // 30 seconds
+
+    // Cleanup timer on component unmount
+    return () => clearTimeout(timer);
   }, []);
 
   const handleStartNewBatch = () => {
