@@ -25,6 +25,7 @@ interface SubjectData {
 }
 
 const QuickCourtOrder: React.FC = () => {
+  const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -35,6 +36,7 @@ const QuickCourtOrder: React.FC = () => {
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   // Table data state
   const [subjects, setSubjects] = useState<SubjectData[]>(() => {
