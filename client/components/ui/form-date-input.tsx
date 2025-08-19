@@ -32,20 +32,62 @@ export default function FormDateInput({
 }: FormDateInputProps) {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const isMobile = useIsMobile();
+
+  // Determine if we're on tablet (768px - 1024px)
+  const [isTablet, setIsTablet] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsTablet(width >= 768 && width < 1024);
+      setIsDesktop(width >= 1024);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleDateClick = () => {
-    // For now, just focus on the hidden input to trigger the browser's date picker
-    const hiddenInput = buttonRef.current?.nextElementSibling as HTMLInputElement;
-    if (hiddenInput) {
-      hiddenInput.click();
-      hiddenInput.focus();
-    }
+    setIsCalendarOpen(!isCalendarOpen);
     onFocus?.();
   };
 
-  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+  const handleCalendarClose = () => {
+    setIsCalendarOpen(false);
+    onBlur?.();
   };
+
+  const handleDateSelect = (startDate: string, endDate: string) => {
+    // For single date selection, we only use the start date
+    onChange(startDate);
+    setIsCalendarOpen(false);
+    onBlur?.();
+  };
+
+  // Convert string date to Date object for calendar components
+  const getDateFromValue = (dateValue: string): Date | null => {
+    if (!dateValue) return null;
+
+    // Handle MM/DD/YY format
+    if (dateValue.match(/^\d{2}\/\d{2}\/\d{2}$/)) {
+      const [month, day, year] = dateValue.split('/');
+      const fullYear = parseInt(year) < 50 ? 2000 + parseInt(year) : 1900 + parseInt(year);
+      return new Date(fullYear, parseInt(month) - 1, parseInt(day));
+    }
+
+    // Handle YYYY-MM-DD format
+    try {
+      const date = new Date(dateValue + 'T00:00:00');
+      return !isNaN(date.getTime()) ? date : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const selectedDate = getDateFromValue(value);
 
   const formatDisplayDate = (dateValue: string) => {
     if (!dateValue) return placeholder || "";
