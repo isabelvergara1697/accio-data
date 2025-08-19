@@ -1389,6 +1389,7 @@ const QuickCourtOrder: React.FC = () => {
                                   focusedInput === `lastName-${subject.id}`
                                 }
                                 placeholder={index === 0 ? "Doe" : ""}
+                                error={getFieldError(subject.id, "lastName")}
                                 style={{
                                   width: "100%",
                                   gap: "0px",
