@@ -1097,7 +1097,7 @@ const QuickOrder: React.FC = () => {
                         <div
                           style={{
                             display: "flex",
-                            width: "96px",
+                            width: "120px",
                             flexDirection: "column",
                             alignItems: "flex-start",
                             flexShrink: 0,
