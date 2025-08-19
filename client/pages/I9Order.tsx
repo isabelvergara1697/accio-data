@@ -751,7 +751,13 @@ const I9Order: React.FC = () => {
                                 boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                               }}
-                              onClick={() => navigate("/invites-orders")}
+                              onClick={() => navigate("/invites-orders", {
+                                state: {
+                                  activeTab: "orders",
+                                  showActionsPanel: true,
+                                  selectedItems: ["order-1"] // This will trigger the actions panel to show
+                                }
+                              })}
                               onMouseEnter={(e) => {
                                 e.currentTarget.style.background = "#F5F5F5";
                               }}
