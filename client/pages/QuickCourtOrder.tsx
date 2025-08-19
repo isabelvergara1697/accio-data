@@ -712,7 +712,7 @@ const QuickCourtOrder: React.FC = () => {
                                 }}
                               >
                                 {selectedUser ?
-                                  mockUsers.find(u => u.id === selectedUser)?.name || "Select User" :
+                                  `Submit Order For: ${mockUsers.find(u => u.id === selectedUser)?.name || "Select User"}` :
                                   "Submit Order For: Select User"
                                 }
                               </div>
