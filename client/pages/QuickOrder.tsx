@@ -1373,101 +1373,6 @@ const QuickOrder: React.FC = () => {
                           ))}
                         </div>
 
-                        {/* Date of Birth Column */}
-                        <div
-                          style={{
-                            display: "flex",
-                            width: "122px",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            flexShrink: 0,
-                          }}
-                        >
-                          {/* Date of Birth Column Header */}
-                          <div
-                            style={{
-                              display: "flex",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              alignSelf: "stretch",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "4px",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "'Public Sans'",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    fontFamily:
-                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontWeight: 700,
-                                    fontSize: "12px",
-                                    color: "rgba(113,118,128,1)",
-                                  }}
-                                >
-                                  Date of Birth
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          {/* Date of Birth Column Rows */}
-                          {subjects.map((subject, index) => (
-                            <div
-                              key={`dateOfBirth-${subject.id}`}
-                              style={{
-                                display: "flex",
-                                height: "52px",
-                                padding: "12px 6px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                alignSelf: "stretch",
-                                borderBottom:
-                                  index < subjects.length - 1
-                                    ? "1px solid #E9EAEB"
-                                    : "none",
-                              }}
-                            >
-                              <FormDateInput
-                                label=""
-                                value={subject.dateOfBirth}
-                                onChange={(date) =>
-                                  handleSubjectChange(subject.id, "dateOfBirth", date)
-                                }
-                                onFocus={() =>
-                                  setFocusedInput(`dateOfBirth-${subject.id}`)
-                                }
-                                onBlur={() => setFocusedInput(null)}
-                                isFocused={
-                                  focusedInput === `dateOfBirth-${subject.id}`
-                                }
-                                placeholder={index === 0 ? "01/32/90" : ""}
-                                style={{
-                                  width: "100%",
-                                  gap: "0px",
-                                  justifyContent: "center",
-                                }}
-                              />
-                            </div>
-                          ))}
-                        </div>
-
                         {/* Social Security Trace Column */}
                         <div
                           style={{
@@ -1567,17 +1472,17 @@ const QuickOrder: React.FC = () => {
                           ))}
                         </div>
 
-                        {/* Years to Search Column */}
+                        {/* Gender Column */}
                         <div
                           style={{
                             display: "flex",
-                            width: "120px",
+                            width: "70px",
                             flexDirection: "column",
                             alignItems: "flex-start",
                             flexShrink: 0,
                           }}
                         >
-                          {/* Years to Search Column Header */}
+                          {/* Gender Column Header */}
                           <div
                             style={{
                               display: "flex",
@@ -1616,15 +1521,15 @@ const QuickOrder: React.FC = () => {
                                     color: "rgba(113,118,128,1)",
                                   }}
                                 >
-                                  Years to Search
+                                  Gender
                                 </span>
                               </div>
                             </div>
                           </div>
-                          {/* Years to Search Column Rows */}
+                          {/* Gender Column Rows */}
                           {subjects.map((subject, index) => (
                             <div
-                              key={`yearsIn-${subject.id}`}
+                              key={`gender-${subject.id}`}
                               style={{
                                 display: "flex",
                                 height: "52px",
@@ -1638,24 +1543,15 @@ const QuickOrder: React.FC = () => {
                                     : "none",
                               }}
                             >
-                              <FormInput
+                              <FormSelect
                                 label=""
-                                value={subject.yearsIn}
-                                onChange={(e) =>
-                                  handleSubjectChange(
-                                    subject.id,
-                                    "yearsIn",
-                                    e.target.value,
-                                  )
-                                }
-                                onFocus={() =>
-                                  setFocusedInput(`yearsIn-${subject.id}`)
-                                }
-                                onBlur={() => setFocusedInput(null)}
-                                isFocused={
-                                  focusedInput === `yearsIn-${subject.id}`
-                                }
-                                placeholder={index === 0 ? "7" : ""}
+                                value={subject.gender}
+                                onChange={(value) => {
+                                  handleSubjectChange(subject.id, "gender", value);
+                                }}
+                                options={genderOptions}
+                                placeholder={index === 0 ? "F" : ""}
+                                searchable={false}
                                 style={{
                                   width: "100%",
                                   gap: "0px",
@@ -1666,17 +1562,17 @@ const QuickOrder: React.FC = () => {
                           ))}
                         </div>
 
-                        {/* Comments Column */}
+                        {/* Date of Birth Column */}
                         <div
                           style={{
                             display: "flex",
-                            width: "200px",
+                            width: "122px",
                             flexDirection: "column",
                             alignItems: "flex-start",
                             flexShrink: 0,
                           }}
                         >
-                          {/* Comments Column Header */}
+                          {/* Date of Birth Column Header */}
                           <div
                             style={{
                               display: "flex",
@@ -1715,15 +1611,15 @@ const QuickOrder: React.FC = () => {
                                     color: "rgba(113,118,128,1)",
                                   }}
                                 >
-                                  Comments
+                                  Date of Birth
                                 </span>
                               </div>
                             </div>
                           </div>
-                          {/* Comments Column Rows */}
+                          {/* Date of Birth Column Rows */}
                           {subjects.map((subject, index) => (
                             <div
-                              key={`comments-${subject.id}`}
+                              key={`dateOfBirth-${subject.id}`}
                               style={{
                                 display: "flex",
                                 height: "52px",
@@ -1737,99 +1633,26 @@ const QuickOrder: React.FC = () => {
                                     : "none",
                               }}
                             >
-                              <div
+                              <FormDateInput
+                                label=""
+                                value={subject.dateOfBirth}
+                                onChange={(date) =>
+                                  handleSubjectChange(subject.id, "dateOfBirth", date)
+                                }
+                                onFocus={() =>
+                                  setFocusedInput(`dateOfBirth-${subject.id}`)
+                                }
+                                onBlur={() => setFocusedInput(null)}
+                                isFocused={
+                                  focusedInput === `dateOfBirth-${subject.id}`
+                                }
+                                placeholder={index === 0 ? "01/32/90" : ""}
                                 style={{
-                                  display: "flex",
-                                  height: "32px",
-                                  flexDirection: "column",
+                                  width: "100%",
+                                  gap: "0px",
                                   justifyContent: "center",
-                                  alignItems: "flex-start",
-                                  gap: "6px",
-                                  flex: "1 0 0",
-                                  alignSelf: "stretch",
                                 }}
-                              >
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "flex-start",
-                                    gap: "6px",
-                                    flex: "1 0 0",
-                                    alignSelf: "stretch",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      padding: "6px 8px",
-                                      alignItems: "center",
-                                      gap: "8px",
-                                      flex: "1 0 0",
-                                      alignSelf: "stretch",
-                                      borderRadius: "8px",
-                                      border: focusedInput === `comments-${subject.id}` ? "1px solid #344698" : "1px solid #D5D7DA",
-                                      background: "#FFF",
-                                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    <textarea
-                                      value={subject.comments}
-                                      onChange={(e) =>
-                                        handleSubjectChange(
-                                          subject.id,
-                                          "comments",
-                                          e.target.value,
-                                        )
-                                      }
-                                      onFocus={() =>
-                                        setFocusedInput(`comments-${subject.id}`)
-                                      }
-                                      onBlur={() => setFocusedInput(null)}
-                                      placeholder={index === 0 ? "Add any notes..." : ""}
-                                      style={{
-                                        border: "none",
-                                        outline: "none",
-                                        resize: "none",
-                                        background: "transparent",
-                                        width: "100%",
-                                        height: "20px",
-                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                                        fontSize: "14px",
-                                        fontWeight: 400,
-                                        lineHeight: "20px",
-                                        color: "#181D27",
-                                      }}
-                                    />
-                                    <svg
-                                      style={{
-                                        width: "12px",
-                                        height: "12px",
-                                        position: "absolute",
-                                        right: "6px",
-                                        bottom: "6px",
-                                      }}
-                                      width="12"
-                                      height="13"
-                                      viewBox="0 0 12 13"
-                                      fill="none"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        d="M10 2.5L2 10.5"
-                                        stroke="#D5D7DA"
-                                        strokeLinecap="round"
-                                      />
-                                      <path
-                                        d="M11 7.5L7 11.5"
-                                        stroke="#D5D7DA"
-                                        strokeLinecap="round"
-                                      />
-                                    </svg>
-                                  </div>
-                                </div>
-                              </div>
+                              />
                             </div>
                           ))}
                         </div>
