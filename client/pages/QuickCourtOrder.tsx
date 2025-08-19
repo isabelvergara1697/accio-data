@@ -573,14 +573,20 @@ const QuickCourtOrder: React.FC = () => {
               </div>
             </div>
 
-            {/* Table Container */}
+            {/* Table */}
             <div
               style={{
-                borderRadius: "12px",
-                border: "1px solid #E9EAEB",
+                display: "flex",
+                padding: "12px 16px 16px 16px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+                borderRadius: "0px 0px 12px 12px",
+                borderRight: "1px solid #E9EAEB",
+                borderBottom: "1px solid #E9EAEB",
+                borderLeft: "1px solid #E9EAEB",
                 background: "#FFF",
-                boxShadow: "0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
-                overflow: "hidden",
+                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
               }}
             >
               <div
