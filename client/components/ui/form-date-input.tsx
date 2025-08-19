@@ -210,7 +210,9 @@ export default function FormDateInput({
           >
             <div
               style={{
-                color: value ? "#181D27" : "#717680",
+                color: value
+                  ? (isCalendarOpen ? "#273572" : "#181D27")
+                  : (isCalendarOpen ? "#273572" : "#717680"),
                 fontFamily:
                   "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "14px",
