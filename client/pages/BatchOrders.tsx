@@ -22,6 +22,7 @@ const BatchOrders: React.FC = () => {
   const [standardBatchModalOpen, setStandardBatchModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(20);
+  const [showTable, setShowTable] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
