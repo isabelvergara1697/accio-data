@@ -571,7 +571,7 @@ const QuickCourtOrder: React.FC = () => {
                 padding: "12px 16px 16px 16px",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                alignSelf: "stretch",
+                width: "100%",
                 borderRadius: "0px 0px 12px 12px",
                 borderRight: "1px solid #E9EAEB",
                 borderBottom: "1px solid #E9EAEB",
