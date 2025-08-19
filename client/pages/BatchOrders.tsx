@@ -858,54 +858,6 @@ const BatchOrders: React.FC = () => {
                       position: "relative",
                     }}
                   >
-                    {/* Table Headers */}
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        alignSelf: "stretch",
-                        background: "#FFF",
-                        position: "relative",
-                      }}
-                    >
-                      {/* Header cells for each column */}
-                      <div style={{ display: "flex", width: "110px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Batch Number</div>
-                      </div>
-                      <div style={{ display: "flex", width: "95px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Uploaded By</div>
-                      </div>
-                      <div style={{ display: "flex", width: "100px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Uploaded On</div>
-                      </div>
-                      <div style={{ display: "flex", width: "106px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Ordered By</div>
-                      </div>
-                      <div style={{ display: "flex", width: "100px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Status</div>
-                      </div>
-                      <div style={{ display: "flex", width: "69px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Count</div>
-                      </div>
-                      <div style={{ display: "flex", width: "69px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Success</div>
-                      </div>
-                      <div style={{ display: "flex", width: "61px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Failed</div>
-                      </div>
-                      <div style={{ display: "flex", width: "70px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Combined</div>
-                      </div>
-                      <div style={{ display: "flex", width: "100px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Start At</div>
-                      </div>
-                      <div style={{ display: "flex", flex: "1 0 0", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                        <div style={{ color: "#717680", fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Message</div>
-                      </div>
-                      <div style={{ display: "flex", width: "48px", height: "36px", padding: "6px 12px", alignItems: "center", gap: "12px", borderBottom: "1px solid #E9EAEB", background: "#FFF" }}>
-                      </div>
-                    </div>
-
                     {/* Content - Loading State, Table State, or Empty State */}
                     <div
                       style={{
