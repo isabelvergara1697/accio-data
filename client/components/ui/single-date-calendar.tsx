@@ -34,7 +34,9 @@ const SingleDateCalendar: React.FC<SingleDateCalendarProps> = ({
   useEffect(() => {
     if (isOpen) {
       setWorkingDate(selectedDate);
-      setCurrentMonth(new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1));
+      setCurrentMonth(
+        new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1),
+      );
       setDateInput(formatDate(selectedDate));
     }
   }, [isOpen, selectedDate]);
@@ -42,8 +44,18 @@ const SingleDateCalendar: React.FC<SingleDateCalendarProps> = ({
   // Helper functions
   const formatDate = (date: Date): string => {
     const months = [
-      "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
     ];
     return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
   };
@@ -71,8 +83,18 @@ const SingleDateCalendar: React.FC<SingleDateCalendarProps> = ({
 
   const getMonthName = (date: Date): string => {
     const months = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December",
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
     ];
     return `${months[date.getMonth()]} ${date.getFullYear()}`;
   };
@@ -291,10 +313,10 @@ const SingleDateCalendar: React.FC<SingleDateCalendarProps> = ({
             justifyContent: "center",
             alignItems: "center",
             borderRadius: "9999px",
-            background: isSelected 
-              ? "#344698" 
-              : isTodayDate 
-                ? "#F5F5F5" 
+            background: isSelected
+              ? "#344698"
+              : isTodayDate
+                ? "#F5F5F5"
                 : "transparent",
             cursor: "pointer",
             position: "relative",
@@ -442,12 +464,7 @@ const SingleDateCalendar: React.FC<SingleDateCalendarProps> = ({
                   cursor: "pointer",
                 }}
               >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M15 18L9 12L15 6"
                     stroke="#A4A7AE"
@@ -487,12 +504,7 @@ const SingleDateCalendar: React.FC<SingleDateCalendarProps> = ({
                   cursor: "pointer",
                 }}
               >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M9 18L15 12L9 6"
                     stroke="#A4A7AE"

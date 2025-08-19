@@ -52,8 +52,8 @@ export default function FormDateInput({
     if (parsedDate) {
       // Convert to YYYY-MM-DD format for storage
       const year = parsedDate.getFullYear();
-      const month = String(parsedDate.getMonth() + 1).padStart(2, '0');
-      const day = String(parsedDate.getDate()).padStart(2, '0');
+      const month = String(parsedDate.getMonth() + 1).padStart(2, "0");
+      const day = String(parsedDate.getDate()).padStart(2, "0");
       const dateString = `${year}-${month}-${day}`;
       onChange(dateString);
     } else if (inputValue.trim() === "") {
@@ -74,7 +74,7 @@ export default function FormDateInput({
   // Format input as MM/DD/YY while typing
   const formatAsMMDDYY = (input: string): string => {
     // Remove all non-digit characters
-    const digits = input.replace(/\D/g, '');
+    const digits = input.replace(/\D/g, "");
 
     // Limit to 6 digits (MMDDYY)
     const limitedDigits = digits.slice(0, 6);
@@ -97,8 +97,8 @@ export default function FormDateInput({
   const handleDateSelect = (selectedDate: Date) => {
     // Convert Date back to string format (YYYY-MM-DD for consistency)
     const year = selectedDate.getFullYear();
-    const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
-    const day = String(selectedDate.getDate()).padStart(2, '0');
+    const month = String(selectedDate.getMonth() + 1).padStart(2, "0");
+    const day = String(selectedDate.getDate()).padStart(2, "0");
     const dateString = `${year}-${month}-${day}`;
 
     onChange(dateString);
@@ -127,7 +127,11 @@ export default function FormDateInput({
       if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
         const date = new Date(year, month - 1, day);
         // Verify the date is valid (handles invalid dates like 2/30)
-        if (date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day) {
+        if (
+          date.getFullYear() === year &&
+          date.getMonth() === month - 1 &&
+          date.getDate() === day
+        ) {
           return date;
         }
       }
@@ -142,7 +146,11 @@ export default function FormDateInput({
 
       if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
         const date = new Date(year, month - 1, day);
-        if (date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day) {
+        if (
+          date.getFullYear() === year &&
+          date.getMonth() === month - 1 &&
+          date.getDate() === day
+        ) {
           return date;
         }
       }
@@ -157,7 +165,11 @@ export default function FormDateInput({
 
       if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
         const date = new Date(year, month - 1, day);
-        if (date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day) {
+        if (
+          date.getFullYear() === year &&
+          date.getMonth() === month - 1 &&
+          date.getDate() === day
+        ) {
           return date;
         }
       }
@@ -172,14 +184,15 @@ export default function FormDateInput({
 
     // Handle MM/DD/YY format
     if (dateValue.match(/^\d{2}\/\d{2}\/\d{2}$/)) {
-      const [month, day, year] = dateValue.split('/');
-      const fullYear = parseInt(year) < 50 ? 2000 + parseInt(year) : 1900 + parseInt(year);
+      const [month, day, year] = dateValue.split("/");
+      const fullYear =
+        parseInt(year) < 50 ? 2000 + parseInt(year) : 1900 + parseInt(year);
       return new Date(fullYear, parseInt(month) - 1, parseInt(day));
     }
 
     // Handle YYYY-MM-DD format
     try {
-      const date = new Date(dateValue + 'T00:00:00');
+      const date = new Date(dateValue + "T00:00:00");
       return !isNaN(date.getTime()) ? date : null;
     } catch {
       return null;
@@ -198,10 +211,10 @@ export default function FormDateInput({
 
     // Try to parse and format date from YYYY-MM-DD (HTML date input format) to MM/DD/YY
     try {
-      const date = new Date(dateValue + 'T00:00:00'); // Add time to avoid timezone issues
+      const date = new Date(dateValue + "T00:00:00"); // Add time to avoid timezone issues
       if (!isNaN(date.getTime())) {
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
         const year = String(date.getFullYear()).slice(-2);
         return `${month}/${day}/${year}`;
       }
@@ -269,7 +282,7 @@ export default function FormDateInput({
             borderRadius: "8px",
             border: error
               ? "1px solid #FDA29B"
-              : (isFocused || isCalendarOpen)
+              : isFocused || isCalendarOpen
                 ? "2px solid #34479A"
                 : "1px solid #D5D7DA",
             background: isCalendarOpen ? "#ECEEF9" : "#FFF",
@@ -325,8 +338,12 @@ export default function FormDateInput({
               outline: "none",
               background: "transparent",
               color: inputValue
-                ? (isCalendarOpen ? "#273572" : "#181D27")
-                : (isCalendarOpen ? "#273572" : "#717680"),
+                ? isCalendarOpen
+                  ? "#273572"
+                  : "#181D27"
+                : isCalendarOpen
+                  ? "#273572"
+                  : "#717680",
               fontFamily:
                 "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "14px",

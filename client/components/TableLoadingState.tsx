@@ -32,7 +32,8 @@ export const TableLoadingState: React.FC<TableLoadingStateProps> = ({
           borderRadius: "10px",
           border: "1px solid #D5D7DA",
           background: "#FFF",
-          boxShadow: "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
+          boxShadow:
+            "0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset, 0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset, 0px 1px 2px 0px rgba(10, 13, 18, 0.05)",
         }}
       >
         <svg
@@ -76,7 +77,8 @@ export const TableLoadingState: React.FC<TableLoadingStateProps> = ({
         <div
           style={{
             color: "#181D27",
-            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+            fontFamily:
+              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
             fontSize: "16px",
             fontWeight: "600",
             lineHeight: "24px",
@@ -87,13 +89,15 @@ export const TableLoadingState: React.FC<TableLoadingStateProps> = ({
         <div
           style={{
             color: "#535862",
-            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+            fontFamily:
+              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
             fontSize: "14px",
             fontWeight: "400",
             lineHeight: "20px",
           }}
         >
-          Please wait while we calculate your total and verify the spreadsheet data. This can take several minutes for large uploads.
+          Please wait while we calculate your total and verify the spreadsheet
+          data. This can take several minutes for large uploads.
         </div>
       </div>
 
@@ -138,7 +142,8 @@ export const TableLoadingState: React.FC<TableLoadingStateProps> = ({
         <div
           style={{
             color: "#414651",
-            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+            fontFamily:
+              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
             fontSize: "14px",
             fontWeight: "500",
             lineHeight: "20px",
@@ -175,7 +180,8 @@ export const TableLoadingState: React.FC<TableLoadingStateProps> = ({
           <div
             style={{
               color: "#414651",
-              fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "14px",
               fontWeight: "500",
               lineHeight: "20px",
@@ -200,7 +206,8 @@ export const TableLoadingState: React.FC<TableLoadingStateProps> = ({
             <div
               style={{
                 color: "#717680",
-                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "14px",
                 fontWeight: "400",
                 lineHeight: "20px",
@@ -224,7 +231,8 @@ export const TableLoadingState: React.FC<TableLoadingStateProps> = ({
           <div
             style={{
               color: "#414651",
-              fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "14px",
               fontWeight: "500",
               lineHeight: "20px",
@@ -249,7 +257,8 @@ export const TableLoadingState: React.FC<TableLoadingStateProps> = ({
             <div
               style={{
                 color: "#717680",
-                fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "14px",
                 fontWeight: "400",
                 lineHeight: "20px",

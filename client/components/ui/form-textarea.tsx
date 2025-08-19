@@ -136,16 +136,8 @@ export default function FormTextarea({
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M10 2.5L2 10.5"
-              stroke="#D5D7DA"
-              strokeLinecap="round"
-            />
-            <path
-              d="M11 7.5L7 11.5"
-              stroke="#D5D7DA"
-              strokeLinecap="round"
-            />
+            <path d="M10 2.5L2 10.5" stroke="#D5D7DA" strokeLinecap="round" />
+            <path d="M11 7.5L7 11.5" stroke="#D5D7DA" strokeLinecap="round" />
           </svg>
         </div>
       </div>

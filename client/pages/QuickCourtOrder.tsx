@@ -537,7 +537,9 @@ const QuickCourtOrder: React.FC = () => {
                           zIndex: 10,
                         }}
                       >
-                        <TableLoadingState onClose={() => setIsLoading(false)} />
+                        <TableLoadingState
+                          onClose={() => setIsLoading(false)}
+                        />
                       </div>
                     )}
 
