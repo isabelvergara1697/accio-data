@@ -1336,43 +1336,6 @@ const BatchOrders: React.FC = () => {
                               </div>
                             </div>
                           ))}
-                          {/* Batch Number Column */}
-                          <div style={{ display: "flex", width: "110px", flexDirection: "column", alignItems: "flex-start", position: "relative" }}>
-                            {/* Batch Number Data */}
-                            {["12345678_234567", "12345678_234567", "12345678_234567", "12345678_234567"].map((batchNum, idx) => (
-                              <div
-                                key={idx}
-                                style={{
-                                  display: "flex",
-                                  height: "52px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  position: "relative",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    display: "-webkit-box",
-                                    WebkitBoxOrient: "vertical",
-                                    WebkitLineClamp: 1,
-                                    flex: "1 0 0",
-                                    overflow: "hidden",
-                                    color: "#181D27",
-                                    textOverflow: "ellipsis",
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontSize: "14px",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
-                                    position: "relative",
-                                  }}
-                                >
-                                  {batchNum}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
 
                           {/* Uploaded By Column */}
                           <div
