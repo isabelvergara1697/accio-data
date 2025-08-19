@@ -919,17 +919,17 @@ const BatchOrders: React.FC = () => {
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: showTable ? "flex-start" : "center",
-                        alignItems: showTable ? "flex-start" : "center",
+                        justifyContent: (activeTab === "standard" ? showTable : mvrShowTable) ? "flex-start" : "center",
+                        alignItems: (activeTab === "standard" ? showTable : mvrShowTable) ? "flex-start" : "center",
                         gap: "20px",
                         flex: "1 0 0",
                         alignSelf: "stretch",
                         position: "relative",
                         minHeight: "500px",
-                        padding: showTable ? "0" : "60px 20px",
+                        padding: (activeTab === "standard" ? showTable : mvrShowTable) ? "0" : "60px 20px",
                       }}
                     >
-                      {isLoading ? (
+                      {(activeTab === "standard" ? isLoading : mvrIsLoading) ? (
                         /* Loading State */
                         <>
                           {/* Loading Icon */}
