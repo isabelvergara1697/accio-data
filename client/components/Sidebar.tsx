@@ -468,7 +468,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         (currentPage === "batch-orders" &&
                           item === "Batch Orders") ||
                         (currentPage === "quick-order" &&
-                          item === "Quick Order")
+                          item === "Quick Order") ||
+                        (currentPage === "i9-order" &&
+                          item === "I-9 Order")
                       ) && !disabledMenuItems.includes(item) ? getHoverStyles(
                         `${section}-${item.toLowerCase().replace(/[^a-z0-9]/g, "-")}`,
                       ) : {}),
