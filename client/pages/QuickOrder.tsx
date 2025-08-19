@@ -268,6 +268,8 @@ const QuickOrder: React.FC = () => {
 
   const handleNewQuickOrder = () => {
     setShowConfirmation(false);
+    setShowDataLoading(false);
+    setShowPaymentScreen(false);
     // Reset all form data
     const initialSubjects: SubjectData[] = [];
     for (let i = 0; i < 10; i++) {
@@ -290,6 +292,16 @@ const QuickOrder: React.FC = () => {
       });
     }
     setSubjects(initialSubjects);
+  };
+
+  const handleAuthorizePayment = () => {
+    setShowPaymentScreen(false);
+    setShowConfirmation(true);
+  };
+
+  const handleSeeDetails = () => {
+    console.log("See details clicked");
+    // You can implement details modal here if needed
   };
 
   const copyFromPreviousRow = (currentIndex: number) => {
