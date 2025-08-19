@@ -44,6 +44,7 @@ const App = () => (
           <Route path="/quick-court-order" element={<QuickCourtOrder />} />
           <Route path="/quick-order" element={<QuickOrder />} />
           <Route path="/batch-orders" element={<BatchOrders />} />
+          <Route path="/i9-order" element={<I9Order />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
