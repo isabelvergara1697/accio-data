@@ -868,11 +868,23 @@ const QuickOrder: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Table or Confirmation */}
+                  {/* Table, Data Loading, Payment Screen, or Confirmation */}
                   {showConfirmation ? (
                     <QuickCourtOrderConfirmation
                       onSeeAllOrders={handleSeeAllOrders}
                       onNewQuickCourtOrder={handleNewQuickOrder}
+                    />
+                  ) : showDataLoading ? (
+                    <DataLoadingScreen
+                      onComplete={() => {
+                        setShowDataLoading(false);
+                        setShowPaymentScreen(true);
+                      }}
+                    />
+                  ) : showPaymentScreen ? (
+                    <PaymentScreen
+                      onAuthorizePayment={handleAuthorizePayment}
+                      onSeeDetails={handleSeeDetails}
                     />
                   ) : (
                     <div
