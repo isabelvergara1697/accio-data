@@ -47,14 +47,8 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
   const [fileUploaded, setFileUploaded] = useState(true);
   
   // Dropdown states
-  const [packageDropdownOpen, setPackageDropdownOpen] = useState(false);
-  const [purposeDropdownOpen, setPurposeDropdownOpen] = useState(false);
   const [notificationDropdownOpen, setNotificationDropdownOpen] = useState(false);
-  const [packageSearchTerm, setPackageSearchTerm] = useState("");
-  const [purposeSearchTerm, setPurposeSearchTerm] = useState("");
 
-  const packageDropdownRef = useRef<HTMLDivElement>(null);
-  const purposeDropdownRef = useRef<HTMLDivElement>(null);
   const notificationDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
