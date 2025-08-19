@@ -46,6 +46,10 @@ const BatchOrders: React.FC = () => {
     console.log("Start new batch");
   };
 
+  const handleHelpClick = () => {
+    setHelpModalOpen(true);
+  };
+
   const handleSignOut = () => {
     console.log("Sign out");
   };
@@ -501,6 +505,7 @@ const BatchOrders: React.FC = () => {
                         >
                           {/* Help Button */}
                           <button
+                            onClick={handleHelpClick}
                             style={{
                               display: "flex",
                               minHeight: "36px",
@@ -958,8 +963,8 @@ const BatchOrders: React.FC = () => {
                         flex: "1 0 0",
                         alignSelf: "stretch",
                         position: "relative",
-                        minHeight: "400px",
-                        padding: "40px 20px",
+                        minHeight: "500px",
+                        padding: "60px 40px",
                       }}
                     >
                       <div
