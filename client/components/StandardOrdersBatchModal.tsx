@@ -99,7 +99,11 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
 
   const handleSubmit = () => {
     console.log("Submit batch order");
-    onClose();
+    if (onSubmit) {
+      onSubmit();
+    } else {
+      onClose();
+    }
   };
 
   const handleFileRemove = () => {
