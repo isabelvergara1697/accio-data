@@ -1877,7 +1877,7 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
                     position: "relative",
                   }}
                 >
-                  Submit MVR Order
+                  Fix Any Error And Submit
                 </div>
               </button>
             </div>
