@@ -656,6 +656,7 @@ const QuickCourtOrder: React.FC = () => {
                           }}
                         >
                           <div
+                            data-dropdown-container
                             style={{
                               display: "flex",
                               minHeight: "36px",
@@ -672,7 +673,10 @@ const QuickCourtOrder: React.FC = () => {
                               transition: "all 0.2s ease",
                               position: "relative",
                             }}
-                            onClick={() => setSubmitOrderForDropdownOpen(!submitOrderForDropdownOpen)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSubmitOrderForDropdownOpen(!submitOrderForDropdownOpen);
+                            }}
                             onMouseEnter={(e) => {
                               if (!submitOrderForDropdownOpen) {
                                 e.currentTarget.style.background = "#F9FAFB";
