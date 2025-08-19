@@ -5,10 +5,9 @@ interface StandardOrdersBatchModalProps {
   onClose: () => void;
 }
 
-export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> = ({
-  isOpen,
-  onClose,
-}) => {
+export const StandardOrdersBatchModal: React.FC<
+  StandardOrdersBatchModalProps
+> = ({ isOpen, onClose }) => {
   const [defaultPackage, setDefaultPackage] = useState("");
   const [fcrapPurpose, setFcraPurpose] = useState("");
   const [startTime, setStartTime] = useState("01/31/2025 10:45 A.M");
@@ -139,7 +138,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                 style={{
                   alignSelf: "stretch",
                   color: "#181D27",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "18px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -153,7 +153,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                 style={{
                   alignSelf: "stretch",
                   color: "#535862",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 400,
@@ -243,7 +244,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
               style={{
                 alignSelf: "stretch",
                 color: "#344698",
-                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "14px",
                 fontStyle: "normal",
                 fontWeight: 400,
@@ -330,7 +332,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -372,7 +375,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                       style={{
                         flex: "1 0 0",
                         color: defaultPackage ? "#181D27" : "#717680",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "16px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -439,7 +443,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -522,7 +527,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                       style={{
                         flex: "1 0 0",
                         color: fcrapPurpose ? "#181D27" : "#717680",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "16px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -590,7 +596,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -603,7 +610,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   <div
                     style={{
                       color: "#344698",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -664,7 +672,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                       style={{
                         flex: "1 0 0",
                         color: "#717680",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "16px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -701,7 +710,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                 style={{
                   alignSelf: "stretch",
                   color: "#535862",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 400,
@@ -709,7 +719,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   position: "relative",
                 }}
               >
-                If you leave the start time in blank, the process of importing the order will start after 7:00pm
+                If you leave the start time in blank, the process of importing
+                the order will start after 7:00pm
               </div>
             </div>
 
@@ -745,7 +756,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -758,7 +770,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   <div
                     style={{
                       color: "#344698",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -840,7 +853,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                       style={{
                         flex: "1 0 0",
                         color: "#717680",
-                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "16px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -980,7 +994,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                         <div
                           style={{
                             color: "#273572",
-                            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                             fontSize: "14px",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -994,7 +1009,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                       <div
                         style={{
                           color: "#535862",
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "14px",
                           fontStyle: "normal",
                           fontWeight: 400,
@@ -1010,7 +1026,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                         alignSelf: "stretch",
                         color: "#535862",
                         textAlign: "center",
-                        fontFamily: "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
+                        fontFamily:
+                          "Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif",
                         fontSize: "12px",
                         fontStyle: "normal",
                         fontWeight: 400,
@@ -1098,7 +1115,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -1113,7 +1131,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   style={{
                     alignSelf: "stretch",
                     color: "#535862",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -1121,7 +1140,9 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                     position: "relative",
                   }}
                 >
-                  By clicking on the 'Upload Orders' button I agree to pay for all charges incurred by the processing of the uploaded batch orders. I agree
+                  By clicking on the 'Upload Orders' button I agree to pay for
+                  all charges incurred by the processing of the uploaded batch
+                  orders. I agree
                 </div>
               </div>
             </div>
@@ -1178,7 +1199,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   <div
                     style={{
                       color: "#414651",
-                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                      fontFamily:
+                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 500,
@@ -1193,7 +1215,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                   style={{
                     alignSelf: "stretch",
                     color: "#535862",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -1201,7 +1224,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                     position: "relative",
                   }}
                 >
-                  Click here if you would like all common subject searches to be combined into one order
+                  Click here if you would like all common subject searches to be
+                  combined into one order
                 </div>
               </div>
             </div>
@@ -1245,7 +1269,8 @@ export const StandardOrdersBatchModal: React.FC<StandardOrdersBatchModalProps> =
                 <div
                   style={{
                     color: "#FFF",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "14px",
                     fontStyle: "normal",
                     fontWeight: 600,

@@ -127,7 +127,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   alignSelf: "stretch",
                   color: "#181D27",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "16px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -141,7 +142,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   alignSelf: "stretch",
                   color: "#535862",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "14px",
                   fontStyle: "normal",
                   fontWeight: 400,
@@ -231,7 +233,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
               style={{
                 alignSelf: "stretch",
                 color: "#414651",
-                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "12px",
                 fontStyle: "normal",
                 fontWeight: 400,
@@ -239,13 +242,16 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 position: "relative",
               }}
             >
-              Through this interface you can upload a batch of orders. Orders are uploaded via an Excel spreadsheet or CSV file. For more instructions on the upload process, click "start a new batch".
+              Through this interface you can upload a batch of orders. Orders
+              are uploaded via an Excel spreadsheet or CSV file. For more
+              instructions on the upload process, click "start a new batch".
             </div>
             <div
               style={{
                 alignSelf: "stretch",
                 color: "#414651",
-                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "12px",
                 fontStyle: "normal",
                 fontWeight: 400,
@@ -253,13 +259,17 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 position: "relative",
               }}
             >
-              This screen lists the batches that have been previously uploaded. By default, the list contains batches from the last 7 days. To see additional batch runs beyond the last 7 days you can change the date range at the top and click "Go".
+              This screen lists the batches that have been previously uploaded.
+              By default, the list contains batches from the last 7 days. To see
+              additional batch runs beyond the last 7 days you can change the
+              date range at the top and click "Go".
             </div>
             <div
               style={{
                 alignSelf: "stretch",
                 color: "#414651",
-                fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                fontFamily:
+                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "12px",
                 fontStyle: "normal",
                 fontWeight: 400,
@@ -296,7 +306,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "94px",
                   color: "#717680",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -310,7 +321,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "146px",
                   color: "#717680",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -324,10 +336,25 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
 
             {/* Table Rows */}
             {[
-              { key: "Batch Number", description: "A unique number assigned by the system" },
-              { key: "Uploaded By", description: "The account and user name of the person who uploaded the file" },
-              { key: "Uploaded On", description: "The date and time the batch was uploaded to the system" },
-              { key: "Ordered By", description: "The account and user name of the user who will be listed as the requester of the uploaded orders" },
+              {
+                key: "Batch Number",
+                description: "A unique number assigned by the system",
+              },
+              {
+                key: "Uploaded By",
+                description:
+                  "The account and user name of the person who uploaded the file",
+              },
+              {
+                key: "Uploaded On",
+                description:
+                  "The date and time the batch was uploaded to the system",
+              },
+              {
+                key: "Ordered By",
+                description:
+                  "The account and user name of the user who will be listed as the requester of the uploaded orders",
+              },
             ].map((row, index) => (
               <div
                 key={index}
@@ -343,7 +370,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     width: "94px",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -357,7 +385,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     flex: "1 0 0",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -384,7 +413,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "94px",
                   color: "#414651",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 400,
@@ -408,7 +438,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     alignSelf: "stretch",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -431,10 +462,36 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 >
                   {/* Status badges */}
                   {[
-                    { status: "Success", color: "#067647", bg: "#ECFDF3", border: "#ABEFC6", description: "The batch has finished processing" },
-                    { status: "Processing", color: "#175CD3", bg: "#EFF8FF", border: "#B2DDFF", description: "The batch has started processing" },
-                    { status: "Error", color: "#B42318", bg: "#FEF3F2", border: "#FECDCA", description: "The batch has stopped and will not continue until re-started by clicking \"start\" link to the right" },
-                    { status: "Failed", color: "#B54708", bg: "#FFFAEB", border: "#FEDF89", description: "The batch has stopped and will not continue until re-started by clicking \"start\" link to the right" },
+                    {
+                      status: "Success",
+                      color: "#067647",
+                      bg: "#ECFDF3",
+                      border: "#ABEFC6",
+                      description: "The batch has finished processing",
+                    },
+                    {
+                      status: "Processing",
+                      color: "#175CD3",
+                      bg: "#EFF8FF",
+                      border: "#B2DDFF",
+                      description: "The batch has started processing",
+                    },
+                    {
+                      status: "Error",
+                      color: "#B42318",
+                      bg: "#FEF3F2",
+                      border: "#FECDCA",
+                      description:
+                        'The batch has stopped and will not continue until re-started by clicking "start" link to the right',
+                    },
+                    {
+                      status: "Failed",
+                      color: "#B54708",
+                      bg: "#FFFAEB",
+                      border: "#FEDF89",
+                      description:
+                        'The batch has stopped and will not continue until re-started by clicking "start" link to the right',
+                    },
                   ].map((status, index) => (
                     <div
                       key={index}
@@ -461,7 +518,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                           style={{
                             color: status.color,
                             textAlign: "center",
-                            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                             fontSize: "12px",
                             fontStyle: "normal",
                             fontWeight: 500,
@@ -476,7 +534,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                         style={{
                           flex: "1 0 0",
                           color: "#414651",
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "12px",
                           fontStyle: "normal",
                           fontWeight: 400,
@@ -494,12 +553,33 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
 
             {/* Additional rows */}
             {[
-              { key: "Count", description: "The total number of orders in the batch" },
-              { key: "Failed", description: "The number of orders that failed from this batch" },
-              { key: "Combined", description: "Y or N, If Y, then multiple rows in the order which match on PII are combined into a single order. If N, each row is its own order" },
-              { key: "Start At", description: "The time the orders will start processing" },
-              { key: "Default FCRA", description: "The default FCRA purpose selected when the batch was uploaded. Used if no FCRA purpose is supplied in the individual order" },
-              { key: "Default Package", description: "The default package specified when the batch was uploaded and used as the package for an order if no package is specified on the individual order" },
+              {
+                key: "Count",
+                description: "The total number of orders in the batch",
+              },
+              {
+                key: "Failed",
+                description: "The number of orders that failed from this batch",
+              },
+              {
+                key: "Combined",
+                description:
+                  "Y or N, If Y, then multiple rows in the order which match on PII are combined into a single order. If N, each row is its own order",
+              },
+              {
+                key: "Start At",
+                description: "The time the orders will start processing",
+              },
+              {
+                key: "Default FCRA",
+                description:
+                  "The default FCRA purpose selected when the batch was uploaded. Used if no FCRA purpose is supplied in the individual order",
+              },
+              {
+                key: "Default Package",
+                description:
+                  "The default package specified when the batch was uploaded and used as the package for an order if no package is specified on the individual order",
+              },
             ].map((row, index) => (
               <div
                 key={index}
@@ -515,7 +595,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     width: "94px",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -529,7 +610,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     flex: "1 0 0",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -568,7 +650,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
             style={{
               alignSelf: "stretch",
               color: "#414651",
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "12px",
               fontStyle: "normal",
               fontWeight: 400,
@@ -576,7 +659,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
               position: "relative",
             }}
           >
-            On the far right of each row is a list of operations currently available for the batch, they are:
+            On the far right of each row is a list of operations currently
+            available for the batch, they are:
           </div>
 
           {/* Operations Table */}
@@ -604,7 +688,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "94px",
                   color: "#717680",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -618,7 +703,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "146px",
                   color: "#717680",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -632,12 +718,36 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
 
             {/* Operations */}
             {[
-              { key: "Data", description: "Downloads a .CSV file of the data used in creating the batch" },
-              { key: "Details", description: "Display a list of the orders contained in the batch" },
-              { key: "Stop", description: "Stop in batch from further processing. This option is only available if the batch has a status of either \"Loaded\" or \"Processing\"" },
-              { key: "Start", description: "Restarts the batch. This option resets the status of the batch to \"Loaded\" processing will resume once the start time is reached. This is only an option when the batch is stopped" },
-              { key: "Reschedule", description: "Changes the start time for the batch. Only available when the batch is stopped." },
-              { key: "Failed", description: "This option is available when at least one order from a batch has failed while processing. Click this option to download the CSV data associated with the failed orders" },
+              {
+                key: "Data",
+                description:
+                  "Downloads a .CSV file of the data used in creating the batch",
+              },
+              {
+                key: "Details",
+                description:
+                  "Display a list of the orders contained in the batch",
+              },
+              {
+                key: "Stop",
+                description:
+                  'Stop in batch from further processing. This option is only available if the batch has a status of either "Loaded" or "Processing"',
+              },
+              {
+                key: "Start",
+                description:
+                  'Restarts the batch. This option resets the status of the batch to "Loaded" processing will resume once the start time is reached. This is only an option when the batch is stopped',
+              },
+              {
+                key: "Reschedule",
+                description:
+                  "Changes the start time for the batch. Only available when the batch is stopped.",
+              },
+              {
+                key: "Failed",
+                description:
+                  "This option is available when at least one order from a batch has failed while processing. Click this option to download the CSV data associated with the failed orders",
+              },
             ].map((row, index) => (
               <div
                 key={index}
@@ -653,7 +763,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     width: "94px",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -667,7 +778,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     flex: "1 0 0",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -686,7 +798,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
             style={{
               alignSelf: "stretch",
               color: "#414651",
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "12px",
               fontStyle: "normal",
               fontWeight: 400,
@@ -694,7 +807,10 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
               position: "relative",
             }}
           >
-            Note: If a batch has already started processing, stopping, rescheduling and starting the batch will cause the system to delay processing until the currently specified start time is reached regardless of the original start time
+            Note: If a batch has already started processing, stopping,
+            rescheduling and starting the batch will cause the system to delay
+            processing until the currently specified start time is reached
+            regardless of the original start time
           </div>
 
           {/* Divider */}
@@ -712,7 +828,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
             style={{
               alignSelf: "stretch",
               color: "#181D27",
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "16px",
               fontStyle: "normal",
               fontWeight: 400,
@@ -727,7 +844,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
             style={{
               alignSelf: "stretch",
               color: "#414651",
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "12px",
               fontStyle: "normal",
               fontWeight: 400,
@@ -735,7 +853,9 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
               position: "relative",
             }}
           >
-            If the "Details" option for a batch is clicked a dialog containing a list of the orders with the batch is displayed. The list contains the following information for each order:
+            If the "Details" option for a batch is clicked a dialog containing a
+            list of the orders with the batch is displayed. The list contains
+            the following information for each order:
           </div>
 
           {/* Batch Order Details Table */}
@@ -763,7 +883,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "94px",
                   color: "#717680",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -777,7 +898,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "146px",
                   color: "#717680",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -792,9 +914,19 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
             {/* Batch Order Details Rows */}
             {[
               { key: "Index", description: "Unique identifier for the order" },
-              { key: "Processed On", description: "When the order was processed" },
-              { key: "Order #", description: "The resulting order number, click link to access the HTML order report" },
-              { key: "First", description: "The first name of the order subject" },
+              {
+                key: "Processed On",
+                description: "When the order was processed",
+              },
+              {
+                key: "Order #",
+                description:
+                  "The resulting order number, click link to access the HTML order report",
+              },
+              {
+                key: "First",
+                description: "The first name of the order subject",
+              },
               { key: "Last", description: "The last name of the subject" },
               { key: "SSN", description: "The masked SSN of the subject" },
             ].map((row, index) => (
@@ -812,7 +944,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     width: "94px",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -826,7 +959,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     flex: "1 0 0",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -853,7 +987,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "94px",
                   color: "#414651",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 400,
@@ -877,7 +1012,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     alignSelf: "stretch",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -899,10 +1035,36 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   }}
                 >
                   {[
-                    { status: "Success", color: "#067647", bg: "#ECFDF3", border: "#ABEFC6", description: "The batch has finished processing" },
-                    { status: "Processing", color: "#175CD3", bg: "#EFF8FF", border: "#B2DDFF", description: "The batch has started processing" },
-                    { status: "Error", color: "#B42318", bg: "#FEF3F2", border: "#FECDCA", description: "The batch has stopped and will not continue until re-started by clicking \"start\" link to the right" },
-                    { status: "Failed", color: "#B54708", bg: "#FFFAEB", border: "#FEDF89", description: "The batch has stopped and will not continue until re-started by clicking \"start\" link to the right" },
+                    {
+                      status: "Success",
+                      color: "#067647",
+                      bg: "#ECFDF3",
+                      border: "#ABEFC6",
+                      description: "The batch has finished processing",
+                    },
+                    {
+                      status: "Processing",
+                      color: "#175CD3",
+                      bg: "#EFF8FF",
+                      border: "#B2DDFF",
+                      description: "The batch has started processing",
+                    },
+                    {
+                      status: "Error",
+                      color: "#B42318",
+                      bg: "#FEF3F2",
+                      border: "#FECDCA",
+                      description:
+                        'The batch has stopped and will not continue until re-started by clicking "start" link to the right',
+                    },
+                    {
+                      status: "Failed",
+                      color: "#B54708",
+                      bg: "#FFFAEB",
+                      border: "#FEDF89",
+                      description:
+                        'The batch has stopped and will not continue until re-started by clicking "start" link to the right',
+                    },
                   ].map((status, index) => (
                     <div
                       key={index}
@@ -929,7 +1091,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                           style={{
                             color: status.color,
                             textAlign: "center",
-                            fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                            fontFamily:
+                              "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                             fontSize: "12px",
                             fontStyle: "normal",
                             fontWeight: 500,
@@ -944,7 +1107,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                         style={{
                           flex: "1 0 0",
                           color: "#414651",
-                          fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                          fontFamily:
+                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                           fontSize: "12px",
                           fontStyle: "normal",
                           fontWeight: 400,
@@ -966,7 +1130,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
             style={{
               alignSelf: "stretch",
               color: "#414651",
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "12px",
               fontStyle: "normal",
               fontWeight: 400,
@@ -974,7 +1139,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
               position: "relative",
             }}
           >
-            On the far right of each row is a list of operations currently available for the order, they are.
+            On the far right of each row is a list of operations currently
+            available for the order, they are.
           </div>
 
           {/* Order Operations Table */}
@@ -1002,7 +1168,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "94px",
                   color: "#717680",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -1016,7 +1183,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                 style={{
                   width: "146px",
                   color: "#717680",
-                  fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                  fontFamily:
+                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: "12px",
                   fontStyle: "normal",
                   fontWeight: 600,
@@ -1030,8 +1198,16 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
 
             {/* Order Operations */}
             {[
-              { key: "Data", description: "Download a copy of the data related to this order" },
-              { key: "Delete", description: "This option is only available if the order is unprocessed, and the batch is in a stopped state." },
+              {
+                key: "Data",
+                description:
+                  "Download a copy of the data related to this order",
+              },
+              {
+                key: "Delete",
+                description:
+                  "This option is only available if the order is unprocessed, and the batch is in a stopped state.",
+              },
             ].map((row, index) => (
               <div
                 key={index}
@@ -1047,7 +1223,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     width: "94px",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -1061,7 +1238,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
                   style={{
                     flex: "1 0 0",
                     color: "#414651",
-                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                    fontFamily:
+                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                     fontSize: "12px",
                     fontStyle: "normal",
                     fontWeight: 400,
@@ -1080,7 +1258,8 @@ export const BatchOrderingHelpModal: React.FC<BatchOrderingHelpModalProps> = ({
             style={{
               alignSelf: "stretch",
               color: "#344698",
-              fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+              fontFamily:
+                "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
               fontSize: "12px",
               fontStyle: "normal",
               fontWeight: 400,
