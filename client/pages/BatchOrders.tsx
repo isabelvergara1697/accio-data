@@ -268,11 +268,24 @@ const BatchOrders: React.FC = () => {
                           alignItems: "center",
                           gap: "6px",
                           borderRight: "1px solid #D5D7DA",
+                          borderTopLeftRadius: "8px",
+                          borderBottomLeftRadius: "8px",
                           background:
                             activeTab === "standard" ? "#ECEEF9" : "#FFF",
                           cursor: "pointer",
                           border: "none",
                           position: "relative",
+                          transition: "all 0.2s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (activeTab !== "standard") {
+                            e.currentTarget.style.background = "#F9FAFB";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (activeTab !== "standard") {
+                            e.currentTarget.style.background = "#FFF";
+                          }
                         }}
                       >
                         <div
@@ -300,11 +313,23 @@ const BatchOrders: React.FC = () => {
                           justifyContent: "center",
                           alignItems: "center",
                           gap: "6px",
-                          borderRight: "1px solid #D5D7DA",
+                          borderTopRightRadius: "8px",
+                          borderBottomRightRadius: "8px",
                           background: activeTab === "mvr" ? "#ECEEF9" : "#FFF",
                           cursor: "pointer",
                           border: "none",
                           position: "relative",
+                          transition: "all 0.2s ease",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (activeTab !== "mvr") {
+                            e.currentTarget.style.background = "#F9FAFB";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (activeTab !== "mvr") {
+                            e.currentTarget.style.background = "#FFF";
+                          }
                         }}
                       >
                         <div
@@ -479,6 +504,15 @@ const BatchOrders: React.FC = () => {
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               position: "relative",
+                              transition: "all 0.2s ease",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "#F9FAFB";
+                              e.currentTarget.style.borderColor = "#98A2B3";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "#FFF";
+                              e.currentTarget.style.borderColor = "#D5D7DA";
                             }}
                           >
                             <svg
@@ -550,6 +584,15 @@ const BatchOrders: React.FC = () => {
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               position: "relative",
+                              transition: "all 0.2s ease",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "#F9FAFB";
+                              e.currentTarget.style.borderColor = "#98A2B3";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "#FFF";
+                              e.currentTarget.style.borderColor = "#D5D7DA";
                             }}
                           >
                             <svg
@@ -614,6 +657,15 @@ const BatchOrders: React.FC = () => {
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               position: "relative",
+                              transition: "all 0.2s ease",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "#F9FAFB";
+                              e.currentTarget.style.borderColor = "#98A2B3";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "#FFF";
+                              e.currentTarget.style.borderColor = "#D5D7DA";
                             }}
                           >
                             <svg
@@ -679,6 +731,13 @@ const BatchOrders: React.FC = () => {
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                               position: "relative",
+                              transition: "all 0.2s ease",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "#2A3B87";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "#344698";
                             }}
                           >
                             <svg
@@ -888,12 +947,15 @@ const BatchOrders: React.FC = () => {
                         flex: "1 0 0",
                         alignSelf: "stretch",
                         position: "relative",
+                        minHeight: "400px",
+                        padding: "40px 20px",
                       }}
                     >
                       <div
                         style={{
                           display: "flex",
-                          width: "512px",
+                          width: "100%",
+                          maxWidth: "512px",
                           justifyContent: "center",
                           alignItems: "center",
                           position: "relative",
@@ -1033,6 +1095,13 @@ const BatchOrders: React.FC = () => {
                                   "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                                 position: "relative",
+                                transition: "all 0.2s ease",
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.background = "#2A3B87";
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.background = "#344698";
                               }}
                             >
                               <svg
