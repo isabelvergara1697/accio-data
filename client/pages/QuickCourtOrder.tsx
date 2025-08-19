@@ -261,8 +261,18 @@ const QuickCourtOrder: React.FC = () => {
             paddingTop: showNotification && isDesktop ? "84px" : "0",
           }}
         >
-          {/* Page Header Section - Following established pattern */}
-          <div className="page-header-container">
+          {/* Header section - Exact Figma structure */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "24px",
+              alignSelf: "stretch",
+              paddingTop: "24px",
+            }}
+          >
+            {/* Page header - gap: 16px */}
             <div
               style={{
                 display: "flex",
