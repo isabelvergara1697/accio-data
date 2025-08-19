@@ -53,14 +53,6 @@ export const MVROrdersBatchModal: React.FC<MVROrdersBatchModalProps> = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (packageDropdownRef.current && !packageDropdownRef.current.contains(event.target as Node)) {
-        setPackageDropdownOpen(false);
-        setPackageSearchTerm("");
-      }
-      if (purposeDropdownRef.current && !purposeDropdownRef.current.contains(event.target as Node)) {
-        setPurposeDropdownOpen(false);
-        setPurposeSearchTerm("");
-      }
       if (notificationDropdownRef.current && !notificationDropdownRef.current.contains(event.target as Node)) {
         setNotificationDropdownOpen(false);
       }
