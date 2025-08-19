@@ -5,7 +5,6 @@ import { MobileHeader } from "../components/MobileHeader";
 import FormInput from "../components/ui/form-input";
 import FormSelect from "../components/ui/form-select";
 
-
 interface SubjectData {
   id: string;
   search: string;
@@ -62,7 +61,6 @@ const QuickCourtOrder: React.FC = () => {
     // Cleanup timer on component unmount
     return () => clearTimeout(timer);
   }, []);
-
 
   const handleSignOut = () => {
     console.log("Sign out");
@@ -152,7 +150,6 @@ const QuickCourtOrder: React.FC = () => {
       );
     }
   };
-
 
   return (
     <div style={{ display: "flex", minHeight: "100vh", background: "#FAFAFA" }}>
@@ -492,12 +489,15 @@ const QuickCourtOrder: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: "var(--colors-text-text-primary-900, #181D27)",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  color:
+                                    "var(--colors-text-text-primary-900, #181D27)",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-lg, 18px)",
                                   fontStyle: "normal",
                                   fontWeight: 600,
-                                  lineHeight: "var(--Line-height-text-lg, 28px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-lg, 28px)",
                                 }}
                               >
                                 Create Quick Court Order
@@ -548,12 +548,15 @@ const QuickCourtOrder: React.FC = () => {
                             >
                               <div
                                 style={{
-                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  color:
+                                    "var(--colors-text-text-secondary-700, #414651)",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-sm, 14px)",
                                   fontStyle: "normal",
                                   fontWeight: 600,
-                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-sm, 20px)",
                                 }}
                               >
                                 Submit Order For: Select User
@@ -799,8 +802,10 @@ const QuickCourtOrder: React.FC = () => {
                                   e.currentTarget.style.textDecoration = "none";
                                 }}
                                 onMouseLeave={(e) => {
-                                  e.currentTarget.style.background = "transparent";
-                                  e.currentTarget.style.textDecoration = "underline";
+                                  e.currentTarget.style.background =
+                                    "transparent";
+                                  e.currentTarget.style.textDecoration =
+                                    "underline";
                                 }}
                               >
                                 Copy
@@ -885,11 +890,19 @@ const QuickCourtOrder: React.FC = () => {
                               label=""
                               value={subject.firstName}
                               onChange={(e) =>
-                                handleSubjectChange(subject.id, "firstName", e.target.value)
+                                handleSubjectChange(
+                                  subject.id,
+                                  "firstName",
+                                  e.target.value,
+                                )
                               }
-                              onFocus={() => setFocusedInput(`firstName-${subject.id}`)}
+                              onFocus={() =>
+                                setFocusedInput(`firstName-${subject.id}`)
+                              }
                               onBlur={() => setFocusedInput(null)}
-                              isFocused={focusedInput === `firstName-${subject.id}`}
+                              isFocused={
+                                focusedInput === `firstName-${subject.id}`
+                              }
                               placeholder={index === 0 ? "John" : ""}
                               style={{
                                 width: "100%",
@@ -976,11 +989,19 @@ const QuickCourtOrder: React.FC = () => {
                               label=""
                               value={subject.middle}
                               onChange={(e) =>
-                                handleSubjectChange(subject.id, "middle", e.target.value)
+                                handleSubjectChange(
+                                  subject.id,
+                                  "middle",
+                                  e.target.value,
+                                )
                               }
-                              onFocus={() => setFocusedInput(`middle-${subject.id}`)}
+                              onFocus={() =>
+                                setFocusedInput(`middle-${subject.id}`)
+                              }
                               onBlur={() => setFocusedInput(null)}
-                              isFocused={focusedInput === `middle-${subject.id}`}
+                              isFocused={
+                                focusedInput === `middle-${subject.id}`
+                              }
                               placeholder={index === 0 ? "R" : ""}
                               style={{
                                 width: "100%",
@@ -1039,8 +1060,10 @@ const QuickCourtOrder: React.FC = () => {
                         >
                           <div
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 600,
@@ -1086,7 +1109,8 @@ const QuickCourtOrder: React.FC = () => {
                           <div
                             style={{
                               color: "var(--Colors-Text-text-white, #FFF)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 600,
@@ -1103,7 +1127,6 @@ const QuickCourtOrder: React.FC = () => {
               </div>
             </div>
           </div>
-
         </div>
       </main>
     </div>
