@@ -92,7 +92,8 @@ const QuickCourtOrder: React.FC = () => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (submitOrderForDropdownOpen) {
+      const target = event.target as Element;
+      if (submitOrderForDropdownOpen && target && !target.closest('[data-dropdown-container]')) {
         setSubmitOrderForDropdownOpen(false);
       }
     };
