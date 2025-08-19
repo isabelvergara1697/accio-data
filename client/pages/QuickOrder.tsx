@@ -53,10 +53,9 @@ const QuickOrder: React.FC = () => {
         county: "",
         dlNumber: "",
         mvrType: "",
-        dateOfBirth: "",
         socialSecurityTrace: "",
-        yearsIn: "",
-        comments: "",
+        gender: "",
+        dateOfBirth: "",
       });
     }
     return initialSubjects;
