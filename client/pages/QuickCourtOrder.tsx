@@ -590,11 +590,11 @@ const QuickCourtOrder: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                {/* Table - Custom Figma Structure */}
+                {/* Table */}
                 <div
                   style={{
                     display: "flex",
-                    padding: "12px 16px 16px 16px",
+                    padding: "0px 16px 16px 16px",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     width: "100%",
@@ -604,16 +604,16 @@ const QuickCourtOrder: React.FC = () => {
                     borderLeft: "1px solid #E9EAEB",
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    marginTop: "-1px",
                   }}
                 >
-                  {/* Widget Content - Matching Figma Structure */}
                   <div
                     style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      width: "100%",
                       overflowX: "auto",
-                      background: "#FFF",
+                      overflowY: "hidden",
+                      width: "100%",
+                      maxWidth: "100%",
+                      position: "relative",
                     }}
                   >
                     <Table style={{ minWidth: "600px", width: "auto", margin: "0", borderSpacing: "0", borderCollapse: "separate" }}>
@@ -625,7 +625,6 @@ const QuickCourtOrder: React.FC = () => {
                               padding: "6px 12px",
                               borderBottom: "1px solid #E9EAEB",
                               background: "#FFF",
-                              width: "171px",
                               minWidth: "171px",
                             }}
                           >
@@ -642,168 +641,144 @@ const QuickCourtOrder: React.FC = () => {
                             </span>
                           </TableHead>
                           <TableHead
-                            style={{
-                              height: "36px",
-                              padding: "6px 12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              minWidth: "120px",
-                            }}
+                            style={{ minWidth: "120px", padding: "12px 16px" }}
                           >
                             <span
                               style={{
-                                color: "var(--colors-text-text-quaternary-500, #717680)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-xs, 12px)",
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
                                 fontWeight: 600,
-                                lineHeight: "var(--Line-height-text-xs, 18px)",
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
                               }}
                             >
                               First Name
                             </span>
                           </TableHead>
                           <TableHead
-                            style={{
-                              height: "36px",
-                              padding: "6px 12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              minWidth: "100px",
-                            }}
+                            style={{ minWidth: "100px", padding: "12px 16px" }}
                           >
                             <span
                               style={{
-                                color: "var(--colors-text-text-quaternary-500, #717680)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-xs, 12px)",
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
                                 fontWeight: 600,
-                                lineHeight: "var(--Line-height-text-xs, 18px)",
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
                               }}
                             >
                               Middle
                             </span>
                           </TableHead>
                           <TableHead
-                            style={{
-                              height: "36px",
-                              padding: "6px 12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              minWidth: "120px",
-                            }}
+                            style={{ minWidth: "120px", padding: "12px 16px" }}
                           >
                             <span
                               style={{
-                                color: "var(--colors-text-text-quaternary-500, #717680)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-xs, 12px)",
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
                                 fontWeight: 600,
-                                lineHeight: "var(--Line-height-text-xs, 18px)",
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
                               }}
                             >
                               Last Name
                             </span>
                           </TableHead>
                           <TableHead
-                            style={{
-                              height: "36px",
-                              padding: "6px 12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              minWidth: "100px",
-                            }}
+                            style={{ minWidth: "100px", padding: "12px 16px" }}
                           >
                             <span
                               style={{
-                                color: "var(--colors-text-text-quaternary-500, #717680)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-xs, 12px)",
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
                                 fontWeight: 600,
-                                lineHeight: "var(--Line-height-text-xs, 18px)",
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
                               }}
                             >
                               State
                             </span>
                           </TableHead>
                           <TableHead
-                            style={{
-                              height: "36px",
-                              padding: "6px 12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              minWidth: "100px",
-                            }}
+                            style={{ minWidth: "100px", padding: "12px 16px" }}
                           >
                             <span
                               style={{
-                                color: "var(--colors-text-text-quaternary-500, #717680)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-xs, 12px)",
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
                                 fontWeight: 600,
-                                lineHeight: "var(--Line-height-text-xs, 18px)",
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
                               }}
                             >
                               County
                             </span>
                           </TableHead>
                           <TableHead
-                            style={{
-                              height: "36px",
-                              padding: "6px 12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              minWidth: "140px",
-                            }}
+                            style={{ minWidth: "140px", padding: "12px 16px" }}
                           >
                             <span
                               style={{
-                                color: "var(--colors-text-text-quaternary-500, #717680)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-xs, 12px)",
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
                                 fontWeight: 600,
-                                lineHeight: "var(--Line-height-text-xs, 18px)",
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
                               }}
                             >
                               Date of Birth
                             </span>
                           </TableHead>
                           <TableHead
-                            style={{
-                              height: "36px",
-                              padding: "6px 12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              minWidth: "160px",
-                            }}
+                            style={{ minWidth: "160px", padding: "12px 16px" }}
                           >
                             <span
                               style={{
-                                color: "var(--colors-text-text-quaternary-500, #717680)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-xs, 12px)",
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
                                 fontWeight: 600,
-                                lineHeight: "var(--Line-height-text-xs, 18px)",
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
                               }}
                             >
                               Social Security Trace
                             </span>
                           </TableHead>
                           <TableHead
-                            style={{
-                              height: "36px",
-                              padding: "6px 12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              minWidth: "100px",
-                            }}
+                            style={{ minWidth: "100px", padding: "12px 16px" }}
                           >
                             <span
                               style={{
-                                color: "var(--colors-text-text-quaternary-500, #717680)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-xs, 12px)",
+                                color: "#535862",
+                                fontFamily:
+                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                fontSize: "12px",
                                 fontWeight: 600,
-                                lineHeight: "var(--Line-height-text-xs, 18px)",
+                                lineHeight: "18px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.5px",
                               }}
                             >
                               Years In
