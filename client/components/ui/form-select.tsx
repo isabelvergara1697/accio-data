@@ -135,10 +135,10 @@ export default function FormSelect({
                 color: selectedOption ? "#181D27" : "#717680",
                 fontFamily:
                   "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                fontSize: "16px",
+                fontSize: "14px",
                 fontStyle: "normal",
-                fontWeight: 400,
-                lineHeight: "24px",
+                fontWeight: 500,
+                lineHeight: "20px",
               }}
             >
               {selectedOption ? selectedOption.label : placeholder}
