@@ -3486,12 +3486,17 @@ const I9Order: React.FC = () => {
                                         <input
                                           type="text"
                                           placeholder="John"
+                                          value={remoteEmployeeInfo.firstName}
+                                          onChange={(e) => setRemoteEmployeeInfo(prev => ({
+                                            ...prev,
+                                            firstName: e.target.value
+                                          }))}
                                           style={{
                                             flex: "1 0 0",
                                             border: "none",
                                             outline: "none",
                                             background: "transparent",
-                                            color: "#717680",
+                                            color: remoteEmployeeInfo.firstName ? "#181D27" : "#717680",
                                             fontFamily:
                                               "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                                             fontSize: "14px",
