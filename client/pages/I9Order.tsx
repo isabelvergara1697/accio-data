@@ -561,6 +561,8 @@ const I9Order: React.FC = () => {
                         ? "650px"
                         : selectedIndividualType === "new-individual" && selectedNewIndividualOption === "together"
                         ? "750px"
+                        : selectedIndividualType === "new-individual" && selectedNewIndividualOption === "remote"
+                        ? "1200px"
                         : selectedIndividualType === "new-individual"
                         ? "300px"
                         : "218px",
