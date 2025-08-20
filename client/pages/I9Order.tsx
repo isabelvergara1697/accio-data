@@ -2996,6 +2996,7 @@ const I9Order: React.FC = () => {
 
                               {/* Create I-9 Form Button */}
                               <button
+                                disabled={!isValidTogetherOption()}
                                 style={{
                                   display: "flex",
                                   minHeight: "36px",
@@ -3005,13 +3006,29 @@ const I9Order: React.FC = () => {
                                   gap: "4px",
                                   borderRadius: "8px",
                                   border: "2px solid rgba(255, 255, 255, 0.12)",
-                                  background: "#344698",
-                                  boxShadow:
-                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                  cursor: "pointer",
+                                  background: isValidTogetherOption() ? "#344698" : "#A4A7AE",
+                                  boxShadow: isValidTogetherOption()
+                                    ? "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)"
+                                    : "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: isValidTogetherOption() ? "pointer" : "not-allowed",
                                   alignSelf: "flex-start",
+                                  opacity: isValidTogetherOption() ? 1 : 0.6,
                                 }}
-                                onClick={() => console.log("Create I-9 Form clicked")}
+                                onClick={() => {
+                                  if (isValidTogetherOption()) {
+                                    console.log("Create I-9 Form clicked - Together Option");
+                                  }
+                                }}
+                                onMouseEnter={(e) => {
+                                  if (isValidTogetherOption()) {
+                                    e.currentTarget.style.background = "#2A3A7A";
+                                  }
+                                }}
+                                onMouseLeave={(e) => {
+                                  if (isValidTogetherOption()) {
+                                    e.currentTarget.style.background = "#344698";
+                                  }
+                                }}
                               >
                                 <div
                                   style={{
@@ -3046,6 +3063,24 @@ const I9Order: React.FC = () => {
                                   </div>
                                 </div>
                               </button>
+
+                              {/* Validation message for together option */}
+                              {!isValidTogetherOption() && (
+                                <div
+                                  style={{
+                                    color: "#DC2626",
+                                    fontFamily:
+                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "16px",
+                                    marginTop: "4px",
+                                  }}
+                                >
+                                  Please fill all required fields and select invitation and form options before continuing.
+                                </div>
+                              )}
 
                               {/* Content divider */}
                               <div
