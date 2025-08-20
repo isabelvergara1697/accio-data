@@ -3154,7 +3154,7 @@ const I9Order: React.FC = () => {
                                         border: "1px solid #D5D7DA",
                                         background: "#FFF",
                                         boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                        color: "#181D27",
+                                        color: togetherBillingIdentifiers[`billing${num}`] ? "#181D27" : "#717680",
                                         fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                                         fontSize: "14px",
                                         fontStyle: "normal",
