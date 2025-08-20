@@ -2108,7 +2108,7 @@ const I9Order: React.FC = () => {
                                 padding: "12px 8px",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
-                                gap: "12px",
+                                gap: "20px",
                                 alignSelf: "stretch",
                                 borderRadius: "8px",
                                 background: "#FAFAFA",
