@@ -2138,7 +2138,7 @@ const I9Order: React.FC = () => {
                                   display: "flex",
                                   flexDirection: "column",
                                   alignItems: "flex-start",
-                                  gap: "8px",
+                                  gap: "12px",
                                   alignSelf: "stretch",
                                 }}
                               >
