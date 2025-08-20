@@ -1706,7 +1706,13 @@ const I9Order: React.FC = () => {
                                             </span>
                                           </div>
                                         </div>
-                                        <div
+                                        <input
+                                          type="text"
+                                          value={billingIdentifiers[`billing${num}`] || ""}
+                                          onChange={(e) => setBillingIdentifiers(prev => ({
+                                            ...prev,
+                                            [`billing${num}`]: e.target.value
+                                          }))}
                                           style={{
                                             display: "flex",
                                             height: "32px",
@@ -1717,21 +1723,24 @@ const I9Order: React.FC = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow:
-                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            color: "#181D27",
+                                            fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                            outline: "none",
                                           }}
-                                        >
-                                          <div
-                                            style={{
-                                              display: "flex",
-                                              height: "24px",
-                                              padding: "2px 0",
-                                              alignItems: "center",
-                                              gap: "8px",
-                                              flex: "1 0 0",
-                                            }}
-                                          />
-                                        </div>
+                                          onFocus={(e) => {
+                                            e.target.style.border = "1px solid #344698";
+                                            e.target.style.boxShadow = "0 0 0 3px rgba(52, 70, 152, 0.1), 0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                          }}
+                                          onBlur={(e) => {
+                                            e.target.style.border = "1px solid #D5D7DA";
+                                            e.target.style.boxShadow = "0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                          }}
+                                        />
                                       </div>
                                     </div>
                                   ))}
