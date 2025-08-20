@@ -459,26 +459,16 @@ const I9Order: React.FC = () => {
                     <div
                       style={{
                         alignSelf: "stretch",
-                        color: "#181D27",
+                        color: "var(--colors-text-text-primary-900, #181D27)",
                         fontFamily:
-                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                        fontSize: "24px",
+                          "var(--Font-family-font-family-display, 'Public Sans')",
+                        fontSize: "var(--Font-size-display-xs, 24px)",
                         fontStyle: "normal",
                         fontWeight: 600,
-                        lineHeight: "32px",
+                        lineHeight: "var(--Line-height-display-xs, 32px)",
                       }}
                     >
-                      <span
-                        style={{
-                          fontFamily:
-                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                          fontWeight: 700,
-                          fontSize: "24px",
-                          color: "rgba(24,29,39,1)",
-                        }}
-                      >
-                        I-9 Order
-                      </span>
+                      I-9 Order
                     </div>
                     {/* Supporting text */}
                     <div
@@ -608,26 +598,16 @@ const I9Order: React.FC = () => {
                           >
                             <div
                               style={{
-                                color: "#181D27",
+                                color: "var(--colors-text-text-primary-900, #181D27)",
                                 fontFamily:
-                                  "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                                fontSize: "18px",
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-lg, 18px)",
                                 fontStyle: "normal",
                                 fontWeight: 600,
-                                lineHeight: "28px",
+                                lineHeight: "var(--Line-height-text-lg, 28px)",
                               }}
                             >
-                              <span
-                                style={{
-                                  fontFamily:
-                                    "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                  fontWeight: 700,
-                                  fontSize: "18px",
-                                  color: "rgba(24,29,39,1)",
-                                }}
-                              >
-                                Create New I-9 Document
-                              </span>
+                              Create New I-9 Document
                             </div>
                           </div>
                         </div>
