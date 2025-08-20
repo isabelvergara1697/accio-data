@@ -3174,6 +3174,143 @@ const I9Order: React.FC = () => {
                                   </div>
                                 ))}
                               </div>
+
+                              {/* Additional checkbox options for mobile view */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  cursor: "pointer",
+                                }}
+                                onClick={() => setSelectedInvitationOption(selectedInvitationOption === "employee-email" ? "" : "employee-email")}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    paddingTop: "2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      borderRadius: "9999px",
+                                      border: selectedInvitationOption === "employee-email" ? "none" : "1px solid #D5D7DA",
+                                      background: selectedInvitationOption === "employee-email" ? "#344698" : "#FFF",
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {selectedInvitationOption === "employee-email" && (
+                                      <div
+                                        style={{
+                                          width: "6px",
+                                          height: "6px",
+                                          borderRadius: "9999px",
+                                          background: "#FFF",
+                                          position: "absolute",
+                                        }}
+                                      />
+                                    )}
+                                  </div>
+                                </div>
+                                <div
+                                  style={{
+                                    flex: "1 0 0",
+                                    color: "#414651",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Send employee email to fill/verify and sign Section I
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  cursor: "pointer",
+                                }}
+                                onClick={() => setSelectedInvitationOption(selectedInvitationOption === "remote-employee" ? "" : "remote-employee")}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    paddingTop: "2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      borderRadius: "9999px",
+                                      border: selectedInvitationOption === "remote-employee" ? "none" : "1px solid #D5D7DA",
+                                      background: selectedInvitationOption === "remote-employee" ? "#344698" : "#FFF",
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {selectedInvitationOption === "remote-employee" && (
+                                      <div
+                                        style={{
+                                          width: "6px",
+                                          height: "6px",
+                                          borderRadius: "9999px",
+                                          background: "#FFF",
+                                          position: "absolute",
+                                        }}
+                                      />
+                                    )}
+                                  </div>
+                                </div>
+                                <div
+                                  style={{
+                                    flex: "1 0 0",
+                                    color: "#414651",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Remote Employee — Send employee email to fill/verify and sign section 1, then send section 2 to an authorized representative.
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                             )}
                           </div>
