@@ -27,6 +27,14 @@ const I9Order: React.FC = () => {
     Array<{ id: string; firstName: string; lastName: string; email: string }>
   >([]);
 
+  // Form options state
+  const [selectedFormOption, setSelectedFormOption] = useState<string>("");
+
+  // Billing identifier states
+  const [billingIdentifiers, setBillingIdentifiers] = useState<{
+    [key: string]: string;
+  }>({});
+
   // Sample background check data
   const backgroundCheckData = [
     {
@@ -1418,7 +1426,7 @@ const I9Order: React.FC = () => {
                                         gap: "8px",
                                         cursor: "pointer",
                                       }}
-                                      onClick={() => console.log("Create and save selected")}
+                                      onClick={() => setSelectedFormOption("create-save")}
                                     >
                                       <div
                                         style={{
@@ -1433,10 +1441,26 @@ const I9Order: React.FC = () => {
                                             width: "16px",
                                             height: "16px",
                                             borderRadius: "9999px",
-                                            border: "1px solid #D5D7DA",
-                                            background: "#FFF",
+                                            border: selectedFormOption === "create-save" ? "none" : "1px solid #D5D7DA",
+                                            background: selectedFormOption === "create-save" ? "#344698" : "#FFF",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            position: "relative",
                                           }}
-                                        />
+                                        >
+                                          {selectedFormOption === "create-save" && (
+                                            <div
+                                              style={{
+                                                width: "6px",
+                                                height: "6px",
+                                                borderRadius: "9999px",
+                                                background: "#FFF",
+                                                position: "absolute",
+                                              }}
+                                            />
+                                          )}
+                                        </div>
                                       </div>
                                       <div
                                         style={{
@@ -1487,7 +1511,7 @@ const I9Order: React.FC = () => {
                                         gap: "8px",
                                         cursor: "pointer",
                                       }}
-                                      onClick={() => console.log("Create, save and verify selected")}
+                                      onClick={() => setSelectedFormOption("create-save-verify")}
                                     >
                                       <div
                                         style={{
@@ -1502,10 +1526,26 @@ const I9Order: React.FC = () => {
                                             width: "16px",
                                             height: "16px",
                                             borderRadius: "9999px",
-                                            border: "1px solid #D5D7DA",
-                                            background: "#FFF",
+                                            border: selectedFormOption === "create-save-verify" ? "none" : "1px solid #D5D7DA",
+                                            background: selectedFormOption === "create-save-verify" ? "#344698" : "#FFF",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            position: "relative",
                                           }}
-                                        />
+                                        >
+                                          {selectedFormOption === "create-save-verify" && (
+                                            <div
+                                              style={{
+                                                width: "6px",
+                                                height: "6px",
+                                                borderRadius: "9999px",
+                                                background: "#FFF",
+                                                position: "absolute",
+                                              }}
+                                            />
+                                          )}
+                                        </div>
                                       </div>
                                       <div
                                         style={{
