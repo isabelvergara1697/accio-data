@@ -4866,6 +4866,7 @@ const I9Order: React.FC = () => {
                                         gap: "8px",
                                         cursor: "pointer",
                                       }}
+                                      onClick={() => setSelectedRemoteFormOption("create-save")}
                                     >
                                       <div
                                         style={{
@@ -4880,10 +4881,26 @@ const I9Order: React.FC = () => {
                                             width: "16px",
                                             height: "16px",
                                             borderRadius: "9999px",
-                                            border: "1px solid #D5D7DA",
-                                            background: "#FFF",
+                                            border: selectedRemoteFormOption === "create-save" ? "none" : "1px solid #D5D7DA",
+                                            background: selectedRemoteFormOption === "create-save" ? "#344698" : "#FFF",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            position: "relative",
                                           }}
-                                        />
+                                        >
+                                          {selectedRemoteFormOption === "create-save" && (
+                                            <div
+                                              style={{
+                                                width: "6px",
+                                                height: "6px",
+                                                borderRadius: "9999px",
+                                                background: "#FFF",
+                                                position: "absolute",
+                                              }}
+                                            />
+                                          )}
+                                        </div>
                                       </div>
                                       <div
                                         style={{
@@ -4934,6 +4951,7 @@ const I9Order: React.FC = () => {
                                         gap: "8px",
                                         cursor: "pointer",
                                       }}
+                                      onClick={() => setSelectedRemoteFormOption("create-save-verify")}
                                     >
                                       <div
                                         style={{
@@ -4948,10 +4966,26 @@ const I9Order: React.FC = () => {
                                             width: "16px",
                                             height: "16px",
                                             borderRadius: "9999px",
-                                            border: "1px solid #D5D7DA",
-                                            background: "#FFF",
+                                            border: selectedRemoteFormOption === "create-save-verify" ? "none" : "1px solid #D5D7DA",
+                                            background: selectedRemoteFormOption === "create-save-verify" ? "#344698" : "#FFF",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            position: "relative",
                                           }}
-                                        />
+                                        >
+                                          {selectedRemoteFormOption === "create-save-verify" && (
+                                            <div
+                                              style={{
+                                                width: "6px",
+                                                height: "6px",
+                                                borderRadius: "9999px",
+                                                background: "#FFF",
+                                                position: "absolute",
+                                              }}
+                                            />
+                                          )}
+                                        </div>
                                       </div>
                                       <div
                                         style={{
