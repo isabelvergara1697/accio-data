@@ -3108,8 +3108,9 @@ const I9Order: React.FC = () => {
                                       flexDirection: "column",
                                       alignItems: "flex-start",
                                       gap: "6px",
-                                      flex: "1 0 0",
-                                      minWidth: "150px",
+                                      flex: isMobile ? "none" : "1 0 0",
+                                      width: isMobile ? "100%" : "auto",
+                                      minWidth: isMobile ? "auto" : "150px",
                                     }}
                                   >
                                     <div
