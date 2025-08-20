@@ -2105,13 +2105,10 @@ const I9Order: React.FC = () => {
                             <div
                               style={{
                                 display: "flex",
-                                padding: "12px 8px",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
                                 gap: "20px",
                                 alignSelf: "stretch",
-                                borderRadius: "8px",
-                                background: "#FAFAFA",
                               }}
                             >
                               {/* Content divider */}
