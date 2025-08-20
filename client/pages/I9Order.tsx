@@ -3828,6 +3828,7 @@ const I9Order: React.FC = () => {
                                         gap: "8px",
                                         cursor: "pointer",
                                       }}
+                                      onClick={() => setSelectedRemoteRepresentativeOption("employer")}
                                     >
                                       <div
                                         style={{
@@ -3842,10 +3843,26 @@ const I9Order: React.FC = () => {
                                             width: "16px",
                                             height: "16px",
                                             borderRadius: "9999px",
-                                            border: "1px solid #D5D7DA",
-                                            background: "#FFF",
+                                            border: selectedRemoteRepresentativeOption === "employer" ? "none" : "1px solid #D5D7DA",
+                                            background: selectedRemoteRepresentativeOption === "employer" ? "#344698" : "#FFF",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            position: "relative",
                                           }}
-                                        />
+                                        >
+                                          {selectedRemoteRepresentativeOption === "employer" && (
+                                            <div
+                                              style={{
+                                                width: "6px",
+                                                height: "6px",
+                                                borderRadius: "9999px",
+                                                background: "#FFF",
+                                                position: "absolute",
+                                              }}
+                                            />
+                                          )}
+                                        </div>
                                       </div>
                                       <div
                                         style={{
