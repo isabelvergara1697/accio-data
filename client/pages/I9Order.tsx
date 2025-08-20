@@ -61,6 +61,43 @@ const I9Order: React.FC = () => {
     [key: string]: string;
   }>({});
 
+  // Remote employee states
+  const [remoteEmployeeInfo, setRemoteEmployeeInfo] = useState<{
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    hireDate: string;
+  }>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    hireDate: "",
+  });
+
+  const [remoteRepresentativeInfo, setRemoteRepresentativeInfo] = useState<{
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    address: string;
+    city: string;
+    zipCode: string;
+  }>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
+    city: "",
+    zipCode: "",
+  });
+
+  const [selectedRemoteRepresentativeOption, setSelectedRemoteRepresentativeOption] = useState<string>("");
+  const [selectedRemoteInvitationOption, setSelectedRemoteInvitationOption] = useState<string>("");
+  const [selectedRemoteFormOption, setSelectedRemoteFormOption] = useState<string>("");
+
   // Sample background check data
   const backgroundCheckData = [
     {
