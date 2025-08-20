@@ -3089,17 +3089,18 @@ const I9Order: React.FC = () => {
                                 />
                               </div>
 
-                              {/* Billing Identifier Fields - First Row */}
+                              {/* Billing Identifier Fields */}
                               <div
                                 style={{
                                   display: "flex",
+                                  flexDirection: isMobile ? "column" : "row",
                                   alignItems: "flex-start",
-                                  gap: "24px",
+                                  gap: isMobile ? "16px" : "24px",
                                   alignSelf: "stretch",
-                                  flexWrap: "wrap",
+                                  flexWrap: isMobile ? "nowrap" : "wrap",
                                 }}
                               >
-                                {[1, 2, 3, 4, 5].map((num) => (
+                                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                                   <div
                                     key={num}
                                     style={{
