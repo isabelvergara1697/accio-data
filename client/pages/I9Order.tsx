@@ -176,6 +176,55 @@ const I9Order: React.FC = () => {
     console.log("Sign out");
   };
 
+  // Validation functions
+  const isValidSendEmailOption = () => {
+    return selectedFormOption !== "";
+  };
+
+  const isValidTogetherOption = () => {
+    const requiredEmployeeFields = [
+      employeeInfo.firstName,
+      employeeInfo.lastName,
+      employeeInfo.email,
+      employeeInfo.phoneNumber,
+      employeeInfo.hireDate,
+    ];
+
+    const allEmployeeFieldsFilled = requiredEmployeeFields.every(field => field.trim() !== "");
+    const invitationSelected = selectedInvitationOption !== "";
+    const formOptionSelected = selectedTogetherFormOption !== "";
+
+    return allEmployeeFieldsFilled && invitationSelected && formOptionSelected;
+  };
+
+  const isValidRemoteOption = () => {
+    const requiredEmployeeFields = [
+      remoteEmployeeInfo.firstName,
+      remoteEmployeeInfo.lastName,
+      remoteEmployeeInfo.email,
+      remoteEmployeeInfo.phoneNumber,
+      remoteEmployeeInfo.hireDate,
+    ];
+
+    const requiredRepresentativeFields = [
+      remoteRepresentativeInfo.firstName,
+      remoteRepresentativeInfo.lastName,
+      remoteRepresentativeInfo.email,
+      remoteRepresentativeInfo.phoneNumber,
+      remoteRepresentativeInfo.address,
+      remoteRepresentativeInfo.city,
+      remoteRepresentativeInfo.zipCode,
+    ];
+
+    const allEmployeeFieldsFilled = requiredEmployeeFields.every(field => field.trim() !== "");
+    const allRepresentativeFieldsFilled = requiredRepresentativeFields.every(field => field.trim() !== "");
+    const representativeOptionSelected = selectedRemoteRepresentativeOption !== "";
+    const invitationSelected = selectedRemoteInvitationOption !== "";
+    const formOptionSelected = selectedRemoteFormOption !== "";
+
+    return allEmployeeFieldsFilled && allRepresentativeFieldsFilled && representativeOptionSelected && invitationSelected && formOptionSelected;
+  };
+
   // Handle search input changes
   const handleSearchChange = (value: string) => {
     setSearchQuery(value);
