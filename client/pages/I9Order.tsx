@@ -462,10 +462,10 @@ const I9Order: React.FC = () => {
                         color: "var(--colors-text-text-primary-900, #181D27)",
                         fontFamily:
                           "var(--Font-family-font-family-display, 'Public Sans')",
-                        fontSize: "var(--Font-size-display-xs, 24px)",
+                        fontSize: isDesktop ? "var(--Font-size-display-xs, 24px)" : "var(--Font-size-text-xl, 20px)",
                         fontStyle: "normal",
                         fontWeight: 600,
-                        lineHeight: "var(--Line-height-display-xs, 32px)",
+                        lineHeight: isDesktop ? "var(--Line-height-display-xs, 32px)" : "var(--Line-height-text-xl, 30px)",
                       }}
                     >
                       I-9 Order
