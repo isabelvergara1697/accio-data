@@ -4567,6 +4567,7 @@ const I9Order: React.FC = () => {
                                         gap: "8px",
                                         cursor: "pointer",
                                       }}
+                                      onClick={() => setSelectedRemoteInvitationOption("email")}
                                     >
                                       <div
                                         style={{
@@ -4581,10 +4582,26 @@ const I9Order: React.FC = () => {
                                             width: "16px",
                                             height: "16px",
                                             borderRadius: "9999px",
-                                            border: "1px solid #D5D7DA",
-                                            background: "#FFF",
+                                            border: selectedRemoteInvitationOption === "email" ? "none" : "1px solid #D5D7DA",
+                                            background: selectedRemoteInvitationOption === "email" ? "#344698" : "#FFF",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            position: "relative",
                                           }}
-                                        />
+                                        >
+                                          {selectedRemoteInvitationOption === "email" && (
+                                            <div
+                                              style={{
+                                                width: "6px",
+                                                height: "6px",
+                                                borderRadius: "9999px",
+                                                background: "#FFF",
+                                                position: "absolute",
+                                              }}
+                                            />
+                                          )}
+                                        </div>
                                       </div>
                                       <div
                                         style={{
@@ -4635,6 +4652,7 @@ const I9Order: React.FC = () => {
                                         gap: "8px",
                                         cursor: "pointer",
                                       }}
+                                      onClick={() => setSelectedRemoteInvitationOption("sms")}
                                     >
                                       <div
                                         style={{
@@ -4649,10 +4667,26 @@ const I9Order: React.FC = () => {
                                             width: "16px",
                                             height: "16px",
                                             borderRadius: "9999px",
-                                            border: "1px solid #D5D7DA",
-                                            background: "#FFF",
+                                            border: selectedRemoteInvitationOption === "sms" ? "none" : "1px solid #D5D7DA",
+                                            background: selectedRemoteInvitationOption === "sms" ? "#344698" : "#FFF",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            position: "relative",
                                           }}
-                                        />
+                                        >
+                                          {selectedRemoteInvitationOption === "sms" && (
+                                            <div
+                                              style={{
+                                                width: "6px",
+                                                height: "6px",
+                                                borderRadius: "9999px",
+                                                background: "#FFF",
+                                                position: "absolute",
+                                              }}
+                                            />
+                                          )}
+                                        </div>
                                       </div>
                                       <div
                                         style={{
@@ -4703,6 +4737,7 @@ const I9Order: React.FC = () => {
                                         gap: "8px",
                                         cursor: "pointer",
                                       }}
+                                      onClick={() => setSelectedRemoteInvitationOption("both")}
                                     >
                                       <div
                                         style={{
@@ -4717,10 +4752,26 @@ const I9Order: React.FC = () => {
                                             width: "16px",
                                             height: "16px",
                                             borderRadius: "9999px",
-                                            border: "1px solid #D5D7DA",
-                                            background: "#FFF",
+                                            border: selectedRemoteInvitationOption === "both" ? "none" : "1px solid #D5D7DA",
+                                            background: selectedRemoteInvitationOption === "both" ? "#344698" : "#FFF",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            position: "relative",
                                           }}
-                                        />
+                                        >
+                                          {selectedRemoteInvitationOption === "both" && (
+                                            <div
+                                              style={{
+                                                width: "6px",
+                                                height: "6px",
+                                                borderRadius: "9999px",
+                                                background: "#FFF",
+                                                position: "absolute",
+                                              }}
+                                            />
+                                          )}
+                                        </div>
                                       </div>
                                       <div
                                         style={{
