@@ -2006,14 +2006,14 @@ const I9Order: React.FC = () => {
                           <div
                             style={{
                               display: "flex",
+                              padding: selectedNewIndividualOption === "together" ? "12px 8px" : "0",
+                              flexDirection: "column",
                               alignItems: "flex-start",
-                              gap: "8px",
+                              gap: selectedNewIndividualOption === "together" ? "20px" : "0",
                               alignSelf: "stretch",
-                              cursor: "pointer",
+                              borderRadius: "8px",
+                              background: selectedNewIndividualOption === "together" ? "#FAFAFA" : "transparent",
                             }}
-                            onClick={() =>
-                              setSelectedNewIndividualOption("together")
-                            }
                           >
                             <div
                               style={{
