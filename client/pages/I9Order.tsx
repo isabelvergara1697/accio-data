@@ -1975,6 +1975,1141 @@ const I9Order: React.FC = () => {
                             </div>
                           </div>
 
+                          {/* Inline form content for together option */}
+                          {selectedNewIndividualOption === "together" && (
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "12px 8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderRadius: "8px",
+                                background: "#FAFAFA",
+                              }}
+                            >
+                              {/* Content divider */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    height: "1px",
+                                    flex: "1 0 0",
+                                    background: "#E9EAEB",
+                                  }}
+                                />
+                              </div>
+
+                              {/* Employee Information */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    width: "100%",
+                                    color: "#414651",
+                                    fontFamily:
+                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Employee Information
+                                  </span>
+                                </div>
+
+                                {/* Employee Information Row */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "24px",
+                                    alignSelf: "stretch",
+                                    flexWrap: "wrap",
+                                  }}
+                                >
+                                  {/* First Name */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flex: "1 0 0",
+                                      minWidth: "180px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        First Name
+                                      </span>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      value={employeeInfo.firstName}
+                                      onChange={(e) => setEmployeeInfo(prev => ({
+                                        ...prev,
+                                        firstName: e.target.value
+                                      }))}
+                                      placeholder="John"
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#181D27",
+                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                      }}
+                                      onFocus={(e) => {
+                                        e.target.style.border = "1px solid #344698";
+                                        e.target.style.boxShadow = "0 0 0 3px rgba(52, 70, 152, 0.1), 0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                      onBlur={(e) => {
+                                        e.target.style.border = "1px solid #D5D7DA";
+                                        e.target.style.boxShadow = "0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                    />
+                                  </div>
+
+                                  {/* Last Name */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flex: "1 0 0",
+                                      minWidth: "180px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Last Name
+                                      </span>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      value={employeeInfo.lastName}
+                                      onChange={(e) => setEmployeeInfo(prev => ({
+                                        ...prev,
+                                        lastName: e.target.value
+                                      }))}
+                                      placeholder="Doe"
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#181D27",
+                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                      }}
+                                      onFocus={(e) => {
+                                        e.target.style.border = "1px solid #344698";
+                                        e.target.style.boxShadow = "0 0 0 3px rgba(52, 70, 152, 0.1), 0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                      onBlur={(e) => {
+                                        e.target.style.border = "1px solid #D5D7DA";
+                                        e.target.style.boxShadow = "0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                    />
+                                  </div>
+
+                                  {/* Email */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flex: "1 0 0",
+                                      minWidth: "180px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Email
+                                      </span>
+                                    </div>
+                                    <input
+                                      type="email"
+                                      value={employeeInfo.email}
+                                      onChange={(e) => setEmployeeInfo(prev => ({
+                                        ...prev,
+                                        email: e.target.value
+                                      }))}
+                                      placeholder="user@mail.com"
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#181D27",
+                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                      }}
+                                      onFocus={(e) => {
+                                        e.target.style.border = "1px solid #344698";
+                                        e.target.style.boxShadow = "0 0 0 3px rgba(52, 70, 152, 0.1), 0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                      onBlur={(e) => {
+                                        e.target.style.border = "1px solid #D5D7DA";
+                                        e.target.style.boxShadow = "0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                    />
+                                  </div>
+
+                                  {/* Phone Number */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flex: "1 0 0",
+                                      minWidth: "180px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Phone Number
+                                      </span>
+                                    </div>
+                                    <input
+                                      type="tel"
+                                      value={employeeInfo.phoneNumber}
+                                      onChange={(e) => setEmployeeInfo(prev => ({
+                                        ...prev,
+                                        phoneNumber: e.target.value
+                                      }))}
+                                      placeholder="+1 000 000 000"
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#181D27",
+                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                      }}
+                                      onFocus={(e) => {
+                                        e.target.style.border = "1px solid #344698";
+                                        e.target.style.boxShadow = "0 0 0 3px rgba(52, 70, 152, 0.1), 0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                      onBlur={(e) => {
+                                        e.target.style.border = "1px solid #D5D7DA";
+                                        e.target.style.boxShadow = "0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                    />
+                                  </div>
+
+                                  {/* Hire Date */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flex: "1 0 0",
+                                      minWidth: "180px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Hire Date
+                                      </span>
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        position: "relative",
+                                      }}
+                                    >
+                                      <svg
+                                        style={{
+                                          width: "16px",
+                                          height: "16px",
+                                        }}
+                                        width="17"
+                                        height="16"
+                                        viewBox="0 0 17 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M14.7998 6.66665H2.7998M11.4665 1.33331V3.99998M6.13314 1.33331V3.99998M5.9998 14.6666H11.5998C12.7199 14.6666 13.28 14.6666 13.7078 14.4487C14.0841 14.2569 14.3901 13.951 14.5818 13.5746C14.7998 13.1468 14.7998 12.5868 14.7998 11.4666V5.86665C14.7998 4.74654 14.7998 4.18649 14.5818 3.75867C14.3901 3.38234 14.0841 3.07638 13.7078 2.88463C13.28 2.66665 12.7199 2.66665 11.5998 2.66665H5.9998C4.8797 2.66665 4.31965 2.66665 3.89182 2.88463C3.5155 3.07638 3.20954 3.38234 3.01779 3.75867C2.7998 4.18649 2.7998 4.74654 2.7998 5.86665V11.4666C2.7998 12.5868 2.7998 13.1468 3.01779 13.5746C3.20954 13.951 3.5155 14.2569 3.89182 14.4487C4.31965 14.6666 4.8797 14.6666 5.9998 14.6666Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                      <input
+                                        type="text"
+                                        value={employeeInfo.hireDate}
+                                        onChange={(e) => setEmployeeInfo(prev => ({
+                                          ...prev,
+                                          hireDate: e.target.value
+                                        }))}
+                                        placeholder="00/00/00"
+                                        style={{
+                                          flex: "1 0 0",
+                                          border: "none",
+                                          outline: "none",
+                                          background: "transparent",
+                                          color: "#181D27",
+                                          fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 400,
+                                          lineHeight: "20px",
+                                        }}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Invitation Options */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    width: "100%",
+                                    color: "#414651",
+                                    fontFamily:
+                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Invitation Options:
+                                  </span>
+                                </div>
+
+                                {/* Invitation Options Container */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "24px",
+                                    flexWrap: "wrap",
+                                  }}
+                                >
+                                  {/* Send Invite by Email */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      cursor: "pointer",
+                                    }}
+                                    onClick={() => setSelectedInvitationOption("email")}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        paddingTop: "2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          width: "16px",
+                                          height: "16px",
+                                          borderRadius: "9999px",
+                                          border: selectedInvitationOption === "email" ? "none" : "1px solid #D5D7DA",
+                                          background: selectedInvitationOption === "email" ? "#344698" : "#FFF",
+                                          display: "flex",
+                                          alignItems: "center",
+                                          justifyContent: "center",
+                                          position: "relative",
+                                        }}
+                                      >
+                                        {selectedInvitationOption === "email" && (
+                                          <div
+                                            style={{
+                                              width: "6px",
+                                              height: "6px",
+                                              borderRadius: "9999px",
+                                              background: "#FFF",
+                                              position: "absolute",
+                                            }}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Send Invite by Email
+                                      </span>
+                                    </div>
+                                  </div>
+
+                                  {/* Send Invite by SMS Text First */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      cursor: "pointer",
+                                    }}
+                                    onClick={() => setSelectedInvitationOption("sms")}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        paddingTop: "2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          width: "16px",
+                                          height: "16px",
+                                          borderRadius: "9999px",
+                                          border: selectedInvitationOption === "sms" ? "none" : "1px solid #D5D7DA",
+                                          background: selectedInvitationOption === "sms" ? "#344698" : "#FFF",
+                                          display: "flex",
+                                          alignItems: "center",
+                                          justifyContent: "center",
+                                          position: "relative",
+                                        }}
+                                      >
+                                        {selectedInvitationOption === "sms" && (
+                                          <div
+                                            style={{
+                                              width: "6px",
+                                              height: "6px",
+                                              borderRadius: "9999px",
+                                              background: "#FFF",
+                                              position: "absolute",
+                                            }}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Send Invite by SMS Text First
+                                      </span>
+                                    </div>
+                                  </div>
+
+                                  {/* Send Invite by SMS and Email */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      cursor: "pointer",
+                                    }}
+                                    onClick={() => setSelectedInvitationOption("both")}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        paddingTop: "2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          width: "16px",
+                                          height: "16px",
+                                          borderRadius: "9999px",
+                                          border: selectedInvitationOption === "both" ? "none" : "1px solid #D5D7DA",
+                                          background: selectedInvitationOption === "both" ? "#344698" : "#FFF",
+                                          display: "flex",
+                                          alignItems: "center",
+                                          justifyContent: "center",
+                                          position: "relative",
+                                        }}
+                                      >
+                                        {selectedInvitationOption === "both" && (
+                                          <div
+                                            style={{
+                                              width: "6px",
+                                              height: "6px",
+                                              borderRadius: "9999px",
+                                              background: "#FFF",
+                                              position: "absolute",
+                                            }}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Send Invite by SMS and Email
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Form Options */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    width: "100%",
+                                    color: "#414651",
+                                    fontFamily:
+                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "14px",
+                                      color: "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    Form Options:
+                                  </span>
+                                </div>
+
+                                {/* Form Options Container - Single Line */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "24px",
+                                    flexWrap: "wrap",
+                                  }}
+                                >
+                                  {/* Create and save this I-9 */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      cursor: "pointer",
+                                    }}
+                                    onClick={() => setSelectedTogetherFormOption("create-save")}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        paddingTop: "2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          width: "16px",
+                                          height: "16px",
+                                          borderRadius: "9999px",
+                                          border: selectedTogetherFormOption === "create-save" ? "none" : "1px solid #D5D7DA",
+                                          background: selectedTogetherFormOption === "create-save" ? "#344698" : "#FFF",
+                                          display: "flex",
+                                          alignItems: "center",
+                                          justifyContent: "center",
+                                          position: "relative",
+                                        }}
+                                      >
+                                        {selectedTogetherFormOption === "create-save" && (
+                                          <div
+                                            style={{
+                                              width: "6px",
+                                              height: "6px",
+                                              borderRadius: "9999px",
+                                              background: "#FFF",
+                                              position: "absolute",
+                                            }}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Create and save this I-9
+                                      </span>
+                                    </div>
+                                  </div>
+
+                                  {/* Create, save and verify with E-Verify */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      cursor: "pointer",
+                                    }}
+                                    onClick={() => setSelectedTogetherFormOption("create-save-verify")}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        paddingTop: "2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          width: "16px",
+                                          height: "16px",
+                                          borderRadius: "9999px",
+                                          border: selectedTogetherFormOption === "create-save-verify" ? "none" : "1px solid #D5D7DA",
+                                          background: selectedTogetherFormOption === "create-save-verify" ? "#344698" : "#FFF",
+                                          display: "flex",
+                                          alignItems: "center",
+                                          justifyContent: "center",
+                                          position: "relative",
+                                        }}
+                                      >
+                                        {selectedTogetherFormOption === "create-save-verify" && (
+                                          <div
+                                            style={{
+                                              width: "6px",
+                                              height: "6px",
+                                              borderRadius: "9999px",
+                                              background: "#FFF",
+                                              position: "absolute",
+                                            }}
+                                          />
+                                        )}
+                                      </div>
+                                    </div>
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Create, save and verify with E-Verify this I-9
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Create I-9 Form Button */}
+                              <button
+                                style={{
+                                  display: "flex",
+                                  minHeight: "36px",
+                                  padding: "6px 8px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  borderRadius: "8px",
+                                  border: "2px solid rgba(255, 255, 255, 0.12)",
+                                  background: "#344698",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: "pointer",
+                                  alignSelf: "flex-start",
+                                }}
+                                onClick={() => console.log("Create I-9 Form clicked")}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "0 2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#FFF",
+                                      fontFamily:
+                                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 700,
+                                        fontSize: "14px",
+                                        color: "rgba(255,255,255,1)",
+                                      }}
+                                    >
+                                      Create I-9 Form
+                                    </span>
+                                  </div>
+                                </div>
+                              </button>
+
+                              {/* Content divider */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    height: "1px",
+                                    flex: "1 0 0",
+                                    background: "#E9EAEB",
+                                  }}
+                                />
+                              </div>
+
+                              {/* Billing Identifier Fields - First Row */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  gap: "24px",
+                                  alignSelf: "stretch",
+                                  flexWrap: "wrap",
+                                }}
+                              >
+                                {[1, 2, 3, 4, 5].map((num) => (
+                                  <div
+                                    key={num}
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flex: "1 0 0",
+                                      minWidth: "150px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Billing Identifier {num}
+                                      </span>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      value={togetherBillingIdentifiers[`billing${num}`] || ""}
+                                      onChange={(e) => setTogetherBillingIdentifiers(prev => ({
+                                        ...prev,
+                                        [`billing${num}`]: e.target.value
+                                      }))}
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#181D27",
+                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                      }}
+                                      onFocus={(e) => {
+                                        e.target.style.border = "1px solid #344698";
+                                        e.target.style.boxShadow = "0 0 0 3px rgba(52, 70, 152, 0.1), 0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                      onBlur={(e) => {
+                                        e.target.style.border = "1px solid #D5D7DA";
+                                        e.target.style.boxShadow = "0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+
+                              {/* Billing Identifier Fields - Second Row */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  gap: "24px",
+                                  alignSelf: "stretch",
+                                  flexWrap: "wrap",
+                                }}
+                              >
+                                {[6, 7, 8, 9, 10].map((num) => (
+                                  <div
+                                    key={num}
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flex: "1 0 0",
+                                      minWidth: "150px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 400,
+                                          fontSize: "14px",
+                                          color: "rgba(65,70,81,1)",
+                                        }}
+                                      >
+                                        Billing Identifier {num}
+                                      </span>
+                                    </div>
+                                    <input
+                                      type="text"
+                                      value={togetherBillingIdentifiers[`billing${num}`] || ""}
+                                      onChange={(e) => setTogetherBillingIdentifiers(prev => ({
+                                        ...prev,
+                                        [`billing${num}`]: e.target.value
+                                      }))}
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        background: "#FFF",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        color: "#181D27",
+                                        fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "20px",
+                                        outline: "none",
+                                      }}
+                                      onFocus={(e) => {
+                                        e.target.style.border = "1px solid #344698";
+                                        e.target.style.boxShadow = "0 0 0 3px rgba(52, 70, 152, 0.1), 0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                      onBlur={(e) => {
+                                        e.target.style.border = "1px solid #D5D7DA";
+                                        e.target.style.boxShadow = "0 1px 2px 0 rgba(10, 13, 18, 0.05)";
+                                      }}
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
                           {/* Option 3: Remote Employee */}
                           <div
                             style={{
