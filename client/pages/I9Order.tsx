@@ -1951,7 +1951,7 @@ const I9Order: React.FC = () => {
                                 style={{
                                   display: "flex",
                                   width: "100%",
-                                  maxWidth: "320px",
+                                  maxWidth: "500px",
                                   alignItems: "center",
                                   gap: "4px",
                                 }}
