@@ -1709,6 +1709,7 @@ const I9Order: React.FC = () => {
 
                                 {/* Create I-9 Form Button */}
                                 <button
+                                  disabled={!isValidSendEmailOption()}
                                   style={{
                                     display: "flex",
                                     minHeight: "36px",
@@ -1718,13 +1719,29 @@ const I9Order: React.FC = () => {
                                     gap: "4px",
                                     borderRadius: "8px",
                                     border: "2px solid rgba(255, 255, 255, 0.12)",
-                                    background: "#344698",
-                                    boxShadow:
-                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    cursor: "pointer",
+                                    background: isValidSendEmailOption() ? "#344698" : "#A4A7AE",
+                                    boxShadow: isValidSendEmailOption()
+                                      ? "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)"
+                                      : "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    cursor: isValidSendEmailOption() ? "pointer" : "not-allowed",
                                     alignSelf: "flex-start",
+                                    opacity: isValidSendEmailOption() ? 1 : 0.6,
                                   }}
-                                  onClick={() => console.log("Create I-9 Form clicked")}
+                                  onClick={() => {
+                                    if (isValidSendEmailOption()) {
+                                      console.log("Create I-9 Form clicked - Send Email Option");
+                                    }
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    if (isValidSendEmailOption()) {
+                                      e.currentTarget.style.background = "#2A3A7A";
+                                    }
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    if (isValidSendEmailOption()) {
+                                      e.currentTarget.style.background = "#344698";
+                                    }
+                                  }}
                                 >
                                   <div
                                     style={{
@@ -1759,6 +1776,24 @@ const I9Order: React.FC = () => {
                                     </div>
                                   </div>
                                 </button>
+
+                                {/* Validation message for send-email option */}
+                                {!isValidSendEmailOption() && (
+                                  <div
+                                    style={{
+                                      color: "#DC2626",
+                                      fontFamily:
+                                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 400,
+                                      lineHeight: "16px",
+                                      marginTop: "4px",
+                                    }}
+                                  >
+                                    Please select a form option before continuing.
+                                  </div>
+                                )}
 
                                 {/* Billing Identifier Fields - First Row */}
                                 <div
