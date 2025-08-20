@@ -3114,102 +3114,1860 @@ const I9Order: React.FC = () => {
                             </div>
                           )}
 
-                          {/* Option 3: Remote Employee */}
+                          {/* Option 3: Remote Employee - with highlighted background and inline form */}
                           <div
                             style={{
                               display: "flex",
+                              padding: selectedNewIndividualOption === "remote" ? "12px 8px" : "0",
+                              flexDirection: "column",
                               alignItems: "flex-start",
-                              gap: "8px",
+                              gap: selectedNewIndividualOption === "remote" ? "20px" : "0",
                               alignSelf: "stretch",
-                              cursor: "pointer",
+                              borderRadius: "8px",
+                              background: selectedNewIndividualOption === "remote" ? "#FAFAFA" : "transparent",
                             }}
-                            onClick={() =>
-                              setSelectedNewIndividualOption("remote")
-                            }
                           >
                             <div
                               style={{
                                 display: "flex",
-                                paddingTop: "2px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  borderRadius: "9999px",
-                                  border:
-                                    selectedNewIndividualOption === "remote"
-                                      ? "none"
-                                      : "1px solid #D5D7DA",
-                                  background:
-                                    selectedNewIndividualOption === "remote"
-                                      ? "#344698"
-                                      : "#FFF",
-                                  display: "flex",
-                                  alignItems: "center",
-                                  justifyContent: "center",
-                                  position: "relative",
-                                }}
-                              >
-                                {selectedNewIndividualOption === "remote" && (
-                                  <div
-                                    style={{
-                                      width: "6px",
-                                      height: "6px",
-                                      borderRadius: "9999px",
-                                      background: "#FFF",
-                                      position: "absolute",
-                                    }}
-                                  />
-                                )}
-                              </div>
-                            </div>
-                            <div
-                              style={{
-                                display: "flex",
-                                flexDirection: "column",
                                 alignItems: "flex-start",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                cursor: "pointer",
                               }}
+                              onClick={() =>
+                                setSelectedNewIndividualOption("remote")
+                              }
                             >
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "100%",
-                                  maxWidth: "500px",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
                                   alignItems: "center",
-                                  gap: "4px",
                                 }}
                               >
                                 <div
                                   style={{
-                                    color: "#414651",
-                                    fontFamily:
-                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
+                                    width: "16px",
+                                    height: "16px",
+                                    borderRadius: "9999px",
+                                    border:
+                                      selectedNewIndividualOption === "remote"
+                                        ? "none"
+                                        : "1px solid #D5D7DA",
+                                    background:
+                                      selectedNewIndividualOption === "remote"
+                                        ? "#344698"
+                                        : "#FFF",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    position: "relative",
                                   }}
                                 >
-                                  <span
+                                  {selectedNewIndividualOption === "remote" && (
+                                    <div
+                                      style={{
+                                        width: "6px",
+                                        height: "6px",
+                                        borderRadius: "9999px",
+                                        background: "#FFF",
+                                        position: "absolute",
+                                      }}
+                                    />
+                                  )}
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
                                     style={{
+                                      flex: "1 0 0",
+                                      color: "#414651",
                                       fontFamily:
-                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                                      fontWeight: 400,
+                                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                                       fontSize: "14px",
-                                      color: "rgba(65,70,81,1)",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
                                     }}
                                   >
-                                    Remote Employee — Send employee email to
-                                    fill/verify and sign section 1, then send
-                                    section 2 to an authorized representative.
-                                  </span>
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 400,
+                                        fontSize: "14px",
+                                        color: "rgba(65,70,81,1)",
+                                      }}
+                                    >
+                                      Remote Employee — Send employee email to fill/verify and sign section 1, then send section 2 to an authorized representative.
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
+
+                            {/* Inline form content for remote option */}
+                            {selectedNewIndividualOption === "remote" && (
+                              <>
+                                {/* Content divider */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      height: "1px",
+                                      flex: "1 0 0",
+                                      background: "#E9EAEB",
+                                    }}
+                                  />
+                                </div>
+
+                                {/* Employee Information Section */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      width: "1008px",
+                                      color: "#414651",
+                                      fontFamily:
+                                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 400,
+                                        fontSize: "14px",
+                                        color: "rgba(65,70,81,1)",
+                                      }}
+                                    >
+                                      Employee Information
+                                    </span>
+                                  </div>
+
+                                  {/* Employee Info Row */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "24px",
+                                      alignSelf: "stretch",
+                                      flexWrap: "wrap",
+                                    }}
+                                  >
+                                    {/* First Name */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "200px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        First Name
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="text"
+                                          placeholder="John"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    {/* Last Name */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "200px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Last Name
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="text"
+                                          placeholder="Doe"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    {/* Email */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "200px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Email
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="email"
+                                          placeholder="user@mail.com"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    {/* Phone Number */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "200px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Phone Number
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="tel"
+                                          placeholder="+1 000 000 000"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    {/* Hire Date */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "200px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Hire Date
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <svg
+                                          style={{ width: "16px", height: "16px" }}
+                                          width="17"
+                                          height="16"
+                                          viewBox="0 0 17 16"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M14.7998 6.66665H2.7998M11.4665 1.33331V3.99998M6.13314 1.33331V3.99998M5.9998 14.6666H11.5998C12.7199 14.6666 13.28 14.6666 13.7078 14.4487C14.0841 14.2569 14.3901 13.951 14.5818 13.5746C14.7998 13.1468 14.7998 12.5868 14.7998 11.4666V5.86665C14.7998 4.74654 14.7998 4.18649 14.5818 3.75867C14.3901 3.38234 14.0841 3.07638 13.7078 2.88463C13.28 2.66665 12.7199 2.66665 11.5998 2.66665H5.9998C4.8797 2.66665 4.31965 2.66665 3.89182 2.88463C3.5155 3.07638 3.20954 3.38234 3.01779 3.75867C2.7998 4.18649 2.7998 4.74654 2.7998 5.86665V11.4666C2.7998 12.5868 2.7998 13.1468 3.01779 13.5746C3.20954 13.951 3.5155 14.2569 3.89182 14.4487C4.31965 14.6666 4.8797 14.6666 5.9998 14.6666Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.5"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                        <input
+                                          type="text"
+                                          placeholder="00/00/00"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Content divider */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      height: "1px",
+                                      flex: "1 0 0",
+                                      background: "#E9EAEB",
+                                    }}
+                                  />
+                                </div>
+
+                                {/* Authorized Representative Information Section */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "12px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      width: "1008px",
+                                      color: "#414651",
+                                      fontFamily:
+                                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 400,
+                                        fontSize: "14px",
+                                        color: "rgba(65,70,81,1)",
+                                      }}
+                                    >
+                                      Authorized Representative Information
+                                    </span>
+                                  </div>
+
+                                  {/* Representative Options */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "24px",
+                                      flexWrap: "wrap",
+                                    }}
+                                  >
+                                    {/* Employer will designate */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "8px",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          paddingTop: "2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            width: "16px",
+                                            height: "16px",
+                                            borderRadius: "9999px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                          }}
+                                        />
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#414651",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontFamily:
+                                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontWeight: 400,
+                                                fontSize: "14px",
+                                                color: "rgba(65,70,81,1)",
+                                              }}
+                                            >
+                                              Employer will designate an authorized representative
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Employee will designate */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "8px",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          paddingTop: "2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            width: "16px",
+                                            height: "16px",
+                                            borderRadius: "9999px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                          }}
+                                        />
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#414651",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontFamily:
+                                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontWeight: 400,
+                                                fontSize: "14px",
+                                                color: "rgba(65,70,81,1)",
+                                              }}
+                                            >
+                                              Employee will designate an authorized representative
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* Representative Info Fields */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "24px",
+                                      alignSelf: "stretch",
+                                      flexWrap: "wrap",
+                                    }}
+                                  >
+                                    {/* First Name */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "150px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        First Name
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="text"
+                                          placeholder="John"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    {/* Last Name */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "150px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Last Name
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="text"
+                                          placeholder="Doe"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    {/* Email */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "150px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Email
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="email"
+                                          placeholder="user@mail.com"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    {/* Phone Number */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "150px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Phone Number
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="tel"
+                                          placeholder="+1 000 000 000"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    {/* Address */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "150px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Address
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="text"
+                                          placeholder="123 Pearl Street"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  {/* Second Row for State, City, Zip Code */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "24px",
+                                      alignSelf: "stretch",
+                                      flexWrap: "wrap",
+                                    }}
+                                  >
+                                    {/* State */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "396px",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        State
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            flex: "1 0 0",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              flex: "1 0 0",
+                                              color: "#717680",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 400,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            Select State
+                                          </div>
+                                        </div>
+                                        <svg
+                                          style={{ width: "16px", height: "16px" }}
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M4 6L8 10L12 6"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.5"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+
+                                    {/* City */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "150px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        City
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="text"
+                                          placeholder="City"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+
+                                    {/* Zip Code */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "150px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Zip Code
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="text"
+                                          placeholder="000000"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Content divider */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      height: "1px",
+                                      flex: "1 0 0",
+                                      background: "#E9EAEB",
+                                    }}
+                                  />
+                                </div>
+
+                                {/* Invitation Options */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      width: "1008px",
+                                      color: "#414651",
+                                      fontFamily:
+                                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 400,
+                                        fontSize: "14px",
+                                        color: "rgba(65,70,81,1)",
+                                      }}
+                                    >
+                                      Invitation Options:
+                                    </span>
+                                  </div>
+
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "24px",
+                                      flexWrap: "wrap",
+                                    }}
+                                  >
+                                    {/* Send Invite by Email */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "8px",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          paddingTop: "2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            width: "16px",
+                                            height: "16px",
+                                            borderRadius: "9999px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                          }}
+                                        />
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#414651",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontFamily:
+                                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontWeight: 400,
+                                                fontSize: "14px",
+                                                color: "rgba(65,70,81,1)",
+                                              }}
+                                            >
+                                              Send Invite by Email
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Send Invite by SMS Text First */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "8px",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          paddingTop: "2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            width: "16px",
+                                            height: "16px",
+                                            borderRadius: "9999px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                          }}
+                                        />
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#414651",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontFamily:
+                                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontWeight: 400,
+                                                fontSize: "14px",
+                                                color: "rgba(65,70,81,1)",
+                                              }}
+                                            >
+                                              Send Invite by SMS Text First
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Send Invite by SMS and Email */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "8px",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          paddingTop: "2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            width: "16px",
+                                            height: "16px",
+                                            borderRadius: "9999px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                          }}
+                                        />
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#414651",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontFamily:
+                                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontWeight: 400,
+                                                fontSize: "14px",
+                                                color: "rgba(65,70,81,1)",
+                                              }}
+                                            >
+                                              Send Invite by SMS and Email
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Form Options */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      width: "1008px",
+                                      color: "#414651",
+                                      fontFamily:
+                                        "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 400,
+                                        fontSize: "14px",
+                                        color: "rgba(65,70,81,1)",
+                                      }}
+                                    >
+                                      Form Options:
+                                    </span>
+                                  </div>
+
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "flex-start",
+                                      gap: "24px",
+                                      flexWrap: "wrap",
+                                    }}
+                                  >
+                                    {/* Create and save this I-9 */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "8px",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          paddingTop: "2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            width: "16px",
+                                            height: "16px",
+                                            borderRadius: "9999px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                          }}
+                                        />
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#414651",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontFamily:
+                                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontWeight: 400,
+                                                fontSize: "14px",
+                                                color: "rgba(65,70,81,1)",
+                                              }}
+                                            >
+                                              Create and save this I-9
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Create, save and verify with E-Verify this I-9 */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "8px",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          paddingTop: "2px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            width: "16px",
+                                            height: "16px",
+                                            borderRadius: "9999px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                          }}
+                                        />
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "320px",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#414651",
+                                              fontFamily:
+                                                "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                              fontSize: "14px",
+                                              fontStyle: "normal",
+                                              fontWeight: 500,
+                                              lineHeight: "20px",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontFamily:
+                                                  "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                                fontWeight: 400,
+                                                fontSize: "14px",
+                                                color: "rgba(65,70,81,1)",
+                                              }}
+                                            >
+                                              Create, save and verify with E-Verify this I-9
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Create I-9 Form Button */}
+                                <button
+                                  style={{
+                                    display: "flex",
+                                    minHeight: "36px",
+                                    padding: "6px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    borderRadius: "8px",
+                                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                                    background: "#344698",
+                                    boxShadow:
+                                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    cursor: "pointer",
+                                    alignSelf: "flex-start",
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = "#2A3A7A";
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = "#344698";
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "0 2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#FFF",
+                                        fontFamily:
+                                          "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 600,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{
+                                          fontFamily:
+                                            "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontWeight: 700,
+                                          fontSize: "14px",
+                                          color: "rgba(255,255,255,1)",
+                                        }}
+                                      >
+                                        Create I-9 Form
+                                      </span>
+                                    </div>
+                                  </div>
+                                </button>
+
+                                {/* Content divider */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      height: "1px",
+                                      flex: "1 0 0",
+                                      background: "#E9EAEB",
+                                    }}
+                                  />
+                                </div>
+
+                                {/* Billing Identifiers Row 1 */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "24px",
+                                    alignSelf: "stretch",
+                                    flexWrap: "wrap",
+                                  }}
+                                >
+                                  {Array.from({ length: 5 }, (_, index) => (
+                                    <div
+                                      key={index}
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "150px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Billing Identifier {index + 1}
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="text"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+
+                                {/* Billing Identifiers Row 2 */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "24px",
+                                    alignSelf: "stretch",
+                                    flexWrap: "wrap",
+                                  }}
+                                >
+                                  {Array.from({ length: 5 }, (_, index) => (
+                                    <div
+                                      key={index + 5}
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        flex: "1 0 0",
+                                        minWidth: "150px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily:
+                                            "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Billing Identifier {index + 6}
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        }}
+                                      >
+                                        <input
+                                          type="text"
+                                          style={{
+                                            flex: "1 0 0",
+                                            border: "none",
+                                            outline: "none",
+                                            background: "transparent",
+                                            color: "#717680",
+                                            fontFamily:
+                                              "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                          }}
+                                        />
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </>
+                            )}
                           </div>
                         </div>
                       </>
