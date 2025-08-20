@@ -632,7 +632,7 @@ const I9Order: React.FC = () => {
                         : selectedIndividualType === "new-individual"
                         ? "300px"
                         : "218px",
-                    padding: "12px 16px 40px 16px",
+                    padding: isDesktop ? "12px 16px 40px 16px" : "12px 16px 20px 16px",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
