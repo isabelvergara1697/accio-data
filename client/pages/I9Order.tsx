@@ -35,6 +35,32 @@ const I9Order: React.FC = () => {
     [key: string]: string;
   }>({});
 
+  // Employee Information for "together" option
+  const [employeeInfo, setEmployeeInfo] = useState<{
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNumber: string;
+    hireDate: string;
+  }>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    hireDate: "",
+  });
+
+  // Invitation options for "together" option
+  const [selectedInvitationOption, setSelectedInvitationOption] = useState<string>("");
+
+  // Form options for "together" option
+  const [selectedTogetherFormOption, setSelectedTogetherFormOption] = useState<string>("");
+
+  // Billing identifiers for "together" option
+  const [togetherBillingIdentifiers, setTogetherBillingIdentifiers] = useState<{
+    [key: string]: string;
+  }>({});
+
   // Sample background check data
   const backgroundCheckData = [
     {
