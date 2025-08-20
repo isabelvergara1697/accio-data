@@ -2111,10 +2111,9 @@ const I9Order: React.FC = () => {
                                 </div>
                               </div>
                             </div>
-                          </div>
 
-                          {/* Inline form content for together option */}
-                          {selectedNewIndividualOption === "together" && (
+                            {/* Inline form content for together option */}
+                            {selectedNewIndividualOption === "together" && (
                             <div
                               style={{
                                 display: "flex",
@@ -3278,7 +3277,8 @@ const I9Order: React.FC = () => {
                                 ))}
                               </div>
                             </div>
-                          )}
+                            )}
+                          </div>
 
                           {/* Option 3: Remote Employee - with highlighted background and inline form */}
                           <div
