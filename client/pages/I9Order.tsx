@@ -717,9 +717,13 @@ const I9Order: React.FC = () => {
                             gap: "8px",
                             cursor: "pointer",
                           }}
-                          onClick={() =>
-                            setSelectedIndividualType("background-checked")
-                          }
+                          onClick={() => {
+                            setSelectedIndividualType("background-checked");
+                            setShowValidationErrors(prev => ({
+                              ...prev,
+                              individualType: false
+                            }));
+                          }}
                         >
                           {/* Radio Input */}
                           <div
