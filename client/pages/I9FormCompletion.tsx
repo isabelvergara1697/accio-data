@@ -1338,8 +1338,8 @@ const I9FormCompletion: React.FC = () => {
                     <div
                       style={{
                         display: "grid",
-                        gridTemplateColumns: "1fr auto auto auto auto",
-                        gap: "12px",
+                        gridTemplateColumns: "1fr auto",
+                        gap: "16px",
                         alignItems: "start",
                         width: "100%",
                       }}
