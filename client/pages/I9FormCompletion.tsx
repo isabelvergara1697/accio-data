@@ -1394,6 +1394,159 @@ const I9FormCompletion: React.FC = () => {
                           }}
                         />
                       </div>
+
+                      {/* Apt Number with Checkbox */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          width: "174px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "6px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "2px",
+                            }}
+                          >
+                            <label
+                              style={{
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Apt Number
+                            </label>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "16px",
+                                height: "16px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <svg
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                }}
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clipPath="url(#clip0_6187_5434)">
+                                  <path
+                                    d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.33333"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_6187_5434">
+                                    <rect width="16" height="16" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </div>
+                          <input
+                            type="text"
+                            value={formData.aptNumber}
+                            onChange={(e) => handleInputChange("aptNumber", e.target.value)}
+                            disabled={formData.aptNotApplicable}
+                            style={{
+                              display: "flex",
+                              padding: "6px 8px",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: formData.aptNotApplicable ? "#F5F5F5" : "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                              outline: "none",
+                            }}
+                          />
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              paddingTop: "2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={formData.aptNotApplicable}
+                              onChange={(e) => {
+                                handleInputChange("aptNotApplicable", e.target.checked);
+                                if (e.target.checked) {
+                                  handleInputChange("aptNumber", "");
+                                }
+                              }}
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "4px",
+                                border: "1px solid #D5D7DA",
+                                cursor: "pointer",
+                              }}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Check if not applicable
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
