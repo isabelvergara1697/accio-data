@@ -1339,9 +1339,11 @@ const I9FormCompletion: React.FC = () => {
                       style={{
                         display: "flex",
                         alignItems: "flex-start",
-                        gap: "16px",
+                        gap: "12px",
                         alignSelf: "stretch",
                         flexWrap: "nowrap",
+                        overflow: "visible",
+                        width: "100%",
                       }}
                     >
                       {/* Address (Street Number and Name) */}
@@ -1351,9 +1353,9 @@ const I9FormCompletion: React.FC = () => {
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "6px",
-                          flex: "1 1 250px",
-                          minWidth: "180px",
-                          maxWidth: "400px",
+                          flex: "1 1 200px",
+                          minWidth: "150px",
+                          maxWidth: "300px",
                         }}
                       >
                         <div
