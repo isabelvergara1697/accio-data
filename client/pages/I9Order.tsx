@@ -1377,9 +1377,13 @@ const I9Order: React.FC = () => {
                                 alignSelf: "stretch",
                                 cursor: "pointer",
                               }}
-                              onClick={() =>
-                                setSelectedNewIndividualOption("send-email")
-                              }
+                              onClick={() => {
+                                setSelectedNewIndividualOption("send-email");
+                                setShowValidationErrors(prev => ({
+                                  ...prev,
+                                  newIndividualOption: false
+                                }));
+                              }}
                             >
                             <div
                               style={{
