@@ -1297,10 +1297,7 @@ const I9FormCompletion: React.FC = () => {
                             </svg>
                           </div>
                         </div>
-                        <input
-                          type="text"
-                          value={formData.otherLastNames}
-                          onChange={(e) => handleInputChange("otherLastNames", e.target.value)}
+                        <div
                           style={{
                             display: "flex",
                             padding: "6px 8px",
@@ -1308,15 +1305,28 @@ const I9FormCompletion: React.FC = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
+                            border: focusedField === "otherLastNames" ? "2px solid #34479A" : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                            fontSize: "var(--Font-size-text-sm, 14px)",
-                            lineHeight: "var(--Line-height-text-sm, 20px)",
-                            outline: "none",
                           }}
-                        />
+                        >
+                          <input
+                            type="text"
+                            value={formData.otherLastNames}
+                            onChange={(e) => handleInputChange("otherLastNames", e.target.value)}
+                            onFocus={() => setFocusedField("otherLastNames")}
+                            onBlur={() => setFocusedField(null)}
+                            style={{
+                              flex: "1 0 0",
+                              border: "none",
+                              outline: "none",
+                              background: "transparent",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          />
+                        </div>
                       </div>
                     </div>
 
@@ -1397,10 +1407,7 @@ const I9FormCompletion: React.FC = () => {
                             </svg>
                           </div>
                         </div>
-                        <input
-                          type="text"
-                          value={formData.address}
-                          onChange={(e) => handleInputChange("address", e.target.value)}
+                        <div
                           style={{
                             display: "flex",
                             padding: "6px 8px",
@@ -1408,15 +1415,28 @@ const I9FormCompletion: React.FC = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
+                            border: focusedField === "address" ? "2px solid #34479A" : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                            fontSize: "var(--Font-size-text-sm, 14px)",
-                            lineHeight: "var(--Line-height-text-sm, 20px)",
-                            outline: "none",
                           }}
-                        />
+                        >
+                          <input
+                            type="text"
+                            value={formData.address}
+                            onChange={(e) => handleInputChange("address", e.target.value)}
+                            onFocus={() => setFocusedField("address")}
+                            onBlur={() => setFocusedField(null)}
+                            style={{
+                              flex: "1 0 0",
+                              border: "none",
+                              outline: "none",
+                              background: "transparent",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          />
+                        </div>
                       </div>
 
                       {/* Apt Number with Checkbox */}
@@ -1494,11 +1514,7 @@ const I9FormCompletion: React.FC = () => {
                               </svg>
                             </div>
                           </div>
-                          <input
-                            type="text"
-                            value={formData.aptNumber}
-                            onChange={(e) => handleInputChange("aptNumber", e.target.value)}
-                            disabled={formData.aptNotApplicable}
+                          <div
                             style={{
                               display: "flex",
                               padding: "6px 8px",
@@ -1506,15 +1522,29 @@ const I9FormCompletion: React.FC = () => {
                               gap: "8px",
                               alignSelf: "stretch",
                               borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
+                              border: focusedField === "aptNumber" && !formData.aptNotApplicable ? "2px solid #34479A" : "1px solid #D5D7DA",
                               background: formData.aptNotApplicable ? "#F5F5F5" : "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "var(--Font-size-text-sm, 14px)",
-                              lineHeight: "var(--Line-height-text-sm, 20px)",
-                              outline: "none",
                             }}
-                          />
+                          >
+                            <input
+                              type="text"
+                              value={formData.aptNumber}
+                              onChange={(e) => handleInputChange("aptNumber", e.target.value)}
+                              onFocus={() => setFocusedField("aptNumber")}
+                              onBlur={() => setFocusedField(null)}
+                              disabled={formData.aptNotApplicable}
+                              style={{
+                                flex: "1 0 0",
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            />
+                          </div>
                         </div>
                         <div
                           style={{
@@ -1531,21 +1561,13 @@ const I9FormCompletion: React.FC = () => {
                               alignItems: "center",
                             }}
                           >
-                            <input
-                              type="checkbox"
+                            <Checkbox
                               checked={formData.aptNotApplicable}
-                              onChange={(e) => {
-                                handleInputChange("aptNotApplicable", e.target.checked);
-                                if (e.target.checked) {
+                              onCheckedChange={(checked) => {
+                                handleInputChange("aptNotApplicable", checked);
+                                if (checked) {
                                   handleInputChange("aptNumber", "");
                                 }
-                              }}
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                                borderRadius: "4px",
-                                border: "1px solid #D5D7DA",
-                                cursor: "pointer",
                               }}
                             />
                           </div>
