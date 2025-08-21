@@ -1339,9 +1339,11 @@ const I9FormCompletion: React.FC = () => {
                       style={{
                         display: "flex",
                         alignItems: "flex-start",
-                        gap: "16px",
+                        gap: "12px",
                         alignSelf: "stretch",
-                        position: "relative",
+                        flexWrap: "nowrap",
+                        width: "100%",
+                        minWidth: 0,
                       }}
                     >
                       {/* Address (Street Number and Name) */}
