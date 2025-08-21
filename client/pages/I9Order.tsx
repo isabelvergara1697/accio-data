@@ -61,6 +61,15 @@ const I9Order: React.FC = () => {
     [key: string]: string;
   }>({});
 
+  // Error states
+  const [showValidationErrors, setShowValidationErrors] = useState<{
+    individualType: boolean;
+    newIndividualOption: boolean;
+  }>({
+    individualType: false,
+    newIndividualOption: false,
+  });
+
   // Remote employee states
   const [remoteEmployeeInfo, setRemoteEmployeeInfo] = useState<{
     firstName: string;
