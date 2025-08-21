@@ -12,6 +12,7 @@ import QuickCourtOrder from "./pages/QuickCourtOrder";
 import QuickOrder from "./pages/QuickOrder";
 import BatchOrders from "./pages/BatchOrders";
 import I9Order from "./pages/I9Order";
+import I9FormCompletion from "./pages/I9FormCompletion";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
