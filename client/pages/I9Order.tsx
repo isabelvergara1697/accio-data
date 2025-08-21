@@ -3103,7 +3103,39 @@ const I9Order: React.FC = () => {
                               </button>
 
                               {/* Validation message for together option */}
-                              {!isValidTogetherOption() && (
+                              {showValidationErrors.individualType && (
+                                <div
+                                  style={{
+                                    color: "#DC2626",
+                                    fontFamily:
+                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "16px",
+                                    marginTop: "4px",
+                                  }}
+                                >
+                                  Please select an individual type above.
+                                </div>
+                              )}
+                              {showValidationErrors.newIndividualOption && (
+                                <div
+                                  style={{
+                                    color: "#DC2626",
+                                    fontFamily:
+                                      "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "16px",
+                                    marginTop: "4px",
+                                  }}
+                                >
+                                  Please select one of the New Individual options above.
+                                </div>
+                              )}
+                              {!isValidTogetherOption() && selectedIndividualType !== "" && selectedNewIndividualOption !== "" && (
                                 <div
                                   style={{
                                     color: "#DC2626",
