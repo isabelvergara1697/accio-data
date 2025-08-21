@@ -2060,9 +2060,13 @@ const I9Order: React.FC = () => {
                                 alignSelf: "stretch",
                                 cursor: "pointer",
                               }}
-                              onClick={() =>
-                                setSelectedNewIndividualOption("together")
-                              }
+                              onClick={() => {
+                                setSelectedNewIndividualOption("together");
+                                setShowValidationErrors(prev => ({
+                                  ...prev,
+                                  newIndividualOption: false
+                                }));
+                              }}
                             >
                               <div
                                 style={{
