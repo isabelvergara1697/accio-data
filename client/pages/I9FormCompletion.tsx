@@ -1353,8 +1353,8 @@ const I9FormCompletion: React.FC = () => {
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "6px",
-                          flex: "1 0 0",
-                          position: "relative",
+                          flex: "2 1 auto",
+                          minWidth: "120px",
                         }}
                       >
                         <div
