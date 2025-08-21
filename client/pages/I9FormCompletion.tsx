@@ -1212,6 +1212,10 @@ const I9FormCompletion: React.FC = () => {
                                   handleInputChange("middleInitial", "");
                                 }
                               }}
+                              style={{
+                                backgroundColor: formData.middleNotApplicable ? "#344698" : "transparent",
+                                borderColor: formData.middleNotApplicable ? "#344698" : "#D5D7DA",
+                              }}
                             />
                           </div>
                           <div
