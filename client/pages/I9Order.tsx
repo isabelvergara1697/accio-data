@@ -3433,9 +3433,13 @@ const I9Order: React.FC = () => {
                                 alignSelf: "stretch",
                                 cursor: "pointer",
                               }}
-                              onClick={() =>
-                                setSelectedNewIndividualOption("remote")
-                              }
+                              onClick={() => {
+                                setSelectedNewIndividualOption("remote");
+                                setShowValidationErrors(prev => ({
+                                  ...prev,
+                                  newIndividualOption: false
+                                }));
+                              }}
                             >
                               <div
                                 style={{
