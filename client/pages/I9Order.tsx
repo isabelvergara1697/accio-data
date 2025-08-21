@@ -820,9 +820,13 @@ const I9Order: React.FC = () => {
                             gap: "8px",
                             cursor: "pointer",
                           }}
-                          onClick={() =>
-                            setSelectedIndividualType("new-individual")
-                          }
+                          onClick={() => {
+                            setSelectedIndividualType("new-individual");
+                            setShowValidationErrors(prev => ({
+                              ...prev,
+                              individualType: false
+                            }));
+                          }}
                         >
                           {/* Radio Input */}
                           <div
