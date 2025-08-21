@@ -1698,7 +1698,6 @@ const I9Order: React.FC = () => {
 
                                 {/* Create I-9 Form Button */}
                                 <button
-                                  disabled={!isValidSendEmailOption()}
                                   style={{
                                     display: "flex",
                                     minHeight: "36px",
@@ -1708,28 +1707,33 @@ const I9Order: React.FC = () => {
                                     gap: "4px",
                                     borderRadius: "8px",
                                     border: "2px solid rgba(255, 255, 255, 0.12)",
-                                    background: isValidSendEmailOption() ? "#344698" : "#A4A7AE",
-                                    boxShadow: isValidSendEmailOption()
-                                      ? "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)"
-                                      : "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    cursor: isValidSendEmailOption() ? "pointer" : "not-allowed",
+                                    background: "#344698",
+                                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    cursor: "pointer",
                                     alignSelf: "flex-start",
-                                    opacity: isValidSendEmailOption() ? 1 : 0.6,
                                   }}
                                   onClick={() => {
-                                    if (isValidSendEmailOption()) {
-                                      console.log("Create I-9 Form clicked - Send Email Option");
+                                    if (selectedIndividualType === "" || selectedNewIndividualOption === "") {
+                                      setShowValidationErrors(prev => ({
+                                        ...prev,
+                                        individualType: selectedIndividualType === "",
+                                        newIndividualOption: selectedNewIndividualOption === ""
+                                      }));
+                                      return;
                                     }
+
+                                    if (!isValidSendEmailOption()) {
+                                      return;
+                                    }
+
+                                    console.log("Create I-9 Form clicked - Send Email Option");
+                                    navigate("/i9-form-completion");
                                   }}
                                   onMouseEnter={(e) => {
-                                    if (isValidSendEmailOption()) {
-                                      e.currentTarget.style.background = "#2A3A7A";
-                                    }
+                                    e.currentTarget.style.background = "#2A3A7A";
                                   }}
                                   onMouseLeave={(e) => {
-                                    if (isValidSendEmailOption()) {
-                                      e.currentTarget.style.background = "#344698";
-                                    }
+                                    e.currentTarget.style.background = "#344698";
                                   }}
                                 >
                                   <div
