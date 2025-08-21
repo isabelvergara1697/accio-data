@@ -1337,10 +1337,9 @@ const I9FormCompletion: React.FC = () => {
                     {/* Address Row - Requester container */}
                     <div
                       style={{
-                        display: "table",
                         width: "100%",
-                        tableLayout: "fixed",
-                        borderSpacing: "12px 0",
+                        whiteSpace: "nowrap",
+                        fontSize: 0,
                       }}
                     >
                       {/* Address (Street Number and Name) */}
