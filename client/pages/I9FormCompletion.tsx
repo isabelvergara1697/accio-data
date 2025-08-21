@@ -1611,11 +1611,12 @@ const I9FormCompletion: React.FC = () => {
                       <div
                         style={{
                           display: "flex",
-                          width: "150px",
+                          width: "130px",
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "6px",
                           flexShrink: 0,
+                          minWidth: "130px",
                         }}
                       >
                         <div
