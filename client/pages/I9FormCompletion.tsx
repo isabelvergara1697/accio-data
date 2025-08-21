@@ -1452,6 +1452,7 @@ const I9FormCompletion: React.FC = () => {
                           alignItems: "flex-start",
                           gap: "4px",
                           width: "140px",
+                          flexShrink: 0,
                         }}
                       >
                         <div
