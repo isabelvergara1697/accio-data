@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import { Checkbox } from "../components/ui/checkbox";
 
 const I9FormCompletion: React.FC = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const I9FormCompletion: React.FC = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   // Form state for Section 1
   const [formData, setFormData] = useState({
@@ -962,10 +964,7 @@ const I9FormCompletion: React.FC = () => {
                             </svg>
                           </div>
                         </div>
-                        <input
-                          type="text"
-                          value={formData.lastName}
-                          onChange={(e) => handleInputChange("lastName", e.target.value)}
+                        <div
                           style={{
                             display: "flex",
                             padding: "6px 8px",
@@ -973,15 +972,28 @@ const I9FormCompletion: React.FC = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
+                            border: focusedField === "lastName" ? "2px solid #34479A" : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                            fontSize: "var(--Font-size-text-sm, 14px)",
-                            lineHeight: "var(--Line-height-text-sm, 20px)",
-                            outline: "none",
                           }}
-                        />
+                        >
+                          <input
+                            type="text"
+                            value={formData.lastName}
+                            onChange={(e) => handleInputChange("lastName", e.target.value)}
+                            onFocus={() => setFocusedField("lastName")}
+                            onBlur={() => setFocusedField(null)}
+                            style={{
+                              flex: "1 0 0",
+                              border: "none",
+                              outline: "none",
+                              background: "transparent",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          />
+                        </div>
                       </div>
 
                       {/* First Name */}
@@ -1044,10 +1056,7 @@ const I9FormCompletion: React.FC = () => {
                             </svg>
                           </div>
                         </div>
-                        <input
-                          type="text"
-                          value={formData.firstName}
-                          onChange={(e) => handleInputChange("firstName", e.target.value)}
+                        <div
                           style={{
                             display: "flex",
                             padding: "6px 8px",
@@ -1055,15 +1064,28 @@ const I9FormCompletion: React.FC = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
+                            border: focusedField === "firstName" ? "2px solid #34479A" : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                            fontSize: "var(--Font-size-text-sm, 14px)",
-                            lineHeight: "var(--Line-height-text-sm, 20px)",
-                            outline: "none",
                           }}
-                        />
+                        >
+                          <input
+                            type="text"
+                            value={formData.firstName}
+                            onChange={(e) => handleInputChange("firstName", e.target.value)}
+                            onFocus={() => setFocusedField("firstName")}
+                            onBlur={() => setFocusedField(null)}
+                            style={{
+                              flex: "1 0 0",
+                              border: "none",
+                              outline: "none",
+                              background: "transparent",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          />
+                        </div>
                       </div>
 
                       {/* Middle Initial */}
@@ -1134,12 +1156,7 @@ const I9FormCompletion: React.FC = () => {
                               </svg>
                             </div>
                           </div>
-                          <input
-                            type="text"
-                            value={formData.middleInitial}
-                            onChange={(e) => handleInputChange("middleInitial", e.target.value)}
-                            maxLength={1}
-                            disabled={formData.middleNotApplicable}
+                          <div
                             style={{
                               display: "flex",
                               padding: "6px 8px",
@@ -1147,15 +1164,30 @@ const I9FormCompletion: React.FC = () => {
                               gap: "8px",
                               alignSelf: "stretch",
                               borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
+                              border: focusedField === "middleInitial" && !formData.middleNotApplicable ? "2px solid #34479A" : "1px solid #D5D7DA",
                               background: formData.middleNotApplicable ? "#F5F5F5" : "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "var(--Font-size-text-sm, 14px)",
-                              lineHeight: "var(--Line-height-text-sm, 20px)",
-                              outline: "none",
                             }}
-                          />
+                          >
+                            <input
+                              type="text"
+                              value={formData.middleInitial}
+                              onChange={(e) => handleInputChange("middleInitial", e.target.value)}
+                              onFocus={() => setFocusedField("middleInitial")}
+                              onBlur={() => setFocusedField(null)}
+                              maxLength={1}
+                              disabled={formData.middleNotApplicable}
+                              style={{
+                                flex: "1 0 0",
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            />
+                          </div>
                         </div>
                         <div
                           style={{
@@ -1172,21 +1204,13 @@ const I9FormCompletion: React.FC = () => {
                               alignItems: "center",
                             }}
                           >
-                            <input
-                              type="checkbox"
+                            <Checkbox
                               checked={formData.middleNotApplicable}
-                              onChange={(e) => {
-                                handleInputChange("middleNotApplicable", e.target.checked);
-                                if (e.target.checked) {
+                              onCheckedChange={(checked) => {
+                                handleInputChange("middleNotApplicable", checked);
+                                if (checked) {
                                   handleInputChange("middleInitial", "");
                                 }
-                              }}
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                                borderRadius: "4px",
-                                border: "1px solid #D5D7DA",
-                                cursor: "pointer",
                               }}
                             />
                           </div>
