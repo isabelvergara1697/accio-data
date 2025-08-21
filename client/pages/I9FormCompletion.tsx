@@ -1573,6 +1573,10 @@ const I9FormCompletion: React.FC = () => {
                                   handleInputChange("aptNumber", "");
                                 }
                               }}
+                              style={{
+                                backgroundColor: formData.aptNotApplicable ? "#344698" : "transparent",
+                                borderColor: formData.aptNotApplicable ? "#344698" : "#D5D7DA",
+                              }}
                             />
                           </div>
                           <div
