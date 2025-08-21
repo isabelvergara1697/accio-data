@@ -1337,9 +1337,12 @@ const I9FormCompletion: React.FC = () => {
                     {/* Address Row - Requester container */}
                     <div
                       style={{
+                        display: "grid",
+                        gridTemplateColumns: "1fr auto auto",
+                        gap: "12px",
+                        alignSelf: "stretch",
                         width: "100%",
-                        whiteSpace: "nowrap",
-                        fontSize: 0,
+                        alignItems: "start",
                       }}
                     >
                       {/* Address (Street Number and Name) */}
