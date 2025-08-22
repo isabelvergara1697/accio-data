@@ -42,6 +42,7 @@ const I9FormCompletion = () => {
     citizenshipStatus: "",
     preparerOption: "",
     attestation: false,
+    citizenshipAttestation: "",
   });
 
   // Auto-minimize sidebar after 30 seconds
