@@ -40,6 +40,12 @@ const I9FormCompletion = () => {
     telephoneNotApplicable: false,
     citizenshipStatus: "",
     preparerOption: "",
+    // Duplicate name fields for third row
+    lastName2: "",
+    firstName2: "",
+    middleInitial2: "",
+    middleNotApplicable2: false,
+    otherLastNames2: "",
   });
 
   // Auto-minimize sidebar after 30 seconds
