@@ -4046,6 +4046,126 @@ const I9FormCompletion = () => {
                         Date of Signature: {formData.signatureDate}
                       </div>
                     </div>
+
+                    {/* Divider */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          height: "1px",
+                          flex: "1 0 0",
+                          background: "#E9EAEB",
+                        }}
+                      />
+                    </div>
+
+                    {/* Preparer and/or Translator Certification */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      {/* Title */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "4px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "var(--colors-text-text-secondary-700, #414651)",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          Preparer and/or Translator Certification (check one)
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "16px",
+                            height: "16px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g clipPath="url(#clip0_translator_help)">
+                              <path
+                                d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.33333"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_translator_help">
+                                <rect width="16" height="16" fill="white" />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Radio Button Options */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "flex-start",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        <CustomRadioGroup
+                          value={formData.preparerCertification || ""}
+                          onValueChange={(value) =>
+                            handleInputChange("preparerCertification", value)
+                          }
+                          name="preparerCertification"
+                        >
+                          <CustomRadio value="no_preparer">
+                            I did not use a preparer or translator.
+                          </CustomRadio>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <CustomRadio value="used_preparer">
+                              A preparer(s) and/or translator(s) assisted the employee in completing Section 1
+                            </CustomRadio>
+                          </div>
+                        </CustomRadioGroup>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
