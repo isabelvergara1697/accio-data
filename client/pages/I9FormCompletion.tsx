@@ -59,6 +59,9 @@ const I9FormCompletion = () => {
     i94AdmissionNumber: "",
     foreignPassportNumber: "",
     countryOfIssuance: "",
+    // Signature fields
+    signature: "",
+    signatureDate: new Date().toLocaleDateString("en-US"), // US format MM/DD/YYYY
   });
 
   // Auto-minimize sidebar after 30 seconds
