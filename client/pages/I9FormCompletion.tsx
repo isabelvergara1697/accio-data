@@ -44,7 +44,7 @@ const I9FormCompletion = () => {
     citizenshipStatus: "",
     preparerOption: "",
     attestation: false,
-    citizenshipAttestation: "",
+    citizenshipAttestation: "permanent_resident",
     alienRegistrationNumber: "",
     typeOfRegistrationNumber: "",
   });
