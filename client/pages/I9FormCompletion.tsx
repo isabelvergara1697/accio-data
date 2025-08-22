@@ -3902,7 +3902,7 @@ const I9FormCompletion = () => {
                         {/* Signature line */}
                         <svg
                           style={{
-                            height: "0",
+                            height: "6px",
                             flexShrink: 0,
                             alignSelf: "stretch",
                             fill: "#FFF",
