@@ -4206,6 +4206,1102 @@ const I9FormCompletion = () => {
                           </select>
                         </div>
                       </div>
+
+                      {/* Conditional Translator/Preparer Form */}
+                      {formData.preparerCertification === "used_preparer" && (
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "12px 8px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderRadius: "8px",
+                            background: "#FAFAFA",
+                          }}
+                        >
+                          {/* Preparers / Translator Signature Section */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            {/* Title */}
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "4px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                }}
+                              >
+                                Preparers / Translator Signature
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "16px",
+                                  height: "16px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <g clipPath="url(#clip0_translator_signature_help)">
+                                    <path
+                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.33333"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </g>
+                                  <defs>
+                                    <clipPath id="clip0_translator_signature_help">
+                                      <rect width="16" height="16" fill="white" />
+                                    </clipPath>
+                                  </defs>
+                                </svg>
+                              </div>
+                            </div>
+
+                            {/* Instructions */}
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-xs, 12px)",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "var(--Line-height-text-xs, 18px)",
+                              }}
+                            >
+                              Please sign here, using your mouse (press and hold the left button while moving the mouse):
+                            </div>
+
+                            {/* Translator Signature Canvas */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "662px",
+                                height: "129px",
+                                padding: "16px 20px",
+                                flexDirection: "column",
+                                justifyContent: "flex-end",
+                                alignItems: "center",
+                                gap: "8px",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                position: "relative",
+                              }}
+                            >
+                              <canvas
+                                ref={(el) => {
+                                  if (el && !formData.translatorCanvasRef) {
+                                    handleInputChange("translatorCanvasRef", el);
+                                  }
+                                }}
+                                width={622}
+                                height={93}
+                                onMouseDown={(e) => {
+                                  const rect = e.currentTarget.getBoundingClientRect();
+                                  const x = e.clientX - rect.left;
+                                  const y = e.clientY - rect.top;
+                                  handleInputChange("translatorIsDrawing", true);
+
+                                  const canvas = e.currentTarget;
+                                  const ctx = canvas.getContext("2d");
+                                  if (ctx) {
+                                    ctx.beginPath();
+                                    ctx.moveTo(x, y);
+                                  }
+                                }}
+                                onMouseMove={(e) => {
+                                  if (!formData.translatorIsDrawing) return;
+
+                                  const rect = e.currentTarget.getBoundingClientRect();
+                                  const x = e.clientX - rect.left;
+                                  const y = e.clientY - rect.top;
+
+                                  const canvas = e.currentTarget;
+                                  const ctx = canvas.getContext("2d");
+                                  if (ctx) {
+                                    ctx.lineTo(x, y);
+                                    ctx.stroke();
+                                  }
+                                  handleInputChange("translatorHasSignature", true);
+                                }}
+                                onMouseUp={() => {
+                                  handleInputChange("translatorIsDrawing", false);
+                                }}
+                                onMouseLeave={() => {
+                                  handleInputChange("translatorIsDrawing", false);
+                                }}
+                                style={{
+                                  cursor: "crosshair",
+                                  position: "absolute",
+                                  top: "16px",
+                                  left: "20px",
+                                  border: "none",
+                                  background: "transparent",
+                                }}
+                              />
+
+                              {/* Translator Signature line */}
+                              <svg
+                                style={{
+                                  height: "6px",
+                                  flexShrink: 0,
+                                  alignSelf: "stretch",
+                                  fill: "#FFF",
+                                  strokeWidth: "1px",
+                                  stroke: "#D5D7DA",
+                                  filter: "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
+                                  position: "relative",
+                                }}
+                                width="626"
+                                height="6"
+                                viewBox="0 0 626 6"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g filter="url(#filter0_d_translator_signature_line)">
+                                  <path d="M2 2H624" stroke="#D5D7DA" />
+                                </g>
+                                <defs>
+                                  <filter
+                                    id="filter0_d_translator_signature_line"
+                                    x="0"
+                                    y="0.5"
+                                    width="626"
+                                    height="5"
+                                    filterUnits="userSpaceOnUse"
+                                    colorInterpolationFilters="sRGB"
+                                  >
+                                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                                    <feColorMatrix
+                                      in="SourceAlpha"
+                                      type="matrix"
+                                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                      result="hardAlpha"
+                                    />
+                                    <feOffset dy="1" />
+                                    <feGaussianBlur stdDeviation="1" />
+                                    <feColorMatrix
+                                      type="matrix"
+                                      values="0 0 0 0 0.0392157 0 0 0 0 0.0496732 0 0 0 0 0.0705882 0 0 0 0.05 0"
+                                    />
+                                    <feBlend
+                                      mode="normal"
+                                      in2="BackgroundImageFix"
+                                      result="effect1_dropShadow_translator_signature_line"
+                                    />
+                                    <feBlend
+                                      mode="normal"
+                                      in="SourceGraphic"
+                                      in2="effect1_dropShadow_translator_signature_line"
+                                      result="shape"
+                                    />
+                                  </filter>
+                                </defs>
+                              </svg>
+
+                              {/* Clear Translator Signature Button */}
+                              <button
+                                onClick={() => {
+                                  if (formData.translatorCanvasRef) {
+                                    const ctx = formData.translatorCanvasRef.getContext("2d");
+                                    if (ctx) {
+                                      ctx.clearRect(0, 0, 622, 93);
+                                      handleInputChange("translatorHasSignature", false);
+                                    }
+                                  }
+                                }}
+                                style={{
+                                  display: "flex",
+                                  minHeight: "36px",
+                                  padding: "6px 8px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: "pointer",
+                                  position: "absolute",
+                                  right: "20px",
+                                  top: "9px",
+                                }}
+                              >
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M2.6665 4.66667H9.33317C11.5423 4.66667 13.3332 6.45753 13.3332 8.66667C13.3332 10.8758 11.5423 12.6667 9.33317 12.6667H2.6665M2.6665 4.66667L5.33317 2M2.6665 4.66667L5.33317 7.33333"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.66667"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "0 2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      fontStyle: "normal",
+                                      fontWeight: 600,
+                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    }}
+                                  >
+                                    Clear Signature
+                                  </div>
+                                </div>
+                              </button>
+                            </div>
+
+                            {/* Date of Translator Signature */}
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Date of Signature : {formData.translatorSignatureDate || new Date().toLocaleDateString("en-US")}
+                            </div>
+
+                            {/* Divider */}
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "4px 0",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  height: "1px",
+                                  flex: "1 0 0",
+                                  background: "#E9EAEB",
+                                }}
+                              />
+                            </div>
+
+                            {/* Name Fields */}
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "16px",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              {/* Last Name */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "2px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    }}
+                                  >
+                                    Last Name (Family Name)
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_translator_last_name_help)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_translator_last_name_help">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <input
+                                  type="text"
+                                  value={formData.translatorLastName || ""}
+                                  onChange={(e) =>
+                                    handleInputChange("translatorLastName", e.target.value)
+                                  }
+                                  style={{
+                                    display: "flex",
+                                    padding: "6px 8px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    outline: "none",
+                                  }}
+                                />
+                              </div>
+
+                              {/* First Name */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "2px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    }}
+                                  >
+                                    First Name (Given Name)
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_translator_first_name_help)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_translator_first_name_help">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <input
+                                  type="text"
+                                  value={formData.translatorFirstName || ""}
+                                  onChange={(e) =>
+                                    handleInputChange("translatorFirstName", e.target.value)
+                                  }
+                                  style={{
+                                    display: "flex",
+                                    padding: "6px 8px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    outline: "none",
+                                  }}
+                                />
+                              </div>
+
+                              {/* Middle Initial with Checkbox */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "174px",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "6px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                      gap: "2px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize: "var(--Font-size-text-sm, 14px)",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      }}
+                                    >
+                                      Middle Initial
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <g clipPath="url(#clip0_translator_middle_initial_help)">
+                                          <path
+                                            d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.33333"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </g>
+                                        <defs>
+                                          <clipPath id="clip0_translator_middle_initial_help">
+                                            <rect width="16" height="16" fill="white" />
+                                          </clipPath>
+                                        </defs>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <input
+                                    type="text"
+                                    value={formData.translatorMiddleInitial || ""}
+                                    onChange={(e) =>
+                                      handleInputChange("translatorMiddleInitial", e.target.value)
+                                    }
+                                    disabled={formData.translatorMiddleInitialNA}
+                                    style={{
+                                      display: "flex",
+                                      padding: "6px 8px",
+                                      alignItems: "center",
+                                      gap: "8px",
+                                      alignSelf: "stretch",
+                                      borderRadius: "8px",
+                                      border: "1px solid #D5D7DA",
+                                      background: formData.translatorMiddleInitialNA ? "#F5F5F5" : "#FFF",
+                                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color: "var(--colors-text-text-secondary-700, #414651)",
+                                      outline: "none",
+                                    }}
+                                  />
+                                </div>
+
+                                {/* Checkbox */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      paddingTop: "2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <label
+                                      style={{
+                                        position: "relative",
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                      }}
+                                    >
+                                      <input
+                                        type="checkbox"
+                                        checked={formData.translatorMiddleInitialNA || false}
+                                        onChange={(e) => {
+                                          handleInputChange("translatorMiddleInitialNA", e.target.checked);
+                                          if (e.target.checked) {
+                                            handleInputChange("translatorMiddleInitial", "");
+                                          }
+                                        }}
+                                        style={{
+                                          position: "absolute",
+                                          opacity: 0,
+                                          width: 0,
+                                          height: 0,
+                                        }}
+                                      />
+                                      <div
+                                        style={{
+                                          width: "16px",
+                                          height: "16px",
+                                          borderRadius: "4px",
+                                          border: formData.translatorMiddleInitialNA ? "none" : "1px solid #D5D7DA",
+                                          background: formData.translatorMiddleInitialNA ? "#344698" : "transparent",
+                                          display: "flex",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          position: "relative",
+                                          transition: "all 0.2s ease",
+                                        }}
+                                      >
+                                        {formData.translatorMiddleInitialNA && (
+                                          <svg
+                                            width="12"
+                                            height="12"
+                                            viewBox="0 0 12 12"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M10 3L4.5 8.5L2 6"
+                                              stroke="#FFF"
+                                              strokeWidth="2"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        )}
+                                      </div>
+                                    </label>
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <label
+                                      style={{
+                                        color: "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize: "var(--Font-size-text-sm, 14px)",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                                        cursor: "pointer",
+                                      }}
+                                      onClick={() => {
+                                        const newValue = !formData.translatorMiddleInitialNA;
+                                        handleInputChange("translatorMiddleInitialNA", newValue);
+                                        if (newValue) {
+                                          handleInputChange("translatorMiddleInitial", "");
+                                        }
+                                      }}
+                                    >
+                                      Check if not applicable
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Address Fields */}
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "16px",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              {/* Address */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "2px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    }}
+                                  >
+                                    Address (Street Number and Name)
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_translator_address_help)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_translator_address_help">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <input
+                                  type="text"
+                                  value={formData.translatorAddress || ""}
+                                  onChange={(e) =>
+                                    handleInputChange("translatorAddress", e.target.value)
+                                  }
+                                  style={{
+                                    display: "flex",
+                                    padding: "6px 8px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    outline: "none",
+                                  }}
+                                />
+                              </div>
+
+                              {/* City or Town */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "2px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    }}
+                                  >
+                                    City or Town
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_translator_city_help)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_translator_city_help">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <input
+                                  type="text"
+                                  value={formData.translatorCity || ""}
+                                  onChange={(e) =>
+                                    handleInputChange("translatorCity", e.target.value)
+                                  }
+                                  style={{
+                                    display: "flex",
+                                    padding: "6px 8px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    outline: "none",
+                                  }}
+                                />
+                              </div>
+
+                              {/* State */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "160px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "2px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    }}
+                                  >
+                                    State
+                                  </div>
+                                  <div
+                                    style={{
+                                      color: "#344698",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    }}
+                                  >
+                                    *
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_translator_state_help)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_translator_state_help">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <select
+                                  value={formData.translatorState || ""}
+                                  onChange={(e) =>
+                                    handleInputChange("translatorState", e.target.value)
+                                  }
+                                  style={{
+                                    display: "flex",
+                                    height: "32px",
+                                    padding: "6px 8px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    color: formData.translatorState ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    cursor: "pointer",
+                                    appearance: "none",
+                                    backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                    backgroundRepeat: "no-repeat",
+                                    backgroundPosition: "right 8px center",
+                                    paddingRight: "28px",
+                                    outline: "none",
+                                  }}
+                                >
+                                  <option value="">Select</option>
+                                  <option value="AL">Alabama</option>
+                                  <option value="AK">Alaska</option>
+                                  <option value="AZ">Arizona</option>
+                                  <option value="AR">Arkansas</option>
+                                  <option value="CA">California</option>
+                                  <option value="CO">Colorado</option>
+                                  <option value="CT">Connecticut</option>
+                                  <option value="DE">Delaware</option>
+                                  <option value="FL">Florida</option>
+                                  <option value="GA">Georgia</option>
+                                  {/* Add more states as needed */}
+                                </select>
+                              </div>
+
+                              {/* Zip Code */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "160px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "2px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    }}
+                                  >
+                                    Zip Code
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_translator_zip_help)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_translator_zip_help">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <input
+                                  type="text"
+                                  value={formData.translatorZipCode || ""}
+                                  onChange={(e) =>
+                                    handleInputChange("translatorZipCode", e.target.value)
+                                  }
+                                  style={{
+                                    display: "flex",
+                                    padding: "6px 8px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    outline: "none",
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
