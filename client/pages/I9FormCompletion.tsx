@@ -49,9 +49,6 @@ const I9FormCompletion = () => {
     typeOfRegistrationNumber: "",
   });
 
-  // Debug: Check initial form data
-  console.log("I9FormCompletion - citizenshipAttestation:", formData.citizenshipAttestation);
-
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
