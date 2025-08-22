@@ -2714,6 +2714,95 @@ const I9FormCompletion = () => {
                         </div>
                       </div>
                     </div>
+
+                    {/* Content divider */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          height: "1px",
+                          flex: "1 0 0",
+                          background: "#E9EAEB",
+                        }}
+                      />
+                    </div>
+
+                    {/* Checkbox Section */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          paddingTop: "2px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Checkbox
+                          checked={false}
+                          onCheckedChange={(checked) => {
+                            // Handle checkbox change
+                            console.log("Checkbox changed:", checked);
+                          }}
+                          style={{
+                            backgroundColor: "transparent",
+                            borderColor: "#D5D7DA",
+                          }}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color:
+                              "var(--colors-text-text-secondary-700, #414651)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          I attest, under penalty of perjury, that I am (check one of the following boxes):
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content divider */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          height: "1px",
+                          flex: "1 0 0",
+                          background: "#E9EAEB",
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
