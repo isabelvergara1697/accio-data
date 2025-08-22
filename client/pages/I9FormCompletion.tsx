@@ -3972,7 +3972,7 @@ const I9FormCompletion = () => {
                             background: "#FFF",
                             boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
-                            position: "relative",
+                            position: "absolute",
                             right: "20px",
                             top: "9px",
                           }}
