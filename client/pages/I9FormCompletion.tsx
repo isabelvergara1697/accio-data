@@ -4176,12 +4176,9 @@ const I9FormCompletion = () => {
                               handleInputChange("preparerCount", e.target.value)
                             }
                             style={{
-                              display: "flex",
                               width: "55px",
                               height: "32px",
                               padding: "6px 8px",
-                              alignItems: "center",
-                              gap: "8px",
                               borderRadius: "8px",
                               border: "1px solid #D5D7DA",
                               background: "#FFF",
@@ -4198,6 +4195,7 @@ const I9FormCompletion = () => {
                               backgroundRepeat: "no-repeat",
                               backgroundPosition: "right 8px center",
                               paddingRight: "28px",
+                              marginTop: "2px",
                             }}
                           >
                             <option value="1">1</option>
