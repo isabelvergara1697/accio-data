@@ -11,11 +11,6 @@ interface CustomRadioProps {
 
 const CustomRadio = React.forwardRef<HTMLInputElement, CustomRadioProps>(
   ({ value, name = "", checked = false, onChange, children, className = "", ...props }, ref) => {
-    // Debug: log the checked state
-    if (value === "permanent_resident") {
-      console.log(`CustomRadio ${value}: checked=${checked}, name=${name}`);
-    }
-
     const handleChange = (newValue: string) => {
       if (onChange && typeof onChange === "function") {
         onChange(newValue);

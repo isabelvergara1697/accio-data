@@ -49,9 +49,6 @@ const I9FormCompletion = () => {
     typeOfRegistrationNumber: "",
   });
 
-  // Debug: Check initial form data
-  console.log("I9FormCompletion - citizenshipAttestation:", formData.citizenshipAttestation);
-
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -2848,7 +2845,6 @@ const I9FormCompletion = () => {
                         onValueChange={(value) => handleInputChange("citizenshipAttestation", value)}
                         name="citizenshipAttestation"
                       >
-                        {/* Debug: Current value is {formData.citizenshipAttestation} */}
                         <CustomRadio value="citizen">
                           A citizen of the United States
                         </CustomRadio>
@@ -2858,8 +2854,7 @@ const I9FormCompletion = () => {
                         </CustomRadio>
 
                         {/* Permanent Resident with conditional container */}
-                        {/* TEMPORARY TEST: {formData.citizenshipAttestation === "permanent_resident" ? ( */}
-                        {false ? (
+                        {formData.citizenshipAttestation === "permanent_resident" ? (
                           <div
                             style={{
                               display: "flex",
