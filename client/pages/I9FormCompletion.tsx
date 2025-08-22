@@ -6,6 +6,8 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Checkbox } from "../components/ui/checkbox";
 import { CustomRadio, CustomRadioGroup } from "../components/ui/custom-radio";
+import { Input } from "../components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 
 const I9FormCompletion = () => {
   const navigate = useNavigate();
