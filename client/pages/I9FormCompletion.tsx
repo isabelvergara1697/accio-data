@@ -5305,6 +5305,226 @@ const I9FormCompletion = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Section 2 */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    {/* Section 2 Header */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "24px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      {/* Section Label */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "4px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "-webkit-box",
+                              WebkitBoxOrient: "vertical",
+                              WebkitLineClamp: 1,
+                              overflow: "hidden",
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              textOverflow: "ellipsis",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-md, 16px)",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "var(--Line-height-text-md, 24px)",
+                            }}
+                          >
+                            Section 2. Employer or Authorized Representative Review and Verification
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "16px",
+                              height: "16px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clipPath="url(#clip0_section2_help)">
+                                <path
+                                  d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.33333"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_section2_help">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            alignSelf: "stretch",
+                            color: "var(--colors-text-text-tertiary-600, #535862)",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-md, 16px)",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "var(--Line-height-text-md, 24px)",
+                          }}
+                        >
+                          (Employers or their authorized representative must complete and sign Section 2 within 3 business days of the employee's first day of employment. You must physically examine one document from List A OR a combination of one document from List B and one document from List C as listed on the "List of Acceptable Documents.")
+                        </div>
+                      </div>
+
+                      {/* Document Type Section */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* Document Type Label */}
+                        <div
+                          style={{
+                            width: "1024px",
+                            height: "20px",
+                            color: "var(--colors-text-text-secondary-700, #414651)",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          Document type
+                        </div>
+
+                        {/* Document Type Options */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <CustomRadio
+                            value="list_a"
+                            name="documentType"
+                            checked={formData.documentType === "list_a"}
+                            onChange={(value) =>
+                              handleInputChange("documentType", value)
+                            }
+                          >
+                            Choose from List A
+                          </CustomRadio>
+
+                          <CustomRadio
+                            value="list_b_c"
+                            name="documentType"
+                            checked={formData.documentType === "list_b_c"}
+                            onChange={(value) =>
+                              handleInputChange("documentType", value)
+                            }
+                          >
+                            Choose from List B, C
+                          </CustomRadio>
+                        </div>
+
+                        {/* Verification Method Options */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <CustomRadio
+                              value="in_person"
+                              name="verificationMethod"
+                              checked={formData.verificationMethod === "in_person"}
+                              onChange={(value) =>
+                                handleInputChange("verificationMethod", value)
+                              }
+                            >
+                              I will verify documents in person
+                            </CustomRadio>
+
+                            <CustomRadio
+                              value="e_verify_remote"
+                              name="verificationMethod"
+                              checked={formData.verificationMethod === "e_verify_remote"}
+                              onChange={(value) =>
+                                handleInputChange("verificationMethod", value)
+                              }
+                            >
+                              I will verify documents through a combination of E-Verify and remote video verification
+                            </CustomRadio>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
