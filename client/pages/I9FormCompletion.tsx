@@ -49,7 +49,7 @@ const I9FormCompletion = () => {
     typeOfRegistrationNumber: "",
     // Alien authorized to work fields
     expirationDate: "",
-    workAuthorizationType: "", // i94, alien_reg, foreign_passport
+    workAuthorizationType: "foreign_passport", // i94, alien_reg, foreign_passport
     i94AdmissionNumber: "",
     foreignPassportNumber: "",
     countryOfIssuance: "",
