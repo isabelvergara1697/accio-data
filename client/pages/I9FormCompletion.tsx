@@ -4134,22 +4134,24 @@ const I9FormCompletion = () => {
                       <div
                         style={{
                           display: "flex",
-                          alignItems: "center",
+                          alignItems: "flex-start",
                           gap: "24px",
                           alignSelf: "stretch",
                           flexWrap: "wrap",
                         }}
                       >
-                        <CustomRadio
-                          value="no_preparer"
-                          name="preparerCertification"
-                          checked={formData.preparerCertification === "no_preparer"}
-                          onChange={(value) =>
-                            handleInputChange("preparerCertification", value)
-                          }
-                        >
-                          I did not use a preparer or translator.
-                        </CustomRadio>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          <CustomRadio
+                            value="no_preparer"
+                            name="preparerCertification"
+                            checked={formData.preparerCertification === "no_preparer"}
+                            onChange={(value) =>
+                              handleInputChange("preparerCertification", value)
+                            }
+                          >
+                            I did not use a preparer or translator.
+                          </CustomRadio>
+                        </div>
 
                         <div
                           style={{
