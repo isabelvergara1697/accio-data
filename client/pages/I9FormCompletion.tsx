@@ -51,6 +51,23 @@ const I9FormCompletion = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Close state dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (stateDropdownOpen) {
+        setStateDropdownOpen(false);
+      }
+    };
+
+    if (stateDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [stateDropdownOpen]);
+
   const handleSignOut = () => {
     console.log("Sign out");
   };
