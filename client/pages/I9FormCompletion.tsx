@@ -2861,6 +2861,219 @@ const I9FormCompletion = () => {
                           An alien authorized to work
                         </CustomRadio>
                       </CustomRadioGroup>
+
+                      {/* Conditional inline form fields for permanent resident */}
+                      {formData.citizenshipAttestation === "permanent_resident" && (
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "12px 8px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                            borderRadius: "8px",
+                            background: "#FAFAFA",
+                            marginTop: "-8px", // Overlap with radio button above
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "20px",
+                              alignSelf: "stretch",
+                              flexWrap: "wrap",
+                            }}
+                          >
+                            {/* Alien Registration Number Input */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "450px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
+                                <label
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  Alien Registration Number/USCIS Number
+                                </label>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.33333"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+
+                              <Input
+                                value={formData.alienRegistrationNumber}
+                                onChange={(e) => handleInputChange("alienRegistrationNumber", e.target.value)}
+                                onFocus={() => setFocusedField("alienRegistrationNumber")}
+                                onBlur={() => setFocusedField(null)}
+                                style={{
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  borderRadius: "8px",
+                                  border: focusedField === "alienRegistrationNumber"
+                                    ? "2px solid #34479A"
+                                    : "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                }}
+                              />
+                            </div>
+
+                            {/* Type of Registration Number Select */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                                flex: "1 1 200px",
+                                minWidth: "200px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
+                                <label
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  Type of Registration Number
+                                </label>
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-brand-tertiary-600, #344698)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  *
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.33333"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+
+                              <Select
+                                value={formData.typeOfRegistrationNumber}
+                                onValueChange={(value) => handleInputChange("typeOfRegistrationNumber", value)}
+                              >
+                                <SelectTrigger
+                                  style={{
+                                    height: "32px",
+                                    padding: "6px 8px",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  <SelectValue
+                                    placeholder="Select"
+                                    style={{
+                                      color: formData.typeOfRegistrationNumber ? "#414651" : "#717680",
+                                    }}
+                                  />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="green_card">Green Card Number</SelectItem>
+                                  <SelectItem value="uscis_number">USCIS Number</SelectItem>
+                                  <SelectItem value="alien_number">Alien Registration Number</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
