@@ -64,6 +64,11 @@ const I9FormCompletion = () => {
     signatureDate: new Date().toLocaleDateString("en-US"), // US format MM/DD/YYYY
   });
 
+  // Signature canvas state
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [hasSignature, setHasSignature] = useState(false);
+
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
