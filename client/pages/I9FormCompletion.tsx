@@ -2809,6 +2809,277 @@ const I9FormCompletion = () => {
                         }}
                       />
                     </div>
+
+                    {/* Citizenship Attestation Section */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color:
+                            "var(--colors-text-text-secondary-700, #414651)",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 500,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        I attest, under penalty of perjury, that I am (check one of the following):
+                      </div>
+
+                      <RadioGroup
+                        value={formData.citizenshipAttestation}
+                        onValueChange={(value) => handleInputChange("citizenshipAttestation", value)}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* Option 1: Citizen */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              paddingTop: "2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <RadioGroupItem
+                              value="citizen"
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "50%",
+                                border: "1px solid #D5D7DA",
+                                backgroundColor:
+                                  formData.citizenshipAttestation === "citizen"
+                                    ? "#344698"
+                                    : "transparent",
+                              }}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <label
+                              htmlFor="citizen"
+                              style={{
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                cursor: "pointer",
+                              }}
+                            >
+                              A citizen of the United States
+                            </label>
+                          </div>
+                        </div>
+
+                        {/* Option 2: Noncitizen National */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              paddingTop: "2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <RadioGroupItem
+                              value="noncitizen"
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "50%",
+                                border: "1px solid #D5D7DA",
+                                backgroundColor:
+                                  formData.citizenshipAttestation === "noncitizen"
+                                    ? "#344698"
+                                    : "transparent",
+                              }}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <label
+                              htmlFor="noncitizen"
+                              style={{
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                cursor: "pointer",
+                              }}
+                            >
+                              A noncitizen national of the United States
+                            </label>
+                          </div>
+                        </div>
+
+                        {/* Option 3: Lawful Permanent Resident */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              paddingTop: "2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <RadioGroupItem
+                              value="permanent_resident"
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "50%",
+                                border: "1px solid #D5D7DA",
+                                backgroundColor:
+                                  formData.citizenshipAttestation === "permanent_resident"
+                                    ? "#344698"
+                                    : "transparent",
+                              }}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <label
+                              htmlFor="permanent_resident"
+                              style={{
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                cursor: "pointer",
+                              }}
+                            >
+                              A lawful permanent resident
+                            </label>
+                          </div>
+                        </div>
+
+                        {/* Option 4: Alien Authorized to Work */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              paddingTop: "2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <RadioGroupItem
+                              value="alien_authorized"
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "50%",
+                                border: "1px solid #D5D7DA",
+                                backgroundColor:
+                                  formData.citizenshipAttestation === "alien_authorized"
+                                    ? "#344698"
+                                    : "transparent",
+                              }}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <label
+                              htmlFor="alien_authorized"
+                              style={{
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                cursor: "pointer",
+                              }}
+                            >
+                              An alien authorized to work
+                            </label>
+                          </div>
+                        </div>
+                      </RadioGroup>
+                    </div>
                   </div>
                 </div>
               </div>
