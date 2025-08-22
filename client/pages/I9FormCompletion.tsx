@@ -43,6 +43,8 @@ const I9FormCompletion = () => {
     preparerOption: "",
     attestation: false,
     citizenshipAttestation: "",
+    alienRegistrationNumber: "",
+    typeOfRegistrationNumber: "",
   });
 
   // Auto-minimize sidebar after 30 seconds
