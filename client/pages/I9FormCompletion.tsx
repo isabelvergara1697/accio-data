@@ -40,6 +40,7 @@ const I9FormCompletion = () => {
     telephoneNotApplicable: false,
     citizenshipStatus: "",
     preparerOption: "",
+    attestation: false,
   });
 
   // Auto-minimize sidebar after 30 seconds
