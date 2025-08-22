@@ -40,12 +40,6 @@ const I9FormCompletion = () => {
     telephoneNotApplicable: false,
     citizenshipStatus: "",
     preparerOption: "",
-    // Third row fields
-    dateOfBirth: "",
-    socialSecurityNumber: "",
-    emailAddress: "",
-    telephoneNumber: "",
-    telephoneNotApplicable: false,
   });
 
   // Auto-minimize sidebar after 30 seconds
