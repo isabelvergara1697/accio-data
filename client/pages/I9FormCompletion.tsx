@@ -3900,17 +3900,62 @@ const I9FormCompletion = () => {
                         />
 
                         {/* Signature line */}
-                        <div
+                        <svg
                           style={{
-                            height: "1px",
+                            height: "0",
+                            flexShrink: 0,
                             alignSelf: "stretch",
-                            background: "#D5D7DA",
-                            position: "absolute",
-                            bottom: "36px",
-                            left: "20px",
-                            right: "20px",
+                            fill: "#FFF",
+                            strokeWidth: "1px",
+                            stroke: "#D5D7DA",
+                            filter: "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
                           }}
-                        />
+                          width="626"
+                          height="6"
+                          viewBox="0 0 626 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g filter="url(#filter0_d_signature_line)">
+                            <path d="M2 2H624" stroke="#D5D7DA" />
+                          </g>
+                          <defs>
+                            <filter
+                              id="filter0_d_signature_line"
+                              x="0"
+                              y="0.5"
+                              width="626"
+                              height="5"
+                              filterUnits="userSpaceOnUse"
+                              colorInterpolationFilters="sRGB"
+                            >
+                              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                              <feColorMatrix
+                                in="SourceAlpha"
+                                type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                result="hardAlpha"
+                              />
+                              <feOffset dy="1" />
+                              <feGaussianBlur stdDeviation="1" />
+                              <feColorMatrix
+                                type="matrix"
+                                values="0 0 0 0 0.0392157 0 0 0 0 0.0496732 0 0 0 0 0.0705882 0 0 0 0.05 0"
+                              />
+                              <feBlend
+                                mode="normal"
+                                in2="BackgroundImageFix"
+                                result="effect1_dropShadow_signature_line"
+                              />
+                              <feBlend
+                                mode="normal"
+                                in="SourceGraphic"
+                                in2="effect1_dropShadow_signature_line"
+                                result="shape"
+                              />
+                            </filter>
+                          </defs>
+                        </svg>
 
                         {/* Clear Signature Button */}
                         <button
@@ -3927,9 +3972,9 @@ const I9FormCompletion = () => {
                             background: "#FFF",
                             boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
-                            position: "absolute",
-                            bottom: "16px",
+                            position: "relative",
                             right: "20px",
+                            top: "9px",
                           }}
                         >
                           <svg
