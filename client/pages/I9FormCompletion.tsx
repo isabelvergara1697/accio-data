@@ -1334,6 +1334,453 @@ const I9FormCompletion: React.FC = () => {
                       </div>
                     </div>
 
+                    {/* Second Row - Name Fields (Duplicate) */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      {/* Last Name 2 */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "6px",
+                          flex: isMobile ? "1 0 0" : "1 1 200px",
+                          minWidth: "150px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Last Name (Family Name) 2
+                          </label>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "16px",
+                              height: "16px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clipPath="url(#clip0_6183_45224)">
+                                <path
+                                  d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.33333"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_6183_45224">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "6px 8px",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            borderRadius: "8px",
+                            border: focusedField === "lastName2" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          }}
+                        >
+                          <input
+                            type="text"
+                            value={formData.lastName2 || ""}
+                            onChange={(e) => handleInputChange("lastName2", e.target.value)}
+                            onFocus={() => setFocusedField("lastName2")}
+                            onBlur={() => setFocusedField(null)}
+                            style={{
+                              flex: "1 0 0",
+                              border: "none",
+                              outline: "none",
+                              background: "transparent",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* First Name 2 */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "6px",
+                          flex: isMobile ? "1 0 0" : "1 1 200px",
+                          minWidth: "150px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            First Name (Given Name) 2
+                          </label>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "16px",
+                              height: "16px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M6.72667 5.99992C6.8834 5.55436 7.19277 5.17866 7.59997 4.93934C8.00717 4.70002 8.48593 4.61254 8.95145 4.69239C9.41697 4.77224 9.83921 5.01427 10.1434 5.3756C10.4476 5.73694 10.614 6.19427 10.6133 6.66659C10.6133 7.99992 8.61333 8.66659 8.61333 8.66659M8.66667 11.3333H8.67333M15.3333 7.99992C15.3333 11.6818 12.3486 14.6666 8.66667 14.6666C4.98477 14.6666 2 11.6818 2 7.99992C2 4.31802 4.98477 1.33325 8.66667 1.33325C12.3486 1.33325 15.3333 4.31802 15.3333 7.99992Z"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.33333"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "6px 8px",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            borderRadius: "8px",
+                            border: focusedField === "firstName2" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          }}
+                        >
+                          <input
+                            type="text"
+                            value={formData.firstName2 || ""}
+                            onChange={(e) => handleInputChange("firstName2", e.target.value)}
+                            onFocus={() => setFocusedField("firstName2")}
+                            onBlur={() => setFocusedField(null)}
+                            style={{
+                              flex: "1 0 0",
+                              border: "none",
+                              outline: "none",
+                              background: "transparent",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Middle Initial 2 */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          width: "174px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "6px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "2px",
+                            }}
+                          >
+                            <label
+                              style={{
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Middle Initial 2
+                            </label>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "16px",
+                                height: "16px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <svg
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                }}
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M6.39366 5.99992C6.5504 5.55436 6.85976 5.17866 7.26696 4.93934C7.67416 4.70002 8.15292 4.61254 8.61844 4.69239C9.08396 4.77224 9.5062 5.01427 9.81038 5.3756C10.1146 5.73694 10.281 6.19427 10.2803 6.66659C10.2803 7.99992 8.28033 8.66659 8.28033 8.66659M8.33366 11.3333H8.34033M15.0003 7.99992C15.0003 11.6818 12.0156 14.6666 8.33366 14.6666C4.65176 14.6666 1.66699 11.6818 1.66699 7.99992C1.66699 4.31802 4.65176 1.33325 8.33366 1.33325C12.0156 1.33325 15.0003 4.31802 15.0003 7.99992Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.33333"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "6px 8px",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              borderRadius: "8px",
+                              border: focusedField === "middleInitial2" && !formData.middleNotApplicable2 ? "2px solid #34479A" : "1px solid #D5D7DA",
+                              background: formData.middleNotApplicable2 ? "#F5F5F5" : "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            }}
+                          >
+                            <input
+                              type="text"
+                              value={formData.middleInitial2 || ""}
+                              onChange={(e) => handleInputChange("middleInitial2", e.target.value)}
+                              onFocus={() => setFocusedField("middleInitial2")}
+                              onBlur={() => setFocusedField(null)}
+                              maxLength={1}
+                              disabled={formData.middleNotApplicable2}
+                              style={{
+                                flex: "1 0 0",
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            />
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              paddingTop: "2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Checkbox
+                              checked={formData.middleNotApplicable2 || false}
+                              onCheckedChange={(checked) => {
+                                handleInputChange("middleNotApplicable2", checked);
+                                if (checked) {
+                                  handleInputChange("middleInitial2", "");
+                                }
+                              }}
+                              style={{
+                                backgroundColor: formData.middleNotApplicable2 ? "#344698" : "transparent",
+                                borderColor: formData.middleNotApplicable2 ? "#344698" : "#D5D7DA",
+                              }}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Check if not applicable
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Other Last Names 2 */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "6px",
+                          flex: isMobile ? "1 0 0" : "1 1 200px",
+                          minWidth: "150px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Other Last Names Used (if any) 2
+                          </label>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "16px",
+                              height: "16px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M6.39366 5.99992C6.5504 5.55436 6.85976 5.17866 7.26696 4.93934C7.67416 4.70002 8.15292 4.61254 8.61844 4.69239C9.08396 4.77224 9.5062 5.01427 9.81038 5.3756C10.1146 5.73694 10.281 6.19427 10.2803 6.66659C10.2803 7.99992 8.28033 8.66659 8.28033 8.66659M8.33366 11.3333H8.34033M15.0003 7.99992C15.0003 11.6818 12.0156 14.6666 8.33366 14.6666C4.65176 14.6666 1.66699 11.6818 1.66699 7.99992C1.66699 4.31802 4.65176 1.33325 8.33366 1.33325C12.0156 1.33325 15.0003 4.31802 15.0003 7.99992Z"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.33333"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "6px 8px",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            borderRadius: "8px",
+                            border: focusedField === "otherLastNames2" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          }}
+                        >
+                          <input
+                            type="text"
+                            value={formData.otherLastNames2 || ""}
+                            onChange={(e) => handleInputChange("otherLastNames2", e.target.value)}
+                            onFocus={() => setFocusedField("otherLastNames2")}
+                            onBlur={() => setFocusedField(null)}
+                            style={{
+                              flex: "1 0 0",
+                              border: "none",
+                              outline: "none",
+                              background: "transparent",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Address Row - Requester container */}
                     <div
                       style={{
