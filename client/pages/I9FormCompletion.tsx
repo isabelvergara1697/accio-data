@@ -5479,6 +5479,217 @@ const I9FormCompletion = () => {
                           </CustomRadio>
                         </div>
 
+                        {/* Conditional List A Document Form */}
+                        {formData.documentType === "list_a" && (
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "16px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                              borderRadius: "8px",
+                              border: "1px solid #E9EAEB",
+                              background: "#FAFAFA",
+                            }}
+                          >
+                            {/* Document Title */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                }}
+                              >
+                                Document Title
+                              </div>
+                              <input
+                                type="text"
+                                value={formData.listADocumentTitle || ""}
+                                onChange={(e) =>
+                                  handleInputChange("listADocumentTitle", e.target.value)
+                                }
+                                style={{
+                                  display: "flex",
+                                  padding: "8px 12px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                  outline: "none",
+                                }}
+                              />
+                            </div>
+
+                            {/* First Row - Issuing Authority and Document Number */}
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "16px",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              {/* Issuing Authority */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  Issuing Authority
+                                </div>
+                                <input
+                                  type="text"
+                                  value={formData.listAIssuingAuthority || ""}
+                                  onChange={(e) =>
+                                    handleInputChange("listAIssuingAuthority", e.target.value)
+                                  }
+                                  style={{
+                                    display: "flex",
+                                    padding: "8px 12px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    outline: "none",
+                                  }}
+                                />
+                              </div>
+
+                              {/* Document Number */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  Document Number
+                                </div>
+                                <input
+                                  type="text"
+                                  value={formData.listADocumentNumber || ""}
+                                  onChange={(e) =>
+                                    handleInputChange("listADocumentNumber", e.target.value)
+                                  }
+                                  style={{
+                                    display: "flex",
+                                    padding: "8px 12px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    outline: "none",
+                                  }}
+                                />
+                              </div>
+                            </div>
+
+                            {/* Expiration Date */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                                width: "200px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                }}
+                              >
+                                Expiration Date (if any)
+                              </div>
+                              <input
+                                type="date"
+                                value={formData.listAExpirationDate || ""}
+                                onChange={(e) =>
+                                  handleInputChange("listAExpirationDate", e.target.value)
+                                }
+                                style={{
+                                  display: "flex",
+                                  padding: "8px 12px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                  outline: "none",
+                                }}
+                              />
+                            </div>
+                          </div>
+                        )}
+
                         {/* Verification Method Options */}
                         <div
                           style={{
