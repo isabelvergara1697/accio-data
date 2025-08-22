@@ -2854,29 +2854,31 @@ const I9FormCompletion = () => {
                         </CustomRadio>
 
                         {/* Permanent Resident with conditional inline form */}
-                        {formData.citizenshipAttestation === "permanent_resident" ? (
-                          <div
-                            style={{
-                              display: "flex",
-                              padding: "12px 8px",
-                              alignItems: "flex-start",
-                              gap: "20px",
-                              alignSelf: "stretch",
-                              borderRadius: "8px",
-                              background: "#FAFAFA",
-                            }}
-                          >
-                            <CustomRadio value="permanent_resident">
-                              A lawful permanent resident
-                            </CustomRadio>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: formData.citizenshipAttestation === "permanent_resident" ? "12px 8px" : "0",
+                            alignItems: "flex-start",
+                            gap: "20px",
+                            alignSelf: "stretch",
+                            borderRadius: formData.citizenshipAttestation === "permanent_resident" ? "8px" : "0",
+                            background: formData.citizenshipAttestation === "permanent_resident" ? "#FAFAFA" : "transparent",
+                            flexDirection: "column",
+                          }}
+                        >
+                          <CustomRadio value="permanent_resident">
+                            A lawful permanent resident
+                          </CustomRadio>
 
+                          {/* Conditional inline form fields */}
+                          {formData.citizenshipAttestation === "permanent_resident" && (
                             <div
                               style={{
                                 display: "flex",
-                                flexDirection: "column",
                                 alignItems: "flex-start",
-                                gap: "16px",
-                                flex: "1 0 0",
+                                gap: "20px",
+                                alignSelf: "stretch",
+                                flexWrap: "wrap",
                               }}
                             >
                               {/* Alien Registration Number Input */}
@@ -2967,6 +2969,8 @@ const I9FormCompletion = () => {
                                   flexDirection: "column",
                                   alignItems: "flex-start",
                                   gap: "6px",
+                                  flex: "1 1 200px",
+                                  minWidth: "200px",
                                 }}
                               >
                                 <div
@@ -3063,12 +3067,8 @@ const I9FormCompletion = () => {
                                 </Select>
                               </div>
                             </div>
-                          </div>
-                        ) : (
-                          <CustomRadio value="permanent_resident">
-                            A lawful permanent resident
-                          </CustomRadio>
-                        )}
+                          )}
+                        </div>
 
                         <CustomRadio value="alien_authorized">
                           An alien authorized to work
