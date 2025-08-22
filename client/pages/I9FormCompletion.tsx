@@ -138,7 +138,7 @@ const I9FormCompletion = () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     ctx.beginPath();
@@ -156,7 +156,7 @@ const I9FormCompletion = () => {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     ctx.lineTo(x, y);
@@ -172,7 +172,7 @@ const I9FormCompletion = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -185,14 +185,14 @@ const I9FormCompletion = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Set canvas drawing properties
-    ctx.strokeStyle = '#000000';
+    ctx.strokeStyle = "#000000";
     ctx.lineWidth = 2;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
   }, []);
 
   const handleBreadcrumbNavigation = (target: string) => {
@@ -3804,8 +3804,10 @@ const I9FormCompletion = () => {
                       >
                         <div
                           style={{
-                            color: "var(--colors-text-text-secondary-700, #414651)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-secondary-700, #414651)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 500,
@@ -3852,15 +3854,18 @@ const I9FormCompletion = () => {
                       <div
                         style={{
                           alignSelf: "stretch",
-                          color: "var(--colors-text-text-secondary-700, #414651)",
-                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                          color:
+                            "var(--colors-text-text-secondary-700, #414651)",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
                           fontSize: "var(--Font-size-text-xs, 12px)",
                           fontStyle: "normal",
                           fontWeight: 400,
                           lineHeight: "var(--Line-height-text-xs, 18px)",
                         }}
                       >
-                        Please sign here, using your mouse (press and hold the left button while moving the mouse):
+                        Please sign here, using your mouse (press and hold the
+                        left button while moving the mouse):
                       </div>
 
                       {/* Signature Canvas */}
@@ -3908,7 +3913,8 @@ const I9FormCompletion = () => {
                             fill: "#FFF",
                             strokeWidth: "1px",
                             stroke: "#D5D7DA",
-                            filter: "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
+                            filter:
+                              "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
                             position: "relative",
                           }}
                           width="626"
@@ -3930,7 +3936,10 @@ const I9FormCompletion = () => {
                               filterUnits="userSpaceOnUse"
                               colorInterpolationFilters="sRGB"
                             >
-                              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                              <feFlood
+                                floodOpacity="0"
+                                result="BackgroundImageFix"
+                              />
                               <feColorMatrix
                                 in="SourceAlpha"
                                 type="matrix"
@@ -3971,7 +3980,8 @@ const I9FormCompletion = () => {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                             position: "absolute",
                             right: "20px",
@@ -4003,8 +4013,10 @@ const I9FormCompletion = () => {
                           >
                             <div
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 600,
@@ -4021,8 +4033,10 @@ const I9FormCompletion = () => {
                       <div
                         style={{
                           alignSelf: "stretch",
-                          color: "var(--colors-text-text-secondary-700, #414651)",
-                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                          color:
+                            "var(--colors-text-text-secondary-700, #414651)",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
                           fontSize: "var(--Font-size-text-sm, 14px)",
                           fontStyle: "normal",
                           fontWeight: 500,
