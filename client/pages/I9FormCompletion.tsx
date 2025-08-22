@@ -3909,6 +3909,7 @@ const I9FormCompletion = () => {
                             strokeWidth: "1px",
                             stroke: "#D5D7DA",
                             filter: "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
+                            position: "relative",
                           }}
                           width="626"
                           height="6"
