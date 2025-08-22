@@ -3111,25 +3111,71 @@ const I9FormCompletion = () => {
                             <div
                               style={{
                                 display: "flex",
-                                flexDirection: "column",
                                 alignItems: "flex-start",
+                                gap: "8px",
                               }}
                             >
-                              <CustomRadio value="alien_authorized">
-                                An alien authorized to work
-                              </CustomRadio>
                               <div
                                 style={{
-                                  color: "var(--colors-text-text-tertiary-600, #535862)",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                  fontSize: "var(--Font-size-text-sm, 14px)",
-                                  fontStyle: "normal",
-                                  fontWeight: 400,
-                                  lineHeight: "var(--Line-height-text-sm, 20px)",
-                                  marginLeft: "24px",
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
                                 }}
                               >
-                                See Instructions
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    padding: "5px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "50%",
+                                    background: "#344698",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      width: "6px",
+                                      height: "6px",
+                                      borderRadius: "50%",
+                                      background: "#FFF",
+                                    }}
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  An alien authorized to work
+                                </div>
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-tertiary-600, #535862)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  See Instructions
+                                </div>
                               </div>
                             </div>
 
