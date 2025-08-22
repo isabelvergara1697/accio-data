@@ -1693,7 +1693,6 @@ const I9FormCompletion: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Address Row - Requester container */}
                     <div
                       style={{
                         display: "flex",
