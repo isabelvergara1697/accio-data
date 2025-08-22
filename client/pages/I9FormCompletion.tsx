@@ -2734,7 +2734,7 @@ const I9FormCompletion = () => {
                       />
                     </div>
 
-                    {/* Checkbox Section */}
+                    {/* Attestation Checkbox Section */}
                     <div
                       style={{
                         display: "flex",
@@ -2752,14 +2752,17 @@ const I9FormCompletion = () => {
                         }}
                       >
                         <Checkbox
-                          checked={false}
+                          checked={formData.attestation}
                           onCheckedChange={(checked) => {
-                            // Handle checkbox change
-                            console.log("Checkbox changed:", checked);
+                            handleInputChange("attestation", checked);
                           }}
                           style={{
-                            backgroundColor: "transparent",
-                            borderColor: "#D5D7DA",
+                            backgroundColor: formData.attestation
+                              ? "#344698"
+                              : "transparent",
+                            borderColor: formData.attestation
+                              ? "#344698"
+                              : "#D5D7DA",
                           }}
                         />
                       </div>
