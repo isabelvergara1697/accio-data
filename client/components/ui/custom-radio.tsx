@@ -2,9 +2,9 @@ import * as React from "react";
 
 interface CustomRadioProps {
   value: string;
-  name: string;
-  checked: boolean;
-  onChange: (value: string) => void;
+  name?: string;
+  checked?: boolean;
+  onChange?: (value: string) => void;
   children: React.ReactNode;
   className?: string;
 }
