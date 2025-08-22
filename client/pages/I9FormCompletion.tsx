@@ -4134,11 +4134,10 @@ const I9FormCompletion = () => {
                       <div
                         style={{
                           display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "center",
-                          alignItems: "flex-start",
+                          alignItems: "center",
                           gap: "8px",
                           alignSelf: "stretch",
+                          flexWrap: "wrap",
                         }}
                       >
                         <CustomRadioGroup
@@ -4148,20 +4147,64 @@ const I9FormCompletion = () => {
                           }
                           name="preparerCertification"
                         >
-                          <CustomRadio value="no_preparer">
-                            I did not use a preparer or translator.
-                          </CustomRadio>
                           <div
                             style={{
                               display: "flex",
                               alignItems: "center",
-                              gap: "8px",
-                              alignSelf: "stretch",
+                              gap: "24px",
+                              flexWrap: "wrap",
                             }}
                           >
-                            <CustomRadio value="used_preparer">
-                              A preparer(s) and/or translator(s) assisted the employee in completing Section 1
+                            <CustomRadio value="no_preparer">
+                              I did not use a preparer or translator.
                             </CustomRadio>
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                              }}
+                            >
+                              <CustomRadio value="used_preparer">
+                                A preparer(s) and/or translator(s) assisted the employee in completing Section 1
+                              </CustomRadio>
+                              <select
+                                value={formData.preparerCount || "1"}
+                                onChange={(e) =>
+                                  handleInputChange("preparerCount", e.target.value)
+                                }
+                                style={{
+                                  display: "flex",
+                                  width: "55px",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  color: "#717680",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  cursor: "pointer",
+                                  appearance: "none",
+                                  backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                  backgroundRepeat: "no-repeat",
+                                  backgroundPosition: "right 8px center",
+                                  paddingRight: "28px",
+                                }}
+                              >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                              </select>
+                            </div>
                           </div>
                         </CustomRadioGroup>
                       </div>
