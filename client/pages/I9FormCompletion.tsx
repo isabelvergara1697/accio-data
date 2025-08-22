@@ -2858,7 +2858,8 @@ const I9FormCompletion = () => {
                         </CustomRadio>
 
                         {/* Permanent Resident with conditional container */}
-                        {formData.citizenshipAttestation === "permanent_resident" ? (
+                        {/* TEMPORARY TEST: {formData.citizenshipAttestation === "permanent_resident" ? ( */}
+                        {false ? (
                           <div
                             style={{
                               display: "flex",
