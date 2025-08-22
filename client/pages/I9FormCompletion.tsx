@@ -44,7 +44,7 @@ const I9FormCompletion = () => {
     citizenshipStatus: "",
     preparerOption: "",
     attestation: false,
-    citizenshipAttestation: "permanent_resident",
+    citizenshipAttestation: "alien_authorized",
     alienRegistrationNumber: "",
     typeOfRegistrationNumber: "",
     // Alien authorized to work fields
