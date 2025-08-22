@@ -39,7 +39,7 @@ const I9FormCompletion = () => {
     telephoneNumber: "",
     telephoneNotApplicable: false,
     citizenshipStatus: "",
-    preparerOption: ""
+    preparerOption: "",
   });
 
   // Auto-minimize sidebar after 30 seconds
@@ -96,9 +96,9 @@ const I9FormCompletion = () => {
   }, []);
 
   const handleInputChange = (field: string, value: string | boolean) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
@@ -306,7 +306,8 @@ const I9FormCompletion = () => {
                   <div
                     style={{
                       color: "#717680",
-                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                      fontFamily:
+                        "var(--Font-family-font-family-body, 'Public Sans')",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -348,7 +349,8 @@ const I9FormCompletion = () => {
                   <div
                     style={{
                       color: "#344698",
-                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                      fontFamily:
+                        "var(--Font-family-font-family-body, 'Public Sans')",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -387,8 +389,10 @@ const I9FormCompletion = () => {
                 >
                   <div
                     style={{
-                      color: "var(--colors-text-text-brand-secondary-700, #273572)",
-                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                      color:
+                        "var(--colors-text-text-brand-secondary-700, #273572)",
+                      fontFamily:
+                        "var(--Font-family-font-family-body, 'Public Sans')",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
@@ -435,7 +439,8 @@ const I9FormCompletion = () => {
                       style={{
                         alignSelf: "stretch",
                         color: "var(--colors-text-text-primary-900, #181D27)",
-                        fontFamily: "var(--Font-family-font-family-display, 'Public Sans')",
+                        fontFamily:
+                          "var(--Font-family-font-family-display, 'Public Sans')",
                         fontSize: "var(--Font-size-display-xs, 24px)",
                         fontStyle: "normal",
                         fontWeight: 600,
@@ -449,18 +454,21 @@ const I9FormCompletion = () => {
                       style={{
                         alignSelf: "stretch",
                         color: "var(--colors-text-text-tertiary-600, #535862)",
-                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                        fontFamily:
+                          "var(--Font-family-font-family-body, 'Public Sans')",
                         fontSize: "var(--Font-size-text-md, 16px)",
                         fontStyle: "normal",
                         fontWeight: 400,
                         lineHeight: "var(--Line-height-text-md, 24px)",
                       }}
                     >
-                      Read instructions carefully before completing this form. The instructions must be available, either in paper or electronically, 
-                      during completion of this form. Employers are liable for errors in the completion of this form.
+                      Read instructions carefully before completing this form.
+                      The instructions must be available, either in paper or
+                      electronically, during completion of this form. Employers
+                      are liable for errors in the completion of this form.
                     </div>
                   </div>
-                  
+
                   {/* Actions */}
                   <div
                     style={{
@@ -480,7 +488,8 @@ const I9FormCompletion = () => {
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
                         background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
                       }}
                     >
@@ -495,7 +504,8 @@ const I9FormCompletion = () => {
                         <div
                           style={{
                             color: "#414651",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -591,7 +601,8 @@ const I9FormCompletion = () => {
                         <div
                           style={{
                             color: "#414651",
-                            fontFamily: "var(--Font-family-font-family-secondary, 'Roboto Mono')",
+                            fontFamily:
+                              "var(--Font-family-font-family-secondary, 'Roboto Mono')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 400,
@@ -603,7 +614,8 @@ const I9FormCompletion = () => {
                         <div
                           style={{
                             color: "#414651",
-                            fontFamily: "var(--Font-family-font-family-secondary, 'Roboto Mono')",
+                            fontFamily:
+                              "var(--Font-family-font-family-secondary, 'Roboto Mono')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 400,
@@ -615,7 +627,8 @@ const I9FormCompletion = () => {
                         <div
                           style={{
                             color: "#414651",
-                            fontFamily: "var(--Font-family-font-family-secondary, 'Roboto Mono')",
+                            fontFamily:
+                              "var(--Font-family-font-family-secondary, 'Roboto Mono')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 400,
@@ -627,7 +640,8 @@ const I9FormCompletion = () => {
                         <div
                           style={{
                             color: "#414651",
-                            fontFamily: "var(--Font-family-font-family-secondary, 'Roboto Mono')",
+                            fontFamily:
+                              "var(--Font-family-font-family-secondary, 'Roboto Mono')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 400,
@@ -637,7 +651,7 @@ const I9FormCompletion = () => {
                           Expires 05/31/2027
                         </div>
                       </div>
-                      
+
                       <div
                         style={{
                           display: "flex",
@@ -650,8 +664,10 @@ const I9FormCompletion = () => {
                       >
                         <div
                           style={{
-                            color: "var(--colors-text-text-primary-900, #181D27)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-primary-900, #181D27)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-md, 16px)",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -662,8 +678,10 @@ const I9FormCompletion = () => {
                         </div>
                         <div
                           style={{
-                            color: "var(--colors-text-text-primary-900, #181D27)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-primary-900, #181D27)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-md, 16px)",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -717,8 +735,10 @@ const I9FormCompletion = () => {
                       >
                         <div
                           style={{
-                            color: "var(--colors-text-text-brand-secondary-700, #273572)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-brand-secondary-700, #273572)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -729,7 +749,7 @@ const I9FormCompletion = () => {
                           Click here for English Instructions
                         </div>
                       </button>
-                      
+
                       <button
                         style={{
                           display: "flex",
@@ -743,8 +763,10 @@ const I9FormCompletion = () => {
                       >
                         <div
                           style={{
-                            color: "var(--colors-text-text-brand-secondary-700, #273572)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-brand-secondary-700, #273572)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -755,7 +777,7 @@ const I9FormCompletion = () => {
                           Haga clic aquí para instrucciones Español
                         </div>
                       </button>
-                      
+
                       <button
                         style={{
                           display: "flex",
@@ -769,8 +791,10 @@ const I9FormCompletion = () => {
                       >
                         <div
                           style={{
-                            color: "var(--colors-text-text-brand-secondary-700, #273572)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-brand-secondary-700, #273572)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -788,16 +812,22 @@ const I9FormCompletion = () => {
                       style={{
                         alignSelf: "stretch",
                         color: "var(--colors-text-text-secondary-700, #414651)",
-                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                        fontFamily:
+                          "var(--Font-family-font-family-body, 'Public Sans')",
                         fontSize: "var(--Font-size-text-sm, 14px)",
                         fontStyle: "normal",
                         fontWeight: 400,
                         lineHeight: "var(--Line-height-text-sm, 20px)",
                       }}
                     >
-                      ANTI-DISCRIMINATION NOTICE: It is illegal to discriminate against work-authorized individuals. Employers CANNOT specify which document(s) an employee 
-                      may present to establish employment authorization and identity. The refusal to hire or continue to employ an individual because the documentation 
-                      presented has a future expiration date may also constitute illegal discrimination.
+                      ANTI-DISCRIMINATION NOTICE: It is illegal to discriminate
+                      against work-authorized individuals. Employers CANNOT
+                      specify which document(s) an employee may present to
+                      establish employment authorization and identity. The
+                      refusal to hire or continue to employ an individual
+                      because the documentation presented has a future
+                      expiration date may also constitute illegal
+                      discrimination.
                     </div>
                   </div>
                 </div>
@@ -844,8 +874,10 @@ const I9FormCompletion = () => {
                       >
                         <div
                           style={{
-                            color: "var(--colors-text-text-secondary-700, #414651)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-secondary-700, #414651)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-md, 16px)",
                             fontStyle: "normal",
                             fontWeight: 600,
@@ -894,15 +926,19 @@ const I9FormCompletion = () => {
                       <div
                         style={{
                           alignSelf: "stretch",
-                          color: "var(--colors-text-text-tertiary-600, #535862)",
-                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                          color:
+                            "var(--colors-text-text-tertiary-600, #535862)",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
                           fontSize: "var(--Font-size-text-md, 16px)",
                           fontStyle: "normal",
                           fontWeight: 400,
                           lineHeight: "var(--Line-height-text-md, 24px)",
                         }}
                       >
-                        (Employees must complete and sign Section 1 of Form I-9 no later than the first day of employment, but not before accepting a job offer.)
+                        (Employees must complete and sign Section 1 of Form I-9
+                        no later than the first day of employment, but not
+                        before accepting a job offer.)
                       </div>
                     </div>
 
@@ -936,8 +972,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -991,7 +1029,10 @@ const I9FormCompletion = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "lastName" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border:
+                              focusedField === "lastName"
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
@@ -999,7 +1040,9 @@ const I9FormCompletion = () => {
                           <input
                             type="text"
                             value={formData.lastName}
-                            onChange={(e) => handleInputChange("lastName", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("lastName", e.target.value)
+                            }
                             onFocus={() => setFocusedField("lastName")}
                             onBlur={() => setFocusedField(null)}
                             style={{
@@ -1007,7 +1050,8 @@ const I9FormCompletion = () => {
                               border: "none",
                               outline: "none",
                               background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
@@ -1035,8 +1079,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1083,7 +1129,10 @@ const I9FormCompletion = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "firstName" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border:
+                              focusedField === "firstName"
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
@@ -1091,7 +1140,9 @@ const I9FormCompletion = () => {
                           <input
                             type="text"
                             value={formData.firstName}
-                            onChange={(e) => handleInputChange("firstName", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("firstName", e.target.value)
+                            }
                             onFocus={() => setFocusedField("firstName")}
                             onBlur={() => setFocusedField(null)}
                             style={{
@@ -1099,7 +1150,8 @@ const I9FormCompletion = () => {
                               border: "none",
                               outline: "none",
                               background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
@@ -1135,8 +1187,10 @@ const I9FormCompletion = () => {
                           >
                             <label
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 500,
@@ -1183,15 +1237,26 @@ const I9FormCompletion = () => {
                               gap: "8px",
                               alignSelf: "stretch",
                               borderRadius: "8px",
-                              border: focusedField === "middleInitial" && !formData.middleNotApplicable ? "2px solid #34479A" : "1px solid #D5D7DA",
-                              background: formData.middleNotApplicable ? "#F5F5F5" : "#FFF",
+                              border:
+                                focusedField === "middleInitial" &&
+                                !formData.middleNotApplicable
+                                  ? "2px solid #34479A"
+                                  : "1px solid #D5D7DA",
+                              background: formData.middleNotApplicable
+                                ? "#F5F5F5"
+                                : "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             }}
                           >
                             <input
                               type="text"
                               value={formData.middleInitial}
-                              onChange={(e) => handleInputChange("middleInitial", e.target.value)}
+                              onChange={(e) =>
+                                handleInputChange(
+                                  "middleInitial",
+                                  e.target.value,
+                                )
+                              }
                               onFocus={() => setFocusedField("middleInitial")}
                               onBlur={() => setFocusedField(null)}
                               maxLength={1}
@@ -1201,7 +1266,8 @@ const I9FormCompletion = () => {
                                 border: "none",
                                 outline: "none",
                                 background: "transparent",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 lineHeight: "var(--Line-height-text-sm, 20px)",
                               }}
@@ -1226,14 +1292,21 @@ const I9FormCompletion = () => {
                             <Checkbox
                               checked={formData.middleNotApplicable}
                               onCheckedChange={(checked) => {
-                                handleInputChange("middleNotApplicable", checked);
+                                handleInputChange(
+                                  "middleNotApplicable",
+                                  checked,
+                                );
                                 if (checked) {
                                   handleInputChange("middleInitial", "");
                                 }
                               }}
                               style={{
-                                backgroundColor: formData.middleNotApplicable ? "#344698" : "transparent",
-                                borderColor: formData.middleNotApplicable ? "#344698" : "#D5D7DA",
+                                backgroundColor: formData.middleNotApplicable
+                                  ? "#344698"
+                                  : "transparent",
+                                borderColor: formData.middleNotApplicable
+                                  ? "#344698"
+                                  : "#D5D7DA",
                               }}
                             />
                           </div>
@@ -1246,8 +1319,10 @@ const I9FormCompletion = () => {
                           >
                             <div
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 500,
@@ -1280,8 +1355,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1328,7 +1405,10 @@ const I9FormCompletion = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "otherLastNames" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border:
+                              focusedField === "otherLastNames"
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
@@ -1336,7 +1416,12 @@ const I9FormCompletion = () => {
                           <input
                             type="text"
                             value={formData.otherLastNames}
-                            onChange={(e) => handleInputChange("otherLastNames", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange(
+                                "otherLastNames",
+                                e.target.value,
+                              )
+                            }
                             onFocus={() => setFocusedField("otherLastNames")}
                             onBlur={() => setFocusedField(null)}
                             style={{
@@ -1344,7 +1429,8 @@ const I9FormCompletion = () => {
                               border: "none",
                               outline: "none",
                               background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
@@ -1383,8 +1469,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1438,7 +1526,10 @@ const I9FormCompletion = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "address" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border:
+                              focusedField === "address"
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
@@ -1446,7 +1537,9 @@ const I9FormCompletion = () => {
                           <input
                             type="text"
                             value={formData.address}
-                            onChange={(e) => handleInputChange("address", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("address", e.target.value)
+                            }
                             onFocus={() => setFocusedField("address")}
                             onBlur={() => setFocusedField(null)}
                             style={{
@@ -1454,7 +1547,8 @@ const I9FormCompletion = () => {
                               border: "none",
                               outline: "none",
                               background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
@@ -1482,8 +1576,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1537,15 +1633,23 @@ const I9FormCompletion = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "aptNumber" && !formData.aptNotApplicable ? "2px solid #34479A" : "1px solid #D5D7DA",
-                            background: formData.aptNotApplicable ? "#F5F5F5" : "#FFF",
+                            border:
+                              focusedField === "aptNumber" &&
+                              !formData.aptNotApplicable
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
+                            background: formData.aptNotApplicable
+                              ? "#F5F5F5"
+                              : "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
                         >
                           <input
                             type="text"
                             value={formData.aptNumber}
-                            onChange={(e) => handleInputChange("aptNumber", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("aptNumber", e.target.value)
+                            }
                             onFocus={() => setFocusedField("aptNumber")}
                             onBlur={() => setFocusedField(null)}
                             disabled={formData.aptNotApplicable}
@@ -1554,7 +1658,8 @@ const I9FormCompletion = () => {
                               border: "none",
                               outline: "none",
                               background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
@@ -1584,8 +1689,12 @@ const I9FormCompletion = () => {
                                 }
                               }}
                               style={{
-                                backgroundColor: formData.aptNotApplicable ? "#344698" : "transparent",
-                                borderColor: formData.aptNotApplicable ? "#344698" : "#D5D7DA",
+                                backgroundColor: formData.aptNotApplicable
+                                  ? "#344698"
+                                  : "transparent",
+                                borderColor: formData.aptNotApplicable
+                                  ? "#344698"
+                                  : "#D5D7DA",
                               }}
                             />
                           </div>
@@ -1598,8 +1707,10 @@ const I9FormCompletion = () => {
                           >
                             <div
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 500,
@@ -1632,8 +1743,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1687,7 +1800,10 @@ const I9FormCompletion = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "cityOrTown" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border:
+                              focusedField === "cityOrTown"
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
@@ -1695,7 +1811,9 @@ const I9FormCompletion = () => {
                           <input
                             type="text"
                             value={formData.cityOrTown}
-                            onChange={(e) => handleInputChange("cityOrTown", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("cityOrTown", e.target.value)
+                            }
                             onFocus={() => setFocusedField("cityOrTown")}
                             onBlur={() => setFocusedField(null)}
                             style={{
@@ -1703,7 +1821,8 @@ const I9FormCompletion = () => {
                               border: "none",
                               outline: "none",
                               background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
@@ -1730,8 +1849,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1742,8 +1863,10 @@ const I9FormCompletion = () => {
                           </label>
                           <div
                             style={{
-                              color: "var(--colors-text-text-brand-tertiary-600, #344698)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-brand-tertiary-600, #344698)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1804,12 +1927,16 @@ const I9FormCompletion = () => {
                               gap: "8px",
                               alignSelf: "stretch",
                               borderRadius: "8px",
-                              border: stateDropdownOpen ? "2px solid #34479A" : "1px solid #D5D7DA",
+                              border: stateDropdownOpen
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                               background: "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               cursor: "pointer",
                             }}
-                            onClick={() => setStateDropdownOpen(!stateDropdownOpen)}
+                            onClick={() =>
+                              setStateDropdownOpen(!stateDropdownOpen)
+                            }
                           >
                             <div
                               style={{
@@ -1826,13 +1953,17 @@ const I9FormCompletion = () => {
                                   WebkitLineClamp: 1,
                                   flex: "1 0 0",
                                   overflow: "hidden",
-                                  color: formData.state ? "var(--colors-text-text-secondary-700, #414651)" : "var(--Colors-Text-text-placeholder, #717680)",
+                                  color: formData.state
+                                    ? "var(--colors-text-text-secondary-700, #414651)"
+                                    : "var(--Colors-Text-text-placeholder, #717680)",
                                   textOverflow: "ellipsis",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-sm, 14px)",
                                   fontStyle: "normal",
                                   fontWeight: 400,
-                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-sm, 20px)",
                                 }}
                               >
                                 {formData.state || "Select"}
@@ -1842,7 +1973,9 @@ const I9FormCompletion = () => {
                               style={{
                                 width: "16px",
                                 height: "16px",
-                                transform: stateDropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                                transform: stateDropdownOpen
+                                  ? "rotate(180deg)"
+                                  : "rotate(0deg)",
                                 transition: "transform 0.2s ease",
                               }}
                               width="16"
@@ -1879,11 +2012,56 @@ const I9FormCompletion = () => {
                               }}
                             >
                               {[
-                                "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
-                                "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
-                                "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
-                                "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
-                                "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+                                "Alabama",
+                                "Alaska",
+                                "Arizona",
+                                "Arkansas",
+                                "California",
+                                "Colorado",
+                                "Connecticut",
+                                "Delaware",
+                                "Florida",
+                                "Georgia",
+                                "Hawaii",
+                                "Idaho",
+                                "Illinois",
+                                "Indiana",
+                                "Iowa",
+                                "Kansas",
+                                "Kentucky",
+                                "Louisiana",
+                                "Maine",
+                                "Maryland",
+                                "Massachusetts",
+                                "Michigan",
+                                "Minnesota",
+                                "Mississippi",
+                                "Missouri",
+                                "Montana",
+                                "Nebraska",
+                                "Nevada",
+                                "New Hampshire",
+                                "New Jersey",
+                                "New Mexico",
+                                "New York",
+                                "North Carolina",
+                                "North Dakota",
+                                "Ohio",
+                                "Oklahoma",
+                                "Oregon",
+                                "Pennsylvania",
+                                "Rhode Island",
+                                "South Carolina",
+                                "South Dakota",
+                                "Tennessee",
+                                "Texas",
+                                "Utah",
+                                "Vermont",
+                                "Virginia",
+                                "Washington",
+                                "West Virginia",
+                                "Wisconsin",
+                                "Wyoming",
                               ].map((state) => (
                                 <div
                                   key={state}
@@ -1891,9 +2069,14 @@ const I9FormCompletion = () => {
                                     padding: "8px 12px",
                                     cursor: "pointer",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    background: formData.state === state ? "#F3F4F6" : "transparent",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    background:
+                                      formData.state === state
+                                        ? "#F3F4F6"
+                                        : "transparent",
                                     transition: "background 0.2s ease",
                                   }}
                                   onClick={() => {
@@ -1901,10 +2084,14 @@ const I9FormCompletion = () => {
                                     setStateDropdownOpen(false);
                                   }}
                                   onMouseEnter={(e) => {
-                                    e.currentTarget.style.background = "#F3F4F6";
+                                    e.currentTarget.style.background =
+                                      "#F3F4F6";
                                   }}
                                   onMouseLeave={(e) => {
-                                    e.currentTarget.style.background = formData.state === state ? "#F3F4F6" : "transparent";
+                                    e.currentTarget.style.background =
+                                      formData.state === state
+                                        ? "#F3F4F6"
+                                        : "transparent";
                                   }}
                                 >
                                   {state}
@@ -1934,8 +2121,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -1989,7 +2178,10 @@ const I9FormCompletion = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "zipCode" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border:
+                              focusedField === "zipCode"
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
@@ -1997,7 +2189,9 @@ const I9FormCompletion = () => {
                           <input
                             type="text"
                             value={formData.zipCode}
-                            onChange={(e) => handleInputChange("zipCode", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("zipCode", e.target.value)
+                            }
                             onFocus={() => setFocusedField("zipCode")}
                             onBlur={() => setFocusedField(null)}
                             style={{
@@ -2005,7 +2199,8 @@ const I9FormCompletion = () => {
                               border: "none",
                               outline: "none",
                               background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
