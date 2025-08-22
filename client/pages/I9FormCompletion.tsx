@@ -2855,7 +2855,7 @@ const I9FormCompletion = () => {
 
                         {/* Permanent Resident with conditional container */}
                         {/* TEMPORARY TEST: {formData.citizenshipAttestation === "permanent_resident" ? ( */}
-                        {false ? (
+                        {formData.citizenshipAttestation === "permanent_resident" ? (
                           <div
                             style={{
                               display: "flex",
