@@ -7,7 +7,13 @@ import { MobileHeader } from "../components/MobileHeader";
 import { Checkbox } from "../components/ui/checkbox";
 import { CustomRadio, CustomRadioGroup } from "../components/ui/custom-radio";
 import { Input } from "../components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select";
 
 const I9FormCompletion = () => {
   const navigate = useNavigate();
@@ -2251,8 +2257,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -2307,7 +2315,10 @@ const I9FormCompletion = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "dateOfBirth" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border:
+                              focusedField === "dateOfBirth"
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
@@ -2344,7 +2355,9 @@ const I9FormCompletion = () => {
                               type="text"
                               placeholder="00/00/00"
                               value={formData.dateOfBirth}
-                              onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
+                              onChange={(e) =>
+                                handleInputChange("dateOfBirth", e.target.value)
+                              }
                               onFocus={() => setFocusedField("dateOfBirth")}
                               onBlur={() => setFocusedField(null)}
                               style={{
@@ -2354,7 +2367,8 @@ const I9FormCompletion = () => {
                                 flex: "1 0 0",
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 400,
@@ -2362,7 +2376,9 @@ const I9FormCompletion = () => {
                                 border: "none",
                                 outline: "none",
                                 background: "transparent",
-                                color: formData.dateOfBirth ? "var(--colors-text-text-secondary-700, #414651)" : "var(--Colors-Text-text-placeholder, #717680)",
+                                color: formData.dateOfBirth
+                                  ? "var(--colors-text-text-secondary-700, #414651)"
+                                  : "var(--Colors-Text-text-placeholder, #717680)",
                               }}
                             />
                           </div>
@@ -2388,8 +2404,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -2444,7 +2462,10 @@ const I9FormCompletion = () => {
                             flex: "1 0 0",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "socialSecurityNumber" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border:
+                              focusedField === "socialSecurityNumber"
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
@@ -2452,15 +2473,23 @@ const I9FormCompletion = () => {
                           <input
                             type="text"
                             value={formData.socialSecurityNumber}
-                            onChange={(e) => handleInputChange("socialSecurityNumber", e.target.value)}
-                            onFocus={() => setFocusedField("socialSecurityNumber")}
+                            onChange={(e) =>
+                              handleInputChange(
+                                "socialSecurityNumber",
+                                e.target.value,
+                              )
+                            }
+                            onFocus={() =>
+                              setFocusedField("socialSecurityNumber")
+                            }
                             onBlur={() => setFocusedField(null)}
                             style={{
                               flex: "1 0 0",
                               border: "none",
                               outline: "none",
                               background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
@@ -2487,8 +2516,10 @@ const I9FormCompletion = () => {
                         >
                           <label
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -2543,7 +2574,10 @@ const I9FormCompletion = () => {
                             flex: "1 0 0",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "emailAddress" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border:
+                              focusedField === "emailAddress"
+                                ? "2px solid #34479A"
+                                : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
@@ -2551,7 +2585,9 @@ const I9FormCompletion = () => {
                           <input
                             type="email"
                             value={formData.emailAddress}
-                            onChange={(e) => handleInputChange("emailAddress", e.target.value)}
+                            onChange={(e) =>
+                              handleInputChange("emailAddress", e.target.value)
+                            }
                             onFocus={() => setFocusedField("emailAddress")}
                             onBlur={() => setFocusedField(null)}
                             style={{
@@ -2559,7 +2595,8 @@ const I9FormCompletion = () => {
                               border: "none",
                               outline: "none",
                               background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
@@ -2595,8 +2632,10 @@ const I9FormCompletion = () => {
                           >
                             <label
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 500,
@@ -2651,15 +2690,26 @@ const I9FormCompletion = () => {
                               flex: "1 0 0",
                               alignSelf: "stretch",
                               borderRadius: "8px",
-                              border: focusedField === "telephoneNumber" && !formData.telephoneNotApplicable ? "2px solid #34479A" : "1px solid #D5D7DA",
-                              background: formData.telephoneNotApplicable ? "#F5F5F5" : "#FFF",
+                              border:
+                                focusedField === "telephoneNumber" &&
+                                !formData.telephoneNotApplicable
+                                  ? "2px solid #34479A"
+                                  : "1px solid #D5D7DA",
+                              background: formData.telephoneNotApplicable
+                                ? "#F5F5F5"
+                                : "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             }}
                           >
                             <input
                               type="tel"
                               value={formData.telephoneNumber}
-                              onChange={(e) => handleInputChange("telephoneNumber", e.target.value)}
+                              onChange={(e) =>
+                                handleInputChange(
+                                  "telephoneNumber",
+                                  e.target.value,
+                                )
+                              }
                               onFocus={() => setFocusedField("telephoneNumber")}
                               onBlur={() => setFocusedField(null)}
                               disabled={formData.telephoneNotApplicable}
@@ -2668,7 +2718,8 @@ const I9FormCompletion = () => {
                                 border: "none",
                                 outline: "none",
                                 background: "transparent",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 lineHeight: "var(--Line-height-text-sm, 20px)",
                               }}
@@ -2693,14 +2744,21 @@ const I9FormCompletion = () => {
                             <Checkbox
                               checked={formData.telephoneNotApplicable}
                               onCheckedChange={(checked) => {
-                                handleInputChange("telephoneNotApplicable", checked);
+                                handleInputChange(
+                                  "telephoneNotApplicable",
+                                  checked,
+                                );
                                 if (checked) {
                                   handleInputChange("telephoneNumber", "");
                                 }
                               }}
                               style={{
-                                backgroundColor: formData.telephoneNotApplicable ? "#344698" : "transparent",
-                                borderColor: formData.telephoneNotApplicable ? "#344698" : "#D5D7DA",
+                                backgroundColor: formData.telephoneNotApplicable
+                                  ? "#344698"
+                                  : "transparent",
+                                borderColor: formData.telephoneNotApplicable
+                                  ? "#344698"
+                                  : "#D5D7DA",
                               }}
                             />
                           </div>
@@ -2713,8 +2771,10 @@ const I9FormCompletion = () => {
                           >
                             <div
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 500,
@@ -2797,7 +2857,8 @@ const I9FormCompletion = () => {
                             lineHeight: "var(--Line-height-text-sm, 20px)",
                           }}
                         >
-                          I attest, under penalty of perjury, that I am (check one of the following boxes):
+                          I attest, under penalty of perjury, that I am (check
+                          one of the following boxes):
                         </div>
                       </div>
                     </div>
@@ -2843,12 +2904,15 @@ const I9FormCompletion = () => {
                           alignSelf: "stretch",
                         }}
                       >
-                        I attest, under penalty of perjury, that I am (check one of the following):
+                        I attest, under penalty of perjury, that I am (check one
+                        of the following):
                       </div>
 
                       <CustomRadioGroup
                         value={formData.citizenshipAttestation}
-                        onValueChange={(value) => handleInputChange("citizenshipAttestation", value)}
+                        onValueChange={(value) =>
+                          handleInputChange("citizenshipAttestation", value)
+                        }
                         name="citizenshipAttestation"
                       >
                         <CustomRadio value="citizen">
@@ -2860,7 +2924,8 @@ const I9FormCompletion = () => {
                         </CustomRadio>
 
                         {/* Permanent Resident with conditional inline form */}
-                        {formData.citizenshipAttestation === "permanent_resident" ? (
+                        {formData.citizenshipAttestation ===
+                        "permanent_resident" ? (
                           <div
                             style={{
                               display: "flex",
@@ -2904,12 +2969,16 @@ const I9FormCompletion = () => {
                                 >
                                   <label
                                     style={{
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     Alien Registration Number/USCIS Number
@@ -2947,21 +3016,32 @@ const I9FormCompletion = () => {
 
                                 <Input
                                   value={formData.alienRegistrationNumber}
-                                  onChange={(e) => handleInputChange("alienRegistrationNumber", e.target.value)}
-                                  onFocus={() => setFocusedField("alienRegistrationNumber")}
+                                  onChange={(e) =>
+                                    handleInputChange(
+                                      "alienRegistrationNumber",
+                                      e.target.value,
+                                    )
+                                  }
+                                  onFocus={() =>
+                                    setFocusedField("alienRegistrationNumber")
+                                  }
                                   onBlur={() => setFocusedField(null)}
                                   style={{
                                     height: "32px",
                                     padding: "6px 8px",
                                     borderRadius: "8px",
-                                    border: focusedField === "alienRegistrationNumber"
-                                      ? "2px solid #34479A"
-                                      : "1px solid #D5D7DA",
+                                    border:
+                                      focusedField === "alienRegistrationNumber"
+                                        ? "2px solid #34479A"
+                                        : "1px solid #D5D7DA",
                                     background: "#FFF",
-                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 />
                               </div>
@@ -2986,24 +3066,32 @@ const I9FormCompletion = () => {
                                 >
                                   <label
                                     style={{
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     Type of Registration Number
                                   </label>
                                   <div
                                     style={{
-                                      color: "var(--colors-text-text-brand-tertiary-600, #344698)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-brand-tertiary-600, #344698)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     *
@@ -3041,7 +3129,12 @@ const I9FormCompletion = () => {
 
                                 <Select
                                   value={formData.typeOfRegistrationNumber}
-                                  onValueChange={(value) => handleInputChange("typeOfRegistrationNumber", value)}
+                                  onValueChange={(value) =>
+                                    handleInputChange(
+                                      "typeOfRegistrationNumber",
+                                      value,
+                                    )
+                                  }
                                 >
                                   <SelectTrigger
                                     style={{
@@ -3050,23 +3143,35 @@ const I9FormCompletion = () => {
                                       borderRadius: "8px",
                                       border: "1px solid #D5D7DA",
                                       background: "#FFF",
-                                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      boxShadow:
+                                        "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     <SelectValue
                                       placeholder="Select"
                                       style={{
-                                        color: formData.typeOfRegistrationNumber ? "#414651" : "#717680",
+                                        color: formData.typeOfRegistrationNumber
+                                          ? "#414651"
+                                          : "#717680",
                                       }}
                                     />
                                   </SelectTrigger>
                                   <SelectContent>
-                                    <SelectItem value="green_card">Green Card Number</SelectItem>
-                                    <SelectItem value="uscis_number">USCIS Number</SelectItem>
-                                    <SelectItem value="alien_number">Alien Registration Number</SelectItem>
+                                    <SelectItem value="green_card">
+                                      Green Card Number
+                                    </SelectItem>
+                                    <SelectItem value="uscis_number">
+                                      USCIS Number
+                                    </SelectItem>
+                                    <SelectItem value="alien_number">
+                                      Alien Registration Number
+                                    </SelectItem>
                                   </SelectContent>
                                 </Select>
                               </div>
@@ -3079,7 +3184,8 @@ const I9FormCompletion = () => {
                         )}
 
                         {/* Show alien authorized radio button when not selected */}
-                        {formData.citizenshipAttestation !== "alien_authorized" && (
+                        {formData.citizenshipAttestation !==
+                          "alien_authorized" && (
                           <CustomRadio value="alien_authorized">
                             An alien authorized to work
                           </CustomRadio>
@@ -3087,7 +3193,8 @@ const I9FormCompletion = () => {
                       </CustomRadioGroup>
 
                       {/* Conditional inline form for alien authorized to work */}
-                      {formData.citizenshipAttestation === "alien_authorized" && (
+                      {formData.citizenshipAttestation ===
+                        "alien_authorized" && (
                         <div
                           style={{
                             display: "flex",
@@ -3122,12 +3229,15 @@ const I9FormCompletion = () => {
                               </CustomRadio>
                               <div
                                 style={{
-                                  color: "var(--colors-text-text-tertiary-600, #535862)",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  color:
+                                    "var(--colors-text-text-tertiary-600, #535862)",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-sm, 14px)",
                                   fontStyle: "normal",
                                   fontWeight: 400,
-                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-sm, 20px)",
                                   marginLeft: "24px",
                                 }}
                               >
@@ -3154,12 +3264,15 @@ const I9FormCompletion = () => {
                               >
                                 <label
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   Until (Expiration Date, if applicable)
@@ -3191,7 +3304,11 @@ const I9FormCompletion = () => {
                                     </g>
                                     <defs>
                                       <clipPath id="clip0_help_icon_exp">
-                                        <rect width="16" height="16" fill="white" />
+                                        <rect
+                                          width="16"
+                                          height="16"
+                                          fill="white"
+                                        />
                                       </clipPath>
                                     </defs>
                                   </svg>
@@ -3208,7 +3325,8 @@ const I9FormCompletion = () => {
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 }}
                               >
                                 <svg
@@ -3230,27 +3348,39 @@ const I9FormCompletion = () => {
                                   type="text"
                                   placeholder="00/00/00"
                                   value={formData.expirationDate}
-                                  onChange={(e) => handleInputChange("expirationDate", e.target.value)}
+                                  onChange={(e) =>
+                                    handleInputChange(
+                                      "expirationDate",
+                                      e.target.value,
+                                    )
+                                  }
                                   style={{
                                     flex: "1 0 0",
                                     border: "none",
                                     outline: "none",
                                     background: "transparent",
-                                    color: formData.expirationDate ? "#414651" : "#717680",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color: formData.expirationDate
+                                      ? "#414651"
+                                      : "#717680",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 />
                               </div>
                               <div
                                 style={{
-                                  color: "var(--colors-text-text-tertiary-600, #535862)",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  color:
+                                    "var(--colors-text-text-tertiary-600, #535862)",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-sm, 14px)",
                                   fontStyle: "normal",
                                   fontWeight: 400,
-                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-sm, 20px)",
                                 }}
                               >
                                 Some noncitizens may write N/A in this field
@@ -3279,8 +3409,10 @@ const I9FormCompletion = () => {
                           >
                             <div
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 500,
@@ -3293,7 +3425,12 @@ const I9FormCompletion = () => {
                             {/* Work authorization type radio buttons */}
                             <CustomRadioGroup
                               value={formData.workAuthorizationType}
-                              onValueChange={(value) => handleInputChange("workAuthorizationType", value)}
+                              onValueChange={(value) =>
+                                handleInputChange(
+                                  "workAuthorizationType",
+                                  value,
+                                )
+                              }
                               name="workAuthorizationType"
                             >
                               <CustomRadio value="i94">
@@ -3310,7 +3447,8 @@ const I9FormCompletion = () => {
                             </CustomRadioGroup>
 
                             {/* Conditional fields based on work authorization type */}
-                            {formData.workAuthorizationType === "foreign_passport" && (
+                            {formData.workAuthorizationType ===
+                              "foreign_passport" && (
                               <div
                                 style={{
                                   display: "flex",
@@ -3339,12 +3477,16 @@ const I9FormCompletion = () => {
                                   >
                                     <label
                                       style={{
-                                        color: "var(--colors-text-text-secondary-700, #414651)",
-                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                        fontSize: "var(--Font-size-text-sm, 14px)",
+                                        color:
+                                          "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily:
+                                          "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize:
+                                          "var(--Font-size-text-sm, 14px)",
                                         fontStyle: "normal",
                                         fontWeight: 500,
-                                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                                        lineHeight:
+                                          "var(--Line-height-text-sm, 20px)",
                                       }}
                                     >
                                       Foreign Passport Number
@@ -3376,7 +3518,11 @@ const I9FormCompletion = () => {
                                         </g>
                                         <defs>
                                           <clipPath id="clip0_help_icon_passport">
-                                            <rect width="16" height="16" fill="white" />
+                                            <rect
+                                              width="16"
+                                              height="16"
+                                              fill="white"
+                                            />
                                           </clipPath>
                                         </defs>
                                       </svg>
@@ -3385,17 +3531,26 @@ const I9FormCompletion = () => {
                                   <input
                                     type="text"
                                     value={formData.foreignPassportNumber}
-                                    onChange={(e) => handleInputChange("foreignPassportNumber", e.target.value)}
+                                    onChange={(e) =>
+                                      handleInputChange(
+                                        "foreignPassportNumber",
+                                        e.target.value,
+                                      )
+                                    }
                                     style={{
                                       height: "32px",
                                       padding: "6px 8px",
                                       borderRadius: "8px",
                                       border: "1px solid #D5D7DA",
                                       background: "#FFF",
-                                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      boxShadow:
+                                        "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   />
                                 </div>
@@ -3420,24 +3575,32 @@ const I9FormCompletion = () => {
                                   >
                                     <label
                                       style={{
-                                        color: "var(--colors-text-text-secondary-700, #414651)",
-                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                        fontSize: "var(--Font-size-text-sm, 14px)",
+                                        color:
+                                          "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily:
+                                          "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize:
+                                          "var(--Font-size-text-sm, 14px)",
                                         fontStyle: "normal",
                                         fontWeight: 500,
-                                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                                        lineHeight:
+                                          "var(--Line-height-text-sm, 20px)",
                                       }}
                                     >
                                       Country of Issuance
                                     </label>
                                     <div
                                       style={{
-                                        color: "var(--colors-text-text-brand-tertiary-600, #344698)",
-                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                        fontSize: "var(--Font-size-text-sm, 14px)",
+                                        color:
+                                          "var(--colors-text-text-brand-tertiary-600, #344698)",
+                                        fontFamily:
+                                          "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize:
+                                          "var(--Font-size-text-sm, 14px)",
                                         fontStyle: "normal",
                                         fontWeight: 500,
-                                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                                        lineHeight:
+                                          "var(--Line-height-text-sm, 20px)",
                                       }}
                                     >
                                       *
@@ -3469,7 +3632,11 @@ const I9FormCompletion = () => {
                                         </g>
                                         <defs>
                                           <clipPath id="clip0_help_icon_country">
-                                            <rect width="16" height="16" fill="white" />
+                                            <rect
+                                              width="16"
+                                              height="16"
+                                              fill="white"
+                                            />
                                           </clipPath>
                                         </defs>
                                       </svg>
@@ -3477,7 +3644,12 @@ const I9FormCompletion = () => {
                                   </div>
                                   <Select
                                     value={formData.countryOfIssuance}
-                                    onValueChange={(value) => handleInputChange("countryOfIssuance", value)}
+                                    onValueChange={(value) =>
+                                      handleInputChange(
+                                        "countryOfIssuance",
+                                        value,
+                                      )
+                                    }
                                   >
                                     <SelectTrigger
                                       style={{
@@ -3486,24 +3658,38 @@ const I9FormCompletion = () => {
                                         borderRadius: "8px",
                                         border: "1px solid #D5D7DA",
                                         background: "#FFF",
-                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                        fontSize: "var(--Font-size-text-sm, 14px)",
-                                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                                        boxShadow:
+                                          "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                        fontFamily:
+                                          "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize:
+                                          "var(--Font-size-text-sm, 14px)",
+                                        lineHeight:
+                                          "var(--Line-height-text-sm, 20px)",
                                       }}
                                     >
                                       <SelectValue
                                         placeholder="Select"
                                         style={{
-                                          color: formData.countryOfIssuance ? "#414651" : "#717680",
+                                          color: formData.countryOfIssuance
+                                            ? "#414651"
+                                            : "#717680",
                                         }}
                                       />
                                     </SelectTrigger>
                                     <SelectContent>
-                                      <SelectItem value="united_states">United States</SelectItem>
-                                      <SelectItem value="canada">Canada</SelectItem>
-                                      <SelectItem value="mexico">Mexico</SelectItem>
-                                      <SelectItem value="other">Other</SelectItem>
+                                      <SelectItem value="united_states">
+                                        United States
+                                      </SelectItem>
+                                      <SelectItem value="canada">
+                                        Canada
+                                      </SelectItem>
+                                      <SelectItem value="mexico">
+                                        Mexico
+                                      </SelectItem>
+                                      <SelectItem value="other">
+                                        Other
+                                      </SelectItem>
                                     </SelectContent>
                                   </Select>
                                 </div>

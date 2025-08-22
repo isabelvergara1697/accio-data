@@ -10,7 +10,18 @@ interface CustomRadioProps {
 }
 
 const CustomRadio = React.forwardRef<HTMLInputElement, CustomRadioProps>(
-  ({ value, name = "", checked = false, onChange, children, className = "", ...props }, ref) => {
+  (
+    {
+      value,
+      name = "",
+      checked = false,
+      onChange,
+      children,
+      className = "",
+      ...props
+    },
+    ref,
+  ) => {
     const handleChange = (newValue: string) => {
       if (onChange && typeof onChange === "function") {
         onChange(newValue);
@@ -111,7 +122,7 @@ const CustomRadio = React.forwardRef<HTMLInputElement, CustomRadioProps>(
         </div>
       </div>
     );
-  }
+  },
 );
 
 CustomRadio.displayName = "CustomRadio";
@@ -124,42 +135,46 @@ interface CustomRadioGroupProps {
   className?: string;
 }
 
-const CustomRadioGroup = React.forwardRef<HTMLDivElement, CustomRadioGroupProps>(
-  ({ value, onValueChange, name, children, className = "", ...props }, ref) => {
-    const handleValueChange = (newValue: string) => {
-      if (onValueChange && typeof onValueChange === "function") {
-        onValueChange(newValue);
-      }
-    };
+const CustomRadioGroup = React.forwardRef<
+  HTMLDivElement,
+  CustomRadioGroupProps
+>(({ value, onValueChange, name, children, className = "", ...props }, ref) => {
+  const handleValueChange = (newValue: string) => {
+    if (onValueChange && typeof onValueChange === "function") {
+      onValueChange(newValue);
+    }
+  };
 
-    return (
-      <div
-        ref={ref}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "8px",
-          alignSelf: "stretch",
-        }}
-        className={className}
-        {...props}
-      >
-        {React.Children.map(children, (child) => {
-          if (React.isValidElement(child) && child.type === CustomRadio) {
-            return React.cloneElement(child as React.ReactElement<CustomRadioProps>, {
+  return (
+    <div
+      ref={ref}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: "8px",
+        alignSelf: "stretch",
+      }}
+      className={className}
+      {...props}
+    >
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child) && child.type === CustomRadio) {
+          return React.cloneElement(
+            child as React.ReactElement<CustomRadioProps>,
+            {
               ...child.props,
               name,
               checked: child.props.value === value,
               onChange: handleValueChange,
-            });
-          }
-          return child;
-        })}
-      </div>
-    );
-  }
-);
+            },
+          );
+        }
+        return child;
+      })}
+    </div>
+  );
+});
 
 CustomRadioGroup.displayName = "CustomRadioGroup";
 
