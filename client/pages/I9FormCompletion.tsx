@@ -2209,7 +2209,7 @@ const I9FormCompletion = () => {
                       </div>
                     </div>
 
-                    {/* Third Row - Duplicate Name Fields */}
+                    {/* Third Row - Additional Information Fields */}
                     <div
                       style={{
                         display: "flex",
@@ -2219,15 +2219,14 @@ const I9FormCompletion = () => {
                         flexWrap: "wrap",
                       }}
                     >
-                      {/* Last Name 2 */}
+                      {/* Date of Birth */}
                       <div
                         style={{
                           display: "flex",
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "6px",
-                          flex: isMobile ? "1 0 0" : "1 1 200px",
-                          minWidth: "150px",
+                          width: "188px",
                         }}
                       >
                         <div
@@ -2247,7 +2246,7 @@ const I9FormCompletion = () => {
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
                           >
-                            Last Name (Family Name)
+                            Date of Birth (mm/dd/yy)
                           </label>
                           <div
                             style={{
@@ -2269,7 +2268,7 @@ const I9FormCompletion = () => {
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <g clipPath="url(#clip0_6183_45224_2)">
+                              <g clipPath="url(#clip0_dob_help)">
                                 <path
                                   d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
                                   stroke="#A4A7AE"
@@ -2279,7 +2278,7 @@ const I9FormCompletion = () => {
                                 />
                               </g>
                               <defs>
-                                <clipPath id="clip0_6183_45224_2">
+                                <clipPath id="clip0_dob_help">
                                   <rect width="16" height="16" fill="white" />
                                 </clipPath>
                               </defs>
@@ -2289,72 +2288,24 @@ const I9FormCompletion = () => {
                         <div
                           style={{
                             display: "flex",
+                            height: "32px",
                             padding: "6px 8px",
                             alignItems: "center",
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "lastName2" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border: focusedField === "dateOfBirth" ? "2px solid #34479A" : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
                         >
-                          <input
-                            type="text"
-                            value={formData.lastName2}
-                            onChange={(e) => handleInputChange("lastName2", e.target.value)}
-                            onFocus={() => setFocusedField("lastName2")}
-                            onBlur={() => setFocusedField(null)}
-                            style={{
-                              flex: "1 0 0",
-                              border: "none",
-                              outline: "none",
-                              background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "var(--Font-size-text-sm, 14px)",
-                              lineHeight: "var(--Line-height-text-sm, 20px)",
-                            }}
-                          />
-                        </div>
-                      </div>
-
-                      {/* First Name 2 */}
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          gap: "6px",
-                          flex: isMobile ? "1 0 0" : "1 1 200px",
-                          minWidth: "150px",
-                        }}
-                      >
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "2px",
-                          }}
-                        >
-                          <label
-                            style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "var(--Font-size-text-sm, 14px)",
-                              fontStyle: "normal",
-                              fontWeight: 500,
-                              lineHeight: "var(--Line-height-text-sm, 20px)",
-                            }}
-                          >
-                            First Name (Given Name)
-                          </label>
                           <div
                             style={{
                               display: "flex",
-                              width: "16px",
-                              height: "16px",
-                              justifyContent: "center",
+                              padding: "2px 0",
                               alignItems: "center",
+                              gap: "8px",
+                              flex: "1 0 0",
                             }}
                           >
                             <svg
@@ -2369,12 +2320,105 @@ const I9FormCompletion = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                d="M6.72667 5.99992C6.8834 5.55436 7.19277 5.17866 7.59997 4.93934C8.00717 4.70002 8.48593 4.61254 8.95145 4.69239C9.41697 4.77224 9.83921 5.01427 10.1434 5.3756C10.4476 5.73694 10.614 6.19427 10.6133 6.66659C10.6133 7.99992 8.61333 8.66659 8.61333 8.66659M8.66667 11.3333H8.67333M15.3333 7.99992C15.3333 11.6818 12.3486 14.6666 8.66667 14.6666C4.98477 14.6666 2 11.6818 2 7.99992C2 4.31802 4.98477 1.33325 8.66667 1.33325C12.3486 1.33325 15.3333 4.31802 15.3333 7.99992Z"
+                                d="M14 6.66659H2M10.6667 1.33325V3.99992M5.33333 1.33325V3.99992M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4486C13.2843 14.2569 13.5903 13.9509 13.782 13.5746C14 13.1467 14 12.5867 14 11.4666V5.86659C14 4.74648 14 4.18643 13.782 3.7586C13.5903 3.38228 13.2843 3.07632 12.908 2.88457C12.4802 2.66659 11.9201 2.66659 10.8 2.66659H5.2C4.0799 2.66659 3.51984 2.66659 3.09202 2.88457C2.71569 3.07632 2.40973 3.38228 2.21799 3.7586C2 4.18643 2 4.74648 2 5.86659V11.4666C2 12.5867 2 13.1467 2.21799 13.5746C2.40973 13.9509 2.71569 14.2569 3.09202 14.4486C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
                                 stroke="#A4A7AE"
-                                strokeWidth="1.33333"
+                                strokeWidth="1.5"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                               />
+                            </svg>
+                            <input
+                              type="text"
+                              placeholder="00/00/00"
+                              value={formData.dateOfBirth}
+                              onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
+                              onFocus={() => setFocusedField("dateOfBirth")}
+                              onBlur={() => setFocusedField(null)}
+                              style={{
+                                display: "-webkit-box",
+                                WebkitBoxOrient: "vertical",
+                                WebkitLineClamp: 1,
+                                flex: "1 0 0",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                color: formData.dateOfBirth ? "var(--colors-text-text-secondary-700, #414651)" : "var(--Colors-Text-text-placeholder, #717680)",
+                              }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* U.S. Social Security Number */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "6px",
+                          width: "214px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            U.S. Social Security Number
+                          </label>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "16px",
+                              height: "16px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clipPath="url(#clip0_ssn_help)">
+                                <path
+                                  d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.33333"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_ssn_help">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
                             </svg>
                           </div>
                         </div>
@@ -2384,18 +2428,19 @@ const I9FormCompletion = () => {
                             padding: "6px 8px",
                             alignItems: "center",
                             gap: "8px",
+                            flex: "1 0 0",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: focusedField === "firstName2" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            border: focusedField === "socialSecurityNumber" ? "2px solid #34479A" : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           }}
                         >
                           <input
                             type="text"
-                            value={formData.firstName2}
-                            onChange={(e) => handleInputChange("firstName2", e.target.value)}
-                            onFocus={() => setFocusedField("firstName2")}
+                            value={formData.socialSecurityNumber}
+                            onChange={(e) => handleInputChange("socialSecurityNumber", e.target.value)}
+                            onFocus={() => setFocusedField("socialSecurityNumber")}
                             onBlur={() => setFocusedField(null)}
                             style={{
                               flex: "1 0 0",
@@ -2410,14 +2455,113 @@ const I9FormCompletion = () => {
                         </div>
                       </div>
 
-                      {/* Middle Initial 2 */}
+                      {/* Email Address */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "6px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "2px",
+                          }}
+                        >
+                          <label
+                            style={{
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Email Address
+                          </label>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "16px",
+                              height: "16px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                              }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clipPath="url(#clip0_email_help)">
+                                <path
+                                  d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.33333"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_email_help">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "6px 8px",
+                            alignItems: "center",
+                            gap: "8px",
+                            flex: "1 0 0",
+                            alignSelf: "stretch",
+                            borderRadius: "8px",
+                            border: focusedField === "emailAddress" ? "2px solid #34479A" : "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          }}
+                        >
+                          <input
+                            type="email"
+                            value={formData.emailAddress}
+                            onChange={(e) => handleInputChange("emailAddress", e.target.value)}
+                            onFocus={() => setFocusedField("emailAddress")}
+                            onBlur={() => setFocusedField(null)}
+                            style={{
+                              flex: "1 0 0",
+                              border: "none",
+                              outline: "none",
+                              background: "transparent",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Telephone Number with Checkbox */}
                       <div
                         style={{
                           display: "flex",
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "4px",
-                          width: "174px",
+                          width: "177px",
                         }}
                       >
                         <div
@@ -2446,7 +2590,7 @@ const I9FormCompletion = () => {
                                 lineHeight: "var(--Line-height-text-sm, 20px)",
                               }}
                             >
-                              Middle Initial
+                              Telephone Number
                             </label>
                             <div
                               style={{
@@ -2468,13 +2612,20 @@ const I9FormCompletion = () => {
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
-                                <path
-                                  d="M6.39366 5.99992C6.5504 5.55436 6.85976 5.17866 7.26696 4.93934C7.67416 4.70002 8.15292 4.61254 8.61844 4.69239C9.08396 4.77224 9.5062 5.01427 9.81038 5.3756C10.1146 5.73694 10.281 6.19427 10.2803 6.66659C10.2803 7.99992 8.28033 8.66659 8.28033 8.66659M8.33366 11.3333H8.34033M15.0003 7.99992C15.0003 11.6818 12.0156 14.6666 8.33366 14.6666C4.65176 14.6666 1.66699 11.6818 1.66699 7.99992C1.66699 4.31802 4.65176 1.33325 8.33366 1.33325C12.0156 1.33325 15.0003 4.31802 15.0003 7.99992Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.33333"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
+                                <g clipPath="url(#clip0_phone_help)">
+                                  <path
+                                    d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.33333"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_phone_help">
+                                    <rect width="16" height="16" fill="white" />
+                                  </clipPath>
+                                </defs>
                               </svg>
                             </div>
                           </div>
@@ -2484,21 +2635,21 @@ const I9FormCompletion = () => {
                               padding: "6px 8px",
                               alignItems: "center",
                               gap: "8px",
+                              flex: "1 0 0",
                               alignSelf: "stretch",
                               borderRadius: "8px",
-                              border: focusedField === "middleInitial2" && !formData.middleNotApplicable2 ? "2px solid #34479A" : "1px solid #D5D7DA",
-                              background: formData.middleNotApplicable2 ? "#F5F5F5" : "#FFF",
+                              border: focusedField === "telephoneNumber" && !formData.telephoneNotApplicable ? "2px solid #34479A" : "1px solid #D5D7DA",
+                              background: formData.telephoneNotApplicable ? "#F5F5F5" : "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             }}
                           >
                             <input
-                              type="text"
-                              value={formData.middleInitial2}
-                              onChange={(e) => handleInputChange("middleInitial2", e.target.value)}
-                              onFocus={() => setFocusedField("middleInitial2")}
+                              type="tel"
+                              value={formData.telephoneNumber}
+                              onChange={(e) => handleInputChange("telephoneNumber", e.target.value)}
+                              onFocus={() => setFocusedField("telephoneNumber")}
                               onBlur={() => setFocusedField(null)}
-                              maxLength={1}
-                              disabled={formData.middleNotApplicable2}
+                              disabled={formData.telephoneNotApplicable}
                               style={{
                                 flex: "1 0 0",
                                 border: "none",
@@ -2527,16 +2678,16 @@ const I9FormCompletion = () => {
                             }}
                           >
                             <Checkbox
-                              checked={formData.middleNotApplicable2}
+                              checked={formData.telephoneNotApplicable}
                               onCheckedChange={(checked) => {
-                                handleInputChange("middleNotApplicable2", checked);
+                                handleInputChange("telephoneNotApplicable", checked);
                                 if (checked) {
-                                  handleInputChange("middleInitial2", "");
+                                  handleInputChange("telephoneNumber", "");
                                 }
                               }}
                               style={{
-                                backgroundColor: formData.middleNotApplicable2 ? "#344698" : "transparent",
-                                borderColor: formData.middleNotApplicable2 ? "#344698" : "#D5D7DA",
+                                backgroundColor: formData.telephoneNotApplicable ? "#344698" : "transparent",
+                                borderColor: formData.telephoneNotApplicable ? "#344698" : "#D5D7DA",
                               }}
                             />
                           </div>
@@ -2560,98 +2711,6 @@ const I9FormCompletion = () => {
                               Check if not applicable
                             </div>
                           </div>
-                        </div>
-                      </div>
-
-                      {/* Other Last Names 2 */}
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          gap: "6px",
-                          flex: isMobile ? "1 0 0" : "1 1 200px",
-                          minWidth: "150px",
-                        }}
-                      >
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "2px",
-                          }}
-                        >
-                          <label
-                            style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "var(--Font-size-text-sm, 14px)",
-                              fontStyle: "normal",
-                              fontWeight: 500,
-                              lineHeight: "var(--Line-height-text-sm, 20px)",
-                            }}
-                          >
-                            Other Last Names Used (if any)
-                          </label>
-                          <div
-                            style={{
-                              display: "flex",
-                              width: "16px",
-                              height: "16px",
-                              justifyContent: "center",
-                              alignItems: "center",
-                            }}
-                          >
-                            <svg
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                              }}
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M6.39366 5.99992C6.5504 5.55436 6.85976 5.17866 7.26696 4.93934C7.67416 4.70002 8.15292 4.61254 8.61844 4.69239C9.08396 4.77224 9.5062 5.01427 9.81038 5.3756C10.1146 5.73694 10.281 6.19427 10.2803 6.66659C10.2803 7.99992 8.28033 8.66659 8.28033 8.66659M8.33366 11.3333H8.34033M15.0003 7.99992C15.0003 11.6818 12.0156 14.6666 8.33366 14.6666C4.65176 14.6666 1.66699 11.6818 1.66699 7.99992C1.66699 4.31802 4.65176 1.33325 8.33366 1.33325C12.0156 1.33325 15.0003 4.31802 15.0003 7.99992Z"
-                                stroke="#A4A7AE"
-                                strokeWidth="1.33333"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "6px 8px",
-                            alignItems: "center",
-                            gap: "8px",
-                            alignSelf: "stretch",
-                            borderRadius: "8px",
-                            border: focusedField === "otherLastNames2" ? "2px solid #34479A" : "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          }}
-                        >
-                          <input
-                            type="text"
-                            value={formData.otherLastNames2}
-                            onChange={(e) => handleInputChange("otherLastNames2", e.target.value)}
-                            onFocus={() => setFocusedField("otherLastNames2")}
-                            onBlur={() => setFocusedField(null)}
-                            style={{
-                              flex: "1 0 0",
-                              border: "none",
-                              outline: "none",
-                              background: "transparent",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "var(--Font-size-text-sm, 14px)",
-                              lineHeight: "var(--Line-height-text-sm, 20px)",
-                            }}
-                          />
                         </div>
                       </div>
                     </div>
