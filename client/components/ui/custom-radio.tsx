@@ -126,6 +126,12 @@ interface CustomRadioGroupProps {
 
 const CustomRadioGroup = React.forwardRef<HTMLDivElement, CustomRadioGroupProps>(
   ({ value, onValueChange, name, children, className = "", ...props }, ref) => {
+    const handleValueChange = (newValue: string) => {
+      if (onValueChange && typeof onValueChange === "function") {
+        onValueChange(newValue);
+      }
+    };
+
     return (
       <div
         ref={ref}
@@ -141,10 +147,11 @@ const CustomRadioGroup = React.forwardRef<HTMLDivElement, CustomRadioGroupProps>
       >
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child) && child.type === CustomRadio) {
-            return React.cloneElement(child, {
+            return React.cloneElement(child as React.ReactElement<CustomRadioProps>, {
+              ...child.props,
               name,
               checked: child.props.value === value,
-              onChange: onValueChange,
+              onChange: handleValueChange,
             });
           }
           return child;
