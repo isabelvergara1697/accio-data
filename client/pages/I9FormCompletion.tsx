@@ -2845,6 +2845,7 @@ const I9FormCompletion = () => {
                         onValueChange={(value) => handleInputChange("citizenshipAttestation", value)}
                         name="citizenshipAttestation"
                       >
+                        {/* Debug: Current value is {formData.citizenshipAttestation} */}
                         <CustomRadio value="citizen">
                           A citizen of the United States
                         </CustomRadio>
