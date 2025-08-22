@@ -5,6 +5,7 @@ import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Checkbox } from "../components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 
 const I9FormCompletion = () => {
   const navigate = useNavigate();
