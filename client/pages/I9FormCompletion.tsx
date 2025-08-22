@@ -2853,8 +2853,7 @@ const I9FormCompletion = () => {
                           A noncitizen national of the United States
                         </CustomRadio>
 
-                        {/* Permanent Resident with conditional container */}
-                        {/* TEMPORARY TEST: {formData.citizenshipAttestation === "permanent_resident" ? ( */}
+                        {/* Permanent Resident with conditional inline form */}
                         {formData.citizenshipAttestation === "permanent_resident" ? (
                           <div
                             style={{
