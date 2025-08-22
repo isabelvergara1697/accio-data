@@ -10,7 +10,13 @@ interface CustomRadioProps {
 }
 
 const CustomRadio = React.forwardRef<HTMLInputElement, CustomRadioProps>(
-  ({ value, name, checked, onChange, children, className = "", ...props }, ref) => {
+  ({ value, name = "", checked = false, onChange, children, className = "", ...props }, ref) => {
+    const handleChange = (newValue: string) => {
+      if (onChange && typeof onChange === "function") {
+        onChange(newValue);
+      }
+    };
+
     return (
       <div
         style={{
@@ -44,7 +50,7 @@ const CustomRadio = React.forwardRef<HTMLInputElement, CustomRadioProps>(
               name={name}
               value={value}
               checked={checked}
-              onChange={(e) => onChange(e.target.value)}
+              onChange={(e) => handleChange(e.target.value)}
               style={{
                 position: "absolute",
                 opacity: 0,
@@ -98,7 +104,7 @@ const CustomRadio = React.forwardRef<HTMLInputElement, CustomRadioProps>(
               lineHeight: "var(--Line-height-text-sm, 20px)",
               cursor: "pointer",
             }}
-            onClick={() => onChange(value)}
+            onClick={() => handleChange(value)}
           >
             {children}
           </label>
