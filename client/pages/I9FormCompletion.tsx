@@ -3078,10 +3078,6 @@ const I9FormCompletion = () => {
                           </CustomRadio>
                         )}
 
-                        {/* Alien authorized radio button */}
-                        <CustomRadio value="alien_authorized">
-                          An alien authorized to work
-                        </CustomRadio>
                       </CustomRadioGroup>
 
                       {/* Conditional inline form for alien authorized to work */}
