@@ -47,6 +47,12 @@ const I9FormCompletion = () => {
     citizenshipAttestation: "permanent_resident",
     alienRegistrationNumber: "",
     typeOfRegistrationNumber: "",
+    // Alien authorized to work fields
+    expirationDate: "",
+    workAuthorizationType: "", // i94, alien_reg, foreign_passport
+    i94AdmissionNumber: "",
+    foreignPassportNumber: "",
+    countryOfIssuance: "",
   });
 
   // Auto-minimize sidebar after 30 seconds
