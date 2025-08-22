@@ -18,6 +18,7 @@ const I9FormCompletion = () => {
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [stateDropdownOpen, setStateDropdownOpen] = useState(false);
 
   // Form state for Section 1
   const [formData, setFormData] = useState({
