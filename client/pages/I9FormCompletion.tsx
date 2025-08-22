@@ -3078,6 +3078,12 @@ const I9FormCompletion = () => {
                           </CustomRadio>
                         )}
 
+                        {/* Show alien authorized radio button when not selected */}
+                        {formData.citizenshipAttestation !== "alien_authorized" && (
+                          <CustomRadio value="alien_authorized">
+                            An alien authorized to work
+                          </CustomRadio>
+                        )}
                       </CustomRadioGroup>
 
                       {/* Conditional inline form for alien authorized to work */}
