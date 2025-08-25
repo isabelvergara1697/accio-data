@@ -99,6 +99,10 @@ const I9FormCompletion = () => {
     additionalInformation: "",
     // Section 2 Employment Date
     employmentStartDate: "",
+    // Section 2 Employer Signature
+    employerSignature: "",
+    employerTitle: "",
+    employerSignatureDate: "",
   });
 
   // Signature canvas state
