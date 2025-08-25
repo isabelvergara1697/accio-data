@@ -7075,6 +7075,23 @@ const I9FormCompletion = () => {
                                           </svg>
                                         </div>
                                       </div>
+                                    ) : formData.listASelectedDocument === "receipt_replacement_foreign_passport_i94" ? (
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "337.65px",
+                                          flexDirection: "column",
+                                          alignItems: "center",
+                                          gap: "10px",
+                                          alignSelf: "stretch",
+                                          background: "transparent",
+                                          borderRadius: "8px",
+                                          justifyContent: "center",
+                                          textAlign: "center",
+                                        }}
+                                      >
+                                        {/* Empty document preview area for Receipt Replacement Foreign Passport I-94 */}
+                                      </div>
                                     ) : (
                                       <div
                                         style={{
