@@ -7423,7 +7423,7 @@ const I9FormCompletion = () => {
                                             }}
                                           >
                                             <option value="">Select</option>
-                                            <option value="drivers_license">Driver's License</option>
+                                            <option value="drivers_license">Driving License Issued by a U.S State our Outlying Possesion</option>
                                             <option value="state_id">State ID Card</option>
                                             <option value="school_id">School ID Card with Photo</option>
                                             <option value="voter_card">Voter Registration Card</option>
