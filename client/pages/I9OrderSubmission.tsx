@@ -459,9 +459,9 @@ const I9OrderSubmission = () => {
                     alignItems: "flex-start",
                     alignSelf: "stretch",
                     borderRadius: "12px",
-                    border: "1px solid #E9EAEB",
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    overflow: "hidden", // Ensures child elements respect container border radius
                   }}
                 >
                   {/* Section Headers */}
