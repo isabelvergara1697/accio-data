@@ -8351,13 +8351,117 @@ const I9FormCompletion = () => {
                                         style={{
                                           display: "flex",
                                           width: "451px",
-                                          height: "206px",
                                           flexDirection: "column",
                                           alignItems: "center",
                                           gap: "10px",
                                         }}
                                       >
-                                        {/* Empty document preview area for Document B */}
+                                        {formData.listBCDocumentBType === "social_security" ? (
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              padding: "12px 8px",
+                                              flexDirection: "column",
+                                              alignItems: "center",
+                                              gap: "8px",
+                                              alignSelf: "stretch",
+                                              borderRadius: "8px",
+                                              border: "1px solid #E9EAEB",
+                                              background: "#FFF",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                alignItems: "center",
+                                                gap: "10px",
+                                                alignSelf: "stretch",
+                                              }}
+                                            >
+                                              <img
+                                                src="https://api.builder.io/api/v1/image/assets/TEMP/8f50546c086f04743230d05fac1f6ef5a0513d19?width=870"
+                                                alt="Social Security Card Sample"
+                                                style={{
+                                                  height: "285.65px",
+                                                  alignSelf: "stretch",
+                                                  aspectRatio: "233/153",
+                                                }}
+                                              />
+                                              <div
+                                                style={{
+                                                  alignSelf: "stretch",
+                                                  color: "#535862",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 400,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                }}
+                                              >
+                                                *The Social Security Administration advises cardholders not to laminate Social Security cards. Some Social Security cards may explicitly state "not valid if laminated" on the back. If this is not indicated, you may accept a laminated card as long as the card reasonably appears to be genuine and to relate to the person presenting it. Metal or plastic reproductions of Social Security cards are not acceptable for Form I-9 purposes.
+                                              </div>
+                                            </div>
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                gap: "4px",
+                                                cursor: "pointer",
+                                              }}
+                                              onClick={() => {
+                                                console.log("View example documents clicked");
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  color: "#273572",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 600,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  textDecoration: "underline",
+                                                }}
+                                              >
+                                                Click image to view example document(s)
+                                              </div>
+                                              <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 17"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M14 14.6499L11.1 11.7499M7.33333 5.98324V9.98324M5.33333 7.98324H9.33333M12.6667 7.98324C12.6667 10.9288 10.2789 13.3166 7.33333 13.3166C4.38781 13.3166 2 10.9288 2 7.98324C2 5.03772 4.38781 2.6499 7.33333 2.6499C10.2789 2.6499 12.6667 5.03772 12.6667 7.98324Z"
+                                                  stroke="#34479A"
+                                                  strokeWidth="1.66667"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                              </svg>
+                                            </div>
+                                          </div>
+                                        ) : (
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              height: "206px",
+                                              flexDirection: "column",
+                                              alignItems: "center",
+                                              gap: "10px",
+                                              alignSelf: "stretch",
+                                              background: "transparent",
+                                              borderRadius: "8px",
+                                              justifyContent: "center",
+                                              textAlign: "center",
+                                            }}
+                                          >
+                                            {/* Empty document preview area for Document B */}
+                                          </div>
+                                        )}
                                       </div>
                                     </div>
                                   </div>
