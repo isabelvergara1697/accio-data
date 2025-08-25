@@ -5728,7 +5728,467 @@ const I9FormCompletion = () => {
                                         gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
                                       }}
                                     >
-                                      {/* Continue with existing grid fields... */}
+                                      {/* Row 1 - Issuing Authority */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          flex: "1 0 0",
+                                          alignSelf: "stretch",
+                                          gridRow: "1 / span 1",
+                                          gridColumn: "1 / span 1",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          }}
+                                        >
+                                          Issuing Authority
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={formData.listAIssuingAuthority || ""}
+                                          onChange={(e) =>
+                                            handleInputChange("listAIssuingAuthority", e.target.value)
+                                          }
+                                          style={{
+                                            display: "flex",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            flex: "1 0 0",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Row 1 - Passport Number */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          flex: "1 0 0",
+                                          alignSelf: "stretch",
+                                          gridRow: "1 / span 1",
+                                          gridColumn: "2 / span 1",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          }}
+                                        >
+                                          Passport Number
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={formData.listAPassportNumber || ""}
+                                          onChange={(e) =>
+                                            handleInputChange("listAPassportNumber", e.target.value)
+                                          }
+                                          style={{
+                                            display: "flex",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            flex: "1 0 0",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Row 2 - Card Number */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          flex: "1 0 0",
+                                          alignSelf: "stretch",
+                                          gridRow: "2 / span 1",
+                                          gridColumn: "1 / span 1",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          }}
+                                        >
+                                          Card Number
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={formData.listACardNumber || ""}
+                                          onChange={(e) =>
+                                            handleInputChange("listACardNumber", e.target.value)
+                                          }
+                                          style={{
+                                            display: "flex",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            flex: "1 0 0",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Row 2 - Alien Number */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          flex: "1 0 0",
+                                          alignSelf: "stretch",
+                                          gridRow: "2 / span 1",
+                                          gridColumn: "2 / span 1",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          }}
+                                        >
+                                          Alien Number
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={formData.listAAlienNumber || ""}
+                                          onChange={(e) =>
+                                            handleInputChange("listAAlienNumber", e.target.value)
+                                          }
+                                          style={{
+                                            display: "flex",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            flex: "1 0 0",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Row 3 - I-94 Number */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          flex: "1 0 0",
+                                          alignSelf: "stretch",
+                                          gridRow: "3 / span 1",
+                                          gridColumn: "1 / span 1",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          }}
+                                        >
+                                          I-94 Number
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={formData.listAI94Number || ""}
+                                          onChange={(e) =>
+                                            handleInputChange("listAI94Number", e.target.value)
+                                          }
+                                          style={{
+                                            display: "flex",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            flex: "1 0 0",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Row 3 - Visa Number */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          flex: "1 0 0",
+                                          alignSelf: "stretch",
+                                          gridRow: "3 / span 1",
+                                          gridColumn: "2 / span 1",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          }}
+                                        >
+                                          Visa Number
+                                        </div>
+                                        <input
+                                          type="text"
+                                          value={formData.listAVisaNumber || ""}
+                                          onChange={(e) =>
+                                            handleInputChange("listAVisaNumber", e.target.value)
+                                          }
+                                          style={{
+                                            display: "flex",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            flex: "1 0 0",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            outline: "none",
+                                          }}
+                                        />
+                                      </div>
+
+                                      {/* Row 4 - Expiration Date */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          flex: "1 0 0",
+                                          alignSelf: "stretch",
+                                          gridRow: "4 / span 1",
+                                          gridColumn: "1 / span 1",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          }}
+                                        >
+                                          Expiration Date
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            height: "32px",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                          }}
+                                        >
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M14 6.66659H2M10.6667 1.33325V3.99992M5.33333 1.33325V3.99992M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4486C13.2843 14.2569 13.5903 13.9509 13.782 13.5746C14 13.1467 14 12.5867 14 11.4666V5.86659C14 4.74648 14 4.18643 13.782 3.7586C13.5903 3.38228 13.2843 3.07632 12.908 2.88457C12.4802 2.66659 11.9201 2.66659 10.8 2.66659H5.2C4.0799 2.66659 3.51984 2.66659 3.09202 2.88457C2.71569 3.07632 2.40973 3.38228 2.21799 3.7586C2 4.18643 2 4.74648 2 5.86659V11.4666C2 12.5867 2 13.1467 2.21799 13.5746C2.40973 13.9509 2.71569 14.2569 3.09202 14.4486C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.5"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                          <input
+                                            type="text"
+                                            placeholder="00/00/00"
+                                            value={formData.listAExpirationDate || ""}
+                                            onChange={(e) =>
+                                              handleInputChange("listAExpirationDate", e.target.value)
+                                            }
+                                            style={{
+                                              flex: "1 0 0",
+                                              color: "#717680",
+                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontStyle: "normal",
+                                              fontWeight: 400,
+                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              border: "none",
+                                              background: "transparent",
+                                              outline: "none",
+                                            }}
+                                          />
+                                        </div>
+                                      </div>
+
+                                      {/* Row 4 - Country of Issuance */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "6px",
+                                          flex: "1 0 0",
+                                          alignSelf: "stretch",
+                                          gridRow: "4 / span 1",
+                                          gridColumn: "2 / span 1",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "2px",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "var(--colors-text-text-secondary-700, #414651)",
+                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontStyle: "normal",
+                                              fontWeight: 500,
+                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            }}
+                                          >
+                                            Country of Issuance
+                                          </div>
+                                          <div
+                                            style={{
+                                              color: "#344698",
+                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontStyle: "normal",
+                                              fontWeight: 500,
+                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            }}
+                                          >
+                                            *
+                                          </div>
+                                        </div>
+                                        <select
+                                          value={formData.listACountryOfIssuance || ""}
+                                          onChange={(e) =>
+                                            handleInputChange("listACountryOfIssuance", e.target.value)
+                                          }
+                                          style={{
+                                            display: "flex",
+                                            height: "32px",
+                                            padding: "6px 8px",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            alignSelf: "stretch",
+                                            borderRadius: "8px",
+                                            border: "1px solid #D5D7DA",
+                                            background: "#FFF",
+                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            color: formData.listACountryOfIssuance ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 400,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            cursor: "pointer",
+                                            appearance: "none",
+                                            backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                            backgroundRepeat: "no-repeat",
+                                            backgroundPosition: "right 8px center",
+                                            paddingRight: "28px",
+                                            outline: "none",
+                                          }}
+                                        >
+                                          <option value="">Select</option>
+                                          <option value="US">United States</option>
+                                          <option value="CA">Canada</option>
+                                          <option value="MX">Mexico</option>
+                                          <option value="GB">United Kingdom</option>
+                                          <option value="other">Other</option>
+                                        </select>
+                                      </div>
                                     </div>
                                   </div>
 
