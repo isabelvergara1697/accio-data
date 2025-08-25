@@ -405,6 +405,7 @@ const I9OrderSubmission = () => {
                 alignSelf: "stretch",
               }}
             >
+              {/* Table */}
               <div
                 style={{
                   display: "flex",
@@ -414,6 +415,7 @@ const I9OrderSubmission = () => {
                   alignSelf: "stretch",
                 }}
               >
+                {/* Container */}
                 <div
                   style={{
                     display: "flex",
@@ -426,7 +428,7 @@ const I9OrderSubmission = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  {/* Section Header */}
+                  {/* Section Headers */}
                   <div
                     style={{
                       display: "flex",
@@ -492,7 +494,7 @@ const I9OrderSubmission = () => {
                               >
                                 Create I-9 Order
                               </div>
-                              {/* Warning Badge */}
+                              {/* Badge */}
                               <div
                                 style={{
                                   display: "flex",
@@ -548,10 +550,7 @@ const I9OrderSubmission = () => {
                       alignItems: "flex-start",
                       gap: "16px",
                       alignSelf: "stretch",
-                      borderRadius: "0px 0px 0 0",
-                      borderRight: "1px solid #E9EAEB",
-                      borderBottom: "1px solid #E9EAEB",
-                      borderLeft: "1px solid #E9EAEB",
+                      borderRadius: "0px 0px 12px 12px",
                       background: "#FFF",
                       boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     }}
