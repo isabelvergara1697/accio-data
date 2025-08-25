@@ -75,6 +75,16 @@ const I9FormCompletion = () => {
     listAVisaNumber: "",
     listAExpirationDate: "",
     listACountryOfIssuance: "",
+    // Document Two fields for Foreign Passport I-94
+    listADocumentTwoType: "",
+    listADocumentTwoIssuingAuthority: "",
+    listADocumentTwoNumber: "",
+    listADocumentTwoExpirationDate: "",
+    // Document Three fields for Foreign Passport I-94
+    listADocumentThreeType: "",
+    listADocumentThreeIssuingAuthority: "",
+    listADocumentThreeNumber: "",
+    listADocumentThreeExpirationDate: "",
   });
 
   // Signature canvas state
