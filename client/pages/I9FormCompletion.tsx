@@ -5708,12 +5708,10 @@ const I9FormCompletion = () => {
                                         }}
                                       >
                                         <option value="">Select</option>
-                                        <option value="us_passport">U.S. Passport</option>
-                                        <option value="passport_card">U.S. Passport Card</option>
-                                        <option value="permanent_resident_card">Permanent Resident Card</option>
-                                        <option value="employment_authorization">Employment Authorization Document</option>
-                                        <option value="drivers_license">Driver's License</option>
-                                        <option value="other">Other</option>
+                                        <option value="employment_authorization_i766">Employment Authorization Document (Form I-766)</option>
+                                        <option value="foreign_passport_i94">Foreign Passport With Arrival/Departure Record (Form I-94)</option>
+                                        <option value="receipt_replacement_foreign_passport_i94">Receipt Replacement Foreign Passport with Arrival/Departure Record (Form I-94)</option>
+                                        <option value="receipt_replacement_employment_auth_i766">Receipt Replacement Employment Authorization Document (Form I-766)</option>
                                       </select>
                                     </div>
 
@@ -6192,33 +6190,111 @@ const I9FormCompletion = () => {
                                     </div>
                                   </div>
 
-                                  {/* Document Upload Area */}
+                                  {/* Document Preview Area */}
                                   <div
                                     style={{
                                       display: "flex",
                                       width: "451px",
                                       flexDirection: "column",
-                                      alignItems: "flex-start",
+                                      alignItems: "center",
                                       gap: "10px",
                                       flexShrink: 0,
                                     }}
                                   >
-                                    <div
-                                      style={{
-                                        display: "flex",
-                                        height: "296px",
-                                        flexDirection: "column",
-                                        alignItems: "flex-start",
-                                        gap: "10px",
-                                        alignSelf: "stretch",
-                                        background: "transparent",
-                                        borderRadius: "8px",
-                                        justifyContent: "center",
-                                        textAlign: "center",
-                                      }}
-                                    >
-                                      {/* Container preserved for future document display */}
-                                    </div>
+                                    {formData.listASelectedDocument === "employment_authorization_i766" ? (
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          padding: "12px 8px",
+                                          flexDirection: "column",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #E9EAEB",
+                                          background: "#FFF",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            alignItems: "center",
+                                            gap: "10px",
+                                            alignSelf: "stretch",
+                                          }}
+                                        >
+                                          <img
+                                            src="https://api.builder.io/api/v1/image/assets/TEMP/6aca5cc022f6a8a4327f5aa5fa25089ead7e6504?width=870"
+                                            alt="Employment Authorization Document Sample"
+                                            style={{
+                                              height: "285.65px",
+                                              alignSelf: "stretch",
+                                              aspectRatio: "233/153",
+                                            }}
+                                          />
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            gap: "4px",
+                                            cursor: "pointer",
+                                          }}
+                                          onClick={() => {
+                                            // Handle click to view example documents
+                                            console.log("View example documents clicked");
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              color: "#273572",
+                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontStyle: "normal",
+                                              fontWeight: 600,
+                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              textDecoration: "underline",
+                                            }}
+                                          >
+                                            Click image to view example document(s)
+                                          </div>
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 17"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M14 14.6499L11.1 11.7499M7.33333 5.98324V9.98324M5.33333 7.98324H9.33333M12.6667 7.98324C12.6667 10.9288 10.2789 13.3166 7.33333 13.3166C4.38781 13.3166 2 10.9288 2 7.98324C2 5.03772 4.38781 2.6499 7.33333 2.6499C10.2789 2.6499 12.6667 5.03772 12.6667 7.98324Z"
+                                              stroke="#34479A"
+                                              strokeWidth="1.66667"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </div>
+                                      </div>
+                                    ) : (
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          height: "296px",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "10px",
+                                          alignSelf: "stretch",
+                                          background: "transparent",
+                                          borderRadius: "8px",
+                                          justifyContent: "center",
+                                          textAlign: "center",
+                                        }}
+                                      >
+                                        {/* Container preserved for future document display */}
+                                      </div>
+                                    )}
                                   </div>
                                 </div>
                               </div>
