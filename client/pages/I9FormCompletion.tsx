@@ -5437,26 +5437,22 @@ const I9FormCompletion = () => {
                 </div>
 
                 {/* Divider between Section 1 and Section 2 */}
-                <svg
+                <div
                   style={{
                     display: "flex",
-                    padding: "4px 0",
+                    padding: "8px 0",
                     alignItems: "center",
                     alignSelf: "stretch",
                   }}
-                  width="100%"
-                  height="9"
-                  viewBox="0 0 1032 9"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M1032 5H0V4H1032V5"
-                    fill="#E9EAEB"
+                  <div
+                    style={{
+                      height: "2px",
+                      flex: "1 0 0",
+                      background: "#D5D7DA",
+                    }}
                   />
-                </svg>
+                </div>
 
                 {/* Section 2 */}
                 <div
