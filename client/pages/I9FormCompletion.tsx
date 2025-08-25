@@ -10386,7 +10386,7 @@ const I9FormCompletion = () => {
                         onClick={() => {
                           // Handle next step
                           console.log("Next Step (Verify Order)");
-                          // navigate("/verify-order");
+                          navigate("/i9-order-submission");
                         }}
                       >
                         Next Step (Verify Order)
