@@ -473,6 +473,7 @@ const I9OrderSubmission = () => {
                       gap: "20px",
                       alignSelf: "stretch",
                       background: "#FFF",
+                      borderRadius: "12px 12px 0 0",
                     }}
                   >
                     <div
@@ -588,7 +589,8 @@ const I9OrderSubmission = () => {
                       alignSelf: "stretch",
                       borderRadius: "0px 0px 12px 12px",
                       background: "#FFF",
-                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      border: "1px solid #E9EAEB",
+                      borderTop: "none",
                     }}
                   >
                     {/* Content */}
