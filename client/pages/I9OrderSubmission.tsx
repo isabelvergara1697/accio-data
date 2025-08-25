@@ -126,23 +126,29 @@ const I9OrderSubmission = () => {
       >
         {isMobile ? (
           <MobileHeader
-            menuOpen={showMobileUserMenu}
-            onMenuToggle={() => setShowMobileUserMenu(!showMobileUserMenu)}
-            onSignOut={handleSignOut}
-            onSidebarToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
-            showNotification={showNotification}
-            onNotificationToggle={() => setShowNotification(!showNotification)}
+            isDesktop={isDesktop}
+            isMobile={isMobile}
+            setMobileMenuOpen={setMobileMenuOpen}
+            userMenuOpen={userMenuOpen}
+            setUserMenuOpen={setUserMenuOpen}
+            userMenuHovered={userMenuHovered}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={handleSignOut}
+            getUserMenuStyles={getUserMenuStyles}
+            showMobileUserMenu={showMobileUserMenu}
           />
         ) : (
           <Header
+            isDesktop={isDesktop}
             userMenuOpen={userMenuOpen}
-            onUserMenuToggle={() => setUserMenuOpen(!userMenuOpen)}
+            setUserMenuOpen={setUserMenuOpen}
             userMenuHovered={userMenuHovered}
-            onUserMenuHover={(hovered) => setUserMenuHovered(hovered)}
-            onSignOut={handleSignOut}
-            showNotification={showNotification}
-            onNotificationToggle={() => setShowNotification(!showNotification)}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={handleSignOut}
             getUserMenuStyles={getUserMenuStyles}
+            showMobileUserMenu={showMobileUserMenu}
+            showNotification={showNotification}
+            sidebarCollapsed={sidebarCollapsed}
           />
         )}
 
