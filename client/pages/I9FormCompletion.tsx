@@ -7143,73 +7143,1136 @@ const I9FormCompletion = () => {
                           </div>
                         </div>
 
-                        {/* Choose from List B, C */}
+                        {/* Choose from List B, C - with conditional inline form */}
                         <div
                           style={{
                             display: "flex",
+                            flexDirection: "column",
                             alignItems: "flex-start",
                             gap: "8px",
                             alignSelf: "stretch",
-                            marginBottom: "16px",
                           }}
                         >
                           <div
                             style={{
                               display: "flex",
-                              paddingTop: "2px",
-                              justifyContent: "center",
-                              alignItems: "center",
-                            }}
-                          >
-                            <div
-                              onClick={() => handleInputChange("documentType", "list_b_c")}
-                              style={{
-                                display: "flex",
-                                width: "16px",
-                                height: "16px",
-                                padding: "5px",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                borderRadius: "9999px",
-                                background: formData.documentType === "list_b_c" ? "#344698" : "transparent",
-                                border: formData.documentType === "list_b_c" ? "1px solid #344698" : "1px solid #D5D7DA",
-                                cursor: "pointer",
-                              }}
-                            >
-                              {formData.documentType === "list_b_c" && (
-                                <div
-                                  style={{
-                                    width: "6px",
-                                    height: "6px",
-                                    borderRadius: "9999px",
-                                    background: "#FFF",
-                                  }}
-                                />
-                              )}
-                            </div>
-                          </div>
-                          <div
-                            style={{
-                              display: "flex",
+                              padding: "12px 8px",
                               flexDirection: "column",
                               alignItems: "flex-start",
-                              flex: "1 0 0",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderRadius: "8px",
+                              background: formData.documentType === "list_b_c" ? "#FAFAFA" : "transparent",
                             }}
                           >
+                            {/* Choose from List B, C Radio Button */}
                             <div
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-sm, 14px)",
-                                fontStyle: "normal",
-                                fontWeight: 500,
-                                lineHeight: "var(--Line-height-text-sm, 20px)",
-                                cursor: "pointer",
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                alignSelf: "stretch",
                               }}
-                              onClick={() => handleInputChange("documentType", "list_b_c")}
                             >
-                              Choose from List B, C
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  onClick={() => handleInputChange("documentType", "list_b_c")}
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    padding: "5px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    background: formData.documentType === "list_b_c" ? "#344698" : "transparent",
+                                    border: formData.documentType === "list_b_c" ? "1px solid #344698" : "1px solid #D5D7DA",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  {formData.documentType === "list_b_c" && (
+                                    <div
+                                      style={{
+                                        width: "6px",
+                                        height: "6px",
+                                        borderRadius: "9999px",
+                                        background: "#FFF",
+                                      }}
+                                    />
+                                  )}
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    cursor: "pointer",
+                                  }}
+                                  onClick={() => handleInputChange("documentType", "list_b_c")}
+                                >
+                                  Choose from List B, C
+                                </div>
+                              </div>
                             </div>
+
+                            {/* Conditional List B, C Document Form - Inline */}
+                            {formData.documentType === "list_b_c" && (
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "16px",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                {/* Divider */}
+                                <svg
+                                  style={{
+                                    display: "flex",
+                                    padding: "4px 0",
+                                    alignItems: "center",
+                                    alignSelf: "stretch",
+                                  }}
+                                  width="100%"
+                                  height="9"
+                                  viewBox="0 0 1016 9"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    clipRule="evenodd"
+                                    d="M1016 5H0V4H1016V5"
+                                    fill="#E9EAEB"
+                                  />
+                                </svg>
+
+                                {/* Document A and B Form Container */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "20px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  {/* Document A Section */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "20px",
+                                      flex: "1 0 0",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize: "var(--Font-size-text-md, 16px)",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "var(--Line-height-text-md, 24px)",
+                                      }}
+                                    >
+                                      Document A
+                                    </div>
+
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "20px",
+                                        alignSelf: "stretch",
+                                      }}
+                                    >
+                                      {/* Document A Form */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "16px",
+                                          flex: "1 0 0",
+                                        }}
+                                      >
+                                        {/* Document A Select */}
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            alignItems: "flex-start",
+                                            gap: "6px",
+                                            alignSelf: "stretch",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              alignItems: "center",
+                                              gap: "2px",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                fontStyle: "normal",
+                                                fontWeight: 500,
+                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              }}
+                                            >
+                                              Select Document
+                                            </div>
+                                            <div
+                                              style={{
+                                                color: "#344698",
+                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                fontStyle: "normal",
+                                                fontWeight: 500,
+                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              }}
+                                            >
+                                              *
+                                            </div>
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                width: "16px",
+                                                height: "16px",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                              }}
+                                            >
+                                              <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <g clipPath="url(#clip0_doc_a_help)">
+                                                  <path
+                                                    d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                                    stroke="#A4A7AE"
+                                                    strokeWidth="1.33333"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                  />
+                                                </g>
+                                                <defs>
+                                                  <clipPath id="clip0_doc_a_help">
+                                                    <rect width="16" height="16" fill="white" />
+                                                  </clipPath>
+                                                </defs>
+                                              </svg>
+                                            </div>
+                                          </div>
+                                          <select
+                                            value={formData.listBCDocumentAType || ""}
+                                            onChange={(e) =>
+                                              handleInputChange("listBCDocumentAType", e.target.value)
+                                            }
+                                            style={{
+                                              display: "flex",
+                                              height: "32px",
+                                              padding: "6px 8px",
+                                              alignItems: "center",
+                                              gap: "8px",
+                                              alignSelf: "stretch",
+                                              borderRadius: "8px",
+                                              border: "1px solid #D5D7DA",
+                                              background: "#FFF",
+                                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                              color: formData.listBCDocumentAType ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
+                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontStyle: "normal",
+                                              fontWeight: 400,
+                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              cursor: "pointer",
+                                              appearance: "none",
+                                              backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                              backgroundRepeat: "no-repeat",
+                                              backgroundPosition: "right 8px center",
+                                              paddingRight: "28px",
+                                              outline: "none",
+                                            }}
+                                          >
+                                            <option value="">Select</option>
+                                            <option value="drivers_license">Driver's License</option>
+                                            <option value="state_id">State ID Card</option>
+                                            <option value="school_id">School ID Card with Photo</option>
+                                            <option value="voter_card">Voter Registration Card</option>
+                                            <option value="military_id">U.S. Military Card</option>
+                                          </select>
+                                        </div>
+
+                                        {/* Document A Form Grid */}
+                                        <div
+                                          style={{
+                                            display: "grid",
+                                            height: "132px",
+                                            rowGap: "16px",
+                                            columnGap: "16px",
+                                            alignSelf: "stretch",
+                                            gridTemplateRows: "repeat(2, fit-content(100%))",
+                                            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                                          }}
+                                        >
+                                          {/* Issuing Authority */}
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              flexDirection: "column",
+                                              alignItems: "flex-start",
+                                              gap: "6px",
+                                              flex: "1 0 0",
+                                              alignSelf: "stretch",
+                                              gridRow: "1 / span 1",
+                                              gridColumn: "1 / span 1",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: "2px",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 500,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                }}
+                                              >
+                                                Issuing Authority
+                                              </div>
+                                              <div
+                                                style={{
+                                                  display: "flex",
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  justifyContent: "center",
+                                                  alignItems: "center",
+                                                }}
+                                              >
+                                                <svg
+                                                  width="16"
+                                                  height="16"
+                                                  viewBox="0 0 16 16"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <g clipPath="url(#clip0_doc_a_issuing_help)">
+                                                    <path
+                                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                                      stroke="#A4A7AE"
+                                                      strokeWidth="1.33333"
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                    />
+                                                  </g>
+                                                  <defs>
+                                                    <clipPath id="clip0_doc_a_issuing_help">
+                                                      <rect width="16" height="16" fill="white" />
+                                                    </clipPath>
+                                                  </defs>
+                                                </svg>
+                                              </div>
+                                            </div>
+                                            <input
+                                              type="text"
+                                              value={formData.listBCDocumentAIssuingAuthority || ""}
+                                              onChange={(e) =>
+                                                handleInputChange("listBCDocumentAIssuingAuthority", e.target.value)
+                                              }
+                                              style={{
+                                                display: "flex",
+                                                padding: "6px 8px",
+                                                alignItems: "center",
+                                                gap: "8px",
+                                                flex: "1 0 0",
+                                                alignSelf: "stretch",
+                                                borderRadius: "8px",
+                                                border: "1px solid #D5D7DA",
+                                                background: "#FFF",
+                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                outline: "none",
+                                              }}
+                                            />
+                                          </div>
+
+                                          {/* Document Number */}
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              flexDirection: "column",
+                                              alignItems: "flex-start",
+                                              gap: "6px",
+                                              flex: "1 0 0",
+                                              alignSelf: "stretch",
+                                              gridRow: "1 / span 1",
+                                              gridColumn: "2 / span 1",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: "2px",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 500,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                }}
+                                              >
+                                                Document Number
+                                              </div>
+                                              <div
+                                                style={{
+                                                  display: "flex",
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  justifyContent: "center",
+                                                  alignItems: "center",
+                                                }}
+                                              >
+                                                <svg
+                                                  width="16"
+                                                  height="16"
+                                                  viewBox="0 0 16 16"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <g clipPath="url(#clip0_doc_a_number_help)">
+                                                    <path
+                                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                                      stroke="#A4A7AE"
+                                                      strokeWidth="1.33333"
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                    />
+                                                  </g>
+                                                  <defs>
+                                                    <clipPath id="clip0_doc_a_number_help">
+                                                      <rect width="16" height="16" fill="white" />
+                                                    </clipPath>
+                                                  </defs>
+                                                </svg>
+                                              </div>
+                                            </div>
+                                            <input
+                                              type="text"
+                                              value={formData.listBCDocumentANumber || ""}
+                                              onChange={(e) =>
+                                                handleInputChange("listBCDocumentANumber", e.target.value)
+                                              }
+                                              style={{
+                                                display: "flex",
+                                                padding: "6px 8px",
+                                                alignItems: "center",
+                                                gap: "8px",
+                                                flex: "1 0 0",
+                                                alignSelf: "stretch",
+                                                borderRadius: "8px",
+                                                border: "1px solid #D5D7DA",
+                                                background: "#FFF",
+                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                outline: "none",
+                                              }}
+                                            />
+                                          </div>
+
+                                          {/* Expiration Date */}
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              flexDirection: "column",
+                                              alignItems: "flex-start",
+                                              gap: "6px",
+                                              flex: "1 0 0",
+                                              alignSelf: "stretch",
+                                              gridRow: "2 / span 1",
+                                              gridColumn: "1 / span 1",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: "2px",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 500,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                }}
+                                              >
+                                                Expiration Date
+                                              </div>
+                                              <div
+                                                style={{
+                                                  display: "flex",
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  justifyContent: "center",
+                                                  alignItems: "center",
+                                                }}
+                                              >
+                                                <svg
+                                                  width="16"
+                                                  height="16"
+                                                  viewBox="0 0 16 16"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <g clipPath="url(#clip0_doc_a_exp_help)">
+                                                    <path
+                                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                                      stroke="#A4A7AE"
+                                                      strokeWidth="1.33333"
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                    />
+                                                  </g>
+                                                  <defs>
+                                                    <clipPath id="clip0_doc_a_exp_help">
+                                                      <rect width="16" height="16" fill="white" />
+                                                    </clipPath>
+                                                  </defs>
+                                                </svg>
+                                              </div>
+                                            </div>
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                height: "32px",
+                                                padding: "6px 8px",
+                                                alignItems: "center",
+                                                gap: "8px",
+                                                alignSelf: "stretch",
+                                                borderRadius: "8px",
+                                                border: "1px solid #D5D7DA",
+                                                background: "#FFF",
+                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                              }}
+                                            >
+                                              <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M14 6.66659H2M10.6667 1.33325V3.99992M5.33333 1.33325V3.99992M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4486C13.2843 14.2569 13.5903 13.9509 13.782 13.5746C14 13.1467 14 12.5867 14 11.4666V5.86659C14 4.74648 14 4.18643 13.782 3.7586C13.5903 3.38228 13.2843 3.07632 12.908 2.88457C12.4802 2.66659 11.9201 2.66659 10.8 2.66659H5.2C4.0799 2.66659 3.51984 2.66659 3.09202 2.88457C2.71569 3.07632 2.40973 3.38228 2.21799 3.7586C2 4.18643 2 4.74648 2 5.86659V11.4666C2 12.5867 2 13.1467 2.21799 13.5746C2.40973 13.9509 2.71569 14.2569 3.09202 14.4486C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.5"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                              </svg>
+                                              <input
+                                                type="text"
+                                                placeholder="00/00/00"
+                                                value={formData.listBCDocumentAExpirationDate || ""}
+                                                onChange={(e) =>
+                                                  handleInputChange("listBCDocumentAExpirationDate", e.target.value)
+                                                }
+                                                style={{
+                                                  flex: "1 0 0",
+                                                  color: "#717680",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 400,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  border: "none",
+                                                  background: "transparent",
+                                                  outline: "none",
+                                                }}
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      {/* Document A Preview Area */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "451px",
+                                          height: "206px",
+                                          flexDirection: "column",
+                                          alignItems: "center",
+                                          gap: "10px",
+                                        }}
+                                      >
+                                        {/* Empty document preview area for Document A */}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Divider */}
+                                <svg
+                                  style={{
+                                    display: "flex",
+                                    padding: "4px 0",
+                                    alignItems: "center",
+                                    alignSelf: "stretch",
+                                  }}
+                                  width="100%"
+                                  height="9"
+                                  viewBox="0 0 1016 9"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    clipRule="evenodd"
+                                    d="M1016 5H0V4H1016V5"
+                                    fill="#E9EAEB"
+                                  />
+                                </svg>
+
+                                {/* Document B Section */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "20px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "20px",
+                                      flex: "1 0 0",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize: "var(--Font-size-text-md, 16px)",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "var(--Line-height-text-md, 24px)",
+                                      }}
+                                    >
+                                      Document B
+                                    </div>
+
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "flex-start",
+                                        gap: "20px",
+                                        alignSelf: "stretch",
+                                      }}
+                                    >
+                                      {/* Document B Form */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "column",
+                                          alignItems: "flex-start",
+                                          gap: "16px",
+                                          flex: "1 0 0",
+                                        }}
+                                      >
+                                        {/* Document B Select */}
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            alignItems: "flex-start",
+                                            gap: "6px",
+                                            alignSelf: "stretch",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              alignItems: "center",
+                                              gap: "2px",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                fontStyle: "normal",
+                                                fontWeight: 500,
+                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              }}
+                                            >
+                                              Select Document
+                                            </div>
+                                            <div
+                                              style={{
+                                                color: "#344698",
+                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                fontStyle: "normal",
+                                                fontWeight: 500,
+                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              }}
+                                            >
+                                              *
+                                            </div>
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                width: "16px",
+                                                height: "16px",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                              }}
+                                            >
+                                              <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <g clipPath="url(#clip0_doc_b_help)">
+                                                  <path
+                                                    d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                                    stroke="#A4A7AE"
+                                                    strokeWidth="1.33333"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                  />
+                                                </g>
+                                                <defs>
+                                                  <clipPath id="clip0_doc_b_help">
+                                                    <rect width="16" height="16" fill="white" />
+                                                  </clipPath>
+                                                </defs>
+                                              </svg>
+                                            </div>
+                                          </div>
+                                          <select
+                                            value={formData.listBCDocumentBType || ""}
+                                            onChange={(e) =>
+                                              handleInputChange("listBCDocumentBType", e.target.value)
+                                            }
+                                            style={{
+                                              display: "flex",
+                                              height: "32px",
+                                              padding: "6px 8px",
+                                              alignItems: "center",
+                                              gap: "8px",
+                                              alignSelf: "stretch",
+                                              borderRadius: "8px",
+                                              border: "1px solid #D5D7DA",
+                                              background: "#FFF",
+                                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                              color: formData.listBCDocumentBType ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
+                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontStyle: "normal",
+                                              fontWeight: 400,
+                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              cursor: "pointer",
+                                              appearance: "none",
+                                              backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                              backgroundRepeat: "no-repeat",
+                                              backgroundPosition: "right 8px center",
+                                              paddingRight: "28px",
+                                              outline: "none",
+                                            }}
+                                          >
+                                            <option value="">Select</option>
+                                            <option value="social_security">Social Security Card</option>
+                                            <option value="birth_certificate">Certified Birth Certificate</option>
+                                            <option value="employment_auth">Employment Authorization Document</option>
+                                            <option value="citizen_card">Certificate of Naturalization</option>
+                                            <option value="tribal_document">Native American Tribal Document</option>
+                                          </select>
+                                        </div>
+
+                                        {/* Document B Form Grid */}
+                                        <div
+                                          style={{
+                                            display: "grid",
+                                            height: "132px",
+                                            rowGap: "16px",
+                                            columnGap: "16px",
+                                            alignSelf: "stretch",
+                                            gridTemplateRows: "repeat(2, fit-content(100%))",
+                                            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                                          }}
+                                        >
+                                          {/* Issuing Authority */}
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              flexDirection: "column",
+                                              alignItems: "flex-start",
+                                              gap: "6px",
+                                              flex: "1 0 0",
+                                              alignSelf: "stretch",
+                                              gridRow: "1 / span 1",
+                                              gridColumn: "1 / span 1",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: "2px",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 500,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                }}
+                                              >
+                                                Issuing Authority
+                                              </div>
+                                              <div
+                                                style={{
+                                                  display: "flex",
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  justifyContent: "center",
+                                                  alignItems: "center",
+                                                }}
+                                              >
+                                                <svg
+                                                  width="16"
+                                                  height="16"
+                                                  viewBox="0 0 16 16"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <g clipPath="url(#clip0_doc_b_issuing_help)">
+                                                    <path
+                                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                                      stroke="#A4A7AE"
+                                                      strokeWidth="1.33333"
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                    />
+                                                  </g>
+                                                  <defs>
+                                                    <clipPath id="clip0_doc_b_issuing_help">
+                                                      <rect width="16" height="16" fill="white" />
+                                                    </clipPath>
+                                                  </defs>
+                                                </svg>
+                                              </div>
+                                            </div>
+                                            <input
+                                              type="text"
+                                              value={formData.listBCDocumentBIssuingAuthority || ""}
+                                              onChange={(e) =>
+                                                handleInputChange("listBCDocumentBIssuingAuthority", e.target.value)
+                                              }
+                                              style={{
+                                                display: "flex",
+                                                padding: "6px 8px",
+                                                alignItems: "center",
+                                                gap: "8px",
+                                                flex: "1 0 0",
+                                                alignSelf: "stretch",
+                                                borderRadius: "8px",
+                                                border: "1px solid #D5D7DA",
+                                                background: "#FFF",
+                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                outline: "none",
+                                              }}
+                                            />
+                                          </div>
+
+                                          {/* Document Number */}
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              flexDirection: "column",
+                                              alignItems: "flex-start",
+                                              gap: "6px",
+                                              flex: "1 0 0",
+                                              alignSelf: "stretch",
+                                              gridRow: "1 / span 1",
+                                              gridColumn: "2 / span 1",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: "2px",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 500,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                }}
+                                              >
+                                                Document Number
+                                              </div>
+                                              <div
+                                                style={{
+                                                  display: "flex",
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  justifyContent: "center",
+                                                  alignItems: "center",
+                                                }}
+                                              >
+                                                <svg
+                                                  width="16"
+                                                  height="16"
+                                                  viewBox="0 0 16 16"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <g clipPath="url(#clip0_doc_b_number_help)">
+                                                    <path
+                                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                                      stroke="#A4A7AE"
+                                                      strokeWidth="1.33333"
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                    />
+                                                  </g>
+                                                  <defs>
+                                                    <clipPath id="clip0_doc_b_number_help">
+                                                      <rect width="16" height="16" fill="white" />
+                                                    </clipPath>
+                                                  </defs>
+                                                </svg>
+                                              </div>
+                                            </div>
+                                            <input
+                                              type="text"
+                                              value={formData.listBCDocumentBNumber || ""}
+                                              onChange={(e) =>
+                                                handleInputChange("listBCDocumentBNumber", e.target.value)
+                                              }
+                                              style={{
+                                                display: "flex",
+                                                padding: "6px 8px",
+                                                alignItems: "center",
+                                                gap: "8px",
+                                                flex: "1 0 0",
+                                                alignSelf: "stretch",
+                                                borderRadius: "8px",
+                                                border: "1px solid #D5D7DA",
+                                                background: "#FFF",
+                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                outline: "none",
+                                              }}
+                                            />
+                                          </div>
+
+                                          {/* Expiration Date */}
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              flexDirection: "column",
+                                              alignItems: "flex-start",
+                                              gap: "6px",
+                                              flex: "1 0 0",
+                                              alignSelf: "stretch",
+                                              gridRow: "2 / span 1",
+                                              gridColumn: "1 / span 1",
+                                            }}
+                                          >
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: "2px",
+                                              }}
+                                            >
+                                              <div
+                                                style={{
+                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 500,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                }}
+                                              >
+                                                Expiration Date
+                                              </div>
+                                              <div
+                                                style={{
+                                                  display: "flex",
+                                                  width: "16px",
+                                                  height: "16px",
+                                                  justifyContent: "center",
+                                                  alignItems: "center",
+                                                }}
+                                              >
+                                                <svg
+                                                  width="16"
+                                                  height="16"
+                                                  viewBox="0 0 16 16"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <g clipPath="url(#clip0_doc_b_exp_help)">
+                                                    <path
+                                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                                      stroke="#A4A7AE"
+                                                      strokeWidth="1.33333"
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                    />
+                                                  </g>
+                                                  <defs>
+                                                    <clipPath id="clip0_doc_b_exp_help">
+                                                      <rect width="16" height="16" fill="white" />
+                                                    </clipPath>
+                                                  </defs>
+                                                </svg>
+                                              </div>
+                                            </div>
+                                            <div
+                                              style={{
+                                                display: "flex",
+                                                height: "32px",
+                                                padding: "6px 8px",
+                                                alignItems: "center",
+                                                gap: "8px",
+                                                alignSelf: "stretch",
+                                                borderRadius: "8px",
+                                                border: "1px solid #D5D7DA",
+                                                background: "#FFF",
+                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                              }}
+                                            >
+                                              <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M14 6.66659H2M10.6667 1.33325V3.99992M5.33333 1.33325V3.99992M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4486C13.2843 14.2569 13.5903 13.9509 13.782 13.5746C14 13.1467 14 12.5867 14 11.4666V5.86659C14 4.74648 14 4.18643 13.782 3.7586C13.5903 3.38228 13.2843 3.07632 12.908 2.88457C12.4802 2.66659 11.9201 2.66659 10.8 2.66659H5.2C4.0799 2.66659 3.51984 2.66659 3.09202 2.88457C2.71569 3.07632 2.40973 3.38228 2.21799 3.7586C2 4.18643 2 4.74648 2 5.86659V11.4666C2 12.5867 2 13.1467 2.21799 13.5746C2.40973 13.9509 2.71569 14.2569 3.09202 14.4486C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                                                  stroke="#A4A7AE"
+                                                  strokeWidth="1.5"
+                                                  strokeLinecap="round"
+                                                  strokeLinejoin="round"
+                                                />
+                                              </svg>
+                                              <input
+                                                type="text"
+                                                placeholder="00/00/00"
+                                                value={formData.listBCDocumentBExpirationDate || ""}
+                                                onChange={(e) =>
+                                                  handleInputChange("listBCDocumentBExpirationDate", e.target.value)
+                                                }
+                                                style={{
+                                                  flex: "1 0 0",
+                                                  color: "#717680",
+                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontStyle: "normal",
+                                                  fontWeight: 400,
+                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  border: "none",
+                                                  background: "transparent",
+                                                  outline: "none",
+                                                }}
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      {/* Document B Preview Area */}
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "451px",
+                                          height: "206px",
+                                          flexDirection: "column",
+                                          alignItems: "center",
+                                          gap: "10px",
+                                        }}
+                                      >
+                                        {/* Empty document preview area for Document B */}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
 
