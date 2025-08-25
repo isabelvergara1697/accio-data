@@ -10219,6 +10219,181 @@ const I9FormCompletion = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Authorize and Continue Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  {/* Section Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 24px 0 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "var(--colors-text-text-primary-900, #181D27)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-lg, 18px)",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "var(--Line-height-text-lg, 28px)",
+                                }}
+                              >
+                                Authorize and Continue
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Button Actions */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "12px 24px 16px 24px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                      borderRadius: "0px 0px 0 0",
+                      borderRight: "1px solid #E9EAEB",
+                      borderBottom: "1px solid #E9EAEB",
+                      borderLeft: "1px solid #E9EAEB",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                      }}
+                    >
+                      {/* Save as Draft Button */}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        style={{
+                          display: "flex",
+                          minHeight: "36px",
+                          padding: "6px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "var(--colors-text-text-secondary-700, #414651)",
+                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                        onClick={() => {
+                          // Handle save as draft
+                          console.log("Save as Draft");
+                        }}
+                      >
+                        Save as Draft
+                      </Button>
+
+                      {/* Next Step Button */}
+                      <Button
+                        variant="default"
+                        size="sm"
+                        style={{
+                          display: "flex",
+                          minHeight: "36px",
+                          padding: "6px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          color: "var(--Colors-Text-text-white, #FFF)",
+                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                        onClick={() => {
+                          // Handle next step
+                          console.log("Next Step (Verify Order)");
+                          // navigate("/verify-order");
+                        }}
+                      >
+                        Next Step (Verify Order)
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
