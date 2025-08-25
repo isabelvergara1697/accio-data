@@ -48,6 +48,7 @@ const App = () => (
           <Route path="/batch-orders" element={<BatchOrders />} />
           <Route path="/i9-order" element={<I9Order />} />
           <Route path="/i9-form-completion" element={<I9FormCompletion />} />
+          <Route path="/i9-order-submission" element={<I9OrderSubmission />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
