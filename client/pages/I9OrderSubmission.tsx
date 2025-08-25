@@ -60,13 +60,13 @@ const I9OrderSubmission = () => {
   };
 
   const handleUpdateI9Form = () => {
-    // Handle replacing existing I-9
-    console.log("Update I-9 Form");
+    // Navigate to confirmation page for replacing existing I-9
+    navigate("/i9-order-confirmation");
   };
 
   const handleCreateI9OrderAnyway = () => {
-    // Handle admin override
-    console.log("Create I-9 Order Anyway");
+    // Navigate to confirmation page for admin override
+    navigate("/i9-order-confirmation");
   };
 
   return (
