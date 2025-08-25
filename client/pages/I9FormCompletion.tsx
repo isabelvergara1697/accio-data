@@ -5478,7 +5478,7 @@ const I9FormCompletion = () => {
                               gap: "12px",
                               alignSelf: "stretch",
                               borderRadius: "8px",
-                              background: "#FAFAFA",
+                              background: formData.documentType === "list_a" ? "#FAFAFA" : "transparent",
                             }}
                           >
                             {/* Choose from List A Radio Button */}
@@ -6211,19 +6211,13 @@ const I9FormCompletion = () => {
                                         alignItems: "flex-start",
                                         gap: "10px",
                                         alignSelf: "stretch",
-                                        background: "#F8F9FA",
-                                        border: "2px dashed #D5D7DA",
+                                        background: "transparent",
                                         borderRadius: "8px",
                                         justifyContent: "center",
                                         textAlign: "center",
-                                        color: "#717680",
-                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                        fontSize: "var(--Font-size-text-sm, 14px)",
                                       }}
                                     >
-                                      Document Upload Area
-                                      <br />
-                                      (Image preview would appear here)
+                                      {/* Container preserved for future document display */}
                                     </div>
                                   </div>
                                 </div>
