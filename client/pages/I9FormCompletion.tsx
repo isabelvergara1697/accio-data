@@ -5549,6 +5549,226 @@ const I9FormCompletion = () => {
                                 </div>
                               </div>
                             </div>
+
+                            {/* Conditional List A Document Form - Inline */}
+                            {formData.documentType === "list_a" && (
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "16px",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                {/* Divider */}
+                                <svg
+                                  style={{
+                                    display: "flex",
+                                    padding: "4px 0",
+                                    alignItems: "center",
+                                    alignSelf: "stretch",
+                                  }}
+                                  width="100%"
+                                  height="9"
+                                  viewBox="0 0 1016 9"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    clipRule="evenodd"
+                                    d="M1016 5H0V4H1016V5"
+                                    fill="#E9EAEB"
+                                  />
+                                </svg>
+
+                                {/* Form Container */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "20px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  {/* Form Fields */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "16px",
+                                      flex: "1 0 0",
+                                    }}
+                                  >
+                                    {/* Select Document */}
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        alignSelf: "stretch",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "2px",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          }}
+                                        >
+                                          Select Document
+                                        </div>
+                                        <div
+                                          style={{
+                                            color: "#344698",
+                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontStyle: "normal",
+                                            fontWeight: 500,
+                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          }}
+                                        >
+                                          *
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "16px",
+                                            height: "16px",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                          }}
+                                        >
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <g clipPath="url(#clip0_select_document_help)">
+                                              <path
+                                                d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                                stroke="#A4A7AE"
+                                                strokeWidth="1.33333"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                              />
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_select_document_help">
+                                                <rect width="16" height="16" fill="white" />
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                        </div>
+                                      </div>
+                                      <select
+                                        value={formData.listASelectedDocument || ""}
+                                        onChange={(e) =>
+                                          handleInputChange("listASelectedDocument", e.target.value)
+                                        }
+                                        style={{
+                                          display: "flex",
+                                          height: "32px",
+                                          padding: "6px 8px",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          alignSelf: "stretch",
+                                          borderRadius: "8px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                          color: formData.listASelectedDocument ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
+                                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                          fontSize: "var(--Font-size-text-sm, 14px)",
+                                          fontStyle: "normal",
+                                          fontWeight: 400,
+                                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          cursor: "pointer",
+                                          appearance: "none",
+                                          backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                          backgroundRepeat: "no-repeat",
+                                          backgroundPosition: "right 8px center",
+                                          paddingRight: "28px",
+                                          outline: "none",
+                                        }}
+                                      >
+                                        <option value="">Select</option>
+                                        <option value="us_passport">U.S. Passport</option>
+                                        <option value="passport_card">U.S. Passport Card</option>
+                                        <option value="permanent_resident_card">Permanent Resident Card</option>
+                                        <option value="employment_authorization">Employment Authorization Document</option>
+                                        <option value="drivers_license">Driver's License</option>
+                                        <option value="other">Other</option>
+                                      </select>
+                                    </div>
+
+                                    {/* Grid of Input Fields */}
+                                    <div
+                                      style={{
+                                        display: "grid",
+                                        rowGap: "16px",
+                                        columnGap: "16px",
+                                        alignSelf: "stretch",
+                                        gridTemplateRows: "repeat(4, fit-content(100%))",
+                                        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                                      }}
+                                    >
+                                      {/* Continue with existing grid fields... */}
+                                    </div>
+                                  </div>
+
+                                  {/* Document Upload Area */}
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "451px",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "10px",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        height: "296px",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        gap: "10px",
+                                        alignSelf: "stretch",
+                                        background: "#F8F9FA",
+                                        border: "2px dashed #D5D7DA",
+                                        borderRadius: "8px",
+                                        justifyContent: "center",
+                                        textAlign: "center",
+                                        color: "#717680",
+                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize: "var(--Font-size-text-sm, 14px)",
+                                      }}
+                                    >
+                                      Document Upload Area
+                                      <br />
+                                      (Image preview would appear here)
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
 
