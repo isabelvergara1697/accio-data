@@ -161,7 +161,7 @@ const I9OrderSubmission = () => {
             gap: "32px",
             flex: "1 0 0",
             borderRadius: "40px 0 0 0",
-            background: "#FFF",
+            background: "#F9F9F9",
             paddingTop: isDesktop ? "72px" : "64px", // Account for fixed header
           }}
         >
