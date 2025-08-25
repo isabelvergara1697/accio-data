@@ -85,6 +85,16 @@ const I9FormCompletion = () => {
     listADocumentThreeIssuingAuthority: "",
     listADocumentThreeNumber: "",
     listADocumentThreeExpirationDate: "",
+    // List B, C Document A fields
+    listBCDocumentAType: "",
+    listBCDocumentAIssuingAuthority: "",
+    listBCDocumentANumber: "",
+    listBCDocumentAExpirationDate: "",
+    // List B, C Document B fields
+    listBCDocumentBType: "",
+    listBCDocumentBIssuingAuthority: "",
+    listBCDocumentBNumber: "",
+    listBCDocumentBExpirationDate: "",
   });
 
   // Signature canvas state
