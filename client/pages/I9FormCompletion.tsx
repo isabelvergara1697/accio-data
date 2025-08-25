@@ -8587,6 +8587,16 @@ const I9FormCompletion = () => {
                         </div>
 
 
+                        {/* Divider after Document Type Selection */}
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "1px",
+                            background: "#E9EAEB",
+                            margin: "20px 0",
+                          }}
+                        />
+
                         {/* Verification Method Options */}
                         <div
                           style={{
@@ -8741,6 +8751,16 @@ const I9FormCompletion = () => {
                           </div>
                         </div>
 
+                        {/* Divider after Verification Method */}
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "1px",
+                            background: "#E9EAEB",
+                            margin: "20px 0",
+                          }}
+                        />
+
                         {/* Additional Information Textarea */}
                         <div
                           style={{
@@ -8860,27 +8880,15 @@ const I9FormCompletion = () => {
                           </div>
                         </div>
 
-                        {/* Divider */}
-                        <svg
+                        {/* Divider before Certification */}
+                        <div
                           style={{
-                            display: "flex",
-                            padding: "4px 0",
-                            alignItems: "center",
-                            alignSelf: "stretch",
+                            width: "100%",
+                            height: "1px",
+                            background: "#E9EAEB",
+                            margin: "20px 0",
                           }}
-                          width="100%"
-                          height="9"
-                          viewBox="0 0 1032 9"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M1032 5H0V4H1032V5"
-                            fill="#E9EAEB"
-                          />
-                        </svg>
+                        />
 
                         {/* Certification */}
                         <div
@@ -8888,7 +8896,7 @@ const I9FormCompletion = () => {
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "flex-start",
-                            gap: "8px",
+                            gap: "16px",
                             alignSelf: "stretch",
                           }}
                         >
@@ -8958,102 +8966,112 @@ const I9FormCompletion = () => {
                               </div>
                             </div>
                           </div>
+                        </div>
 
-                          {/* Employment Date */}
+                        {/* Employment Date Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            The employee's first day of employment (mm/dd/yyyy)
+                          </div>
                           <div
                             style={{
                               display: "flex",
-                              alignItems: "center",
-                              gap: "8px",
-                              alignSelf: "stretch",
+                              width: "300px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "6px",
                             }}
                           >
                             <div
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                fontSize: "var(--Font-size-text-sm, 14px)",
-                                fontStyle: "normal",
-                                fontWeight: 500,
-                                lineHeight: "var(--Line-height-text-sm, 20px)",
-                              }}
-                            >
-                              The employee's first day of employment (mm/dd/yyyy)
-                            </div>
-                            <div
-                              style={{
                                 display: "flex",
-                                width: "300px",
-                                flexDirection: "column",
-                                alignItems: "flex-start",
-                                gap: "6px",
+                                height: "32px",
+                                padding: "6px 8px",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               }}
                             >
                               <div
                                 style={{
                                   display: "flex",
-                                  height: "32px",
-                                  padding: "6px 8px",
+                                  padding: "2px 0",
                                   alignItems: "center",
                                   gap: "8px",
-                                  alignSelf: "stretch",
-                                  borderRadius: "8px",
-                                  border: "1px solid #D5D7DA",
-                                  background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  flex: "1 0 0",
                                 }}
                               >
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    padding: "2px 0",
-                                    alignItems: "center",
-                                    gap: "8px",
-                                    flex: "1 0 0",
-                                  }}
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
                                 >
-                                  <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M14 6.66659H2M10.6667 1.33325V3.99992M5.33333 1.33325V3.99992M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4486C13.2843 14.2569 13.5903 13.9509 13.782 13.5746C14 13.1467 14 12.5867 14 11.4666V5.86659C14 4.74648 14 4.18643 13.782 3.7586C13.5903 3.38228 13.2843 3.07632 12.908 2.88457C12.4802 2.66659 11.9201 2.66659 10.8 2.66659H5.2C4.0799 2.66659 3.51984 2.66659 3.09202 2.88457C2.71569 3.07632 2.40973 3.38228 2.21799 3.7586C2 4.18643 2 4.74648 2 5.86659V11.4666C2 12.5867 2 13.1467 2.21799 13.5746C2.40973 13.9509 2.71569 14.2569 3.09202 14.4486C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
-                                      stroke="#A4A7AE"
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                  <input
-                                    type="text"
-                                    placeholder="00/00/00"
-                                    value={formData.employmentStartDate}
-                                    onChange={(e) =>
-                                      handleInputChange("employmentStartDate", e.target.value)
-                                    }
-                                    style={{
-                                      flex: "1 0 0",
-                                      overflow: "hidden",
-                                      color: "var(--colors-text-text-placeholder, #717680)",
-                                      textOverflow: "ellipsis",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
-                                      fontStyle: "normal",
-                                      fontWeight: 400,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
-                                      border: "none",
-                                      outline: "none",
-                                      background: "transparent",
-                                    }}
+                                  <path
+                                    d="M14 6.66659H2M10.6667 1.33325V3.99992M5.33333 1.33325V3.99992M5.2 14.6666H10.8C11.9201 14.6666 12.4802 14.6666 12.908 14.4486C13.2843 14.2569 13.5903 13.9509 13.782 13.5746C14 13.1467 14 12.5867 14 11.4666V5.86659C14 4.74648 14 4.18643 13.782 3.7586C13.5903 3.38228 13.2843 3.07632 12.908 2.88457C12.4802 2.66659 11.9201 2.66659 10.8 2.66659H5.2C4.0799 2.66659 3.51984 2.66659 3.09202 2.88457C2.71569 3.07632 2.40973 3.38228 2.21799 3.7586C2 4.18643 2 4.74648 2 5.86659V11.4666C2 12.5867 2 13.1467 2.21799 13.5746C2.40973 13.9509 2.71569 14.2569 3.09202 14.4486C3.51984 14.6666 4.0799 14.6666 5.2 14.6666Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                   />
-                                </div>
+                                </svg>
+                                <input
+                                  type="text"
+                                  placeholder="00/00/00"
+                                  value={formData.employmentStartDate}
+                                  onChange={(e) =>
+                                    handleInputChange("employmentStartDate", e.target.value)
+                                  }
+                                  style={{
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
+                                    color: "var(--colors-text-text-placeholder, #717680)",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    border: "none",
+                                    outline: "none",
+                                    background: "transparent",
+                                  }}
+                                />
                               </div>
                             </div>
                           </div>
                         </div>
+
+                        {/* Divider before Employer Signature */}
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "1px",
+                            background: "#E9EAEB",
+                            margin: "20px 0",
+                          }}
+                        />
 
                         {/* Employer Signature Section */}
                         <div
@@ -9375,7 +9393,7 @@ const I9FormCompletion = () => {
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
                           >
-                            Date of Signature : [XX/XX/XXXX]
+                            Date of Signature: {new Date().toLocaleDateString("en-US")}
                           </div>
                         </div>
 
