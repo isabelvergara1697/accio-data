@@ -162,6 +162,7 @@ const I9OrderSubmission = () => {
             alignSelf: "stretch",
             position: "relative",
             zIndex: 1,
+            paddingTop: isDesktop ? "72px" : "64px", // Account for fixed header height
           }}
         >
           {/* Header Navigation */}
