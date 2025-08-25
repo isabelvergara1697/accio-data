@@ -8919,9 +8919,9 @@ const I9FormCompletion = () => {
                                   <input
                                     type="text"
                                     placeholder="00/00/00"
-                                    value={formData.dateOfBirth}
+                                    value={formData.employmentStartDate}
                                     onChange={(e) =>
-                                      handleInputChange("dateOfBirth", e.target.value)
+                                      handleInputChange("employmentStartDate", e.target.value)
                                     }
                                     style={{
                                       flex: "1 0 0",
