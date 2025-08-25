@@ -151,50 +151,43 @@ const I9OrderSubmission = () => {
           />
         )}
 
-        {/* Main Content with proper rounded corner */}
+        {/* Header Navigation */}
         <div
           style={{
             display: "flex",
-            paddingBottom: "24px",
             flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "32px",
-            flex: "1 0 0",
-            borderRadius: "40px 0 0 0",
-            position: "relative",
+            alignItems: "center",
+            alignSelf: "stretch",
+            background: "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
+            paddingTop: isDesktop ? "72px" : "64px", // Account for fixed header
           }}
         >
-          {/* Header Section with Breadcrumbs */}
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "24px",
+              height: "72px",
+              padding: "0 32px",
+              alignItems: "center",
+              gap: "20px",
               alignSelf: "stretch",
-              paddingTop: isDesktop ? "24px" : "16px",
             }}
           >
-            {/* Header Container with Breadcrumbs */}
+            {/* Breadcrumbs */}
             <div
               style={{
                 display: "flex",
-                padding: "0 32px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "20px",
-                alignSelf: "stretch",
+                alignItems: "center",
+                gap: "8px",
               }}
             >
-              {/* Breadcrumbs */}
+              {/* Home Icon */}
               <div
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
+                  alignItems: "flex-start",
+                  borderRadius: "0px",
                 }}
               >
-                {/* Home Icon */}
                 <svg
                   width="24"
                   height="24"
@@ -210,25 +203,32 @@ const I9OrderSubmission = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
+              </div>
 
-                {/* Chevron */}
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 18L15 12L9 6"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.33333"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.33333"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
 
-                {/* Tools */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "0px",
+                }}
+              >
                 <div
                   style={{
                     color: "#717680",
@@ -240,25 +240,32 @@ const I9OrderSubmission = () => {
                 >
                   Tools
                 </div>
+              </div>
 
-                {/* Chevron */}
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 18L15 12L9 6"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.33333"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.33333"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
 
-                {/* I-9 Order */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "0px",
+                }}
+              >
                 <div
                   style={{
                     color: "#717680",
@@ -270,25 +277,32 @@ const I9OrderSubmission = () => {
                 >
                   I-9 Order
                 </div>
+              </div>
 
-                {/* Chevron */}
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 18L15 12L9 6"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.33333"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.33333"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
 
-                {/* I-9 Form */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "0px",
+                }}
+              >
                 <div
                   style={{
                     color: "#273572",
@@ -303,6 +317,21 @@ const I9OrderSubmission = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Main Content */}
+        <div
+          style={{
+            display: "flex",
+            paddingBottom: "24px",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "32px",
+            flex: "1 0 0",
+            borderRadius: "40px 0 0 0",
+            position: "relative",
+          }}
+        >
 
           {/* Page Content Section */}
           <div
