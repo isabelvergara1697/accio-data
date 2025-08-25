@@ -319,7 +319,87 @@ const I9OrderSubmission = () => {
           </div>
         </div>
 
-        {/* Main Content */}
+        {/* Header Section */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "24px",
+            alignSelf: "stretch",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              padding: "0 32px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "20px",
+              alignSelf: "stretch",
+            }}
+          >
+            {/* Page header */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "16px",
+                alignSelf: "stretch",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-end",
+                  alignContent: "flex-end",
+                  gap: "20px 16px",
+                  alignSelf: "stretch",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    minWidth: "320px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "4px",
+                    flex: "1 0 0",
+                  }}
+                >
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#181D27",
+                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                      fontSize: "24px",
+                      fontWeight: 600,
+                      lineHeight: "32px",
+                    }}
+                  >
+                    Submit or Save Order.
+                  </div>
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#535862",
+                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                      fontSize: "16px",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                    }}
+                  >
+                    Track pending invites and submitted orders in one place. Use filters and tools to sort, review, and manage activity easily.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main */}
         <div
           style={{
             display: "flex",
@@ -329,11 +409,8 @@ const I9OrderSubmission = () => {
             gap: "32px",
             flex: "1 0 0",
             borderRadius: "40px 0 0 0",
-            position: "relative",
           }}
         >
-
-          {/* Page Content Section */}
           <div
             style={{
               display: "flex",
@@ -343,85 +420,6 @@ const I9OrderSubmission = () => {
               alignSelf: "stretch",
             }}
           >
-            {/* Page Header */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "24px",
-                alignSelf: "stretch",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  padding: "0 32px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "20px",
-                  alignSelf: "stretch",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "16px",
-                    alignSelf: "stretch",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-end",
-                      alignContent: "flex-end",
-                      gap: "20px 16px",
-                      alignSelf: "stretch",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        minWidth: "320px",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        gap: "4px",
-                        flex: "1 0 0",
-                      }}
-                    >
-                      <div
-                        style={{
-                          alignSelf: "stretch",
-                          color: "#181D27",
-                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                          fontSize: "24px",
-                          fontWeight: 600,
-                          lineHeight: "32px",
-                        }}
-                      >
-                        Submit or Save Order.
-                      </div>
-                      <div
-                        style={{
-                          alignSelf: "stretch",
-                          color: "#535862",
-                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                          fontSize: "16px",
-                          fontWeight: 400,
-                          lineHeight: "24px",
-                        }}
-                      >
-                        Track pending invites and submitted orders in one place. Use filters and tools to sort, review, and manage activity easily.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Container */}
             <div
               style={{
