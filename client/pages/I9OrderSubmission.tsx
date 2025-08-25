@@ -117,11 +117,10 @@ const I9OrderSubmission = () => {
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
-          marginLeft: sidebarCollapsed ? "80px" : "296px",
-          width: `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})`,
-          maxWidth: `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})`,
-          overflow: "hidden",
-          transition: "margin-left 0.3s, width 0.3s, max-width 0.3s",
+          transition: "margin-left 0.3s ease",
+          ...(isDesktop && {
+            marginLeft: sidebarCollapsed ? "80px" : "296px",
+          }),
         }}
       >
         {isMobile ? (
