@@ -555,6 +555,7 @@ const I9OrderSubmission = () => {
                       boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     }}
                   >
+                    {/* Content */}
                     <div
                       style={{
                         display: "flex",
@@ -597,7 +598,7 @@ const I9OrderSubmission = () => {
                         </div>
                       </div>
 
-                      {/* Options */}
+                      {/* Question Text */}
                       <div
                         style={{
                           display: "flex",
@@ -620,7 +621,7 @@ const I9OrderSubmission = () => {
                           Select one of the options to continue with your request.
                         </div>
 
-                        {/* Update SSN Option */}
+                        {/* Update SSN Section */}
                         <div
                           style={{
                             display: "flex",
@@ -660,24 +661,12 @@ const I9OrderSubmission = () => {
                             variant="outline"
                             size="sm"
                             onClick={handleUpdateSSN}
-                            style={{
-                              display: "flex",
-                              minHeight: "36px",
-                              padding: "6px 8px",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              gap: "4px",
-                              borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
-                              background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            }}
                           >
                             Update SSN
                           </Button>
                         </div>
 
-                        {/* Continue and Replace Option */}
+                        {/* Continue and Replace Section */}
                         <div
                           style={{
                             display: "flex",
@@ -728,18 +717,6 @@ const I9OrderSubmission = () => {
                             variant="outline"
                             size="sm"
                             onClick={handleUpdateI9Form}
-                            style={{
-                              display: "flex",
-                              minHeight: "36px",
-                              padding: "6px 8px",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              gap: "4px",
-                              borderRadius: "8px",
-                              border: "1px solid #D5D7DA",
-                              background: "#FFF",
-                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                            }}
                           >
                             Update I-9 Form
                           </Button>
@@ -749,13 +726,22 @@ const I9OrderSubmission = () => {
                       {/* Divider */}
                       <div
                         style={{
-                          width: "100%",
-                          height: "1px",
-                          background: "#E9EAEB",
+                          display: "flex",
+                          padding: "4px 0",
+                          alignItems: "center",
+                          alignSelf: "stretch",
                         }}
-                      />
+                      >
+                        <div
+                          style={{
+                            flex: "1 0 0",
+                            height: "1px",
+                            background: "#E9EAEB",
+                          }}
+                        />
+                      </div>
 
-                      {/* Admin Section */}
+                      {/* For Admin Label */}
                       <div
                         style={{
                           color: "#414651",
@@ -768,6 +754,7 @@ const I9OrderSubmission = () => {
                         For Admin
                       </div>
 
+                      {/* Admin Section */}
                       <div
                         style={{
                           display: "flex",
@@ -809,18 +796,6 @@ const I9OrderSubmission = () => {
                           variant="outline"
                           size="sm"
                           onClick={handleCreateI9OrderAnyway}
-                          style={{
-                            display: "flex",
-                            minHeight: "36px",
-                            padding: "6px 8px",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            gap: "4px",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          }}
                         >
                           Create I-9 Order Anyway
                         </Button>
