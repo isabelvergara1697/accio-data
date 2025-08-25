@@ -110,9 +110,10 @@ const I9OrderSubmission = () => {
         />
       )}
 
+      {/* Main Content */}
       <main
         style={{
-          flex: "1 1 0%",
+          flex: 1,
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
