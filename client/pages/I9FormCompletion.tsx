@@ -8627,6 +8627,147 @@ const I9FormCompletion = () => {
                             </div>
                           </div>
                         </div>
+
+                        {/* Additional Information Textarea */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "6px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "2px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Additional Information
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "16px",
+                                height: "16px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clipPath="url(#clip0_additional_info_help)">
+                                  <path
+                                    d="M6.05967 6.00016C6.21641 5.55461 6.52578 5.1789 6.93298 4.93958C7.34018 4.70027 7.81894 4.61279 8.28446 4.69264C8.74998 4.77249 9.17222 5.01451 9.47639 5.37585C9.78057 5.73718 9.94705 6.19451 9.94634 6.66683C9.94634 8.00016 7.94634 8.66683 7.94634 8.66683M7.99967 11.3335H8.00634M14.6663 8.00016C14.6663 11.6821 11.6816 14.6668 7.99967 14.6668C4.31778 14.6668 1.33301 11.6821 1.33301 8.00016C1.33301 4.31826 4.31778 1.3335 7.99967 1.3335C11.6816 1.3335 14.6663 4.31826 14.6663 8.00016Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.33333"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_additional_info_help">
+                                    <rect width="16" height="16" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "12px 14px",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              position: "relative",
+                            }}
+                          >
+                            <textarea
+                              value={formData.additionalInformation || ""}
+                              onChange={(e) =>
+                                handleInputChange("additionalInformation", e.target.value)
+                              }
+                              style={{
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                resize: "vertical",
+                                minHeight: "120px",
+                                border: "none",
+                                outline: "none",
+                                background: "transparent",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                              }}
+                              placeholder=""
+                            />
+                            <svg
+                              style={{
+                                width: "12px",
+                                height: "12px",
+                                position: "absolute",
+                                right: "6px",
+                                bottom: "6px",
+                                pointerEvents: "none",
+                              }}
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M10 2L2 10" stroke="#D5D7DA" strokeLinecap="round"/>
+                              <path d="M11 7L7 11" stroke="#D5D7DA" strokeLinecap="round"/>
+                            </svg>
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <svg
+                          style={{
+                            display: "flex",
+                            padding: "4px 0",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                          }}
+                          width="100%"
+                          height="9"
+                          viewBox="0 0 1032 9"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M1032 5H0V4H1032V5"
+                            fill="#E9EAEB"
+                          />
+                        </svg>
                       </div>
                     </div>
                   </div>
