@@ -5459,7 +5459,7 @@ const I9FormCompletion = () => {
                           Document type
                         </div>
 
-                        {/* Document Type Options */}
+                        {/* Choose from List A - with conditional inline form */}
                         <div
                           style={{
                             display: "flex",
@@ -5469,27 +5469,157 @@ const I9FormCompletion = () => {
                             alignSelf: "stretch",
                           }}
                         >
-                          <CustomRadio
-                            value="list_a"
-                            name="documentType"
-                            checked={formData.documentType === "list_a"}
-                            onChange={(value) =>
-                              handleInputChange("documentType", value)
-                            }
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "12px 8px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderRadius: "8px",
+                              background: "#FAFAFA",
+                            }}
                           >
-                            Choose from List A
-                          </CustomRadio>
+                            {/* Choose from List A Radio Button */}
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  onClick={() => handleInputChange("documentType", "list_a")}
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    padding: "5px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    background: formData.documentType === "list_a" ? "#344698" : "transparent",
+                                    border: formData.documentType === "list_a" ? "1px solid #344698" : "1px solid #D5D7DA",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  {formData.documentType === "list_a" && (
+                                    <div
+                                      style={{
+                                        width: "6px",
+                                        height: "6px",
+                                        borderRadius: "9999px",
+                                        background: "#FFF",
+                                      }}
+                                    />
+                                  )}
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    cursor: "pointer",
+                                  }}
+                                  onClick={() => handleInputChange("documentType", "list_a")}
+                                >
+                                  Choose from List A
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
-                          <CustomRadio
-                            value="list_b_c"
-                            name="documentType"
-                            checked={formData.documentType === "list_b_c"}
-                            onChange={(value) =>
-                              handleInputChange("documentType", value)
-                            }
+                        {/* Choose from List B, C */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            marginBottom: "16px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              paddingTop: "2px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
                           >
-                            Choose from List B, C
-                          </CustomRadio>
+                            <div
+                              onClick={() => handleInputChange("documentType", "list_b_c")}
+                              style={{
+                                display: "flex",
+                                width: "16px",
+                                height: "16px",
+                                padding: "5px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                background: formData.documentType === "list_b_c" ? "#344698" : "transparent",
+                                border: formData.documentType === "list_b_c" ? "1px solid #344698" : "1px solid #D5D7DA",
+                                cursor: "pointer",
+                              }}
+                            >
+                              {formData.documentType === "list_b_c" && (
+                                <div
+                                  style={{
+                                    width: "6px",
+                                    height: "6px",
+                                    borderRadius: "9999px",
+                                    background: "#FFF",
+                                  }}
+                                />
+                              )}
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                cursor: "pointer",
+                              }}
+                              onClick={() => handleInputChange("documentType", "list_b_c")}
+                            >
+                              Choose from List B, C
+                            </div>
+                          </div>
                         </div>
 
                         {/* Conditional List A Document Form */}
