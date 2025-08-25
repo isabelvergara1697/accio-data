@@ -56,7 +56,7 @@ const I9OrderSubmission = () => {
 
   const handleUpdateSSN = () => {
     // Navigate back to I9 form for SSN correction
-    navigate("/i9-form");
+    navigate("/i9-form-completion");
   };
 
   const handleUpdateI9Form = () => {
