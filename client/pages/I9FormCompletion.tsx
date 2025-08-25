@@ -6322,27 +6322,138 @@ const I9FormCompletion = () => {
                               alignSelf: "stretch",
                             }}
                           >
-                            <CustomRadio
-                              value="in_person"
-                              name="verificationMethod"
-                              checked={formData.verificationMethod === "in_person"}
-                              onChange={(value) =>
-                                handleInputChange("verificationMethod", value)
-                              }
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                              }}
                             >
-                              I will verify documents in person
-                            </CustomRadio>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  onClick={() => handleInputChange("verificationMethod", "in_person")}
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    padding: "5px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    background: formData.verificationMethod === "in_person" ? "#344698" : "transparent",
+                                    border: formData.verificationMethod === "in_person" ? "1px solid #344698" : "1px solid #D5D7DA",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  {formData.verificationMethod === "in_person" && (
+                                    <div
+                                      style={{
+                                        width: "6px",
+                                        height: "6px",
+                                        borderRadius: "9999px",
+                                        background: "#FFF",
+                                      }}
+                                    />
+                                  )}
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "320px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    cursor: "pointer",
+                                  }}
+                                  onClick={() => handleInputChange("verificationMethod", "in_person")}
+                                >
+                                  I will verify documents in person
+                                </div>
+                              </div>
+                            </div>
 
-                            <CustomRadio
-                              value="e_verify_remote"
-                              name="verificationMethod"
-                              checked={formData.verificationMethod === "e_verify_remote"}
-                              onChange={(value) =>
-                                handleInputChange("verificationMethod", value)
-                              }
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                              }}
                             >
-                              I will verify documents through a combination of E-Verify and remote video verification
-                            </CustomRadio>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  onClick={() => handleInputChange("verificationMethod", "e_verify_remote")}
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    padding: "5px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    background: formData.verificationMethod === "e_verify_remote" ? "#344698" : "transparent",
+                                    border: formData.verificationMethod === "e_verify_remote" ? "1px solid #344698" : "1px solid #D5D7DA",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  {formData.verificationMethod === "e_verify_remote" && (
+                                    <div
+                                      style={{
+                                        width: "6px",
+                                        height: "6px",
+                                        borderRadius: "9999px",
+                                        background: "#FFF",
+                                      }}
+                                    />
+                                  )}
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    cursor: "pointer",
+                                  }}
+                                  onClick={() => handleInputChange("verificationMethod", "e_verify_remote")}
+                                >
+                                  I will verify documents through a combination of E-Verify and remote video verification
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
