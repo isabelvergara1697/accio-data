@@ -151,6 +151,14 @@ const I9OrderSubmission = () => {
           />
         )}
 
+        {/* Spacer for fixed header */}
+        <div
+          style={{
+            height: isDesktop ? "72px" : "64px",
+            background: "transparent",
+          }}
+        />
+
         {/* Main Content Container */}
         <div
           style={{
@@ -162,7 +170,8 @@ const I9OrderSubmission = () => {
             flex: "1 0 0",
             borderRadius: "40px 0 0 0",
             background: "#F9F9F9",
-            paddingTop: isDesktop ? "72px" : "64px", // Account for fixed header
+            position: "relative",
+            zIndex: 1,
           }}
         >
           {/* Header Navigation */}
@@ -172,9 +181,8 @@ const I9OrderSubmission = () => {
               flexDirection: "column",
               alignItems: "center",
               alignSelf: "stretch",
-              background: "#FFF",
-              marginTop: "-72px",
-              paddingTop: isDesktop ? "72px" : "64px",
+              background: "#F9F9F9",
+              paddingTop: "24px",
             }}
           >
             <div
