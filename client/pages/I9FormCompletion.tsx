@@ -103,6 +103,14 @@ const I9FormCompletion = () => {
     employerSignature: "",
     employerTitle: "",
     employerSignatureDate: "",
+    // Section 2 Employer Information
+    employerLastName: "",
+    employerFirstName: "",
+    employerBusinessName: "",
+    employerBusinessAddress: "",
+    employerState: "",
+    employerCity: "",
+    employerZipCode: "",
   });
 
   // Signature canvas state
