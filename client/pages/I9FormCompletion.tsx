@@ -95,6 +95,8 @@ const I9FormCompletion = () => {
     listBCDocumentBIssuingAuthority: "",
     listBCDocumentBNumber: "",
     listBCDocumentBExpirationDate: "",
+    // Section 2 Additional Information
+    additionalInformation: "",
   });
 
   // Signature canvas state
