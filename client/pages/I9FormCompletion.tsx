@@ -110,6 +110,11 @@ const I9FormCompletion = () => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [hasSignature, setHasSignature] = useState(false);
 
+  // Employer signature canvas state
+  const employerCanvasRef = useRef<HTMLCanvasElement>(null);
+  const [isEmployerDrawing, setIsEmployerDrawing] = useState(false);
+  const [hasEmployerSignature, setHasEmployerSignature] = useState(false);
+
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
