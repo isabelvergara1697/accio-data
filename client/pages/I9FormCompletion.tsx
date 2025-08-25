@@ -226,9 +226,75 @@ const I9FormCompletion = () => {
     handleInputChange("signature", "");
   };
 
+  // Employer signature drawing functions
+  const startEmployerDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = employerCanvasRef.current;
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    setIsEmployerDrawing(true);
+  };
+
+  const drawEmployer = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (!isEmployerDrawing) return;
+
+    const canvas = employerCanvasRef.current;
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    setHasEmployerSignature(true);
+  };
+
+  const stopEmployerDrawing = () => {
+    setIsEmployerDrawing(false);
+  };
+
+  const clearEmployerSignature = () => {
+    const canvas = employerCanvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    setHasEmployerSignature(false);
+    handleInputChange("employerSignature", "");
+  };
+
   // Initialize canvas
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Set canvas drawing properties
+    ctx.strokeStyle = "#000000";
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+  }, []);
+
+  // Initialize employer canvas
+  useEffect(() => {
+    const canvas = employerCanvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
