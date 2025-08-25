@@ -172,8 +172,7 @@ const I9OrderSubmission = () => {
               flexDirection: "column",
               alignItems: "center",
               alignSelf: "stretch",
-              background: "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
-              borderRadius: "40px 0 0 0",
+              background: "#FFF",
               marginTop: "-72px",
               paddingTop: isDesktop ? "72px" : "64px",
             }}
