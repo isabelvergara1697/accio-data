@@ -9063,6 +9063,330 @@ const I9FormCompletion = () => {
                           </div>
                         </div>
 
+                        {/* Employer Signature Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          {/* Employer Signature Title */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Signature of Employer or Authorized Representative
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "16px",
+                                height: "16px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clipPath="url(#clip0_employer_sig_help)">
+                                  <path
+                                    d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.33333"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_employer_sig_help">
+                                    <rect width="16" height="16" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </div>
+
+                          {/* Instructions */}
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-xs, 12px)",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "var(--Line-height-text-xs, 18px)",
+                            }}
+                          >
+                            Please sign here, using your mouse (press and hold the left button while moving the mouse):
+                          </div>
+
+                          {/* Employer Signature Field */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "662px",
+                              height: "129px",
+                              padding: "16px 20px",
+                              flexDirection: "column",
+                              justifyContent: "flex-end",
+                              alignItems: "center",
+                              gap: "8px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Signature Canvas */}
+                            <canvas
+                              ref={employerCanvasRef}
+                              width={622}
+                              height={97}
+                              onMouseDown={startEmployerDrawing}
+                              onMouseMove={drawEmployer}
+                              onMouseUp={stopEmployerDrawing}
+                              onMouseLeave={stopEmployerDrawing}
+                              style={{
+                                position: "absolute",
+                                top: "16px",
+                                left: "20px",
+                                cursor: "crosshair",
+                                background: "transparent",
+                              }}
+                            />
+
+                            {/* Signature Line */}
+                            <svg
+                              style={{
+                                height: "0",
+                                flexShrink: 0,
+                                alignSelf: "stretch",
+                                fill: "#FFF",
+                                strokeWidth: "1px",
+                                stroke: "#D5D7DA",
+                                filter: "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
+                              }}
+                              width="626"
+                              height="6"
+                              viewBox="0 0 626 6"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g filter="url(#filter0_d_employer_sig)">
+                                <path d="M2 2H624" stroke="#D5D7DA"/>
+                              </g>
+                              <defs>
+                                <filter id="filter0_d_employer_sig" x="0" y="0.5" width="626" height="5" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                  <feFlood floodOpacity="0" result="BackgroundImageFix"/>
+                                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                  <feOffset dy="1"/>
+                                  <feGaussianBlur stdDeviation="1"/>
+                                  <feColorMatrix type="matrix" values="0 0 0 0 0.0392157 0 0 0 0 0.0496732 0 0 0 0 0.0705882 0 0 0 0.05 0"/>
+                                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_employer_sig"/>
+                                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_employer_sig" result="shape"/>
+                                </filter>
+                              </defs>
+                            </svg>
+
+                            {/* Clear Signature Button */}
+                            <button
+                              onClick={clearEmployerSignature}
+                              style={{
+                                display: "flex",
+                                minHeight: "36px",
+                                padding: "6px 8px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                gap: "4px",
+                                position: "absolute",
+                                right: "20px",
+                                top: "9px",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                cursor: "pointer",
+                              }}
+                            >
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M2.6665 4.66667H9.33317C11.5423 4.66667 13.3332 6.45753 13.3332 8.66667C13.3332 10.8758 11.5423 12.6667 9.33317 12.6667H2.6665M2.6665 4.66667L5.33317 2M2.6665 4.66667L5.33317 7.33333"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "0 2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  Clear Signature
+                                </div>
+                              </div>
+                            </button>
+                          </div>
+
+                          {/* Title Field */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "300px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "6px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "2px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                }}
+                              >
+                                Title of Employer or Authorized Representative
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "16px",
+                                  height: "16px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <svg
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <g clipPath="url(#clip0_employer_title_help)">
+                                    <path
+                                      d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.33333"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </g>
+                                  <defs>
+                                    <clipPath id="clip0_employer_title_help">
+                                      <rect width="16" height="16" fill="white" />
+                                    </clipPath>
+                                  </defs>
+                                </svg>
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "32px",
+                                padding: "6px 8px",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              }}
+                            >
+                              <input
+                                type="text"
+                                placeholder="Founder"
+                                value={formData.employerTitle}
+                                onChange={(e) =>
+                                  handleInputChange("employerTitle", e.target.value)
+                                }
+                                style={{
+                                  flex: "1 0 0",
+                                  overflow: "hidden",
+                                  color: formData.employerTitle ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                  textOverflow: "ellipsis",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  border: "none",
+                                  outline: "none",
+                                  background: "transparent",
+                                }}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Date of Signature */}
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Date of Signature : [XX/XX/XXXX]
+                          </div>
+                        </div>
+
                         {/* Final Divider */}
                         <svg
                           style={{
