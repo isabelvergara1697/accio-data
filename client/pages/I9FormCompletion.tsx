@@ -9405,22 +9405,814 @@ const I9FormCompletion = () => {
                           </div>
                         </div>
 
-                        {/* Final Divider */}
+                        {/* Divider before Employer Information */}
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "1px",
+                            background: "#E9EAEB",
+                            margin: "20px 0",
+                          }}
+                        />
+
+                        {/* Employer Information Section */}
                         <div
                           style={{
                             display: "flex",
-                            padding: "8px 0",
-                            alignItems: "center",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "16px",
                             alignSelf: "stretch",
                           }}
                         >
+                          {/* First Row: Last Name, First Name, Business Name */}
                           <div
                             style={{
-                              height: "2px",
-                              flex: "1 0 0",
-                              background: "#D5D7DA",
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
                             }}
-                          />
+                          >
+                            {/* Last Name (Family Name) */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "300px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  Last Name (Family Name)
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_employer_lastname_help)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_employer_lastname_help">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                }}
+                              >
+                                <input
+                                  type="text"
+                                  value={formData.employerLastName}
+                                  onChange={(e) =>
+                                    handleInputChange("employerLastName", e.target.value)
+                                  }
+                                  style={{
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
+                                    color: formData.employerLastName ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    border: "none",
+                                    outline: "none",
+                                    background: "transparent",
+                                  }}
+                                />
+                              </div>
+                            </div>
+
+                            {/* First Name (Given Name) */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "300px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  First Name (Given Name)
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_employer_firstname_help)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_employer_firstname_help">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                }}
+                              >
+                                <input
+                                  type="text"
+                                  value={formData.employerFirstName}
+                                  onChange={(e) =>
+                                    handleInputChange("employerFirstName", e.target.value)
+                                  }
+                                  style={{
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
+                                    color: formData.employerFirstName ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    border: "none",
+                                    outline: "none",
+                                    background: "transparent",
+                                  }}
+                                />
+                              </div>
+                            </div>
+
+                            {/* Vertical Divider */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "58px",
+                                padding: "16px 8px",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  width: "1px",
+                                  height: "40px",
+                                  background: "#E9EAEB",
+                                }}
+                              />
+                            </div>
+
+                            {/* Employer's Business or Organization Name */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  Employer's Business or Organization Name
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_employer_business_help)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_employer_business_help">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                }}
+                              >
+                                <input
+                                  type="text"
+                                  value={formData.employerBusinessName}
+                                  onChange={(e) =>
+                                    handleInputChange("employerBusinessName", e.target.value)
+                                  }
+                                  style={{
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
+                                    color: formData.employerBusinessName ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    border: "none",
+                                    outline: "none",
+                                    background: "transparent",
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Second Row: Address, State, City, Zip Code */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            {/* Employer's Business or Organization Address */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "500px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  Employer's Business or Organization Address (Street Number and Name)
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_employer_address_help)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_employer_address_help">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                }}
+                              >
+                                <input
+                                  type="text"
+                                  value={formData.employerBusinessAddress}
+                                  onChange={(e) =>
+                                    handleInputChange("employerBusinessAddress", e.target.value)
+                                  }
+                                  style={{
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
+                                    color: formData.employerBusinessAddress ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    border: "none",
+                                    outline: "none",
+                                    background: "transparent",
+                                  }}
+                                />
+                              </div>
+                            </div>
+
+                            {/* State Dropdown */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "211px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  State
+                                </div>
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-brand-tertiary-600, #344698)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  *
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_employer_state_help)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_employer_state_help">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                              <Select
+                                value={formData.employerState}
+                                onValueChange={(value) => handleInputChange("employerState", value)}
+                              >
+                                <SelectTrigger
+                                  style={{
+                                    display: "flex",
+                                    height: "32px",
+                                    padding: "6px 8px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderRadius: "8px",
+                                    border: "1px solid #D5D7DA",
+                                    background: "#FFF",
+                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    color: formData.employerState ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  <SelectValue placeholder="Select" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="AL">Alabama</SelectItem>
+                                  <SelectItem value="AK">Alaska</SelectItem>
+                                  <SelectItem value="AZ">Arizona</SelectItem>
+                                  <SelectItem value="AR">Arkansas</SelectItem>
+                                  <SelectItem value="CA">California</SelectItem>
+                                  <SelectItem value="CO">Colorado</SelectItem>
+                                  <SelectItem value="CT">Connecticut</SelectItem>
+                                  <SelectItem value="DE">Delaware</SelectItem>
+                                  <SelectItem value="FL">Florida</SelectItem>
+                                  <SelectItem value="GA">Georgia</SelectItem>
+                                  <SelectItem value="HI">Hawaii</SelectItem>
+                                  <SelectItem value="ID">Idaho</SelectItem>
+                                  <SelectItem value="IL">Illinois</SelectItem>
+                                  <SelectItem value="IN">Indiana</SelectItem>
+                                  <SelectItem value="IA">Iowa</SelectItem>
+                                  <SelectItem value="KS">Kansas</SelectItem>
+                                  <SelectItem value="KY">Kentucky</SelectItem>
+                                  <SelectItem value="LA">Louisiana</SelectItem>
+                                  <SelectItem value="ME">Maine</SelectItem>
+                                  <SelectItem value="MD">Maryland</SelectItem>
+                                  <SelectItem value="MA">Massachusetts</SelectItem>
+                                  <SelectItem value="MI">Michigan</SelectItem>
+                                  <SelectItem value="MN">Minnesota</SelectItem>
+                                  <SelectItem value="MS">Mississippi</SelectItem>
+                                  <SelectItem value="MO">Missouri</SelectItem>
+                                  <SelectItem value="MT">Montana</SelectItem>
+                                  <SelectItem value="NE">Nebraska</SelectItem>
+                                  <SelectItem value="NV">Nevada</SelectItem>
+                                  <SelectItem value="NH">New Hampshire</SelectItem>
+                                  <SelectItem value="NJ">New Jersey</SelectItem>
+                                  <SelectItem value="NM">New Mexico</SelectItem>
+                                  <SelectItem value="NY">New York</SelectItem>
+                                  <SelectItem value="NC">North Carolina</SelectItem>
+                                  <SelectItem value="ND">North Dakota</SelectItem>
+                                  <SelectItem value="OH">Ohio</SelectItem>
+                                  <SelectItem value="OK">Oklahoma</SelectItem>
+                                  <SelectItem value="OR">Oregon</SelectItem>
+                                  <SelectItem value="PA">Pennsylvania</SelectItem>
+                                  <SelectItem value="RI">Rhode Island</SelectItem>
+                                  <SelectItem value="SC">South Carolina</SelectItem>
+                                  <SelectItem value="SD">South Dakota</SelectItem>
+                                  <SelectItem value="TN">Tennessee</SelectItem>
+                                  <SelectItem value="TX">Texas</SelectItem>
+                                  <SelectItem value="UT">Utah</SelectItem>
+                                  <SelectItem value="VT">Vermont</SelectItem>
+                                  <SelectItem value="VA">Virginia</SelectItem>
+                                  <SelectItem value="WA">Washington</SelectItem>
+                                  <SelectItem value="WV">West Virginia</SelectItem>
+                                  <SelectItem value="WI">Wisconsin</SelectItem>
+                                  <SelectItem value="WY">Wyoming</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+
+                            {/* City or Town */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  City or Town
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_employer_city_help)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_employer_city_help">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                }}
+                              >
+                                <input
+                                  type="text"
+                                  value={formData.employerCity}
+                                  onChange={(e) =>
+                                    handleInputChange("employerCity", e.target.value)
+                                  }
+                                  style={{
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
+                                    color: formData.employerCity ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    border: "none",
+                                    outline: "none",
+                                    background: "transparent",
+                                  }}
+                                />
+                              </div>
+                            </div>
+
+                            {/* Zip Code */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "2px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  }}
+                                >
+                                  Zip Code
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="17"
+                                    height="16"
+                                    viewBox="0 0 17 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M6.56016 5.99992C6.7169 5.55436 7.02626 5.17866 7.43347 4.93934C7.84067 4.70002 8.31943 4.61254 8.78495 4.69239C9.25047 4.77224 9.67271 5.01427 9.97688 5.3756C10.2811 5.73694 10.4475 6.19427 10.4468 6.66659C10.4468 7.99992 8.44683 8.66659 8.44683 8.66659M8.50016 11.3333H8.50683M15.1668 7.99992C15.1668 11.6818 12.1821 14.6666 8.50016 14.6666C4.81826 14.6666 1.8335 11.6818 1.8335 7.99992C1.8335 4.31802 4.81826 1.33325 8.50016 1.33325C12.1821 1.33325 15.1668 4.31802 15.1668 7.99992Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.33333"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                }}
+                              >
+                                <input
+                                  type="text"
+                                  value={formData.employerZipCode}
+                                  onChange={(e) =>
+                                    handleInputChange("employerZipCode", e.target.value)
+                                  }
+                                  style={{
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
+                                    color: formData.employerZipCode ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    border: "none",
+                                    outline: "none",
+                                    background: "transparent",
+                                  }}
+                                />
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
