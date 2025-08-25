@@ -6199,8 +6199,8 @@ const I9FormCompletion = () => {
                                       </div>
                                     </div>
 
-                                    {/* Document Two and Three sections for Foreign Passport I-94 */}
-                                    {formData.listASelectedDocument === "foreign_passport_i94" && (
+                                    {/* Document Two and Three sections for Foreign Passport I-94 and Receipt Replacement */}
+                                    {(formData.listASelectedDocument === "foreign_passport_i94" || formData.listASelectedDocument === "receipt_replacement_foreign_passport_i94") && (
                                       <>
                                         {/* Divider */}
                                         <svg
