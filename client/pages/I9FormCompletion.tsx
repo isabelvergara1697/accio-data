@@ -97,6 +97,8 @@ const I9FormCompletion = () => {
     listBCDocumentBExpirationDate: "",
     // Section 2 Additional Information
     additionalInformation: "",
+    // Section 2 Employment Date
+    employmentStartDate: "",
   });
 
   // Signature canvas state
