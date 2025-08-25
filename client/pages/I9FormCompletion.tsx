@@ -62,6 +62,19 @@ const I9FormCompletion = () => {
     // Signature fields
     signature: "",
     signatureDate: new Date().toLocaleDateString("en-US"), // US format MM/DD/YYYY
+    // Section 2 fields
+    documentType: "",
+    verificationMethod: "",
+    // List A fields
+    listASelectedDocument: "",
+    listAIssuingAuthority: "",
+    listAPassportNumber: "",
+    listACardNumber: "",
+    listAAlienNumber: "",
+    listAI94Number: "",
+    listAVisaNumber: "",
+    listAExpirationDate: "",
+    listACountryOfIssuance: "",
   });
 
   // Signature canvas state
