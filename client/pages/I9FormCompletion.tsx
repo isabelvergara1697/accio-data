@@ -8177,12 +8177,12 @@ const I9FormCompletion = () => {
                                         <div
                                           style={{
                                             display: "grid",
-                                            height: "132px",
+                                            height: isMobile ? "auto" : "132px",
                                             rowGap: "16px",
                                             columnGap: "16px",
                                             alignSelf: "stretch",
-                                            gridTemplateRows: "repeat(2, fit-content(100%))",
-                                            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                                            gridTemplateRows: isMobile ? "repeat(4, fit-content(100%))" : "repeat(2, fit-content(100%))",
+                                            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
                                           }}
                                         >
                                           {/* Issuing Authority */}
