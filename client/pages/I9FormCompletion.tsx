@@ -907,24 +907,6 @@ const I9FormCompletion = () => {
                       </div>
                     </div>
 
-                    {/* Content divider */}
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        alignSelf: "stretch",
-                      }}
-                    >
-                      <div
-                        style={{
-                          height: "1px",
-                          flex: "1 0 0",
-                          background: "#E9EAEB",
-                        }}
-                      />
-                    </div>
-
                     {/* Links */}
                     <div
                       style={{
