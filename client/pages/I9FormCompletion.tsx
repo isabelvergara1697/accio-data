@@ -4542,9 +4542,9 @@ const I9FormCompletion = () => {
                                   filter: "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
                                   position: "relative",
                                 }}
-                                width={isTablet ? "560" : "626"}
+                                width="560"
                                 height="6"
-                                viewBox={isTablet ? "0 0 560 6" : "0 0 626 6"}
+                                viewBox="0 0 560 6"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
