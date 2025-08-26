@@ -1028,24 +1028,6 @@ const I9FormCompletion = () => {
                   </div>
                 </div>
 
-                {/* Divider between Form Header and Section 1 */}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "8px 0",
-                    alignItems: "center",
-                    alignSelf: "stretch",
-                  }}
-                >
-                  <div
-                    style={{
-                      height: "2px",
-                      flex: "1 0 0",
-                      background: "#D5D7DA",
-                    }}
-                  />
-                </div>
-
                 {/* Second Container - Section 1 Form */}
                 <div
                   style={{
