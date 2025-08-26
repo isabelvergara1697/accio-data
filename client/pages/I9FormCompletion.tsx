@@ -1195,8 +1195,8 @@ const I9FormCompletion = () => {
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "6px",
-                          flex: isMobile ? "none" : isTablet ? "1 1 300px" : "1 1 200px",
-                          minWidth: isMobile ? "auto" : isTablet ? "200px" : "150px",
+                          flex: isMobile ? "1 0 0" : "1 0 0",
+                          minWidth: isMobile ? "0" : "300px",
                           width: isMobile ? "100%" : "auto",
                         }}
                       >
@@ -1303,8 +1303,8 @@ const I9FormCompletion = () => {
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "6px",
-                          flex: isMobile ? "none" : isTablet ? "1 1 300px" : "1 1 200px",
-                          minWidth: isMobile ? "auto" : isTablet ? "200px" : "150px",
+                          flex: isMobile ? "1 0 0" : "1 0 0",
+                          minWidth: isMobile ? "0" : "300px",
                           width: isMobile ? "100%" : "auto",
                         }}
                       >
@@ -1404,7 +1404,7 @@ const I9FormCompletion = () => {
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "4px",
-                          width: isMobile ? "100%" : isTablet ? "308px" : "174px",
+                          width: isMobile ? "100%" : "300px",
                         }}
                       >
                         <div
