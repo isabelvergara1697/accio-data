@@ -3682,6 +3682,8 @@ const I9FormCompletion = () => {
                                   gap: "20px",
                                   alignSelf: "stretch",
                                   paddingLeft: "24px", // Align with radio button content
+                                  flexDirection: isMobile ? "column" : "row",
+                                  gap: isMobile ? "16px" : "20px",
                                 }}
                               >
                                 {/* Foreign Passport Number Input */}
