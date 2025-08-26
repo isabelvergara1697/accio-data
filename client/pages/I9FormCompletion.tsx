@@ -2455,7 +2455,8 @@ const I9FormCompletion = () => {
                         alignItems: "flex-start",
                         gap: "16px",
                         alignSelf: "stretch",
-                        flexWrap: "wrap",
+                        flexDirection: isMobile ? "column" : "row",
+                        flexWrap: isMobile ? "nowrap" : "wrap",
                       }}
                     >
                       {/* Date of Birth */}
