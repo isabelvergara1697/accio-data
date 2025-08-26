@@ -418,9 +418,9 @@ const I9FormCompletion = () => {
             display: "flex",
             paddingBottom: "24px",
             paddingTop:
-              showNotification && isDesktop
+              showNotification && (isDesktop || isTablet)
                 ? "136px"
-                : isDesktop
+                : (isDesktop || isTablet)
                   ? "104px"
                   : "88px",
             flexDirection: "column",
