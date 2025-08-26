@@ -1709,6 +1709,1355 @@ const I9OrderConfirmation = () => {
                       </div>
                       )}
                     </div>
+
+                    {/* Subject Section */}
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 16px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        borderRadius: "8px",
+                        border: "1px solid #E9EAEB",
+                        background: "#FAFAFA",
+                      }}
+                    >
+                      {/* Title Bar */}
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => setIsSubjectAccordionExpanded(!isSubjectAccordionExpanded)}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "18px",
+                            fontWeight: 500,
+                            lineHeight: "28px",
+                          }}
+                        >
+                          Subject
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "12px",
+                          }}
+                        >
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate("/i9-form-completion");
+                            }}
+                            style={{
+                              height: "32px",
+                              padding: "6px",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                              color: "#414651",
+                            }}
+                          >
+                            Edit
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M1.91769 12.0771C1.94831 11.8015 1.96363 11.6636 2.00533 11.5348C2.04234 11.4205 2.09461 11.3117 2.16075 11.2114C2.2353 11.0984 2.33336 11.0003 2.52948 10.8042L11.3337 2.00004C12.0701 1.26366 13.264 1.26366 14.0003 2.00004C14.7367 2.73642 14.7367 3.93033 14.0003 4.66671L5.19614 13.4709C5.00002 13.667 4.90196 13.7651 4.78892 13.8396C4.68862 13.9058 4.57985 13.958 4.46556 13.995C4.33673 14.0367 4.1989 14.0521 3.92324 14.0827L1.66699 14.3334L1.91769 12.0771Z"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            style={{
+                              padding: "8px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              transform: isSubjectAccordionExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transition: "transform 0.2s ease",
+                            }}
+                          >
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M4 6L8 10L12 6"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Main Content */}
+                      {isSubjectAccordionExpanded && (
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          {/* General Setup Section */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#414651",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "16px",
+                                fontWeight: 600,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              General Setup
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "56px",
+                                alignItems: "flex-start",
+                                alignContent: "flex-start",
+                                gap: "16px",
+                                alignSelf: "stretch",
+                                flexWrap: "wrap",
+                              }}
+                            >
+                              {/* Checkboxes */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "492px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    paddingTop: "2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      borderRadius: "4px",
+                                      border: "1px solid #D5D7DA",
+                                      background: "#F5F5F5",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M13.3337 4L6.00033 11.3333L2.66699 8"
+                                        stroke="#D5D7DA"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "320px",
+                                      alignItems: "flex-end",
+                                      gap: "4px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#717680",
+                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize: "14px",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      Collect PII (SSN and/or DOB) from applicant?
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        flexShrink: 0,
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M6.05967 6.00016C6.21641 5.55461 6.52578 5.1789 6.93298 4.93958C7.34018 4.70027 7.81894 4.61279 8.28446 4.69264C8.74998 4.77249 9.17222 5.01451 9.47639 5.37585C9.78057 5.73718 9.94705 6.19451 9.94634 6.66683C9.94634 8.00016 7.94634 8.66683 7.94634 8.66683M7.99967 11.3335H8.00634M14.6663 8.00016C14.6663 11.6821 11.6816 14.6668 7.99967 14.6668C4.31778 14.6668 1.33301 11.6821 1.33301 8.00016C1.33301 4.31826 4.31778 1.3335 7.99967 1.3335C11.6816 1.3335 14.6663 4.31826 14.6663 8.00016Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "492px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    paddingTop: "2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      borderRadius: "4px",
+                                      border: "1px solid #D5D7DA",
+                                      background: "#F5F5F5",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M13.3337 4L6.00033 11.3333L2.66699 8"
+                                        stroke="#D5D7DA"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "320px",
+                                      alignItems: "flex-end",
+                                      gap: "4px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#717680",
+                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize: "14px",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      Send order to applicant to complete?
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        flexShrink: 0,
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M6.05967 6.00016C6.21641 5.55461 6.52578 5.1789 6.93298 4.93958C7.34018 4.70027 7.81894 4.61279 8.28446 4.69264C8.74998 4.77249 9.17222 5.01451 9.47639 5.37585C9.78057 5.73718 9.94705 6.19451 9.94634 6.66683C9.94634 8.00016 7.94634 8.66683 7.94634 8.66683M7.99967 11.3335H8.00634M14.6663 8.00016C14.6663 11.6821 11.6816 14.6668 7.99967 14.6668C4.31778 14.6668 1.33301 11.6821 1.33301 8.00016C1.33301 4.31826 4.31778 1.3335 7.99967 1.3335C11.6816 1.3335 14.6663 4.31826 14.6663 8.00016Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "492px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    paddingTop: "2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      borderRadius: "4px",
+                                      border: "1px solid #D5D7DA",
+                                      background: "#F5F5F5",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M13.3337 4L6.00033 11.3333L2.66699 8"
+                                        stroke="#D5D7DA"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "320px",
+                                      alignItems: "flex-end",
+                                      gap: "4px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#717680",
+                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize: "14px",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      Require applicant to electronically sign a release?
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        flexShrink: 0,
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M6.05967 6.00016C6.21641 5.55461 6.52578 5.1789 6.93298 4.93958C7.34018 4.70027 7.81894 4.61279 8.28446 4.69264C8.74998 4.77249 9.17222 5.01451 9.47639 5.37585C9.78057 5.73718 9.94705 6.19451 9.94634 6.66683C9.94634 8.00016 7.94634 8.66683 7.94634 8.66683M7.99967 11.3335H8.00634M14.6663 8.00016C14.6663 11.6821 11.6816 14.6668 7.99967 14.6668C4.31778 14.6668 1.33301 11.6821 1.33301 8.00016C1.33301 4.31826 4.31778 1.3335 7.99967 1.3335C11.6816 1.3335 14.6663 4.31826 14.6663 8.00016Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "492px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    paddingTop: "2px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      borderRadius: "4px",
+                                      border: "1px solid #D5D7DA",
+                                      background: "#F5F5F5",
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M13.3337 4L6.00033 11.3333L2.66699 8"
+                                        stroke="#D5D7DA"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "320px",
+                                      alignItems: "flex-end",
+                                      gap: "4px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#717680",
+                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize: "14px",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                      }}
+                                    >
+                                      Require applicant to pay for their order?
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        flexShrink: 0,
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M6.05967 6.00016C6.21641 5.55461 6.52578 5.1789 6.93298 4.93958C7.34018 4.70027 7.81894 4.61279 8.28446 4.69264C8.74998 4.77249 9.17222 5.01451 9.47639 5.37585C9.78057 5.73718 9.94705 6.19451 9.94634 6.66683C9.94634 8.00016 7.94634 8.66683 7.94634 8.66683M7.99967 11.3335H8.00634M14.6663 8.00016C14.6663 11.6821 11.6816 14.6668 7.99967 14.6668C4.31778 14.6668 1.33301 11.6821 1.33301 8.00016C1.33301 4.31826 4.31778 1.3335 7.99967 1.3335C11.6816 1.3335 14.6663 4.31826 14.6663 8.00016Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "4px 0",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                flex: "1 0 0",
+                                height: "1px",
+                                background: "#E9EAEB",
+                              }}
+                            />
+                          </div>
+
+                          {/* Requester Information Section */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "16px",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              Requester Information
+                            </div>
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "52px",
+                                rowGap: "8px",
+                                columnGap: "8px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%)",
+                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                              }}
+                            >
+                              {/* First Name */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  First Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Alexandra
+                                </div>
+                              </div>
+
+                              {/* Middle Name */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Middle Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Johnson
+                                </div>
+                              </div>
+
+                              {/* Last Name */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "3 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Last Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Smith
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* AKA's Section */}
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "16px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderRadius: "10px",
+                                border: "1px solid #E9EAEB",
+                                background: "#F5F5F5",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#414651",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "16px",
+                                  fontWeight: 600,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                AKA's
+                              </div>
+                              <div
+                                style={{
+                                  display: "grid",
+                                  height: "52px",
+                                  rowGap: "8px",
+                                  columnGap: "8px",
+                                  alignSelf: "stretch",
+                                  gridTemplateRows: "fit-content(100%)",
+                                  gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "4px",
+                                    flex: "1 0 0",
+                                    alignSelf: "stretch",
+                                    gridRow: "1 / span 1",
+                                    gridColumn: "1 / span 1",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      alignSelf: "stretch",
+                                      color: "#717680",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "16px",
+                                      fontWeight: 400,
+                                      lineHeight: "24px",
+                                    }}
+                                  >
+                                    Other First Name
+                                  </div>
+                                  <div
+                                    style={{
+                                      alignSelf: "stretch",
+                                      color: "#181D27",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "16px",
+                                      fontWeight: 400,
+                                      lineHeight: "24px",
+                                    }}
+                                  >
+                                    Alexander
+                                  </div>
+                                </div>
+
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "4px",
+                                    flex: "1 0 0",
+                                    alignSelf: "stretch",
+                                    gridRow: "1 / span 1",
+                                    gridColumn: "2 / span 1",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      alignSelf: "stretch",
+                                      color: "#717680",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "16px",
+                                      fontWeight: 400,
+                                      lineHeight: "24px",
+                                    }}
+                                  >
+                                    Other Middle Name
+                                  </div>
+                                  <div
+                                    style={{
+                                      alignSelf: "stretch",
+                                      color: "#181D27",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "16px",
+                                      fontWeight: 400,
+                                      lineHeight: "24px",
+                                    }}
+                                  >
+                                    J
+                                  </div>
+                                </div>
+
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                    gap: "4px",
+                                    flex: "1 0 0",
+                                    alignSelf: "stretch",
+                                    gridRow: "1 / span 1",
+                                    gridColumn: "3 / span 1",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      alignSelf: "stretch",
+                                      color: "#717680",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "16px",
+                                      fontWeight: 400,
+                                      lineHeight: "24px",
+                                    }}
+                                  >
+                                    Other Last Name
+                                  </div>
+                                  <div
+                                    style={{
+                                      alignSelf: "stretch",
+                                      color: "#181D27",
+                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize: "16px",
+                                      fontWeight: 400,
+                                      lineHeight: "24px",
+                                    }}
+                                  >
+                                    Smith T
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Additional Information Grid */}
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "120px",
+                                rowGap: "16px",
+                                columnGap: "16px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
+                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                              }}
+                            >
+                              {/* DOB */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  DOB (MM/DD/YYYY)
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  18/12/1991
+                                </div>
+                              </div>
+
+                              {/* Zip Code */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Zip Code
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  080102
+                                </div>
+                              </div>
+
+                              {/* Address */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "3 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Address
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Street 123
+                                </div>
+                              </div>
+
+                              {/* City */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "1 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  City
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  City ABC
+                                </div>
+                              </div>
+
+                              {/* State */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "2 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  State
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  AL, Alabama
+                                </div>
+                              </div>
+
+                              {/* Country */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "3 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Country
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  USA
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Divider */}
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "4px 0",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  flex: "1 0 0",
+                                  height: "1px",
+                                  background: "#E9EAEB",
+                                }}
+                              />
+                            </div>
+
+                            {/* FCRA Purpose and Criminal Records */}
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "52px",
+                                rowGap: "16px",
+                                columnGap: "16px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%)",
+                                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  FCRA Purpose
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Employment by Hire or Contract
+                                </div>
+                              </div>
+
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Applicant has known Criminal Records?
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  [Category]
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Divider */}
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "4px 0",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  flex: "1 0 0",
+                                  height: "1px",
+                                  background: "#E9EAEB",
+                                }}
+                              />
+                            </div>
+
+                            {/* Applicant Contact Information */}
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "52px",
+                                rowGap: "16px",
+                                columnGap: "16px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%)",
+                                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Applicant Phone
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  +1 (555) 000-0000
+                                </div>
+                              </div>
+
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Applicant Email
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  alexjsmith@gmail.com
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
