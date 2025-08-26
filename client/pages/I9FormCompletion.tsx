@@ -10372,9 +10372,7 @@ const I9FormCompletion = () => {
                       }}
                     >
                       {/* Save as Draft Button */}
-                      <Button
-                        variant="outline"
-                        size="sm"
+                      <button
                         style={{
                           display: "flex",
                           minHeight: "36px",
@@ -10382,30 +10380,43 @@ const I9FormCompletion = () => {
                           justifyContent: "center",
                           alignItems: "center",
                           gap: "4px",
+                          alignSelf: "stretch",
                           borderRadius: "8px",
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
                           boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "var(--colors-text-text-secondary-700, #414651)",
-                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                          fontSize: "var(--Font-size-text-sm, 14px)",
-                          fontStyle: "normal",
-                          fontWeight: 600,
-                          lineHeight: "var(--Line-height-text-sm, 20px)",
-                          width: isMobile ? "100%" : "auto",
+                          cursor: "pointer",
                         }}
                         onClick={() => {
                           // Handle save as draft
                           console.log("Save as Draft");
                         }}
                       >
-                        Save as Draft
-                      </Button>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#414651",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Save as Draft
+                          </div>
+                        </div>
+                      </button>
 
                       {/* Next Step Button */}
-                      <Button
-                        variant="default"
-                        size="sm"
+                      <button
                         style={{
                           display: "flex",
                           minHeight: "36px",
@@ -10413,17 +10424,12 @@ const I9FormCompletion = () => {
                           justifyContent: "center",
                           alignItems: "center",
                           gap: "4px",
+                          alignSelf: "stretch",
                           borderRadius: "8px",
                           border: "2px solid rgba(255, 255, 255, 0.12)",
                           background: "#344698",
                           boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          color: "var(--Colors-Text-text-white, #FFF)",
-                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                          fontSize: "var(--Font-size-text-sm, 14px)",
-                          fontStyle: "normal",
-                          fontWeight: 600,
-                          lineHeight: "var(--Line-height-text-sm, 20px)",
-                          width: isMobile ? "100%" : "auto",
+                          cursor: "pointer",
                         }}
                         onClick={() => {
                           // Handle next step
@@ -10431,8 +10437,28 @@ const I9FormCompletion = () => {
                           navigate("/i9-order-submission");
                         }}
                       >
-                        Next Step (Verify Order)
-                      </Button>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#FFF",
+                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Next Step (Verify Order)
+                          </div>
+                        </div>
+                      </button>
                     </div>
                   </div>
                 </div>
