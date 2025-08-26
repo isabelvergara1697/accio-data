@@ -1800,8 +1800,9 @@ const I9FormCompletion = () => {
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "4px",
-                          flex: isMobile ? "1 0 0" : "1 1 200px",
-                          minWidth: "150px",
+                          flex: isMobile ? "none" : "1 1 200px",
+                          minWidth: isMobile ? "auto" : "150px",
+                          width: isMobile ? "100%" : "auto",
                         }}
                       >
                         <div
