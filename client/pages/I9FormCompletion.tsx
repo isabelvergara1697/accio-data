@@ -988,7 +988,7 @@ const I9FormCompletion = () => {
                             textDecoration: "underline",
                           }}
                         >
-                          Haga clic aquí para instrucciones Español
+                          Haga clic aqu�� para instrucciones Español
                         </div>
                       </button>
 
@@ -5746,6 +5746,8 @@ const I9FormCompletion = () => {
                                     alignItems: "flex-start",
                                     gap: "20px",
                                     alignSelf: "stretch",
+                                    flexDirection: isMobile ? "column" : "row",
+                                    flexWrap: isMobile ? "nowrap" : "wrap",
                                   }}
                                 >
                                   {/* Form Fields */}
