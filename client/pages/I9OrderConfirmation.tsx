@@ -1434,15 +1434,16 @@ const I9OrderConfirmation = () => {
                       </div>
 
                       {/* Main Content */}
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          gap: "8px",
-                          alignSelf: "stretch",
-                        }}
-                      >
+                      {isAccordionExpanded && (
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
                         {/* Package Section */}
                         <div
                           style={{
@@ -1705,6 +1706,7 @@ const I9OrderConfirmation = () => {
                           </div>
                         </div>
                       </div>
+                      )}
                     </div>
                   </div>
                 </div>
