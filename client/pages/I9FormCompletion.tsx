@@ -4027,7 +4027,7 @@ const I9FormCompletion = () => {
                       >
                         <canvas
                           ref={canvasRef}
-                          width={622}
+                          width={isTablet ? 556 : 622}
                           height={93}
                           onMouseDown={startDrawing}
                           onMouseMove={draw}
