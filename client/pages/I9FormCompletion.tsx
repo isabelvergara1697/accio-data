@@ -8695,7 +8695,7 @@ const I9FormCompletion = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "320px",
+                                  width: isMobile ? "100%" : "320px",
                                   flexDirection: "column",
                                   alignItems: "flex-start",
                                 }}
