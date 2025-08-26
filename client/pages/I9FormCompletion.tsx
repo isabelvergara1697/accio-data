@@ -5068,6 +5068,8 @@ const I9FormCompletion = () => {
                                 alignItems: "flex-start",
                                 gap: "16px",
                                 alignSelf: "stretch",
+                                flexDirection: isMobile ? "column" : "row",
+                                flexWrap: isMobile ? "nowrap" : "wrap",
                               }}
                             >
                               {/* Address */}
