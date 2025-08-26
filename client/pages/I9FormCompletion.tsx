@@ -10385,6 +10385,7 @@ const I9FormCompletion = () => {
                           fontStyle: "normal",
                           fontWeight: 600,
                           lineHeight: "var(--Line-height-text-sm, 20px)",
+                          width: isMobile ? "100%" : "auto",
                         }}
                         onClick={() => {
                           // Handle save as draft
@@ -10415,6 +10416,7 @@ const I9FormCompletion = () => {
                           fontStyle: "normal",
                           fontWeight: 600,
                           lineHeight: "var(--Line-height-text-sm, 20px)",
+                          width: isMobile ? "100%" : "auto",
                         }}
                         onClick={() => {
                           // Handle next step
