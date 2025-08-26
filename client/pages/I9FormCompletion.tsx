@@ -687,8 +687,10 @@ const I9FormCompletion = () => {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
+                      alignItems: isMobile ? "stretch" : "center",
                       gap: "12px",
+                      width: isMobile ? "100%" : "auto",
+                      flexDirection: isMobile ? "column" : "row",
                     }}
                   >
                     <button
