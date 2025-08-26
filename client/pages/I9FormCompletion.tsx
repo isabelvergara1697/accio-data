@@ -8646,6 +8646,8 @@ const I9FormCompletion = () => {
                               alignItems: "center",
                               gap: "8px",
                               alignSelf: "stretch",
+                              flexDirection: isMobile ? "column" : "row",
+                              alignItems: isMobile ? "flex-start" : "center",
                             }}
                           >
                             <div
