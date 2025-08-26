@@ -988,7 +988,7 @@ const I9FormCompletion = () => {
                             textDecoration: "underline",
                           }}
                         >
-                          Haga clic aqu�� para instrucciones Español
+                          Haga clic aquí para instrucciones Español
                         </div>
                       </button>
 
@@ -5880,8 +5880,8 @@ const I9FormCompletion = () => {
                                         rowGap: "16px",
                                         columnGap: "16px",
                                         alignSelf: "stretch",
-                                        gridTemplateRows: "repeat(4, fit-content(100%))",
-                                        gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                                        gridTemplateRows: isMobile ? "repeat(8, fit-content(100%))" : "repeat(4, fit-content(100%))",
+                                        gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
                                       }}
                                     >
                                       {/* Row 1 - Issuing Authority */}
