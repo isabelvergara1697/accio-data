@@ -4463,7 +4463,7 @@ const I9FormCompletion = () => {
                                     handleInputChange("translatorCanvasRef", el);
                                   }
                                 }}
-                                width={622}
+                                width={isTablet ? 556 : 622}
                                 height={93}
                                 onMouseDown={(e) => {
                                   const rect = e.currentTarget.getBoundingClientRect();
