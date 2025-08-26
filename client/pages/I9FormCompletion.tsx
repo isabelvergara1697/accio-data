@@ -384,7 +384,7 @@ const I9FormCompletion = () => {
         }}
       >
         {/* Header */}
-        {isDesktop ? (
+        {isDesktop || isTablet ? (
           <Header
             isDesktop={isDesktop}
             userMenuOpen={userMenuOpen}
