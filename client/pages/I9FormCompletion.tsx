@@ -4058,7 +4058,7 @@ const I9FormCompletion = () => {
                           }}
                           width={isTablet ? "560" : "626"}
                           height="6"
-                          viewBox="0 0 626 6"
+                          viewBox={isTablet ? "0 0 560 6" : "0 0 626 6"}
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
