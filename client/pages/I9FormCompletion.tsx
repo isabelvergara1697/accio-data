@@ -9192,7 +9192,7 @@ const I9FormCompletion = () => {
                             {/* Signature Canvas */}
                             <canvas
                               ref={employerCanvasRef}
-                              width={isTablet ? 556 : 622}
+                              width={isMobile ? 275 : isTablet ? 556 : 622}
                               height={97}
                               onMouseDown={startEmployerDrawing}
                               onMouseMove={drawEmployer}
