@@ -10351,6 +10351,8 @@ const I9FormCompletion = () => {
                         display: "flex",
                         alignItems: "center",
                         gap: "12px",
+                        flexDirection: isMobile ? "column" : "row",
+                        alignItems: isMobile ? "stretch" : "center",
                       }}
                     >
                       {/* Save as Draft Button */}
