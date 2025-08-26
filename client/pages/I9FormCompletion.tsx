@@ -420,7 +420,7 @@ const I9FormCompletion = () => {
             paddingTop:
               showNotification && (isDesktop || isTablet)
                 ? "136px"
-                : (isDesktop || isTablet)
+                : isDesktop || isTablet
                   ? "104px"
                   : "88px",
             flexDirection: "column",
@@ -4245,8 +4245,10 @@ const I9FormCompletion = () => {
                       >
                         <div
                           style={{
-                            color: "var(--colors-text-text-secondary-700, #414651)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-secondary-700, #414651)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 500,
@@ -4304,7 +4306,9 @@ const I9FormCompletion = () => {
                           <CustomRadio
                             value="no_preparer"
                             name="preparerCertification"
-                            checked={formData.preparerCertification === "no_preparer"}
+                            checked={
+                              formData.preparerCertification === "no_preparer"
+                            }
                             onChange={(value) =>
                               handleInputChange("preparerCertification", value)
                             }
@@ -4323,12 +4327,15 @@ const I9FormCompletion = () => {
                           <CustomRadio
                             value="used_preparer"
                             name="preparerCertification"
-                            checked={formData.preparerCertification === "used_preparer"}
+                            checked={
+                              formData.preparerCertification === "used_preparer"
+                            }
                             onChange={(value) =>
                               handleInputChange("preparerCertification", value)
                             }
                           >
-                            A preparer(s) and/or translator(s) assisted the employee in completing Section 1
+                            A preparer(s) and/or translator(s) assisted the
+                            employee in completing Section 1
                           </CustomRadio>
                           <select
                             value={formData.preparerCount || "1"}
@@ -4344,14 +4351,16 @@ const I9FormCompletion = () => {
                               background: "#FFF",
                               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                               color: "#717680",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 400,
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                               cursor: "pointer",
                               appearance: "none",
-                              backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                              backgroundImage:
+                                'url(\'data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>\')',
                               backgroundRepeat: "no-repeat",
                               backgroundPosition: "right 8px center",
                               paddingRight: "28px",
@@ -4401,12 +4410,15 @@ const I9FormCompletion = () => {
                             >
                               <div
                                 style={{
-                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  color:
+                                    "var(--colors-text-text-secondary-700, #414651)",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-sm, 14px)",
                                   fontStyle: "normal",
                                   fontWeight: 500,
-                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-sm, 20px)",
                                 }}
                               >
                                 Preparers / Translator Signature
@@ -4438,7 +4450,11 @@ const I9FormCompletion = () => {
                                   </g>
                                   <defs>
                                     <clipPath id="clip0_translator_signature_help">
-                                      <rect width="16" height="16" fill="white" />
+                                      <rect
+                                        width="16"
+                                        height="16"
+                                        fill="white"
+                                      />
                                     </clipPath>
                                   </defs>
                                 </svg>
@@ -4449,15 +4465,18 @@ const I9FormCompletion = () => {
                             <div
                               style={{
                                 alignSelf: "stretch",
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-xs, 12px)",
                                 fontStyle: "normal",
                                 fontWeight: 400,
                                 lineHeight: "var(--Line-height-text-xs, 18px)",
                               }}
                             >
-                              Please sign here, using your mouse (press and hold the left button while moving the mouse):
+                              Please sign here, using your mouse (press and hold
+                              the left button while moving the mouse):
                             </div>
 
                             {/* Translator Signature Canvas */}
@@ -4482,16 +4501,23 @@ const I9FormCompletion = () => {
                               <canvas
                                 ref={(el) => {
                                   if (el && !formData.translatorCanvasRef) {
-                                    handleInputChange("translatorCanvasRef", el);
+                                    handleInputChange(
+                                      "translatorCanvasRef",
+                                      el,
+                                    );
                                   }
                                 }}
                                 width={560}
                                 height={93}
                                 onMouseDown={(e) => {
-                                  const rect = e.currentTarget.getBoundingClientRect();
+                                  const rect =
+                                    e.currentTarget.getBoundingClientRect();
                                   const x = e.clientX - rect.left;
                                   const y = e.clientY - rect.top;
-                                  handleInputChange("translatorIsDrawing", true);
+                                  handleInputChange(
+                                    "translatorIsDrawing",
+                                    true,
+                                  );
 
                                   const canvas = e.currentTarget;
                                   const ctx = canvas.getContext("2d");
@@ -4503,7 +4529,8 @@ const I9FormCompletion = () => {
                                 onMouseMove={(e) => {
                                   if (!formData.translatorIsDrawing) return;
 
-                                  const rect = e.currentTarget.getBoundingClientRect();
+                                  const rect =
+                                    e.currentTarget.getBoundingClientRect();
                                   const x = e.clientX - rect.left;
                                   const y = e.clientY - rect.top;
 
@@ -4513,13 +4540,22 @@ const I9FormCompletion = () => {
                                     ctx.lineTo(x, y);
                                     ctx.stroke();
                                   }
-                                  handleInputChange("translatorHasSignature", true);
+                                  handleInputChange(
+                                    "translatorHasSignature",
+                                    true,
+                                  );
                                 }}
                                 onMouseUp={() => {
-                                  handleInputChange("translatorIsDrawing", false);
+                                  handleInputChange(
+                                    "translatorIsDrawing",
+                                    false,
+                                  );
                                 }}
                                 onMouseLeave={() => {
-                                  handleInputChange("translatorIsDrawing", false);
+                                  handleInputChange(
+                                    "translatorIsDrawing",
+                                    false,
+                                  );
                                 }}
                                 style={{
                                   cursor: "crosshair",
@@ -4540,7 +4576,8 @@ const I9FormCompletion = () => {
                                   fill: "#FFF",
                                   strokeWidth: "1px",
                                   stroke: "#D5D7DA",
-                                  filter: "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
+                                  filter:
+                                    "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
                                   position: "relative",
                                 }}
                                 width="560"
@@ -4562,7 +4599,10 @@ const I9FormCompletion = () => {
                                     filterUnits="userSpaceOnUse"
                                     colorInterpolationFilters="sRGB"
                                   >
-                                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                                    <feFlood
+                                      floodOpacity="0"
+                                      result="BackgroundImageFix"
+                                    />
                                     <feColorMatrix
                                       in="SourceAlpha"
                                       type="matrix"
@@ -4594,10 +4634,16 @@ const I9FormCompletion = () => {
                               <button
                                 onClick={() => {
                                   if (formData.translatorCanvasRef) {
-                                    const ctx = formData.translatorCanvasRef.getContext("2d");
+                                    const ctx =
+                                      formData.translatorCanvasRef.getContext(
+                                        "2d",
+                                      );
                                     if (ctx) {
                                       ctx.clearRect(0, 0, 622, 93);
-                                      handleInputChange("translatorHasSignature", false);
+                                      handleInputChange(
+                                        "translatorHasSignature",
+                                        false,
+                                      );
                                     }
                                   }
                                 }}
@@ -4611,7 +4657,8 @@ const I9FormCompletion = () => {
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   cursor: "pointer",
                                   position: "absolute",
                                   right: "20px",
@@ -4643,12 +4690,16 @@ const I9FormCompletion = () => {
                                 >
                                   <div
                                     style={{
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 600,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     Clear Signature
@@ -4661,15 +4712,19 @@ const I9FormCompletion = () => {
                             <div
                               style={{
                                 alignSelf: "stretch",
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 500,
                                 lineHeight: "var(--Line-height-text-sm, 20px)",
                               }}
                             >
-                              Date of Signature : {formData.translatorSignatureDate || new Date().toLocaleDateString("en-US")}
+                              Date of Signature :{" "}
+                              {formData.translatorSignatureDate ||
+                                new Date().toLocaleDateString("en-US")}
                             </div>
 
                             {/* Divider */}
@@ -4718,12 +4773,16 @@ const I9FormCompletion = () => {
                                 >
                                   <div
                                     style={{
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     Last Name (Family Name)
@@ -4755,7 +4814,11 @@ const I9FormCompletion = () => {
                                       </g>
                                       <defs>
                                         <clipPath id="clip0_translator_last_name_help">
-                                          <rect width="16" height="16" fill="white" />
+                                          <rect
+                                            width="16"
+                                            height="16"
+                                            fill="white"
+                                          />
                                         </clipPath>
                                       </defs>
                                     </svg>
@@ -4765,7 +4828,10 @@ const I9FormCompletion = () => {
                                   type="text"
                                   value={formData.translatorLastName || ""}
                                   onChange={(e) =>
-                                    handleInputChange("translatorLastName", e.target.value)
+                                    handleInputChange(
+                                      "translatorLastName",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     display: "flex",
@@ -4776,10 +4842,13 @@ const I9FormCompletion = () => {
                                     borderRadius: "8px",
                                     border: "1px solid #D5D7DA",
                                     background: "#FFF",
-                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
                                     outline: "none",
                                   }}
                                 />
@@ -4804,12 +4873,16 @@ const I9FormCompletion = () => {
                                 >
                                   <div
                                     style={{
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     First Name (Given Name)
@@ -4841,7 +4914,11 @@ const I9FormCompletion = () => {
                                       </g>
                                       <defs>
                                         <clipPath id="clip0_translator_first_name_help">
-                                          <rect width="16" height="16" fill="white" />
+                                          <rect
+                                            width="16"
+                                            height="16"
+                                            fill="white"
+                                          />
                                         </clipPath>
                                       </defs>
                                     </svg>
@@ -4851,7 +4928,10 @@ const I9FormCompletion = () => {
                                   type="text"
                                   value={formData.translatorFirstName || ""}
                                   onChange={(e) =>
-                                    handleInputChange("translatorFirstName", e.target.value)
+                                    handleInputChange(
+                                      "translatorFirstName",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     display: "flex",
@@ -4862,10 +4942,13 @@ const I9FormCompletion = () => {
                                     borderRadius: "8px",
                                     border: "1px solid #D5D7DA",
                                     background: "#FFF",
-                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
                                     outline: "none",
                                   }}
                                 />
@@ -4898,12 +4981,16 @@ const I9FormCompletion = () => {
                                   >
                                     <div
                                       style={{
-                                        color: "var(--colors-text-text-secondary-700, #414651)",
-                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                        fontSize: "var(--Font-size-text-sm, 14px)",
+                                        color:
+                                          "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily:
+                                          "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize:
+                                          "var(--Font-size-text-sm, 14px)",
                                         fontStyle: "normal",
                                         fontWeight: 500,
-                                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                                        lineHeight:
+                                          "var(--Line-height-text-sm, 20px)",
                                       }}
                                     >
                                       Middle Initial
@@ -4935,7 +5022,11 @@ const I9FormCompletion = () => {
                                         </g>
                                         <defs>
                                           <clipPath id="clip0_translator_middle_initial_help">
-                                            <rect width="16" height="16" fill="white" />
+                                            <rect
+                                              width="16"
+                                              height="16"
+                                              fill="white"
+                                            />
                                           </clipPath>
                                         </defs>
                                       </svg>
@@ -4943,11 +5034,18 @@ const I9FormCompletion = () => {
                                   </div>
                                   <input
                                     type="text"
-                                    value={formData.translatorMiddleInitial || ""}
-                                    onChange={(e) =>
-                                      handleInputChange("translatorMiddleInitial", e.target.value)
+                                    value={
+                                      formData.translatorMiddleInitial || ""
                                     }
-                                    disabled={formData.translatorMiddleInitialNA}
+                                    onChange={(e) =>
+                                      handleInputChange(
+                                        "translatorMiddleInitial",
+                                        e.target.value,
+                                      )
+                                    }
+                                    disabled={
+                                      formData.translatorMiddleInitialNA
+                                    }
                                     style={{
                                       display: "flex",
                                       padding: "6px 8px",
@@ -4956,11 +5054,18 @@ const I9FormCompletion = () => {
                                       alignSelf: "stretch",
                                       borderRadius: "8px",
                                       border: "1px solid #D5D7DA",
-                                      background: formData.translatorMiddleInitialNA ? "#F5F5F5" : "#FFF",
-                                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
+                                      background:
+                                        formData.translatorMiddleInitialNA
+                                          ? "#F5F5F5"
+                                          : "#FFF",
+                                      boxShadow:
+                                        "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
                                       outline: "none",
                                     }}
                                   />
@@ -4993,11 +5098,20 @@ const I9FormCompletion = () => {
                                     >
                                       <input
                                         type="checkbox"
-                                        checked={formData.translatorMiddleInitialNA || false}
+                                        checked={
+                                          formData.translatorMiddleInitialNA ||
+                                          false
+                                        }
                                         onChange={(e) => {
-                                          handleInputChange("translatorMiddleInitialNA", e.target.checked);
+                                          handleInputChange(
+                                            "translatorMiddleInitialNA",
+                                            e.target.checked,
+                                          );
                                           if (e.target.checked) {
-                                            handleInputChange("translatorMiddleInitial", "");
+                                            handleInputChange(
+                                              "translatorMiddleInitial",
+                                              "",
+                                            );
                                           }
                                         }}
                                         style={{
@@ -5012,8 +5126,14 @@ const I9FormCompletion = () => {
                                           width: "16px",
                                           height: "16px",
                                           borderRadius: "4px",
-                                          border: formData.translatorMiddleInitialNA ? "none" : "1px solid #D5D7DA",
-                                          background: formData.translatorMiddleInitialNA ? "#344698" : "transparent",
+                                          border:
+                                            formData.translatorMiddleInitialNA
+                                              ? "none"
+                                              : "1px solid #D5D7DA",
+                                          background:
+                                            formData.translatorMiddleInitialNA
+                                              ? "#344698"
+                                              : "transparent",
                                           display: "flex",
                                           justifyContent: "center",
                                           alignItems: "center",
@@ -5050,19 +5170,30 @@ const I9FormCompletion = () => {
                                   >
                                     <label
                                       style={{
-                                        color: "var(--colors-text-text-secondary-700, #414651)",
-                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                        fontSize: "var(--Font-size-text-sm, 14px)",
+                                        color:
+                                          "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily:
+                                          "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize:
+                                          "var(--Font-size-text-sm, 14px)",
                                         fontStyle: "normal",
                                         fontWeight: 500,
-                                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                                        lineHeight:
+                                          "var(--Line-height-text-sm, 20px)",
                                         cursor: "pointer",
                                       }}
                                       onClick={() => {
-                                        const newValue = !formData.translatorMiddleInitialNA;
-                                        handleInputChange("translatorMiddleInitialNA", newValue);
+                                        const newValue =
+                                          !formData.translatorMiddleInitialNA;
+                                        handleInputChange(
+                                          "translatorMiddleInitialNA",
+                                          newValue,
+                                        );
                                         if (newValue) {
-                                          handleInputChange("translatorMiddleInitial", "");
+                                          handleInputChange(
+                                            "translatorMiddleInitial",
+                                            "",
+                                          );
                                         }
                                       }}
                                     >
@@ -5103,12 +5234,16 @@ const I9FormCompletion = () => {
                                 >
                                   <div
                                     style={{
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     Address (Street Number and Name)
@@ -5140,7 +5275,11 @@ const I9FormCompletion = () => {
                                       </g>
                                       <defs>
                                         <clipPath id="clip0_translator_address_help">
-                                          <rect width="16" height="16" fill="white" />
+                                          <rect
+                                            width="16"
+                                            height="16"
+                                            fill="white"
+                                          />
                                         </clipPath>
                                       </defs>
                                     </svg>
@@ -5150,7 +5289,10 @@ const I9FormCompletion = () => {
                                   type="text"
                                   value={formData.translatorAddress || ""}
                                   onChange={(e) =>
-                                    handleInputChange("translatorAddress", e.target.value)
+                                    handleInputChange(
+                                      "translatorAddress",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     display: "flex",
@@ -5161,10 +5303,13 @@ const I9FormCompletion = () => {
                                     borderRadius: "8px",
                                     border: "1px solid #D5D7DA",
                                     background: "#FFF",
-                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
                                     outline: "none",
                                   }}
                                 />
@@ -5189,12 +5334,16 @@ const I9FormCompletion = () => {
                                 >
                                   <div
                                     style={{
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     City or Town
@@ -5226,7 +5375,11 @@ const I9FormCompletion = () => {
                                       </g>
                                       <defs>
                                         <clipPath id="clip0_translator_city_help">
-                                          <rect width="16" height="16" fill="white" />
+                                          <rect
+                                            width="16"
+                                            height="16"
+                                            fill="white"
+                                          />
                                         </clipPath>
                                       </defs>
                                     </svg>
@@ -5236,7 +5389,10 @@ const I9FormCompletion = () => {
                                   type="text"
                                   value={formData.translatorCity || ""}
                                   onChange={(e) =>
-                                    handleInputChange("translatorCity", e.target.value)
+                                    handleInputChange(
+                                      "translatorCity",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     display: "flex",
@@ -5247,10 +5403,13 @@ const I9FormCompletion = () => {
                                     borderRadius: "8px",
                                     border: "1px solid #D5D7DA",
                                     background: "#FFF",
-                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
                                     outline: "none",
                                   }}
                                 />
@@ -5275,12 +5434,16 @@ const I9FormCompletion = () => {
                                 >
                                   <div
                                     style={{
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     State
@@ -5288,11 +5451,14 @@ const I9FormCompletion = () => {
                                   <div
                                     style={{
                                       color: "#344698",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     *
@@ -5324,7 +5490,11 @@ const I9FormCompletion = () => {
                                       </g>
                                       <defs>
                                         <clipPath id="clip0_translator_state_help">
-                                          <rect width="16" height="16" fill="white" />
+                                          <rect
+                                            width="16"
+                                            height="16"
+                                            fill="white"
+                                          />
                                         </clipPath>
                                       </defs>
                                     </svg>
@@ -5333,7 +5503,10 @@ const I9FormCompletion = () => {
                                 <select
                                   value={formData.translatorState || ""}
                                   onChange={(e) =>
-                                    handleInputChange("translatorState", e.target.value)
+                                    handleInputChange(
+                                      "translatorState",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     display: "flex",
@@ -5345,16 +5518,22 @@ const I9FormCompletion = () => {
                                     borderRadius: "8px",
                                     border: "1px solid #D5D7DA",
                                     background: "#FFF",
-                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    color: formData.translatorState ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    color: formData.translatorState
+                                      ? "var(--colors-text-text-secondary-700, #414651)"
+                                      : "#717680",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 400,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     cursor: "pointer",
                                     appearance: "none",
-                                    backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                    backgroundImage:
+                                      'url(\'data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>\')',
                                     backgroundRepeat: "no-repeat",
                                     backgroundPosition: "right 8px center",
                                     paddingRight: "28px",
@@ -5395,12 +5574,16 @@ const I9FormCompletion = () => {
                                 >
                                   <div
                                     style={{
-                                      color: "var(--colors-text-text-secondary-700, #414651)",
-                                      fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                      fontSize: "var(--Font-size-text-sm, 14px)",
+                                      color:
+                                        "var(--colors-text-text-secondary-700, #414651)",
+                                      fontFamily:
+                                        "var(--Font-family-font-family-body, 'Public Sans')",
+                                      fontSize:
+                                        "var(--Font-size-text-sm, 14px)",
                                       fontStyle: "normal",
                                       fontWeight: 500,
-                                      lineHeight: "var(--Line-height-text-sm, 20px)",
+                                      lineHeight:
+                                        "var(--Line-height-text-sm, 20px)",
                                     }}
                                   >
                                     Zip Code
@@ -5432,7 +5615,11 @@ const I9FormCompletion = () => {
                                       </g>
                                       <defs>
                                         <clipPath id="clip0_translator_zip_help">
-                                          <rect width="16" height="16" fill="white" />
+                                          <rect
+                                            width="16"
+                                            height="16"
+                                            fill="white"
+                                          />
                                         </clipPath>
                                       </defs>
                                     </svg>
@@ -5442,7 +5629,10 @@ const I9FormCompletion = () => {
                                   type="text"
                                   value={formData.translatorZipCode || ""}
                                   onChange={(e) =>
-                                    handleInputChange("translatorZipCode", e.target.value)
+                                    handleInputChange(
+                                      "translatorZipCode",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     display: "flex",
@@ -5453,10 +5643,13 @@ const I9FormCompletion = () => {
                                     borderRadius: "8px",
                                     border: "1px solid #D5D7DA",
                                     background: "#FFF",
-                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
                                     outline: "none",
                                   }}
                                 />
@@ -5542,16 +5735,19 @@ const I9FormCompletion = () => {
                               WebkitBoxOrient: "vertical",
                               WebkitLineClamp: 1,
                               overflow: "hidden",
-                              color: "var(--colors-text-text-secondary-700, #414651)",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
                               textOverflow: "ellipsis",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-md, 16px)",
                               fontStyle: "normal",
                               fontWeight: 600,
                               lineHeight: "var(--Line-height-text-md, 24px)",
                             }}
                           >
-                            Section 2. Employer or Authorized Representative Review and Verification
+                            Section 2. Employer or Authorized Representative
+                            Review and Verification
                           </div>
                           <div
                             style={{
@@ -5589,15 +5785,23 @@ const I9FormCompletion = () => {
                         <div
                           style={{
                             alignSelf: "stretch",
-                            color: "var(--colors-text-text-tertiary-600, #535862)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-tertiary-600, #535862)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-md, 16px)",
                             fontStyle: "normal",
                             fontWeight: 400,
                             lineHeight: "var(--Line-height-text-md, 24px)",
                           }}
                         >
-                          (Employers or their authorized representative must complete and sign Section 2 within 3 business days of the employee's first day of employment. You must physically examine one document from List A OR a combination of one document from List B and one document from List C as listed on the "List of Acceptable Documents.")
+                          (Employers or their authorized representative must
+                          complete and sign Section 2 within 3 business days of
+                          the employee's first day of employment. You must
+                          physically examine one document from List A OR a
+                          combination of one document from List B and one
+                          document from List C as listed on the "List of
+                          Acceptable Documents.")
                         </div>
                       </div>
 
@@ -5615,8 +5819,10 @@ const I9FormCompletion = () => {
                         <div
                           style={{
                             alignSelf: "stretch",
-                            color: "var(--colors-text-text-secondary-700, #414651)",
-                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            color:
+                              "var(--colors-text-text-secondary-700, #414651)",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
                             fontStyle: "normal",
                             fontWeight: 500,
@@ -5645,7 +5851,10 @@ const I9FormCompletion = () => {
                               gap: "12px",
                               alignSelf: "stretch",
                               borderRadius: "8px",
-                              background: formData.documentType === "list_a" ? "#FAFAFA" : "transparent",
+                              background:
+                                formData.documentType === "list_a"
+                                  ? "#FAFAFA"
+                                  : "transparent",
                             }}
                           >
                             {/* Choose from List A Radio Button */}
@@ -5666,7 +5875,9 @@ const I9FormCompletion = () => {
                                 }}
                               >
                                 <div
-                                  onClick={() => handleInputChange("documentType", "list_a")}
+                                  onClick={() =>
+                                    handleInputChange("documentType", "list_a")
+                                  }
                                   style={{
                                     display: "flex",
                                     width: "16px",
@@ -5675,8 +5886,14 @@ const I9FormCompletion = () => {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     borderRadius: "9999px",
-                                    background: formData.documentType === "list_a" ? "#344698" : "transparent",
-                                    border: formData.documentType === "list_a" ? "1px solid #344698" : "1px solid #D5D7DA",
+                                    background:
+                                      formData.documentType === "list_a"
+                                        ? "#344698"
+                                        : "transparent",
+                                    border:
+                                      formData.documentType === "list_a"
+                                        ? "1px solid #344698"
+                                        : "1px solid #D5D7DA",
                                     cursor: "pointer",
                                   }}
                                 >
@@ -5702,15 +5919,20 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     cursor: "pointer",
                                   }}
-                                  onClick={() => handleInputChange("documentType", "list_a")}
+                                  onClick={() =>
+                                    handleInputChange("documentType", "list_a")
+                                  }
                                 >
                                   Choose from List A
                                 </div>
@@ -5790,12 +6012,16 @@ const I9FormCompletion = () => {
                                       >
                                         <div
                                           style={{
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 500,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                           }}
                                         >
                                           Select Document
@@ -5803,11 +6029,14 @@ const I9FormCompletion = () => {
                                         <div
                                           style={{
                                             color: "#344698",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 500,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                           }}
                                         >
                                           *
@@ -5839,16 +6068,25 @@ const I9FormCompletion = () => {
                                             </g>
                                             <defs>
                                               <clipPath id="clip0_select_document_help">
-                                                <rect width="16" height="16" fill="white" />
+                                                <rect
+                                                  width="16"
+                                                  height="16"
+                                                  fill="white"
+                                                />
                                               </clipPath>
                                             </defs>
                                           </svg>
                                         </div>
                                       </div>
                                       <select
-                                        value={formData.listASelectedDocument || ""}
+                                        value={
+                                          formData.listASelectedDocument || ""
+                                        }
                                         onChange={(e) =>
-                                          handleInputChange("listASelectedDocument", e.target.value)
+                                          handleInputChange(
+                                            "listASelectedDocument",
+                                            e.target.value,
+                                          )
                                         }
                                         style={{
                                           display: "flex",
@@ -5860,27 +6098,48 @@ const I9FormCompletion = () => {
                                           borderRadius: "8px",
                                           border: "1px solid #D5D7DA",
                                           background: "#FFF",
-                                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                          color: formData.listASelectedDocument ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
-                                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                          fontSize: "var(--Font-size-text-sm, 14px)",
+                                          boxShadow:
+                                            "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                          color: formData.listASelectedDocument
+                                            ? "var(--colors-text-text-secondary-700, #414651)"
+                                            : "#717680",
+                                          fontFamily:
+                                            "var(--Font-family-font-family-body, 'Public Sans')",
+                                          fontSize:
+                                            "var(--Font-size-text-sm, 14px)",
                                           fontStyle: "normal",
                                           fontWeight: 400,
-                                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                                          lineHeight:
+                                            "var(--Line-height-text-sm, 20px)",
                                           cursor: "pointer",
                                           appearance: "none",
-                                          backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                          backgroundImage:
+                                            'url(\'data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>\')',
                                           backgroundRepeat: "no-repeat",
-                                          backgroundPosition: "right 8px center",
+                                          backgroundPosition:
+                                            "right 8px center",
                                           paddingRight: "28px",
                                           outline: "none",
                                         }}
                                       >
                                         <option value="">Select</option>
-                                        <option value="employment_authorization_i766">Employment Authorization Document (Form I-766)</option>
-                                        <option value="foreign_passport_i94">Foreign Passport With Arrival/Departure Record (Form I-94)</option>
-                                        <option value="receipt_replacement_foreign_passport_i94">Receipt Replacement Foreign Passport with Arrival/Departure Record (Form I-94)</option>
-                                        <option value="receipt_replacement_employment_auth_i766">Receipt Replacement Employment Authorization Document (Form I-766)</option>
+                                        <option value="employment_authorization_i766">
+                                          Employment Authorization Document
+                                          (Form I-766)
+                                        </option>
+                                        <option value="foreign_passport_i94">
+                                          Foreign Passport With
+                                          Arrival/Departure Record (Form I-94)
+                                        </option>
+                                        <option value="receipt_replacement_foreign_passport_i94">
+                                          Receipt Replacement Foreign Passport
+                                          with Arrival/Departure Record (Form
+                                          I-94)
+                                        </option>
+                                        <option value="receipt_replacement_employment_auth_i766">
+                                          Receipt Replacement Employment
+                                          Authorization Document (Form I-766)
+                                        </option>
                                       </select>
                                     </div>
 
@@ -5891,8 +6150,12 @@ const I9FormCompletion = () => {
                                         rowGap: "16px",
                                         columnGap: "16px",
                                         alignSelf: "stretch",
-                                        gridTemplateRows: isMobile ? "repeat(8, fit-content(100%))" : "repeat(4, fit-content(100%))",
-                                        gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
+                                        gridTemplateRows: isMobile
+                                          ? "repeat(8, fit-content(100%))"
+                                          : "repeat(4, fit-content(100%))",
+                                        gridTemplateColumns: isMobile
+                                          ? "1fr"
+                                          : "repeat(2, minmax(0, 1fr))",
                                       }}
                                     >
                                       {/* Row 1 - Issuing Authority */}
@@ -5910,21 +6173,30 @@ const I9FormCompletion = () => {
                                       >
                                         <div
                                           style={{
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 500,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                           }}
                                         >
                                           Issuing Authority
                                         </div>
                                         <input
                                           type="text"
-                                          value={formData.listAIssuingAuthority || ""}
+                                          value={
+                                            formData.listAIssuingAuthority || ""
+                                          }
                                           onChange={(e) =>
-                                            handleInputChange("listAIssuingAuthority", e.target.value)
+                                            handleInputChange(
+                                              "listAIssuingAuthority",
+                                              e.target.value,
+                                            )
                                           }
                                           style={{
                                             display: "flex",
@@ -5936,10 +6208,14 @@ const I9FormCompletion = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
                                             outline: "none",
                                           }}
                                         />
@@ -5960,21 +6236,30 @@ const I9FormCompletion = () => {
                                       >
                                         <div
                                           style={{
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 500,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                           }}
                                         >
                                           Passport Number
                                         </div>
                                         <input
                                           type="text"
-                                          value={formData.listAPassportNumber || ""}
+                                          value={
+                                            formData.listAPassportNumber || ""
+                                          }
                                           onChange={(e) =>
-                                            handleInputChange("listAPassportNumber", e.target.value)
+                                            handleInputChange(
+                                              "listAPassportNumber",
+                                              e.target.value,
+                                            )
                                           }
                                           style={{
                                             display: "flex",
@@ -5986,10 +6271,14 @@ const I9FormCompletion = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
                                             outline: "none",
                                           }}
                                         />
@@ -6010,12 +6299,16 @@ const I9FormCompletion = () => {
                                       >
                                         <div
                                           style={{
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 500,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                           }}
                                         >
                                           Card Number
@@ -6024,7 +6317,10 @@ const I9FormCompletion = () => {
                                           type="text"
                                           value={formData.listACardNumber || ""}
                                           onChange={(e) =>
-                                            handleInputChange("listACardNumber", e.target.value)
+                                            handleInputChange(
+                                              "listACardNumber",
+                                              e.target.value,
+                                            )
                                           }
                                           style={{
                                             display: "flex",
@@ -6036,10 +6332,14 @@ const I9FormCompletion = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
                                             outline: "none",
                                           }}
                                         />
@@ -6060,21 +6360,30 @@ const I9FormCompletion = () => {
                                       >
                                         <div
                                           style={{
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 500,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                           }}
                                         >
                                           Alien Number
                                         </div>
                                         <input
                                           type="text"
-                                          value={formData.listAAlienNumber || ""}
+                                          value={
+                                            formData.listAAlienNumber || ""
+                                          }
                                           onChange={(e) =>
-                                            handleInputChange("listAAlienNumber", e.target.value)
+                                            handleInputChange(
+                                              "listAAlienNumber",
+                                              e.target.value,
+                                            )
                                           }
                                           style={{
                                             display: "flex",
@@ -6086,10 +6395,14 @@ const I9FormCompletion = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
                                             outline: "none",
                                           }}
                                         />
@@ -6110,12 +6423,16 @@ const I9FormCompletion = () => {
                                       >
                                         <div
                                           style={{
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 500,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                           }}
                                         >
                                           I-94 Number
@@ -6124,7 +6441,10 @@ const I9FormCompletion = () => {
                                           type="text"
                                           value={formData.listAI94Number || ""}
                                           onChange={(e) =>
-                                            handleInputChange("listAI94Number", e.target.value)
+                                            handleInputChange(
+                                              "listAI94Number",
+                                              e.target.value,
+                                            )
                                           }
                                           style={{
                                             display: "flex",
@@ -6136,10 +6456,14 @@ const I9FormCompletion = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
                                             outline: "none",
                                           }}
                                         />
@@ -6160,12 +6484,16 @@ const I9FormCompletion = () => {
                                       >
                                         <div
                                           style={{
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 500,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                           }}
                                         >
                                           Visa Number
@@ -6174,7 +6502,10 @@ const I9FormCompletion = () => {
                                           type="text"
                                           value={formData.listAVisaNumber || ""}
                                           onChange={(e) =>
-                                            handleInputChange("listAVisaNumber", e.target.value)
+                                            handleInputChange(
+                                              "listAVisaNumber",
+                                              e.target.value,
+                                            )
                                           }
                                           style={{
                                             display: "flex",
@@ -6186,10 +6517,14 @@ const I9FormCompletion = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
                                             outline: "none",
                                           }}
                                         />
@@ -6210,12 +6545,16 @@ const I9FormCompletion = () => {
                                       >
                                         <div
                                           style={{
-                                            color: "var(--colors-text-text-secondary-700, #414651)",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            color:
+                                              "var(--colors-text-text-secondary-700, #414651)",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 500,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                           }}
                                         >
                                           Expiration Date
@@ -6231,7 +6570,8 @@ const I9FormCompletion = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                           }}
                                         >
                                           <svg
@@ -6252,18 +6592,26 @@ const I9FormCompletion = () => {
                                           <input
                                             type="text"
                                             placeholder="00/00/00"
-                                            value={formData.listAExpirationDate || ""}
+                                            value={
+                                              formData.listAExpirationDate || ""
+                                            }
                                             onChange={(e) =>
-                                              handleInputChange("listAExpirationDate", e.target.value)
+                                              handleInputChange(
+                                                "listAExpirationDate",
+                                                e.target.value,
+                                              )
                                             }
                                             style={{
                                               flex: "1 0 0",
                                               color: "#717680",
-                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontFamily:
+                                                "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize:
+                                                "var(--Font-size-text-sm, 14px)",
                                               fontStyle: "normal",
                                               fontWeight: 400,
-                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              lineHeight:
+                                                "var(--Line-height-text-sm, 20px)",
                                               border: "none",
                                               background: "transparent",
                                               outline: "none",
@@ -6294,12 +6642,16 @@ const I9FormCompletion = () => {
                                         >
                                           <div
                                             style={{
-                                              color: "var(--colors-text-text-secondary-700, #414651)",
-                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              color:
+                                                "var(--colors-text-text-secondary-700, #414651)",
+                                              fontFamily:
+                                                "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize:
+                                                "var(--Font-size-text-sm, 14px)",
                                               fontStyle: "normal",
                                               fontWeight: 500,
-                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              lineHeight:
+                                                "var(--Line-height-text-sm, 20px)",
                                             }}
                                           >
                                             Country of Issuance
@@ -6307,20 +6659,29 @@ const I9FormCompletion = () => {
                                           <div
                                             style={{
                                               color: "#344698",
-                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontFamily:
+                                                "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize:
+                                                "var(--Font-size-text-sm, 14px)",
                                               fontStyle: "normal",
                                               fontWeight: 500,
-                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              lineHeight:
+                                                "var(--Line-height-text-sm, 20px)",
                                             }}
                                           >
                                             *
                                           </div>
                                         </div>
                                         <select
-                                          value={formData.listACountryOfIssuance || ""}
+                                          value={
+                                            formData.listACountryOfIssuance ||
+                                            ""
+                                          }
                                           onChange={(e) =>
-                                            handleInputChange("listACountryOfIssuance", e.target.value)
+                                            handleInputChange(
+                                              "listACountryOfIssuance",
+                                              e.target.value,
+                                            )
                                           }
                                           style={{
                                             display: "flex",
@@ -6332,34 +6693,50 @@ const I9FormCompletion = () => {
                                             borderRadius: "8px",
                                             border: "1px solid #D5D7DA",
                                             background: "#FFF",
-                                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                            color: formData.listACountryOfIssuance ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
-                                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                            fontSize: "var(--Font-size-text-sm, 14px)",
+                                            boxShadow:
+                                              "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                            color:
+                                              formData.listACountryOfIssuance
+                                                ? "var(--colors-text-text-secondary-700, #414651)"
+                                                : "#717680",
+                                            fontFamily:
+                                              "var(--Font-family-font-family-body, 'Public Sans')",
+                                            fontSize:
+                                              "var(--Font-size-text-sm, 14px)",
                                             fontStyle: "normal",
                                             fontWeight: 400,
-                                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                                            lineHeight:
+                                              "var(--Line-height-text-sm, 20px)",
                                             cursor: "pointer",
                                             appearance: "none",
-                                            backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                            backgroundImage:
+                                              'url(\'data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>\')',
                                             backgroundRepeat: "no-repeat",
-                                            backgroundPosition: "right 8px center",
+                                            backgroundPosition:
+                                              "right 8px center",
                                             paddingRight: "28px",
                                             outline: "none",
                                           }}
                                         >
                                           <option value="">Select</option>
-                                          <option value="US">United States</option>
+                                          <option value="US">
+                                            United States
+                                          </option>
                                           <option value="CA">Canada</option>
                                           <option value="MX">Mexico</option>
-                                          <option value="GB">United Kingdom</option>
+                                          <option value="GB">
+                                            United Kingdom
+                                          </option>
                                           <option value="other">Other</option>
                                         </select>
                                       </div>
                                     </div>
 
                                     {/* Document Two and Three sections for Foreign Passport I-94 and Receipt Replacement Foreign Passport I-94 only */}
-                                    {(formData.listASelectedDocument === "foreign_passport_i94" || formData.listASelectedDocument === "receipt_replacement_foreign_passport_i94") && (
+                                    {(formData.listASelectedDocument ===
+                                      "foreign_passport_i94" ||
+                                      formData.listASelectedDocument ===
+                                        "receipt_replacement_foreign_passport_i94") && (
                                       <>
                                         {/* Divider */}
                                         <svg
@@ -6395,12 +6772,16 @@ const I9FormCompletion = () => {
                                         >
                                           <div
                                             style={{
-                                              color: "var(--colors-text-text-secondary-700, #414651)",
-                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                              fontSize: "var(--Font-size-text-md, 16px)",
+                                              color:
+                                                "var(--colors-text-text-secondary-700, #414651)",
+                                              fontFamily:
+                                                "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize:
+                                                "var(--Font-size-text-md, 16px)",
                                               fontStyle: "normal",
                                               fontWeight: 500,
-                                              lineHeight: "var(--Line-height-text-md, 24px)",
+                                              lineHeight:
+                                                "var(--Line-height-text-md, 24px)",
                                             }}
                                           >
                                             Document Two
@@ -6425,12 +6806,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Select Document
@@ -6438,11 +6823,14 @@ const I9FormCompletion = () => {
                                               <div
                                                 style={{
                                                   color: "#344698",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 *
@@ -6474,16 +6862,26 @@ const I9FormCompletion = () => {
                                                   </g>
                                                   <defs>
                                                     <clipPath id="clip0_doc_two_help">
-                                                      <rect width="16" height="16" fill="white" />
+                                                      <rect
+                                                        width="16"
+                                                        height="16"
+                                                        fill="white"
+                                                      />
                                                     </clipPath>
                                                   </defs>
                                                 </svg>
                                               </div>
                                             </div>
                                             <select
-                                              value={formData.listADocumentTwoType || ""}
+                                              value={
+                                                formData.listADocumentTwoType ||
+                                                ""
+                                              }
                                               onChange={(e) =>
-                                                handleInputChange("listADocumentTwoType", e.target.value)
+                                                handleInputChange(
+                                                  "listADocumentTwoType",
+                                                  e.target.value,
+                                                )
                                               }
                                               style={{
                                                 display: "flex",
@@ -6495,25 +6893,38 @@ const I9FormCompletion = () => {
                                                 borderRadius: "8px",
                                                 border: "1px solid #D5D7DA",
                                                 background: "#FFF",
-                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                color: formData.listADocumentTwoType ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                boxShadow:
+                                                  "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                color:
+                                                  formData.listADocumentTwoType
+                                                    ? "var(--colors-text-text-secondary-700, #414651)"
+                                                    : "#717680",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
                                                 fontStyle: "normal",
                                                 fontWeight: 400,
-                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                lineHeight:
+                                                  "var(--Line-height-text-sm, 20px)",
                                                 cursor: "pointer",
                                                 appearance: "none",
-                                                backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                                backgroundImage:
+                                                  'url(\'data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>\')',
                                                 backgroundRepeat: "no-repeat",
-                                                backgroundPosition: "right 8px center",
+                                                backgroundPosition:
+                                                  "right 8px center",
                                                 paddingRight: "28px",
                                                 outline: "none",
                                               }}
                                             >
                                               <option value="">Select</option>
-                                              <option value="document_two_option_1">Document Two Option 1</option>
-                                              <option value="document_two_option_2">Document Two Option 2</option>
+                                              <option value="document_two_option_1">
+                                                Document Two Option 1
+                                              </option>
+                                              <option value="document_two_option_2">
+                                                Document Two Option 2
+                                              </option>
                                             </select>
                                           </div>
 
@@ -6525,8 +6936,10 @@ const I9FormCompletion = () => {
                                               rowGap: "16px",
                                               columnGap: "16px",
                                               alignSelf: "stretch",
-                                              gridTemplateRows: "repeat(2, fit-content(100%))",
-                                              gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                                              gridTemplateRows:
+                                                "repeat(2, fit-content(100%))",
+                                              gridTemplateColumns:
+                                                "repeat(2, minmax(0, 1fr))",
                                             }}
                                           >
                                             {/* Issuing Authority */}
@@ -6544,21 +6957,31 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Issuing Authority
                                               </div>
                                               <input
                                                 type="text"
-                                                value={formData.listADocumentTwoIssuingAuthority || ""}
+                                                value={
+                                                  formData.listADocumentTwoIssuingAuthority ||
+                                                  ""
+                                                }
                                                 onChange={(e) =>
-                                                  handleInputChange("listADocumentTwoIssuingAuthority", e.target.value)
+                                                  handleInputChange(
+                                                    "listADocumentTwoIssuingAuthority",
+                                                    e.target.value,
+                                                  )
                                                 }
                                                 style={{
                                                   display: "flex",
@@ -6570,10 +6993,14 @@ const I9FormCompletion = () => {
                                                   borderRadius: "8px",
                                                   border: "1px solid #D5D7DA",
                                                   background: "#FFF",
-                                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  boxShadow:
+                                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
                                                   outline: "none",
                                                 }}
                                               />
@@ -6594,21 +7021,31 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Document Number
                                               </div>
                                               <input
                                                 type="text"
-                                                value={formData.listADocumentTwoNumber || ""}
+                                                value={
+                                                  formData.listADocumentTwoNumber ||
+                                                  ""
+                                                }
                                                 onChange={(e) =>
-                                                  handleInputChange("listADocumentTwoNumber", e.target.value)
+                                                  handleInputChange(
+                                                    "listADocumentTwoNumber",
+                                                    e.target.value,
+                                                  )
                                                 }
                                                 style={{
                                                   display: "flex",
@@ -6620,10 +7057,14 @@ const I9FormCompletion = () => {
                                                   borderRadius: "8px",
                                                   border: "1px solid #D5D7DA",
                                                   background: "#FFF",
-                                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  boxShadow:
+                                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
                                                   outline: "none",
                                                 }}
                                               />
@@ -6644,12 +7085,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Expiration Date
@@ -6665,7 +7110,8 @@ const I9FormCompletion = () => {
                                                   borderRadius: "8px",
                                                   border: "1px solid #D5D7DA",
                                                   background: "#FFF",
-                                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                  boxShadow:
+                                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                                 }}
                                               >
                                                 <svg
@@ -6686,18 +7132,27 @@ const I9FormCompletion = () => {
                                                 <input
                                                   type="text"
                                                   placeholder="00/00/00"
-                                                  value={formData.listADocumentTwoExpirationDate || ""}
+                                                  value={
+                                                    formData.listADocumentTwoExpirationDate ||
+                                                    ""
+                                                  }
                                                   onChange={(e) =>
-                                                    handleInputChange("listADocumentTwoExpirationDate", e.target.value)
+                                                    handleInputChange(
+                                                      "listADocumentTwoExpirationDate",
+                                                      e.target.value,
+                                                    )
                                                   }
                                                   style={{
                                                     flex: "1 0 0",
                                                     color: "#717680",
-                                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                                    fontFamily:
+                                                      "var(--Font-family-font-family-body, 'Public Sans')",
+                                                    fontSize:
+                                                      "var(--Font-size-text-sm, 14px)",
                                                     fontStyle: "normal",
                                                     fontWeight: 400,
-                                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                    lineHeight:
+                                                      "var(--Line-height-text-sm, 20px)",
                                                     border: "none",
                                                     background: "transparent",
                                                     outline: "none",
@@ -6707,15 +7162,20 @@ const I9FormCompletion = () => {
                                               <div
                                                 style={{
                                                   alignSelf: "stretch",
-                                                  color: "var(--colors-text-text-tertiary-600, #535862)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-tertiary-600, #535862)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 400,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
-                                                or N/A for Not applicable, or D/S for Duration of Stay
+                                                or N/A for Not applicable, or
+                                                D/S for Duration of Stay
                                               </div>
                                             </div>
                                           </div>
@@ -6755,12 +7215,16 @@ const I9FormCompletion = () => {
                                         >
                                           <div
                                             style={{
-                                              color: "var(--colors-text-text-secondary-700, #414651)",
-                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                              fontSize: "var(--Font-size-text-md, 16px)",
+                                              color:
+                                                "var(--colors-text-text-secondary-700, #414651)",
+                                              fontFamily:
+                                                "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize:
+                                                "var(--Font-size-text-md, 16px)",
                                               fontStyle: "normal",
                                               fontWeight: 500,
-                                              lineHeight: "var(--Line-height-text-md, 24px)",
+                                              lineHeight:
+                                                "var(--Line-height-text-md, 24px)",
                                             }}
                                           >
                                             Document Three
@@ -6785,12 +7249,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Select Document
@@ -6798,11 +7266,14 @@ const I9FormCompletion = () => {
                                               <div
                                                 style={{
                                                   color: "#344698",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 *
@@ -6834,16 +7305,26 @@ const I9FormCompletion = () => {
                                                   </g>
                                                   <defs>
                                                     <clipPath id="clip0_doc_three_help">
-                                                      <rect width="16" height="16" fill="white" />
+                                                      <rect
+                                                        width="16"
+                                                        height="16"
+                                                        fill="white"
+                                                      />
                                                     </clipPath>
                                                   </defs>
                                                 </svg>
                                               </div>
                                             </div>
                                             <select
-                                              value={formData.listADocumentThreeType || ""}
+                                              value={
+                                                formData.listADocumentThreeType ||
+                                                ""
+                                              }
                                               onChange={(e) =>
-                                                handleInputChange("listADocumentThreeType", e.target.value)
+                                                handleInputChange(
+                                                  "listADocumentThreeType",
+                                                  e.target.value,
+                                                )
                                               }
                                               style={{
                                                 display: "flex",
@@ -6855,25 +7336,38 @@ const I9FormCompletion = () => {
                                                 borderRadius: "8px",
                                                 border: "1px solid #D5D7DA",
                                                 background: "#FFF",
-                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                color: formData.listADocumentThreeType ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                boxShadow:
+                                                  "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                color:
+                                                  formData.listADocumentThreeType
+                                                    ? "var(--colors-text-text-secondary-700, #414651)"
+                                                    : "#717680",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
                                                 fontStyle: "normal",
                                                 fontWeight: 400,
-                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                lineHeight:
+                                                  "var(--Line-height-text-sm, 20px)",
                                                 cursor: "pointer",
                                                 appearance: "none",
-                                                backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                                backgroundImage:
+                                                  'url(\'data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>\')',
                                                 backgroundRepeat: "no-repeat",
-                                                backgroundPosition: "right 8px center",
+                                                backgroundPosition:
+                                                  "right 8px center",
                                                 paddingRight: "28px",
                                                 outline: "none",
                                               }}
                                             >
                                               <option value="">Select</option>
-                                              <option value="document_three_option_1">Document Three Option 1</option>
-                                              <option value="document_three_option_2">Document Three Option 2</option>
+                                              <option value="document_three_option_1">
+                                                Document Three Option 1
+                                              </option>
+                                              <option value="document_three_option_2">
+                                                Document Three Option 2
+                                              </option>
                                             </select>
                                           </div>
 
@@ -6885,8 +7379,10 @@ const I9FormCompletion = () => {
                                               rowGap: "16px",
                                               columnGap: "16px",
                                               alignSelf: "stretch",
-                                              gridTemplateRows: "repeat(2, fit-content(100%))",
-                                              gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                                              gridTemplateRows:
+                                                "repeat(2, fit-content(100%))",
+                                              gridTemplateColumns:
+                                                "repeat(2, minmax(0, 1fr))",
                                             }}
                                           >
                                             {/* Issuing Authority */}
@@ -6904,21 +7400,31 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Issuing Authority
                                               </div>
                                               <input
                                                 type="text"
-                                                value={formData.listADocumentThreeIssuingAuthority || ""}
+                                                value={
+                                                  formData.listADocumentThreeIssuingAuthority ||
+                                                  ""
+                                                }
                                                 onChange={(e) =>
-                                                  handleInputChange("listADocumentThreeIssuingAuthority", e.target.value)
+                                                  handleInputChange(
+                                                    "listADocumentThreeIssuingAuthority",
+                                                    e.target.value,
+                                                  )
                                                 }
                                                 style={{
                                                   display: "flex",
@@ -6930,10 +7436,14 @@ const I9FormCompletion = () => {
                                                   borderRadius: "8px",
                                                   border: "1px solid #D5D7DA",
                                                   background: "#FFF",
-                                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  boxShadow:
+                                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
                                                   outline: "none",
                                                 }}
                                               />
@@ -6954,21 +7464,31 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Document Number
                                               </div>
                                               <input
                                                 type="text"
-                                                value={formData.listADocumentThreeNumber || ""}
+                                                value={
+                                                  formData.listADocumentThreeNumber ||
+                                                  ""
+                                                }
                                                 onChange={(e) =>
-                                                  handleInputChange("listADocumentThreeNumber", e.target.value)
+                                                  handleInputChange(
+                                                    "listADocumentThreeNumber",
+                                                    e.target.value,
+                                                  )
                                                 }
                                                 style={{
                                                   display: "flex",
@@ -6980,10 +7500,14 @@ const I9FormCompletion = () => {
                                                   borderRadius: "8px",
                                                   border: "1px solid #D5D7DA",
                                                   background: "#FFF",
-                                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
+                                                  boxShadow:
+                                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
                                                   outline: "none",
                                                 }}
                                               />
@@ -7004,12 +7528,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Expiration Date
@@ -7025,7 +7553,8 @@ const I9FormCompletion = () => {
                                                   borderRadius: "8px",
                                                   border: "1px solid #D5D7DA",
                                                   background: "#FFF",
-                                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                  boxShadow:
+                                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                                 }}
                                               >
                                                 <svg
@@ -7046,18 +7575,27 @@ const I9FormCompletion = () => {
                                                 <input
                                                   type="text"
                                                   placeholder="00/00/00"
-                                                  value={formData.listADocumentThreeExpirationDate || ""}
+                                                  value={
+                                                    formData.listADocumentThreeExpirationDate ||
+                                                    ""
+                                                  }
                                                   onChange={(e) =>
-                                                    handleInputChange("listADocumentThreeExpirationDate", e.target.value)
+                                                    handleInputChange(
+                                                      "listADocumentThreeExpirationDate",
+                                                      e.target.value,
+                                                    )
                                                   }
                                                   style={{
                                                     flex: "1 0 0",
                                                     color: "#717680",
-                                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                    fontSize: "var(--Font-size-text-sm, 14px)",
+                                                    fontFamily:
+                                                      "var(--Font-family-font-family-body, 'Public Sans')",
+                                                    fontSize:
+                                                      "var(--Font-size-text-sm, 14px)",
                                                     fontStyle: "normal",
                                                     fontWeight: 400,
-                                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                    lineHeight:
+                                                      "var(--Line-height-text-sm, 20px)",
                                                     border: "none",
                                                     background: "transparent",
                                                     outline: "none",
@@ -7082,7 +7620,8 @@ const I9FormCompletion = () => {
                                       flexShrink: 0,
                                     }}
                                   >
-                                    {formData.listASelectedDocument === "employment_authorization_i766" ? (
+                                    {formData.listASelectedDocument ===
+                                    "employment_authorization_i766" ? (
                                       <div
                                         style={{
                                           display: "flex",
@@ -7125,21 +7664,27 @@ const I9FormCompletion = () => {
                                           }}
                                           onClick={() => {
                                             // Handle click to view example documents
-                                            console.log("View example documents clicked");
+                                            console.log(
+                                              "View example documents clicked",
+                                            );
                                           }}
                                         >
                                           <div
                                             style={{
                                               color: "#273572",
-                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontFamily:
+                                                "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize:
+                                                "var(--Font-size-text-sm, 14px)",
                                               fontStyle: "normal",
                                               fontWeight: 600,
-                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              lineHeight:
+                                                "var(--Line-height-text-sm, 20px)",
                                               textDecoration: "underline",
                                             }}
                                           >
-                                            Click image to view example document(s)
+                                            Click image to view example
+                                            document(s)
                                           </div>
                                           <svg
                                             width="16"
@@ -7158,7 +7703,8 @@ const I9FormCompletion = () => {
                                           </svg>
                                         </div>
                                       </div>
-                                    ) : formData.listASelectedDocument === "foreign_passport_i94" ? (
+                                    ) : formData.listASelectedDocument ===
+                                      "foreign_passport_i94" ? (
                                       <div
                                         style={{
                                           display: "flex",
@@ -7201,21 +7747,27 @@ const I9FormCompletion = () => {
                                           }}
                                           onClick={() => {
                                             // Handle click to view example documents
-                                            console.log("View example documents clicked");
+                                            console.log(
+                                              "View example documents clicked",
+                                            );
                                           }}
                                         >
                                           <div
                                             style={{
                                               color: "#273572",
-                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              fontFamily:
+                                                "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize:
+                                                "var(--Font-size-text-sm, 14px)",
                                               fontStyle: "normal",
                                               fontWeight: 600,
-                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              lineHeight:
+                                                "var(--Line-height-text-sm, 20px)",
                                               textDecoration: "underline",
                                             }}
                                           >
-                                            Click image to view example document(s)
+                                            Click image to view example
+                                            document(s)
                                           </div>
                                           <svg
                                             width="16"
@@ -7234,7 +7786,8 @@ const I9FormCompletion = () => {
                                           </svg>
                                         </div>
                                       </div>
-                                    ) : formData.listASelectedDocument === "receipt_replacement_foreign_passport_i94" ? (
+                                    ) : formData.listASelectedDocument ===
+                                      "receipt_replacement_foreign_passport_i94" ? (
                                       <div
                                         style={{
                                           display: "flex",
@@ -7251,7 +7804,8 @@ const I9FormCompletion = () => {
                                       >
                                         {/* Empty document preview area for Receipt Replacement Foreign Passport I-94 */}
                                       </div>
-                                    ) : formData.listASelectedDocument === "receipt_replacement_employment_auth_i766" ? (
+                                    ) : formData.listASelectedDocument ===
+                                      "receipt_replacement_employment_auth_i766" ? (
                                       <div
                                         style={{
                                           display: "flex",
@@ -7311,7 +7865,10 @@ const I9FormCompletion = () => {
                               gap: "12px",
                               alignSelf: "stretch",
                               borderRadius: "8px",
-                              background: formData.documentType === "list_b_c" ? "#FAFAFA" : "transparent",
+                              background:
+                                formData.documentType === "list_b_c"
+                                  ? "#FAFAFA"
+                                  : "transparent",
                             }}
                           >
                             {/* Choose from List B, C Radio Button */}
@@ -7332,7 +7889,12 @@ const I9FormCompletion = () => {
                                 }}
                               >
                                 <div
-                                  onClick={() => handleInputChange("documentType", "list_b_c")}
+                                  onClick={() =>
+                                    handleInputChange(
+                                      "documentType",
+                                      "list_b_c",
+                                    )
+                                  }
                                   style={{
                                     display: "flex",
                                     width: "16px",
@@ -7341,8 +7903,14 @@ const I9FormCompletion = () => {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     borderRadius: "9999px",
-                                    background: formData.documentType === "list_b_c" ? "#344698" : "transparent",
-                                    border: formData.documentType === "list_b_c" ? "1px solid #344698" : "1px solid #D5D7DA",
+                                    background:
+                                      formData.documentType === "list_b_c"
+                                        ? "#344698"
+                                        : "transparent",
+                                    border:
+                                      formData.documentType === "list_b_c"
+                                        ? "1px solid #344698"
+                                        : "1px solid #D5D7DA",
                                     cursor: "pointer",
                                   }}
                                 >
@@ -7368,15 +7936,23 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     cursor: "pointer",
                                   }}
-                                  onClick={() => handleInputChange("documentType", "list_b_c")}
+                                  onClick={() =>
+                                    handleInputChange(
+                                      "documentType",
+                                      "list_b_c",
+                                    )
+                                  }
                                 >
                                   Choose from List B, C
                                 </div>
@@ -7437,12 +8013,16 @@ const I9FormCompletion = () => {
                                   >
                                     <div
                                       style={{
-                                        color: "var(--colors-text-text-secondary-700, #414651)",
-                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                        fontSize: "var(--Font-size-text-md, 16px)",
+                                        color:
+                                          "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily:
+                                          "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize:
+                                          "var(--Font-size-text-md, 16px)",
                                         fontStyle: "normal",
                                         fontWeight: 500,
-                                        lineHeight: "var(--Line-height-text-md, 24px)",
+                                        lineHeight:
+                                          "var(--Line-height-text-md, 24px)",
                                       }}
                                     >
                                       Document A
@@ -7485,12 +8065,16 @@ const I9FormCompletion = () => {
                                           >
                                             <div
                                               style={{
-                                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                color:
+                                                  "var(--colors-text-text-secondary-700, #414651)",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
                                                 fontStyle: "normal",
                                                 fontWeight: 500,
-                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                lineHeight:
+                                                  "var(--Line-height-text-sm, 20px)",
                                               }}
                                             >
                                               Select Document
@@ -7498,11 +8082,14 @@ const I9FormCompletion = () => {
                                             <div
                                               style={{
                                                 color: "#344698",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
                                                 fontStyle: "normal",
                                                 fontWeight: 500,
-                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                lineHeight:
+                                                  "var(--Line-height-text-sm, 20px)",
                                               }}
                                             >
                                               *
@@ -7534,16 +8121,25 @@ const I9FormCompletion = () => {
                                                 </g>
                                                 <defs>
                                                   <clipPath id="clip0_doc_a_help">
-                                                    <rect width="16" height="16" fill="white" />
+                                                    <rect
+                                                      width="16"
+                                                      height="16"
+                                                      fill="white"
+                                                    />
                                                   </clipPath>
                                                 </defs>
                                               </svg>
                                             </div>
                                           </div>
                                           <select
-                                            value={formData.listBCDocumentAType || ""}
+                                            value={
+                                              formData.listBCDocumentAType || ""
+                                            }
                                             onChange={(e) =>
-                                              handleInputChange("listBCDocumentAType", e.target.value)
+                                              handleInputChange(
+                                                "listBCDocumentAType",
+                                                e.target.value,
+                                              )
                                             }
                                             style={{
                                               display: "flex",
@@ -7555,28 +8151,48 @@ const I9FormCompletion = () => {
                                               borderRadius: "8px",
                                               border: "1px solid #D5D7DA",
                                               background: "#FFF",
-                                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                              color: formData.listBCDocumentAType ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
-                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              boxShadow:
+                                                "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                              color:
+                                                formData.listBCDocumentAType
+                                                  ? "var(--colors-text-text-secondary-700, #414651)"
+                                                  : "#717680",
+                                              fontFamily:
+                                                "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize:
+                                                "var(--Font-size-text-sm, 14px)",
                                               fontStyle: "normal",
                                               fontWeight: 400,
-                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              lineHeight:
+                                                "var(--Line-height-text-sm, 20px)",
                                               cursor: "pointer",
                                               appearance: "none",
-                                              backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                              backgroundImage:
+                                                'url(\'data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>\')',
                                               backgroundRepeat: "no-repeat",
-                                              backgroundPosition: "right 8px center",
+                                              backgroundPosition:
+                                                "right 8px center",
                                               paddingRight: "28px",
                                               outline: "none",
                                             }}
                                           >
                                             <option value="">Select</option>
-                                            <option value="drivers_license">Driving License Issued by a U.S State our Outlying Possesion</option>
-                                            <option value="state_id">State ID Card</option>
-                                            <option value="school_id">School ID Card with Photo</option>
-                                            <option value="voter_card">Voter Registration Card</option>
-                                            <option value="military_id">U.S. Military Card</option>
+                                            <option value="drivers_license">
+                                              Driving License Issued by a U.S
+                                              State our Outlying Possesion
+                                            </option>
+                                            <option value="state_id">
+                                              State ID Card
+                                            </option>
+                                            <option value="school_id">
+                                              School ID Card with Photo
+                                            </option>
+                                            <option value="voter_card">
+                                              Voter Registration Card
+                                            </option>
+                                            <option value="military_id">
+                                              U.S. Military Card
+                                            </option>
                                           </select>
                                         </div>
 
@@ -7588,8 +8204,10 @@ const I9FormCompletion = () => {
                                             rowGap: "16px",
                                             columnGap: "16px",
                                             alignSelf: "stretch",
-                                            gridTemplateRows: "repeat(2, fit-content(100%))",
-                                            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                                            gridTemplateRows:
+                                              "repeat(2, fit-content(100%))",
+                                            gridTemplateColumns:
+                                              "repeat(2, minmax(0, 1fr))",
                                           }}
                                         >
                                           {/* Issuing Authority */}
@@ -7614,12 +8232,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Issuing Authority
@@ -7651,7 +8273,11 @@ const I9FormCompletion = () => {
                                                   </g>
                                                   <defs>
                                                     <clipPath id="clip0_doc_a_issuing_help">
-                                                      <rect width="16" height="16" fill="white" />
+                                                      <rect
+                                                        width="16"
+                                                        height="16"
+                                                        fill="white"
+                                                      />
                                                     </clipPath>
                                                   </defs>
                                                 </svg>
@@ -7659,9 +8285,15 @@ const I9FormCompletion = () => {
                                             </div>
                                             <input
                                               type="text"
-                                              value={formData.listBCDocumentAIssuingAuthority || ""}
+                                              value={
+                                                formData.listBCDocumentAIssuingAuthority ||
+                                                ""
+                                              }
                                               onChange={(e) =>
-                                                handleInputChange("listBCDocumentAIssuingAuthority", e.target.value)
+                                                handleInputChange(
+                                                  "listBCDocumentAIssuingAuthority",
+                                                  e.target.value,
+                                                )
                                               }
                                               style={{
                                                 display: "flex",
@@ -7673,10 +8305,14 @@ const I9FormCompletion = () => {
                                                 borderRadius: "8px",
                                                 border: "1px solid #D5D7DA",
                                                 background: "#FFF",
-                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
-                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                boxShadow:
+                                                  "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
+                                                color:
+                                                  "var(--colors-text-text-secondary-700, #414651)",
                                                 outline: "none",
                                               }}
                                             />
@@ -7704,12 +8340,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Document Number
@@ -7741,7 +8381,11 @@ const I9FormCompletion = () => {
                                                   </g>
                                                   <defs>
                                                     <clipPath id="clip0_doc_a_number_help">
-                                                      <rect width="16" height="16" fill="white" />
+                                                      <rect
+                                                        width="16"
+                                                        height="16"
+                                                        fill="white"
+                                                      />
                                                     </clipPath>
                                                   </defs>
                                                 </svg>
@@ -7749,9 +8393,15 @@ const I9FormCompletion = () => {
                                             </div>
                                             <input
                                               type="text"
-                                              value={formData.listBCDocumentANumber || ""}
+                                              value={
+                                                formData.listBCDocumentANumber ||
+                                                ""
+                                              }
                                               onChange={(e) =>
-                                                handleInputChange("listBCDocumentANumber", e.target.value)
+                                                handleInputChange(
+                                                  "listBCDocumentANumber",
+                                                  e.target.value,
+                                                )
                                               }
                                               style={{
                                                 display: "flex",
@@ -7763,10 +8413,14 @@ const I9FormCompletion = () => {
                                                 borderRadius: "8px",
                                                 border: "1px solid #D5D7DA",
                                                 background: "#FFF",
-                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
-                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                boxShadow:
+                                                  "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
+                                                color:
+                                                  "var(--colors-text-text-secondary-700, #414651)",
                                                 outline: "none",
                                               }}
                                             />
@@ -7794,12 +8448,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Expiration Date
@@ -7831,7 +8489,11 @@ const I9FormCompletion = () => {
                                                   </g>
                                                   <defs>
                                                     <clipPath id="clip0_doc_a_exp_help">
-                                                      <rect width="16" height="16" fill="white" />
+                                                      <rect
+                                                        width="16"
+                                                        height="16"
+                                                        fill="white"
+                                                      />
                                                     </clipPath>
                                                   </defs>
                                                 </svg>
@@ -7848,7 +8510,8 @@ const I9FormCompletion = () => {
                                                 borderRadius: "8px",
                                                 border: "1px solid #D5D7DA",
                                                 background: "#FFF",
-                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                boxShadow:
+                                                  "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                               }}
                                             >
                                               <svg
@@ -7869,18 +8532,27 @@ const I9FormCompletion = () => {
                                               <input
                                                 type="text"
                                                 placeholder="00/00/00"
-                                                value={formData.listBCDocumentAExpirationDate || ""}
+                                                value={
+                                                  formData.listBCDocumentAExpirationDate ||
+                                                  ""
+                                                }
                                                 onChange={(e) =>
-                                                  handleInputChange("listBCDocumentAExpirationDate", e.target.value)
+                                                  handleInputChange(
+                                                    "listBCDocumentAExpirationDate",
+                                                    e.target.value,
+                                                  )
                                                 }
                                                 style={{
                                                   flex: "1 0 0",
                                                   color: "#717680",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 400,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                   border: "none",
                                                   background: "transparent",
                                                   outline: "none",
@@ -7901,7 +8573,8 @@ const I9FormCompletion = () => {
                                           gap: "10px",
                                         }}
                                       >
-                                        {formData.listBCDocumentAType === "drivers_license" ? (
+                                        {formData.listBCDocumentAType ===
+                                        "drivers_license" ? (
                                           <div
                                             style={{
                                               display: "flex",
@@ -7943,21 +8616,27 @@ const I9FormCompletion = () => {
                                                 cursor: "pointer",
                                               }}
                                               onClick={() => {
-                                                console.log("View example documents clicked");
+                                                console.log(
+                                                  "View example documents clicked",
+                                                );
                                               }}
                                             >
                                               <div
                                                 style={{
                                                   color: "#273572",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 600,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                   textDecoration: "underline",
                                                 }}
                                               >
-                                                Click image to view example document(s)
+                                                Click image to view example
+                                                document(s)
                                               </div>
                                               <svg
                                                 width="16"
@@ -8043,12 +8722,16 @@ const I9FormCompletion = () => {
                                   >
                                     <div
                                       style={{
-                                        color: "var(--colors-text-text-secondary-700, #414651)",
-                                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                        fontSize: "var(--Font-size-text-md, 16px)",
+                                        color:
+                                          "var(--colors-text-text-secondary-700, #414651)",
+                                        fontFamily:
+                                          "var(--Font-family-font-family-body, 'Public Sans')",
+                                        fontSize:
+                                          "var(--Font-size-text-md, 16px)",
                                         fontStyle: "normal",
                                         fontWeight: 500,
-                                        lineHeight: "var(--Line-height-text-md, 24px)",
+                                        lineHeight:
+                                          "var(--Line-height-text-md, 24px)",
                                       }}
                                     >
                                       Document B
@@ -8091,12 +8774,16 @@ const I9FormCompletion = () => {
                                           >
                                             <div
                                               style={{
-                                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                color:
+                                                  "var(--colors-text-text-secondary-700, #414651)",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
                                                 fontStyle: "normal",
                                                 fontWeight: 500,
-                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                lineHeight:
+                                                  "var(--Line-height-text-sm, 20px)",
                                               }}
                                             >
                                               Select Document
@@ -8104,11 +8791,14 @@ const I9FormCompletion = () => {
                                             <div
                                               style={{
                                                 color: "#344698",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
                                                 fontStyle: "normal",
                                                 fontWeight: 500,
-                                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                lineHeight:
+                                                  "var(--Line-height-text-sm, 20px)",
                                               }}
                                             >
                                               *
@@ -8140,16 +8830,25 @@ const I9FormCompletion = () => {
                                                 </g>
                                                 <defs>
                                                   <clipPath id="clip0_doc_b_help">
-                                                    <rect width="16" height="16" fill="white" />
+                                                    <rect
+                                                      width="16"
+                                                      height="16"
+                                                      fill="white"
+                                                    />
                                                   </clipPath>
                                                 </defs>
                                               </svg>
                                             </div>
                                           </div>
                                           <select
-                                            value={formData.listBCDocumentBType || ""}
+                                            value={
+                                              formData.listBCDocumentBType || ""
+                                            }
                                             onChange={(e) =>
-                                              handleInputChange("listBCDocumentBType", e.target.value)
+                                              handleInputChange(
+                                                "listBCDocumentBType",
+                                                e.target.value,
+                                              )
                                             }
                                             style={{
                                               display: "flex",
@@ -8161,28 +8860,47 @@ const I9FormCompletion = () => {
                                               borderRadius: "8px",
                                               border: "1px solid #D5D7DA",
                                               background: "#FFF",
-                                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                              color: formData.listBCDocumentBType ? "var(--colors-text-text-secondary-700, #414651)" : "#717680",
-                                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                              fontSize: "var(--Font-size-text-sm, 14px)",
+                                              boxShadow:
+                                                "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                              color:
+                                                formData.listBCDocumentBType
+                                                  ? "var(--colors-text-text-secondary-700, #414651)"
+                                                  : "#717680",
+                                              fontFamily:
+                                                "var(--Font-family-font-family-body, 'Public Sans')",
+                                              fontSize:
+                                                "var(--Font-size-text-sm, 14px)",
                                               fontStyle: "normal",
                                               fontWeight: 400,
-                                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                                              lineHeight:
+                                                "var(--Line-height-text-sm, 20px)",
                                               cursor: "pointer",
                                               appearance: "none",
-                                              backgroundImage: "url('data:image/svg+xml;charset=US-ASCII,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\"><path d=\"M4 6L8 10L12 6\" stroke=\"%23A4A7AE\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>')",
+                                              backgroundImage:
+                                                'url(\'data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>\')',
                                               backgroundRepeat: "no-repeat",
-                                              backgroundPosition: "right 8px center",
+                                              backgroundPosition:
+                                                "right 8px center",
                                               paddingRight: "28px",
                                               outline: "none",
                                             }}
                                           >
                                             <option value="">Select</option>
-                                            <option value="social_security">Social Security Card</option>
-                                            <option value="birth_certificate">Certified Birth Certificate</option>
-                                            <option value="employment_auth">Employment Authorization Document</option>
-                                            <option value="citizen_card">Certificate of Naturalization</option>
-                                            <option value="tribal_document">Native American Tribal Document</option>
+                                            <option value="social_security">
+                                              Social Security Card
+                                            </option>
+                                            <option value="birth_certificate">
+                                              Certified Birth Certificate
+                                            </option>
+                                            <option value="employment_auth">
+                                              Employment Authorization Document
+                                            </option>
+                                            <option value="citizen_card">
+                                              Certificate of Naturalization
+                                            </option>
+                                            <option value="tribal_document">
+                                              Native American Tribal Document
+                                            </option>
                                           </select>
                                         </div>
 
@@ -8194,8 +8912,12 @@ const I9FormCompletion = () => {
                                             rowGap: "16px",
                                             columnGap: "16px",
                                             alignSelf: "stretch",
-                                            gridTemplateRows: isMobile ? "repeat(4, fit-content(100%))" : "repeat(2, fit-content(100%))",
-                                            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
+                                            gridTemplateRows: isMobile
+                                              ? "repeat(4, fit-content(100%))"
+                                              : "repeat(2, fit-content(100%))",
+                                            gridTemplateColumns: isMobile
+                                              ? "1fr"
+                                              : "repeat(2, minmax(0, 1fr))",
                                           }}
                                         >
                                           {/* Issuing Authority */}
@@ -8220,12 +8942,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Issuing Authority
@@ -8257,7 +8983,11 @@ const I9FormCompletion = () => {
                                                   </g>
                                                   <defs>
                                                     <clipPath id="clip0_doc_b_issuing_help">
-                                                      <rect width="16" height="16" fill="white" />
+                                                      <rect
+                                                        width="16"
+                                                        height="16"
+                                                        fill="white"
+                                                      />
                                                     </clipPath>
                                                   </defs>
                                                 </svg>
@@ -8265,9 +8995,15 @@ const I9FormCompletion = () => {
                                             </div>
                                             <input
                                               type="text"
-                                              value={formData.listBCDocumentBIssuingAuthority || ""}
+                                              value={
+                                                formData.listBCDocumentBIssuingAuthority ||
+                                                ""
+                                              }
                                               onChange={(e) =>
-                                                handleInputChange("listBCDocumentBIssuingAuthority", e.target.value)
+                                                handleInputChange(
+                                                  "listBCDocumentBIssuingAuthority",
+                                                  e.target.value,
+                                                )
                                               }
                                               style={{
                                                 display: "flex",
@@ -8279,10 +9015,14 @@ const I9FormCompletion = () => {
                                                 borderRadius: "8px",
                                                 border: "1px solid #D5D7DA",
                                                 background: "#FFF",
-                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
-                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                boxShadow:
+                                                  "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
+                                                color:
+                                                  "var(--colors-text-text-secondary-700, #414651)",
                                                 outline: "none",
                                               }}
                                             />
@@ -8310,12 +9050,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Document Number
@@ -8347,7 +9091,11 @@ const I9FormCompletion = () => {
                                                   </g>
                                                   <defs>
                                                     <clipPath id="clip0_doc_b_number_help">
-                                                      <rect width="16" height="16" fill="white" />
+                                                      <rect
+                                                        width="16"
+                                                        height="16"
+                                                        fill="white"
+                                                      />
                                                     </clipPath>
                                                   </defs>
                                                 </svg>
@@ -8355,9 +9103,15 @@ const I9FormCompletion = () => {
                                             </div>
                                             <input
                                               type="text"
-                                              value={formData.listBCDocumentBNumber || ""}
+                                              value={
+                                                formData.listBCDocumentBNumber ||
+                                                ""
+                                              }
                                               onChange={(e) =>
-                                                handleInputChange("listBCDocumentBNumber", e.target.value)
+                                                handleInputChange(
+                                                  "listBCDocumentBNumber",
+                                                  e.target.value,
+                                                )
                                               }
                                               style={{
                                                 display: "flex",
@@ -8369,10 +9123,14 @@ const I9FormCompletion = () => {
                                                 borderRadius: "8px",
                                                 border: "1px solid #D5D7DA",
                                                 background: "#FFF",
-                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                fontSize: "var(--Font-size-text-sm, 14px)",
-                                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                                boxShadow:
+                                                  "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                fontFamily:
+                                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                                fontSize:
+                                                  "var(--Font-size-text-sm, 14px)",
+                                                color:
+                                                  "var(--colors-text-text-secondary-700, #414651)",
                                                 outline: "none",
                                               }}
                                             />
@@ -8400,12 +9158,16 @@ const I9FormCompletion = () => {
                                             >
                                               <div
                                                 style={{
-                                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  color:
+                                                    "var(--colors-text-text-secondary-700, #414651)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 500,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
                                                 Expiration Date
@@ -8437,7 +9199,11 @@ const I9FormCompletion = () => {
                                                   </g>
                                                   <defs>
                                                     <clipPath id="clip0_doc_b_exp_help">
-                                                      <rect width="16" height="16" fill="white" />
+                                                      <rect
+                                                        width="16"
+                                                        height="16"
+                                                        fill="white"
+                                                      />
                                                     </clipPath>
                                                   </defs>
                                                 </svg>
@@ -8454,7 +9220,8 @@ const I9FormCompletion = () => {
                                                 borderRadius: "8px",
                                                 border: "1px solid #D5D7DA",
                                                 background: "#FFF",
-                                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                                boxShadow:
+                                                  "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                               }}
                                             >
                                               <svg
@@ -8475,18 +9242,27 @@ const I9FormCompletion = () => {
                                               <input
                                                 type="text"
                                                 placeholder="00/00/00"
-                                                value={formData.listBCDocumentBExpirationDate || ""}
+                                                value={
+                                                  formData.listBCDocumentBExpirationDate ||
+                                                  ""
+                                                }
                                                 onChange={(e) =>
-                                                  handleInputChange("listBCDocumentBExpirationDate", e.target.value)
+                                                  handleInputChange(
+                                                    "listBCDocumentBExpirationDate",
+                                                    e.target.value,
+                                                  )
                                                 }
                                                 style={{
                                                   flex: "1 0 0",
                                                   color: "#717680",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 400,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                   border: "none",
                                                   background: "transparent",
                                                   outline: "none",
@@ -8507,7 +9283,8 @@ const I9FormCompletion = () => {
                                           gap: "10px",
                                         }}
                                       >
-                                        {formData.listBCDocumentBType === "social_security" ? (
+                                        {formData.listBCDocumentBType ===
+                                        "social_security" ? (
                                           <div
                                             style={{
                                               display: "flex",
@@ -8543,14 +9320,32 @@ const I9FormCompletion = () => {
                                                 style={{
                                                   alignSelf: "stretch",
                                                   color: "#535862",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 400,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                 }}
                                               >
-                                                *The Social Security Administration advises cardholders not to laminate Social Security cards. Some Social Security cards may explicitly state "not valid if laminated" on the back. If this is not indicated, you may accept a laminated card as long as the card reasonably appears to be genuine and to relate to the person presenting it. Metal or plastic reproductions of Social Security cards are not acceptable for Form I-9 purposes.
+                                                *The Social Security
+                                                Administration advises
+                                                cardholders not to laminate
+                                                Social Security cards. Some
+                                                Social Security cards may
+                                                explicitly state "not valid if
+                                                laminated" on the back. If this
+                                                is not indicated, you may accept
+                                                a laminated card as long as the
+                                                card reasonably appears to be
+                                                genuine and to relate to the
+                                                person presenting it. Metal or
+                                                plastic reproductions of Social
+                                                Security cards are not
+                                                acceptable for Form I-9
+                                                purposes.
                                               </div>
                                             </div>
                                             <div
@@ -8562,21 +9357,27 @@ const I9FormCompletion = () => {
                                                 cursor: "pointer",
                                               }}
                                               onClick={() => {
-                                                console.log("View example documents clicked");
+                                                console.log(
+                                                  "View example documents clicked",
+                                                );
                                               }}
                                             >
                                               <div
                                                 style={{
                                                   color: "#273572",
-                                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                                                  fontSize: "var(--Font-size-text-sm, 14px)",
+                                                  fontFamily:
+                                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                                  fontSize:
+                                                    "var(--Font-size-text-sm, 14px)",
                                                   fontStyle: "normal",
                                                   fontWeight: 600,
-                                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                                  lineHeight:
+                                                    "var(--Line-height-text-sm, 20px)",
                                                   textDecoration: "underline",
                                                 }}
                                               >
-                                                Click image to view example document(s)
+                                                Click image to view example
+                                                document(s)
                                               </div>
                                               <svg
                                                 width="16"
@@ -8621,7 +9422,6 @@ const I9FormCompletion = () => {
                             )}
                           </div>
                         </div>
-
 
                         {/* Divider after Document Type Selection */}
                         <div
@@ -8670,7 +9470,12 @@ const I9FormCompletion = () => {
                                 }}
                               >
                                 <div
-                                  onClick={() => handleInputChange("verificationMethod", "in_person")}
+                                  onClick={() =>
+                                    handleInputChange(
+                                      "verificationMethod",
+                                      "in_person",
+                                    )
+                                  }
                                   style={{
                                     display: "flex",
                                     width: "16px",
@@ -8679,12 +9484,21 @@ const I9FormCompletion = () => {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     borderRadius: "9999px",
-                                    background: formData.verificationMethod === "in_person" ? "#344698" : "transparent",
-                                    border: formData.verificationMethod === "in_person" ? "1px solid #344698" : "1px solid #D5D7DA",
+                                    background:
+                                      formData.verificationMethod ===
+                                      "in_person"
+                                        ? "#344698"
+                                        : "transparent",
+                                    border:
+                                      formData.verificationMethod ===
+                                      "in_person"
+                                        ? "1px solid #344698"
+                                        : "1px solid #D5D7DA",
                                     cursor: "pointer",
                                   }}
                                 >
-                                  {formData.verificationMethod === "in_person" && (
+                                  {formData.verificationMethod ===
+                                    "in_person" && (
                                     <div
                                       style={{
                                         width: "6px",
@@ -8706,15 +9520,23 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     cursor: "pointer",
                                   }}
-                                  onClick={() => handleInputChange("verificationMethod", "in_person")}
+                                  onClick={() =>
+                                    handleInputChange(
+                                      "verificationMethod",
+                                      "in_person",
+                                    )
+                                  }
                                 >
                                   I will verify documents in person
                                 </div>
@@ -8737,7 +9559,12 @@ const I9FormCompletion = () => {
                                 }}
                               >
                                 <div
-                                  onClick={() => handleInputChange("verificationMethod", "e_verify_remote")}
+                                  onClick={() =>
+                                    handleInputChange(
+                                      "verificationMethod",
+                                      "e_verify_remote",
+                                    )
+                                  }
                                   style={{
                                     display: "flex",
                                     width: "16px",
@@ -8746,12 +9573,21 @@ const I9FormCompletion = () => {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     borderRadius: "9999px",
-                                    background: formData.verificationMethod === "e_verify_remote" ? "#344698" : "transparent",
-                                    border: formData.verificationMethod === "e_verify_remote" ? "1px solid #344698" : "1px solid #D5D7DA",
+                                    background:
+                                      formData.verificationMethod ===
+                                      "e_verify_remote"
+                                        ? "#344698"
+                                        : "transparent",
+                                    border:
+                                      formData.verificationMethod ===
+                                      "e_verify_remote"
+                                        ? "1px solid #344698"
+                                        : "1px solid #D5D7DA",
                                     cursor: "pointer",
                                   }}
                                 >
-                                  {formData.verificationMethod === "e_verify_remote" && (
+                                  {formData.verificationMethod ===
+                                    "e_verify_remote" && (
                                     <div
                                       style={{
                                         width: "6px",
@@ -8772,17 +9608,26 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     cursor: "pointer",
                                   }}
-                                  onClick={() => handleInputChange("verificationMethod", "e_verify_remote")}
+                                  onClick={() =>
+                                    handleInputChange(
+                                      "verificationMethod",
+                                      "e_verify_remote",
+                                    )
+                                  }
                                 >
-                                  I will verify documents through a combination of E-Verify and remote video verification
+                                  I will verify documents through a combination
+                                  of E-Verify and remote video verification
                                 </div>
                               </div>
                             </div>
@@ -8818,8 +9663,10 @@ const I9FormCompletion = () => {
                           >
                             <div
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 500,
@@ -8878,7 +9725,10 @@ const I9FormCompletion = () => {
                             <textarea
                               value={formData.additionalInformation || ""}
                               onChange={(e) =>
-                                handleInputChange("additionalInformation", e.target.value)
+                                handleInputChange(
+                                  "additionalInformation",
+                                  e.target.value,
+                                )
                               }
                               style={{
                                 flex: "1 0 0",
@@ -8888,12 +9738,14 @@ const I9FormCompletion = () => {
                                 border: "none",
                                 outline: "none",
                                 background: "transparent",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 400,
                                 lineHeight: "var(--Line-height-text-sm, 20px)",
-                                color: "var(--colors-text-text-secondary-700, #414651)",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
                               }}
                               placeholder=""
                             />
@@ -8912,8 +9764,16 @@ const I9FormCompletion = () => {
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <path d="M10 2L2 10" stroke="#D5D7DA" strokeLinecap="round"/>
-                              <path d="M11 7L7 11" stroke="#D5D7DA" strokeLinecap="round"/>
+                              <path
+                                d="M10 2L2 10"
+                                stroke="#D5D7DA"
+                                strokeLinecap="round"
+                              />
+                              <path
+                                d="M11 7L7 11"
+                                stroke="#D5D7DA"
+                                strokeLinecap="round"
+                              />
                             </svg>
                           </div>
                         </div>
@@ -8940,8 +9800,10 @@ const I9FormCompletion = () => {
                         >
                           <div
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -8992,15 +9854,24 @@ const I9FormCompletion = () => {
                               <div
                                 style={{
                                   flex: "1 0 0",
-                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  color:
+                                    "var(--colors-text-text-secondary-700, #414651)",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-sm, 14px)",
                                   fontStyle: "normal",
                                   fontWeight: 500,
-                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-sm, 20px)",
                                 }}
                               >
-                                I attest, under penalty of perjury, that (1) I have examined the documents(s) presented by the above-named employee, (2) the above-listed document(s) appear to be genuine and to relate to the employee named, and (3) to the best of my knowledge the employee is authorized to work in the United States.
+                                I attest, under penalty of perjury, that (1) I
+                                have examined the documents(s) presented by the
+                                above-named employee, (2) the above-listed
+                                document(s) appear to be genuine and to relate
+                                to the employee named, and (3) to the best of my
+                                knowledge the employee is authorized to work in
+                                the United States.
                               </div>
                             </div>
                           </div>
@@ -9019,8 +9890,10 @@ const I9FormCompletion = () => {
                         >
                           <div
                             style={{
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
@@ -9081,18 +9954,24 @@ const I9FormCompletion = () => {
                                   placeholder="00/00/00"
                                   value={formData.employmentStartDate}
                                   onChange={(e) =>
-                                    handleInputChange("employmentStartDate", e.target.value)
+                                    handleInputChange(
+                                      "employmentStartDate",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     flex: "1 0 0",
                                     overflow: "hidden",
-                                    color: "var(--colors-text-text-placeholder, #717680)",
+                                    color:
+                                      "var(--colors-text-text-placeholder, #717680)",
                                     textOverflow: "ellipsis",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 400,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     border: "none",
                                     outline: "none",
                                     background: "transparent",
@@ -9133,8 +10012,10 @@ const I9FormCompletion = () => {
                           >
                             <div
                               style={{
-                                color: "var(--colors-text-text-secondary-700, #414651)",
-                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                color:
+                                  "var(--colors-text-text-secondary-700, #414651)",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
                                 fontSize: "var(--Font-size-text-sm, 14px)",
                                 fontStyle: "normal",
                                 fontWeight: 500,
@@ -9181,15 +10062,18 @@ const I9FormCompletion = () => {
                           <div
                             style={{
                               alignSelf: "stretch",
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-xs, 12px)",
                               fontStyle: "normal",
                               fontWeight: 400,
                               lineHeight: "var(--Line-height-text-xs, 18px)",
                             }}
                           >
-                            Please sign here, using your mouse (press and hold the left button while moving the mouse):
+                            Please sign here, using your mouse (press and hold
+                            the left button while moving the mouse):
                           </div>
 
                           {/* Employer Signature Field */}
@@ -9238,7 +10122,8 @@ const I9FormCompletion = () => {
                                 fill: "#FFF",
                                 strokeWidth: "1px",
                                 stroke: "#D5D7DA",
-                                filter: "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
+                                filter:
+                                  "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
                               }}
                               width={isMobile ? "275" : "560"}
                               height="6"
@@ -9247,17 +10132,45 @@ const I9FormCompletion = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <g filter="url(#filter0_d_employer_sig)">
-                                <path d="M2 2H624" stroke="#D5D7DA"/>
+                                <path d="M2 2H624" stroke="#D5D7DA" />
                               </g>
                               <defs>
-                                <filter id="filter0_d_employer_sig" x="0" y="0.5" width="626" height="5" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                                  <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-                                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                  <feOffset dy="1"/>
-                                  <feGaussianBlur stdDeviation="1"/>
-                                  <feColorMatrix type="matrix" values="0 0 0 0 0.0392157 0 0 0 0 0.0496732 0 0 0 0 0.0705882 0 0 0 0.05 0"/>
-                                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_employer_sig"/>
-                                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_employer_sig" result="shape"/>
+                                <filter
+                                  id="filter0_d_employer_sig"
+                                  x="0"
+                                  y="0.5"
+                                  width="626"
+                                  height="5"
+                                  filterUnits="userSpaceOnUse"
+                                  colorInterpolationFilters="sRGB"
+                                >
+                                  <feFlood
+                                    floodOpacity="0"
+                                    result="BackgroundImageFix"
+                                  />
+                                  <feColorMatrix
+                                    in="SourceAlpha"
+                                    type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                                    result="hardAlpha"
+                                  />
+                                  <feOffset dy="1" />
+                                  <feGaussianBlur stdDeviation="1" />
+                                  <feColorMatrix
+                                    type="matrix"
+                                    values="0 0 0 0 0.0392157 0 0 0 0 0.0496732 0 0 0 0 0.0705882 0 0 0 0.05 0"
+                                  />
+                                  <feBlend
+                                    mode="normal"
+                                    in2="BackgroundImageFix"
+                                    result="effect1_dropShadow_employer_sig"
+                                  />
+                                  <feBlend
+                                    mode="normal"
+                                    in="SourceGraphic"
+                                    in2="effect1_dropShadow_employer_sig"
+                                    result="shape"
+                                  />
                                 </filter>
                               </defs>
                             </svg>
@@ -9278,7 +10191,8 @@ const I9FormCompletion = () => {
                                 borderRadius: "8px",
                                 border: "1px solid #D5D7DA",
                                 background: "#FFF",
-                                boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 cursor: "pointer",
                               }}
                             >
@@ -9308,11 +10222,13 @@ const I9FormCompletion = () => {
                                 <div
                                   style={{
                                     color: "#414651",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 600,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   Clear Signature
@@ -9340,12 +10256,15 @@ const I9FormCompletion = () => {
                             >
                               <div
                                 style={{
-                                  color: "var(--colors-text-text-secondary-700, #414651)",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  color:
+                                    "var(--colors-text-text-secondary-700, #414651)",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-sm, 14px)",
                                   fontStyle: "normal",
                                   fontWeight: 500,
-                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-sm, 20px)",
                                 }}
                               >
                                 Title of Employer or Authorized Representative
@@ -9377,7 +10296,11 @@ const I9FormCompletion = () => {
                                   </g>
                                   <defs>
                                     <clipPath id="clip0_employer_title_help">
-                                      <rect width="16" height="16" fill="white" />
+                                      <rect
+                                        width="16"
+                                        height="16"
+                                        fill="white"
+                                      />
                                     </clipPath>
                                   </defs>
                                 </svg>
@@ -9402,18 +10325,25 @@ const I9FormCompletion = () => {
                                 placeholder="Founder"
                                 value={formData.employerTitle}
                                 onChange={(e) =>
-                                  handleInputChange("employerTitle", e.target.value)
+                                  handleInputChange(
+                                    "employerTitle",
+                                    e.target.value,
+                                  )
                                 }
                                 style={{
                                   flex: "1 0 0",
                                   overflow: "hidden",
-                                  color: formData.employerTitle ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                  color: formData.employerTitle
+                                    ? "var(--colors-text-text-secondary-700, #414651)"
+                                    : "var(--colors-text-text-placeholder, #717680)",
                                   textOverflow: "ellipsis",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-sm, 14px)",
                                   fontStyle: "normal",
                                   fontWeight: 400,
-                                  lineHeight: "var(--Line-height-text-sm, 20px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-sm, 20px)",
                                   border: "none",
                                   outline: "none",
                                   background: "transparent",
@@ -9426,15 +10356,18 @@ const I9FormCompletion = () => {
                           <div
                             style={{
                               alignSelf: "stretch",
-                              color: "var(--colors-text-text-secondary-700, #414651)",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              color:
+                                "var(--colors-text-text-secondary-700, #414651)",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 500,
                               lineHeight: "var(--Line-height-text-sm, 20px)",
                             }}
                           >
-                            Date of Signature: {new Date().toLocaleDateString("en-US")}
+                            Date of Signature:{" "}
+                            {new Date().toLocaleDateString("en-US")}
                           </div>
                         </div>
 
@@ -9488,12 +10421,15 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   Last Name (Family Name)
@@ -9525,7 +10461,11 @@ const I9FormCompletion = () => {
                                     </g>
                                     <defs>
                                       <clipPath id="clip0_employer_lastname_help">
-                                        <rect width="16" height="16" fill="white" />
+                                        <rect
+                                          width="16"
+                                          height="16"
+                                          fill="white"
+                                        />
                                       </clipPath>
                                     </defs>
                                   </svg>
@@ -9542,25 +10482,33 @@ const I9FormCompletion = () => {
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 }}
                               >
                                 <input
                                   type="text"
                                   value={formData.employerLastName}
                                   onChange={(e) =>
-                                    handleInputChange("employerLastName", e.target.value)
+                                    handleInputChange(
+                                      "employerLastName",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     flex: "1 0 0",
                                     overflow: "hidden",
-                                    color: formData.employerLastName ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    color: formData.employerLastName
+                                      ? "var(--colors-text-text-secondary-700, #414651)"
+                                      : "var(--colors-text-text-placeholder, #717680)",
                                     textOverflow: "ellipsis",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 400,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     border: "none",
                                     outline: "none",
                                     background: "transparent",
@@ -9588,12 +10536,15 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   First Name (Given Name)
@@ -9625,7 +10576,11 @@ const I9FormCompletion = () => {
                                     </g>
                                     <defs>
                                       <clipPath id="clip0_employer_firstname_help">
-                                        <rect width="16" height="16" fill="white" />
+                                        <rect
+                                          width="16"
+                                          height="16"
+                                          fill="white"
+                                        />
                                       </clipPath>
                                     </defs>
                                   </svg>
@@ -9642,25 +10597,33 @@ const I9FormCompletion = () => {
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 }}
                               >
                                 <input
                                   type="text"
                                   value={formData.employerFirstName}
                                   onChange={(e) =>
-                                    handleInputChange("employerFirstName", e.target.value)
+                                    handleInputChange(
+                                      "employerFirstName",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     flex: "1 0 0",
                                     overflow: "hidden",
-                                    color: formData.employerFirstName ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    color: formData.employerFirstName
+                                      ? "var(--colors-text-text-secondary-700, #414651)"
+                                      : "var(--colors-text-text-placeholder, #717680)",
                                     textOverflow: "ellipsis",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 400,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     border: "none",
                                     outline: "none",
                                     background: "transparent",
@@ -9709,12 +10672,15 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   Employer's Business or Organization Name
@@ -9746,7 +10712,11 @@ const I9FormCompletion = () => {
                                     </g>
                                     <defs>
                                       <clipPath id="clip0_employer_business_help">
-                                        <rect width="16" height="16" fill="white" />
+                                        <rect
+                                          width="16"
+                                          height="16"
+                                          fill="white"
+                                        />
                                       </clipPath>
                                     </defs>
                                   </svg>
@@ -9763,25 +10733,33 @@ const I9FormCompletion = () => {
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 }}
                               >
                                 <input
                                   type="text"
                                   value={formData.employerBusinessName}
                                   onChange={(e) =>
-                                    handleInputChange("employerBusinessName", e.target.value)
+                                    handleInputChange(
+                                      "employerBusinessName",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     flex: "1 0 0",
                                     overflow: "hidden",
-                                    color: formData.employerBusinessName ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    color: formData.employerBusinessName
+                                      ? "var(--colors-text-text-secondary-700, #414651)"
+                                      : "var(--colors-text-text-placeholder, #717680)",
                                     textOverflow: "ellipsis",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 400,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     border: "none",
                                     outline: "none",
                                     background: "transparent",
@@ -9821,15 +10799,19 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
-                                  Employer's Business or Organization Address (Street Number and Name)
+                                  Employer's Business or Organization Address
+                                  (Street Number and Name)
                                 </div>
                                 <div
                                   style={{
@@ -9858,7 +10840,11 @@ const I9FormCompletion = () => {
                                     </g>
                                     <defs>
                                       <clipPath id="clip0_employer_address_help">
-                                        <rect width="16" height="16" fill="white" />
+                                        <rect
+                                          width="16"
+                                          height="16"
+                                          fill="white"
+                                        />
                                       </clipPath>
                                     </defs>
                                   </svg>
@@ -9875,25 +10861,33 @@ const I9FormCompletion = () => {
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 }}
                               >
                                 <input
                                   type="text"
                                   value={formData.employerBusinessAddress}
                                   onChange={(e) =>
-                                    handleInputChange("employerBusinessAddress", e.target.value)
+                                    handleInputChange(
+                                      "employerBusinessAddress",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     flex: "1 0 0",
                                     overflow: "hidden",
-                                    color: formData.employerBusinessAddress ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    color: formData.employerBusinessAddress
+                                      ? "var(--colors-text-text-secondary-700, #414651)"
+                                      : "var(--colors-text-text-placeholder, #717680)",
                                     textOverflow: "ellipsis",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 400,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     border: "none",
                                     outline: "none",
                                     background: "transparent",
@@ -9921,24 +10915,30 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   State
                                 </div>
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-brand-tertiary-600, #344698)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-brand-tertiary-600, #344698)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   *
@@ -9970,7 +10970,11 @@ const I9FormCompletion = () => {
                                     </g>
                                     <defs>
                                       <clipPath id="clip0_employer_state_help">
-                                        <rect width="16" height="16" fill="white" />
+                                        <rect
+                                          width="16"
+                                          height="16"
+                                          fill="white"
+                                        />
                                       </clipPath>
                                     </defs>
                                   </svg>
@@ -9978,7 +10982,9 @@ const I9FormCompletion = () => {
                               </div>
                               <Select
                                 value={formData.employerState}
-                                onValueChange={(value) => handleInputChange("employerState", value)}
+                                onValueChange={(value) =>
+                                  handleInputChange("employerState", value)
+                                }
                               >
                                 <SelectTrigger
                                   style={{
@@ -9991,13 +10997,18 @@ const I9FormCompletion = () => {
                                     borderRadius: "8px",
                                     border: "1px solid #D5D7DA",
                                     background: "#FFF",
-                                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                                    color: formData.employerState ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    boxShadow:
+                                      "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                    color: formData.employerState
+                                      ? "var(--colors-text-text-secondary-700, #414651)"
+                                      : "var(--colors-text-text-placeholder, #717680)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 400,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   <SelectValue placeholder="Select" />
@@ -10009,7 +11020,9 @@ const I9FormCompletion = () => {
                                   <SelectItem value="AR">Arkansas</SelectItem>
                                   <SelectItem value="CA">California</SelectItem>
                                   <SelectItem value="CO">Colorado</SelectItem>
-                                  <SelectItem value="CT">Connecticut</SelectItem>
+                                  <SelectItem value="CT">
+                                    Connecticut
+                                  </SelectItem>
                                   <SelectItem value="DE">Delaware</SelectItem>
                                   <SelectItem value="FL">Florida</SelectItem>
                                   <SelectItem value="GA">Georgia</SelectItem>
@@ -10023,34 +11036,54 @@ const I9FormCompletion = () => {
                                   <SelectItem value="LA">Louisiana</SelectItem>
                                   <SelectItem value="ME">Maine</SelectItem>
                                   <SelectItem value="MD">Maryland</SelectItem>
-                                  <SelectItem value="MA">Massachusetts</SelectItem>
+                                  <SelectItem value="MA">
+                                    Massachusetts
+                                  </SelectItem>
                                   <SelectItem value="MI">Michigan</SelectItem>
                                   <SelectItem value="MN">Minnesota</SelectItem>
-                                  <SelectItem value="MS">Mississippi</SelectItem>
+                                  <SelectItem value="MS">
+                                    Mississippi
+                                  </SelectItem>
                                   <SelectItem value="MO">Missouri</SelectItem>
                                   <SelectItem value="MT">Montana</SelectItem>
                                   <SelectItem value="NE">Nebraska</SelectItem>
                                   <SelectItem value="NV">Nevada</SelectItem>
-                                  <SelectItem value="NH">New Hampshire</SelectItem>
+                                  <SelectItem value="NH">
+                                    New Hampshire
+                                  </SelectItem>
                                   <SelectItem value="NJ">New Jersey</SelectItem>
                                   <SelectItem value="NM">New Mexico</SelectItem>
                                   <SelectItem value="NY">New York</SelectItem>
-                                  <SelectItem value="NC">North Carolina</SelectItem>
-                                  <SelectItem value="ND">North Dakota</SelectItem>
+                                  <SelectItem value="NC">
+                                    North Carolina
+                                  </SelectItem>
+                                  <SelectItem value="ND">
+                                    North Dakota
+                                  </SelectItem>
                                   <SelectItem value="OH">Ohio</SelectItem>
                                   <SelectItem value="OK">Oklahoma</SelectItem>
                                   <SelectItem value="OR">Oregon</SelectItem>
-                                  <SelectItem value="PA">Pennsylvania</SelectItem>
-                                  <SelectItem value="RI">Rhode Island</SelectItem>
-                                  <SelectItem value="SC">South Carolina</SelectItem>
-                                  <SelectItem value="SD">South Dakota</SelectItem>
+                                  <SelectItem value="PA">
+                                    Pennsylvania
+                                  </SelectItem>
+                                  <SelectItem value="RI">
+                                    Rhode Island
+                                  </SelectItem>
+                                  <SelectItem value="SC">
+                                    South Carolina
+                                  </SelectItem>
+                                  <SelectItem value="SD">
+                                    South Dakota
+                                  </SelectItem>
                                   <SelectItem value="TN">Tennessee</SelectItem>
                                   <SelectItem value="TX">Texas</SelectItem>
                                   <SelectItem value="UT">Utah</SelectItem>
                                   <SelectItem value="VT">Vermont</SelectItem>
                                   <SelectItem value="VA">Virginia</SelectItem>
                                   <SelectItem value="WA">Washington</SelectItem>
-                                  <SelectItem value="WV">West Virginia</SelectItem>
+                                  <SelectItem value="WV">
+                                    West Virginia
+                                  </SelectItem>
                                   <SelectItem value="WI">Wisconsin</SelectItem>
                                   <SelectItem value="WY">Wyoming</SelectItem>
                                 </SelectContent>
@@ -10076,12 +11109,15 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   City or Town
@@ -10113,7 +11149,11 @@ const I9FormCompletion = () => {
                                     </g>
                                     <defs>
                                       <clipPath id="clip0_employer_city_help">
-                                        <rect width="16" height="16" fill="white" />
+                                        <rect
+                                          width="16"
+                                          height="16"
+                                          fill="white"
+                                        />
                                       </clipPath>
                                     </defs>
                                   </svg>
@@ -10130,25 +11170,33 @@ const I9FormCompletion = () => {
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 }}
                               >
                                 <input
                                   type="text"
                                   value={formData.employerCity}
                                   onChange={(e) =>
-                                    handleInputChange("employerCity", e.target.value)
+                                    handleInputChange(
+                                      "employerCity",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     flex: "1 0 0",
                                     overflow: "hidden",
-                                    color: formData.employerCity ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    color: formData.employerCity
+                                      ? "var(--colors-text-text-secondary-700, #414651)"
+                                      : "var(--colors-text-text-placeholder, #717680)",
                                     textOverflow: "ellipsis",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 400,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     border: "none",
                                     outline: "none",
                                     background: "transparent",
@@ -10176,12 +11224,15 @@ const I9FormCompletion = () => {
                               >
                                 <div
                                   style={{
-                                    color: "var(--colors-text-text-secondary-700, #414651)",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    color:
+                                      "var(--colors-text-text-secondary-700, #414651)",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 500,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                   }}
                                 >
                                   Zip Code
@@ -10223,25 +11274,33 @@ const I9FormCompletion = () => {
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
                                   background: "#FFF",
-                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  boxShadow:
+                                    "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                 }}
                               >
                                 <input
                                   type="text"
                                   value={formData.employerZipCode}
                                   onChange={(e) =>
-                                    handleInputChange("employerZipCode", e.target.value)
+                                    handleInputChange(
+                                      "employerZipCode",
+                                      e.target.value,
+                                    )
                                   }
                                   style={{
                                     flex: "1 0 0",
                                     overflow: "hidden",
-                                    color: formData.employerZipCode ? "var(--colors-text-text-secondary-700, #414651)" : "var(--colors-text-text-placeholder, #717680)",
+                                    color: formData.employerZipCode
+                                      ? "var(--colors-text-text-secondary-700, #414651)"
+                                      : "var(--colors-text-text-placeholder, #717680)",
                                     textOverflow: "ellipsis",
-                                    fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                    fontFamily:
+                                      "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
                                     fontStyle: "normal",
                                     fontWeight: 400,
-                                    lineHeight: "var(--Line-height-text-sm, 20px)",
+                                    lineHeight:
+                                      "var(--Line-height-text-sm, 20px)",
                                     border: "none",
                                     outline: "none",
                                     background: "transparent",
@@ -10326,12 +11385,15 @@ const I9FormCompletion = () => {
                             >
                               <div
                                 style={{
-                                  color: "var(--colors-text-text-primary-900, #181D27)",
-                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  color:
+                                    "var(--colors-text-text-primary-900, #181D27)",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-lg, 18px)",
                                   fontStyle: "normal",
                                   fontWeight: 600,
-                                  lineHeight: "var(--Line-height-text-lg, 28px)",
+                                  lineHeight:
+                                    "var(--Line-height-text-lg, 28px)",
                                 }}
                               >
                                 Authorize and Continue
@@ -10383,7 +11445,8 @@ const I9FormCompletion = () => {
                           borderRadius: "8px",
                           border: "1px solid #D5D7DA",
                           background: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           cursor: "pointer",
                         }}
                         onClick={() => {
@@ -10402,7 +11465,8 @@ const I9FormCompletion = () => {
                           <div
                             style={{
                               color: "#414651",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 600,
@@ -10427,7 +11491,8 @@ const I9FormCompletion = () => {
                           borderRadius: "8px",
                           border: "2px solid rgba(255, 255, 255, 0.12)",
                           background: "#344698",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           cursor: "pointer",
                         }}
                         onClick={() => {
@@ -10447,7 +11512,8 @@ const I9FormCompletion = () => {
                           <div
                             style={{
                               color: "#FFF",
-                              fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
                               fontSize: "var(--Font-size-text-sm, 14px)",
                               fontStyle: "normal",
                               fontWeight: 600,
