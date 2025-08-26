@@ -3156,6 +3156,7 @@ const I9FormCompletion = () => {
                               alignSelf: "stretch",
                               borderRadius: "8px",
                               background: "#FAFAFA",
+                              flexDirection: isMobile ? "column" : "row",
                             }}
                           >
                             <CustomRadio value="permanent_resident">
@@ -3169,13 +3170,15 @@ const I9FormCompletion = () => {
                                 gap: "20px",
                                 flex: "1 0 0",
                                 flexWrap: "wrap",
+                                flexDirection: isMobile ? "column" : "row",
+                                gap: isMobile ? "16px" : "20px",
                               }}
                             >
                               {/* Alien Registration Number Input */}
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "450px",
+                                  width: isMobile ? "100%" : "450px",
                                   flexDirection: "column",
                                   alignItems: "flex-start",
                                   gap: "6px",
