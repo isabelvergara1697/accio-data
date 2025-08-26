@@ -4030,7 +4030,8 @@ const I9FormCompletion = () => {
                       <div
                         style={{
                           display: "flex",
-                          width: isMobile ? "100%" : isTablet ? "596px" : "662px",
+                          width: isMobile ? "100%" : "100%",
+                          maxWidth: "600px",
                           height: "129px",
                           padding: "16px 20px",
                           flexDirection: "column",
@@ -4046,7 +4047,7 @@ const I9FormCompletion = () => {
                       >
                         <canvas
                           ref={canvasRef}
-                          width={isMobile ? 275 : isTablet ? 556 : 622}
+                          width={isMobile ? 275 : 560}
                           height={93}
                           onMouseDown={startDrawing}
                           onMouseMove={draw}
@@ -4075,9 +4076,9 @@ const I9FormCompletion = () => {
                               "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
                             position: "relative",
                           }}
-                          width={isMobile ? "275" : isTablet ? "560" : "626"}
+                          width={isMobile ? "275" : "560"}
                           height="6"
-                          viewBox={isMobile ? "0 0 275 6" : isTablet ? "0 0 560 6" : "0 0 626 6"}
+                          viewBox={isMobile ? "0 0 275 6" : "0 0 560 6"}
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
