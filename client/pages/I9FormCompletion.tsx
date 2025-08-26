@@ -9218,9 +9218,9 @@ const I9FormCompletion = () => {
                                 stroke: "#D5D7DA",
                                 filter: "drop-shadow(0 1px 2px rgba(10, 13, 18, 0.05))",
                               }}
-                              width={isTablet ? "560" : "626"}
+                              width={isMobile ? "275" : isTablet ? "560" : "626"}
                               height="6"
-                              viewBox={isTablet ? "0 0 560 6" : "0 0 626 6"}
+                              viewBox={isMobile ? "0 0 275 6" : isTablet ? "0 0 560 6" : "0 0 626 6"}
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"
                             >
