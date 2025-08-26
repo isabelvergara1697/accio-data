@@ -5614,8 +5614,7 @@ const I9FormCompletion = () => {
                         {/* Document Type Label */}
                         <div
                           style={{
-                            width: "1024px",
-                            height: "20px",
+                            alignSelf: "stretch",
                             color: "var(--colors-text-text-secondary-700, #414651)",
                             fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
