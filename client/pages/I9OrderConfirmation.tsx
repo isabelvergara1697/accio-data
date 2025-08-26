@@ -17,6 +17,7 @@ const I9OrderConfirmation = () => {
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [isAccordionExpanded, setIsAccordionExpanded] = useState(true);
+  const [isSubjectAccordionExpanded, setIsSubjectAccordionExpanded] = useState(true);
 
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
