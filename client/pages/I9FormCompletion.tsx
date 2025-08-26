@@ -641,7 +641,7 @@ const I9FormCompletion = () => {
                   <div
                     style={{
                       display: "flex",
-                      minWidth: isDesktop ? "320px" : "auto",
+                      minWidth: isDesktop || isTablet ? "320px" : "auto",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       gap: "4px",
