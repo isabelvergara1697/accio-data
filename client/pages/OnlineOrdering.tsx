@@ -933,70 +933,57 @@ const OnlineOrdering = () => {
                         </div>
                       </div>
 
-                      {/* Input */}
-                      <div
-                        style={{
-                          display: "flex",
-                          padding: "8px 12px",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
-                          borderRadius: "8px",
-                          border: "1px solid #D5D7DA",
-                          background: "#FFF",
-                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}
-                      >
-                        {/* Content */}
-                        <div
+                      {/* Select Component */}
+                      <Select value={selectedPackage} onValueChange={setSelectedPackage}>
+                        <SelectTrigger
                           style={{
                             display: "flex",
+                            padding: "8px 12px",
                             alignItems: "center",
                             gap: "8px",
-                            flex: "1 0 0",
+                            alignSelf: "stretch",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-md, 16px)",
+                            fontWeight: 400,
+                            lineHeight: "var(--Line-height-text-md, 24px)",
+                            color: "#181D27",
+                            height: "auto",
                           }}
                         >
-                          <div
-                            style={{
-                              display: "-webkit-box",
-                              WebkitBoxOrient: "vertical",
-                              WebkitLineClamp: 1,
-                              flex: "1 0 0",
-                              overflow: "hidden",
-                              color: "#717680",
-                              textOverflow: "ellipsis",
-                              fontFamily:
-                                "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "var(--Font-size-text-md, 16px)",
-                              fontStyle: "normal",
-                              fontWeight: 400,
-                              lineHeight: "var(--Line-height-text-md, 24px)",
-                            }}
-                          >
-                            Select a package
-                          </div>
-                        </div>
-                        <svg
-                          style={{
-                            width: "24px",
-                            height: "24px",
-                          }}
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M6 9L12 15L18 9"
-                            stroke="#A4A7AE"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
+                          <SelectValue placeholder="Select a package" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="csd-standard">CSD Standard</SelectItem>
+                          <SelectItem value="volunteer-application" disabled>Volunteer Application</SelectItem>
+                          <SelectItem value="a-la-carte" disabled>A La Carte</SelectItem>
+                          <SelectItem value="retail" disabled>Retail</SelectItem>
+                          <SelectItem value="mvr" disabled>MVR</SelectItem>
+                          <SelectItem value="sales" disabled>Sales</SelectItem>
+                          <SelectItem value="executive" disabled>Executive</SelectItem>
+                          <SelectItem value="operations" disabled>Operations</SelectItem>
+                          <SelectItem value="hourly" disabled>Hourly</SelectItem>
+                          <SelectItem value="cbsv" disabled>CBSV</SelectItem>
+                          <SelectItem value="dot" disabled>DOT</SelectItem>
+                          <SelectItem value="new-york" disabled>New York</SelectItem>
+                          <SelectItem value="immunization-records" disabled>Immunization Records</SelectItem>
+                          <SelectItem value="just-mvr" disabled>Just MVR</SelectItem>
+                          <SelectItem value="hasc-contractor" disabled>HASC Contractor</SelectItem>
+                          <SelectItem value="applicant-provided-address-only" disabled>Applicant provided address only</SelectItem>
+                          <SelectItem value="employment-only" disabled>Employment Only</SelectItem>
+                          <SelectItem value="sap-10" disabled>SAP 10</SelectItem>
+                          <SelectItem value="identity-check-package" disabled>Identity Check Package</SelectItem>
+                          <SelectItem value="identity-check-test-package-includes-product" disabled>Identity Check Test Package Includes Product</SelectItem>
+                          <SelectItem value="standard-with-edu-and-emp" disabled>Standard with EDU and EMP</SelectItem>
+                          <SelectItem value="test" disabled>Test</SelectItem>
+                          <SelectItem value="executive-plus" disabled>Executive Plus</SelectItem>
+                          <SelectItem value="portal" disabled>portal</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     {/* Hint text */}
