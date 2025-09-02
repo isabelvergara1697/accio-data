@@ -42,6 +42,7 @@ const App = () => (
             element={<PasswordResetSuccess />}
           />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/online-ordering" element={<OnlineOrdering />} />
           <Route path="/document-library" element={<DocumentLibrary />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/invites-orders" element={<InvitesAndOrders />} />
