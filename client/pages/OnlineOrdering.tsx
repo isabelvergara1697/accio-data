@@ -957,31 +957,1263 @@ const OnlineOrdering = () => {
                         >
                           <SelectValue placeholder="Select a package" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="csd-standard">CSD Standard</SelectItem>
-                          <SelectItem value="volunteer-application" disabled>Volunteer Application</SelectItem>
-                          <SelectItem value="a-la-carte" disabled>A La Carte</SelectItem>
-                          <SelectItem value="retail" disabled>Retail</SelectItem>
-                          <SelectItem value="mvr" disabled>MVR</SelectItem>
-                          <SelectItem value="sales" disabled>Sales</SelectItem>
-                          <SelectItem value="executive" disabled>Executive</SelectItem>
-                          <SelectItem value="operations" disabled>Operations</SelectItem>
-                          <SelectItem value="hourly" disabled>Hourly</SelectItem>
-                          <SelectItem value="cbsv" disabled>CBSV</SelectItem>
-                          <SelectItem value="dot" disabled>DOT</SelectItem>
-                          <SelectItem value="new-york" disabled>New York</SelectItem>
-                          <SelectItem value="immunization-records" disabled>Immunization Records</SelectItem>
-                          <SelectItem value="just-mvr" disabled>Just MVR</SelectItem>
-                          <SelectItem value="hasc-contractor" disabled>HASC Contractor</SelectItem>
-                          <SelectItem value="applicant-provided-address-only" disabled>Applicant provided address only</SelectItem>
-                          <SelectItem value="employment-only" disabled>Employment Only</SelectItem>
-                          <SelectItem value="sap-10" disabled>SAP 10</SelectItem>
-                          <SelectItem value="identity-check-package" disabled>Identity Check Package</SelectItem>
-                          <SelectItem value="identity-check-test-package-includes-product" disabled>Identity Check Test Package Includes Product</SelectItem>
-                          <SelectItem value="standard-with-edu-and-emp" disabled>Standard with EDU and EMP</SelectItem>
-                          <SelectItem value="test" disabled>Test</SelectItem>
-                          <SelectItem value="executive-plus" disabled>Executive Plus</SelectItem>
-                          <SelectItem value="portal" disabled>portal</SelectItem>
+                        <SelectContent
+                          style={{
+                            maxHeight: "256px",
+                            padding: "4px 0",
+                            borderRadius: "8px",
+                            border: "1px solid rgba(0, 0, 0, 0.08)",
+                            background: "#FFF",
+                            boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                            zIndex: 50,
+                          }}
+                        >
+                          <SelectItem
+                            value="csd-standard"
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  CSD Standard
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="volunteer-application"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Volunteer Application
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="a-la-carte"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  A La Carte
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="retail"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Retail
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="mvr"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  MVR
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="sales"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Sales
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="executive"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Executive
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="operations"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Operations
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="hourly"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Hourly
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="cbsv"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  CBSV
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="dot"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  DOT
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="new-york"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  New York
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="immunization-records"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Immunization Records
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="just-mvr"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Just MVR
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="hasc-contractor"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  HASC Contractor
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="applicant-provided-address-only"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Applicant provided address only
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="employment-only"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Employment Only
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="sap-10"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  SAP 10
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="identity-check-package"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Identity Check Package
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="identity-check-test-package-includes-product"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Identity Check Test Package Includes Product
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="standard-with-edu-and-emp"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Standard with EDU and EMP
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="test"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Test
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="executive-plus"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Executive Plus
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="portal"
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Portal
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
