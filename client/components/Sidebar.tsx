@@ -751,8 +751,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             flex: "1 0 0",
             alignSelf: "stretch",
             position: "relative",
-            overflow:
-              allExpanded && isDesktop && !isCollapsed ? "auto" : "visible",
+            overflow: "auto",
             maxHeight:
               allExpanded && isDesktop && !isCollapsed
                 ? "calc(100vh - 200px)"
