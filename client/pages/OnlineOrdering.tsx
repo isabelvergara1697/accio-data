@@ -11,39 +11,6 @@ import {
   SelectValue,
 } from "../components/ui/select";
 
-// Custom styles for the dropdown to match Figma design
-const dropdownStyles = `
-  /* Hide check icons */
-  [data-radix-select-content] [data-radix-select-item-indicator] {
-    display: none !important;
-  }
-
-  /* Remove left padding from items */
-  [data-radix-select-content] [data-radix-select-item] {
-    padding-left: 0 !important;
-  }
-
-  /* Custom scrollbar styling */
-  [data-radix-select-content] [data-radix-scroll-area-viewport] {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
-  }
-
-  [data-radix-select-content] [data-radix-scroll-area-viewport]::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  [data-radix-select-content] [data-radix-scroll-area-viewport]::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  [data-radix-select-content] [data-radix-scroll-area-viewport]::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.15);
-    border-radius: 9999px;
-    border: 1px solid #FFF;
-  }
-`;
-
 const OnlineOrdering = () => {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
