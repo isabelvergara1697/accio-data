@@ -78,7 +78,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   // Define which menu items are disabled (don't have content yet)
   const disabledMenuItems = [
-    "Online Ordering",
     "Auto-Screening",
     "Adverse Letters",
     "Bulk Report Export",
