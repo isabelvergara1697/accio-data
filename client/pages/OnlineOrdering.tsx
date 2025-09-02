@@ -375,107 +375,352 @@ const OnlineOrdering = () => {
                 alignSelf: "stretch",
               }}
             >
-              {/* Blank Content Area */}
+              {/* Order Information Container */}
               <div
                 style={{
                   display: "flex",
-                  padding: "48px 24px",
                   flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  alignItems: "flex-start",
                   alignSelf: "stretch",
                   borderRadius: "12px",
                   border: "1px solid #E9EAEB",
                   background: "#FFF",
                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                  minHeight: "400px",
                 }}
               >
+                {/* Section Header */}
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
-                    gap: "16px",
-                    textAlign: "center",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                    alignSelf: "stretch",
+                    background: "#FFF",
                   }}
                 >
-                  {/* Placeholder Icon */}
-                  <div
-                    style={{
-                      width: "64px",
-                      height: "64px",
-                      borderRadius: "50%",
-                      background: "#F2F4F7",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M3 7.5H21L19.5 19.5H4.5L3 7.5Z"
-                        stroke="#667085"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M3 7.5L2.5 5H1"
-                        stroke="#667085"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M9 11.5H15"
-                        stroke="#667085"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  
-                  {/* Placeholder Text */}
                   <div
                     style={{
                       display: "flex",
+                      padding: "20px 24px 0 24px",
                       flexDirection: "column",
-                      alignItems: "center",
-                      gap: "8px",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
                     }}
                   >
                     <div
                       style={{
-                        color: "#181D27",
-                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                        fontSize: "18px",
-                        fontWeight: 600,
-                        lineHeight: "28px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "16px",
+                        alignSelf: "stretch",
                       }}
                     >
-                      Online Ordering System
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-lg, 18px)",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "var(--Line-height-text-lg, 28px)",
+                              }}
+                            >
+                              Order Information
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 24px 16px 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                    borderRadius: "0px 0px 0 0",
+                    borderRight: "1px solid #E9EAEB",
+                    borderBottom: "1px solid #E9EAEB",
+                    borderLeft: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  {/* Information Row */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                      flexWrap: "wrap",
+                      gap: "16px",
+                    }}
+                  >
+                    {/* Package Info */}
                     <div
                       style={{
-                        color: "#535862",
-                        fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        lineHeight: "20px",
-                        maxWidth: "400px",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "4px",
+                        minWidth: "120px",
                       }}
                     >
-                      This page will contain your online ordering functionality. 
-                      You'll be able to place orders, track status, and manage your 
-                      screening requests from here.
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Package
+                      </div>
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-md, 16px)",
+                          fontStyle: "normal",
+                          fontWeight: 500,
+                          lineHeight: "var(--Line-height-text-md, 24px)",
+                        }}
+                      >
+                        CSD Standard
+                      </div>
+                    </div>
+
+                    {/* Subject Info */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "4px",
+                        minWidth: "120px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Subject
+                      </div>
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-md, 16px)",
+                          fontStyle: "normal",
+                          fontWeight: 500,
+                          lineHeight: "var(--Line-height-text-md, 24px)",
+                        }}
+                      >
+                        No Info Yet
+                      </div>
+                    </div>
+
+                    {/* Requester Info */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "4px",
+                        minWidth: "120px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Requester
+                      </div>
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-md, 16px)",
+                          fontStyle: "normal",
+                          fontWeight: 500,
+                          lineHeight: "var(--Line-height-text-md, 24px)",
+                        }}
+                      >
+                        Alexandra Fitzwilliam
+                      </div>
+                    </div>
+
+                    {/* Progress Bar */}
+                    <div
+                      style={{
+                        display: "flex",
+                        width: isDesktop ? "320px" : "100%",
+                        alignItems: "center",
+                        gap: "12px",
+                        minWidth: "200px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          height: "8px",
+                          flex: "1 0 0",
+                          position: "relative",
+                        }}
+                      >
+                        {/* Background */}
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "8px",
+                            borderRadius: "9999px",
+                            background: "#D5D7DA",
+                            position: "absolute",
+                            left: "0px",
+                            top: "0px",
+                          }}
+                        />
+                        {/* Progress */}
+                        <div
+                          style={{
+                            width: "6px",
+                            height: "8px",
+                            borderRadius: "9999px",
+                            background: "#344698",
+                            position: "absolute",
+                            left: "0px",
+                            top: "0px",
+                          }}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 500,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        0% Complete
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "4px 0",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        height: "1px",
+                        flex: "1 0 0",
+                        background: "#E9EAEB",
+                      }}
+                    />
+                  </div>
+
+                  {/* Status Tab */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "100%",
+                      padding: "4px",
+                      alignItems: "flex-start",
+                      alignContent: "flex-start",
+                      gap: "4px",
+                      flexWrap: "wrap",
+                      borderRadius: "10px",
+                      border: "1px solid #E9EAEB",
+                      background: "#FFF",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "8px 6px 8px 12px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "8px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Package
+                      </div>
                     </div>
                   </div>
                 </div>
