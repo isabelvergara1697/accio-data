@@ -234,7 +234,9 @@ const OnlineOrdering = () => {
                         lineHeight: "var(--Line-height-text-md, 24px)",
                       }}
                     >
-                      Track pending invites and submitted orders in one place. Use filters and tools to sort, review, and manage activity easily.
+                      Track pending invites and submitted orders in one place.
+                      Use filters and tools to sort, review, and manage activity
+                      easily.
                     </div>
                   </div>
 
