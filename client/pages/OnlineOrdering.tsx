@@ -219,7 +219,7 @@ const OnlineOrdering = () => {
                         lineHeight: "var(--Line-height-display-xs, 32px)",
                       }}
                     >
-                      Online Ordering
+                      Create New Order
                     </div>
                     {/* Supporting text */}
                     <div
@@ -234,8 +234,118 @@ const OnlineOrdering = () => {
                         lineHeight: "var(--Line-height-text-md, 24px)",
                       }}
                     >
-                      Manage your online orders and screening requests efficiently.
+                      Track pending invites and submitted orders in one place. Use filters and tools to sort, review, and manage activity easily.
                     </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                    }}
+                  >
+                    {/* Expand All Button */}
+                    <button
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          Expand All
+                        </div>
+                      </div>
+                      <svg
+                        style={{
+                          width: "16px",
+                          height: "16px",
+                        }}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4.66675 10L8.00008 13.3333L11.3334 10M4.66675 6L8.00008 2.66667L11.3334 6"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+
+                    {/* Save as Draft Button */}
+                    <button
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          Save as Draft
+                        </div>
+                      </div>
+                    </button>
                   </div>
                 </div>
               </div>
