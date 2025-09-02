@@ -22,6 +22,7 @@ const OnlineOrdering = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState("csd-standard");
 
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
