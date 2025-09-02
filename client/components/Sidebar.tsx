@@ -735,8 +735,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               : "none",
           position: "relative",
           width: isDesktop && isCollapsed ? "80px" : "auto",
-          overflow:
-            allExpanded && isDesktop && !isCollapsed ? "hidden" : "visible",
+          overflow: "hidden",
         }}
       >
         <div
