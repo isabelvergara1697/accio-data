@@ -3,6 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select";
 
 const OnlineOrdering = () => {
   const navigate = useNavigate();
