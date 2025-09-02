@@ -721,6 +721,293 @@ const OnlineOrdering = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Package and Products Container */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  alignSelf: "stretch",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                }}
+              >
+                {/* Section Header */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                    alignSelf: "stretch",
+                    background: "#FFF",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "20px 24px 0 24px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-lg, 18px)",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "var(--Line-height-text-lg, 28px)",
+                              }}
+                            >
+                              Package and Products
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Actions */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <button
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                            }}
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 24px 16px 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  {/* Section Title */}
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily:
+                        "var(--Font-family-font-family-body, 'Public Sans')",
+                      fontSize: "var(--Font-size-text-md, 16px)",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "var(--Line-height-text-md, 24px)",
+                    }}
+                  >
+                    Package and Products
+                  </div>
+
+                  {/* Select Component */}
+                  <div
+                    style={{
+                      display: "flex",
+                      width: isDesktop ? "470px" : "100%",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "6px",
+                      maxWidth: "100%",
+                    }}
+                  >
+                    {/* Input with label */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "6px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      {/* Label wrapper */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "2px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          Choose Package
+                        </div>
+                      </div>
+
+                      {/* Input */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "8px 12px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {/* Content */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "-webkit-box",
+                              WebkitBoxOrient: "vertical",
+                              WebkitLineClamp: 1,
+                              flex: "1 0 0",
+                              overflow: "hidden",
+                              color: "#717680",
+                              textOverflow: "ellipsis",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-md, 16px)",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "var(--Line-height-text-md, 24px)",
+                            }}
+                          >
+                            Select a package
+                          </div>
+                        </div>
+                        <svg
+                          style={{
+                            width: "24px",
+                            height: "24px",
+                          }}
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6 9L12 15L18 9"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Hint text */}
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily:
+                          "var(--Font-family-font-family-body, 'Public Sans')",
+                        fontSize: "var(--Font-size-text-sm, 14px)",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "var(--Line-height-text-sm, 20px)",
+                      }}
+                    >
+                      Pre-checked items are your most commonly ordered services. Any
+                      additional items you order will be added to your bill.
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
