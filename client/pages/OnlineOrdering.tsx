@@ -22,7 +22,11 @@ const OnlineOrdering = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState("csd-standard");
+  const [selectedPackage, setSelectedPackage] = useState<string | undefined>(undefined);
+  const packageLabelMap: Record<string, string> = {
+    "csd-standard": "CSD Standard",
+    "portal": "Portal",
+  };
 
   // Auto-minimize sidebar after 30 seconds
   useEffect(() => {
@@ -521,7 +525,7 @@ const OnlineOrdering = () => {
                       </div>
                       <div
                         style={{
-                          color: "#181D27",
+                          color: selectedPackage ? "#181D27" : "#717680",
                           fontFamily:
                             "var(--Font-family-font-family-body, 'Public Sans')",
                           fontSize: "var(--Font-size-text-md, 16px)",
@@ -530,7 +534,7 @@ const OnlineOrdering = () => {
                           lineHeight: "var(--Line-height-text-md, 24px)",
                         }}
                       >
-                        CSD Standard
+                        {selectedPackage ? (packageLabelMap[selectedPackage] ?? selectedPackage) : "—"}
                       </div>
                     </div>
 
@@ -955,7 +959,7 @@ const OnlineOrdering = () => {
                             height: "auto",
                           }}
                         >
-                          <SelectValue placeholder="Select a package" />
+                          <SelectValue placeholder="Select Package" />
                         </SelectTrigger>
                         <SelectContent
                           style={{
