@@ -4895,427 +4895,6 @@ const InvitesAndOrders: React.FC = () => {
             </div>
           </div>
 
-          {/* Status Tabs Section */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-              borderRadius: "12px 12px 0 0",
-              border: "1px solid #E9EAEB",
-              background: "#FFF",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 16px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                alignSelf: "stretch",
-                borderRadius: "0px",
-                borderRight: "1px solid #E9EAEB",
-                borderBottom: "1px solid #E9EAEB",
-                borderLeft: "1px solid #E9EAEB",
-                background: "#FFF",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "4px",
-                  alignSelf: "stretch",
-                  position: "relative",
-                }}
-              >
-                {/* All Tab */}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "4px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    borderRadius: "6px",
-                    border: "1px solid #B3BCE5",
-                    background: "#ECEEF9",
-                    boxShadow: "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)",
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#273572",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    All
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "2px 8px",
-                      alignItems: "center",
-                      borderRadius: "9999px",
-                      border: "1px solid #B3BCE5",
-                      background: "#ECEEF9",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#273572",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "18px",
-                        position: "relative",
-                      }}
-                    >
-                      112
-                    </div>
-                  </div>
-                </div>
-
-                {/* Expired Tab */}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "4px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    borderRadius: "6px",
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#717680",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Expired
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "2px 8px",
-                      alignItems: "center",
-                      borderRadius: "9999px",
-                      border: "1px solid #E9EAEB",
-                      background: "#FAFAFA",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "18px",
-                        position: "relative",
-                      }}
-                    >
-                      80
-                    </div>
-                  </div>
-                </div>
-
-                {/* Expires Today Tab */}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "4px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    borderRadius: "6px",
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#717680",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Expires Today
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "2px 8px",
-                      alignItems: "center",
-                      borderRadius: "9999px",
-                      border: "1px solid #E9EAEB",
-                      background: "#FAFAFA",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "18px",
-                        position: "relative",
-                      }}
-                    >
-                      51
-                    </div>
-                  </div>
-                </div>
-
-                {/* Canceled Tab */}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "4px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    borderRadius: "6px",
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#717680",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Canceled
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "2px 8px",
-                      alignItems: "center",
-                      borderRadius: "9999px",
-                      border: "1px solid #E9EAEB",
-                      background: "#FAFAFA",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "18px",
-                        position: "relative",
-                      }}
-                    >
-                      35
-                    </div>
-                  </div>
-                </div>
-
-                {/* Unsolicited Tab */}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "4px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    borderRadius: "6px",
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#717680",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Unsolicited
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "2px 8px",
-                      alignItems: "center",
-                      borderRadius: "9999px",
-                      border: "1px solid #E9EAEB",
-                      background: "#FAFAFA",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "18px",
-                        position: "relative",
-                      }}
-                    >
-                      75
-                    </div>
-                  </div>
-                </div>
-
-                {/* Waiting Tab 1 */}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "4px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    borderRadius: "6px",
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#717680",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Waiting
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "2px 8px",
-                      alignItems: "center",
-                      borderRadius: "9999px",
-                      border: "1px solid #E9EAEB",
-                      background: "#FAFAFA",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "18px",
-                        position: "relative",
-                      }}
-                    >
-                      18
-                    </div>
-                  </div>
-                </div>
-
-                {/* Waiting Tab 2 */}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "4px 8px",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "8px",
-                    borderRadius: "6px",
-                    position: "relative",
-                    cursor: "pointer",
-                  }}
-                >
-                  <div
-                    style={{
-                      color: "#717680",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "12px",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      lineHeight: "18px",
-                      position: "relative",
-                    }}
-                  >
-                    Waiting
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      padding: "2px 8px",
-                      alignItems: "center",
-                      borderRadius: "9999px",
-                      border: "1px solid #E9EAEB",
-                      background: "#FAFAFA",
-                      position: "relative",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#414651",
-                        textAlign: "center",
-                        fontFamily: "'Public Sans'",
-                        fontSize: "12px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "18px",
-                        position: "relative",
-                      }}
-                    >
-                      36
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Table Section */}
           <div
             style={{
@@ -9125,6 +8704,126 @@ const InvitesAndOrders: React.FC = () => {
                               overflow: "visible",
                             }}
                           >
+                            {/* Status Tabs Row */}
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: isMobile ? "8px 8px" : "8px 16px",
+                                alignItems: "center",
+                                gap: "4px",
+                                alignSelf: "stretch",
+                                background: "#FFF",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "4px 8px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  borderRadius: "6px",
+                                  border: "1px solid #B3BCE5",
+                                  background: "#ECEEF9",
+                                  boxShadow:
+                                    "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#273572",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                  }}
+                                >
+                                  All
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: "1px solid #B3BCE5",
+                                    background: "#ECEEF9",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#273572",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                    }}
+                                  >
+                                    112
+                                  </div>
+                                </div>
+                              </div>
+
+                              {[
+                                { label: "Expired", count: 80 },
+                                { label: "Expires Today", count: 51 },
+                                { label: "Canceled", count: 35 },
+                                { label: "Unsolicited", count: 75 },
+                                { label: "Waiting", count: 18 },
+                                { label: "Waiting", count: 36 },
+                              ].map((t, i) => (
+                                <div
+                                  key={`${t.label}-${i}`}
+                                  style={{
+                                    display: "flex",
+                                    padding: "4px 8px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    borderRadius: "6px",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#717680",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontWeight: 600,
+                                      lineHeight: "18px",
+                                    }}
+                                  >
+                                    {t.label}
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "2px 8px",
+                                      alignItems: "center",
+                                      borderRadius: "9999px",
+                                      border: "1px solid #E9EAEB",
+                                      background: "#FAFAFA",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#414651",
+                                        textAlign: "center",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "12px",
+                                        fontWeight: 500,
+                                        lineHeight: "18px",
+                                      }}
+                                    >
+                                      {t.count}
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+
                             {/* Table Header */}
                             <div
                               style={{
