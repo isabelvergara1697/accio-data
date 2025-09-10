@@ -4300,7 +4300,7 @@ const InvitesAndOrders: React.FC = () => {
     { key: "canceled", label: "Canceled", count: inviteStatusCounts.canceled },
     { key: "unsolicited", label: "Unsolicited", count: inviteStatusCounts.unsolicited },
     { key: "waiting", label: "Waiting", count: inviteStatusCounts.waiting },
-    { key: "waiting-for-recruitee", label: "Waiting", count: inviteStatusCounts["waiting-for-recruitee"] },
+    { key: "waiting-for-recruitee", label: "Waiting for Recruitee", count: inviteStatusCounts["waiting-for-recruitee"] },
   ];
 
   // Filter data based on search query and applied filters
