@@ -4815,8 +4815,8 @@ const InvitesAndOrders: React.FC = () => {
                       }}
                     >
                       {[
-                        { key: "invites", label: "Invites", count: "456" },
-                        { key: "orders", label: "Orders", count: "200" },
+                        { key: "invites", label: "Invites", count: invitesData.length.toString() },
+                        { key: "orders", label: "Orders", count: ordersData.length.toString() },
                       ].map((tab, index, array) => (
                         <div
                           key={tab.key}
