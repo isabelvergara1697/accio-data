@@ -773,7 +773,7 @@ const InvitesAndOrders: React.FC = () => {
         showActionsPanel?: boolean;
         selectedItems?: string[];
       }
-    )?.activeTab || "orders",
+    )?.activeTab || "invites",
   );
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedItems, setSelectedItems] = useState<string[]>(
