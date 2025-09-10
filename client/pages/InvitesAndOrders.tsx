@@ -853,7 +853,8 @@ const InvitesAndOrders: React.FC = () => {
   );
 
   // Status filter for invites tab
-  const [activeInviteStatusFilter, setActiveInviteStatusFilter] = useState<string>("all");
+  const [activeInviteStatusFilter, setActiveInviteStatusFilter] =
+    useState<string>("all");
   const flagsFilterButtonRef = useRef<HTMLButtonElement>(null);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
@@ -4280,13 +4281,14 @@ const InvitesAndOrders: React.FC = () => {
       "waiting-for-recruitee": 0,
     };
 
-    invitesData.forEach(invite => {
+    invitesData.forEach((invite) => {
       if (invite.status === "expired") counts.expired++;
       else if (invite.status === "expires-today") counts["expires-today"]++;
       else if (invite.status === "canceled") counts.canceled++;
       else if (invite.status === "unsolicited") counts.unsolicited++;
       else if (invite.status === "waiting") counts.waiting++;
-      else if (invite.status === "waiting-for-recruitee") counts["waiting-for-recruitee"]++;
+      else if (invite.status === "waiting-for-recruitee")
+        counts["waiting-for-recruitee"]++;
     });
 
     return counts;
@@ -4296,11 +4298,23 @@ const InvitesAndOrders: React.FC = () => {
   const inviteStatusTabs = [
     { key: "all", label: "All", count: inviteStatusCounts.all },
     { key: "expired", label: "Expired", count: inviteStatusCounts.expired },
-    { key: "expires-today", label: "Expires Today", count: inviteStatusCounts["expires-today"] },
+    {
+      key: "expires-today",
+      label: "Expires Today",
+      count: inviteStatusCounts["expires-today"],
+    },
     { key: "canceled", label: "Canceled", count: inviteStatusCounts.canceled },
-    { key: "unsolicited", label: "Unsolicited", count: inviteStatusCounts.unsolicited },
+    {
+      key: "unsolicited",
+      label: "Unsolicited",
+      count: inviteStatusCounts.unsolicited,
+    },
     { key: "waiting", label: "Waiting", count: inviteStatusCounts.waiting },
-    { key: "waiting-for-recruitee", label: "Waiting for Recruitee", count: inviteStatusCounts["waiting-for-recruitee"] },
+    {
+      key: "waiting-for-recruitee",
+      label: "Waiting for Recruitee",
+      count: inviteStatusCounts["waiting-for-recruitee"],
+    },
   ];
 
   // Filter data based on search query and applied filters
@@ -4321,7 +4335,9 @@ const InvitesAndOrders: React.FC = () => {
     if (activeTab === "invites") {
       // Apply status filter for invites (using activeInviteStatusFilter)
       if (activeInviteStatusFilter !== "all") {
-        data = data.filter((invite) => invite.status === activeInviteStatusFilter);
+        data = data.filter(
+          (invite) => invite.status === activeInviteStatusFilter,
+        );
       }
 
       // Apply additional filters from FiltersPanel (using appliedFilters)
@@ -4815,8 +4831,16 @@ const InvitesAndOrders: React.FC = () => {
                       }}
                     >
                       {[
-                        { key: "invites", label: "Invites", count: invitesData.length.toString() },
-                        { key: "orders", label: "Orders", count: ordersData.length.toString() },
+                        {
+                          key: "invites",
+                          label: "Invites",
+                          count: invitesData.length.toString(),
+                        },
+                        {
+                          key: "orders",
+                          label: "Orders",
+                          count: ordersData.length.toString(),
+                        },
                       ].map((tab, index, array) => (
                         <div
                           key={tab.key}
@@ -8695,7 +8719,9 @@ const InvitesAndOrders: React.FC = () => {
                           {inviteStatusTabs.map((tab) => (
                             <div
                               key={tab.key}
-                              onClick={() => setActiveInviteStatusFilter(tab.key)}
+                              onClick={() =>
+                                setActiveInviteStatusFilter(tab.key)
+                              }
                               style={{
                                 display: "flex",
                                 padding: "4px 8px",
@@ -8703,18 +8729,28 @@ const InvitesAndOrders: React.FC = () => {
                                 alignItems: "center",
                                 gap: "8px",
                                 borderRadius: "6px",
-                                border: activeInviteStatusFilter === tab.key ? "1px solid #B3BCE5" : "none",
-                                background: activeInviteStatusFilter === tab.key ? "#ECEEF9" : "transparent",
-                                boxShadow: activeInviteStatusFilter === tab.key
-                                  ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)"
-                                  : "none",
+                                border:
+                                  activeInviteStatusFilter === tab.key
+                                    ? "1px solid #B3BCE5"
+                                    : "none",
+                                background:
+                                  activeInviteStatusFilter === tab.key
+                                    ? "#ECEEF9"
+                                    : "transparent",
+                                boxShadow:
+                                  activeInviteStatusFilter === tab.key
+                                    ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)"
+                                    : "none",
                                 cursor: "pointer",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
-                                  color: activeInviteStatusFilter === tab.key ? "#273572" : "#717680",
+                                  color:
+                                    activeInviteStatusFilter === tab.key
+                                      ? "#273572"
+                                      : "#717680",
                                   fontFamily: "Public Sans",
                                   fontSize: "12px",
                                   fontStyle: "normal",
@@ -8725,10 +8761,14 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 <span
                                   style={{
-                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontFamily:
+                                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                     fontWeight: 700,
                                     fontSize: "12px",
-                                    color: activeInviteStatusFilter === tab.key ? "rgba(39,53,114,1)" : "rgba(113,118,128,1)",
+                                    color:
+                                      activeInviteStatusFilter === tab.key
+                                        ? "rgba(39,53,114,1)"
+                                        : "rgba(113,118,128,1)",
                                   }}
                                 >
                                   {tab.label}
@@ -8740,14 +8780,23 @@ const InvitesAndOrders: React.FC = () => {
                                   padding: "2px 8px",
                                   alignItems: "center",
                                   borderRadius: "9999px",
-                                  border: activeInviteStatusFilter === tab.key ? "1px solid #B3BCE5" : "1px solid #E9EAEB",
-                                  background: activeInviteStatusFilter === tab.key ? "#ECEEF9" : "#FAFAFA",
+                                  border:
+                                    activeInviteStatusFilter === tab.key
+                                      ? "1px solid #B3BCE5"
+                                      : "1px solid #E9EAEB",
+                                  background:
+                                    activeInviteStatusFilter === tab.key
+                                      ? "#ECEEF9"
+                                      : "#FAFAFA",
                                   position: "relative",
                                 }}
                               >
                                 <div
                                   style={{
-                                    color: activeInviteStatusFilter === tab.key ? "#273572" : "#414651",
+                                    color:
+                                      activeInviteStatusFilter === tab.key
+                                        ? "#273572"
+                                        : "#414651",
                                     textAlign: "center",
                                     fontFamily: "Public Sans",
                                     fontSize: "12px",
@@ -8759,10 +8808,14 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   <span
                                     style={{
-                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                       fontWeight: 400,
                                       fontSize: "12px",
-                                      color: activeInviteStatusFilter === tab.key ? "rgba(39,53,114,1)" : "rgba(65,70,81,1)",
+                                      color:
+                                        activeInviteStatusFilter === tab.key
+                                          ? "rgba(39,53,114,1)"
+                                          : "rgba(65,70,81,1)",
                                     }}
                                   >
                                     {tab.count}
@@ -8858,7 +8911,6 @@ const InvitesAndOrders: React.FC = () => {
                               overflow: "visible",
                             }}
                           >
-
                             {/* Table Header */}
                             <div
                               style={{

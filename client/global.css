@@ -550,7 +550,12 @@
   /* Date input placeholder styles */
   .date-input-placeholder::placeholder {
     color: #717680;
-    font-family: "Public Sans", -apple-system, Roboto, Helvetica, sans-serif;
+    font-family:
+      "Public Sans",
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
