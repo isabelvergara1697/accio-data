@@ -8666,6 +8666,115 @@ const InvitesAndOrders: React.FC = () => {
                       }}
                     />
 
+                    {/* Status Filter Tabs - Only for invites tab */}
+                    {activeTab === "invites" && (
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "8px 16px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                          borderRadius: "0px",
+                          borderRight: "1px solid #E9EAEB",
+                          borderBottom: "1px solid #E9EAEB",
+                          borderLeft: "1px solid #E9EAEB",
+                          background: "#FFF",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "4px",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          {inviteStatusTabs.map((tab) => (
+                            <div
+                              key={tab.key}
+                              onClick={() => setActiveInviteStatusFilter(tab.key)}
+                              style={{
+                                display: "flex",
+                                padding: "4px 8px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                gap: "8px",
+                                borderRadius: "6px",
+                                border: activeInviteStatusFilter === tab.key ? "1px solid #B3BCE5" : "none",
+                                background: activeInviteStatusFilter === tab.key ? "#ECEEF9" : "transparent",
+                                boxShadow: activeInviteStatusFilter === tab.key
+                                  ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)"
+                                  : "none",
+                                cursor: "pointer",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: activeInviteStatusFilter === tab.key ? "#273572" : "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontWeight: 700,
+                                    fontSize: "12px",
+                                    color: activeInviteStatusFilter === tab.key ? "rgba(39,53,114,1)" : "rgba(113,118,128,1)",
+                                  }}
+                                >
+                                  {tab.label}
+                                </span>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: activeInviteStatusFilter === tab.key ? "1px solid #B3BCE5" : "1px solid #E9EAEB",
+                                  background: activeInviteStatusFilter === tab.key ? "#ECEEF9" : "#FAFAFA",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: activeInviteStatusFilter === tab.key ? "#273572" : "#414651",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontWeight: 400,
+                                      fontSize: "12px",
+                                      color: activeInviteStatusFilter === tab.key ? "rgba(39,53,114,1)" : "rgba(65,70,81,1)",
+                                    }}
+                                  >
+                                    {tab.count}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {/* Table Content */}
                     <div
                       style={{
