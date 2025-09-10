@@ -4279,7 +4279,7 @@ const InvitesAndOrders: React.FC = () => {
       unsolicited: 0,
       waiting: 0,
       "waiting-for-recruitee": 0,
-    };
+    } as Record<string, number>;
 
     invitesData.forEach((invite) => {
       if (invite.status === "expired") counts.expired++;
@@ -4292,7 +4292,7 @@ const InvitesAndOrders: React.FC = () => {
     });
 
     return counts;
-  }, []);
+  }, [invitesData]);
 
   // Status filter tabs configuration
   const inviteStatusTabs = [
@@ -4315,6 +4315,38 @@ const InvitesAndOrders: React.FC = () => {
       label: "Waiting for Recruitee",
       count: inviteStatusCounts["waiting-for-recruitee"],
     },
+  ];
+
+  // Calculate status counts for orders
+  const ordersStatusCounts = React.useMemo(() => {
+    const counts: Record<string, number> = {
+      all: ordersData.length,
+      processing: 0,
+      "pending-review": 0,
+      approved: 0,
+      expired: 0,
+      "on-hold": 0,
+      completed: 0,
+      rejected: 0,
+      canceled: 0,
+    };
+    ordersData.forEach((order) => {
+      if (counts[order.status] !== undefined) counts[order.status]++;
+    });
+    return counts;
+  }, [ordersData]);
+
+  // Orders status tabs configuration
+  const ordersStatusTabs = [
+    { key: "all", label: "All", count: ordersStatusCounts.all },
+    { key: "processing", label: "Processing", count: ordersStatusCounts.processing },
+    { key: "pending-review", label: "Pending Review", count: ordersStatusCounts["pending-review"] },
+    { key: "approved", label: "Approved", count: ordersStatusCounts.approved },
+    { key: "expired", label: "Expired", count: ordersStatusCounts.expired },
+    { key: "on-hold", label: "On Hold", count: ordersStatusCounts["on-hold"] },
+    { key: "completed", label: "Completed", count: ordersStatusCounts.completed },
+    { key: "rejected", label: "Rejected", count: ordersStatusCounts.rejected },
+    { key: "canceled", label: "Canceled", count: ordersStatusCounts.canceled },
   ];
 
   // Filter data based on search query and applied filters
