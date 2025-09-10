@@ -4339,12 +4339,24 @@ const InvitesAndOrders: React.FC = () => {
   // Orders status tabs configuration
   const ordersStatusTabs = [
     { key: "all", label: "All", count: ordersStatusCounts.all },
-    { key: "processing", label: "Processing", count: ordersStatusCounts.processing },
-    { key: "pending-review", label: "Pending Review", count: ordersStatusCounts["pending-review"] },
+    {
+      key: "processing",
+      label: "Processing",
+      count: ordersStatusCounts.processing,
+    },
+    {
+      key: "pending-review",
+      label: "Pending Review",
+      count: ordersStatusCounts["pending-review"],
+    },
     { key: "approved", label: "Approved", count: ordersStatusCounts.approved },
     { key: "expired", label: "Expired", count: ordersStatusCounts.expired },
     { key: "on-hold", label: "On Hold", count: ordersStatusCounts["on-hold"] },
-    { key: "completed", label: "Completed", count: ordersStatusCounts.completed },
+    {
+      key: "completed",
+      label: "Completed",
+      count: ordersStatusCounts.completed,
+    },
     { key: "rejected", label: "Rejected", count: ordersStatusCounts.rejected },
     { key: "canceled", label: "Canceled", count: ordersStatusCounts.canceled },
   ];
@@ -8888,8 +8900,10 @@ const InvitesAndOrders: React.FC = () => {
                         >
                           {ordersStatusTabs.map((tab) => {
                             const isActive =
-                              (selectedStatusFilters.length === 0 && tab.key === "all") ||
-                              (selectedStatusFilters.length === 1 && selectedStatusFilters[0] === tab.key);
+                              (selectedStatusFilters.length === 0 &&
+                                tab.key === "all") ||
+                              (selectedStatusFilters.length === 1 &&
+                                selectedStatusFilters[0] === tab.key);
                             return (
                               <div
                                 key={tab.key}
@@ -8905,8 +8919,12 @@ const InvitesAndOrders: React.FC = () => {
                                   alignItems: "center",
                                   gap: "8px",
                                   borderRadius: "6px",
-                                  border: isActive ? "1px solid #B3BCE5" : "none",
-                                  background: isActive ? "#ECEEF9" : "transparent",
+                                  border: isActive
+                                    ? "1px solid #B3BCE5"
+                                    : "none",
+                                  background: isActive
+                                    ? "#ECEEF9"
+                                    : "transparent",
                                   boxShadow: isActive
                                     ? "0 1px 3px 0 rgba(10, 13, 18, 0.10), 0 1px 2px -1px rgba(10, 13, 18, 0.10)"
                                     : "none",
@@ -8927,10 +8945,13 @@ const InvitesAndOrders: React.FC = () => {
                                 >
                                   <span
                                     style={{
-                                      fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                      fontFamily:
+                                        "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                       fontWeight: 700,
                                       fontSize: "12px",
-                                      color: isActive ? "rgba(39,53,114,1)" : "rgba(113,118,128,1)",
+                                      color: isActive
+                                        ? "rgba(39,53,114,1)"
+                                        : "rgba(113,118,128,1)",
                                     }}
                                   >
                                     {tab.label}
@@ -8942,8 +8963,12 @@ const InvitesAndOrders: React.FC = () => {
                                     padding: "2px 8px",
                                     alignItems: "center",
                                     borderRadius: "9999px",
-                                    border: isActive ? "1px solid #B3BCE5" : "1px solid #E9EAEB",
-                                    background: isActive ? "#ECEEF9" : "#FAFAFA",
+                                    border: isActive
+                                      ? "1px solid #B3BCE5"
+                                      : "1px solid #E9EAEB",
+                                    background: isActive
+                                      ? "#ECEEF9"
+                                      : "#FAFAFA",
                                     position: "relative",
                                   }}
                                 >
@@ -8961,10 +8986,13 @@ const InvitesAndOrders: React.FC = () => {
                                   >
                                     <span
                                       style={{
-                                        fontFamily: "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
                                         fontWeight: 400,
                                         fontSize: "12px",
-                                        color: isActive ? "rgba(39,53,114,1)" : "rgba(65,70,81,1)",
+                                        color: isActive
+                                          ? "rgba(39,53,114,1)"
+                                          : "rgba(65,70,81,1)",
                                       }}
                                     >
                                       {tab.count}
