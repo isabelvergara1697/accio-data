@@ -851,6 +851,9 @@ const InvitesAndOrders: React.FC = () => {
   const [selectedFlagsFilters, setSelectedFlagsFilters] = useState<string[]>(
     [],
   );
+
+  // Status filter for invites tab
+  const [activeInviteStatusFilter, setActiveInviteStatusFilter] = useState<string>("all");
   const flagsFilterButtonRef = useRef<HTMLButtonElement>(null);
   const [showCustomizeColumnsModal, setShowCustomizeColumnsModal] =
     useState(false);
@@ -4265,6 +4268,41 @@ const InvitesAndOrders: React.FC = () => {
     return activeTab === "invites" ? invitesData : ordersData;
   }, [activeTab]);
 
+  // Calculate status counts for invites
+  const inviteStatusCounts = React.useMemo(() => {
+    const counts = {
+      all: invitesData.length,
+      expired: 0,
+      "expires-today": 0,
+      canceled: 0,
+      unsolicited: 0,
+      waiting: 0,
+      "waiting-for-recruitee": 0,
+    };
+
+    invitesData.forEach(invite => {
+      if (invite.status === "expired") counts.expired++;
+      else if (invite.status === "expires-today") counts["expires-today"]++;
+      else if (invite.status === "canceled") counts.canceled++;
+      else if (invite.status === "unsolicited") counts.unsolicited++;
+      else if (invite.status === "waiting") counts.waiting++;
+      else if (invite.status === "waiting-for-recruitee") counts["waiting-for-recruitee"]++;
+    });
+
+    return counts;
+  }, []);
+
+  // Status filter tabs configuration
+  const inviteStatusTabs = [
+    { key: "all", label: "All", count: inviteStatusCounts.all },
+    { key: "expired", label: "Expired", count: inviteStatusCounts.expired },
+    { key: "expires-today", label: "Expires Today", count: inviteStatusCounts["expires-today"] },
+    { key: "canceled", label: "Canceled", count: inviteStatusCounts.canceled },
+    { key: "unsolicited", label: "Unsolicited", count: inviteStatusCounts.unsolicited },
+    { key: "waiting", label: "Waiting", count: inviteStatusCounts.waiting },
+    { key: "waiting-for-recruitee", label: "Waiting", count: inviteStatusCounts["waiting-for-recruitee"] },
+  ];
+
   // Filter data based on search query and applied filters
   const filteredData = React.useMemo(() => {
     let data = [...currentData];
@@ -4281,7 +4319,12 @@ const InvitesAndOrders: React.FC = () => {
 
     // Apply different filters based on the active tab
     if (activeTab === "invites") {
-      // Apply status filter for invites (using appliedFilters)
+      // Apply status filter for invites (using activeInviteStatusFilter)
+      if (activeInviteStatusFilter !== "all") {
+        data = data.filter((invite) => invite.status === activeInviteStatusFilter);
+      }
+
+      // Apply additional filters from FiltersPanel (using appliedFilters)
       if (appliedFilters.status.length > 0) {
         data = data.filter((invite) =>
           appliedFilters.status.includes(invite.status),
@@ -4409,6 +4452,7 @@ const InvitesAndOrders: React.FC = () => {
     searchQuery,
     appliedFilters,
     activeTab,
+    activeInviteStatusFilter,
     selectedStatusFilters,
     selectedEwsFilters,
     selectedDispositionFilters,
@@ -4782,6 +4826,7 @@ const InvitesAndOrders: React.FC = () => {
                             setShowActionsPanel(false);
                             setCurrentPage(1);
                             // Reset all filters when switching tabs
+                            setActiveInviteStatusFilter("all");
                             setSelectedStatusFilters([]);
                             setSelectedEwsFilters([]);
                             setSelectedDispositionFilters([]);
