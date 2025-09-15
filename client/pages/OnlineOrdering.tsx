@@ -6699,86 +6699,16 @@ const OnlineOrdering = () => {
                             </div>
                           </div>
                           {/* Last Name */}
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              gap: "6px",
-                              flex: "1 0 0",
+                          <FormInput
+                            label="Last Name"
+                            value={subjectFields.lastName}
+                            onChange={(value) => {
+                              setSubjectFields(prev => ({ ...prev, lastName: value }));
+                              setSubjectLastName(value);
                             }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "2px",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#414651",
-                                  fontFamily:
-                                    "var(--Font-family-font-family-body, 'Public Sans')",
-                                  fontSize: "var(--Font-size-text-sm, 14px)",
-                                  fontStyle: "normal",
-                                  fontWeight: 500,
-                                  lineHeight:
-                                    "var(--Line-height-text-sm, 20px)",
-                                }}
-                              >
-                                Last Name
-                              </div>
-                              <div
-                                style={{
-                                  color: "#344698",
-                                  fontFamily:
-                                    "var(--Font-family-font-family-body, 'Public Sans')",
-                                  fontSize: "var(--Font-size-text-sm, 14px)",
-                                  fontStyle: "normal",
-                                  fontWeight: 500,
-                                  lineHeight:
-                                    "var(--Line-height-text-sm, 20px)",
-                                }}
-                              >
-                                *
-                              </div>
-                            </div>
-                            <div
-                              style={{
-                                display: "flex",
-                                padding: "8px 12px",
-                                alignItems: "center",
-                                gap: "8px",
-                                alignSelf: "stretch",
-                                borderRadius: "8px",
-                                border: "1px solid #D5D7DA",
-                                background: "#FFF",
-                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              }}
-                            >
-                              <input
-                                type="text"
-                                value={subjectLastName}
-                                onChange={(e) =>
-                                  setSubjectLastName(e.target.value)
-                                }
-                                style={{
-                                  flex: "1 0 0",
-                                  border: "none",
-                                  outline: "none",
-                                  background: "transparent",
-                                  fontFamily:
-                                    "var(--Font-family-font-family-body, 'Public Sans')",
-                                  fontSize: "var(--Font-size-text-md, 16px)",
-                                  fontWeight: 400,
-                                  color: "#717680",
-                                  lineHeight:
-                                    "var(--Line-height-text-md, 24px)",
-                                }}
-                              />
-                            </div>
-                          </div>
+                            required
+                            style={{ flex: "1 0 0" }}
+                          />
                         </div>
                         {/* Add More AKAs Button */}
                         <button
