@@ -5962,6 +5962,265 @@ const OnlineOrdering = () => {
                       </div>
                     </button>
 
+                    {/* Inline AKA Form - shows when Add More AKAs is clicked */}
+                    {showAKAForm && (
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "8px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          borderRadius: "10px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FAFAFA",
+                        }}
+                      >
+                        {/* Title with minus button */}
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-md, 16px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-md, 24px)",
+                            }}
+                          >
+                            AKA's
+                          </div>
+                          <button
+                            onClick={() => setShowAKAForm(false)}
+                            style={{
+                              display: "flex",
+                              padding: "8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <svg
+                              style={{ width: "16px", height: "16px" }}
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clipPath="url(#clip0_minus_circle)">
+                                <path
+                                  d="M5.33331 8.00004H10.6666M14.6666 8.00004C14.6666 11.6819 11.6819 14.6667 7.99998 14.6667C4.31808 14.6667 1.33331 11.6819 1.33331 8.00004C1.33331 4.31814 4.31808 1.33337 7.99998 1.33337C11.6819 1.33337 14.6666 4.31814 14.6666 8.00004Z"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_minus_circle">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </button>
+                        </div>
+
+                        {/* AKA Input Fields */}
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "92px",
+                            alignItems: "center",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          {/* Other First Name */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "66px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "6px",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#414651",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Other First Name
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px 12px",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              }}
+                            >
+                              <input
+                                type="text"
+                                defaultValue="Alexander"
+                                style={{
+                                  flex: "1 0 0",
+                                  border: "none",
+                                  outline: "none",
+                                  background: "transparent",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-md, 16px)",
+                                  fontWeight: 400,
+                                  color: "#181D27",
+                                  lineHeight: "var(--Line-height-text-md, 24px)",
+                                }}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Other Middle Name */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "66px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "6px",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#414651",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Other Middle Name
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px 12px",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              }}
+                            >
+                              <input
+                                type="text"
+                                defaultValue="J"
+                                style={{
+                                  flex: "1 0 0",
+                                  border: "none",
+                                  outline: "none",
+                                  background: "transparent",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-md, 16px)",
+                                  fontWeight: 400,
+                                  color: "#181D27",
+                                  lineHeight: "var(--Line-height-text-md, 24px)",
+                                }}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Other Last Name */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "66px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "6px",
+                              flex: "1 0 0",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#414651",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                              }}
+                            >
+                              Other Last Name
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px 12px",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              }}
+                            >
+                              <input
+                                type="text"
+                                defaultValue="Smith T"
+                                style={{
+                                  flex: "1 0 0",
+                                  border: "none",
+                                  outline: "none",
+                                  background: "transparent",
+                                  fontFamily:
+                                    "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "var(--Font-size-text-md, 16px)",
+                                  fontWeight: 400,
+                                  color: "#181D27",
+                                  lineHeight: "var(--Line-height-text-md, 24px)",
+                                }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
                     {/* Divider */}
                     <div
                       style={{
