@@ -37,6 +37,7 @@ const OnlineOrdering = () => {
   const [subjectLastName, setSubjectLastName] = useState("");
   const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment && !sectionsCollapsed.professionalReferences && !sectionsCollapsed.credentialsProfessionalLicense && !sectionsCollapsed.motorVehicleDriving;
   const subjectFullName = [subjectFirstName, subjectMiddleName, subjectLastName].filter(Boolean).join(" ");
+  const [authorizationChecked, setAuthorizationChecked] = useState(false);
 
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
@@ -1505,6 +1506,13 @@ const OnlineOrdering = () => {
                       >
                         Authorization
                       </div>
+                      {authorizationChecked && (
+                        <div style={{ display: "flex", width: "24px", height: "24px", padding: "6px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#DCFAE6" }}>
+                          <svg style={{ width: "12px", height: "12px", flexShrink: 0 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 3L4.5 8.5L2 6" stroke="#079455" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
 
                   </div>
@@ -12341,6 +12349,20 @@ const OnlineOrdering = () => {
                               Authorize and Continue
                             </div>
                           </div>
+                          {authorizationChecked && (
+                            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginLeft: "auto" }}>
+                              <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #ABEFC6", background: "#ECFDF3" }}>
+                                <div style={{ color: "#067647", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                                  Completed
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", width: "28px", height: "28px", padding: "6px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#DCFAE6" }}>
+                                <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M13.3327 4L5.99935 11.3333L2.66602 8" stroke="#079455" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -12361,7 +12383,7 @@ const OnlineOrdering = () => {
                   {/* Authorization Checkbox */}
                   <div style={{ display: "flex", width: "505px", alignItems: "flex-start", gap: "8px" }}>
                     <div style={{ display: "flex", paddingTop: "2px", justifyContent: "center", alignItems: "center" }}>
-                      <div style={{ width: "16px", height: "16px", borderRadius: "4px", border: "1px solid #D5D7DA" }}></div>
+                      <Checkbox checked={authorizationChecked} onCheckedChange={(c) => setAuthorizationChecked(!!c)} className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]" />
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                       <div style={{ display: "flex", width: "320px", alignItems: "flex-end", gap: "4px" }}>
