@@ -858,52 +858,52 @@ const OnlineOrdering = () => {
                         minWidth: "200px",
                       }}
                     >
-                      <div
-                        style={{
-                          height: "8px",
-                          flex: "1 0 0",
-                          position: "relative",
-                        }}
-                      >
-                        {/* Background */}
-                        <div
-                          style={{
-                            width: "100%",
-                            height: "8px",
-                            borderRadius: "9999px",
-                            background: "#D5D7DA",
-                            position: "absolute",
-                            left: "0px",
-                            top: "0px",
-                          }}
-                        />
-                        {/* Progress */}
-                        <div
-                          style={{
-                            width: "6px",
-                            height: "8px",
-                            borderRadius: "9999px",
-                            background: "#344698",
-                            position: "absolute",
-                            left: "0px",
-                            top: "0px",
-                          }}
-                        />
-                      </div>
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily:
-                            "var(--Font-family-font-family-body, 'Public Sans')",
-                          fontSize: "var(--Font-size-text-sm, 14px)",
-                          fontStyle: "normal",
-                          fontWeight: 500,
-                          lineHeight: "var(--Line-height-text-sm, 20px)",
-                          whiteSpace: "nowrap",
-                        }}
-                      >
-                        0% Complete
-                      </div>
+                      {(() => {
+                        const { percent } = getProgressStats();
+                        return (
+                          <>
+                            <div style={{ height: "8px", flex: "1 0 0", position: "relative" }}>
+                              <div
+                                style={{
+                                  width: "100%",
+                                  height: "8px",
+                                  borderRadius: "9999px",
+                                  background: "#D5D7DA",
+                                  position: "absolute",
+                                  left: 0,
+                                  top: 0,
+                                }}
+                              />
+                              <div
+                                style={{
+                                  width: `${percent}%`,
+                                  height: "8px",
+                                  borderRadius: "9999px",
+                                  background: "#344698",
+                                  position: "absolute",
+                                  left: 0,
+                                  top: 0,
+                                  transition: "width 200ms ease",
+                                }}
+                              />
+                            </div>
+                            <div
+                              style={{
+                                color: "#414651",
+                                fontFamily:
+                                  "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "var(--Font-size-text-sm, 14px)",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "var(--Line-height-text-sm, 20px)",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {percent}% Complete
+                            </div>
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
 
