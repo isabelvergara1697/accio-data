@@ -174,7 +174,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    --primary: 214 78% 51%;
+    --primary: 229 49% 40%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96%;
@@ -191,18 +191,18 @@
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 214 78% 51%;
+    --ring: 229 49% 40%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 215 25% 15%;
-    --sidebar-primary: 214 78% 51%;
+    --sidebar-primary: 229 49% 40%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 210 40% 96%;
     --sidebar-accent-foreground: 215 25% 15%;
     --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 214 78% 51%;
+    --sidebar-ring: 229 49% 40%;
 
     /* Dashboard specific colors */
     --success: 142 71% 45%;
@@ -213,7 +213,7 @@
     --info-foreground: 0 0% 100%;
 
     /* Chart colors */
-    --chart-1: 214 78% 51%;
+    --chart-1: 229 49% 40%;
     --chart-2: 142 71% 45%;
     --chart-3: 38 92% 50%;
     --chart-4: 0 84% 60%;
