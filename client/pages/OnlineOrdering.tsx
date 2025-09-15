@@ -5933,6 +5933,8 @@ const OnlineOrdering = () => {
                         >
                           <input
                             type="text"
+                            value={subjectMiddleName}
+                            onChange={(e) => setSubjectMiddleName(e.target.value)}
                             style={{
                               flex: "1 0 0",
                               border: "none",
