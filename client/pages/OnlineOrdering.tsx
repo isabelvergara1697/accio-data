@@ -26,7 +26,7 @@ const OnlineOrdering = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | undefined>(undefined);
   const [packageCheckboxes, setPackageCheckboxes] = useState<Record<string, boolean>>({});
   const [packageQuantities, setPackageQuantities] = useState<Record<string, number>>({});
-  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false });
+  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, employment: false });
   const [showAKAForm, setShowAKAForm] = useState(false);
   const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject;
 
