@@ -26,12 +26,13 @@ const OnlineOrdering = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | undefined>(undefined);
   const [packageCheckboxes, setPackageCheckboxes] = useState<Record<string, boolean>>({});
   const [packageQuantities, setPackageQuantities] = useState<Record<string, number>>({});
-  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, education: false, employment: false, professionalReferences: false });
+  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, education: false, employment: false, professionalReferences: false, credentialsProfessionalLicense: false });
   const [showAKAForm, setShowAKAForm] = useState(false);
   const [employmentCollapsedMap, setEmploymentCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
   const [educationCollapsedMap, setEducationCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
   const [professionalReferencesCollapsedMap, setProfessionalReferencesCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
-  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment && !sectionsCollapsed.professionalReferences;
+  const [credentialsProfessionalLicenseCollapsedMap, setCredentialsProfessionalLicenseCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
+  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment && !sectionsCollapsed.professionalReferences && !sectionsCollapsed.credentialsProfessionalLicense;
 
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
@@ -96,6 +97,17 @@ const OnlineOrdering = () => {
       return next;
     });
   }, [packageQuantities['professional-references']]);
+
+  useEffect(() => {
+    const qty = packageQuantities['credentials-professional-license'] || 0;
+    setCredentialsProfessionalLicenseCollapsedMap(prev => {
+      const next: Record<number, boolean> = {};
+      for (let i = 1; i <= qty; i++) {
+        next[i] = prev[i] ?? (i === 1 ? false : true);
+      }
+      return next;
+    });
+  }, [packageQuantities['credentials-professional-license']]);
 
   const handleCheckboxChange = (key: string, checked: boolean) => {
     setPackageCheckboxes(prev => ({ ...prev, [key]: checked }));
@@ -340,7 +352,7 @@ const OnlineOrdering = () => {
                     {/* Expand/Collapse All Button */}
                     <button
                       onClick={() => {
-                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject || sectionsCollapsed.education || sectionsCollapsed.employment || sectionsCollapsed.professionalReferences;
+                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject || sectionsCollapsed.education || sectionsCollapsed.employment || sectionsCollapsed.professionalReferences || sectionsCollapsed.credentialsProfessionalLicense;
                         if (anyCollapsed) {
                           setSectionsCollapsed((prev) => ({
                             ...prev,
@@ -349,6 +361,7 @@ const OnlineOrdering = () => {
                             education: false,
                             employment: false,
                             professionalReferences: false,
+                            credentialsProfessionalLicense: false,
                           }));
                         } else {
                           setSectionsCollapsed((prev) => ({
@@ -358,6 +371,7 @@ const OnlineOrdering = () => {
                             education: true,
                             employment: true,
                             professionalReferences: true,
+                            credentialsProfessionalLicense: true,
                           }));
                         }
                       }}
