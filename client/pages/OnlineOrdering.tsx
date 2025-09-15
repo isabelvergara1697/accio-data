@@ -7127,6 +7127,9 @@ const OnlineOrdering = () => {
                               </svg>
                               <input
                                 type="text"
+                                value={subjectFields.dob}
+                                onChange={(e) => setSubjectFields(prev => ({ ...prev, dob: e.target.value }))}
+                                placeholder="dd/mm/yyyy"
                                 style={{
                                   flex: "1 0 0",
                                   border: "none",
@@ -7136,7 +7139,7 @@ const OnlineOrdering = () => {
                                     "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-md, 16px)",
                                   fontWeight: 400,
-                                  color: "#717680",
+                                  color: subjectFields.dob ? "#181D27" : "#717680",
                                   lineHeight:
                                     "var(--Line-height-text-md, 24px)",
                                 }}
