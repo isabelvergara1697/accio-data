@@ -10546,6 +10546,52 @@ const OnlineOrdering = () => {
                     </div>
 
                   </div>
+
+                  {/* Action Buttons */}
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", alignSelf: "stretch" }}>
+                    <button
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "2px solid rgba(255, 255, 255, 0.12)",
+                        background: "#344698",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ color: "#FFF", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 600, lineHeight: "20px" }}>
+                          Add Another
+                        </div>
+                      </div>
+                    </button>
+                    <button
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 600, lineHeight: "20px" }}>
+                          Next Section
+                        </div>
+                      </div>
+                    </button>
+                  </div>
                 </div>
               </div>
               )}
