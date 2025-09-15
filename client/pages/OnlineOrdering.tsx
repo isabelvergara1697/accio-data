@@ -370,16 +370,12 @@ const OnlineOrdering = () => {
                           "var(--Font-family-font-family-display, 'Public Sans')",
                         fontSize: isDesktop
                           ? "var(--Font-size-display-xs, 24px)"
-                          : isTablet
-                            ? "20px"
-                            : "18px",
+                          : "20px",
                         fontStyle: "normal",
                         fontWeight: 600,
                         lineHeight: isDesktop
                           ? "var(--Line-height-display-xs, 32px)"
-                          : isTablet
-                            ? "30px"
-                            : "26px",
+                          : "30px",
                       }}
                     >
                       Create New Order
