@@ -1392,6 +1392,7 @@ const OnlineOrdering = () => {
 
               {/* Package and Products Container */}
               <div
+                data-section="package-and-products"
                 style={{
                   display: "flex",
                   flexDirection: "column",
