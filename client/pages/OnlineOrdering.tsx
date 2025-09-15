@@ -300,8 +300,16 @@ const OnlineOrdering = () => {
                       gap: "12px",
                     }}
                   >
-                    {/* Expand All Button */}
+                    {/* Expand/Collapse All Button */}
                     <button
+                      onClick={() => {
+                        const anyCollapsed = sectionsCollapsed.orderInfo || sectionsCollapsed.packageAndProducts;
+                        if (anyCollapsed) {
+                          setSectionsCollapsed({ orderInfo: false, packageAndProducts: false });
+                        } else {
+                          setSectionsCollapsed({ orderInfo: true, packageAndProducts: true });
+                        }
+                      }}
                       style={{
                         display: "flex",
                         minHeight: "36px",
@@ -336,7 +344,7 @@ const OnlineOrdering = () => {
                             lineHeight: "var(--Line-height-text-sm, 20px)",
                           }}
                         >
-                          Expand All
+                          {allExpanded ? "Collapse All" : "Expand All"}
                         </div>
                       </div>
                       <svg
