@@ -728,7 +728,248 @@ const OnlineOrdering = () => {
                     />
                   </div>
 
-                  {/* Status Tab */}
+                  {/* Service Categories - only show if CSD Standard is selected */}
+                  {selectedPackage === "csd-standard" && (
+                    <>
+                      {/* Service Categories Container */}
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          flexWrap: "wrap",
+                          gap: "16px",
+                        }}
+                      >
+                        {/* Background */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: isDesktop ? "350px" : "100%",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            minWidth: "200px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Background
+                          </div>
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-md, 16px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-md, 24px)",
+                            }}
+                          >
+                            Social Security Trace
+                          </div>
+                        </div>
+
+                        {/* Database Services */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            minWidth: "120px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Database Services
+                          </div>
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-md, 16px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-md, 24px)",
+                            }}
+                          >
+                            MJD
+                          </div>
+                        </div>
+
+                        {/* Additional Services */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: isDesktop ? "400px" : "100%",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            minWidth: "300px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Additional Services
+                          </div>
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-md, 16px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-md, 24px)",
+                            }}
+                          >
+                            MVR History, Court Criminal Monitoring
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Second row of service categories */}
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          flexWrap: "wrap",
+                          gap: "16px",
+                        }}
+                      >
+                        {/* Public Records */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: isDesktop ? "400px" : "100%",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            minWidth: "300px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Public Records
+                          </div>
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-md, 16px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-md, 24px)",
+                            }}
+                          >
+                            County/Statewide Criminal History 7yr
+                          </div>
+                        </div>
+
+                        {/* Other Products */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: isDesktop ? "400px" : "100%",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            minWidth: "300px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-sm, 14px)",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "var(--Line-height-text-sm, 20px)",
+                            }}
+                          >
+                            Other Products
+                          </div>
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "var(--Font-size-text-md, 16px)",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "var(--Line-height-text-md, 24px)",
+                            }}
+                          >
+                            Data Collection, DOT Drug Test and Physical
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Divider */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "4px 0",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        <div
+                          style={{
+                            height: "1px",
+                            flex: "1 0 0",
+                            background: "#E9EAEB",
+                          }}
+                        />
+                      </div>
+                    </>
+                  )}
+
+                  {/* Status Tabs - show Package and Subject always, other tabs only if checked */}
                   <div
                     style={{
                       display: "flex",
@@ -743,6 +984,7 @@ const OnlineOrdering = () => {
                       background: "#FFF",
                     }}
                   >
+                    {/* Package Tab - always show */}
                     <div
                       style={{
                         display: "flex",
@@ -766,6 +1008,205 @@ const OnlineOrdering = () => {
                         }}
                       >
                         Package
+                      </div>
+                    </div>
+
+                    {/* Subject Tab - always show */}
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "8px 6px 8px 12px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "8px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Subject
+                      </div>
+                    </div>
+
+                    {/* Employment Tab - only show if checked */}
+                    {packageCheckboxes["employment"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          Employment
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Education Tab - only show if checked */}
+                    {packageCheckboxes["education"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          Education
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Professional References Tab - only show if checked */}
+                    {packageCheckboxes["professional-references"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          Professional References
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Credentials-Professional License Tab - only show if checked */}
+                    {packageCheckboxes["credentials-professional-license"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          Credentials-Professional License
+                        </div>
+                      </div>
+                    )}
+
+                    {/* MVR History Tab - only show if checked */}
+                    {packageCheckboxes["motor-vehicle-driving"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-sm, 14px)",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "var(--Line-height-text-sm, 20px)",
+                          }}
+                        >
+                          MVR History
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Authorization Tab - always show */}
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "8px 6px 8px 12px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "8px",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Authorization
                       </div>
                     </div>
                   </div>
