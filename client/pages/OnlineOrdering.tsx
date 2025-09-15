@@ -529,7 +529,7 @@ const OnlineOrdering = () => {
                 {/* Content */}
                 <div
                   style={{
-                    display: "flex",
+                    display: sectionsCollapsed.orderInfo ? "none" : "flex",
                     padding: "12px 24px 16px 24px",
                     flexDirection: "column",
                     alignItems: "flex-start",
