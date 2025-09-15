@@ -72,6 +72,8 @@ const OnlineOrdering = () => {
     .filter(Boolean)
     .join(" ");
   const [authorizationChecked, setAuthorizationChecked] = useState(false);
+  // Track if each Education entry has any data entered (heuristic for progress)
+  const [educationFilledMap, setEducationFilledMap] = useState<Record<number, boolean>>({});
 
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
