@@ -745,7 +745,7 @@ const OnlineOrdering = () => {
                         {/* Background */}
                         <div
                           style={{
-                            display: "flex",
+                            display: packageCheckboxes["social-security-trace"] ? "flex" : "none",
                             width: isDesktop ? "350px" : "100%",
                             flexDirection: "column",
                             alignItems: "flex-start",
@@ -784,7 +784,7 @@ const OnlineOrdering = () => {
                         {/* Database Services */}
                         <div
                           style={{
-                            display: "flex",
+                            display: packageCheckboxes["mjd"] ? "flex" : "none",
                             flexDirection: "column",
                             alignItems: "flex-start",
                             gap: "4px",
@@ -822,7 +822,7 @@ const OnlineOrdering = () => {
                         {/* Additional Services */}
                         <div
                           style={{
-                            display: "flex",
+                            display: (packageCheckboxes["motor-vehicle-driving"] || packageCheckboxes["court-criminal-monitoring"]) ? "flex" : "none",
                             width: isDesktop ? "400px" : "100%",
                             flexDirection: "column",
                             alignItems: "flex-start",
@@ -854,7 +854,10 @@ const OnlineOrdering = () => {
                               lineHeight: "var(--Line-height-text-md, 24px)",
                             }}
                           >
-                            MVR History, Court Criminal Monitoring
+                            {[
+                              packageCheckboxes["motor-vehicle-driving"] ? "MVR History" : null,
+                              packageCheckboxes["court-criminal-monitoring"] ? "Court Criminal Monitoring" : null,
+                            ].filter(Boolean).join(", ")}
                           </div>
                         </div>
                       </div>
@@ -873,7 +876,7 @@ const OnlineOrdering = () => {
                         {/* Public Records */}
                         <div
                           style={{
-                            display: "flex",
+                            display: packageCheckboxes["county-criminal-history"] ? "flex" : "none",
                             width: isDesktop ? "400px" : "100%",
                             flexDirection: "column",
                             alignItems: "flex-start",
@@ -912,7 +915,7 @@ const OnlineOrdering = () => {
                         {/* Other Products */}
                         <div
                           style={{
-                            display: "flex",
+                            display: (packageCheckboxes["data-collection"] || packageCheckboxes["dot-drug-test"]) ? "flex" : "none",
                             width: isDesktop ? "400px" : "100%",
                             flexDirection: "column",
                             alignItems: "flex-start",
@@ -944,7 +947,10 @@ const OnlineOrdering = () => {
                               lineHeight: "var(--Line-height-text-md, 24px)",
                             }}
                           >
-                            Data Collection, DOT Drug Test and Physical
+                            {[
+                              packageCheckboxes["data-collection"] ? "Data Collection" : null,
+                              packageCheckboxes["dot-drug-test"] ? "DOT Drug Test and Physical" : null,
+                            ].filter(Boolean).join(", ")}
                           </div>
                         </div>
                       </div>
