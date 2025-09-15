@@ -9691,6 +9691,27 @@ const OnlineOrdering = () => {
                     </div>
                   </div>
 
+                  {/* Additional Employment entries (collapsed) */}
+                  {Array.from({ length: Math.max(0, (packageQuantities["employment"] || 1) - 1) }).map((_, i) => {
+                    const num = i + 2;
+                    return (
+                      <div key={`employment-collapsed-${num}`} style={{ display: "flex", padding: "12px", flexDirection: "column", alignItems: "flex-start", gap: "16px", alignSelf: "stretch", borderRadius: "10px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", alignSelf: "stretch" }}>
+                          <div style={{ color: "#181D27", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "var(--Font-size-text-md, 16px)", fontStyle: "normal", fontWeight: 500, lineHeight: "var(--Line-height-text-md, 24px)" }}>
+                            {`Employment #${num}`}
+                          </div>
+                          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                            <button style={{ display: "flex", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "default" }}>
+                              <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+
                   {/* Action Buttons */}
                   <div
                     style={{
