@@ -7205,6 +7205,8 @@ const OnlineOrdering = () => {
                             >
                               <input
                                 type="text"
+                                value={subjectFields.zipCode}
+                                onChange={(e) => setSubjectFields(prev => ({ ...prev, zipCode: e.target.value }))}
                                 style={{
                                   flex: "1 0 0",
                                   border: "none",
@@ -7214,7 +7216,7 @@ const OnlineOrdering = () => {
                                     "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-md, 16px)",
                                   fontWeight: 400,
-                                  color: "#717680",
+                                  color: subjectFields.zipCode ? "#181D27" : "#717680",
                                   lineHeight:
                                     "var(--Line-height-text-md, 24px)",
                                 }}
@@ -7283,6 +7285,8 @@ const OnlineOrdering = () => {
                             >
                               <input
                                 type="text"
+                                value={subjectFields.address}
+                                onChange={(e) => setSubjectFields(prev => ({ ...prev, address: e.target.value }))}
                                 style={{
                                   flex: "1 0 0",
                                   border: "none",
@@ -7292,7 +7296,7 @@ const OnlineOrdering = () => {
                                     "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-md, 16px)",
                                   fontWeight: 400,
-                                  color: "#717680",
+                                  color: subjectFields.address ? "#181D27" : "#717680",
                                   lineHeight:
                                     "var(--Line-height-text-md, 24px)",
                                 }}
