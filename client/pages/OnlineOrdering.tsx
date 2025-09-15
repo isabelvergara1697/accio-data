@@ -79,6 +79,79 @@ const OnlineOrdering = () => {
   const [credentialsFilledMap, setCredentialsFilledMap] = useState<Record<number, boolean>>({});
   const [mvrFilled, setMvrFilled] = useState(false);
 
+  // Track specific required fields for Subject section
+  const [subjectFields, setSubjectFields] = useState({
+    firstName: "",
+    lastName: "",
+    dob: "",
+    zipCode: "",
+    address: "",
+    phone: "",
+    email: "",
+    fcra: "",
+    criminalRecords: ""
+  });
+
+  // Track AKA fields (optional)
+  const [akaFields, setAkaFields] = useState({
+    otherFirstName: "",
+    otherMiddleName: "",
+    otherLastName: ""
+  });
+
+  // Track education fields per entry
+  const [educationFields, setEducationFields] = useState<Record<number, {
+    university: string;
+    degreeType: string;
+    major: string;
+    country: string;
+    state: string;
+    city: string;
+    gpaScale: string;
+    studentId: string;
+    transcript: string;
+    degreeYear: string;
+  }>>({});
+
+  // Track employment fields per entry
+  const [employmentFields, setEmploymentFields] = useState<Record<number, {
+    positionName: string;
+    companyName: string;
+    startDate: string;
+    endDate: string;
+    supervisorName: string;
+    supervisorPhone: string;
+    salary: string;
+    reasonForLeaving: string;
+  }>>({});
+
+  // Track professional reference fields per entry
+  const [professionalRefFields, setProfessionalRefFields] = useState<Record<number, {
+    name: string;
+    title: string;
+    company: string;
+    phone: string;
+    email: string;
+    relationship: string;
+  }>>({});
+
+  // Track credentials fields per entry
+  const [credentialsFields, setCredentialsFields] = useState<Record<number, {
+    licenseType: string;
+    licenseNumber: string;
+    issueDate: string;
+    expirationDate: string;
+    licensingAuthority: string;
+    state: string;
+  }>>({});
+
+  // Track MVR fields
+  const [mvrFields, setMvrFields] = useState({
+    licenseNumber: "",
+    licenseState: "",
+    expirationDate: ""
+  });
+
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
     portal: "Portal",
@@ -172,6 +245,92 @@ const OnlineOrdering = () => {
     setCredentialsFilledMap((prev) => (prev[index] ? prev : { ...prev, [index]: true }));
   };
 
+  // Check if subject section is fully completed
+  const isSubjectCompleted = () => {
+    return (
+      subjectFields.firstName.trim() &&
+      subjectFields.lastName.trim() &&
+      subjectFields.dob.trim() &&
+      subjectFields.zipCode.trim() &&
+      subjectFields.address.trim() &&
+      subjectFields.phone.trim() &&
+      subjectFields.email.trim() &&
+      subjectFields.fcra.trim() &&
+      subjectFields.criminalRecords.trim()
+    );
+  };
+
+  // Check if education entry is fully completed
+  const isEducationEntryCompleted = (index: number) => {
+    const entry = educationFields[index];
+    if (!entry) return false;
+    return (
+      entry.university.trim() &&
+      entry.degreeType.trim() &&
+      entry.major.trim() &&
+      entry.country.trim() &&
+      entry.state.trim() &&
+      entry.city.trim() &&
+      entry.gpaScale.trim() &&
+      entry.studentId.trim() &&
+      entry.transcript.trim() &&
+      entry.degreeYear.trim()
+    );
+  };
+
+  // Check if employment entry is fully completed
+  const isEmploymentEntryCompleted = (index: number) => {
+    const entry = employmentFields[index];
+    if (!entry) return false;
+    return (
+      entry.positionName.trim() &&
+      entry.companyName.trim() &&
+      entry.startDate.trim() &&
+      entry.endDate.trim() &&
+      entry.supervisorName.trim() &&
+      entry.supervisorPhone.trim() &&
+      entry.salary.trim() &&
+      entry.reasonForLeaving.trim()
+    );
+  };
+
+  // Check if professional reference entry is fully completed
+  const isProfessionalRefEntryCompleted = (index: number) => {
+    const entry = professionalRefFields[index];
+    if (!entry) return false;
+    return (
+      entry.name.trim() &&
+      entry.title.trim() &&
+      entry.company.trim() &&
+      entry.phone.trim() &&
+      entry.email.trim() &&
+      entry.relationship.trim()
+    );
+  };
+
+  // Check if credentials entry is fully completed
+  const isCredentialsEntryCompleted = (index: number) => {
+    const entry = credentialsFields[index];
+    if (!entry) return false;
+    return (
+      entry.licenseType.trim() &&
+      entry.licenseNumber.trim() &&
+      entry.issueDate.trim() &&
+      entry.expirationDate.trim() &&
+      entry.licensingAuthority.trim() &&
+      entry.state.trim()
+    );
+  };
+
+  // Check if MVR section is fully completed
+  const isMvrCompleted = () => {
+    return (
+      mvrFields.licenseNumber.trim() &&
+      mvrFields.licenseState.trim() &&
+      mvrFields.expirationDate.trim()
+    );
+  };
+
   const getProgressStats = () => {
     let completed = 0;
     let total = 0;
@@ -180,9 +339,9 @@ const OnlineOrdering = () => {
     total += 1;
     if (selectedPackage) completed += 1;
 
-    // Subject (require first and last name)
+    // Subject (all required fields)
     total += 1;
-    if (subjectFirstName.trim() && subjectLastName.trim()) completed += 1;
+    if (isSubjectCompleted()) completed += 1;
 
     // Authorization
     total += 1;
@@ -192,34 +351,42 @@ const OnlineOrdering = () => {
     if (packageCheckboxes["employment"]) {
       const qty = packageQuantities["employment"] || 0;
       total += qty;
-      for (let i = 1; i <= qty; i++) if (employmentFilledMap[i]) completed += 1;
+      for (let i = 1; i <= qty; i++) {
+        if (isEmploymentEntryCompleted(i)) completed += 1;
+      }
     }
 
     // Education
     if (packageCheckboxes["education"]) {
       const qty = packageQuantities["education"] || 0;
       total += qty;
-      for (let i = 1; i <= qty; i++) if (educationFilledMap[i]) completed += 1;
+      for (let i = 1; i <= qty; i++) {
+        if (isEducationEntryCompleted(i)) completed += 1;
+      }
     }
 
     // Professional References
     if (packageCheckboxes["professional-references"]) {
       const qty = packageQuantities["professional-references"] || 0;
       total += qty;
-      for (let i = 1; i <= qty; i++) if (professionalRefsFilledMap[i]) completed += 1;
+      for (let i = 1; i <= qty; i++) {
+        if (isProfessionalRefEntryCompleted(i)) completed += 1;
+      }
     }
 
     // Credentials / Professional License
     if (packageCheckboxes["credentials-professional-license"]) {
       const qty = packageQuantities["credentials-professional-license"] || 0;
       total += qty;
-      for (let i = 1; i <= qty; i++) if (credentialsFilledMap[i]) completed += 1;
+      for (let i = 1; i <= qty; i++) {
+        if (isCredentialsEntryCompleted(i)) completed += 1;
+      }
     }
 
     // Motor Vehicle Driving (single section)
     if (packageCheckboxes["motor-vehicle-driving"]) {
       total += 1;
-      if (mvrFilled) completed += 1;
+      if (isMvrCompleted()) completed += 1;
     }
 
     const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
