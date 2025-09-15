@@ -1416,6 +1416,10 @@ const OnlineOrdering = () => {
                     {/* MVR History Tab - only show if checked */}
                     {packageCheckboxes["motor-vehicle-driving"] && (
                       <div
+                        onClick={() => {
+                          const el = document.querySelector('[data-section="motor-vehicle-driving"]');
+                          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
                         style={{
                           display: "flex",
                           height: "36px",
@@ -1424,6 +1428,7 @@ const OnlineOrdering = () => {
                           alignItems: "center",
                           gap: "8px",
                           borderRadius: "6px",
+                          cursor: "pointer",
                         }}
                       >
                         <div
