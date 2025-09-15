@@ -144,19 +144,18 @@ const I9OrderConfirmation = () => {
           />
         )}
 
-        {/* Spacer for fixed header */}
-        <div
-          style={{
-            height: isDesktop ? "72px" : "64px",
-            background: "transparent",
-          }}
-        />
         
         {/* Main Content Container */}
         <div
           style={{
             display: "flex",
             paddingBottom: "24px",
+            paddingTop:
+              showNotification && isDesktop
+                ? "136px"
+                : isDesktop
+                ? "104px"
+                : "88px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "32px",
