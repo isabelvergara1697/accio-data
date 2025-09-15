@@ -1745,7 +1745,7 @@ const OnlineOrdering = () => {
                             </div>
                           </SelectItem>
                           <SelectItem
-                            value="volunteer-application"
+                            value="option-1"
                             disabled
                             style={{
                               display: "flex",
@@ -1786,18 +1786,18 @@ const OnlineOrdering = () => {
                                     fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                                     fontSize: "14px",
                                     fontStyle: "normal",
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     lineHeight: "20px",
                                     position: "relative",
                                   }}
                                 >
-                                  Volunteer Application
+                                  [Option]
                                 </div>
                               </div>
                             </div>
                           </SelectItem>
                           <SelectItem
-                            value="a-la-carte"
+                            value="option-2"
                             disabled
                             style={{
                               display: "flex",
@@ -1809,6 +1809,265 @@ const OnlineOrdering = () => {
                               borderRadius: 0,
                               background: "transparent",
                               cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  [Option]
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="option-3"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  [Option]
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="option-4"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  [Option]
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="option-5"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  [Option]
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="option-6"
+                            disabled
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "default",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                                borderRadius: "6px",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  [Option]
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                          <SelectItem
+                            value="orlando-diggs"
+                            style={{
+                              display: "flex",
+                              padding: "1px 6px",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              margin: 0,
+                              borderRadius: 0,
+                              background: "transparent",
+                              cursor: "pointer",
                             }}
                           >
                             <div
