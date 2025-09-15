@@ -1286,6 +1286,31 @@ const OnlineOrdering = () => {
                         >
                           MVR History
                         </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "2px 8px",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            border: "1px solid #E9EAEB",
+                            background: "#FAFAFA",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#414651",
+                              textAlign: "center",
+                              fontFamily:
+                                "var(--Font-family-font-family-body, 'Public Sans')",
+                              fontSize: "12px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            {packageQuantities["motor-vehicle-driving"] || 1}
+                          </div>
+                        </div>
                       </div>
                     )}
 
