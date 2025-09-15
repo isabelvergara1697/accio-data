@@ -7578,7 +7578,7 @@ const OnlineOrdering = () => {
                                 </defs>
                               </svg>
                             </div>
-                            <Select>
+                            <Select onValueChange={(v) => setSubjectFields(prev => ({ ...prev, fcra: v }))}>
                               <SelectTrigger
                                 style={{
                                   display: "flex",
