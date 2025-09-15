@@ -1084,6 +1084,12 @@ const OnlineOrdering = () => {
 
                     {/* Subject Tab - always show */}
                     <div
+                      onClick={() => {
+                        const subjectSection = document.querySelector('[data-section="subject"]');
+                        if (subjectSection) {
+                          subjectSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
                       style={{
                         display: "flex",
                         height: "36px",
@@ -1092,6 +1098,7 @@ const OnlineOrdering = () => {
                         alignItems: "center",
                         gap: "8px",
                         borderRadius: "6px",
+                        cursor: "pointer",
                       }}
                     >
                       <div
@@ -5190,6 +5197,7 @@ const OnlineOrdering = () => {
 
               {/* Subject Section */}
               <div
+                data-section="subject"
                 style={{
                   display: "flex",
                   flexDirection: "column",
