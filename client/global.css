@@ -391,6 +391,47 @@
     background: #c0c0c0;
   }
 
+  /* Responsive form helpers */
+  .stack-mobile {
+    /* desktop keeps inline styles; rules below override on small screens */
+  }
+  .stack-mobile-row {
+    /* desktop keeps inline styles; rules below override on small screens */
+  }
+  .tablet-two {
+    /* desktop keeps 3+ columns; tablet rule below reduces to 2 */
+  }
+
+  @media (max-width: 1024px) {
+    .tablet-two {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      column-gap: 16px !important;
+      row-gap: 16px !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .stack-mobile {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      grid-auto-rows: auto !important;
+      column-gap: 0 !important;
+      row-gap: 16px !important;
+    }
+    .stack-mobile-row {
+      flex-direction: column !important;
+      gap: 12px !important;
+    }
+
+    /* Ensure inputs expand full width on mobile */
+    .stack-mobile > *,
+    .stack-mobile-row > * {
+      width: 100% !important;
+      max-width: 100% !important;
+      grid-column: auto / span 1 !important;
+    }
+  }
+
   /* Global page title responsive styling */
   .page-title,
   h1.page-title {
