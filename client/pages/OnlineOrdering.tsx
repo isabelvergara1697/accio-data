@@ -8084,6 +8084,16 @@ const OnlineOrdering = () => {
                               >
                                 Employment
                               </div>
+                              {isEmploymentCompleted() && (
+                                <>
+                                  <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #ABEFC6", background: "#ECFDF3" }}>
+                                    <div style={{ color: "#067647", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>Completed</div>
+                                  </div>
+                                  <div style={{ display: "flex", width: "28px", height: "28px", padding: "6px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#DCFAE6" }}>
+                                    <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.3327 4L5.99935 11.3333L2.66602 8" stroke="#079455" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                  </div>
+                                </>
+                              )}
                             </div>
                           </div>
                         </div>
