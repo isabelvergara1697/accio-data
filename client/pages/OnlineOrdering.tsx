@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../components/ui/select";
+import { Checkbox } from "../components/ui/checkbox";
 
 const OnlineOrdering = () => {
   const navigate = useNavigate();
@@ -23,9 +24,45 @@ const OnlineOrdering = () => {
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState<string | undefined>(undefined);
+  const [packageCheckboxes, setPackageCheckboxes] = useState<Record<string, boolean>>({});
+  const [packageQuantities, setPackageQuantities] = useState<Record<string, number>>({});
+
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
     "portal": "Portal",
+  };
+
+  // Initialize checkboxes and quantities when CSD Standard is selected
+  useEffect(() => {
+    if (selectedPackage === "csd-standard") {
+      setPackageCheckboxes({
+        "social-security-trace": false,
+        "employment": false,
+        "education": false,
+        "professional-references": false,
+        "credentials-professional-license": false,
+        "mjd": true, // pre-checked and disabled
+        "data-collection": false,
+        "dot-drug-test": true, // pre-checked and disabled
+        "county-criminal-history": false,
+        "motor-vehicle-driving": false,
+        "court-criminal-monitoring": true, // pre-checked and disabled
+      });
+      setPackageQuantities({
+        "employment": 1,
+        "education": 1,
+        "professional-references": 1,
+        "credentials-professional-license": 1,
+      });
+    }
+  }, [selectedPackage]);
+
+  const handleCheckboxChange = (key: string, checked: boolean) => {
+    setPackageCheckboxes(prev => ({ ...prev, [key]: checked }));
+  };
+
+  const handleQuantityChange = (key: string, quantity: number) => {
+    setPackageQuantities(prev => ({ ...prev, [key]: quantity }));
   };
 
   // Auto-minimize sidebar after 30 seconds
@@ -2239,6 +2276,1458 @@ const OnlineOrdering = () => {
                       additional items you order will be added to your bill.
                     </div>
                   </div>
+
+                  {/* Conditional CSD Standard Content */}
+                  {selectedPackage === "csd-standard" && (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
+                        alignSelf: "stretch",
+                        flexWrap: "wrap",
+                        gap: "20px",
+                      }}
+                    >
+                      {/* Left Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: isDesktop ? "324px" : "100%",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          minWidth: isDesktop ? "300px" : "100%",
+                        }}
+                      >
+                        {/* Background Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Background
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Checkbox
+                                checked={packageCheckboxes["social-security-trace"] || false}
+                                onCheckedChange={(checked) => handleCheckboxChange("social-security-trace", !!checked)}
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  borderRadius: "4px",
+                                  border: "1px solid #D5D7DA",
+                                }}
+                              />
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-end",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  Social Security Trace
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      flexShrink: 0,
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_help)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Verification Services Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#000",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Verification Services
+                          </div>
+
+                          {/* Employment */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <Checkbox
+                                  checked={packageCheckboxes["employment"] || false}
+                                  onCheckedChange={(checked) => handleCheckboxChange("employment", !!checked)}
+                                  style={{
+                                    width: "16px",
+                                    height: "16px",
+                                    borderRadius: "4px",
+                                    border: "1px solid #D5D7DA",
+                                  }}
+                                />
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Employment
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <svg
+                                      style={{
+                                        width: "16px",
+                                        height: "16px",
+                                        flexShrink: 0,
+                                      }}
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_help2)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_help2">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <Select value={packageQuantities["employment"]?.toString() || "1"} onValueChange={(value) => handleQuantityChange("employment", parseInt(value))}>
+                              <SelectTrigger
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  width: "55px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  fontSize: "14px",
+                                  color: "#717680",
+                                }}
+                              >
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="1">1</SelectItem>
+                                <SelectItem value="2">2</SelectItem>
+                                <SelectItem value="3">3</SelectItem>
+                                <SelectItem value="4">4</SelectItem>
+                                <SelectItem value="5">5</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+
+                          {/* Education */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <Checkbox
+                                  checked={packageCheckboxes["education"] || false}
+                                  onCheckedChange={(checked) => handleCheckboxChange("education", !!checked)}
+                                  style={{
+                                    width: "16px",
+                                    height: "16px",
+                                    borderRadius: "4px",
+                                    border: "1px solid #D5D7DA",
+                                  }}
+                                />
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Education
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <svg
+                                      style={{
+                                        width: "16px",
+                                        height: "16px",
+                                        flexShrink: 0,
+                                      }}
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_help3)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_help3">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <Select value={packageQuantities["education"]?.toString() || "1"} onValueChange={(value) => handleQuantityChange("education", parseInt(value))}>
+                              <SelectTrigger
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  width: "55px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  fontSize: "14px",
+                                  color: "#717680",
+                                }}
+                              >
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="1">1</SelectItem>
+                                <SelectItem value="2">2</SelectItem>
+                                <SelectItem value="3">3</SelectItem>
+                                <SelectItem value="4">4</SelectItem>
+                                <SelectItem value="5">5</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+
+                          {/* Professional References */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <Checkbox
+                                  checked={packageCheckboxes["professional-references"] || false}
+                                  onCheckedChange={(checked) => handleCheckboxChange("professional-references", !!checked)}
+                                  style={{
+                                    width: "16px",
+                                    height: "16px",
+                                    borderRadius: "4px",
+                                    border: "1px solid #D5D7DA",
+                                  }}
+                                />
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Professional References
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <svg
+                                      style={{
+                                        width: "16px",
+                                        height: "16px",
+                                        flexShrink: 0,
+                                      }}
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_help4)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_help4">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <Select value={packageQuantities["professional-references"]?.toString() || "1"} onValueChange={(value) => handleQuantityChange("professional-references", parseInt(value))}>
+                              <SelectTrigger
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  width: "55px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  fontSize: "14px",
+                                  color: "#717680",
+                                }}
+                              >
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="1">1</SelectItem>
+                                <SelectItem value="2">2</SelectItem>
+                                <SelectItem value="3">3</SelectItem>
+                                <SelectItem value="4">4</SelectItem>
+                                <SelectItem value="5">5</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+
+                          {/* Credentials-Professional License */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "4px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <Checkbox
+                                  checked={packageCheckboxes["credentials-professional-license"] || false}
+                                  onCheckedChange={(checked) => handleCheckboxChange("credentials-professional-license", !!checked)}
+                                  style={{
+                                    width: "16px",
+                                    height: "16px",
+                                    borderRadius: "4px",
+                                    border: "1px solid #D5D7DA",
+                                  }}
+                                />
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: "1 0 0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#414651",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Credentials-Professional License
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <svg
+                                      style={{
+                                        width: "16px",
+                                        height: "16px",
+                                        flexShrink: 0,
+                                      }}
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <g clipPath="url(#clip0_help5)">
+                                        <path
+                                          d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_help5">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <Select value={packageQuantities["credentials-professional-license"]?.toString() || "1"} onValueChange={(value) => handleQuantityChange("credentials-professional-license", parseInt(value))}>
+                              <SelectTrigger
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px 8px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  width: "55px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  fontSize: "14px",
+                                  color: "#717680",
+                                }}
+                              >
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="1">1</SelectItem>
+                                <SelectItem value="2">2</SelectItem>
+                                <SelectItem value="3">3</SelectItem>
+                                <SelectItem value="4">4</SelectItem>
+                                <SelectItem value="5">5</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Middle Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: isDesktop ? "324px" : "100%",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "13px",
+                          minWidth: isDesktop ? "300px" : "100%",
+                        }}
+                      >
+                        {/* Data Base Services Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#000",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Data Base Services
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "16px",
+                                  height: "16px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "4px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#F5F5F5",
+                                }}
+                              >
+                                <svg
+                                  style={{
+                                    width: "16px",
+                                    height: "16px",
+                                    flexShrink: 0,
+                                  }}
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                    stroke="#D5D7DA"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-end",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  MJD
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      flexShrink: 0,
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_help6)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help6">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Other Products Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#000",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Other Products
+                          </div>
+
+                          {/* Data Collection */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Checkbox
+                                checked={packageCheckboxes["data-collection"] || false}
+                                onCheckedChange={(checked) => handleCheckboxChange("data-collection", !!checked)}
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  borderRadius: "4px",
+                                  border: "1px solid #D5D7DA",
+                                }}
+                              />
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-end",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  Data Collection
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      flexShrink: 0,
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_help7)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help7">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* DOT Drug Test and Physical */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "16px",
+                                  height: "16px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "4px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#F5F5F5",
+                                }}
+                              >
+                                <svg
+                                  style={{
+                                    width: "16px",
+                                    height: "16px",
+                                    flexShrink: 0,
+                                  }}
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                    stroke="#D5D7DA"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-end",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  DOT Drug Test and Physical
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      flexShrink: 0,
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_help8)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help8">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right Column */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: isDesktop ? "324px" : "100%",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          minWidth: isDesktop ? "300px" : "100%",
+                        }}
+                      >
+                        {/* Public Records Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Public Records
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Checkbox
+                                checked={packageCheckboxes["county-criminal-history"] || false}
+                                onCheckedChange={(checked) => handleCheckboxChange("county-criminal-history", !!checked)}
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  borderRadius: "4px",
+                                  border: "1px solid #D5D7DA",
+                                }}
+                              />
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-end",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  County/Statewide Criminal History 7yr
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      flexShrink: 0,
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_help9)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help9">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Additional Services Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 400,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Additional Services
+                          </div>
+
+                          {/* Motor Vehicle Driving History */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <Checkbox
+                                checked={packageCheckboxes["motor-vehicle-driving"] || false}
+                                onCheckedChange={(checked) => handleCheckboxChange("motor-vehicle-driving", !!checked)}
+                                style={{
+                                  width: "16px",
+                                  height: "16px",
+                                  borderRadius: "4px",
+                                  border: "1px solid #D5D7DA",
+                                }}
+                              />
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-end",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  Motor Vehicle Driving History
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      flexShrink: 0,
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_help10)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help10">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Court Criminal Monitoring */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                paddingTop: "2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: "16px",
+                                  height: "16px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  borderRadius: "4px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#F5F5F5",
+                                }}
+                              >
+                                <svg
+                                  style={{
+                                    width: "16px",
+                                    height: "16px",
+                                    flexShrink: 0,
+                                  }}
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                    stroke="#D5D7DA"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "flex-end",
+                                  gap: "4px",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                  }}
+                                >
+                                  Court Criminal Monitoring
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  <svg
+                                    style={{
+                                      width: "16px",
+                                      height: "16px",
+                                      flexShrink: 0,
+                                    }}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g clipPath="url(#clip0_help11)">
+                                      <path
+                                        d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                        stroke="#A4A7AE"
+                                        strokeWidth="1.33333"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                      />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help11">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
