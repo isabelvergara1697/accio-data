@@ -1677,7 +1677,7 @@ const OnlineOrdering = () => {
                             fontWeight: selectedPackage ? 500 : 400,
                             lineHeight: "var(--Line-height-text-md, 24px)",
                             color: "#181D27",
-                            height: "auto",
+                            height: "48px",
                           }}
                         >
                           <SelectValue placeholder="Select a package" />
