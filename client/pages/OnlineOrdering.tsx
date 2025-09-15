@@ -1491,7 +1491,7 @@ const OnlineOrdering = () => {
                     >
                       <div
                         style={{
-                          color: "#717680",
+                          color: authorizationChecked ? "#414651" : "#717680",
                           fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
                           fontSize: "var(--Font-size-text-sm, 14px)",
                           fontStyle: "normal",
