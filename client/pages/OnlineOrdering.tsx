@@ -12248,6 +12248,137 @@ const OnlineOrdering = () => {
               </div>
               )}
 
+              {/* Authorization Section - Always show */}
+              <div
+                data-section="authorization"
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  overflow: "hidden",
+                }}
+              >
+                {/* Section Header */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                    alignSelf: "stretch",
+                    background: "#FFF",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "20px 24px 0 24px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "18px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "28px",
+                              }}
+                            >
+                              Authorize and Continue
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Main Content */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 24px 16px 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  {/* Authorization Checkbox */}
+                  <div style={{ display: "flex", width: "505px", alignItems: "flex-start", gap: "8px" }}>
+                    <div style={{ display: "flex", paddingTop: "2px", justifyContent: "center", alignItems: "center" }}>
+                      <div style={{ width: "16px", height: "16px", borderRadius: "4px", border: "1px solid #D5D7DA" }}></div>
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                      <div style={{ display: "flex", width: "320px", alignItems: "flex-end", gap: "4px" }}>
+                        <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                          I have obtained candidate authorization.
+                        </div>
+                        <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center", flexShrink: 0 }}>
+                          <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clipPath="url(#clip0_help_authorization)">
+                              <path d="M6.06065 5.99967C6.21739 5.55412 6.52675 5.17841 6.93395 4.9391C7.34116 4.69978 7.81991 4.6123 8.28544 4.69215C8.75096 4.772 9.1732 5.01402 9.47737 5.37536C9.78154 5.7367 9.94802 6.19402 9.94732 6.66634C9.94732 7.99967 7.94732 8.66634 7.94732 8.66634M8.00065 11.333H8.00732M14.6673 7.99967C14.6673 11.6816 11.6826 14.6663 8.00065 14.6663C4.31875 14.6663 1.33398 11.6816 1.33398 7.99967C1.33398 4.31778 4.31875 1.33301 8.00065 1.33301C11.6826 1.33301 14.6673 4.31778 14.6673 7.99967Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_help_authorization">
+                                <rect width="16" height="16" fill="white" />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                        </div>
+                      </div>
+                      <div style={{ alignSelf: "stretch", color: "#535862", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 400, lineHeight: "20px" }}>
+                        Learn more about the Fair Credit Reporting Act (FCRA)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* CTA Order Section */}
               <div
                 style={{
