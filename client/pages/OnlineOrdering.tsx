@@ -1479,7 +1479,7 @@ const OnlineOrdering = () => {
                         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                       }}
                       style={{
-                        display: "flex",
+                        display: selectedPackage ? "flex" : "none",
                         height: "36px",
                         padding: "8px 6px 8px 12px",
                         justifyContent: "center",
