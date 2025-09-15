@@ -53,6 +53,7 @@ const OnlineOrdering = () => {
         "education": 1,
         "professional-references": 1,
         "credentials-professional-license": 1,
+        "motor-vehicle-driving": 1,
       });
     }
   }, [selectedPackage]);
