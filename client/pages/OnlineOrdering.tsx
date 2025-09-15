@@ -1668,19 +1668,19 @@ const OnlineOrdering = () => {
                             gap: "8px",
                             alignSelf: "stretch",
                             borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
+                            border: selectedPackage ? "2px solid #34479A" : "1px solid #D5D7DA",
                             background: "#FFF",
                             boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                             fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-md, 16px)",
-                            fontWeight: 400,
+                            fontWeight: selectedPackage ? 500 : 400,
                             lineHeight: "var(--Line-height-text-md, 24px)",
                             color: "#181D27",
                             height: "auto",
                           }}
                         >
-                          <SelectValue placeholder="Select Package" />
+                          <SelectValue placeholder="Select a package" />
                         </SelectTrigger>
                         <SelectContent
                           style={{
