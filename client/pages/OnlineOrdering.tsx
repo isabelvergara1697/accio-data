@@ -145,6 +145,20 @@ const OnlineOrdering = () => {
     return {};
   };
 
+  // Helper: consistent tab styling for completed sections (matches "Package" look)
+  const tabContainerStyle = (completed: boolean) => ({
+    display: "flex",
+    height: "36px",
+    padding: "8px 6px 8px 12px",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "8px",
+    borderRadius: "6px",
+    border: completed ? "1px solid #D5D7DA" : "none",
+    background: completed ? "#F9F9F9" : "transparent",
+    cursor: "pointer",
+  } as React.CSSProperties);
+
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -1082,18 +1096,7 @@ const OnlineOrdering = () => {
                           packageSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                       }}
-                      style={{
-                        display: "flex",
-                        height: "36px",
-                        padding: "8px 6px 8px 12px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "8px",
-                        borderRadius: "6px",
-                        border: selectedPackage ? "1px solid #D5D7DA" : "none",
-                        background: selectedPackage ? "#F9F9F9" : "transparent",
-                        cursor: "pointer",
-                      }}
+                      style={tabContainerStyle(!!selectedPackage)}
                     >
                       <div
                         style={{
@@ -1154,16 +1157,7 @@ const OnlineOrdering = () => {
                           subjectSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                       }}
-                      style={{
-                        display: "flex",
-                        height: "36px",
-                        padding: "8px 6px 8px 12px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "8px",
-                        borderRadius: "6px",
-                        cursor: "pointer",
-                      }}
+                      style={tabContainerStyle(!!subjectFullName)}
                     >
                       <div
                         style={{
@@ -1178,6 +1172,13 @@ const OnlineOrdering = () => {
                       >
                         Subject
                       </div>
+                      {!!subjectFullName && (
+                        <div style={{ display: "flex", width: "24px", height: "24px", padding: "6px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#DCFAE6" }}>
+                          <svg style={{ width: "12px", height: "12px", flexShrink: 0 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 3L4.5 8.5L2 6" stroke="#079455" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
                     )}
 
@@ -1484,14 +1485,8 @@ const OnlineOrdering = () => {
                         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                       }}
                       style={{
+                        ...tabContainerStyle(authorizationChecked),
                         display: selectedPackage ? "flex" : "none",
-                        height: "36px",
-                        padding: "8px 6px 8px 12px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "8px",
-                        borderRadius: "6px",
-                        cursor: "pointer",
                       }}
                     >
                       <div
