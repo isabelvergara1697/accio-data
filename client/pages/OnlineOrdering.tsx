@@ -7345,6 +7345,11 @@ const OnlineOrdering = () => {
                         }}
                       >
                         <button
+                          onClick={() => {
+                            setPackageCheckboxes(prev => ({ ...prev, employment: false }));
+                            setPackageQuantities(prev => { const next = { ...prev }; delete next["employment"]; return next; });
+                            setSectionsCollapsed(prev => ({ ...prev, employment: false }));
+                          }}
                           style={{
                             display: "flex",
                             height: "32px",
