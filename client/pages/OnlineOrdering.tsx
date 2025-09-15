@@ -368,10 +368,18 @@ const OnlineOrdering = () => {
                         color: "var(--colors-text-text-primary-900, #181D27)",
                         fontFamily:
                           "var(--Font-family-font-family-display, 'Public Sans')",
-                        fontSize: "var(--Font-size-display-xs, 24px)",
+                        fontSize: isDesktop
+                          ? "var(--Font-size-display-xs, 24px)"
+                          : isTablet
+                            ? "20px"
+                            : "18px",
                         fontStyle: "normal",
                         fontWeight: 600,
-                        lineHeight: "var(--Line-height-display-xs, 32px)",
+                        lineHeight: isDesktop
+                          ? "var(--Line-height-display-xs, 32px)"
+                          : isTablet
+                            ? "30px"
+                            : "26px",
                       }}
                     >
                       Create New Order
