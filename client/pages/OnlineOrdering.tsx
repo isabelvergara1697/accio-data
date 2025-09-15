@@ -2093,16 +2093,16 @@ const OnlineOrdering = () => {
                               >
                                 <div
                                   style={{
-                                    color: "#717680",
+                                    color: "#181D27",
                                     fontFamily: "'Public Sans', -apple-system, Roboto, Helvetica, sans-serif",
                                     fontSize: "14px",
                                     fontStyle: "normal",
-                                    fontWeight: 400,
+                                    fontWeight: 500,
                                     lineHeight: "20px",
                                     position: "relative",
                                   }}
                                 >
-                                  A La Carte
+                                  Orlando Diggs
                                 </div>
                               </div>
                             </div>
