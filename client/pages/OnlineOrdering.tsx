@@ -4938,6 +4938,112 @@ const OnlineOrdering = () => {
                   </div>
                 </div>
               </div>
+
+              {/* CTA Order Section */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: "10px",
+                  alignSelf: "stretch",
+                  padding: "24px 0",
+                }}
+              >
+                {/* Save as Draft Button */}
+                <button
+                  style={{
+                    display: "flex",
+                    padding: "12px 16px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "6px",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F5F5F5";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFF";
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily:
+                          "var(--Font-family-font-family-body, 'Public Sans')",
+                        fontSize: "var(--Font-size-text-md, 16px)",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "var(--Line-height-text-md, 24px)",
+                      }}
+                    >
+                      Save as a Draft
+                    </div>
+                  </div>
+                </button>
+
+                {/* Submit Order Button */}
+                <button
+                  style={{
+                    display: "flex",
+                    padding: "12px 16px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "6px",
+                    borderRadius: "8px",
+                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                    background: "#344698",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#2D3985";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#344698";
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#FFF",
+                        fontFamily:
+                          "var(--Font-family-font-family-body, 'Public Sans')",
+                        fontSize: "var(--Font-size-text-md, 16px)",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "var(--Line-height-text-md, 24px)",
+                      }}
+                    >
+                      Submit Order
+                    </div>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>
