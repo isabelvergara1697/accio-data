@@ -6258,6 +6258,7 @@ const OnlineOrdering = () => {
                         </div>
                         {/* Name fields row */}
                         <div
+                          className="stack-mobile-row"
                           style={{
                             display: "flex",
                             alignItems: "flex-start",
@@ -6824,6 +6825,7 @@ const OnlineOrdering = () => {
 
                         {/* Address Grid */}
                         <div
+                          className="stack-mobile tablet-two"
                           style={{
                             display: "grid",
                             rowGap: "16px",
@@ -7296,6 +7298,7 @@ const OnlineOrdering = () => {
 
                         {/* FCRA Purpose and Criminal Records Grid */}
                         <div
+                          className="stack-mobile"
                           style={{
                             display: "grid",
                             rowGap: "16px",
@@ -7498,6 +7501,7 @@ const OnlineOrdering = () => {
 
                         {/* Phone and Email Grid */}
                         <div
+                          className="stack-mobile"
                           style={{
                             display: "grid",
                             rowGap: "16px",
