@@ -5922,6 +5922,7 @@ const OnlineOrdering = () => {
                     </div>
                     {/* Add More AKAs Button */}
                     <button
+                      onClick={() => setShowAKAForm(true)}
                       style={{
                         display: "flex",
                         minHeight: "36px",
