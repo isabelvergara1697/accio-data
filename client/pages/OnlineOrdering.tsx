@@ -26,9 +26,9 @@ const OnlineOrdering = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | undefined>(undefined);
   const [packageCheckboxes, setPackageCheckboxes] = useState<Record<string, boolean>>({});
   const [packageQuantities, setPackageQuantities] = useState<Record<string, number>>({});
-  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, employment: false });
+  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, education: false, employment: false });
   const [showAKAForm, setShowAKAForm] = useState(false);
-  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.employment;
+  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment;
 
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
@@ -41,9 +41,9 @@ const OnlineOrdering = () => {
       setPackageCheckboxes({
         "social-security-trace": false,
         "employment": false,
-        "education": true, // pre-checked in figma
+        "education": false,
         "professional-references": false,
-        "credentials-professional-license": true, // pre-checked in figma
+        "credentials-professional-license": false,
         "mjd": true, // pre-checked and disabled
         "data-collection": false,
         "dot-drug-test": true, // pre-checked and disabled
@@ -304,12 +304,13 @@ const OnlineOrdering = () => {
                     {/* Expand/Collapse All Button */}
                     <button
                       onClick={() => {
-                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject || sectionsCollapsed.employment;
+                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject || sectionsCollapsed.education || sectionsCollapsed.employment;
                         if (anyCollapsed) {
                           setSectionsCollapsed((prev) => ({
                             ...prev,
                             packageAndProducts: false,
                             subject: false,
+                            education: false,
                             employment: false,
                           }));
                         } else {
@@ -317,6 +318,7 @@ const OnlineOrdering = () => {
                             ...prev,
                             packageAndProducts: true,
                             subject: true,
+                            education: true,
                             employment: true,
                           }));
                         }
@@ -1184,6 +1186,10 @@ const OnlineOrdering = () => {
                     {/* Education Tab - only show if checked */}
                     {packageCheckboxes["education"] && (
                       <div
+                        onClick={() => {
+                          const el = document.querySelector('[data-section="education"]');
+                          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
                         style={{
                           display: "flex",
                           height: "36px",
