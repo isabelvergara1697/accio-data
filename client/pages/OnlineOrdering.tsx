@@ -28,7 +28,7 @@ const OnlineOrdering = () => {
   const [packageQuantities, setPackageQuantities] = useState<Record<string, number>>({});
   const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, employment: false });
   const [showAKAForm, setShowAKAForm] = useState(false);
-  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject;
+  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.employment;
 
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
