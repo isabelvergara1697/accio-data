@@ -1084,7 +1084,8 @@ const OnlineOrdering = () => {
                       )}
                     </div>
 
-                    {/* Subject Tab - always show */}
+                    {/* Subject Tab - show only when a package is selected */}
+                    {selectedPackage && (
                     <div
                       onClick={() => {
                         const subjectSection = document.querySelector('[data-section="subject"]');
@@ -1117,6 +1118,7 @@ const OnlineOrdering = () => {
                         Subject
                       </div>
                     </div>
+                    )}
 
                     {/* Employment Tab - only show if checked */}
                     {packageCheckboxes["employment"] && (
