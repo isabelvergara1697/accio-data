@@ -403,8 +403,10 @@ const OnlineOrdering = () => {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
+                      flexDirection: isMobile ? "column" : "row",
+                      alignItems: isMobile ? "stretch" : "center",
                       gap: "12px",
+                      width: isMobile ? "100%" : "auto",
                     }}
                   >
                     {/* Expand/Collapse All Button */}
