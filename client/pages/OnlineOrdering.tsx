@@ -1558,6 +1558,12 @@ const OnlineOrdering = () => {
                         }}
                       >
                         <button
+                          onClick={() =>
+                            setSectionsCollapsed((prev) => ({
+                              ...prev,
+                              packageAndProducts: !prev.packageAndProducts,
+                            }))
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -1575,6 +1581,8 @@ const OnlineOrdering = () => {
                             style={{
                               width: "16px",
                               height: "16px",
+                              transform: sectionsCollapsed.packageAndProducts ? "none" : "rotate(180deg)",
+                              transition: "transform 0.2s ease",
                             }}
                             width="16"
                             height="16"
@@ -1583,7 +1591,7 @@ const OnlineOrdering = () => {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              d="M4 6L8 10L12 6"
+                              d="M12 10L8 6L4 10"
                               stroke="#A4A7AE"
                               strokeWidth="1.66667"
                               strokeLinecap="round"
