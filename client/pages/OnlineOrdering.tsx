@@ -10971,6 +10971,12 @@ const OnlineOrdering = () => {
 
                       {/* Collapsible content for Education #1 */}
                       <div
+                        onChangeCapture={(e) => {
+                          const t = e.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+                          if (t && ("value" in t ? String((t as any).value ?? "").trim().length > 0 : false)) {
+                            markEducationFilled(1, true);
+                          }
+                        }}
                         style={{
                           display: educationCollapsedMap[1] ? "none" : "flex",
                           flexDirection: "column",
