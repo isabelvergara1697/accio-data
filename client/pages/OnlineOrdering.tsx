@@ -10693,6 +10693,631 @@ const OnlineOrdering = () => {
               </div>
               )}
 
+              {/* Professional References Section */}
+              {packageCheckboxes["professional-references"] && (
+              <div
+                data-section="professional-references"
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                }}
+              >
+                {/* Section Header */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                    alignSelf: "stretch",
+                    background: "#FFF",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "20px 24px 0 24px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "18px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "28px",
+                              }}
+                            >
+                              Professional References
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() =>
+                          setSectionsCollapsed((prev) => ({ ...prev, professionalReferences: !prev.professionalReferences }))
+                        }
+                        style={{
+                          display: "flex",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <svg
+                          style={{ width: "16px", height: "16px", transform: sectionsCollapsed.professionalReferences ? "none" : "rotate(180deg)", transition: "transform 0.2s ease" }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 6L8 10L12 6"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Collapsed State Padding */}
+                {sectionsCollapsed.professionalReferences && (
+                  <div style={{ padding: "0 24px 20px 24px", alignSelf: "stretch" }} />
+                )}
+
+                {/* Main Content */}
+                <div
+                  style={{
+                    display: sectionsCollapsed.professionalReferences ? "none" : "flex",
+                    padding: "12px 24px 16px 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                    borderRadius: "0px 0px 0 0",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  {/* Professional Reference #1 */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "12px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                      borderRadius: "10px",
+                      border: "1px solid #E9EAEB",
+                      background: "#FAFAFA",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "24px",
+                          }}
+                        >
+                          Professional Reference #1
+                        </div>
+                        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                          <button
+                            onClick={() => {
+                              setPackageCheckboxes(prev => ({ ...prev, "professional-references": false }));
+                              setPackageQuantities(prev => { const next = { ...prev }; delete next["professional-references"]; return next; });
+                              setSectionsCollapsed(prev => ({ ...prev, professionalReferences: false }));
+                            }}
+                            style={{
+                              display: "flex",
+                              height: "32px",
+                              padding: "6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                              <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 600, lineHeight: "18px" }}>
+                                Remove
+                              </div>
+                            </div>
+                            <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clipPath="url(#clip0_minus_circle_prof_ref)">
+                                <path d="M5.33325 7.99992H10.6666M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_minus_circle_prof_ref">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </button>
+                          <button
+                            onClick={() => setProfessionalReferencesCollapsedMap(prev => ({ ...prev, 1: !prev[1] }))}
+                            style={{
+                              display: "flex",
+                              padding: "8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <svg style={{ width: "16px", height: "16px", transform: professionalReferencesCollapsedMap[1] ? "none" : "rotate(180deg)", transition: "transform 0.2s ease" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Collapsible content for Professional Reference #1 */}
+                      <div style={{ display: professionalReferencesCollapsedMap[1] ? 'none' : 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '16px', alignSelf: 'stretch' }}>
+
+                        {/* Does Not Apply Checkbox */}
+                        <div style={{ display: "flex", width: "505px", alignItems: "flex-start", gap: "8px" }}>
+                          <div style={{ display: "flex", paddingTop: "2px", justifyContent: "center", alignItems: "center" }}>
+                            <div style={{ width: "16px", height: "16px", borderRadius: "4px", border: "1px solid #D5D7DA" }}></div>
+                          </div>
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                            <div style={{ display: "flex", width: "320px", alignItems: "flex-end", gap: "4px" }}>
+                              <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                Does Not Apply - check if this item does not apply to you
+                              </div>
+                              <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center", flexShrink: 0 }}>
+                                <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <g clipPath="url(#clip0_help_professional_references)">
+                                    <path d="M6.05992 5.99992C6.21665 5.55436 6.52602 5.17866 6.93322 4.93934C7.34042 4.70002 7.81918 4.61254 8.2847 4.69239C8.75022 4.77224 9.17246 5.01427 9.47664 5.3756C9.78081 5.73694 9.94729 6.19427 9.94659 6.66659C9.94659 7.99992 7.94659 8.66659 7.94659 8.66659M7.99992 11.3333H8.00659M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                  </g>
+                                  <defs>
+                                    <clipPath id="clip0_help_professional_references">
+                                      <rect width="16" height="16" fill="white" />
+                                    </clipPath>
+                                  </defs>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Form Fields Grid */}
+                        <div style={{ display: "grid", height: "230px", rowGap: "16px", columnGap: "16px", alignSelf: "stretch", gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)", gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}>
+
+                          {/* Contact Name */}
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "1 / span 1", gridColumn: "1 / span 1" }}>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  Contact Name
+                                </div>
+                                <div style={{ color: "#344698", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  *
+                                </div>
+                                <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                                  <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clipPath="url(#clip0_help_contact_name)">
+                                      <path d="M6.05992 5.99992C6.21665 5.55436 6.52602 5.17866 6.93322 4.93934C7.34042 4.70002 7.81918 4.61254 8.2847 4.69239C8.75022 4.77224 9.17246 5.01427 9.47664 5.3756C9.78081 5.73694 9.94729 6.19427 9.94659 6.66659C9.94659 7.99992 7.94659 8.66659 7.94659 8.66659M7.99992 11.3333H8.00659M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help_contact_name">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                <div style={{ display: "flex", height: "24px", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                                  <input type="text" style={{ flex: "1 0 0", border: "none", outline: "none", background: "transparent", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontWeight: 400, color: "#181D27", lineHeight: "24px" }} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Phone */}
+                          <div style={{ display: "flex", width: "322px", height: "66px", flexDirection: "column", alignItems: "flex-start", gap: "6px", flexShrink: 0, alignSelf: "start", gridRow: "1 / span 1", gridColumn: "2 / span 1", justifySelf: "start" }}>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  Phone
+                                </div>
+                                <div style={{ color: "#344698", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  *
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", alignItems: "flex-start", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                <div style={{ display: "flex", padding: "8px 0 8px 12px", alignItems: "center", gap: "2px", alignSelf: "stretch" }}>
+                                  <div style={{ color: "#535862", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontStyle: "normal", fontWeight: 400, lineHeight: "24px" }}>
+                                    US
+                                  </div>
+                                  <svg style={{ width: "24px", height: "24px" }} width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.3335 9L12.3335 15L18.3335 9" stroke="#A4A7AE" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                                  </svg>
+                                </div>
+                                <div style={{ display: "flex", padding: "8px 12px 8px 10px", alignItems: "center", gap: "8px", flex: "1 0 0", alignSelf: "stretch" }}>
+                                  <input type="text" placeholder="+1" style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 1, flex: "1 0 0", overflow: "hidden", color: "#717680", textOverflow: "ellipsis", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontStyle: "normal", fontWeight: 400, lineHeight: "24px", border: "none", outline: "none", background: "transparent" }} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Reference Type */}
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "1 / span 1", gridColumn: "3 / span 1" }}>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  Reference Type
+                                </div>
+                                <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                                  <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.72667 5.99992C6.8834 5.55436 7.19277 5.17866 7.59997 4.93934C8.00717 4.70002 8.48593 4.61254 8.95145 4.69239C9.41697 4.77224 9.83921 5.01427 10.1434 5.3756C10.4476 5.73694 10.614 6.19427 10.6133 6.66659C10.6133 7.99992 8.61333 8.66659 8.61333 8.66659M8.66667 11.3333H8.67333M15.3333 7.99992C15.3333 11.6818 12.3486 14.6666 8.66667 14.6666C4.98477 14.6666 2 11.6818 2 7.99992C2 4.31802 4.98477 1.33325 8.66667 1.33325C12.3486 1.33325 15.3333 4.31802 15.3333 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", flex: "1 0 0", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                <div style={{ display: "flex", height: "24px", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                                  <input type="text" style={{ flex: "1 0 0", border: "none", outline: "none", background: "transparent", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontWeight: 400, color: "#181D27", lineHeight: "24px" }} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Relationship */}
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "2 / span 1", gridColumn: "1 / span 1" }}>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  Relationship
+                                </div>
+                                <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                                  <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clipPath="url(#clip0_help_relationship)">
+                                      <path d="M6.05992 5.99992C6.21665 5.55436 6.52602 5.17866 6.93322 4.93934C7.34042 4.70002 7.81918 4.61254 8.2847 4.69239C8.75022 4.77224 9.17246 5.01427 9.47664 5.3756C9.78081 5.73694 9.94729 6.19427 9.94659 6.66659C9.94659 7.99992 7.94659 8.66659 7.94659 8.66659M7.99992 11.3333H8.00659M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help_relationship">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                <div style={{ display: "flex", height: "24px", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                                  <input type="text" style={{ flex: "1 0 0", border: "none", outline: "none", background: "transparent", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontWeight: 400, color: "#181D27", lineHeight: "24px" }} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Address */}
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "2 / span 1", gridColumn: "2 / span 1" }}>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  Address
+                                </div>
+                                <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                                  <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.39366 5.99992C6.5504 5.55436 6.85976 5.17866 7.26696 4.93934C7.67416 4.70002 8.15292 4.61254 8.61844 4.69239C9.08396 4.77224 9.5062 5.01427 9.81038 5.3756C10.1146 5.73694 10.281 6.19427 10.2803 6.66659C10.2803 7.99992 8.28033 8.66659 8.28033 8.66659M8.33366 11.3333H8.34033M15.0003 7.99992C15.0003 11.6818 12.0156 14.6666 8.33366 14.6666C4.65176 14.6666 1.66699 11.6818 1.66699 7.99992C1.66699 4.31802 4.65176 1.33325 8.33366 1.33325C12.0156 1.33325 15.0003 4.31802 15.0003 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                <div style={{ display: "flex", height: "24px", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                                  <input type="text" style={{ flex: "1 0 0", border: "none", outline: "none", background: "transparent", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontWeight: 400, color: "#181D27", lineHeight: "24px" }} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Zip */}
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "2 / span 1", gridColumn: "3 / span 1" }}>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  Zip
+                                </div>
+                                <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                                  <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.72667 5.99992C6.8834 5.55436 7.19277 5.17866 7.59997 4.93934C8.00717 4.70002 8.48593 4.61254 8.95145 4.69239C9.41697 4.77224 9.83921 5.01427 10.1434 5.3756C10.4476 5.73694 10.614 6.19427 10.6133 6.66659C10.6133 7.99992 8.61333 8.66659 8.61333 8.66659M8.66667 11.3333H8.67333M15.3333 7.99992C15.3333 11.6818 12.3486 14.6666 8.66667 14.6666C4.98477 14.6666 2 11.6818 2 7.99992C2 4.31802 4.98477 1.33325 8.66667 1.33325C12.3486 1.33325 15.3333 4.31802 15.3333 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                <div style={{ display: "flex", height: "24px", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                                  <input type="text" style={{ flex: "1 0 0", border: "none", outline: "none", background: "transparent", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontWeight: 400, color: "#181D27", lineHeight: "24px" }} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Country */}
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "3 / span 1", gridColumn: "1 / span 1" }}>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  Country
+                                </div>
+                                <div style={{ color: "#344698", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  *
+                                </div>
+                                <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                                  <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clipPath="url(#clip0_help_country)">
+                                      <path d="M6.05992 5.99992C6.21665 5.55436 6.52602 5.17866 6.93322 4.93934C7.34042 4.70002 7.81918 4.61254 8.2847 4.69239C8.75022 4.77224 9.17246 5.01427 9.47664 5.3756C9.78081 5.73694 9.94729 6.19427 9.94659 6.66659C9.94659 7.99992 7.94659 8.66659 7.94659 8.66659M7.99992 11.3333H8.00659M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                    </g>
+                                    <defs>
+                                      <clipPath id="clip0_help_country">
+                                        <rect width="16" height="16" fill="white" />
+                                      </clipPath>
+                                    </defs>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                <div style={{ display: "flex", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                                  <div style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 1, flex: "1 0 0", overflow: "hidden", color: "#717680", textOverflow: "ellipsis", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontStyle: "normal", fontWeight: 400, lineHeight: "24px" }}>
+                                    Select
+                                  </div>
+                                </div>
+                                <svg style={{ width: "24px", height: "24px" }} width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6.3335 9L12.3335 15L18.3335 9" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* State */}
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "3 / span 1", gridColumn: "2 / span 1" }}>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  State
+                                </div>
+                                <div style={{ color: "#344698", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  *
+                                </div>
+                                <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                                  <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.39366 5.99992C6.5504 5.55436 6.85976 5.17866 7.26696 4.93934C7.67416 4.70002 8.15292 4.61254 8.61844 4.69239C9.08396 4.77224 9.5062 5.01427 9.81038 5.3756C10.1146 5.73694 10.281 6.19427 10.2803 6.66659C10.2803 7.99992 8.28033 8.66659 8.28033 8.66659M8.33366 11.3333H8.34033M15.0003 7.99992C15.0003 11.6818 12.0156 14.6666 8.33366 14.6666C4.65176 14.6666 1.66699 11.6818 1.66699 7.99992C1.66699 4.31802 4.65176 1.33325 8.33366 1.33325C12.0156 1.33325 15.0003 4.31802 15.0003 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                <div style={{ display: "flex", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                                  <div style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 1, flex: "1 0 0", overflow: "hidden", color: "#717680", textOverflow: "ellipsis", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontStyle: "normal", fontWeight: 400, lineHeight: "24px" }}>
+                                    Select
+                                  </div>
+                                </div>
+                                <svg style={{ width: "24px", height: "24px" }} width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6.66699 9L12.667 15L18.667 9" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* City */}
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "3 / span 1", gridColumn: "3 / span 1" }}>
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", alignSelf: "stretch" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                                <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  City
+                                </div>
+                                <div style={{ color: "#344698", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                  *
+                                </div>
+                                <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                                  <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.72667 5.99992C6.8834 5.55436 7.19277 5.17866 7.59997 4.93934C8.00717 4.70002 8.48593 4.61254 8.95145 4.69239C9.41697 4.77224 9.83921 5.01427 10.1434 5.3756C10.4476 5.73694 10.614 6.19427 10.6133 6.66659C10.6133 7.99992 8.61333 8.66659 8.61333 8.66659M8.66667 11.3333H8.67333M15.3333 7.99992C15.3333 11.6818 12.3486 14.6666 8.66667 14.6666C4.98477 14.6666 2 11.6818 2 7.99992C2 4.31802 4.98477 1.33325 8.66667 1.33325C12.3486 1.33325 15.3333 4.31802 15.3333 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                                <div style={{ display: "flex", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                                  <div style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 1, flex: "1 0 0", overflow: "hidden", color: "#717680", textOverflow: "ellipsis", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontStyle: "normal", fontWeight: 400, lineHeight: "24px" }}>
+                                    Select
+                                  </div>
+                                </div>
+                                <svg style={{ width: "24px", height: "24px" }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6 9L12 15L18 9" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <svg style={{ display: "flex", padding: "4px 0", alignItems: "center", alignSelf: "stretch" }} width="1008" height="9" viewBox="0 0 1008 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M1008 5H0V4H1008V5" fill="#E9EAEB" />
+                        </svg>
+
+                        {/* Comments */}
+                        <div style={{ display: "flex", height: "123px", flexDirection: "column", alignItems: "flex-start", gap: "6px", alignSelf: "stretch" }}>
+                          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch" }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                              <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                                Comments
+                              </div>
+                              <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                                <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <g clipPath="url(#clip0_help_comments)">
+                                    <path d="M6.05992 5.99992C6.21665 5.55436 6.52602 5.17866 6.93322 4.93934C7.34042 4.70002 7.81918 4.61254 8.2847 4.69239C8.75022 4.77224 9.17246 5.01427 9.47664 5.3756C9.78081 5.73694 9.94729 6.19427 9.94659 6.66659C9.94659 7.99992 7.94659 8.66659 7.94659 8.66659M7.99992 11.3333H8.00659M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                  </g>
+                                  <defs>
+                                    <clipPath id="clip0_help_comments">
+                                      <rect width="16" height="16" fill="white" />
+                                    </clipPath>
+                                  </defs>
+                                </svg>
+                              </div>
+                            </div>
+                            <div style={{ display: "flex", padding: "12px 14px", alignItems: "flex-start", gap: "8px", flex: "1 0 0", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                              <textarea placeholder="Enter a description..." style={{ flex: "1 0 0", alignSelf: "stretch", color: "#717680", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontStyle: "normal", fontWeight: 400, lineHeight: "24px", border: "none", outline: "none", background: "transparent", resize: "none" }}></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Additional Professional References entries (collapsed) */}
+                  {Array.from({ length: Math.max(0, (packageQuantities["professional-references"] || 1) - 1) }).map((_, i) => {
+                    const num = i + 2;
+                    return (
+                      <div key={`professional-references-collapsed-${num}`} style={{ display: "flex", padding: "12px", flexDirection: "column", alignItems: "flex-start", gap: "16px", alignSelf: "stretch", borderRadius: "10px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", alignSelf: "stretch" }}>
+                          <div style={{ color: "#181D27", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "var(--Font-size-text-md, 16px)", fontStyle: "normal", fontWeight: 500, lineHeight: "var(--Line-height-text-md, 24px)" }}>
+                            {`Professional Reference #${num}`}
+                          </div>
+                          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                            <button style={{ display: "flex", padding: "8px", justifyContent: "center", alignItems: "center", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)", cursor: "default" }}>
+                              <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+
+                  {/* Action Buttons */}
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", alignSelf: "stretch" }}>
+                    <button
+                      onClick={() => setPackageQuantities(prev => ({ ...prev, "professional-references": (prev['professional-references'] || 1) + 1 }))}
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "2px solid rgba(255, 255, 255, 0.12)",
+                        background: "#344698",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ color: "#FFF", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 600, lineHeight: "20px" }}>
+                          Add Another
+                        </div>
+                      </div>
+                    </button>
+                    <button
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                        <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 600, lineHeight: "20px" }}>
+                          Next Section
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              )}
+
               {/* CTA Order Section */}
               <div
                 style={{
