@@ -12258,7 +12258,7 @@ const OnlineOrdering = () => {
               <div
                 data-section="authorization"
                 style={{
-                  display: "flex",
+                  display: selectedPackage ? "flex" : "none",
                   width: "100%",
                   flexDirection: "column",
                   alignItems: "flex-start",
