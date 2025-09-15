@@ -28,6 +28,8 @@ const OnlineOrdering = () => {
   const [packageQuantities, setPackageQuantities] = useState<Record<string, number>>({});
   const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, education: false, employment: false });
   const [showAKAForm, setShowAKAForm] = useState(false);
+  const [employmentCollapsedMap, setEmploymentCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
+  const [educationCollapsedMap, setEducationCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
   const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment;
 
   const packageLabelMap: Record<string, string> = {
@@ -60,6 +62,28 @@ const OnlineOrdering = () => {
       });
     }
   }, [selectedPackage]);
+
+  useEffect(() => {
+    const qty = packageQuantities['employment'] || 0;
+    setEmploymentCollapsedMap(prev => {
+      const next: Record<number, boolean> = {};
+      for (let i = 1; i <= qty; i++) {
+        next[i] = prev[i] ?? (i === 1 ? false : true);
+      }
+      return next;
+    });
+  }, [packageQuantities['employment']]);
+
+  useEffect(() => {
+    const qty = packageQuantities['education'] || 0;
+    setEducationCollapsedMap(prev => {
+      const next: Record<number, boolean> = {};
+      for (let i = 1; i <= qty; i++) {
+        next[i] = prev[i] ?? (i === 1 ? false : true);
+      }
+      return next;
+    });
+  }, [packageQuantities['education']]);
 
   const handleCheckboxChange = (key: string, checked: boolean) => {
     setPackageCheckboxes(prev => ({ ...prev, [key]: checked }));
@@ -7399,6 +7423,7 @@ const OnlineOrdering = () => {
                           </svg>
                         </button>
                         <button
+                          onClick={() => setEmploymentCollapsedMap(prev => ({ ...prev, 1: !prev[1] }))}
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -7413,7 +7438,7 @@ const OnlineOrdering = () => {
                           }}
                         >
                           <svg
-                            style={{ width: "16px", height: "16px" }}
+                            style={{ width: "16px", height: "16px", transform: employmentCollapsedMap[1] ? "none" : "rotate(180deg)", transition: "transform 0.2s ease" }}
                             width="16"
                             height="16"
                             viewBox="0 0 16 16"
@@ -7431,6 +7456,9 @@ const OnlineOrdering = () => {
                         </button>
                       </div>
                     </div>
+
+                {/* Collapsible content for Employment #1 */}
+                    <div style={{ display: employmentCollapsedMap[1] ? 'none' : 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '16px', alignSelf: 'stretch' }}>
 
                     {/* Disclaimer Checkbox */}
                     <div
@@ -9690,6 +9718,7 @@ const OnlineOrdering = () => {
                       </div>
                     </div>
                   </div>
+                </div>
 
                   {/* Additional Employment entries (collapsed) */}
                   {Array.from({ length: Math.max(0, (packageQuantities["employment"] || 1) - 1) }).map((_, i) => {
@@ -10018,6 +10047,7 @@ const OnlineOrdering = () => {
                           </svg>
                         </button>
                         <button
+                          onClick={() => setEducationCollapsedMap(prev => ({ ...prev, 1: !prev[1] }))}
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -10030,12 +10060,15 @@ const OnlineOrdering = () => {
                             cursor: "pointer",
                           }}
                         >
-                          <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <svg style={{ width: "16px", height: "16px", transform: educationCollapsedMap[1] ? "none" : "rotate(180deg)", transition: "transform 0.2s ease" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </button>
                       </div>
                     </div>
+
+                {/* Collapsible content for Education #1 */}
+                    <div style={{ display: educationCollapsedMap[1] ? 'none' : 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '16px', alignSelf: 'stretch' }}>
 
                     {/* Does Not Apply Checkbox */}
                     <div style={{ display: "flex", width: "505px", alignItems: "flex-start", gap: "8px" }}>
@@ -10566,6 +10599,7 @@ const OnlineOrdering = () => {
                         <textarea placeholder="Enter a description..." style={{ flex: "1 0 0", alignSelf: "stretch", color: "#717680", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontStyle: "normal", fontWeight: 400, lineHeight: "24px", border: "none", outline: "none", background: "transparent", resize: "none" }}></textarea>
                       </div>
                     </div>
+                </div>
 
                   </div>
 
