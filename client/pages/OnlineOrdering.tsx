@@ -9722,6 +9722,7 @@ const OnlineOrdering = () => {
                     }}
                   >
                     <button
+                      onClick={() => setPackageQuantities(prev => ({ ...prev, employment: (prev['employment'] || 1) + 1 }))}
                       style={{
                         display: "flex",
                         minHeight: "36px",
