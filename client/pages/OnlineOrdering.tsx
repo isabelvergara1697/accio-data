@@ -3997,10 +3997,10 @@ const OnlineOrdering = () => {
                 </div>
               </div>
 
-              {/* Divider */}
+              {/* Divider (old, hidden) */}
               <div
                 style={{
-                  display: "flex",
+                  display: "none",
                   padding: "4px 0",
                   alignItems: "center",
                   alignSelf: "stretch",
