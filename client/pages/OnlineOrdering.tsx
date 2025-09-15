@@ -3283,12 +3283,7 @@ const OnlineOrdering = () => {
                               <Checkbox
                                 checked={packageCheckboxes["social-security-trace"] || false}
                                 onCheckedChange={(checked) => handleCheckboxChange("social-security-trace", !!checked)}
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  borderRadius: "4px",
-                                  border: "1px solid #D5D7DA",
-                                }}
+                                className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]"
                               />
                             </div>
                             <div
@@ -3410,12 +3405,7 @@ const OnlineOrdering = () => {
                                 <Checkbox
                                   checked={packageCheckboxes["employment"] || false}
                                   onCheckedChange={(checked) => handleCheckboxChange("employment", !!checked)}
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    borderRadius: "4px",
-                                    border: "1px solid #D5D7DA",
-                                  }}
+                                  className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]"
                                 />
                               </div>
                               <div
@@ -3550,12 +3540,7 @@ const OnlineOrdering = () => {
                                 <Checkbox
                                   checked={packageCheckboxes["education"] || false}
                                   onCheckedChange={(checked) => handleCheckboxChange("education", !!checked)}
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    borderRadius: "4px",
-                                    border: "1px solid #D5D7DA",
-                                  }}
+                                  className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]"
                                 />
                               </div>
                               <div
@@ -3690,12 +3675,7 @@ const OnlineOrdering = () => {
                                 <Checkbox
                                   checked={packageCheckboxes["professional-references"] || false}
                                   onCheckedChange={(checked) => handleCheckboxChange("professional-references", !!checked)}
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    borderRadius: "4px",
-                                    border: "1px solid #D5D7DA",
-                                  }}
+                                  className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]"
                                 />
                               </div>
                               <div
@@ -3830,12 +3810,7 @@ const OnlineOrdering = () => {
                                 <Checkbox
                                   checked={packageCheckboxes["credentials-professional-license"] || false}
                                   onCheckedChange={(checked) => handleCheckboxChange("credentials-professional-license", !!checked)}
-                                  style={{
-                                    width: "16px",
-                                    height: "16px",
-                                    borderRadius: "4px",
-                                    border: "1px solid #D5D7DA",
-                                  }}
+                                  className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]"
                                 />
                               </div>
                               <div
@@ -4137,12 +4112,7 @@ const OnlineOrdering = () => {
                               <Checkbox
                                 checked={packageCheckboxes["data-collection"] || false}
                                 onCheckedChange={(checked) => handleCheckboxChange("data-collection", !!checked)}
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  borderRadius: "4px",
-                                  border: "1px solid #D5D7DA",
-                                }}
+                                className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]"
                               />
                             </div>
                             <div
@@ -4385,12 +4355,7 @@ const OnlineOrdering = () => {
                               <Checkbox
                                 checked={packageCheckboxes["county-criminal-history"] || false}
                                 onCheckedChange={(checked) => handleCheckboxChange("county-criminal-history", !!checked)}
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  borderRadius: "4px",
-                                  border: "1px solid #D5D7DA",
-                                }}
+                                className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]"
                               />
                             </div>
                             <div
@@ -4505,12 +4470,7 @@ const OnlineOrdering = () => {
                               <Checkbox
                                 checked={packageCheckboxes["motor-vehicle-driving"] || false}
                                 onCheckedChange={(checked) => handleCheckboxChange("motor-vehicle-driving", !!checked)}
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  borderRadius: "4px",
-                                  border: "1px solid #D5D7DA",
-                                }}
+                                className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]"
                               />
                             </div>
                             <div
