@@ -4015,10 +4015,10 @@ const OnlineOrdering = () => {
                 />
               </div>
 
-              {/* Requester Section */}
+              {/* Requester Section (old, hidden) */}
               <div
                 style={{
-                  display: "flex",
+                  display: "none",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   alignSelf: "stretch",
