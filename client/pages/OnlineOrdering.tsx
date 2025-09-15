@@ -1121,6 +1121,12 @@ const OnlineOrdering = () => {
                     {/* Employment Tab - only show if checked */}
                     {packageCheckboxes["employment"] && (
                       <div
+                        onClick={() => {
+                          const employmentSection = document.querySelector('[data-section="employment"]');
+                          if (employmentSection) {
+                            employmentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }
+                        }}
                         style={{
                           display: "flex",
                           height: "36px",
@@ -1129,6 +1135,7 @@ const OnlineOrdering = () => {
                           alignItems: "center",
                           gap: "8px",
                           borderRadius: "6px",
+                          cursor: "pointer",
                         }}
                       >
                         <div
