@@ -10706,6 +10706,7 @@ const OnlineOrdering = () => {
                   border: "1px solid #E9EAEB",
                   background: "#FFF",
                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  overflow: "hidden",
                 }}
               >
                 {/* Section Header */}
@@ -10830,10 +10831,6 @@ const OnlineOrdering = () => {
                     alignItems: "flex-start",
                     gap: "16px",
                     alignSelf: "stretch",
-                    borderRadius: "0px 0px 0 0",
-                    border: "1px solid #E9EAEB",
-                    background: "#FFF",
-                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
                   {/* Professional Reference #1 */}
