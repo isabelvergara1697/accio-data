@@ -7832,8 +7832,10 @@ const OnlineOrdering = () => {
                                 }}
                               >
                                 <input
-                                  type="text"
-                                  placeholder="+1"
+                                  type="tel"
+                                  value={subjectFields.phone}
+                                  onChange={(e) => setSubjectFields(prev => ({ ...prev, phone: e.target.value }))}
+                                  placeholder="+1 (555) 000-0000"
                                   style={{
                                     flex: "1 0 0",
                                     border: "none",
@@ -7843,7 +7845,7 @@ const OnlineOrdering = () => {
                                       "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-md, 16px)",
                                     fontWeight: 400,
-                                    color: "#717680",
+                                    color: subjectFields.phone ? "#181D27" : "#717680",
                                     lineHeight:
                                       "var(--Line-height-text-md, 24px)",
                                   }}
@@ -7913,6 +7915,9 @@ const OnlineOrdering = () => {
                             >
                               <input
                                 type="email"
+                                value={subjectFields.email}
+                                onChange={(e) => setSubjectFields(prev => ({ ...prev, email: e.target.value }))}
+                                placeholder="name@example.com"
                                 style={{
                                   flex: "1 0 0",
                                   border: "none",
@@ -7922,7 +7927,7 @@ const OnlineOrdering = () => {
                                     "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "var(--Font-size-text-md, 16px)",
                                   fontWeight: 400,
-                                  color: "#717680",
+                                  color: subjectFields.email ? "#181D27" : "#717680",
                                   lineHeight:
                                     "var(--Line-height-text-md, 24px)",
                                 }}
