@@ -7147,6 +7147,7 @@ const OnlineOrdering = () => {
               </div>
 
               {/* Employment Section */}
+              {packageCheckboxes["employment"] && (
               <div
                 data-section="employment"
                 style={{
@@ -9788,6 +9789,7 @@ const OnlineOrdering = () => {
                   </div>
                 </div>
               </div>
+              )}
 
               {/* CTA Order Section */}
               <div
