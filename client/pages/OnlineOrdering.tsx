@@ -26,13 +26,13 @@ const OnlineOrdering = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | undefined>(undefined);
   const [packageCheckboxes, setPackageCheckboxes] = useState<Record<string, boolean>>({});
   const [packageQuantities, setPackageQuantities] = useState<Record<string, number>>({});
-  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, education: false, employment: false, professionalReferences: false, credentialsProfessionalLicense: false });
+  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, education: false, employment: false, professionalReferences: false, credentialsProfessionalLicense: false, motorVehicleDriving: false });
   const [showAKAForm, setShowAKAForm] = useState(false);
   const [employmentCollapsedMap, setEmploymentCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
   const [educationCollapsedMap, setEducationCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
   const [professionalReferencesCollapsedMap, setProfessionalReferencesCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
   const [credentialsProfessionalLicenseCollapsedMap, setCredentialsProfessionalLicenseCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
-  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment && !sectionsCollapsed.professionalReferences && !sectionsCollapsed.credentialsProfessionalLicense;
+  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment && !sectionsCollapsed.professionalReferences && !sectionsCollapsed.credentialsProfessionalLicense && !sectionsCollapsed.motorVehicleDriving;
 
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
@@ -352,7 +352,7 @@ const OnlineOrdering = () => {
                     {/* Expand/Collapse All Button */}
                     <button
                       onClick={() => {
-                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject || sectionsCollapsed.education || sectionsCollapsed.employment || sectionsCollapsed.professionalReferences || sectionsCollapsed.credentialsProfessionalLicense;
+                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject || sectionsCollapsed.education || sectionsCollapsed.employment || sectionsCollapsed.professionalReferences || sectionsCollapsed.credentialsProfessionalLicense || sectionsCollapsed.motorVehicleDriving;
                         if (anyCollapsed) {
                           setSectionsCollapsed((prev) => ({
                             ...prev,
@@ -362,6 +362,7 @@ const OnlineOrdering = () => {
                             employment: false,
                             professionalReferences: false,
                             credentialsProfessionalLicense: false,
+                            motorVehicleDriving: false,
                           }));
                         } else {
                           setSectionsCollapsed((prev) => ({
@@ -372,6 +373,7 @@ const OnlineOrdering = () => {
                             employment: true,
                             professionalReferences: true,
                             credentialsProfessionalLicense: true,
+                            motorVehicleDriving: true,
                           }));
                         }
                       }}
