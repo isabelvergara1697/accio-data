@@ -11921,6 +11921,302 @@ const OnlineOrdering = () => {
               </div>
               )}
 
+              {/* Motor Vehicle Driving History Section */}
+              {packageCheckboxes["motor-vehicle-driving"] && (
+              <div
+                data-section="motor-vehicle-driving"
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  overflow: "hidden",
+                }}
+              >
+                {/* Section Header */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                    alignSelf: "stretch",
+                    background: "#FFF",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "20px 24px 0 24px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "flex-start",
+                            gap: "2px",
+                            flex: "1 0 0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "18px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "28px",
+                              }}
+                            >
+                              Motor Vehicle Driving History
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                        <button
+                          onClick={() => {
+                            setPackageCheckboxes(prev => ({ ...prev, "motor-vehicle-driving": false }));
+                            setPackageQuantities(prev => { const next = { ...prev }; delete next["motor-vehicle-driving"]; return next; });
+                            setSectionsCollapsed(prev => ({ ...prev, motorVehicleDriving: false }));
+                          }}
+                          style={{
+                            display: "flex",
+                            minHeight: "36px",
+                            padding: "6px 8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                            <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 600, lineHeight: "20px" }}>
+                              Remove
+                            </div>
+                          </div>
+                          <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clipPath="url(#clip0_minus_circle_mvr)">
+                              <path d="M5.33301 7.99967H10.6663M14.6663 7.99967C14.6663 11.6816 11.6816 14.6663 7.99967 14.6663C4.31778 14.6663 1.33301 11.6816 1.33301 7.99967C1.33301 4.31778 4.31778 1.33301 7.99967 1.33301C11.6816 1.33301 14.6663 4.31778 14.6663 7.99967Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_minus_circle_mvr">
+                                <rect width="16" height="16" fill="white" />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                        </button>
+                        <button
+                          style={{
+                            display: "flex",
+                            minHeight: "36px",
+                            padding: "6px 10px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "default",
+                          }}
+                        >
+                          <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Main Content */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 24px 16px 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  {/* Form Fields Grid */}
+                  <div style={{ display: "grid", height: "66px", rowGap: "16px", columnGap: "16px", alignSelf: "stretch", gridTemplateRows: "fit-content(100%)", gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}>
+
+                    {/* Drives License Number */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "1 / span 1", gridColumn: "1 / span 1" }}>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                          <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                            Drives License Number
+                          </div>
+                          <div style={{ color: "#344698", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                            *
+                          </div>
+                          <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                            <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clipPath="url(#clip0_help_drives_license)">
+                                <path d="M6.06065 5.99967C6.21739 5.55412 6.52675 5.17841 6.93395 4.9391C7.34116 4.69978 7.81991 4.6123 8.28544 4.69215C8.75096 4.772 9.1732 5.01402 9.47737 5.37536C9.78154 5.7367 9.94802 6.19402 9.94732 6.66634C9.94732 7.99967 7.94732 8.66634 7.94732 8.66634M8.00065 11.333H8.00732M14.6673 7.99967C14.6673 11.6816 11.6826 14.6663 8.00065 14.6663C4.31875 14.6663 1.33398 11.6816 1.33398 7.99967C1.33398 4.31778 4.31875 1.33301 8.00065 1.33301C11.6826 1.33301 14.6673 4.31778 14.6673 7.99967Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_help_drives_license">
+                                  <rect width="16" height="16" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                        </div>
+                        <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", flex: "1 0 0", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                          <div style={{ display: "flex", height: "24px", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                            <input type="text" style={{ flex: "1 0 0", border: "none", outline: "none", background: "transparent", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontWeight: 400, color: "#181D27", lineHeight: "24px" }} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Purpose for Order */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "1 / span 1", gridColumn: "2 / span 1" }}>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", alignSelf: "stretch" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                          <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                            Purpose for Order
+                          </div>
+                          <div style={{ color: "#344698", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                            *
+                          </div>
+                          <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                            <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6.39464 5.99967C6.55137 5.55412 6.86074 5.17841 7.26794 4.9391C7.67514 4.69978 8.1539 4.6123 8.61942 4.69215C9.08494 4.772 9.50718 5.01402 9.81135 5.37536C10.1155 5.7367 10.282 6.19402 10.2813 6.66634C10.2813 7.99967 8.2813 8.66634 8.2813 8.66634M8.33464 11.333H8.3413M15.0013 7.99967C15.0013 11.6816 12.0165 14.6663 8.33464 14.6663C4.65274 14.6663 1.66797 11.6816 1.66797 7.99967C1.66797 4.31778 4.65274 1.33301 8.33464 1.33301C12.0165 1.33301 15.0013 4.31778 15.0013 7.99967Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                            <div style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 1, flex: "1 0 0", overflow: "hidden", color: "#717680", textOverflow: "ellipsis", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontStyle: "normal", fontWeight: 400, lineHeight: "24px" }}>
+                              Select
+                            </div>
+                          </div>
+                          <svg style={{ width: "24px", height: "24px" }} width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.66797 9L12.668 15L18.668 9" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* MVR Type */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch", gridRow: "1 / span 1", gridColumn: "3 / span 1" }}>
+                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", alignSelf: "stretch" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                          <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                            MVR Type
+                          </div>
+                          <div style={{ color: "#344698", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                            *
+                          </div>
+                          <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                            <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6.72667 5.99967C6.8834 5.55412 7.19277 5.17841 7.59997 4.9391C8.00717 4.69978 8.48593 4.6123 8.95145 4.69215C9.41697 4.772 9.83921 5.01402 10.1434 5.37536C10.4476 5.7367 10.614 6.19402 10.6133 6.66634C10.6133 7.99967 8.61333 8.66634 8.61333 8.66634M8.66667 11.333H8.67333M15.3333 7.99967C15.3333 11.6816 12.3486 14.6663 8.66667 14.6663C4.98477 14.6663 2 11.6816 2 7.99967C2 4.31778 4.98477 1.33301 8.66667 1.33301C12.3486 1.33301 15.3333 4.31778 15.3333 7.99967Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </div>
+                        </div>
+                        <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                            <div style={{ display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: 1, flex: "1 0 0", overflow: "hidden", color: "#717680", textOverflow: "ellipsis", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontStyle: "normal", fontWeight: 400, lineHeight: "24px" }}>
+                              Select
+                            </div>
+                          </div>
+                          <svg style={{ width: "24px", height: "24px" }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="#A4A7AE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <svg style={{ display: "flex", padding: "4px 0", alignItems: "center", alignSelf: "stretch" }} width="1032" height="9" viewBox="0 0 1032 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" clipRule="evenodd" d="M1032 5H0V4H1032V5" fill="#E9EAEB" />
+                  </svg>
+
+                  {/* Expiration Date Container */}
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "16px", alignSelf: "stretch" }}>
+                    <div style={{ display: "flex", width: "325.33px", alignItems: "flex-start", gap: "16px" }}>
+
+                      {/* Expiration Date */}
+                      <div style={{ display: "flex", height: "66px", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0" }}>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", flex: "1 0 0", alignSelf: "stretch" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+                            <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "14px", fontStyle: "normal", fontWeight: 500, lineHeight: "20px" }}>
+                              Expiration Date
+                            </div>
+                            <div style={{ display: "flex", width: "16px", height: "16px", justifyContent: "center", alignItems: "center" }}>
+                              <svg style={{ width: "16px", height: "16px", flexShrink: 0 }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clipPath="url(#clip0_help_expiration_mvr)">
+                                  <path d="M6.06065 5.99967C6.21739 5.55412 6.52675 5.17841 6.93395 4.9391C7.34116 4.69978 7.81991 4.6123 8.28544 4.69215C8.75096 4.772 9.1732 5.01402 9.47737 5.37536C9.78154 5.7367 9.94802 6.19402 9.94732 6.66634C9.94732 7.99967 7.94732 8.66634 7.94732 8.66634M8.00065 11.333H8.00732M14.6673 7.99967C14.6673 11.6816 11.6826 14.6663 8.00065 14.6663C4.31875 14.6663 1.33398 11.6816 1.33398 7.99967C1.33398 4.31778 4.31875 1.33301 8.00065 1.33301C11.6826 1.33301 14.6673 4.31778 14.6673 7.99967Z" stroke="#A4A7AE" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_help_expiration_mvr">
+                                    <rect width="16" height="16" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </div>
+                          <div style={{ display: "flex", padding: "8px 12px", alignItems: "center", gap: "8px", alignSelf: "stretch", borderRadius: "8px", border: "1px solid #D5D7DA", background: "#FFF", boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)" }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "8px", flex: "1 0 0" }}>
+                              <svg style={{ width: "24px", height: "24px" }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                              <input type="text" placeholder="dd/mm/yyyy" style={{ flex: "1 0 0", border: "none", outline: "none", background: "transparent", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "16px", fontWeight: 400, color: "#181D27", lineHeight: "24px" }} />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              )}
+
               {/* CTA Order Section */}
               <div
                 style={{
