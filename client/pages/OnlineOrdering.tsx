@@ -1604,6 +1604,9 @@ const OnlineOrdering = () => {
                   </div>
                 </div>
 
+                {sectionsCollapsed.packageAndProducts && (
+                  <div style={{ padding: "0 24px 20px 24px", alignSelf: "stretch" }} />
+                )}
                 {/* Content */}
                 <div
                   style={{
