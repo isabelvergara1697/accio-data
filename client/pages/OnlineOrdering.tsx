@@ -3762,6 +3762,264 @@ const OnlineOrdering = () => {
                   )}
                 </div>
               </div>
+
+              {/* Divider */}
+              <div
+                style={{
+                  display: "flex",
+                  padding: "4px 0",
+                  alignItems: "center",
+                  alignSelf: "stretch",
+                }}
+              >
+                <div
+                  style={{
+                    height: "1px",
+                    flex: "1 0 0",
+                    background: "#E9EAEB",
+                  }}
+                />
+              </div>
+
+              {/* Requester Section */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  alignSelf: "stretch",
+                  borderRadius: "12px",
+                  border: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  overflow: "hidden",
+                }}
+              >
+                {/* Content */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 24px 16px 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  {/* Section Title */}
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily:
+                        "var(--Font-family-font-family-body, 'Public Sans')",
+                      fontSize: "var(--Font-size-text-md, 16px)",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      lineHeight: "var(--Line-height-text-md, 24px)",
+                    }}
+                  >
+                    Requester
+                  </div>
+
+                  {/* Input Fields Row */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                      flexWrap: isDesktop ? "nowrap" : "wrap",
+                    }}
+                  >
+                    {/* Requester Select */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "6px",
+                        flex: "1 0 0",
+                        minWidth: isDesktop ? "auto" : "100%",
+                      }}
+                    >
+                      {/* Label */}
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 500,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Requester
+                      </div>
+                      {/* Select Input */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "8px 12px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      >
+                        <div
+                          style={{
+                            flex: "1 0 0",
+                            color: "#181D27",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-md, 16px)",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "var(--Line-height-text-md, 24px)",
+                          }}
+                        >
+                          Alexandra Fitzwilliam
+                        </div>
+                        <svg
+                          style={{
+                            width: "24px",
+                            height: "24px",
+                          }}
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6 9L12 15L18 9"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Fax Input */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "6px",
+                        flex: "1 0 0",
+                        minWidth: isDesktop ? "auto" : "100%",
+                      }}
+                    >
+                      {/* Label */}
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 500,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Fax
+                      </div>
+                      {/* Input */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "8px 12px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      >
+                        <div
+                          style={{
+                            flex: "1 0 0",
+                            color: "#717680",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-md, 16px)",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "var(--Line-height-text-md, 24px)",
+                          }}
+                        >
+                          000-0000
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Phone Input */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "6px",
+                        flex: "1 0 0",
+                        minWidth: isDesktop ? "auto" : "100%",
+                      }}
+                    >
+                      {/* Label */}
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 500,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Phone
+                      </div>
+                      {/* Input */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "8px 12px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          background: "#FFF",
+                          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      >
+                        <div
+                          style={{
+                            flex: "1 0 0",
+                            color: "#717680",
+                            fontFamily:
+                              "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "var(--Font-size-text-md, 16px)",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "var(--Line-height-text-md, 24px)",
+                          }}
+                        >
+                          (000) 000 - 0000
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
