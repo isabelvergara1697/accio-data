@@ -678,7 +678,7 @@ const OnlineOrdering = () => {
                       </div>
                       <div
                         style={{
-                          color: "#717680",
+                          color: subjectFullName ? "#181D27" : "#717680",
                           fontFamily:
                             "var(--Font-family-font-family-body, 'Public Sans')",
                           fontSize: "var(--Font-size-text-md, 16px)",
@@ -687,7 +687,7 @@ const OnlineOrdering = () => {
                           lineHeight: "var(--Line-height-text-md, 24px)",
                         }}
                       >
-                        No Info Yet
+                        {subjectFullName || "No Info Yet"}
                       </div>
                     </div>
 
