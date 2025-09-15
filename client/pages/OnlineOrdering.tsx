@@ -32,7 +32,11 @@ const OnlineOrdering = () => {
   const [educationCollapsedMap, setEducationCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
   const [professionalReferencesCollapsedMap, setProfessionalReferencesCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
   const [credentialsProfessionalLicenseCollapsedMap, setCredentialsProfessionalLicenseCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
+  const [subjectFirstName, setSubjectFirstName] = useState("");
+  const [subjectMiddleName, setSubjectMiddleName] = useState("");
+  const [subjectLastName, setSubjectLastName] = useState("");
   const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment && !sectionsCollapsed.professionalReferences && !sectionsCollapsed.credentialsProfessionalLicense && !sectionsCollapsed.motorVehicleDriving;
+  const subjectFullName = [subjectFirstName, subjectMiddleName, subjectLastName].filter(Boolean).join(" ");
 
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
