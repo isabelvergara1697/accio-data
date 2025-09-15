@@ -1397,32 +1397,6 @@ const OnlineOrdering = () => {
                       </div>
                     )}
 
-                    {/* Authorization Tab - always show */}
-                    <div
-                      style={{
-                        display: "flex",
-                        height: "36px",
-                        padding: "8px 6px 8px 12px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "8px",
-                        borderRadius: "6px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#717680",
-                          fontFamily:
-                            "var(--Font-family-font-family-body, 'Public Sans')",
-                          fontSize: "var(--Font-size-text-sm, 14px)",
-                          fontStyle: "normal",
-                          fontWeight: 600,
-                          lineHeight: "var(--Line-height-text-sm, 20px)",
-                        }}
-                      >
-                        Authorization
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
