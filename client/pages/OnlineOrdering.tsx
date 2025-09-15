@@ -5180,6 +5180,8 @@ const OnlineOrdering = () => {
                 </div>
               </div>
 
+              {selectedPackage && (
+              <>
               {/* Subject Section */}
               <div
                 data-section="subject"
@@ -7121,6 +7123,9 @@ const OnlineOrdering = () => {
                   </div>
                 </div>
               </div>
+
+              </>
+              )}
 
               {/* Employment Section */}
               {packageCheckboxes["employment"] && (
