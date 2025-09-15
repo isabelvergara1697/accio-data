@@ -74,6 +74,10 @@ const OnlineOrdering = () => {
   const [authorizationChecked, setAuthorizationChecked] = useState(false);
   // Track if each Education entry has any data entered (heuristic for progress)
   const [educationFilledMap, setEducationFilledMap] = useState<Record<number, boolean>>({});
+  const [employmentFilledMap, setEmploymentFilledMap] = useState<Record<number, boolean>>({});
+  const [professionalRefsFilledMap, setProfessionalRefsFilledMap] = useState<Record<number, boolean>>({});
+  const [credentialsFilledMap, setCredentialsFilledMap] = useState<Record<number, boolean>>({});
+  const [mvrFilled, setMvrFilled] = useState(false);
 
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
@@ -115,6 +119,16 @@ const OnlineOrdering = () => {
       }
       return next;
     });
+    // Keep employment filled map in sync
+    setEmploymentFilledMap((prev) => {
+      const next: Record<number, boolean> = { ...prev };
+      for (let i = 1; i <= qty; i++) if (next[i] === undefined) next[i] = false;
+      Object.keys(next).forEach((k) => {
+        const n = parseInt(k, 10);
+        if (n > qty) delete next[n];
+      });
+      return next;
+    });
   }, [packageQuantities["employment"]]);
 
   useEffect(() => {
@@ -145,6 +159,18 @@ const OnlineOrdering = () => {
     if (!hasValue) return;
     setEducationFilledMap((prev) => (prev[index] ? prev : { ...prev, [index]: true }));
   };
+  const markEmploymentFilled = (index: number, hasValue: boolean) => {
+    if (!hasValue) return;
+    setEmploymentFilledMap((prev) => (prev[index] ? prev : { ...prev, [index]: true }));
+  };
+  const markProfessionalRefFilled = (index: number, hasValue: boolean) => {
+    if (!hasValue) return;
+    setProfessionalRefsFilledMap((prev) => (prev[index] ? prev : { ...prev, [index]: true }));
+  };
+  const markCredentialsFilled = (index: number, hasValue: boolean) => {
+    if (!hasValue) return;
+    setCredentialsFilledMap((prev) => (prev[index] ? prev : { ...prev, [index]: true }));
+  };
 
   const getProgressStats = () => {
     let completed = 0;
@@ -162,13 +188,38 @@ const OnlineOrdering = () => {
     total += 1;
     if (authorizationChecked) completed += 1;
 
+    // Employment
+    if (packageCheckboxes["employment"]) {
+      const qty = packageQuantities["employment"] || 0;
+      total += qty;
+      for (let i = 1; i <= qty; i++) if (employmentFilledMap[i]) completed += 1;
+    }
+
     // Education
     if (packageCheckboxes["education"]) {
       const qty = packageQuantities["education"] || 0;
       total += qty;
-      for (let i = 1; i <= qty; i++) {
-        if (educationFilledMap[i]) completed += 1;
-      }
+      for (let i = 1; i <= qty; i++) if (educationFilledMap[i]) completed += 1;
+    }
+
+    // Professional References
+    if (packageCheckboxes["professional-references"]) {
+      const qty = packageQuantities["professional-references"] || 0;
+      total += qty;
+      for (let i = 1; i <= qty; i++) if (professionalRefsFilledMap[i]) completed += 1;
+    }
+
+    // Credentials / Professional License
+    if (packageCheckboxes["credentials-professional-license"]) {
+      const qty = packageQuantities["credentials-professional-license"] || 0;
+      total += qty;
+      for (let i = 1; i <= qty; i++) if (credentialsFilledMap[i]) completed += 1;
+    }
+
+    // Motor Vehicle Driving (single section)
+    if (packageCheckboxes["motor-vehicle-driving"]) {
+      total += 1;
+      if (mvrFilled) completed += 1;
     }
 
     const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
@@ -184,6 +235,15 @@ const OnlineOrdering = () => {
       }
       return next;
     });
+    setProfessionalRefsFilledMap((prev) => {
+      const next: Record<number, boolean> = { ...prev };
+      for (let i = 1; i <= qty; i++) if (next[i] === undefined) next[i] = false;
+      Object.keys(next).forEach((k) => {
+        const n = parseInt(k, 10);
+        if (n > qty) delete next[n];
+      });
+      return next;
+    });
   }, [packageQuantities["professional-references"]]);
 
   useEffect(() => {
@@ -193,6 +253,15 @@ const OnlineOrdering = () => {
       for (let i = 1; i <= qty; i++) {
         next[i] = prev[i] ?? (i === 1 ? false : true);
       }
+      return next;
+    });
+    setCredentialsFilledMap((prev) => {
+      const next: Record<number, boolean> = { ...prev };
+      for (let i = 1; i <= qty; i++) if (next[i] === undefined) next[i] = false;
+      Object.keys(next).forEach((k) => {
+        const n = parseInt(k, 10);
+        if (n > qty) delete next[n];
+      });
       return next;
     });
   }, [packageQuantities["credentials-professional-license"]]);
@@ -8160,6 +8229,12 @@ const OnlineOrdering = () => {
 
                       {/* Collapsible content for Employment #1 */}
                       <div
+                        onChangeCapture={(e) => {
+                          const t = e.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+                          if (t && ("value" in t ? String((t as any).value ?? "").trim().length > 0 : false)) {
+                            markEmploymentFilled(1, true);
+                          }
+                        }}
                         style={{
                           display: employmentCollapsedMap[1] ? "none" : "flex",
                           flexDirection: "column",
@@ -14174,6 +14249,12 @@ const OnlineOrdering = () => {
 
                         {/* Collapsible content for Professional Reference #1 */}
                         <div
+                          onChangeCapture={(e) => {
+                            const t = e.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+                            if (t && ("value" in t ? String((t as any).value ?? "").trim().length > 0 : false)) {
+                              markProfessionalRefFilled(1, true);
+                            }
+                          }}
                           style={{
                             display: professionalReferencesCollapsedMap[1]
                               ? "none"
@@ -16194,6 +16275,12 @@ const OnlineOrdering = () => {
 
                         {/* Collapsible content for Credentials Professional License #1 */}
                         <div
+                          onChangeCapture={(e) => {
+                            const t = e.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+                            if (t && ("value" in t ? String((t as any).value ?? "").trim().length > 0 : false)) {
+                              markCredentialsFilled(1, true);
+                            }
+                          }}
                           style={{
                             display:
                               credentialsProfessionalLicenseCollapsedMap[1]
@@ -17629,6 +17716,12 @@ const OnlineOrdering = () => {
               {packageCheckboxes["motor-vehicle-driving"] && (
                 <div
                   data-section="motor-vehicle-driving"
+                  onChangeCapture={(e) => {
+                    const t = e.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+                    if (t && ("value" in t ? String((t as any).value ?? "").trim().length > 0 : false)) {
+                      setMvrFilled(true);
+                    }
+                  }}
                   style={{
                     display: "flex",
                     width: "100%",
