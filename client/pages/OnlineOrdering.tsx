@@ -304,18 +304,20 @@ const OnlineOrdering = () => {
                     {/* Expand/Collapse All Button */}
                     <button
                       onClick={() => {
-                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject;
+                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject || sectionsCollapsed.employment;
                         if (anyCollapsed) {
                           setSectionsCollapsed((prev) => ({
                             ...prev,
                             packageAndProducts: false,
                             subject: false,
+                            employment: false,
                           }));
                         } else {
                           setSectionsCollapsed((prev) => ({
                             ...prev,
                             packageAndProducts: true,
                             subject: true,
+                            employment: true,
                           }));
                         }
                       }}
