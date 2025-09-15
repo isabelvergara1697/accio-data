@@ -126,7 +126,54 @@ const OnlineOrdering = () => {
       }
       return next;
     });
+    // Ensure filled map has keys up to qty
+    setEducationFilledMap((prev) => {
+      const next: Record<number, boolean> = { ...prev };
+      for (let i = 1; i <= qty; i++) {
+        if (next[i] === undefined) next[i] = false;
+      }
+      Object.keys(next).forEach((k) => {
+        const n = parseInt(k, 10);
+        if (n > qty) delete next[n];
+      });
+      return next;
+    });
   }, [packageQuantities["education"]]);
+
+  // Heuristic: mark an Education entry as filled when any child input/select/textarea has a value
+  const markEducationFilled = (index: number, hasValue: boolean) => {
+    if (!hasValue) return;
+    setEducationFilledMap((prev) => (prev[index] ? prev : { ...prev, [index]: true }));
+  };
+
+  const getProgressStats = () => {
+    let completed = 0;
+    let total = 0;
+
+    // Package
+    total += 1;
+    if (selectedPackage) completed += 1;
+
+    // Subject (require first and last name)
+    total += 1;
+    if (subjectFirstName.trim() && subjectLastName.trim()) completed += 1;
+
+    // Authorization
+    total += 1;
+    if (authorizationChecked) completed += 1;
+
+    // Education
+    if (packageCheckboxes["education"]) {
+      const qty = packageQuantities["education"] || 0;
+      total += qty;
+      for (let i = 1; i <= qty; i++) {
+        if (educationFilledMap[i]) completed += 1;
+      }
+    }
+
+    const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+    return { completed, total, percent };
+  };
 
   useEffect(() => {
     const qty = packageQuantities["professional-references"] || 0;
