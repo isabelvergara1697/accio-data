@@ -26,11 +26,12 @@ const OnlineOrdering = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | undefined>(undefined);
   const [packageCheckboxes, setPackageCheckboxes] = useState<Record<string, boolean>>({});
   const [packageQuantities, setPackageQuantities] = useState<Record<string, number>>({});
-  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, education: false, employment: false });
+  const [sectionsCollapsed, setSectionsCollapsed] = useState({ orderInfo: false, packageAndProducts: false, subject: false, education: false, employment: false, professionalReferences: false });
   const [showAKAForm, setShowAKAForm] = useState(false);
   const [employmentCollapsedMap, setEmploymentCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
   const [educationCollapsedMap, setEducationCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
-  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment;
+  const [professionalReferencesCollapsedMap, setProfessionalReferencesCollapsedMap] = useState<Record<number, boolean>>({ 1: false });
+  const allExpanded = !sectionsCollapsed.packageAndProducts && !sectionsCollapsed.subject && !sectionsCollapsed.education && !sectionsCollapsed.employment && !sectionsCollapsed.professionalReferences;
 
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
@@ -84,6 +85,17 @@ const OnlineOrdering = () => {
       return next;
     });
   }, [packageQuantities['education']]);
+
+  useEffect(() => {
+    const qty = packageQuantities['professional-references'] || 0;
+    setProfessionalReferencesCollapsedMap(prev => {
+      const next: Record<number, boolean> = {};
+      for (let i = 1; i <= qty; i++) {
+        next[i] = prev[i] ?? (i === 1 ? false : true);
+      }
+      return next;
+    });
+  }, [packageQuantities['professional-references']]);
 
   const handleCheckboxChange = (key: string, checked: boolean) => {
     setPackageCheckboxes(prev => ({ ...prev, [key]: checked }));
@@ -328,7 +340,7 @@ const OnlineOrdering = () => {
                     {/* Expand/Collapse All Button */}
                     <button
                       onClick={() => {
-                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject || sectionsCollapsed.education || sectionsCollapsed.employment;
+                        const anyCollapsed = sectionsCollapsed.packageAndProducts || sectionsCollapsed.subject || sectionsCollapsed.education || sectionsCollapsed.employment || sectionsCollapsed.professionalReferences;
                         if (anyCollapsed) {
                           setSectionsCollapsed((prev) => ({
                             ...prev,
@@ -336,6 +348,7 @@ const OnlineOrdering = () => {
                             subject: false,
                             education: false,
                             employment: false,
+                            professionalReferences: false,
                           }));
                         } else {
                           setSectionsCollapsed((prev) => ({
@@ -344,6 +357,7 @@ const OnlineOrdering = () => {
                             subject: true,
                             education: true,
                             employment: true,
+                            professionalReferences: true,
                           }));
                         }
                       }}
