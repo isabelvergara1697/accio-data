@@ -993,6 +993,13 @@ const OnlineOrdering = () => {
                   >
                     {/* Package Tab - always show */}
                     <div
+                      onClick={() => {
+                        // Scroll to package section when clicked
+                        const packageSection = document.querySelector('[data-section="package-and-products"]');
+                        if (packageSection) {
+                          packageSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
                       style={{
                         display: "flex",
                         height: "36px",
@@ -1001,11 +1008,14 @@ const OnlineOrdering = () => {
                         alignItems: "center",
                         gap: "8px",
                         borderRadius: "6px",
+                        border: selectedPackage ? "1px solid #D5D7DA" : "none",
+                        background: selectedPackage ? "#F9F9F9" : "transparent",
+                        cursor: "pointer",
                       }}
                     >
                       <div
                         style={{
-                          color: "#717680",
+                          color: selectedPackage ? "#414651" : "#717680",
                           fontFamily:
                             "var(--Font-family-font-family-body, 'Public Sans')",
                           fontSize: "var(--Font-size-text-sm, 14px)",
@@ -1016,6 +1026,41 @@ const OnlineOrdering = () => {
                       >
                         Package
                       </div>
+                      {/* Checkmark Icon - only show when package is selected */}
+                      {selectedPackage && (
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "24px",
+                            height: "24px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            background: "#DCFAE6",
+                          }}
+                        >
+                          <svg
+                            style={{
+                              width: "12px",
+                              height: "12px",
+                              flexShrink: 0,
+                            }}
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10 3L4.5 8.5L2 6"
+                              stroke="#079455"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      )}
                     </div>
 
                     {/* Subject Tab - always show */}
