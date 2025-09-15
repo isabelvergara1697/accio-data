@@ -1355,6 +1355,10 @@ const OnlineOrdering = () => {
                     {/* Credentials-Professional License Tab - only show if checked */}
                     {packageCheckboxes["credentials-professional-license"] && (
                       <div
+                        onClick={() => {
+                          const el = document.querySelector('[data-section="credentials-professional-license"]');
+                          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
                         style={{
                           display: "flex",
                           height: "36px",
@@ -1363,6 +1367,7 @@ const OnlineOrdering = () => {
                           alignItems: "center",
                           gap: "8px",
                           borderRadius: "6px",
+                          cursor: "pointer",
                         }}
                       >
                         <div
