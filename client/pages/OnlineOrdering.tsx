@@ -38,9 +38,9 @@ const OnlineOrdering = () => {
       setPackageCheckboxes({
         "social-security-trace": false,
         "employment": false,
-        "education": false,
+        "education": true, // pre-checked in figma
         "professional-references": false,
-        "credentials-professional-license": false,
+        "credentials-professional-license": true, // pre-checked in figma
         "mjd": true, // pre-checked and disabled
         "data-collection": false,
         "dot-drug-test": true, // pre-checked and disabled
@@ -2542,7 +2542,11 @@ const OnlineOrdering = () => {
                                 </div>
                               </div>
                             </div>
-                            <Select value={packageQuantities["employment"]?.toString() || "1"} onValueChange={(value) => handleQuantityChange("employment", parseInt(value))}>
+                            <Select
+                              value={packageQuantities["employment"]?.toString() || "1"}
+                              onValueChange={(value) => handleQuantityChange("employment", parseInt(value))}
+                              disabled={!packageCheckboxes["employment"]}
+                            >
                               <SelectTrigger
                                 style={{
                                   display: "flex",
@@ -2553,21 +2557,25 @@ const OnlineOrdering = () => {
                                   width: "55px",
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
-                                  background: "#FFF",
+                                  background: packageCheckboxes["employment"] ? "#FFF" : "#FAFAFA",
                                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   fontSize: "14px",
                                   color: "#717680",
+                                  cursor: packageCheckboxes["employment"] ? "pointer" : "not-allowed",
+                                  opacity: packageCheckboxes["employment"] ? 1 : 0.6,
                                 }}
                               >
                                 <SelectValue />
                               </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="1">1</SelectItem>
-                                <SelectItem value="2">2</SelectItem>
-                                <SelectItem value="3">3</SelectItem>
-                                <SelectItem value="4">4</SelectItem>
-                                <SelectItem value="5">5</SelectItem>
-                              </SelectContent>
+                              {packageCheckboxes["employment"] && (
+                                <SelectContent>
+                                  <SelectItem value="1">1</SelectItem>
+                                  <SelectItem value="2">2</SelectItem>
+                                  <SelectItem value="3">3</SelectItem>
+                                  <SelectItem value="4">4</SelectItem>
+                                  <SelectItem value="5">5</SelectItem>
+                                </SelectContent>
+                              )}
                             </Select>
                           </div>
 
@@ -2674,7 +2682,11 @@ const OnlineOrdering = () => {
                                 </div>
                               </div>
                             </div>
-                            <Select value={packageQuantities["education"]?.toString() || "1"} onValueChange={(value) => handleQuantityChange("education", parseInt(value))}>
+                            <Select
+                              value={packageQuantities["education"]?.toString() || "1"}
+                              onValueChange={(value) => handleQuantityChange("education", parseInt(value))}
+                              disabled={!packageCheckboxes["education"]}
+                            >
                               <SelectTrigger
                                 style={{
                                   display: "flex",
@@ -2685,21 +2697,25 @@ const OnlineOrdering = () => {
                                   width: "55px",
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
-                                  background: "#FFF",
+                                  background: packageCheckboxes["education"] ? "#FFF" : "#FAFAFA",
                                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   fontSize: "14px",
                                   color: "#717680",
+                                  cursor: packageCheckboxes["education"] ? "pointer" : "not-allowed",
+                                  opacity: packageCheckboxes["education"] ? 1 : 0.6,
                                 }}
                               >
                                 <SelectValue />
                               </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="1">1</SelectItem>
-                                <SelectItem value="2">2</SelectItem>
-                                <SelectItem value="3">3</SelectItem>
-                                <SelectItem value="4">4</SelectItem>
-                                <SelectItem value="5">5</SelectItem>
-                              </SelectContent>
+                              {packageCheckboxes["education"] && (
+                                <SelectContent>
+                                  <SelectItem value="1">1</SelectItem>
+                                  <SelectItem value="2">2</SelectItem>
+                                  <SelectItem value="3">3</SelectItem>
+                                  <SelectItem value="4">4</SelectItem>
+                                  <SelectItem value="5">5</SelectItem>
+                                </SelectContent>
+                              )}
                             </Select>
                           </div>
 
@@ -2806,7 +2822,11 @@ const OnlineOrdering = () => {
                                 </div>
                               </div>
                             </div>
-                            <Select value={packageQuantities["professional-references"]?.toString() || "1"} onValueChange={(value) => handleQuantityChange("professional-references", parseInt(value))}>
+                            <Select
+                              value={packageQuantities["professional-references"]?.toString() || "1"}
+                              onValueChange={(value) => handleQuantityChange("professional-references", parseInt(value))}
+                              disabled={!packageCheckboxes["professional-references"]}
+                            >
                               <SelectTrigger
                                 style={{
                                   display: "flex",
@@ -2817,21 +2837,25 @@ const OnlineOrdering = () => {
                                   width: "55px",
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
-                                  background: "#FFF",
+                                  background: packageCheckboxes["professional-references"] ? "#FFF" : "#FAFAFA",
                                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   fontSize: "14px",
                                   color: "#717680",
+                                  cursor: packageCheckboxes["professional-references"] ? "pointer" : "not-allowed",
+                                  opacity: packageCheckboxes["professional-references"] ? 1 : 0.6,
                                 }}
                               >
                                 <SelectValue />
                               </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="1">1</SelectItem>
-                                <SelectItem value="2">2</SelectItem>
-                                <SelectItem value="3">3</SelectItem>
-                                <SelectItem value="4">4</SelectItem>
-                                <SelectItem value="5">5</SelectItem>
-                              </SelectContent>
+                              {packageCheckboxes["professional-references"] && (
+                                <SelectContent>
+                                  <SelectItem value="1">1</SelectItem>
+                                  <SelectItem value="2">2</SelectItem>
+                                  <SelectItem value="3">3</SelectItem>
+                                  <SelectItem value="4">4</SelectItem>
+                                  <SelectItem value="5">5</SelectItem>
+                                </SelectContent>
+                              )}
                             </Select>
                           </div>
 
@@ -2938,7 +2962,11 @@ const OnlineOrdering = () => {
                                 </div>
                               </div>
                             </div>
-                            <Select value={packageQuantities["credentials-professional-license"]?.toString() || "1"} onValueChange={(value) => handleQuantityChange("credentials-professional-license", parseInt(value))}>
+                            <Select
+                              value={packageQuantities["credentials-professional-license"]?.toString() || "1"}
+                              onValueChange={(value) => handleQuantityChange("credentials-professional-license", parseInt(value))}
+                              disabled={!packageCheckboxes["credentials-professional-license"]}
+                            >
                               <SelectTrigger
                                 style={{
                                   display: "flex",
@@ -2949,21 +2977,25 @@ const OnlineOrdering = () => {
                                   width: "55px",
                                   borderRadius: "8px",
                                   border: "1px solid #D5D7DA",
-                                  background: "#FFF",
+                                  background: packageCheckboxes["credentials-professional-license"] ? "#FFF" : "#FAFAFA",
                                   boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                                   fontSize: "14px",
                                   color: "#717680",
+                                  cursor: packageCheckboxes["credentials-professional-license"] ? "pointer" : "not-allowed",
+                                  opacity: packageCheckboxes["credentials-professional-license"] ? 1 : 0.6,
                                 }}
                               >
                                 <SelectValue />
                               </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="1">1</SelectItem>
-                                <SelectItem value="2">2</SelectItem>
-                                <SelectItem value="3">3</SelectItem>
-                                <SelectItem value="4">4</SelectItem>
-                                <SelectItem value="5">5</SelectItem>
-                              </SelectContent>
+                              {packageCheckboxes["credentials-professional-license"] && (
+                                <SelectContent>
+                                  <SelectItem value="1">1</SelectItem>
+                                  <SelectItem value="2">2</SelectItem>
+                                  <SelectItem value="3">3</SelectItem>
+                                  <SelectItem value="4">4</SelectItem>
+                                  <SelectItem value="5">5</SelectItem>
+                                </SelectContent>
+                              )}
                             </Select>
                           </div>
                         </div>
