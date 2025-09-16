@@ -3898,11 +3898,12 @@ const SubmitOrSaveOrder = () => {
                           <div
                             style={{
                               display: "flex",
+                              flexDirection: isMobile ? "column" : "row",
                               alignItems: "flex-start",
                               alignContent: "flex-start",
                               gap: "16px",
                               alignSelf: "stretch",
-                              flexWrap: "wrap",
+                              flexWrap: isMobile ? "nowrap" : "wrap",
                             }}
                           >
                             {/* First Row - Collect PII and Send Order */}
