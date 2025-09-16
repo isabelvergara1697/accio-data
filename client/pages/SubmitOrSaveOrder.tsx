@@ -715,12 +715,14 @@ const SubmitOrSaveOrder = () => {
                           />
                           <div
                             style={{
-                              width: isTablet || isMobile ? "270px" : "270px",
+                              width: isMobile ? "100%" : isTablet ? "auto" : "270px",
                               color: inactive ? "#717680" : "#181D27",
                               fontFamily: "'Public Sans'",
                               fontSize: "14px",
                               fontWeight: 500,
                               lineHeight: "20px",
+                              wordBreak: "break-word",
+                              overflowWrap: "anywhere",
                             }}
                           >
                             {item.name}
