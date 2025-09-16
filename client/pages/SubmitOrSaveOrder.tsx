@@ -1991,7 +1991,7 @@ const SubmitOrSaveOrder = () => {
                   />
                 </svg>
 
-                        {/* Products Section - shortened for brevity, includes all previous content */}
+                        {/* Products Section */}
                         <div
                           style={{
                             display: "flex",
@@ -2015,13 +2015,12 @@ const SubmitOrSaveOrder = () => {
                             Products
                           </h4>
 
-                          {/* Products Grid */}
+                          {/* Products Grid - Three Column Layout for Tablet */}
                           <div
                             style={{
-                              display: "grid",
-                              gridTemplateColumns: isMobile
-                                ? "1fr"
-                                : "repeat(auto-fit, minmax(0, 1fr))",
+                              display: "flex",
+                              flexDirection: isMobile ? "column" : "row",
+                              alignItems: "flex-start",
                               gap: "16px",
                               alignSelf: "stretch",
                             }}
@@ -2030,12 +2029,23 @@ const SubmitOrSaveOrder = () => {
                             <div
                               style={{
                                 display: "flex",
+                                width: isMobile ? "100%" : "324px",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
                                 gap: "16px",
+                                flexShrink: 0,
                               }}
                             >
-                              <div>
+                              {/* Background Section */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: isMobile ? "100%" : "344px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                }}
+                              >
                                 <h5
                                   style={{
                                     color: "#181D27",
@@ -2043,7 +2053,7 @@ const SubmitOrSaveOrder = () => {
                                     fontSize: "14px",
                                     fontWeight: 400,
                                     lineHeight: "20px",
-                                    margin: "0 0 8px 0",
+                                    margin: 0,
                                   }}
                                 >
                                   Background
@@ -2051,20 +2061,111 @@ const SubmitOrSaveOrder = () => {
                                 <div
                                   style={{
                                     display: "flex",
-                                    alignItems: "center",
+                                    alignItems: "flex-start",
                                     gap: "8px",
-                                    color: "#717680",
-                                    fontFamily: "'Public Sans'",
-                                    fontSize: "14px",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
                                   }}
                                 >
-                                  ✓ Social Security Trace
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      paddingTop: "2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                          stroke="#D5D7DA"
+                                          strokeWidth="2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "320px",
+                                        alignItems: "flex-end",
+                                        gap: "4px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#717680",
+                                          fontFamily: "'Public Sans'",
+                                          fontSize: "14px",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Social Security Trace
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          flexShrink: 0,
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M6.06016 6.00004C6.2169 5.55449 6.52626 5.17878 6.93347 4.93946C7.34067 4.70015 7.81943 4.61267 8.28495 4.69252C8.75047 4.77236 9.17271 5.01439 9.47688 5.37573C9.78106 5.73706 9.94753 6.19439 9.94683 6.66671C9.94683 8.00004 7.94683 8.66671 7.94683 8.66671M8.00016 11.3334H8.00683M14.6668 8.00004C14.6668 11.6819 11.6821 14.6667 8.00016 14.6667C4.31826 14.6667 1.3335 11.6819 1.3335 8.00004C1.3335 4.31814 4.31826 1.33337 8.00016 1.33337C11.6821 1.33337 14.6668 4.31814 14.6668 8.00004Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.33333"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
 
-                              <div>
+                              {/* Verification Services Section */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                }}
+                              >
                                 <h5
                                   style={{
                                     color: "#000",
@@ -2072,73 +2173,709 @@ const SubmitOrSaveOrder = () => {
                                     fontSize: "14px",
                                     fontWeight: 400,
                                     lineHeight: "20px",
-                                    margin: "0 0 8px 0",
+                                    margin: 0,
                                   }}
                                 >
                                   Verification Services
                                 </h5>
+
+                                {/* Employment */}
                                 <div
                                   style={{
                                     display: "flex",
-                                    flexDirection: "column",
+                                    width: "338.667px",
+                                    alignItems: "center",
                                     gap: "4px",
                                   }}
                                 >
                                   <div
                                     style={{
                                       display: "flex",
-                                      alignItems: "center",
+                                      width: "265px",
+                                      alignItems: "flex-start",
                                       gap: "8px",
-                                      color: "#717680",
-                                      fontFamily: "'Public Sans'",
-                                      fontSize: "14px",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
+                                      flexShrink: 0,
                                     }}
                                   >
-                                    ✓ Employment (1)
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        paddingTop: "2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          borderRadius: "4px",
+                                          border: "1px solid #D5D7DA",
+                                          backgroundColor: "#F5F5F5",
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                            stroke="#D5D7DA"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        flex: "1 0 0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "320px",
+                                          alignItems: "flex-end",
+                                          gap: "4px",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#717680",
+                                            fontFamily: "'Public Sans'",
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Employment
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "16px",
+                                            height: "16px",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexShrink: 0,
+                                          }}
+                                        >
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                          >
+                                            <path
+                                              d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.33333"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                   <div
                                     style={{
                                       display: "flex",
-                                      alignItems: "center",
-                                      gap: "8px",
-                                      color: "#717680",
-                                      fontFamily: "'Public Sans'",
-                                      fontSize: "14px",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
+                                      width: "55px",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flexShrink: 0,
                                     }}
                                   >
-                                    ✓ Education (1)
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          flex: "1 0 0",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            flex: "1 0 0",
+                                            overflow: "hidden",
+                                            color: "#717680",
+                                            textOverflow: "ellipsis",
+                                            fontFamily: "'Public Sans'",
+                                            fontSize: "14px",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                            whiteSpace: "nowrap",
+                                          }}
+                                        >
+                                          1
+                                        </div>
+                                      </div>
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M4 6L8 10L12 6"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Education */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "338.667px",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "265px",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        paddingTop: "2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          borderRadius: "4px",
+                                          border: "1px solid #D5D7DA",
+                                          backgroundColor: "#F5F5F5",
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                            stroke="#D5D7DA"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        flex: "1 0 0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "320px",
+                                          alignItems: "flex-end",
+                                          gap: "4px",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#717680",
+                                            fontFamily: "'Public Sans'",
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Education
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "16px",
+                                            height: "16px",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexShrink: 0,
+                                          }}
+                                        >
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                          >
+                                            <path
+                                              d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.33333"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                   <div
                                     style={{
                                       display: "flex",
-                                      alignItems: "center",
-                                      gap: "8px",
-                                      color: "#717680",
-                                      fontFamily: "'Public Sans'",
-                                      fontSize: "14px",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
+                                      width: "55px",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flexShrink: 0,
                                     }}
                                   >
-                                    ✓ Professional References (1)
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          flex: "1 0 0",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            flex: "1 0 0",
+                                            overflow: "hidden",
+                                            color: "#717680",
+                                            textOverflow: "ellipsis",
+                                            fontFamily: "'Public Sans'",
+                                            fontSize: "14px",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                            whiteSpace: "nowrap",
+                                          }}
+                                        >
+                                          1
+                                        </div>
+                                      </div>
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M4 6L8 10L12 6"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Professional References */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "338.667px",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "265px",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        paddingTop: "2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          borderRadius: "4px",
+                                          border: "1px solid #D5D7DA",
+                                          backgroundColor: "#F5F5F5",
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                            stroke="#D5D7DA"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        flex: "1 0 0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "320px",
+                                          alignItems: "flex-end",
+                                          gap: "4px",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#717680",
+                                            fontFamily: "'Public Sans'",
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Professional References
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "16px",
+                                            height: "16px",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexShrink: 0,
+                                          }}
+                                        >
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                          >
+                                            <path
+                                              d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.33333"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                   <div
                                     style={{
                                       display: "flex",
-                                      alignItems: "center",
-                                      gap: "8px",
-                                      color: "#717680",
-                                      fontFamily: "'Public Sans'",
-                                      fontSize: "14px",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
+                                      width: "55px",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flexShrink: 0,
                                     }}
                                   >
-                                    ✓ Credentials-Professional License (1)
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          flex: "1 0 0",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            flex: "1 0 0",
+                                            overflow: "hidden",
+                                            color: "#717680",
+                                            textOverflow: "ellipsis",
+                                            fontFamily: "'Public Sans'",
+                                            fontSize: "14px",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                            whiteSpace: "nowrap",
+                                          }}
+                                        >
+                                          1
+                                        </div>
+                                      </div>
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M4 6L8 10L12 6"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Credentials-Professional License */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "338.667px",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "265px",
+                                      alignItems: "flex-start",
+                                      gap: "8px",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        paddingTop: "2px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          borderRadius: "4px",
+                                          border: "1px solid #D5D7DA",
+                                          backgroundColor: "#F5F5F5",
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                            stroke="#D5D7DA"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        alignItems: "flex-start",
+                                        flex: "1 0 0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "320px",
+                                          alignItems: "flex-end",
+                                          gap: "4px",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            color: "#717680",
+                                            fontFamily: "'Public Sans'",
+                                            fontSize: "14px",
+                                            fontWeight: 500,
+                                            lineHeight: "20px",
+                                          }}
+                                        >
+                                          Credentials-Professional License
+                                        </div>
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            width: "16px",
+                                            height: "16px",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexShrink: 0,
+                                          }}
+                                        >
+                                          <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                          >
+                                            <path
+                                              d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.33301 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z"
+                                              stroke="#A4A7AE"
+                                              strokeWidth="1.33333"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                            />
+                                          </svg>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "55px",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        height: "32px",
+                                        padding: "6px 8px",
+                                        alignItems: "center",
+                                        gap: "8px",
+                                        alignSelf: "stretch",
+                                        borderRadius: "8px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: "8px",
+                                          flex: "1 0 0",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            flex: "1 0 0",
+                                            overflow: "hidden",
+                                            color: "#717680",
+                                            textOverflow: "ellipsis",
+                                            fontFamily: "'Public Sans'",
+                                            fontSize: "14px",
+                                            fontWeight: 400,
+                                            lineHeight: "20px",
+                                            whiteSpace: "nowrap",
+                                          }}
+                                        >
+                                          1
+                                        </div>
+                                      </div>
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M4 6L8 10L12 6"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.5"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -2148,12 +2885,22 @@ const SubmitOrSaveOrder = () => {
                             <div
                               style={{
                                 display: "flex",
+                                width: isMobile ? "100%" : "324px",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
-                                gap: "16px",
+                                gap: "13px",
                               }}
                             >
-                              <div>
+                              {/* Data Base Services */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: isMobile ? "100%" : "344px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                }}
+                              >
                                 <h5
                                   style={{
                                     color: "#000",
@@ -2161,25 +2908,120 @@ const SubmitOrSaveOrder = () => {
                                     fontSize: "14px",
                                     fontWeight: 400,
                                     lineHeight: "20px",
-                                    margin: "0 0 8px 0",
+                                    margin: 0,
                                   }}
                                 >
                                   Data Base Services
                                 </h5>
                                 <div
                                   style={{
-                                    color: "#717680",
-                                    fontFamily: "'Public Sans'",
-                                    fontSize: "14px",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
                                   }}
                                 >
-                                  ✓ MJD
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      paddingTop: "2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                          stroke="#D5D7DA"
+                                          strokeWidth="2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "320px",
+                                        alignItems: "flex-end",
+                                        gap: "4px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#717680",
+                                          fontFamily: "'Public Sans'",
+                                          fontSize: "14px",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        MJD
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          flexShrink: 0,
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.33333"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
 
-                              <div>
+                              {/* Other Products */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: isMobile ? "100%" : "344px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                }}
+                              >
                                 <h5
                                   style={{
                                     color: "#000",
@@ -2187,39 +3029,188 @@ const SubmitOrSaveOrder = () => {
                                     fontSize: "14px",
                                     fontWeight: 400,
                                     lineHeight: "20px",
-                                    margin: "0 0 8px 0",
+                                    margin: 0,
                                   }}
                                 >
                                   Other Products
                                 </h5>
+
+                                {/* Data Collection - Unchecked */}
                                 <div
                                   style={{
                                     display: "flex",
-                                    flexDirection: "column",
-                                    gap: "4px",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
                                   }}
                                 >
                                   <div
                                     style={{
-                                      color: "#414651",
-                                      fontFamily: "'Public Sans'",
-                                      fontSize: "14px",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
+                                      display: "flex",
+                                      paddingTop: "2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
                                     }}
                                   >
-                                    Data Collection
+                                    <div
+                                      style={{
+                                        width: "16px",
+                                        height: "16px",
+                                        borderRadius: "4px",
+                                        border: "1px solid #D5D7DA",
+                                      }}
+                                    />
                                   </div>
                                   <div
                                     style={{
-                                      color: "#717680",
-                                      fontFamily: "'Public Sans'",
-                                      fontSize: "14px",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
                                     }}
                                   >
-                                    ✓ DOT Drug Test and Physical
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "320px",
+                                        alignItems: "flex-end",
+                                        gap: "4px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#414651",
+                                          fontFamily: "'Public Sans'",
+                                          fontSize: "14px",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Data Collection
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          flexShrink: 0,
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.33333"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* DOT Drug Test and Physical - Checked and disabled */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      paddingTop: "2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                          stroke="#D5D7DA"
+                                          strokeWidth="2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "320px",
+                                        alignItems: "flex-end",
+                                        gap: "4px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#717680",
+                                          fontFamily: "'Public Sans'",
+                                          fontSize: "14px",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        DOT Drug Test and Physical
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          flexShrink: 0,
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.33333"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -2229,12 +3220,22 @@ const SubmitOrSaveOrder = () => {
                             <div
                               style={{
                                 display: "flex",
+                                width: isMobile ? "100%" : "324px",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
                                 gap: "16px",
                               }}
                             >
-                              <div>
+                              {/* Public Records */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                }}
+                              >
                                 <h5
                                   style={{
                                     color: "#181D27",
@@ -2242,65 +3243,332 @@ const SubmitOrSaveOrder = () => {
                                     fontSize: "14px",
                                     fontWeight: 400,
                                     lineHeight: "20px",
-                                    margin: "0 0 8px 0",
+                                    margin: 0,
                                   }}
                                 >
                                   Public Records
                                 </h5>
                                 <div
                                   style={{
-                                    color: "#717680",
-                                    fontFamily: "'Public Sans'",
-                                    fontSize: "14px",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
                                   }}
                                 >
-                                  ✓ County/Statewide Criminal History 7yr
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      paddingTop: "2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                          stroke="#D5D7DA"
+                                          strokeWidth="2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "320px",
+                                        alignItems: "flex-end",
+                                        gap: "4px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#717680",
+                                          fontFamily: "'Public Sans'",
+                                          fontSize: "14px",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        County/Statewide Criminal History 7yr
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          flexShrink: 0,
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.3335 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.33333"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
 
-                              <div>
+                              {/* Additional Services */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  width: isMobile ? "100%" : "344px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "8px",
+                                }}
+                              >
                                 <h5
                                   style={{
+                                    alignSelf: "stretch",
                                     color: "#181D27",
                                     fontFamily: "'Public Sans'",
                                     fontSize: "14px",
                                     fontWeight: 400,
                                     lineHeight: "20px",
-                                    margin: "0 0 8px 0",
+                                    margin: 0,
                                   }}
                                 >
                                   Additional Services
                                 </h5>
+
+                                {/* Motor Vehicle Driving History */}
                                 <div
                                   style={{
                                     display: "flex",
-                                    flexDirection: "column",
-                                    gap: "4px",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
                                   }}
                                 >
                                   <div
                                     style={{
-                                      color: "#717680",
-                                      fontFamily: "'Public Sans'",
-                                      fontSize: "14px",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
+                                      display: "flex",
+                                      paddingTop: "2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
                                     }}
                                   >
-                                    ✓ Motor Vehicle Driving History
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                          stroke="#D5D7DA"
+                                          strokeWidth="2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
                                   </div>
                                   <div
                                     style={{
-                                      color: "#717680",
-                                      fontFamily: "'Public Sans'",
-                                      fontSize: "14px",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
                                     }}
                                   >
-                                    ✓ Court Criminal Monitoring
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "320px",
+                                        alignItems: "flex-end",
+                                        gap: "4px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#717680",
+                                          fontFamily: "'Public Sans'",
+                                          fontSize: "14px",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Motor Vehicle Driving History
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          flexShrink: 0,
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.33333"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Court Criminal Monitoring */}
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      paddingTop: "2px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "16px",
+                                        height: "16px",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "1px solid #D5D7DA",
+                                        backgroundColor: "#F5F5F5",
+                                      }}
+                                    >
+                                      <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                      >
+                                        <path
+                                          d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                                          stroke="#D5D7DA"
+                                          strokeWidth="2"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        width: "320px",
+                                        alignItems: "flex-end",
+                                        gap: "4px",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color: "#717680",
+                                          fontFamily: "'Public Sans'",
+                                          fontSize: "14px",
+                                          fontWeight: 500,
+                                          lineHeight: "20px",
+                                        }}
+                                      >
+                                        Court Criminal Monitoring
+                                      </div>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          width: "16px",
+                                          height: "16px",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          flexShrink: 0,
+                                        }}
+                                      >
+                                        <svg
+                                          width="16"
+                                          height="16"
+                                          viewBox="0 0 16 16"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M6.06016 5.99992C6.2169 5.55436 6.52626 5.17866 6.93347 4.93934C7.34067 4.70002 7.81943 4.61254 8.28495 4.69239C8.75047 4.77224 9.17271 5.01427 9.47688 5.3756C9.78106 5.73694 9.94753 6.19427 9.94683 6.66659C9.94683 7.99992 7.94683 8.66659 7.94683 8.66659M8.00016 11.3333H8.00683M14.6668 7.99992C14.6668 11.6818 11.6821 14.6666 8.00016 14.6666C4.31826 14.6666 1.3335 11.6818 1.3335 7.99992C1.3335 4.31802 4.31826 1.33325 8.00016 1.33325C11.6821 1.33325 14.6668 4.31802 14.6668 7.99992Z"
+                                            stroke="#A4A7AE"
+                                            strokeWidth="1.33333"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
