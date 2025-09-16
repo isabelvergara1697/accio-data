@@ -20453,6 +20453,14 @@ const OnlineOrdering = () => {
             </div>
           </div>
         </div>
+
+        {/* Quick Navigation */}
+        <QuickNavigation
+          isVisible={showQuickNavigation && !!selectedPackage}
+          hasValidationErrors={hasValidationErrors()}
+          onNavigateToSection={handleNavigateToSection}
+          sections={getNavigationSections()}
+        />
       </main>
     </div>
   );
