@@ -3847,16 +3847,1224 @@ const SubmitOrSaveOrder = () => {
                     </div>
 
                     {!sectionsState.subject && (
-                      <div style={{ width: "100%" }}>
-                        {/* Subject content - abbreviated for space */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* General Setup Section */}
                         <div
                           style={{
-                            padding: "20px",
-                            textAlign: "center",
-                            color: "#717680",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "16px",
+                            alignSelf: "stretch",
                           }}
                         >
-                          Subject details (content preserved from original)
+                          <h4
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "16px",
+                              fontWeight: 600,
+                              lineHeight: "24px",
+                              margin: 0,
+                            }}
+                          >
+                            General Setup
+                          </h4>
+
+                          {/* Checkboxes Grid */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "56px",
+                              alignItems: "flex-start",
+                              alignContent: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                              flexWrap: "wrap",
+                            }}
+                          >
+                            {/* First Row - Collect PII and Send Order */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: isMobile ? "100%" : "492px",
+                                alignItems: "center",
+                                gap: "8px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "4px",
+                                    border: "1px solid #D5D7DA",
+                                    backgroundColor: "#F5F5F5",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                  >
+                                    <path
+                                      d="M13.3333 4L5.99996 11.3333L2.66663 8"
+                                      stroke="#D5D7DA"
+                                      strokeWidth="2"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Collect PII (SSN and/or DOB) from applicant?
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                    >
+                                      <g clipPath="url(#clip0_collect_pii)">
+                                        <path
+                                          d="M6.06004 5.99992C6.21678 5.55436 6.52614 5.17866 6.93334 4.93934C7.34055 4.70002 7.8193 4.61254 8.28483 4.69239C8.75035 4.77224 9.17259 5.01427 9.47676 5.3756C9.78093 5.73694 9.94741 6.19427 9.94671 6.66659C9.94671 7.99992 7.94671 8.66659 7.94671 8.66659M8.00004 11.3333H8.00671M14.6667 7.99992C14.6667 11.6818 11.6819 14.6666 8.00004 14.6666C4.31814 14.6666 1.33337 11.6818 1.33337 7.99992C1.33337 4.31802 4.31814 1.33325 8.00004 1.33325C11.6819 1.33325 14.6667 4.31802 14.6667 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_collect_pii">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div
+                              style={{
+                                display: "flex",
+                                width: isMobile ? "100%" : "492px",
+                                alignItems: "center",
+                                gap: "8px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "4px",
+                                    border: "1px solid #D5D7DA",
+                                    backgroundColor: "#F5F5F5",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                  >
+                                    <path
+                                      d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                                      stroke="#D5D7DA"
+                                      strokeWidth="2"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Send order to applicant to complete?
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                    >
+                                      <g clipPath="url(#clip0_send_order)">
+                                        <path
+                                          d="M6.05992 5.99992C6.21665 5.55436 6.52602 5.17866 6.93322 4.93934C7.34042 4.70002 7.81918 4.61254 8.2847 4.69239C8.75022 4.77224 9.17246 5.01427 9.47664 5.3756C9.78081 5.73694 9.94729 6.19427 9.94659 6.66659C9.94659 7.99992 7.94659 8.66659 7.94659 8.66659M7.99992 11.3333H8.00659M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_send_order">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Second Row - Electronic Sign and Pay for Order */}
+                            <div
+                              style={{
+                                display: "flex",
+                                width: isMobile ? "100%" : "492px",
+                                alignItems: "center",
+                                gap: "8px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "4px",
+                                    border: "1px solid #D5D7DA",
+                                    backgroundColor: "#F5F5F5",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                  >
+                                    <path
+                                      d="M13.3333 4L5.99996 11.3333L2.66663 8"
+                                      stroke="#D5D7DA"
+                                      strokeWidth="2"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Require applicant to electronically sign a release?
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                    >
+                                      <g clipPath="url(#clip0_electronic_sign)">
+                                        <path
+                                          d="M6.05992 5.99992C6.21665 5.55436 6.52602 5.17866 6.93322 4.93934C7.34042 4.70002 7.81918 4.61254 8.2847 4.69239C8.75022 4.77224 9.17246 5.01427 9.47664 5.3756C9.78081 5.73694 9.94729 6.19427 9.94659 6.66659C9.94659 7.99992 7.94659 8.66659 7.94659 8.66659M7.99992 11.3333H8.00659M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_electronic_sign">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div
+                              style={{
+                                display: "flex",
+                                width: isMobile ? "100%" : "492px",
+                                alignItems: "center",
+                                gap: "8px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  paddingTop: "2px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "16px",
+                                    height: "16px",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    borderRadius: "4px",
+                                    border: "1px solid #D5D7DA",
+                                    backgroundColor: "#F5F5F5",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                  >
+                                    <path
+                                      d="M13.3334 4L6.00008 11.3333L2.66675 8"
+                                      stroke="#D5D7DA"
+                                      strokeWidth="2"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    width: "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
+                                    Require applicant to pay for their order?
+                                  </div>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      width: "16px",
+                                      height: "16px",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      flexShrink: 0,
+                                    }}
+                                  >
+                                    <svg
+                                      width="16"
+                                      height="16"
+                                      viewBox="0 0 16 16"
+                                      fill="none"
+                                    >
+                                      <g clipPath="url(#clip0_pay_order)">
+                                        <path
+                                          d="M6.05992 5.99992C6.21665 5.55436 6.52602 5.17866 6.93322 4.93934C7.34042 4.70002 7.81918 4.61254 8.2847 4.69239C8.75022 4.77224 9.17246 5.01427 9.47664 5.3756C9.78081 5.73694 9.94729 6.19427 9.94659 6.66659C9.94659 7.99992 7.94659 8.66659 7.94659 8.66659M7.99992 11.3333H8.00659M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z"
+                                          stroke="#A4A7AE"
+                                          strokeWidth="1.33333"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </g>
+                                      <defs>
+                                        <clipPath id="clip0_pay_order">
+                                          <rect width="16" height="16" fill="white" />
+                                        </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <svg
+                          style={{
+                            display: "flex",
+                            padding: "4px 0",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                          }}
+                          width="100%"
+                          height="9"
+                          viewBox="0 0 1000 9"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M1000 5H0V4H1000V5Z"
+                            fill="#E9EAEB"
+                          />
+                        </svg>
+
+                        {/* Requester Information Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <h4
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "16px",
+                              fontWeight: 500,
+                              lineHeight: "24px",
+                              margin: 0,
+                            }}
+                          >
+                            Requester Information
+                          </h4>
+
+                          {/* Name Fields Grid */}
+                          <div
+                            style={{
+                              display: "grid",
+                              height: "52px",
+                              rowGap: "8px",
+                              columnGap: "8px",
+                              alignSelf: "stretch",
+                              gridTemplateRows: "fit-content(100%)",
+                              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, minmax(0, 1fr))",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                First Name
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Alexandra
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Middle Name
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Johnson
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Last Name
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Smith
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* AKA's Section */}
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "16px",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderRadius: "10px",
+                              border: "1px solid #E9EAEB",
+                              backgroundColor: "#F5F5F5",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#414651",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "16px",
+                                fontWeight: 600,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              AKA's
+                            </div>
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "52px",
+                                rowGap: "8px",
+                                columnGap: "8px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%)",
+                                gridTemplateColumns: isMobile ? "1fr" : "repeat(3, minmax(0, 1fr))",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Other First Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Alexander
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Other Middle Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  J
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Other Last Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "'Public Sans'",
+                                    fontSize: "16px",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                  }}
+                                >
+                                  Smith T
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Address Information Grid */}
+                          <div
+                            style={{
+                              display: "grid",
+                              height: "120px",
+                              rowGap: "16px",
+                              columnGap: "16px",
+                              alignSelf: "stretch",
+                              gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
+                              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, minmax(0, 1fr))",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                DOB (MM/DD/YYYY)
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                18/12/1991
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Zip Code
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                080102
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Address
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Street 123
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                City
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                City ABC
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                State
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                AL, Alabama
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Country
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                USA
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <svg
+                            style={{
+                              display: "flex",
+                              padding: "4px 0",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                            }}
+                            width="100%"
+                            height="9"
+                            viewBox="0 0 1000 9"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M1000 5H0V4H1000V5Z"
+                              fill="#E9EAEB"
+                            />
+                          </svg>
+
+                          {/* FCRA Purpose and Criminal Records Grid */}
+                          <div
+                            style={{
+                              display: "grid",
+                              height: "52px",
+                              rowGap: "16px",
+                              columnGap: "16px",
+                              alignSelf: "stretch",
+                              gridTemplateRows: "fit-content(100%)",
+                              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                FCRA Purpose
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Employment by Hire or Contract
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Applicant has know Criminal Records?
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                [Category]
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <svg
+                            style={{
+                              display: "flex",
+                              padding: "4px 0",
+                              alignItems: "center",
+                              alignSelf: "stretch",
+                            }}
+                            width="100%"
+                            height="9"
+                            viewBox="0 0 1000 9"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              clipRule="evenodd"
+                              d="M1000 5H0V4H1000V5Z"
+                              fill="#E9EAEB"
+                            />
+                          </svg>
+
+                          {/* Applicant Contact Information Grid */}
+                          <div
+                            style={{
+                              display: "grid",
+                              height: "52px",
+                              rowGap: "16px",
+                              columnGap: "16px",
+                              alignSelf: "stretch",
+                              gridTemplateRows: "fit-content(100%)",
+                              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Applicant Phone
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                +1 (555) 000-0000
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                Applicant Email
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "'Public Sans'",
+                                  fontSize: "16px",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                }}
+                              >
+                                alexjsmith@gmail.com
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     )}
