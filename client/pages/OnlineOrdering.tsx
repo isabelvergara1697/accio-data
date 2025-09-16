@@ -509,6 +509,29 @@ const OnlineOrdering = () => {
 
   // Quick Navigation helpers
   const handleNavigateToSection = (sectionId: string) => {
+    // Handle subsection navigation (e.g., "employment-1", "education-2")
+    if (sectionId.includes('-') && /\d+$/.test(sectionId)) {
+      const [sectionType, entryNumber] = sectionId.split('-');
+      let selector = '';
+
+      if (sectionType === 'employment') {
+        selector = `[data-section="employment"] [data-employment-entry="${entryNumber}"]`;
+      } else if (sectionType === 'education') {
+        selector = `[data-section="education"] [data-education-entry="${entryNumber}"]`;
+      } else if (sectionType === 'professional') {
+        selector = `[data-section="professional-references"] [data-professional-ref-entry="${entryNumber}"]`;
+      } else if (sectionType === 'credentials') {
+        selector = `[data-section="credentials-professional-license"] [data-credentials-entry="${entryNumber}"]`;
+      }
+
+      const element = document.querySelector(selector) as HTMLElement;
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+    }
+
+    // Handle main section navigation
     const element = document.querySelector(`[data-section="${sectionId}"]`) as HTMLElement;
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
