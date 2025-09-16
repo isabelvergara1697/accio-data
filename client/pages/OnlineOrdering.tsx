@@ -20767,6 +20767,7 @@ const OnlineOrdering = () => {
           hasValidationErrors={hasValidationErrors()}
           onNavigateToSection={handleNavigateToSection}
           sections={getNavigationSections()}
+          allSectionsCompleted={areAllSectionsCompleted()}
         />
       </main>
     </div>
