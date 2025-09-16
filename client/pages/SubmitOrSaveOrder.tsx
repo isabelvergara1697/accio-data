@@ -2933,6 +2933,7 @@ const SubmitOrSaveOrder = () => {
                           cursor: "pointer",
                         }}
                         aria-label="Edit Motor Vehicle Driving History"
+                        onClick={() => handleEditSection('motorVehicle')}
                       >
                         <span
                           style={{
