@@ -532,7 +532,7 @@ const OnlineOrdering = () => {
     if (selectedPackage) {
       sections.push({
         id: "subject",
-        label: "My details",
+        label: "Subject",
         completed: isSubjectCompleted(),
         hasErrors: validationAttempted && !isSubjectCompleted(),
       });
@@ -19134,7 +19134,7 @@ const OnlineOrdering = () => {
                       )}
                     </div>
 
-                    {/* My details Tab */}
+                    {/* Subject Tab */}
                     <div
                       style={{
                         display: "flex",
@@ -19163,7 +19163,7 @@ const OnlineOrdering = () => {
                           lineHeight: "20px",
                         }}
                       >
-                        My details
+                        Subject
                       </div>
                       {validationAttempted && !isSubjectCompleted() ? (
                         <>
