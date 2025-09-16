@@ -507,6 +507,100 @@ const OnlineOrdering = () => {
     // Add actual submission logic here
   };
 
+  // Quick Navigation helpers
+  const handleNavigateToSection = (sectionId: string) => {
+    const element = document.querySelector(`[data-section="${sectionId}"]`) as HTMLElement;
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Define navigation sections based on active packages
+  const getNavigationSections = () => {
+    const sections = [];
+
+    // Always show Package & Products and Subject
+    if (selectedPackage) {
+      sections.push({
+        id: "package-and-products",
+        label: "Package & Products",
+        completed: !!selectedPackage,
+        hasErrors: validationAttempted && !selectedPackage,
+      });
+    }
+
+    if (selectedPackage) {
+      sections.push({
+        id: "subject",
+        label: "My details",
+        completed: isSubjectCompleted(),
+        hasErrors: validationAttempted && !isSubjectCompleted(),
+      });
+    }
+
+    // Add sections based on selected packages
+    if (packageCheckboxes["employment"]) {
+      sections.push({
+        id: "employment",
+        label: "Employment",
+        completed: isEmploymentCompleted(),
+        hasErrors: validationAttempted && !isEmploymentCompleted(),
+      });
+    }
+
+    if (packageCheckboxes["education"]) {
+      sections.push({
+        id: "education",
+        label: "Education",
+        completed: isEducationCompleted(),
+        hasErrors: validationAttempted && !isEducationCompleted(),
+      });
+    }
+
+    if (packageCheckboxes["professional-references"]) {
+      sections.push({
+        id: "professional-references",
+        label: "References",
+        completed: isProfessionalReferencesCompleted(),
+        hasErrors: validationAttempted && !isProfessionalReferencesCompleted(),
+      });
+    }
+
+    if (packageCheckboxes["credentials-professional-license"]) {
+      sections.push({
+        id: "credentials-professional-license",
+        label: "Credentials",
+        completed: isCredentialsCompleted(),
+        hasErrors: validationAttempted && !isCredentialsCompleted(),
+      });
+    }
+
+    if (packageCheckboxes["motor-vehicle-driving"]) {
+      sections.push({
+        id: "motor-vehicle-driving",
+        label: "MVR",
+        completed: isMvrCompleted(),
+        hasErrors: validationAttempted && !isMvrCompleted(),
+      });
+    }
+
+    // Always show Authorization at the end
+    sections.push({
+      id: "authorization",
+      label: "Authorization",
+      completed: authorizationChecked,
+      hasErrors: validationAttempted && !authorizationChecked,
+    });
+
+    return sections;
+  };
+
+  // Check if there are any validation errors
+  const hasValidationErrors = () => {
+    if (!validationAttempted) return false;
+    return !isFormReadyForSubmission() || !authorizationChecked;
+  };
+
   // Scroll to the first incomplete section users need to finish
   const scrollToFirstIncompleteSection = () => {
     const scrollTo = (selector: string) => {
