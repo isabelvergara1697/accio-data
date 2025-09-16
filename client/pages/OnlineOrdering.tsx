@@ -1861,11 +1861,11 @@ const OnlineOrdering = () => {
                             });
                           }
                         }}
-                        style={tabContainerStyle(!!subjectFullName)}
+                        style={tabContainerStyle(isSubjectCompleted())}
                       >
                         <div
                           style={{
-                            color: subjectFullName ? "#414651" : "#717680",
+                            color: isSubjectCompleted() ? "#414651" : "#717680",
                             fontFamily:
                               "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
@@ -1876,7 +1876,7 @@ const OnlineOrdering = () => {
                         >
                           Subject
                         </div>
-                        {!!subjectFullName && (
+                        {isSubjectCompleted() && (
                           <div
                             style={{
                               display: "flex",
