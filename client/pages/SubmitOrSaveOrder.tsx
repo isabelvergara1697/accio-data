@@ -473,6 +473,513 @@ const SubmitOrSaveOrder = () => {
               </div>
             </div>
 
+            {/* Billing Information Section */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
+                backgroundColor: "#FFF",
+                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+              }}
+            >
+              {/* Section Header */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "20px",
+                  alignSelf: "stretch",
+                  backgroundColor: "#FFF",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "20px 24px 0 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "4px",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "flex-start",
+                          gap: "2px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <h2
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "18px",
+                              fontWeight: 600,
+                              lineHeight: "28px",
+                              margin: 0,
+                            }}
+                          >
+                            Billing Information
+                          </h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Table Content */}
+              <div
+                style={{
+                  display: "flex",
+                  padding: "12px 24px 16px 24px",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  borderRadius: "0px 0px 12px 12px",
+                  backgroundColor: "#FFF",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  {/* Table Structure */}
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "62px 196px 1fr 1fr 1fr 1fr 1fr 1fr",
+                      alignSelf: "stretch",
+                      width: "100%",
+                    }}
+                  >
+                    {/* Header Row */}
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        backgroundColor: "#FFF",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        Included
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        backgroundColor: "#FFF",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        Search Type
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        backgroundColor: "#FFF",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        Location / Adjuster
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        backgroundColor: "#FFF",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        Price
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        backgroundColor: "#FFF",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        Adjustment
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        backgroundColor: "#FFF",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        3rd Party Fees
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        backgroundColor: "#FFF",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        Taxes
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "6px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        backgroundColor: "#FFF",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "12px",
+                          fontWeight: 600,
+                          lineHeight: "18px",
+                        }}
+                      >
+                        Total
+                      </div>
+                    </div>
+
+                    {/* Data Rows */}
+                    {[
+                      { included: "", searchType: "CSD Standard Package", location: "", price: "3.55", adjustment: "0.00", thirdParty: "0.00", taxes: "2.88", total: "37.88" },
+                      { included: "Y", searchType: "Social Security Trace", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
+                      { included: "Y", searchType: "MJD", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
+                      { included: "Y", searchType: "County/Statewide Criminal History 7yr", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
+                      { included: "Y", searchType: "Court Criminal Monitoring", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
+                      { included: "Y", searchType: "Data Collection", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
+                      { included: "Y", searchType: "DOT Drug Test and Physical", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
+                    ].map((row, index) => (
+                      <React.Fragment key={index}>
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {row.included}
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            {row.searchType}
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {row.location}
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {row.price}
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {row.adjustment}
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {row.thirdParty}
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {row.taxes}
+                          </div>
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {row.total}
+                          </div>
+                        </div>
+                      </React.Fragment>
+                    ))}
+
+                    {/* Final Total Row */}
+                    <div style={{ gridColumn: "1 / -1", height: "8px" }} />
+                    <div style={{ gridColumn: "8", textAlign: "center", padding: "8px 12px" }}>
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "14px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        37.88
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Order Overview Section */}
             <div
               style={{
