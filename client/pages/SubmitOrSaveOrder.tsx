@@ -481,6 +481,7 @@ const SubmitOrSaveOrder = () => {
                 borderRadius: "12px",
                 border: "1px solid #E9EAEB",
                 backgroundColor: "#FFF",
+                overflow: "hidden",
                 boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
               }}
             >
@@ -641,7 +642,7 @@ const SubmitOrSaveOrder = () => {
               {/* Content */}
               <div
                 style={{
-                  display: "flex",
+                  display: orderOverviewCollapsed ? "none" : "flex",
                   padding: "20px 24px 16px 24px",
                   flexDirection: "column",
                   alignItems: "center",
@@ -757,6 +758,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
 
+                  <div style={{ display: sectionsState.package ? "none" : "block", width: "100%" }}>
                   {/* Package Info */}
                   <div
                     style={{
@@ -1289,6 +1291,8 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
                 </div>
+
+                  </div>
 
                 {/* Subject Section */}
                 <div
