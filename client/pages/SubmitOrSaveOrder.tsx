@@ -483,6 +483,7 @@ const SubmitOrSaveOrder = () => {
                 borderRadius: "12px",
                 border: "1px solid #E9EAEB",
                 backgroundColor: "#FFF",
+                overflow: "hidden",
                 boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
               }}
             >
@@ -675,8 +676,9 @@ const SubmitOrSaveOrder = () => {
                           color: "#717680",
                           fontFamily: "'Public Sans'",
                           fontSize: "12px",
-                          fontWeight: 600,
+                          fontWeight: 700,
                           lineHeight: "18px",
+                          marginLeft: "auto",
                         }}
                       >
                         Price
@@ -698,8 +700,9 @@ const SubmitOrSaveOrder = () => {
                           color: "#717680",
                           fontFamily: "'Public Sans'",
                           fontSize: "12px",
-                          fontWeight: 600,
+                          fontWeight: 700,
                           lineHeight: "18px",
+                          marginLeft: "auto",
                         }}
                       >
                         Adjustment
@@ -721,8 +724,9 @@ const SubmitOrSaveOrder = () => {
                           color: "#717680",
                           fontFamily: "'Public Sans'",
                           fontSize: "12px",
-                          fontWeight: 600,
+                          fontWeight: 700,
                           lineHeight: "18px",
+                          marginLeft: "auto",
                         }}
                       >
                         3rd Party Fees
@@ -744,8 +748,9 @@ const SubmitOrSaveOrder = () => {
                           color: "#717680",
                           fontFamily: "'Public Sans'",
                           fontSize: "12px",
-                          fontWeight: 600,
+                          fontWeight: 700,
                           lineHeight: "18px",
+                          marginLeft: "auto",
                         }}
                       >
                         Taxes
@@ -767,8 +772,9 @@ const SubmitOrSaveOrder = () => {
                           color: "#717680",
                           fontFamily: "'Public Sans'",
                           fontSize: "12px",
-                          fontWeight: 600,
+                          fontWeight: 700,
                           lineHeight: "18px",
+                          marginLeft: "auto",
                         }}
                       >
                         Total
@@ -868,6 +874,7 @@ const SubmitOrSaveOrder = () => {
                               fontSize: "14px",
                               fontWeight: 500,
                               lineHeight: "20px",
+                              marginLeft: "auto",
                             }}
                           >
                             {row.price}
@@ -889,6 +896,7 @@ const SubmitOrSaveOrder = () => {
                               fontSize: "14px",
                               fontWeight: 500,
                               lineHeight: "20px",
+                              marginLeft: "auto",
                             }}
                           >
                             {row.adjustment}
@@ -910,6 +918,7 @@ const SubmitOrSaveOrder = () => {
                               fontSize: "14px",
                               fontWeight: 500,
                               lineHeight: "20px",
+                              marginLeft: "auto",
                             }}
                           >
                             {row.thirdParty}
@@ -931,6 +940,7 @@ const SubmitOrSaveOrder = () => {
                               fontSize: "14px",
                               fontWeight: 500,
                               lineHeight: "20px",
+                              marginLeft: "auto",
                             }}
                           >
                             {row.taxes}
@@ -952,6 +962,7 @@ const SubmitOrSaveOrder = () => {
                               fontSize: "14px",
                               fontWeight: 500,
                               lineHeight: "20px",
+                              marginLeft: "auto",
                             }}
                           >
                             {row.total}
@@ -962,13 +973,13 @@ const SubmitOrSaveOrder = () => {
 
                     {/* Final Total Row */}
                     <div style={{ gridColumn: "1 / -1", height: "8px" }} />
-                    <div style={{ gridColumn: "8", textAlign: "center", padding: "8px 12px" }}>
+                    <div style={{ gridColumn: "8", textAlign: "right", padding: "8px 12px", borderTop: "1px solid #E9EAEB" }}>
                       <div
                         style={{
                           color: "#181D27",
                           fontFamily: "'Public Sans'",
                           fontSize: "14px",
-                          fontWeight: 600,
+                          fontWeight: 700,
                           lineHeight: "20px",
                         }}
                       >
