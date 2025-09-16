@@ -4691,13 +4691,15 @@ const SubmitOrSaveOrder = () => {
                           {/* Address Information Grid */}
                           <div
                             style={{
-                              display: "grid",
-                              height: "120px",
-                              rowGap: "16px",
-                              columnGap: "16px",
+                              display: isMobile ? "flex" : "grid",
+                              flexDirection: isMobile ? "column" : undefined,
+                              height: isMobile ? undefined : "120px",
+                              rowGap: isMobile ? undefined : "16px",
+                              columnGap: isMobile ? undefined : "16px",
+                              gap: isMobile ? "8px" : undefined,
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
-                              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, minmax(0, 1fr))",
+                              gridTemplateRows: isMobile ? undefined : "fit-content(100%) minmax(0, 1fr)",
+                              gridTemplateColumns: isMobile ? undefined : "repeat(3, minmax(0, 1fr))",
                             }}
                           >
                             <div
