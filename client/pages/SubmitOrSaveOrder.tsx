@@ -2402,6 +2402,427 @@ const SubmitOrSaveOrder = () => {
                   </div>
                 </div>
 
+                {/* Credentials - Professional Licenses Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "20px 16px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #E9EAEB",
+                    backgroundColor: "#FAFAFA",
+                  }}
+                >
+                  {/* Title Bar */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "18px",
+                        fontWeight: 500,
+                        lineHeight: "28px",
+                        margin: 0,
+                      }}
+                    >
+                      Credentials - Professional Licenses
+                    </h3>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <button
+                        style={{
+                          display: "flex",
+                          height: "32px",
+                          padding: "6px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                        aria-label="Edit Credentials - Professional Licenses"
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Edit
+                        </span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M1.917 12.077c.03-.276.046-.413.087-.542.037-.114.09-.223.156-.323.074-.113.172-.211.368-.407L11.333 2a1.667 1.667 0 0 1 2.357 2.357L5.196 13.471c-.196.196-.294.294-.408.368a1.003 1.003 0 0 1-.323.156c-.128.041-.266.057-.541.088L1.667 14.333l.25-2.256Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                      <button
+                        style={{
+                          display: "flex",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                        aria-label="Toggle Credentials - Professional Licenses"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Credentials - Professional License #1 Card */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "16px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                      alignSelf: "stretch",
+                      borderRadius: "10px",
+                      border: "1px solid #E9EAEB",
+                      backgroundColor: "#F5F5F5",
+                    }}
+                  >
+                    {/* Credentials - Professional License #1 Title Bar */}
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <h4
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "16px",
+                          fontWeight: 500,
+                          lineHeight: "24px",
+                          margin: 0,
+                        }}
+                      >
+                        Credentials - Professional License #1
+                      </h4>
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                        <button
+                          style={{
+                            display: "flex",
+                            height: "32px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                          aria-label="Edit Credentials - Professional License #1"
+                        >
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Edit
+                          </span>
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M1.917 12.077c.03-.276.046-.413.087-.542.037-.114.09-.223.156-.323.074-.113.172-.211.368-.407L11.333 2a1.667 1.667 0 0 1 2.357 2.357L5.196 13.471c-.196.196-.294.294-.408.368a1.003 1.003 0 0 1-.323.156c-.128.041-.266.057-.541.088L1.667 14.333l.25-2.256Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                        <button
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                          aria-label="Toggle Credentials - Professional License #1"
+                        >
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* License Details Grid */}
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                        gridTemplateRows: "repeat(2, auto)",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      {/* First Row */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Organization</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Acme Company</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Description</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Security License</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>License Number</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>123456</div>
+                      </div>
+
+                      {/* Second Row */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>License Status</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Active</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>License State</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>TX, Texas</div>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: "100%", height: "1px", backgroundColor: "#E9EAEB" }} />
+
+                    {/* License Dates */}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", alignSelf: "stretch" }}>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "312px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Date Received</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>18/12/2025</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "312px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Expiration Date</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>18/12/2023</div>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: "100%", height: "1px", backgroundColor: "#E9EAEB" }} />
+
+                    {/* Comments */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "4px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "16px",
+                          fontWeight: 400,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        Comments
+                      </div>
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "16px",
+                          fontWeight: 400,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        Personal reference
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Motor Vehicle Driving History Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "20px 16px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #E9EAEB",
+                    backgroundColor: "#FAFAFA",
+                  }}
+                >
+                  {/* Title Bar */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "18px",
+                        fontWeight: 500,
+                        lineHeight: "28px",
+                        margin: 0,
+                      }}
+                    >
+                      Motor Vehicle Driving History
+                    </h3>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <button
+                        style={{
+                          display: "flex",
+                          height: "32px",
+                          padding: "6px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                        aria-label="Edit Motor Vehicle Driving History"
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Edit
+                        </span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M1.917 12.077c.03-.276.046-.413.087-.542.037-.114.09-.223.156-.323.074-.113.172-.211.368-.407L11.333 2a1.667 1.667 0 0 1 2.357 2.357L5.196 13.471c-.196.196-.294.294-.408.368a1.003 1.003 0 0 1-.323.156c-.128.041-.266.057-.541.088L1.667 14.333l.25-2.256Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                      <button
+                        style={{
+                          display: "flex",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                        aria-label="Toggle Motor Vehicle Driving History"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Motor Vehicle Details Grid */}
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                      gridTemplateRows: "auto",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Drives License Number</div>
+                      <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>1234567</div>
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Purpose for Order</div>
+                      <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>CDL Employment Only</div>
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                      <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>MVR Type</div>
+                      <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Standard</div>
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div style={{ width: "100%", height: "1px", backgroundColor: "#E9EAEB" }} />
+
+                  {/* Expiration Date */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "4px",
+                      width: "312px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#717680",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "16px",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                      }}
+                    >
+                      Expiration Date
+                    </div>
+                    <div
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "16px",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                      }}
+                    >
+                      18/12/2025
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
