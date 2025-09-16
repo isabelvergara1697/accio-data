@@ -5047,13 +5047,15 @@ const SubmitOrSaveOrder = () => {
                           {/* Applicant Contact Information Grid */}
                           <div
                             style={{
-                              display: "grid",
-                              height: "52px",
-                              rowGap: "16px",
-                              columnGap: "16px",
+                              display: isMobile ? "flex" : "grid",
+                              flexDirection: isMobile ? "column" : undefined,
+                              height: isMobile ? undefined : "52px",
+                              rowGap: isMobile ? undefined : "16px",
+                              columnGap: isMobile ? undefined : "16px",
+                              gap: isMobile ? "8px" : undefined,
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%)",
-                              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
+                              gridTemplateRows: isMobile ? undefined : "fit-content(100%)",
+                              gridTemplateColumns: isMobile ? undefined : "repeat(2, minmax(0, 1fr))",
                             }}
                           >
                             <div
