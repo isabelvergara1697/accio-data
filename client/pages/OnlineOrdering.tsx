@@ -11183,6 +11183,48 @@ const OnlineOrdering = () => {
                               }}
                             >
                               <button
+                                onClick={() => {
+                                  const container = (e.currentTarget.closest('[data-section]') as HTMLElement) || undefined;
+                                  // Determine section by closest [data-section]
+                                  if (container?.getAttribute('data-section') === 'employment') {
+                                    const entry = e.currentTarget.closest('[data-employment-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-employment-entry') || '0', 10) : 0;
+                                    if (idx) removeEmploymentEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'education') {
+                                    const entry = e.currentTarget.closest('[data-education-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-education-entry') || '0', 10) : 0;
+                                    if (idx) removeEducationEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'professional-references') {
+                                    const entry = e.currentTarget.closest('[data-professional-ref-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-professional-ref-entry') || '0', 10) : 0;
+                                    if (idx) removeProfessionalRefEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'credentials-professional-license') {
+                                    const entry = e.currentTarget.closest('[data-credentials-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-credentials-entry') || '0', 10) : 0;
+                                    if (idx) removeCredentialsEntry(idx);
+                                  }
+                                }}
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                  <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 600, lineHeight: "18px" }}>Remove</div>
+                                </div>
+                                <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clipPath="url(#clip0_minus_circle_generic)"><path d="M5.33325 7.99992H10.6666M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/></g><defs><clipPath id="clip0_minus_circle_generic"><rect width="16" height="16" fill="white" /></clipPath></defs></svg>
+                              </button>
+                              <button
                                 style={{
                                   display: "flex",
                                   padding: "8px",
@@ -14346,6 +14388,48 @@ const OnlineOrdering = () => {
                               }}
                             >
                               <button
+                                onClick={() => {
+                                  const container = (e.currentTarget.closest('[data-section]') as HTMLElement) || undefined;
+                                  // Determine section by closest [data-section]
+                                  if (container?.getAttribute('data-section') === 'employment') {
+                                    const entry = e.currentTarget.closest('[data-employment-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-employment-entry') || '0', 10) : 0;
+                                    if (idx) removeEmploymentEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'education') {
+                                    const entry = e.currentTarget.closest('[data-education-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-education-entry') || '0', 10) : 0;
+                                    if (idx) removeEducationEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'professional-references') {
+                                    const entry = e.currentTarget.closest('[data-professional-ref-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-professional-ref-entry') || '0', 10) : 0;
+                                    if (idx) removeProfessionalRefEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'credentials-professional-license') {
+                                    const entry = e.currentTarget.closest('[data-credentials-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-credentials-entry') || '0', 10) : 0;
+                                    if (idx) removeCredentialsEntry(idx);
+                                  }
+                                }}
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                  <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 600, lineHeight: "18px" }}>Remove</div>
+                                </div>
+                                <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clipPath="url(#clip0_minus_circle_generic)"><path d="M5.33325 7.99992H10.6666M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/></g><defs><clipPath id="clip0_minus_circle_generic"><rect width="16" height="16" fill="white" /></clipPath></defs></svg>
+                              </button>
+                              <button
                                 style={{
                                   display: "flex",
                                   padding: "8px",
@@ -16381,6 +16465,48 @@ const OnlineOrdering = () => {
                               }}
                             >
                               <button
+                                onClick={() => {
+                                  const container = (e.currentTarget.closest('[data-section]') as HTMLElement) || undefined;
+                                  // Determine section by closest [data-section]
+                                  if (container?.getAttribute('data-section') === 'employment') {
+                                    const entry = e.currentTarget.closest('[data-employment-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-employment-entry') || '0', 10) : 0;
+                                    if (idx) removeEmploymentEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'education') {
+                                    const entry = e.currentTarget.closest('[data-education-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-education-entry') || '0', 10) : 0;
+                                    if (idx) removeEducationEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'professional-references') {
+                                    const entry = e.currentTarget.closest('[data-professional-ref-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-professional-ref-entry') || '0', 10) : 0;
+                                    if (idx) removeProfessionalRefEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'credentials-professional-license') {
+                                    const entry = e.currentTarget.closest('[data-credentials-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-credentials-entry') || '0', 10) : 0;
+                                    if (idx) removeCredentialsEntry(idx);
+                                  }
+                                }}
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                  <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 600, lineHeight: "18px" }}>Remove</div>
+                                </div>
+                                <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clipPath="url(#clip0_minus_circle_generic)"><path d="M5.33325 7.99992H10.6666M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/></g><defs><clipPath id="clip0_minus_circle_generic"><rect width="16" height="16" fill="white" /></clipPath></defs></svg>
+                              </button>
+                              <button
                                 style={{
                                   display: "flex",
                                   padding: "8px",
@@ -18166,6 +18292,48 @@ const OnlineOrdering = () => {
                                 gap: "12px",
                               }}
                             >
+                              <button
+                                onClick={() => {
+                                  const container = (e.currentTarget.closest('[data-section]') as HTMLElement) || undefined;
+                                  // Determine section by closest [data-section]
+                                  if (container?.getAttribute('data-section') === 'employment') {
+                                    const entry = e.currentTarget.closest('[data-employment-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-employment-entry') || '0', 10) : 0;
+                                    if (idx) removeEmploymentEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'education') {
+                                    const entry = e.currentTarget.closest('[data-education-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-education-entry') || '0', 10) : 0;
+                                    if (idx) removeEducationEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'professional-references') {
+                                    const entry = e.currentTarget.closest('[data-professional-ref-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-professional-ref-entry') || '0', 10) : 0;
+                                    if (idx) removeProfessionalRefEntry(idx);
+                                  } else if (container?.getAttribute('data-section') === 'credentials-professional-license') {
+                                    const entry = e.currentTarget.closest('[data-credentials-entry]') as HTMLElement | null;
+                                    const idx = entry ? parseInt(entry.getAttribute('data-credentials-entry') || '0', 10) : 0;
+                                    if (idx) removeCredentialsEntry(idx);
+                                  }
+                                }}
+                                style={{
+                                  display: "flex",
+                                  height: "32px",
+                                  padding: "6px",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  borderRadius: "8px",
+                                  border: "1px solid #D5D7DA",
+                                  background: "#FFF",
+                                  boxShadow:
+                                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                                  <div style={{ color: "#414651", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 600, lineHeight: "18px" }}>Remove</div>
+                                </div>
+                                <svg style={{ width: "16px", height: "16px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clipPath="url(#clip0_minus_circle_generic)"><path d="M5.33325 7.99992H10.6666M14.6666 7.99992C14.6666 11.6818 11.6818 14.6666 7.99992 14.6666C4.31802 14.6666 1.33325 11.6818 1.33325 7.99992C1.33325 4.31802 4.31802 1.33325 7.99992 1.33325C11.6818 1.33325 14.6666 4.31802 14.6666 7.99992Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/></g><defs><clipPath id="clip0_minus_circle_generic"><rect width="16" height="16" fill="white" /></clipPath></defs></svg>
+                              </button>
                               <button
                                 style={{
                                   display: "flex",
