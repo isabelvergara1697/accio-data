@@ -430,7 +430,22 @@
       width: 100% !important;
       max-width: 100% !important;
       grid-column: auto / span 1 !important;
+      grid-row: auto !important;
     }
+
+    /* Mobile padding utility to match Figma (16px sides) */
+    .mobile-px-16 {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+
+    /* Explicit mobile grid row ordering helpers */
+    .mobile-grid-row-1 { grid-row: 1 !important; }
+    .mobile-grid-row-2 { grid-row: 2 !important; }
+    .mobile-grid-row-3 { grid-row: 3 !important; }
+    .mobile-grid-row-4 { grid-row: 4 !important; }
+    .mobile-grid-row-5 { grid-row: 5 !important; }
+    .mobile-grid-row-6 { grid-row: 6 !important; }
   }
 
   /* Global page title responsive styling */
