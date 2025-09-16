@@ -6603,7 +6603,7 @@ const SubmitOrSaveOrder = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "312px",
+                              width: isMobile ? "100%" : isTablet ? "312px" : "312px",
                               flexDirection: "column",
                               alignItems: "flex-start",
                               gap: "4px",
@@ -6638,7 +6638,7 @@ const SubmitOrSaveOrder = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "312px",
+                              width: isMobile ? "100%" : isTablet ? "312px" : "312px",
                               flexDirection: "column",
                               alignItems: "flex-start",
                               gap: "4px",
