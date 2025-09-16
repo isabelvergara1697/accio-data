@@ -7614,7 +7614,7 @@ const OnlineOrdering = () => {
                                 Country
                               </div>
                             </div>
-                            <Select onValueChange={(v) => setSubjectFields(prev => ({ ...prev, country: v }))}>
+                            <Select value={subjectFields.country} onValueChange={(v) => setSubjectFields(prev => ({ ...prev, country: v }))}>}
                               <SelectTrigger
                                 style={{
                                   display: "flex",
