@@ -1683,6 +1683,7 @@ const SubmitOrSaveOrder = () => {
                             cursor: "pointer",
                           }}
                           aria-label="Toggle Employment #1"
+                          onClick={() => toggleSection('employment')}
                         >
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
@@ -2082,6 +2083,7 @@ const SubmitOrSaveOrder = () => {
                             cursor: "pointer",
                           }}
                           aria-label="Toggle Education #1"
+                          onClick={() => toggleSection('education')}
                         >
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
@@ -2507,6 +2509,7 @@ const SubmitOrSaveOrder = () => {
                             cursor: "pointer",
                           }}
                           aria-label="Toggle Professional Reference #1"
+                          onClick={() => toggleSection('professionalReferences')}
                         >
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
