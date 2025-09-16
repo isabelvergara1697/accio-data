@@ -10498,7 +10498,8 @@ const OnlineOrdering = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "322px",
+                              flex: "1 0 0",
+                              maxWidth: "100%",
                               height: "66px",
                               flexDirection: "column",
                               alignItems: "flex-start",
@@ -13632,7 +13633,8 @@ const OnlineOrdering = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "322px",
+                              flex: "1 0 0",
+                              maxWidth: "100%",
                               height: "66px",
                               flexDirection: "column",
                               alignItems: "flex-start",
@@ -15196,7 +15198,8 @@ const OnlineOrdering = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "322px",
+                                flex: "1 0 0",
+                              maxWidth: "100%",
                                 height: "66px",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
@@ -17278,7 +17281,8 @@ const OnlineOrdering = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: "322px",
+                                flex: "1 0 0",
+                              maxWidth: "100%",
                                 height: "66px",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
