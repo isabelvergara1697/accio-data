@@ -8532,6 +8532,11 @@ const OnlineOrdering = () => {
                               >
                                 Employment
                               </div>
+                              <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: isEmploymentCompleted() ? "1px solid #ABEFC6" : "1px solid #E9EAEB", background: isEmploymentCompleted() ? "#ECFDF3" : "#F9F9F9" }}>
+                                <div style={{ color: isEmploymentCompleted() ? "#067647" : "#414651", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                                  {packageQuantities["employment"] || 0}
+                                </div>
+                              </div>
                               {isEmploymentCompleted() && (
                                 <>
                                   <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #ABEFC6", background: "#ECFDF3" }}>
@@ -11451,6 +11456,11 @@ const OnlineOrdering = () => {
                                 }}
                               >
                                 Education
+                              </div>
+                              <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: isEducationCompleted() ? "1px solid #ABEFC6" : "1px solid #E9EAEB", background: isEducationCompleted() ? "#ECFDF3" : "#F9F9F9" }}>
+                                <div style={{ color: isEducationCompleted() ? "#067647" : "#414651", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                                  {packageQuantities["education"] || 0}
+                                </div>
                               </div>
                               {isEducationCompleted() && (
                                 <>
@@ -14659,6 +14669,11 @@ const OnlineOrdering = () => {
                               >
                                 Professional References
                               </div>
+                              <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: isProfessionalReferencesCompleted() ? "1px solid #ABEFC6" : "1px solid #E9EAEB", background: isProfessionalReferencesCompleted() ? "#ECFDF3" : "#F9F9F9" }}>
+                                <div style={{ color: isProfessionalReferencesCompleted() ? "#067647" : "#414651", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                                  {packageQuantities["professional-references"] || 0}
+                                </div>
+                              </div>
                               {isProfessionalReferencesCompleted() && (
                                 <>
                                   <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #ABEFC6", background: "#ECFDF3" }}>
@@ -16738,6 +16753,11 @@ const OnlineOrdering = () => {
                                 }}
                               >
                                 Credentials - Professional Licenses
+                              </div>
+                              <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: isCredentialsCompleted() ? "1px solid #ABEFC6" : "1px solid #E9EAEB", background: isCredentialsCompleted() ? "#ECFDF3" : "#F9F9F9" }}>
+                                <div style={{ color: isCredentialsCompleted() ? "#067647" : "#414651", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                                  {packageQuantities["credentials-professional-license"] || 0}
+                                </div>
                               </div>
                               {isCredentialsCompleted() && (
                                 <>
