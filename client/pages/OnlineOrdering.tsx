@@ -339,6 +339,50 @@ const OnlineOrdering = () => {
     );
   };
 
+  // Wrapper: check if all employment entries are completed
+  const isEmploymentCompleted = () => {
+    if (!packageCheckboxes["employment"]) return false;
+    const qty = packageQuantities["employment"] || 0;
+    if (qty === 0) return false;
+    for (let i = 1; i <= qty; i++) {
+      if (!isEmploymentEntryCompleted(i)) return false;
+    }
+    return true;
+  };
+
+  // Wrapper: check if all education entries are completed
+  const isEducationCompleted = () => {
+    if (!packageCheckboxes["education"]) return false;
+    const qty = packageQuantities["education"] || 0;
+    if (qty === 0) return false;
+    for (let i = 1; i <= qty; i++) {
+      if (!isEducationEntryCompleted(i)) return false;
+    }
+    return true;
+  };
+
+  // Wrapper: check if all professional references entries are completed
+  const isProfessionalReferencesCompleted = () => {
+    if (!packageCheckboxes["professional-references"]) return false;
+    const qty = packageQuantities["professional-references"] || 0;
+    if (qty === 0) return false;
+    for (let i = 1; i <= qty; i++) {
+      if (!isProfessionalRefEntryCompleted(i)) return false;
+    }
+    return true;
+  };
+
+  // Wrapper: check if all credentials entries are completed
+  const isCredentialsCompleted = () => {
+    if (!packageCheckboxes["credentials-professional-license"]) return false;
+    const qty = packageQuantities["credentials-professional-license"] || 0;
+    if (qty === 0) return false;
+    for (let i = 1; i <= qty; i++) {
+      if (!isCredentialsEntryCompleted(i)) return false;
+    }
+    return true;
+  };
+
   const getProgressStats = () => {
     let completed = 0;
     let total = 0;
