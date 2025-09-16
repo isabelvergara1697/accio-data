@@ -896,6 +896,8 @@ const SubmitOrSaveOrder = () => {
                               fontSize: "14px",
                               fontWeight: 500,
                               lineHeight: "20px",
+                              wordBreak: "break-word",
+                              overflowWrap: "anywhere",
                             }}
                           >
                             {item.nameToSearch}
