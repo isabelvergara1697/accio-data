@@ -157,6 +157,9 @@ const OnlineOrdering = () => {
     expirationDate: ""
   });
 
+  // Global completion state for all sections (excluding Authorization)
+  const [formSectionsCompleted, setFormSectionsCompleted] = useState(false);
+
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
     portal: "Portal",
@@ -396,6 +399,103 @@ const OnlineOrdering = () => {
 
     const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
     return { completed, total, percent };
+  };
+
+  // Check if all active sections (based on user's selections) are completed, excluding Authorization
+  const areActiveSectionsCompletedExcludingAuthorization = () => {
+    if (!selectedPackage) return false;
+    if (!isSubjectCompleted()) return false;
+
+    if (packageCheckboxes["employment"]) {
+      const qty = packageQuantities["employment"] || 0;
+      for (let i = 1; i <= qty; i++) if (!isEmploymentEntryCompleted(i)) return false;
+    }
+
+    if (packageCheckboxes["education"]) {
+      const qty = packageQuantities["education"] || 0;
+      for (let i = 1; i <= qty; i++) if (!isEducationEntryCompleted(i)) return false;
+    }
+
+    if (packageCheckboxes["professional-references"]) {
+      const qty = packageQuantities["professional-references"] || 0;
+      for (let i = 1; i <= qty; i++) if (!isProfessionalRefEntryCompleted(i)) return false;
+    }
+
+    if (packageCheckboxes["credentials-professional-license"]) {
+      const qty = packageQuantities["credentials-professional-license"] || 0;
+      for (let i = 1; i <= qty; i++) if (!isCredentialsEntryCompleted(i)) return false;
+    }
+
+    if (packageCheckboxes["motor-vehicle-driving"]) {
+      if (!isMvrCompleted()) return false;
+    }
+
+    return true;
+  };
+
+  // Scroll to the first incomplete section users need to finish
+  const scrollToFirstIncompleteSection = () => {
+    const scrollTo = (selector: string) => {
+      const el = document.querySelector(selector) as HTMLElement | null;
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    if (!selectedPackage) return scrollTo('[data-section="package-and-products"]');
+    if (!isSubjectCompleted()) return scrollTo('[data-section="subject"]');
+
+    if (packageCheckboxes["employment"]) {
+      const qty = packageQuantities["employment"] || 0;
+      for (let i = 1; i <= qty; i++) {
+        if (!isEmploymentEntryCompleted(i)) return scrollTo('[data-section="employment"]');
+      }
+    }
+
+    if (packageCheckboxes["education"]) {
+      const qty = packageQuantities["education"] || 0;
+      for (let i = 1; i <= qty; i++) {
+        if (!isEducationEntryCompleted(i)) return scrollTo('[data-section="education"]');
+      }
+    }
+
+    if (packageCheckboxes["professional-references"]) {
+      const qty = packageQuantities["professional-references"] || 0;
+      for (let i = 1; i <= qty; i++) {
+        if (!isProfessionalRefEntryCompleted(i)) return scrollTo('[data-section="professional-references"]');
+      }
+    }
+
+    if (packageCheckboxes["credentials-professional-license"]) {
+      const qty = packageQuantities["credentials-professional-license"] || 0;
+      for (let i = 1; i <= qty; i++) {
+        if (!isCredentialsEntryCompleted(i)) return scrollTo('[data-section="credentials-professional-license"]');
+      }
+    }
+
+    if (packageCheckboxes["motor-vehicle-driving"]) {
+      if (!isMvrCompleted()) return scrollTo('[data-section="motor-vehicle-driving"]');
+    }
+  };
+
+  // Click handler for the Complete Form button
+  const handleCompleteForm = () => {
+    const ready = areActiveSectionsCompletedExcludingAuthorization();
+    if (ready) {
+      setFormSectionsCompleted(true);
+      // Optionally collapse all completed sections for a tidy summary
+      setSectionsCollapsed((prev) => ({
+        ...prev,
+        packageAndProducts: true,
+        subject: true,
+        education: true,
+        employment: true,
+        professionalReferences: true,
+        credentialsProfessionalLicense: true,
+        motorVehicleDriving: true,
+      }));
+    } else {
+      setFormSectionsCompleted(false);
+      scrollToFirstIncompleteSection();
+    }
   };
 
   useEffect(() => {
@@ -18995,6 +19095,71 @@ const OnlineOrdering = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Complete Form (excludes Authorization) */}
+              <div
+                style={{
+                  display: selectedPackage ? "flex" : "none",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                  padding: "8px 0 0 0",
+                }}
+              >
+                {(() => {
+                  const ready = areActiveSectionsCompletedExcludingAuthorization();
+                  return (
+                    <button
+                      onClick={handleCompleteForm}
+                      style={{
+                        display: "flex",
+                        minHeight: "32px",
+                        padding: "6px 10px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "6px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "#414651",
+                          fontFamily:
+                            "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "var(--Font-size-text-sm, 14px)",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "var(--Line-height-text-sm, 20px)",
+                        }}
+                      >
+                        Complete Form
+                      </span>
+                      {(ready || formSectionsCompleted) && (
+                        <svg
+                          style={{ width: 16, height: 16 }}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                            stroke="#079455"
+                            strokeWidth="1.33333"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </button>
+                  );
+                })()}
               </div>
 
               {/* CTA Order Section */}
