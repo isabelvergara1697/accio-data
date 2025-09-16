@@ -424,7 +424,7 @@
       gap: 12px !important;
     }
 
-    /* Ensure inputs expand full width on mobile */
+    /* Ensure inputs and checkboxes expand full width on mobile */
     .stack-mobile > *,
     .stack-mobile-row > * {
       width: 100% !important;
