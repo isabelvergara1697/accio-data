@@ -25,6 +25,7 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
   hasValidationErrors,
   onNavigateToSection,
   sections,
+  allSectionsCompleted = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
