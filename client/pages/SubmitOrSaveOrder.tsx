@@ -2693,6 +2693,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
 
+                  <div style={{ display: sectionsState.credentials ? "none" : "block", width: "100%" }}>
                   {/* Credentials - Professional License #1 Card */}
                   <div
                     style={{
@@ -2871,6 +2872,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
                 </div>
+                  </div>
 
                 {/* Motor Vehicle Driving History Section */}
                 <div
