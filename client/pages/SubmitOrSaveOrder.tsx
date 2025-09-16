@@ -1746,8 +1746,16 @@ const SubmitOrSaveOrder = () => {
                     </div>
 
                     {!sectionsState.package && (
-                      <div style={{ width: "100%" }}>
-                        {/* Package Info */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {/* Package Container */}
                         <div
                           style={{
                             display: "flex",
