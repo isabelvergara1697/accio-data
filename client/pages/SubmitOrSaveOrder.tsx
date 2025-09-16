@@ -702,6 +702,7 @@ const SubmitOrSaveOrder = () => {
                       }}
                     >
                       <button
+                        onClick={() => handleEditSection('package')}
                         style={{
                           display: "flex",
                           height: "32px",
