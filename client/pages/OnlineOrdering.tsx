@@ -258,10 +258,14 @@ const OnlineOrdering = () => {
       subjectFields.dob.trim() &&
       subjectFields.zipCode.trim() &&
       subjectFields.address.trim() &&
+      subjectFields.country.trim() &&
+      subjectFields.state.trim() &&
+      subjectFields.city.trim() &&
       subjectFields.phone.trim() &&
       subjectFields.email.trim() &&
       subjectFields.fcra.trim() &&
       subjectFields.criminalRecords.trim()
+      // Note: middleName is optional so not included in completion check
     );
   };
 
