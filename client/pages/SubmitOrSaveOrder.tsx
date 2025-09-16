@@ -11,6 +11,7 @@ const SubmitOrSaveOrder = () => {
   const [orderOverviewCollapsed, setOrderOverviewCollapsed] = useState(false);
   const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
   const [sectionsState, setSectionsState] = useState({
+    package: false,
     subject: false,
     employment: false,
     education: false,
