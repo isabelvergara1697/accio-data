@@ -337,7 +337,6 @@ const SubmitOrSaveOrder = () => {
                     Review the billing summary and details for this request.
                   </p>
                 </div>
-
               </div>
             </div>
           </div>
@@ -404,18 +403,21 @@ const SubmitOrSaveOrder = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: isTablet ? "12px 24px 16px 24px" : "12px 24px 16px 24px",
+                  padding: isTablet
+                    ? "12px 24px 16px 24px"
+                    : "12px 24px 16px 24px",
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "16px",
                   alignSelf: "stretch",
                   borderRadius: "0px 0px 12px 12px",
                   backgroundColor: "#FFF",
-                  boxShadow: isTablet ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
+                  boxShadow: isTablet
+                    ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)"
+                    : "none",
                   borderRight: isTablet ? "1px solid #E9EAEB" : "none",
                   borderBottom: isTablet ? "1px solid #E9EAEB" : "none",
                   borderLeft: isTablet ? "1px solid #E9EAEB" : "none",
-                  
                 }}
               >
                 <div
@@ -932,18 +934,21 @@ const SubmitOrSaveOrder = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: isTablet ? "12px 24px 16px 24px" : "12px 24px 16px 24px",
+                  padding: isTablet
+                    ? "12px 24px 16px 24px"
+                    : "12px 24px 16px 24px",
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "16px",
                   alignSelf: "stretch",
                   borderRadius: "0px 0px 12px 12px",
                   backgroundColor: "#FFF",
-                  boxShadow: isTablet ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
+                  boxShadow: isTablet
+                    ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)"
+                    : "none",
                   borderRight: isTablet ? "1px solid #E9EAEB" : "none",
                   borderBottom: isTablet ? "1px solid #E9EAEB" : "none",
                   borderLeft: isTablet ? "1px solid #E9EAEB" : "none",
-                  
                 }}
               >
                 <div
