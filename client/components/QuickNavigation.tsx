@@ -26,12 +26,25 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
   sections,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
   if (!isVisible) return null;
 
   const handleSectionClick = (sectionId: string) => {
     onNavigateToSection(sectionId);
     setIsOpen(false);
+  };
+
+  const toggleSectionExpansion = (sectionId: string) => {
+    setExpandedSections(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(sectionId)) {
+        newSet.delete(sectionId);
+      } else {
+        newSet.add(sectionId);
+      }
+      return newSet;
+    });
   };
 
   return (
