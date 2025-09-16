@@ -338,85 +338,6 @@ const SubmitOrSaveOrder = () => {
                   </p>
                 </div>
 
-                {/* Tablet Action Buttons */}
-                {isTablet && (
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "12px",
-                      alignSelf: "stretch",
-                    }}
-                  >
-                    <button
-                      onClick={handleCollapseAll}
-                      style={{
-                        display: "flex",
-                        minHeight: "36px",
-                        padding: "6px 8px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "4px",
-                        borderRadius: "8px",
-                        border: "1px solid #D5D7DA",
-                        backgroundColor: "#FFF",
-                        boxShadow:
-                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: "#414651",
-                          fontFamily: "'Public Sans'",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                        }}
-                      >
-                        {allSectionsCollapsed ? "Expand All" : "Collapse All"}
-                      </span>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path
-                          d="M4.66675 9.99999L8.00008 13.3333L11.3334 9.99999M4.66675 5.99999L8.00008 2.66666L11.3334 5.99999"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={handleSaveAsDraft}
-                      style={{
-                        display: "flex",
-                        minHeight: "36px",
-                        padding: "6px 8px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "4px",
-                        borderRadius: "8px",
-                        border: "1px solid #D5D7DA",
-                        backgroundColor: "#FFF",
-                        boxShadow:
-                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: "#414651",
-                          fontFamily: "'Public Sans'",
-                          fontSize: "14px",
-                          fontWeight: 600,
-                          lineHeight: "20px",
-                        }}
-                      >
-                        Save as Draft
-                      </span>
-                    </button>
-                  </div>
-                )}
               </div>
             </div>
           </div>
@@ -491,7 +412,9 @@ const SubmitOrSaveOrder = () => {
                   borderRadius: "0px 0px 12px 12px",
                   backgroundColor: "#FFF",
                   boxShadow: isTablet ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
-                  border: isTablet ? "1px solid #E9EAEB" : "none",
+                  borderRight: isTablet ? "1px solid #E9EAEB" : "none",
+                  borderBottom: isTablet ? "1px solid #E9EAEB" : "none",
+                  borderLeft: isTablet ? "1px solid #E9EAEB" : "none",
                   
                 }}
               >
@@ -1017,7 +940,9 @@ const SubmitOrSaveOrder = () => {
                   borderRadius: "0px 0px 12px 12px",
                   backgroundColor: "#FFF",
                   boxShadow: isTablet ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
-                  border: isTablet ? "1px solid #E9EAEB" : "none",
+                  borderRight: isTablet ? "1px solid #E9EAEB" : "none",
+                  borderBottom: isTablet ? "1px solid #E9EAEB" : "none",
+                  borderLeft: isTablet ? "1px solid #E9EAEB" : "none",
                   
                 }}
               >
