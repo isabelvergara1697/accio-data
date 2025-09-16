@@ -16639,6 +16639,7 @@ const OnlineOrdering = () => {
                   >
                     {/* Credentials Professional License #1 */}
                     <div
+                      data-credentials-entry="1"
                       style={{
                         display: "flex",
                         padding: "12px",
