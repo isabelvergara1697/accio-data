@@ -7,6 +7,18 @@ const SubmitOrSaveOrder = () => {
   const navigate = useNavigate();
   const [requireApplicantPayment, setRequireApplicantPayment] = useState(false);
 
+  // Accordion state management
+  const [orderOverviewCollapsed, setOrderOverviewCollapsed] = useState(false);
+  const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
+  const [sectionsState, setSectionsState] = useState({
+    subject: false,
+    employment: false,
+    education: false,
+    professionalReferences: false,
+    credentials: false,
+    motorVehicle: false,
+  });
+
   const handleGoBack = () => {
     navigate("/online-ordering");
   };
