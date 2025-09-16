@@ -1056,21 +1056,21 @@ const SubmitOrSaveOrder = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: isTablet
-                    ? "12px 24px 16px 24px"
+                  padding: isMobile || isTablet
+                    ? "12px 16px 16px 16px"
                     : "12px 24px 16px 24px",
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "16px",
                   alignSelf: "stretch",
-                  borderRadius: "0px 0px 12px 12px",
+                  borderRadius: isTablet || isMobile ? "0px 0px 0 0" : "0px 0px 12px 12px",
                   backgroundColor: "#FFF",
-                  boxShadow: isTablet
+                  boxShadow: isTablet || isMobile
                     ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)"
                     : "none",
-                  borderRight: isTablet ? "1px solid #E9EAEB" : "none",
-                  borderBottom: isTablet ? "1px solid #E9EAEB" : "none",
-                  borderLeft: isTablet ? "1px solid #E9EAEB" : "none",
+                  borderRight: isTablet || isMobile ? "1px solid #E9EAEB" : "none",
+                  borderBottom: isTablet || isMobile ? "1px solid #E9EAEB" : "none",
+                  borderLeft: isTablet || isMobile ? "1px solid #E9EAEB" : "none",
                 }}
               >
                 <div
@@ -1078,6 +1078,10 @@ const SubmitOrSaveOrder = () => {
                     display: "flex",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
+                    ...(isMobile || isTablet ? {
+                      overflowX: "auto",
+                      overflowY: "hidden",
+                    } : {}),
                   }}
                 >
                   {/* Table Structure */}
@@ -1086,7 +1090,8 @@ const SubmitOrSaveOrder = () => {
                       display: "grid",
                       gridTemplateColumns: "62px 196px 1fr 1fr 1fr 1fr 1fr 1fr",
                       alignSelf: "stretch",
-                      width: "100%",
+                      width: isMobile || isTablet ? "632px" : "100%",
+                      minWidth: isMobile || isTablet ? "632px" : "auto",
                     }}
                   >
                     {/* Header Row */}
@@ -2077,7 +2082,7 @@ const SubmitOrSaveOrder = () => {
                                       lineHeight: "20px",
                                     }}
                                   >
-                                    ✓ Education (1)
+                                    ��� Education (1)
                                   </div>
                                   <div
                                     style={{
