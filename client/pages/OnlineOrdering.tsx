@@ -484,12 +484,16 @@ const OnlineOrdering = () => {
     return true;
   };
 
-  // Check if form is ready for submission (including authorization when required)
+  // Check if form is ready for submission (including authorization)
   const isFormReadyForSubmission = () => {
     const sectionsComplete = areActiveSectionsCompletedExcludingAuthorization();
-    // Only require authorization if it's been checked or if all other sections are complete
-    // This allows form to be submitted without authorization if user hasn't interacted with it
-    return sectionsComplete;
+    // Require authorization to be checked for full completion
+    return sectionsComplete && authorizationChecked;
+  };
+
+  // Check if all sections are complete (for visual indicators)
+  const areAllSectionsCompleted = () => {
+    return isFormReadyForSubmission();
   };
 
   // Handle Submit Order button click
