@@ -6675,6 +6675,7 @@ const OnlineOrdering = () => {
                           General Setup
                         </div>
                         <div
+                          className="stack-mobile"
                           style={{
                             display: "flex",
                             alignItems: "flex-start",
@@ -6688,9 +6689,9 @@ const OnlineOrdering = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "505px",
                               alignItems: "flex-start",
                               gap: "8px",
+                              alignSelf: "stretch",
                             }}
                           >
                             <div
@@ -6770,9 +6771,9 @@ const OnlineOrdering = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "505px",
                               alignItems: "flex-start",
                               gap: "8px",
+                              alignSelf: "stretch",
                             }}
                           >
                             <div
