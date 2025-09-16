@@ -649,7 +649,7 @@ const SubmitOrSaveOrder = () => {
                     padding: "12px 8px",
                     flexDirection: "column",
                     alignItems: "center",
-                    gap: "8px",
+                    gap: isTablet ? "20px" : "8px",
                     alignSelf: "stretch",
                     borderRadius: "8px",
                     border: "1px solid #E9EAEB",
@@ -664,11 +664,14 @@ const SubmitOrSaveOrder = () => {
                         key={index}
                         style={{
                           display: "flex",
-                          alignItems: "center",
-                          gap: "96px",
+                          flexDirection: isTablet ? "column" : "row",
+                          justifyContent: isTablet ? "center" : "flex-start",
+                          alignItems: isTablet ? "flex-start" : "center",
+                          gap: isTablet ? "6px" : "96px",
                           alignSelf: "stretch",
                         }}
                       >
+                        {/* Main checkbox and service name row */}
                         <div
                           style={{
                             display: "flex",
@@ -683,7 +686,7 @@ const SubmitOrSaveOrder = () => {
                           />
                           <div
                             style={{
-                              width: "270px",
+                              width: isTablet ? "auto" : "270px",
                               color: inactive ? "#717680" : "#181D27",
                               fontFamily: "'Public Sans'",
                               fontSize: "14px",
@@ -695,7 +698,77 @@ const SubmitOrSaveOrder = () => {
                           </div>
                         </div>
 
-                        {item.eta && (
+                        {/* ETA Row for tablet */}
+                        {isTablet && item.eta && (
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "160px",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: inactive ? "#717680" : "#414651",
+                                textAlign: "center",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "14px",
+                                fontWeight: 400,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              ETA
+                            </div>
+                            <div
+                              style={{
+                                color: inactive ? "#717680" : "#181D27",
+                                textAlign: "center",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {item.eta}
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "16px",
+                                height: "16px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                flexShrink: 0,
+                              }}
+                            >
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                              >
+                                <g clipPath={`url(#clip0_help_icon_${index})`}>
+                                  <path
+                                    d="M6.06016 6.00001C6.2169 5.55446 6.52626 5.17875 6.93347 4.93943C7.34067 4.70012 7.81943 4.61264 8.28495 4.69248C8.75047 4.77233 9.17271 5.01436 9.47688 5.3757C9.78106 5.73703 9.94753 6.19436 9.94683 6.66668C9.94683 8.00001 7.94683 8.66668 7.94683 8.66668M8.00016 11.3333H8.00683M14.6668 8.00001C14.6668 11.6819 11.6821 14.6667 8.00016 14.6667C4.31826 14.6667 1.3335 11.6819 1.3335 8.00001C1.3335 4.31811 4.31826 1.33334 8.00016 1.33334C11.6821 1.33334 14.6668 4.31811 14.6668 8.00001Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.33333"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id={`clip0_help_icon_${index}`}>
+                                    <rect width="16" height="16" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Desktop ETA - show inline for desktop */}
+                        {!isTablet && item.eta && (
                           <div
                             style={{
                               display: "flex",
@@ -743,7 +816,7 @@ const SubmitOrSaveOrder = () => {
                                 viewBox="0 0 16 16"
                                 fill="none"
                               >
-                                <g clipPath="url(#clip0_help_icon)">
+                                <g clipPath={`url(#clip0_help_icon_desktop_${index}`}>
                                   <path
                                     d="M6.06016 6.00001C6.2169 5.55446 6.52626 5.17875 6.93347 4.93943C7.34067 4.70012 7.81943 4.61264 8.28495 4.69248C8.75047 4.77233 9.17271 5.01436 9.47688 5.3757C9.78106 5.73703 9.94753 6.19436 9.94683 6.66668C9.94683 8.00001 7.94683 8.66668 7.94683 8.66668M8.00016 11.3333H8.00683M14.6668 8.00001C14.6668 11.6819 11.6821 14.6667 8.00016 14.6667C4.31826 14.6667 1.3335 11.6819 1.3335 8.00001C1.3335 4.31811 4.31826 1.33334 8.00016 1.33334C11.6821 1.33334 14.6668 4.31811 14.6668 8.00001Z"
                                     stroke="#A4A7AE"
@@ -753,7 +826,7 @@ const SubmitOrSaveOrder = () => {
                                   />
                                 </g>
                                 <defs>
-                                  <clipPath id="clip0_help_icon">
+                                  <clipPath id={`clip0_help_icon_desktop_${index}`}>
                                     <rect width="16" height="16" fill="white" />
                                   </clipPath>
                                 </defs>
@@ -762,6 +835,7 @@ const SubmitOrSaveOrder = () => {
                           </div>
                         )}
 
+                        {/* Name to Search Row */}
                         <div
                           style={{
                             display: "flex",
