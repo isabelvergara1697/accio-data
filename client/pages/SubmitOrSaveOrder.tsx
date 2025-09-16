@@ -3894,11 +3894,10 @@ const SubmitOrSaveOrder = () => {
                             General Setup
                           </h4>
 
-                          {/* Checkboxes Grid */}
+                          {/* Checkboxes Container */}
                           <div
                             style={{
                               display: "flex",
-                              height: "56px",
                               alignItems: "flex-start",
                               alignContent: "flex-start",
                               gap: "16px",
