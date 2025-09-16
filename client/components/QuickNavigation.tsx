@@ -9,6 +9,13 @@ interface QuickNavigationProps {
     label: string;
     completed: boolean;
     hasErrors?: boolean;
+    count?: number;
+    subsections?: Array<{
+      id: string;
+      label: string;
+      completed: boolean;
+      hasErrors?: boolean;
+    }>;
   }>;
 }
 
