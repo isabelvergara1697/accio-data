@@ -3910,8 +3910,9 @@ const SubmitOrSaveOrder = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: isMobile ? "100%" : isTablet ? "492px" : "492px",
+                                width: isMobile ? undefined : isTablet ? "492px" : "492px",
                                 alignItems: "center",
+                                alignSelf: isMobile ? "stretch" : undefined,
                                 gap: "8px",
                               }}
                             >
@@ -4016,8 +4017,9 @@ const SubmitOrSaveOrder = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: isMobile ? "100%" : isTablet ? "492px" : "492px",
+                                width: isMobile ? undefined : isTablet ? "492px" : "492px",
                                 alignItems: "center",
+                                alignSelf: isMobile ? "stretch" : undefined,
                                 gap: "8px",
                               }}
                             >
@@ -4123,8 +4125,9 @@ const SubmitOrSaveOrder = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: isMobile ? "100%" : isTablet ? "492px" : "492px",
+                                width: isMobile ? undefined : isTablet ? "492px" : "492px",
                                 alignItems: "center",
+                                alignSelf: isMobile ? "stretch" : undefined,
                                 gap: "8px",
                               }}
                             >
@@ -4229,8 +4232,9 @@ const SubmitOrSaveOrder = () => {
                             <div
                               style={{
                                 display: "flex",
-                                width: isMobile ? "100%" : isTablet ? "492px" : "492px",
+                                width: isMobile ? undefined : isTablet ? "492px" : "492px",
                                 alignItems: "center",
+                                alignSelf: isMobile ? "stretch" : undefined,
                                 gap: "8px",
                               }}
                             >
