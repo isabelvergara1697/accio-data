@@ -731,6 +731,7 @@ const SubmitOrSaveOrder = () => {
                         </svg>
                       </button>
                       <button
+                        onClick={() => toggleSection('package')}
                         style={{
                           display: "flex",
                           padding: "8px",
