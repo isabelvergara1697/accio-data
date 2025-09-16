@@ -591,6 +591,42 @@ const OnlineOrdering = () => {
     }
   };
 
+  // Deep-link from Submit Order: expand, optionally prefill, and scroll
+  useEffect(() => {
+    const target = sessionStorage.getItem('go_to_section');
+    const prefill = sessionStorage.getItem('prefillOnArrive') === 'true';
+    if (!target) return;
+
+    if (prefill) {
+      switch (target) {
+        case 'subject':
+          autofillSubject();
+          break;
+        case 'employment':
+          autofillEmployment();
+          break;
+        case 'education':
+          autofillEducation();
+          break;
+        case 'professional-references':
+          autofillProfessionalRefs();
+          break;
+        case 'credentials-professional-license':
+          autofillCredentials();
+          break;
+        case 'motor-vehicle-driving':
+          autofillMvr();
+          break;
+      }
+    }
+
+    setTimeout(() => {
+      handleNavigateToSection(target);
+      sessionStorage.removeItem('go_to_section');
+      sessionStorage.removeItem('prefillOnArrive');
+    }, 0);
+  }, []);
+
   // Define navigation sections based on active packages
   const getNavigationSections = () => {
     const sections = [];
