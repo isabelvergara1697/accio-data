@@ -4423,13 +4423,15 @@ const SubmitOrSaveOrder = () => {
                           {/* Name Fields Grid */}
                           <div
                             style={{
-                              display: "grid",
-                              height: "52px",
-                              rowGap: "8px",
-                              columnGap: "8px",
+                              display: isMobile ? "flex" : "grid",
+                              flexDirection: isMobile ? "column" : undefined,
+                              height: isMobile ? undefined : "52px",
+                              rowGap: isMobile ? undefined : "8px",
+                              columnGap: isMobile ? undefined : "8px",
+                              gap: isMobile ? "8px" : undefined,
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%)",
-                              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, minmax(0, 1fr))",
+                              gridTemplateRows: isMobile ? undefined : "fit-content(100%)",
+                              gridTemplateColumns: isMobile ? undefined : "repeat(3, minmax(0, 1fr))",
                             }}
                           >
                             <div
