@@ -332,9 +332,7 @@ const SubmitOrSaveOrder = () => {
                       margin: 0,
                     }}
                   >
-                    Track pending invites and submitted orders in one place. Use
-                    filters and tools to sort, review, and manage activity
-                    easily.
+                    Review the billing summary and details for this request.
                   </p>
                 </div>
               </div>
