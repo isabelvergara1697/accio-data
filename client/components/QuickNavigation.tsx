@@ -117,7 +117,7 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
             </svg>
           </button>
 
-          {/* Title and warning icon */}
+          {/* Title and status icons */}
           <div
             style={{
               display: 'flex',
@@ -138,7 +138,38 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
             >
               Quick Navigation
             </div>
-            {hasValidationErrors && (
+            {allSectionsCompleted && (
+              <div
+                style={{
+                  display: 'flex',
+                  width: '28px',
+                  height: '28px',
+                  padding: '6px',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: '9999px',
+                  background: '#DCFAE6',
+                }}
+              >
+                <svg
+                  style={{ width: '16px', height: '16px', flexShrink: 0 }}
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.3337 4L6.00033 11.3333L2.66699 8"
+                    stroke="#079455"
+                    strokeWidth="1.33333"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            )}
+            {hasValidationErrors && !allSectionsCompleted && (
               <div
                 style={{
                   display: 'flex',
