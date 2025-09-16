@@ -1542,6 +1542,7 @@ const SubmitOrSaveOrder = () => {
                     </h3>
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <button
+                        onClick={() => handleEditSection('employment')}
                         style={{
                           display: "flex",
                           height: "32px",
@@ -1574,6 +1575,7 @@ const SubmitOrSaveOrder = () => {
                         </svg>
                       </button>
                       <button
+                        onClick={() => toggleSection('employment')}
                         style={{
                           display: "flex",
                           padding: "8px",
