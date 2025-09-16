@@ -6454,6 +6454,7 @@ const OnlineOrdering = () => {
                       }}
                     >
                       <div
+                        className="mobile-px-16"
                         style={{
                           display: "flex",
                           padding: "20px 24px 0 24px",
@@ -6642,6 +6643,7 @@ const OnlineOrdering = () => {
 
                     {/* Content */}
                     <div
+                      className="mobile-px-16"
                       style={{
                         display: sectionsCollapsed.subject ? "none" : "flex",
                         padding: "12px 24px 16px 24px",
@@ -7491,6 +7493,7 @@ const OnlineOrdering = () => {
                         >
                           {/* DOB */}
                           <div
+                            className="mobile-grid-row-1"
                             style={{
                               display: "flex",
                               flexDirection: "column",
@@ -7588,6 +7591,7 @@ const OnlineOrdering = () => {
                           </div>
                           {/* Zip Code */}
                           <div
+                            className="mobile-grid-row-2"
                             style={{
                               display: "flex",
                               flexDirection: "column",
@@ -7668,6 +7672,7 @@ const OnlineOrdering = () => {
                           </div>
                           {/* Address */}
                           <div
+                            className="mobile-grid-row-3"
                             style={{
                               display: "flex",
                               flexDirection: "column",
@@ -7748,6 +7753,7 @@ const OnlineOrdering = () => {
                           </div>
                           {/* Country */}
                           <div
+                            className="mobile-grid-row-4"
                             style={{
                               display: "flex",
                               flexDirection: "column",
@@ -7812,6 +7818,7 @@ const OnlineOrdering = () => {
                           </div>
                           {/* State */}
                           <div
+                            className="mobile-grid-row-6"
                             style={{
                               display: "flex",
                               flexDirection: "column",
@@ -7878,6 +7885,7 @@ const OnlineOrdering = () => {
                           </div>
                           {/* City */}
                           <div
+                            className="mobile-grid-row-5"
                             style={{
                               display: "flex",
                               flexDirection: "column",
