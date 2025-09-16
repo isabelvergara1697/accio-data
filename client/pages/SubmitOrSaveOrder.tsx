@@ -492,7 +492,7 @@ const SubmitOrSaveOrder = () => {
                   backgroundColor: "#FFF",
                   boxShadow: isTablet ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
                   border: isTablet ? "1px solid #E9EAEB" : "none",
-                  borderTop: isTablet ? "none" : "none",
+                  
                 }}
               >
                 <div
@@ -1018,7 +1018,7 @@ const SubmitOrSaveOrder = () => {
                   backgroundColor: "#FFF",
                   boxShadow: isTablet ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
                   border: isTablet ? "1px solid #E9EAEB" : "none",
-                  borderTop: isTablet ? "none" : "none",
+                  
                 }}
               >
                 <div
