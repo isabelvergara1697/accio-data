@@ -5977,12 +5977,12 @@ const OnlineOrdering = () => {
                     </div>
 
                     <div
+                      className="stack-mobile-row"
                       style={{
                         display: "flex",
                         alignItems: "flex-start",
                         gap: "16px",
                         alignSelf: "stretch",
-                        flexWrap: isDesktop ? "nowrap" : "wrap",
                       }}
                     >
                       {/* Requester Select */}
