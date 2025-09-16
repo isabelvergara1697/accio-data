@@ -439,6 +439,18 @@
       padding-right: 16px !important;
     }
 
+    /* Stack specific date rows in Education and Credentials */
+    .edu-date-container > div,
+    .cred-date-container > div {
+      flex-direction: column !important;
+      gap: 16px !important;
+    }
+    .edu-date-container > div > *,
+    .cred-date-container > div > * {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
     /* Explicit mobile grid row ordering helpers */
     .mobile-grid-row-1 { grid-row: 1 !important; }
     .mobile-grid-row-2 { grid-row: 2 !important; }
