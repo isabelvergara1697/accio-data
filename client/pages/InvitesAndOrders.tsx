@@ -9135,6 +9135,8 @@ const InvitesAndOrders: React.FC = () => {
                                 style={{
                                   display: "flex",
                                   width: "88px",
+                                  minWidth: "88px",
+                                  maxWidth: "88px",
                                   height: "36px",
                                   padding: "6px 12px",
                                   alignItems: "center",
@@ -9155,22 +9157,44 @@ const InvitesAndOrders: React.FC = () => {
                                     isMobile || isTablet
                                       ? "1px solid #E9EAEB"
                                       : "none",
+                                  boxSizing: "border-box",
                                 }}
                               >
                                 <div
                                   style={{
-                                    color: "#717680",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "12px",
-                                    fontStyle: "normal",
-                                    fontWeight: 600,
-                                    lineHeight: "18px",
-                                    whiteSpace: "nowrap",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    position: "relative",
                                   }}
                                 >
-                                  Actions
+                                  <div
+                                    style={{
+                                      color: "#717680",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 600,
+                                      lineHeight: "18px",
+                                      position: "relative",
+                                      whiteSpace: "nowrap",
+                                      overflow: "hidden",
+                                      textOverflow: "ellipsis",
+                                    }}
+                                  >
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
+                                        fontWeight: 700,
+                                        fontSize: "12px",
+                                        color: "rgba(113,118,128,1)",
+                                        whiteSpace: "nowrap",
+                                      }}
+                                    >
+                                      Actions
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
