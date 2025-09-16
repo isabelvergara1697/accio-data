@@ -5403,13 +5403,15 @@ const SubmitOrSaveOrder = () => {
                         {/* First Employment Grid */}
                         <div
                           style={{
-                            display: "grid",
-                            height: "197px",
+                            display: isMobile ? "flex" : "grid",
+                            flexDirection: isMobile ? "column" : undefined,
+                            height: isMobile ? undefined : "197px",
                             rowGap: "16px",
                             columnGap: "16px",
+                            gap: isMobile ? "16px" : undefined,
                             alignSelf: "stretch",
-                            gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
-                            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                            gridTemplateRows: isMobile ? undefined : "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
+                            gridTemplateColumns: isMobile ? undefined : "repeat(3, minmax(0, 1fr))",
                           }}
                         >
                           {/* Row 1 */}
