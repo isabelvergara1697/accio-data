@@ -937,6 +937,8 @@ const OnlineOrdering = () => {
     setTimeout(() => {
       const ready = areActiveSectionsCompletedExcludingAuthorization();
       if (ready) {
+        // Automatically check authorization when all other sections are complete
+        setAuthorizationChecked(true);
         setFormSectionsCompleted(true);
         setSectionsCollapsed((prev) => ({
           ...prev,
