@@ -8894,6 +8894,7 @@ const OnlineOrdering = () => {
 
                         {/* Form Fields Grid */}
                         <div
+                          className="stack-mobile tablet-two"
                           style={{
                             display: "grid",
                             height: "312px",
@@ -11935,6 +11936,7 @@ const OnlineOrdering = () => {
 
                         {/* Main Grid Container */}
                         <div
+                          className="stack-mobile tablet-two"
                           style={{
                             display: "grid",
                             height: "394px",
@@ -15037,6 +15039,7 @@ const OnlineOrdering = () => {
 
                           {/* Form Fields Grid */}
                           <div
+                            className="stack-mobile tablet-two"
                             style={{
                               display: "grid",
                               height: "230px",
@@ -17118,6 +17121,7 @@ const OnlineOrdering = () => {
 
                           {/* Form Fields Grid */}
                           <div
+                            className="stack-mobile tablet-two"
                             style={{
                               display: "grid",
                               height: "148px",
@@ -18731,6 +18735,7 @@ const OnlineOrdering = () => {
                   >
                     {/* Form Fields Grid */}
                     <div
+                      className="stack-mobile tablet-two"
                       style={{
                         display: "grid",
                         height: "66px",
