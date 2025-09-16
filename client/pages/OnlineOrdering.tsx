@@ -164,6 +164,9 @@ const OnlineOrdering = () => {
   // Track if validation has been attempted (for showing validation errors)
   const [validationAttempted, setValidationAttempted] = useState(false);
 
+  // Quick Navigation state
+  const [showQuickNavigation, setShowQuickNavigation] = useState(true);
+
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
     portal: "Portal",
