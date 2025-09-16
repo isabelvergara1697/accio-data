@@ -1389,6 +1389,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
 
+                  <div style={{ display: sectionsState.subject ? "none" : "block", width: "100%" }}>
                   {/* General Setup */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignSelf: "stretch" }}>
                     <h4
@@ -1504,6 +1505,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
                 </div>
+                  </div>
 
                 {/* Employment Section */}
                 <div
