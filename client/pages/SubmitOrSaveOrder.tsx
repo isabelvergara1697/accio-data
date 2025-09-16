@@ -5746,7 +5746,7 @@ const SubmitOrSaveOrder = () => {
                         <div
                           style={{
                             display: "flex",
-                            width: "492px",
+                            width: isMobile ? "100%" : isTablet ? "492px" : "492px",
                             alignItems: "center",
                             gap: "8px",
                           }}
