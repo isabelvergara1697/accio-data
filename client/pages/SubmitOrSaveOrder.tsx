@@ -2964,6 +2964,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
 
+                  <div style={{ display: sectionsState.motorVehicle ? "none" : "block", width: "100%" }}>
                   {/* Motor Vehicle Details Grid */}
                   <div
                     style={{
@@ -3025,6 +3026,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
                 </div>
+                  </div>
 
               </div>
             </div>
