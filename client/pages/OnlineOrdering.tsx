@@ -643,9 +643,40 @@ const OnlineOrdering = () => {
     autofillMvr();
   };
 
+  // Imperative DOM autofill for uncontrolled inputs so the UI reflects the values
+  const autofillUncontrolledInputs = (sectionSelector: string) => {
+    const root = document.querySelector(sectionSelector) as HTMLElement | null;
+    if (!root) return;
+    const inputs = root.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
+      'input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], textarea'
+    );
+    inputs.forEach((el, idx) => {
+      if ((el as HTMLInputElement).type === 'date' || el.placeholder?.includes('dd') || el.placeholder?.includes('mm')) {
+        (el as HTMLInputElement).value = (el as HTMLInputElement).value || '12/12/2025';
+      } else if ((el as HTMLInputElement).type === 'email') {
+        (el as HTMLInputElement).value = (el as HTMLInputElement).value || `user${idx}@example.com`;
+      } else if ((el as HTMLInputElement).type === 'tel') {
+        (el as HTMLInputElement).value = (el as HTMLInputElement).value || '+1 (555) 000-0000';
+      } else {
+        el.value = el.value || 'Sample';
+      }
+      const evt = new Event('input', { bubbles: true });
+      el.dispatchEvent(evt);
+      const changeEvt = new Event('change', { bubbles: true });
+      el.dispatchEvent(changeEvt);
+    });
+  };
+
   // Click handler for the Complete Form button
   const handleCompleteForm = () => {
     autofillActiveSections();
+    // Update uncontrolled inputs for visible sections
+    autofillUncontrolledInputs('[data-section="employment"]');
+    autofillUncontrolledInputs('[data-section="education"]');
+    autofillUncontrolledInputs('[data-section="professional-references"]');
+    autofillUncontrolledInputs('[data-section="credentials-professional-license"]');
+    autofillUncontrolledInputs('[data-section="motor-vehicle-driving"]');
+
     // Re-check after state updates flush
     setTimeout(() => {
       const ready = areActiveSectionsCompletedExcludingAuthorization();
