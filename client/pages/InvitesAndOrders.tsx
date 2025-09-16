@@ -9156,7 +9156,23 @@ const InvitesAndOrders: React.FC = () => {
                                       ? "1px solid #E9EAEB"
                                       : "none",
                                 }}
-                              />
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                  }}
+                                >
+                                  Actions
+                                </div>
+                              </div>
                             </div>
 
                             {/* Table Rows */}
