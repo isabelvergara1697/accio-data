@@ -496,34 +496,153 @@ const SubmitOrSaveOrder = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: "20px 24px 0 24px",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "16px",
+                  gap: "20px",
                   alignSelf: "stretch",
+                  backgroundColor: "#FFF",
                 }}
               >
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "center",
+                    padding: "20px 24px 0 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
                     gap: "16px",
                     alignSelf: "stretch",
                   }}
                 >
-                  <h2
+                  <div
                     style={{
-                      color: "#181D27",
-                      fontFamily: "'Public Sans'",
-                      fontSize: "18px",
-                      fontWeight: 600,
-                      lineHeight: "28px",
-                      margin: 0,
-                      flex: "1 0 0",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "16px",
+                      alignSelf: "stretch",
                     }}
                   >
-                    Order Overview
-                  </h2>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "4px",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "flex-start",
+                          gap: "2px",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <h2
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "18px",
+                              fontWeight: 600,
+                              lineHeight: "28px",
+                              margin: 0,
+                            }}
+                          >
+                            Order Overview
+                          </h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                      }}
+                    >
+                      <button
+                        onClick={handleCollapseAll}
+                        style={{
+                          display: "flex",
+                          minHeight: "36px",
+                          padding: "6px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          {allSectionsCollapsed ? "Expand All" : "Collapse All"}
+                        </span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path
+                            d="M4.66675 9.99999L8.00008 13.3333L11.3334 9.99999M4.66675 5.99999L8.00008 2.66666L11.3334 5.99999"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={handleOverviewToggle}
+                        style={{
+                          display: "flex",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          style={{
+                            transform: orderOverviewCollapsed ? "rotate(180deg)" : "rotate(0deg)",
+                            transition: "transform 0.2s ease",
+                          }}
+                        >
+                          <path
+                            d="M4 6L8 10L12 6"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
 
