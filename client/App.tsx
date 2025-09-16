@@ -16,6 +16,7 @@ import I9FormCompletion from "./pages/I9FormCompletion";
 import I9OrderSubmission from "./pages/I9OrderSubmission";
 import I9OrderConfirmation from "./pages/I9OrderConfirmation";
 import OnlineOrdering from "./pages/OnlineOrdering";
+import SubmitOrSaveOrder from "./pages/SubmitOrSaveOrder";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
@@ -43,6 +44,7 @@ const App = () => (
           />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/online-ordering" element={<OnlineOrdering />} />
+          <Route path="/submit-order" element={<SubmitOrSaveOrder />} />
           <Route path="/document-library" element={<DocumentLibrary />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/invites-orders" element={<InvitesAndOrders />} />
