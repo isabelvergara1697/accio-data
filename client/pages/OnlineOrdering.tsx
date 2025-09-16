@@ -1927,20 +1927,11 @@ const OnlineOrdering = () => {
                             });
                           }
                         }}
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "8px 6px 8px 12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "8px",
-                          borderRadius: "6px",
-                          cursor: "pointer",
-                        }}
+                        style={tabContainerStyle(isEmploymentCompleted())}
                       >
                         <div
                           style={{
-                            color: "#717680",
+                            color: isEmploymentCompleted() ? "#414651" : "#717680",
                             fontFamily:
                               "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
@@ -1978,19 +1969,11 @@ const OnlineOrdering = () => {
                               block: "start",
                             });
                         }}
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "8px 6px 8px 12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "8px",
-                          borderRadius: "6px",
-                        }}
+                        style={tabContainerStyle(isEducationCompleted())}
                       >
                         <div
                           style={{
-                            color: "#717680",
+                            color: isEducationCompleted() ? "#414651" : "#717680",
                             fontFamily:
                               "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
@@ -2028,20 +2011,11 @@ const OnlineOrdering = () => {
                               block: "start",
                             });
                         }}
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "8px 6px 8px 12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "8px",
-                          borderRadius: "6px",
-                          cursor: "pointer",
-                        }}
+                        style={tabContainerStyle(isProfessionalReferencesCompleted())}
                       >
                         <div
                           style={{
-                            color: "#717680",
+                            color: isProfessionalReferencesCompleted() ? "#414651" : "#717680",
                             fontFamily:
                               "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
@@ -2079,20 +2053,11 @@ const OnlineOrdering = () => {
                               block: "start",
                             });
                         }}
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "8px 6px 8px 12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "8px",
-                          borderRadius: "6px",
-                          cursor: "pointer",
-                        }}
+                        style={tabContainerStyle(isCredentialsCompleted())}
                       >
                         <div
                           style={{
-                            color: "#717680",
+                            color: isCredentialsCompleted() ? "#414651" : "#717680",
                             fontFamily:
                               "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
@@ -2130,20 +2095,11 @@ const OnlineOrdering = () => {
                               block: "start",
                             });
                         }}
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "8px 6px 8px 12px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "8px",
-                          borderRadius: "6px",
-                          cursor: "pointer",
-                        }}
+                        style={tabContainerStyle(isMvrCompleted())}
                       >
                         <div
                           style={{
-                            color: "#717680",
+                            color: isMvrCompleted() ? "#414651" : "#717680",
                             fontFamily:
                               "var(--Font-family-font-family-body, 'Public Sans')",
                             fontSize: "var(--Font-size-text-sm, 14px)",
