@@ -520,26 +520,152 @@ const OnlineOrdering = () => {
     }
   };
 
+  // Auto-fill helpers for each section
+  const autofillSubject = () => {
+    setSubjectFields((prev) => ({
+      ...prev,
+      firstName: prev.firstName || "Alex",
+      middleName: prev.middleName || "J",
+      lastName: prev.lastName || "Smith",
+      dob: prev.dob || "12/12/1991",
+      zipCode: prev.zipCode || "080102",
+      address: prev.address || "Street 123",
+      country: prev.country || "usa",
+      state: prev.state || "tx",
+      city: prev.city || "el-paso",
+      phone: prev.phone || "+1 (555) 000-0000",
+      email: prev.email || "alexsmith@gmail.com",
+      fcra: prev.fcra || "employment",
+      criminalRecords: prev.criminalRecords || "no",
+    }));
+  };
+
+  const ensureCount = (qty?: number) => (qty && qty > 0 ? qty : 1);
+
+  const autofillEmployment = () => {
+    if (!packageCheckboxes["employment"]) return;
+    const qty = ensureCount(packageQuantities["employment"]);
+    setEmploymentFields((prev) => {
+      const next = { ...prev } as typeof prev;
+      for (let i = 1; i <= qty; i++) {
+        next[i] = next[i] || {
+          positionName: "Senior Director",
+          companyName: "Acme Company",
+          startDate: "12/12/2023",
+          endDate: "12/12/2025",
+          supervisorName: "Jhon Doe",
+          supervisorPhone: "+1 (555) 000-0000",
+          salary: "123456",
+          reasonForLeaving: "Change of career",
+        };
+      }
+      return next;
+    });
+  };
+
+  const autofillEducation = () => {
+    if (!packageCheckboxes["education"]) return;
+    const qty = ensureCount(packageQuantities["education"]);
+    setEducationFields((prev) => {
+      const next = { ...prev } as typeof prev;
+      for (let i = 1; i <= qty; i++) {
+        next[i] = next[i] || {
+          university: "Brown Community College",
+          degreeType: "Bachelor",
+          major: "Physiology",
+          country: "usa",
+          state: "tx",
+          city: "el-paso",
+          gpaScale: "4.0",
+          studentId: "121512",
+          transcript: "yes",
+          degreeYear: "2025",
+        };
+      }
+      return next;
+    });
+  };
+
+  const autofillProfessionalRefs = () => {
+    if (!packageCheckboxes["professional-references"]) return;
+    const qty = ensureCount(packageQuantities["professional-references"]);
+    setProfessionalRefFields((prev) => {
+      const next = { ...prev } as typeof prev;
+      for (let i = 1; i <= qty; i++) {
+        next[i] = next[i] || {
+          name: "Janine Claude",
+          title: "Personal",
+          company: "Acme Company",
+          phone: "+1 (555) 000-0000",
+          email: "jhon.doe@example.com",
+          relationship: "Friend",
+        };
+      }
+      return next;
+    });
+  };
+
+  const autofillCredentials = () => {
+    if (!packageCheckboxes["credentials-professional-license"]) return;
+    const qty = ensureCount(packageQuantities["credentials-professional-license"]);
+    setCredentialsFields((prev) => {
+      const next = { ...prev } as typeof prev;
+      for (let i = 1; i <= qty; i++) {
+        next[i] = next[i] || {
+          licenseType: "Security License",
+          licenseNumber: "123456",
+          issueDate: "12/12/2025",
+          expirationDate: "12/12/2025",
+          licensingAuthority: "Acme Company",
+          state: "tx",
+        };
+      }
+      return next;
+    });
+  };
+
+  const autofillMvr = () => {
+    if (!packageCheckboxes["motor-vehicle-driving"]) return;
+    setMvrFields((prev) => ({
+      licenseNumber: prev.licenseNumber || "ABCD12345",
+      licenseState: prev.licenseState || "tx",
+      expirationDate: prev.expirationDate || "12/12/2025",
+    }));
+  };
+
+  const autofillActiveSections = () => {
+    if (!selectedPackage) return;
+    autofillSubject();
+    autofillEmployment();
+    autofillEducation();
+    autofillProfessionalRefs();
+    autofillCredentials();
+    autofillMvr();
+  };
+
   // Click handler for the Complete Form button
   const handleCompleteForm = () => {
-    const ready = areActiveSectionsCompletedExcludingAuthorization();
-    if (ready) {
-      setFormSectionsCompleted(true);
-      // Optionally collapse all completed sections for a tidy summary
-      setSectionsCollapsed((prev) => ({
-        ...prev,
-        packageAndProducts: true,
-        subject: true,
-        education: true,
-        employment: true,
-        professionalReferences: true,
-        credentialsProfessionalLicense: true,
-        motorVehicleDriving: true,
-      }));
-    } else {
-      setFormSectionsCompleted(false);
-      scrollToFirstIncompleteSection();
-    }
+    autofillActiveSections();
+    // Re-check after state updates flush
+    setTimeout(() => {
+      const ready = areActiveSectionsCompletedExcludingAuthorization();
+      if (ready) {
+        setFormSectionsCompleted(true);
+        setSectionsCollapsed((prev) => ({
+          ...prev,
+          packageAndProducts: true,
+          subject: true,
+          education: true,
+          employment: true,
+          professionalReferences: true,
+          credentialsProfessionalLicense: true,
+          motorVehicleDriving: true,
+        }));
+      } else {
+        setFormSectionsCompleted(false);
+        scrollToFirstIncompleteSection();
+      }
+    }, 0);
   };
 
   useEffect(() => {
