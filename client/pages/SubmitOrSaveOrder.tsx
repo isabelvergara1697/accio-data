@@ -535,6 +535,7 @@ const SubmitOrSaveOrder = () => {
                         justifyContent: "center",
                         alignItems: "center",
                         gap: "4px",
+                        alignSelf: isMobile ? "stretch" : "auto",
                         borderRadius: "8px",
                         border: "2px solid rgba(255, 255, 255, 0.12)",
                         backgroundColor: "#344698",
