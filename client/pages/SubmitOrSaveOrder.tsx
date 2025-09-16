@@ -40,6 +40,7 @@ const SubmitOrSaveOrder = () => {
     const newCollapsedState = !allSectionsCollapsed;
     setAllSectionsCollapsed(newCollapsedState);
     setSectionsState({
+      package: newCollapsedState,
       subject: newCollapsedState,
       employment: newCollapsedState,
       education: newCollapsedState,
