@@ -306,20 +306,20 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
                     </div>
 
                     {/* Count badge for sections with multiple entries */}
-                    {section.count && section.count > 1 && (
+                    {typeof section.count === 'number' && (
                       <div
                         style={{
                           display: 'flex',
                           padding: '2px 8px',
                           alignItems: 'center',
                           borderRadius: '9999px',
-                          border: '1px solid #ABEFC6',
-                          background: '#ECFDF3',
+                          border: (section.count ?? 0) <= 0 ? '1px solid #FDA29B' : section.completed ? '1px solid #ABEFC6' : '1px solid #E9EAEB',
+                          background: (section.count ?? 0) <= 0 ? '#FEE4E2' : section.completed ? '#ECFDF3' : '#F9F9F9',
                         }}
                       >
                         <div
                           style={{
-                            color: '#067647',
+                            color: (section.count ?? 0) <= 0 ? '#D92D20' : section.completed ? '#067647' : '#414651',
                             textAlign: 'center',
                             fontFamily: "'Public Sans'",
                             fontSize: '12px',
@@ -328,7 +328,7 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
                             lineHeight: '18px',
                           }}
                         >
-                          {section.count}
+                          {section.count ?? 0}
                         </div>
                       </div>
                     )}

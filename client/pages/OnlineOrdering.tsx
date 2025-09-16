@@ -636,6 +636,14 @@ const OnlineOrdering = () => {
         count: employmentQty,
         subsections: employmentQty > 1 ? employmentSubsections : undefined,
       });
+    } else {
+      sections.push({
+        id: "employment",
+        label: "Employment",
+        completed: false,
+        hasErrors: validationAttempted,
+        count: 0,
+      });
     }
 
     if (packageCheckboxes["education"]) {
@@ -658,6 +666,14 @@ const OnlineOrdering = () => {
         hasErrors: validationAttempted && !isEducationCompleted(),
         count: educationQty,
         subsections: educationQty > 1 ? educationSubsections : undefined,
+      });
+    } else {
+      sections.push({
+        id: "education",
+        label: "Education",
+        completed: false,
+        hasErrors: validationAttempted,
+        count: 0,
       });
     }
 
@@ -682,6 +698,14 @@ const OnlineOrdering = () => {
         count: professionalRefsQty,
         subsections: professionalRefsQty > 1 ? professionalRefsSubsections : undefined,
       });
+    } else {
+      sections.push({
+        id: "professional-references",
+        label: "Professional References",
+        completed: false,
+        hasErrors: validationAttempted,
+        count: 0,
+      });
     }
 
     if (packageCheckboxes["credentials-professional-license"]) {
@@ -704,6 +728,14 @@ const OnlineOrdering = () => {
         hasErrors: validationAttempted && !isCredentialsCompleted(),
         count: credentialsQty,
         subsections: credentialsQty > 1 ? credentialsSubsections : undefined,
+      });
+    } else {
+      sections.push({
+        id: "credentials-professional-license",
+        label: "Credentials - Professional License",
+        completed: false,
+        hasErrors: validationAttempted,
+        count: 0,
       });
     }
 
