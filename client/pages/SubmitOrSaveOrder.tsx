@@ -2110,11 +2110,11 @@ const SubmitOrSaveOrder = () => {
                                   >
                                     <div
                                       style={{
-                                        display: "flex",
-                                        width: "320px",
-                                        alignItems: "flex-end",
-                                        gap: "4px",
-                                      }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                     >
                                       <div
                                         style={{
@@ -2243,11 +2243,11 @@ const SubmitOrSaveOrder = () => {
                                     >
                                       <div
                                         style={{
-                                          display: "flex",
-                                          width: "320px",
-                                          alignItems: "flex-end",
-                                          gap: "4px",
-                                        }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                       >
                                         <div
                                           style={{
@@ -2418,11 +2418,11 @@ const SubmitOrSaveOrder = () => {
                                     >
                                       <div
                                         style={{
-                                          display: "flex",
-                                          width: "320px",
-                                          alignItems: "flex-end",
-                                          gap: "4px",
-                                        }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                       >
                                         <div
                                           style={{
@@ -2593,11 +2593,11 @@ const SubmitOrSaveOrder = () => {
                                     >
                                       <div
                                         style={{
-                                          display: "flex",
-                                          width: "320px",
-                                          alignItems: "flex-end",
-                                          gap: "4px",
-                                        }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                       >
                                         <div
                                           style={{
@@ -2768,11 +2768,11 @@ const SubmitOrSaveOrder = () => {
                                     >
                                       <div
                                         style={{
-                                          display: "flex",
-                                          width: "320px",
-                                          alignItems: "flex-end",
-                                          gap: "4px",
-                                        }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                       >
                                         <div
                                           style={{
@@ -2965,11 +2965,11 @@ const SubmitOrSaveOrder = () => {
                                   >
                                     <div
                                       style={{
-                                        display: "flex",
-                                        width: "320px",
-                                        alignItems: "flex-end",
-                                        gap: "4px",
-                                      }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                     >
                                       <div
                                         style={{
@@ -3069,11 +3069,11 @@ const SubmitOrSaveOrder = () => {
                                   >
                                     <div
                                       style={{
-                                        display: "flex",
-                                        width: "320px",
-                                        alignItems: "flex-end",
-                                        gap: "4px",
-                                      }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                     >
                                       <div
                                         style={{
@@ -3168,11 +3168,11 @@ const SubmitOrSaveOrder = () => {
                                   >
                                     <div
                                       style={{
-                                        display: "flex",
-                                        width: "320px",
-                                        alignItems: "flex-end",
-                                        gap: "4px",
-                                      }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                     >
                                       <div
                                         style={{
@@ -3301,11 +3301,11 @@ const SubmitOrSaveOrder = () => {
                                   >
                                     <div
                                       style={{
-                                        display: "flex",
-                                        width: "320px",
-                                        alignItems: "flex-end",
-                                        gap: "4px",
-                                      }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                     >
                                       <div
                                         style={{
@@ -3426,11 +3426,11 @@ const SubmitOrSaveOrder = () => {
                                   >
                                     <div
                                       style={{
-                                        display: "flex",
-                                        width: "320px",
-                                        alignItems: "flex-end",
-                                        gap: "4px",
-                                      }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                     >
                                       <div
                                         style={{
@@ -3526,11 +3526,11 @@ const SubmitOrSaveOrder = () => {
                                   >
                                     <div
                                       style={{
-                                        display: "flex",
-                                        width: "320px",
-                                        alignItems: "flex-end",
-                                        gap: "4px",
-                                      }}
+                                    display: "flex",
+                                    width: isMobile ? "280px" : "320px",
+                                    alignItems: "flex-end",
+                                    gap: "4px",
+                                  }}
                                     >
                                       <div
                                         style={{
@@ -3960,7 +3960,7 @@ const SubmitOrSaveOrder = () => {
                                 <div
                                   style={{
                                     display: "flex",
-                                    width: "320px",
+                                    width: isMobile ? "280px" : "320px",
                                     alignItems: "flex-end",
                                     gap: "4px",
                                   }}
@@ -4066,7 +4066,7 @@ const SubmitOrSaveOrder = () => {
                                 <div
                                   style={{
                                     display: "flex",
-                                    width: "320px",
+                                    width: isMobile ? "280px" : "320px",
                                     alignItems: "flex-end",
                                     gap: "4px",
                                   }}
@@ -4173,7 +4173,7 @@ const SubmitOrSaveOrder = () => {
                                 <div
                                   style={{
                                     display: "flex",
-                                    width: "320px",
+                                    width: isMobile ? "280px" : "320px",
                                     alignItems: "flex-end",
                                     gap: "4px",
                                   }}
@@ -4279,7 +4279,7 @@ const SubmitOrSaveOrder = () => {
                                 <div
                                   style={{
                                     display: "flex",
-                                    width: "320px",
+                                    width: isMobile ? "280px" : "320px",
                                     alignItems: "flex-end",
                                     gap: "4px",
                                   }}
