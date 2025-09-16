@@ -2419,6 +2419,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
 
+                  <div style={{ display: sectionsState.professionalReferences ? "none" : "block", width: "100%" }}>
                   {/* Professional Reference #1 Card */}
                   <div
                     style={{
@@ -2600,6 +2601,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
                 </div>
+                  </div>
 
                 {/* Credentials - Professional Licenses Section */}
                 <div
