@@ -7,6 +7,31 @@ const SubmitOrSaveOrder = () => {
   const navigate = useNavigate();
   const [requireApplicantPayment, setRequireApplicantPayment] = useState(false);
 
+  // Background screening items interactive state
+  const [screeningItems, setScreeningItems] = useState(
+    [
+      { name: "Social Security Trace", eta: "26 Days, 10/22", nameToSearch: "[First Name, Last Name]", checked: true },
+      { name: "MJD", eta: "26 Days, 10/22", nameToSearch: "[First Name, Last Name]", checked: true },
+      { name: "County/Statewide Criminal History 7yr", eta: "Today, 09/16", nameToSearch: "[First Name, Last Name]", checked: true },
+      { name: "Court Criminal Monitoring", eta: "6 Days, 09/24", nameToSearch: "[First Name, Last Name]", checked: true },
+      { name: "Data Collection", eta: "", nameToSearch: "[First Name, Last Name]", checked: true },
+      { name: "DOT Drug Test and Physical", eta: "3 Days, 09/19", nameToSearch: "[First Name, Last Name]", checked: false },
+    ]
+  );
+
+  const toggleScreeningItem = (index: number) => {
+    setScreeningItems(prev => prev.map((it, i) => (i === index ? { ...it, checked: !it.checked } : it)));
+  };
+
+  // Reusable checkbox style (matches app)
+  const checkboxStyle: React.CSSProperties = {
+    width: "16px",
+    height: "16px",
+    borderRadius: "4px",
+    border: "1px solid #D5D7DA",
+    cursor: "pointer",
+  };
+
   // Accordion state management
   const [orderOverviewCollapsed, setOrderOverviewCollapsed] = useState(false);
   const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
@@ -446,13 +471,7 @@ const SubmitOrSaveOrder = () => {
                         type="checkbox"
                         checked={requireApplicantPayment}
                         onChange={(e) => setRequireApplicantPayment(e.target.checked)}
-                        style={{
-                          width: "16px",
-                          height: "16px",
-                          borderRadius: "4px",
-                          border: "1px solid #D5D7DA",
-                          cursor: "pointer",
-                        }}
+                        style={checkboxStyle}
                       />
                     </div>
                     <label
@@ -495,141 +514,117 @@ const SubmitOrSaveOrder = () => {
                   }}
                 >
                   {/* Checkbox Rows */}
-                  {[
-                    {
-                      name: "Social Security Trace",
-                      checked: true,
-                      eta: "26 Days, 10/22",
-                      nameToSearch: "[First Name, Last Name]"
-                    },
-                    {
-                      name: "MJD",
-                      checked: true,
-                      eta: "26 Days, 10/22",
-                      nameToSearch: "[First Name, Last Name]"
-                    },
-                    {
-                      name: "County/Statewide Criminal History 7yr",
-                      checked: true,
-                      eta: "Today, 09/16",
-                      nameToSearch: "[First Name, Last Name]"
-                    },
-                    {
-                      name: "Court Criminal Monitoring",
-                      checked: true,
-                      eta: "6 Days, 09/24",
-                      nameToSearch: "[First Name, Last Name]"
-                    },
-                    {
-                      name: "Data Collection",
-                      checked: true,
-                      eta: "",
-                      nameToSearch: "[First Name, Last Name]"
-                    },
-                    {
-                      name: "DOT Drug Test and Physical",
-                      checked: false,
-                      eta: "3 Days, 09/19",
-                      nameToSearch: "[First Name, Last Name]",
-                      disabled: true
-                    }
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "96px",
-                        alignSelf: "stretch",
-                      }}
-                    >
+                  {screeningItems.map((item, index) => {
+                    const inactive = !item.checked;
+                    return (
                       <div
+                        key={index}
                         style={{
                           display: "flex",
                           alignItems: "center",
-                          gap: "8px",
+                          gap: "96px",
+                          alignSelf: "stretch",
                         }}
                       >
                         <div
                           style={{
                             display: "flex",
-                            justifyContent: "center",
                             alignItems: "center",
+                            gap: "8px",
                           }}
                         >
-                          {item.checked ? (
+                          <input
+                            type="checkbox"
+                            checked={item.checked}
+                            onChange={() => toggleScreeningItem(index)}
+                            style={checkboxStyle}
+                          />
+                          <div
+                            style={{
+                              width: "270px",
+                              color: inactive ? "#717680" : "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {item.name}
+                          </div>
+                        </div>
+
+                        {item.eta && (
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "160px",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: inactive ? "#717680" : "#414651",
+                                textAlign: "center",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "14px",
+                                fontWeight: 400,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              ETA
+                            </div>
+                            <div
+                              style={{
+                                color: inactive ? "#717680" : "#181D27",
+                                textAlign: "center",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {item.eta}
+                            </div>
                             <div
                               style={{
                                 display: "flex",
                                 width: "16px",
                                 height: "16px",
-                                padding: "1px",
                                 justifyContent: "center",
                                 alignItems: "center",
-                                borderRadius: "4px",
-                                backgroundColor: "#344698",
-                                position: "relative",
                               }}
                             >
-                              <svg
-                                width="14"
-                                height="14"
-                                viewBox="0 0 14 14"
-                                fill="none"
-                                style={{
-                                  width: "14px",
-                                  height: "14px",
-                                  position: "absolute",
-                                  left: "1px",
-                                  top: "1px",
-                                }}
-                              >
-                                <path
-                                  d="M11.6668 3.5L5.25016 9.91667L2.3335 7"
-                                  stroke="white"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <g clipPath="url(#clip0_help_icon)">
+                                  <path
+                                    d="M6.06016 6.00001C6.2169 5.55446 6.52626 5.17875 6.93347 4.93943C7.34067 4.70012 7.81943 4.61264 8.28495 4.69248C8.75047 4.77233 9.17271 5.01436 9.47688 5.3757C9.78106 5.73703 9.94753 6.19436 9.94683 6.66668C9.94683 8.00001 7.94683 8.66668 7.94683 8.66668M8.00016 11.3333H8.00683M14.6668 8.00001C14.6668 11.6819 11.6821 14.6667 8.00016 14.6667C4.31826 14.6667 1.3335 11.6819 1.3335 8.00001C1.3335 4.31811 4.31826 1.33334 8.00016 1.33334C11.6821 1.33334 14.6668 4.31811 14.6668 8.00001Z"
+                                    stroke="#A4A7AE"
+                                    strokeWidth="1.33333"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_help_icon">
+                                    <rect width="16" height="16" fill="white" />
+                                  </clipPath>
+                                </defs>
                               </svg>
                             </div>
-                          ) : (
-                            <div
-                              style={{
-                                width: "16px",
-                                height: "16px",
-                                borderRadius: "4px",
-                                border: "1px solid #D5D7DA",
-                              }}
-                            />
-                          )}
-                        </div>
-                        <div
-                          style={{
-                            width: "270px",
-                            color: item.disabled ? "#717680" : "#181D27",
-                            fontFamily: "'Public Sans'",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          {item.name}
-                        </div>
-                      </div>
+                          </div>
+                        )}
 
-                      {item.eta && (
                         <div
                           style={{
                             display: "flex",
-                            width: "160px",
                             alignItems: "center",
                             gap: "4px",
                           }}
                         >
                           <div
                             style={{
-                              color: item.disabled ? "#717680" : "#414651",
+                              color: inactive ? "#717680" : "#414651",
                               textAlign: "center",
                               fontFamily: "'Public Sans'",
                               fontSize: "14px",
@@ -637,11 +632,11 @@ const SubmitOrSaveOrder = () => {
                               lineHeight: "20px",
                             }}
                           >
-                            ETA
+                            Name to Search:
                           </div>
                           <div
                             style={{
-                              color: item.disabled ? "#717680" : "#181D27",
+                              color: inactive ? "#717680" : "#181D27",
                               textAlign: "center",
                               fontFamily: "'Public Sans'",
                               fontSize: "14px",
@@ -649,76 +644,12 @@ const SubmitOrSaveOrder = () => {
                               lineHeight: "20px",
                             }}
                           >
-                            {item.eta}
+                            {item.nameToSearch}
                           </div>
-                          <div
-                            style={{
-                              display: "flex",
-                              width: "16px",
-                              height: "16px",
-                              justifyContent: "center",
-                              alignItems: "center",
-                            }}
-                          >
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                            >
-                              <g clipPath="url(#clip0_help_icon)">
-                                <path
-                                  d="M6.06016 6.00001C6.2169 5.55446 6.52626 5.17875 6.93347 4.93943C7.34067 4.70012 7.81943 4.61264 8.28495 4.69248C8.75047 4.77233 9.17271 5.01436 9.47688 5.3757C9.78106 5.73703 9.94753 6.19436 9.94683 6.66668C9.94683 8.00001 7.94683 8.66668 7.94683 8.66668M8.00016 11.3333H8.00683M14.6668 8.00001C14.6668 11.6819 11.6821 14.6667 8.00016 14.6667C4.31826 14.6667 1.3335 11.6819 1.3335 8.00001C1.3335 4.31811 4.31826 1.33334 8.00016 1.33334C11.6821 1.33334 14.6668 4.31811 14.6668 8.00001Z"
-                                  stroke="#A4A7AE"
-                                  strokeWidth="1.33333"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_help_icon">
-                                  <rect width="16" height="16" fill="white" />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                          </div>
-                        </div>
-                      )}
-
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "4px",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: item.disabled ? "#717680" : "#414651",
-                            textAlign: "center",
-                            fontFamily: "'Public Sans'",
-                            fontSize: "14px",
-                            fontWeight: 400,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          Name to Search:
-                        </div>
-                        <div
-                          style={{
-                            color: item.disabled ? "#717680" : "#181D27",
-                            textAlign: "center",
-                            fontFamily: "'Public Sans'",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          {item.nameToSearch}
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 {/* Divider */}
