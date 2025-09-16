@@ -1161,7 +1161,7 @@ const SubmitOrSaveOrder = () => {
                           lineHeight: "18px",
                         }}
                       >
-                        Location / Adjuster
+                        Location / Adjustment Reaction
                       </div>
                     </div>
                     <div
@@ -2082,7 +2082,7 @@ const SubmitOrSaveOrder = () => {
                                       lineHeight: "20px",
                                     }}
                                   >
-                                    ��� Education (1)
+                                    ✓ Education (1)
                                   </div>
                                   <div
                                     style={{
