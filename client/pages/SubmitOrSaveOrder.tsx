@@ -693,10 +693,10 @@ const SubmitOrSaveOrder = () => {
                         key={index}
                         style={{
                           display: "flex",
-                          flexDirection: isTablet ? "column" : "row",
-                          justifyContent: isTablet ? "center" : "flex-start",
-                          alignItems: isTablet ? "flex-start" : "center",
-                          gap: isTablet ? "6px" : "96px",
+                          flexDirection: isTablet || isMobile ? "column" : "row",
+                          justifyContent: isTablet || isMobile ? "center" : "flex-start",
+                          alignItems: isTablet || isMobile ? "flex-start" : "center",
+                          gap: isTablet || isMobile ? "6px" : "96px",
                           alignSelf: "stretch",
                         }}
                       >
@@ -715,7 +715,7 @@ const SubmitOrSaveOrder = () => {
                           />
                           <div
                             style={{
-                              width: isTablet ? "auto" : "270px",
+                              width: isTablet || isMobile ? "270px" : "270px",
                               color: inactive ? "#717680" : "#181D27",
                               fontFamily: "'Public Sans'",
                               fontSize: "14px",
@@ -727,8 +727,8 @@ const SubmitOrSaveOrder = () => {
                           </div>
                         </div>
 
-                        {/* ETA Row for tablet */}
-                        {isTablet && item.eta && (
+                        {/* ETA Row for tablet and mobile */}
+                        {(isTablet || isMobile) && item.eta && (
                           <div
                             style={{
                               display: "flex",
@@ -797,7 +797,7 @@ const SubmitOrSaveOrder = () => {
                         )}
 
                         {/* Desktop ETA - show inline for desktop */}
-                        {!isTablet && item.eta && (
+                        {!isTablet && !isMobile && item.eta && (
                           <div
                             style={{
                               display: "flex",
