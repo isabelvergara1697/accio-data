@@ -1009,13 +1009,16 @@ const SubmitOrSaveOrder = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: "12px 24px 16px 24px",
+                  padding: isTablet ? "12px 24px 16px 24px" : "12px 24px 16px 24px",
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "16px",
                   alignSelf: "stretch",
                   borderRadius: "0px 0px 12px 12px",
                   backgroundColor: "#FFF",
+                  boxShadow: isTablet ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)" : "none",
+                  border: isTablet ? "1px solid #E9EAEB" : "none",
+                  borderTop: isTablet ? "none" : "none",
                 }}
               >
                 <div
