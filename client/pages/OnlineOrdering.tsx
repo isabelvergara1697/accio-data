@@ -6714,9 +6714,9 @@ const OnlineOrdering = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "320px",
                                   alignItems: "flex-end",
                                   gap: "4px",
+                                  alignSelf: "stretch",
                                 }}
                               >
                                 <div
@@ -6796,9 +6796,9 @@ const OnlineOrdering = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "320px",
                                   alignItems: "flex-end",
                                   gap: "4px",
+                                  alignSelf: "stretch",
                                 }}
                               >
                                 <div
@@ -6878,9 +6878,9 @@ const OnlineOrdering = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "320px",
                                   alignItems: "flex-end",
                                   gap: "4px",
+                                  alignSelf: "stretch",
                                 }}
                               >
                                 <div
@@ -6961,9 +6961,9 @@ const OnlineOrdering = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "320px",
                                   alignItems: "flex-end",
                                   gap: "4px",
+                                  alignSelf: "stretch",
                                 }}
                               >
                                 <div
@@ -10868,9 +10868,9 @@ const OnlineOrdering = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "320px",
                                   alignItems: "flex-end",
                                   gap: "4px",
+                                  alignSelf: "stretch",
                                 }}
                               >
                                 <div
@@ -14171,9 +14171,9 @@ const OnlineOrdering = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "320px",
                                   alignItems: "flex-end",
                                   gap: "4px",
+                                  alignSelf: "stretch",
                                 }}
                               >
                                 <div
@@ -14964,9 +14964,9 @@ const OnlineOrdering = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "320px",
                                   alignItems: "flex-end",
                                   gap: "4px",
+                                  alignSelf: "stretch",
                                 }}
                               >
                                 <div
@@ -17046,9 +17046,9 @@ const OnlineOrdering = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "320px",
                                   alignItems: "flex-end",
                                   gap: "4px",
+                                  alignSelf: "stretch",
                                 }}
                               >
                                 <div
