@@ -6239,7 +6239,7 @@ const SubmitOrSaveOrder = () => {
                         <div
                           style={{
                             display: "flex",
-                            height: "52px",
+                            height: isTablet ? "76px" : "52px",
                             alignItems: "flex-start",
                             gap: "8px",
                             alignSelf: "stretch",
