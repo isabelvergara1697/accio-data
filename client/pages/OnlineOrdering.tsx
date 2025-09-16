@@ -6678,10 +6678,11 @@ const OnlineOrdering = () => {
                             >
                               <input
                                 type="text"
-                                value={subjectMiddleName}
-                                onChange={(e) =>
-                                  setSubjectMiddleName(e.target.value)
-                                }
+                                value={subjectFields.middleName || subjectMiddleName}
+                                onChange={(e) => {
+                                  setSubjectFields(prev => ({ ...prev, middleName: e.target.value }));
+                                  setSubjectMiddleName(e.target.value);
+                                }}
                                 style={{
                                   flex: "1 0 0",
                                   border: "none",
@@ -7339,7 +7340,7 @@ const OnlineOrdering = () => {
                                 Country
                               </div>
                             </div>
-                            <Select>
+                            <Select onValueChange={(v) => setSubjectFields(prev => ({ ...prev, country: v }))}>
                               <SelectTrigger
                                 style={{
                                   display: "flex",
@@ -7403,7 +7404,7 @@ const OnlineOrdering = () => {
                                 State
                               </div>
                             </div>
-                            <Select>
+                            <Select onValueChange={(v) => setSubjectFields(prev => ({ ...prev, state: v }))}>
                               <SelectTrigger
                                 style={{
                                   display: "flex",
@@ -7469,7 +7470,7 @@ const OnlineOrdering = () => {
                                 City
                               </div>
                             </div>
-                            <Select>
+                            <Select onValueChange={(v) => setSubjectFields(prev => ({ ...prev, city: v }))}>
                               <SelectTrigger
                                 style={{
                                   display: "flex",
