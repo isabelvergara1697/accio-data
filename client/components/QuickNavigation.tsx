@@ -223,117 +223,315 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
             }}
           >
             {sections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => handleSectionClick(section.id)}
-                style={{
-                  display: 'flex',
-                  padding: '8px 12px',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  alignSelf: 'stretch',
-                  borderRadius: '6px',
-                  border: 'none',
-                  background: section.completed ? '#F9F9F9' : 'transparent',
-                  cursor: 'pointer',
-                  transition: 'background-color 0.2s ease',
-                }}
-                onMouseEnter={(e) => {
-                  if (!section.completed) {
-                    e.currentTarget.style.background = '#F5F5F5';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!section.completed) {
-                    e.currentTarget.style.background = 'transparent';
-                  }
-                }}
-              >
+              <div key={section.id}>
+                {/* Main section */}
                 <div
                   style={{
-                    color: section.completed ? '#414651' : '#717680',
-                    fontFamily: "'Public Sans'",
-                    fontSize: '14px',
-                    fontStyle: 'normal',
-                    fontWeight: 600,
-                    lineHeight: '20px',
+                    display: 'flex',
+                    padding: '8px 12px',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    alignSelf: 'stretch',
+                    borderRadius: '6px',
+                    background: section.completed ? '#F9F9F9' : 'transparent',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!section.completed) {
+                      e.currentTarget.style.background = '#F5F5F5';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!section.completed) {
+                      e.currentTarget.style.background = section.completed ? '#F9F9F9' : 'transparent';
+                    }
                   }}
                 >
-                  {section.label}
-                </div>
-                
-                {/* Status indicators */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  {section.hasErrors && (
+                  {/* Left side - label and indicators */}
+                  <div
+                    onClick={() => handleSectionClick(section.id)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      flex: '1 0 0',
+                      cursor: 'pointer'
+                    }}
+                  >
                     <div
                       style={{
-                        display: 'flex',
-                        width: '20px',
-                        height: '20px',
-                        padding: '4px',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        borderRadius: '9999px',
-                        background: '#FEE4E2',
+                        color: section.completed ? '#414651' : '#717680',
+                        fontFamily: "'Public Sans'",
+                        fontSize: '14px',
+                        fontStyle: 'normal',
+                        fontWeight: 600,
+                        lineHeight: '20px',
                       }}
                     >
-                      <svg
-                        style={{ width: '12px', height: '12px', flexShrink: 0 }}
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g clipPath="url(#clip0_section_alert)">
-                          <path
-                            d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
-                            stroke="#D92D20"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_section_alert">
-                            <rect width="12" height="12" fill="white" />
-                          </clipPath>
-                        </defs>
-                      </svg>
+                      {section.label}
                     </div>
-                  )}
-                  
-                  {section.completed && (
-                    <div
+
+                    {/* Count badge for sections with multiple entries */}
+                    {section.count && section.count > 1 && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          padding: '2px 8px',
+                          alignItems: 'center',
+                          borderRadius: '9999px',
+                          border: '1px solid #ABEFC6',
+                          background: '#ECFDF3',
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: '#067647',
+                            textAlign: 'center',
+                            fontFamily: "'Public Sans'",
+                            fontSize: '12px',
+                            fontStyle: 'normal',
+                            fontWeight: 500,
+                            lineHeight: '18px',
+                          }}
+                        >
+                          {section.count}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Status indicators */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      {section.hasErrors && (
+                        <div
+                          style={{
+                            display: 'flex',
+                            width: '24px',
+                            height: '24px',
+                            padding: '6px',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            borderRadius: '9999px',
+                            background: '#FEE4E2',
+                          }}
+                        >
+                          <svg
+                            style={{ width: '12px', height: '12px', flexShrink: 0 }}
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g clipPath="url(#clip0_section_alert)">
+                              <path
+                                d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                                stroke="#D92D20"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_section_alert">
+                                <rect width="12" height="12" fill="white" />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                        </div>
+                      )}
+
+                      {section.completed && (
+                        <div
+                          style={{
+                            display: 'flex',
+                            width: '24px',
+                            height: '24px',
+                            padding: '6px',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            borderRadius: '9999px',
+                            background: '#DCFAE6',
+                          }}
+                        >
+                          <svg
+                            style={{ width: '12px', height: '12px', flexShrink: 0 }}
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10 3L4.5 8.5L2 6"
+                              stroke="#079455"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Expand/Collapse button for sections with subsections */}
+                  {section.subsections && section.subsections.length > 0 && (
+                    <button
+                      onClick={() => toggleSectionExpansion(section.id)}
                       style={{
                         display: 'flex',
-                        width: '20px',
-                        height: '20px',
+                        width: '24px',
+                        height: '24px',
                         padding: '4px',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        borderRadius: '9999px',
-                        background: '#DCFAE6',
+                        borderRadius: '6px',
+                        border: 'none',
+                        background: 'transparent',
+                        cursor: 'pointer',
                       }}
                     >
                       <svg
-                        style={{ width: '12px', height: '12px', flexShrink: 0 }}
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
+                        style={{
+                          width: '16px',
+                          height: '16px',
+                          flexShrink: 0,
+                          transform: expandedSections.has(section.id) ? 'rotate(180deg)' : 'none',
+                          transition: 'transform 0.2s ease',
+                        }}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M10 3L4.5 8.5L2 6"
-                          stroke="#079455"
+                          d="M4 6L8 10L12 6"
+                          stroke="#A4A7AE"
+                          strokeWidth="1.66667"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </div>
+                    </button>
                   )}
                 </div>
-              </button>
+
+                {/* Subsections - show when expanded */}
+                {section.subsections &&
+                 section.subsections.length > 0 &&
+                 expandedSections.has(section.id) && (
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', alignSelf: 'stretch' }}>
+                    {section.subsections.map((subsection) => (
+                      <button
+                        key={subsection.id}
+                        onClick={() => handleSectionClick(subsection.id)}
+                        style={{
+                          display: 'flex',
+                          height: '36px',
+                          padding: '0px 12px',
+                          alignItems: 'center',
+                          gap: '8px',
+                          alignSelf: 'stretch',
+                          borderRadius: '6px',
+                          border: 'none',
+                          background: 'transparent',
+                          cursor: 'pointer',
+                          transition: 'background-color 0.2s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = '#F5F5F5';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = 'transparent';
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: '#414651',
+                            fontFamily: "'Public Sans'",
+                            fontSize: '14px',
+                            fontStyle: 'normal',
+                            fontWeight: 400,
+                            lineHeight: '20px',
+                          }}
+                        >
+                          {subsection.label}
+                        </div>
+
+                        {/* Subsection status indicators */}
+                        {subsection.hasErrors && (
+                          <div
+                            style={{
+                              display: 'flex',
+                              width: '24px',
+                              height: '24px',
+                              padding: '6px',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              borderRadius: '9999px',
+                              background: '#FEE4E2',
+                            }}
+                          >
+                            <svg
+                              style={{ width: '12px', height: '12px', flexShrink: 0 }}
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clipPath="url(#clip0_subsection_alert)">
+                                <path
+                                  d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                                  stroke="#D92D20"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_subsection_alert">
+                                  <rect width="12" height="12" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                        )}
+
+                        {subsection.completed && (
+                          <div
+                            style={{
+                              display: 'flex',
+                              width: '24px',
+                              height: '24px',
+                              padding: '6px',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              borderRadius: '9999px',
+                              background: '#DCFAE6',
+                            }}
+                          >
+                            <svg
+                              style={{ width: '12px', height: '12px', flexShrink: 0 }}
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 3L4.5 8.5L2 6"
+                                stroke="#079455"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         )}
