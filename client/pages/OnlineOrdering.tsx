@@ -1951,31 +1951,17 @@ const OnlineOrdering = () => {
                         >
                           Employment
                         </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "2px 8px",
-                            alignItems: "center",
-                            borderRadius: "9999px",
-                            border: "1px solid #E9EAEB",
-                            background: "#FAFAFA",
-                          }}
-                        >
-                          <div
-                            style={{
-                              color: "#414651",
-                              textAlign: "center",
-                              fontFamily:
-                                "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "12px",
-                              fontStyle: "normal",
-                              fontWeight: 500,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            {packageQuantities["employment"] || 1}
+                        {isEmploymentCompleted() ? (
+                          <div style={{ display: "flex", width: "24px", height: "24px", padding: "6px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#DCFAE6" }}>
+                            <svg style={{ width: "12px", height: "12px", flexShrink: 0 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="#079455" strokeLinecap="round" strokeLinejoin="round" /></svg>
                           </div>
-                        </div>
+                        ) : (
+                          <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
+                            <div style={{ color: "#414651", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                              {packageQuantities["employment"] || 1}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -2015,31 +2001,17 @@ const OnlineOrdering = () => {
                         >
                           Education
                         </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "2px 8px",
-                            alignItems: "center",
-                            borderRadius: "9999px",
-                            border: "1px solid #E9EAEB",
-                            background: "#FAFAFA",
-                          }}
-                        >
-                          <div
-                            style={{
-                              color: "#414651",
-                              textAlign: "center",
-                              fontFamily:
-                                "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "12px",
-                              fontStyle: "normal",
-                              fontWeight: 500,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            {packageQuantities["education"] || 1}
+                        {isEducationCompleted() ? (
+                          <div style={{ display: "flex", width: "24px", height: "24px", padding: "6px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#DCFAE6" }}>
+                            <svg style={{ width: "12px", height: "12px", flexShrink: 0 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="#079455" strokeLinecap="round" strokeLinejoin="round" /></svg>
                           </div>
-                        </div>
+                        ) : (
+                          <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
+                            <div style={{ color: "#414651", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                              {packageQuantities["education"] || 1}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -2080,31 +2052,17 @@ const OnlineOrdering = () => {
                         >
                           Professional References
                         </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "2px 8px",
-                            alignItems: "center",
-                            borderRadius: "9999px",
-                            border: "1px solid #E9EAEB",
-                            background: "#FAFAFA",
-                          }}
-                        >
-                          <div
-                            style={{
-                              color: "#414651",
-                              textAlign: "center",
-                              fontFamily:
-                                "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "12px",
-                              fontStyle: "normal",
-                              fontWeight: 500,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            {packageQuantities["professional-references"] || 1}
+                        {isProfessionalReferencesCompleted() ? (
+                          <div style={{ display: "flex", width: "24px", height: "24px", padding: "6px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#DCFAE6" }}>
+                            <svg style={{ width: "12px", height: "12px", flexShrink: 0 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="#079455" strokeLinecap="round" strokeLinejoin="round" /></svg>
                           </div>
-                        </div>
+                        ) : (
+                          <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
+                            <div style={{ color: "#414651", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                              {packageQuantities["professional-references"] || 1}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -2145,33 +2103,17 @@ const OnlineOrdering = () => {
                         >
                           Credentials-Professional License
                         </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "2px 8px",
-                            alignItems: "center",
-                            borderRadius: "9999px",
-                            border: "1px solid #E9EAEB",
-                            background: "#FAFAFA",
-                          }}
-                        >
-                          <div
-                            style={{
-                              color: "#414651",
-                              textAlign: "center",
-                              fontFamily:
-                                "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "12px",
-                              fontStyle: "normal",
-                              fontWeight: 500,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            {packageQuantities[
-                              "credentials-professional-license"
-                            ] || 1}
+                        {isCredentialsCompleted() ? (
+                          <div style={{ display: "flex", width: "24px", height: "24px", padding: "6px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#DCFAE6" }}>
+                            <svg style={{ width: "12px", height: "12px", flexShrink: 0 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="#079455" strokeLinecap="round" strokeLinejoin="round" /></svg>
                           </div>
-                        </div>
+                        ) : (
+                          <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
+                            <div style={{ color: "#414651", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                              {packageQuantities["credentials-professional-license"] || 1}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -2212,31 +2154,17 @@ const OnlineOrdering = () => {
                         >
                           MVR History
                         </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "2px 8px",
-                            alignItems: "center",
-                            borderRadius: "9999px",
-                            border: "1px solid #E9EAEB",
-                            background: "#FAFAFA",
-                          }}
-                        >
-                          <div
-                            style={{
-                              color: "#414651",
-                              textAlign: "center",
-                              fontFamily:
-                                "var(--Font-family-font-family-body, 'Public Sans')",
-                              fontSize: "12px",
-                              fontStyle: "normal",
-                              fontWeight: 500,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            {packageQuantities["motor-vehicle-driving"] || 1}
+                        {isMvrCompleted() ? (
+                          <div style={{ display: "flex", width: "24px", height: "24px", padding: "6px", justifyContent: "center", alignItems: "center", borderRadius: "9999px", background: "#DCFAE6" }}>
+                            <svg style={{ width: "12px", height: "12px", flexShrink: 0 }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3L4.5 8.5L2 6" stroke="#079455" strokeLinecap="round" strokeLinejoin="round" /></svg>
                           </div>
-                        </div>
+                        ) : (
+                          <div style={{ display: "flex", padding: "2px 8px", alignItems: "center", borderRadius: "9999px", border: "1px solid #E9EAEB", background: "#FAFAFA" }}>
+                            <div style={{ color: "#414651", textAlign: "center", fontFamily: "var(--Font-family-font-family-body, 'Public Sans')", fontSize: "12px", fontStyle: "normal", fontWeight: 500, lineHeight: "18px" }}>
+                              {packageQuantities["motor-vehicle-driving"] || 1}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -18374,6 +18302,12 @@ const OnlineOrdering = () => {
                             </svg>
                           </button>
                           <button
+                            onClick={() =>
+                              setSectionsCollapsed((prev) => ({
+                                ...prev,
+                                motorVehicleDriving: !prev.motorVehicleDriving,
+                              }))
+                            }
                             style={{
                               display: "flex",
                               minHeight: "36px",
@@ -18386,11 +18320,11 @@ const OnlineOrdering = () => {
                               background: "#FFF",
                               boxShadow:
                                 "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                              cursor: "default",
+                              cursor: "pointer",
                             }}
                           >
                             <svg
-                              style={{ width: "16px", height: "16px" }}
+                              style={{ width: "16px", height: "16px", transform: sectionsCollapsed.motorVehicleDriving ? "none" : "rotate(180deg)", transition: "transform 0.2s ease" }}
                               width="16"
                               height="16"
                               viewBox="0 0 16 16"
@@ -18411,10 +18345,20 @@ const OnlineOrdering = () => {
                     </div>
                   </div>
 
+                  {/* Collapsed State Padding */}
+                  {sectionsCollapsed.motorVehicleDriving && (
+                    <div
+                      style={{
+                        padding: "0 24px 20px 24px",
+                        alignSelf: "stretch",
+                      }}
+                    />
+                  )}
+
                   {/* Main Content */}
                   <div
                     style={{
-                      display: "flex",
+                      display: sectionsCollapsed.motorVehicleDriving ? "none" : "flex",
                       padding: "12px 24px 16px 24px",
                       flexDirection: "column",
                       alignItems: "flex-start",
@@ -19052,8 +18996,8 @@ const OnlineOrdering = () => {
                 </div>
               )}
 
-              {/* Navigation Tabs */}
-              {selectedPackage && (
+              {/* Navigation Tabs removed */}
+              {false && (
                 <div
                   style={{
                     display: "flex",
