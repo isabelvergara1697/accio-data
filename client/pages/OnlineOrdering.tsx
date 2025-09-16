@@ -730,7 +730,7 @@ const OnlineOrdering = () => {
   // Check if there are any validation errors
   const hasValidationErrors = () => {
     if (!validationAttempted) return false;
-    return !isFormReadyForSubmission() || !authorizationChecked;
+    return !isFormReadyForSubmission();
   };
 
   // Scroll to the first incomplete section users need to finish
