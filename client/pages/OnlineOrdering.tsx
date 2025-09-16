@@ -14255,6 +14255,7 @@ const OnlineOrdering = () => {
                       return (
                         <div
                           key={`education-collapsed-${num}`}
+                          data-education-entry={num}
                           style={{
                             display: "flex",
                             padding: "12px",
