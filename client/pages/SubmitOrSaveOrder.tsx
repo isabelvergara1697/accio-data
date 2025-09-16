@@ -574,7 +574,7 @@ const SubmitOrSaveOrder = () => {
                     alignItems: "center",
                     alignSelf: "stretch",
                   }}
-                  width="632"
+                  width="100%"
                   height="9"
                   viewBox="0 0 632 9"
                   fill="none"
@@ -657,7 +657,7 @@ const SubmitOrSaveOrder = () => {
                     alignItems: "center",
                     alignSelf: "stretch",
                   }}
-                  width="632"
+                  width="100%"
                   height="9"
                   viewBox="0 0 632 9"
                   fill="none"
@@ -916,7 +916,7 @@ const SubmitOrSaveOrder = () => {
                     alignItems: "center",
                     alignSelf: "stretch",
                   }}
-                  width="632"
+                  width="100%"
                   height="9"
                   viewBox="0 0 632 9"
                   fill="none"
@@ -1944,7 +1944,7 @@ const SubmitOrSaveOrder = () => {
                     alignItems: "center",
                     alignSelf: "stretch",
                   }}
-                  width="632"
+                  width="100%"
                   height="9"
                   viewBox="0 0 632 9"
                   fill="none"
@@ -2283,7 +2283,7 @@ const SubmitOrSaveOrder = () => {
                     alignItems: "center",
                     alignSelf: "stretch",
                   }}
-                  width="632"
+                  width="100%"
                   height="9"
                   viewBox="0 0 632 9"
                   fill="none"
