@@ -4,6 +4,7 @@ interface QuickNavigationProps {
   isVisible: boolean;
   hasValidationErrors: boolean;
   onNavigateToSection: (sectionId: string) => void;
+  allSectionsCompleted?: boolean;
   sections: Array<{
     id: string;
     label: string;
