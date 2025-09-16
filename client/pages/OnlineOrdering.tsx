@@ -5551,11 +5551,9 @@ const OnlineOrdering = () => {
                       <div
                         style={{
                           display: "flex",
-                          width: isDesktop ? "324px" : "100%",
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "16px",
-                          minWidth: isDesktop ? "300px" : "100%",
                         }}
                       >
                         {/* Public Records Section */}
