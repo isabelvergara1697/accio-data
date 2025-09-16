@@ -2659,6 +2659,7 @@ const SubmitOrSaveOrder = () => {
                           cursor: "pointer",
                         }}
                         aria-label="Edit Credentials - Professional Licenses"
+                        onClick={() => handleEditSection('credentials')}
                       >
                         <span
                           style={{
