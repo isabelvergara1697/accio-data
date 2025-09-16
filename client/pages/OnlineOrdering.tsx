@@ -4,6 +4,7 @@ import { FormInput, FormSelect } from "../components/FormInput";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import { QuickNavigation } from "../components/QuickNavigation";
 import {
   Select,
   SelectContent,
