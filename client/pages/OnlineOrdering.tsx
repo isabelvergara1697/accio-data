@@ -19052,6 +19052,885 @@ const OnlineOrdering = () => {
                 </div>
               )}
 
+              {/* Navigation Tabs */}
+              {selectedPackage && (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  {/* Tabs Container */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      alignSelf: "stretch",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    {/* Package & Products Tab */}
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "8px 6px 8px 12px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "8px",
+                        borderRadius: "6px",
+                        border: selectedPackage ? "1px solid #D5D7DA" : "none",
+                        background: selectedPackage ? "#F9F9F9" : "transparent",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => {
+                        const el = document.querySelector('[data-section="package-and-products"]') as HTMLElement;
+                        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Package & Products
+                      </div>
+                      {selectedPackage && (
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "24px",
+                            height: "24px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            background: "#DCFAE6",
+                          }}
+                        >
+                          <svg
+                            style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10 3L4.5 8.5L2 6"
+                              stroke="#079455"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* My details Tab */}
+                    <div
+                      style={{
+                        display: "flex",
+                        height: "36px",
+                        padding: "8px 6px 8px 12px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "8px",
+                        borderRadius: "6px",
+                        border: validationAttempted && !isSubjectCompleted() ? "1px solid #D5D7DA" : isSubjectCompleted() ? "1px solid #D5D7DA" : "none",
+                        background: validationAttempted && !isSubjectCompleted() ? "#F9F9F9" : isSubjectCompleted() ? "#F9F9F9" : "transparent",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => {
+                        const el = document.querySelector('[data-section="subject"]') as HTMLElement;
+                        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#414651",
+                          fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        My details
+                      </div>
+                      {validationAttempted && !isSubjectCompleted() ? (
+                        <>
+                          <div
+                            style={{
+                              display: "flex",
+                              padding: "2px 8px",
+                              alignItems: "center",
+                              borderRadius: "9999px",
+                              border: "1px solid #FECDCA",
+                              background: "#FEF3F2",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#B42318",
+                                textAlign: "center",
+                                fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              {(() => {
+                                const requiredFields = ["firstName", "lastName", "dob", "zipCode", "address", "phone", "email", "fcra", "criminalRecords"];
+                                const missingCount = requiredFields.filter(field => !subjectFields[field as keyof typeof subjectFields]?.trim()).length;
+                                return missingCount;
+                              })()}
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "24px",
+                              height: "24px",
+                              padding: "6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "9999px",
+                              background: "#FEE4E2",
+                            }}
+                          >
+                            <svg
+                              style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clipPath="url(#clip0_19230_100)">
+                                <path
+                                  d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                                  stroke="#D92D20"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_19230_100">
+                                  <rect width="12" height="12" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </div>
+                        </>
+                      ) : isSubjectCompleted() ? (
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "24px",
+                            height: "24px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "9999px",
+                            background: "#DCFAE6",
+                          }}
+                        >
+                          <svg
+                            style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10 3L4.5 8.5L2 6"
+                              stroke="#079455"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
+                      ) : null}
+                    </div>
+
+                    {/* Employment Tab */}
+                    {packageCheckboxes["employment"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                          border: validationAttempted && !isEmploymentCompleted() ? "1px solid #D5D7DA" : isEmploymentCompleted() ? "1px solid #D5D7DA" : "none",
+                          background: validationAttempted && !isEmploymentCompleted() ? "#F9F9F9" : isEmploymentCompleted() ? "#F9F9F9" : "transparent",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          const el = document.querySelector('[data-section="employment"]') as HTMLElement;
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Employment
+                        </div>
+                        {validationAttempted && !isEmploymentCompleted() ? (
+                          <>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                border: "1px solid #FECDCA",
+                                background: "#FEF3F2",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#B42318",
+                                  textAlign: "center",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                {(() => {
+                                  let missingCount = 0;
+                                  const qty = packageQuantities["employment"] || 0;
+                                  for (let i = 1; i <= qty; i++) {
+                                    if (!isEmploymentEntryCompleted(i)) missingCount++;
+                                  }
+                                  return missingCount;
+                                })()}
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "24px",
+                                height: "24px",
+                                padding: "6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                background: "#FEE4E2",
+                              }}
+                            >
+                              <svg
+                                style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clipPath="url(#clip0_19230_100)">
+                                  <path
+                                    d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                                    stroke="#D92D20"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_19230_100">
+                                    <rect width="12" height="12" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </>
+                        ) : isEmploymentCompleted() ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "24px",
+                              height: "24px",
+                              padding: "6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "9999px",
+                              background: "#DCFAE6",
+                            }}
+                          >
+                            <svg
+                              style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 3L4.5 8.5L2 6"
+                                stroke="#079455"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        ) : null}
+                      </div>
+                    )}
+
+                    {/* Education Tab */}
+                    {packageCheckboxes["education"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                          border: validationAttempted && !isEducationCompleted() ? "1px solid #D5D7DA" : isEducationCompleted() ? "1px solid #D5D7DA" : "none",
+                          background: validationAttempted && !isEducationCompleted() ? "#F9F9F9" : isEducationCompleted() ? "#F9F9F9" : "transparent",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          const el = document.querySelector('[data-section="education"]') as HTMLElement;
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Education
+                        </div>
+                        {validationAttempted && !isEducationCompleted() ? (
+                          <>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                border: "1px solid #FECDCA",
+                                background: "#FEF3F2",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#B42318",
+                                  textAlign: "center",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                {(() => {
+                                  let missingCount = 0;
+                                  const qty = packageQuantities["education"] || 0;
+                                  for (let i = 1; i <= qty; i++) {
+                                    if (!isEducationEntryCompleted(i)) missingCount++;
+                                  }
+                                  return missingCount;
+                                })()}
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "24px",
+                                height: "24px",
+                                padding: "6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                background: "#FEE4E2",
+                              }}
+                            >
+                              <svg
+                                style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clipPath="url(#clip0_19230_100)">
+                                  <path
+                                    d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                                    stroke="#D92D20"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_19230_100">
+                                    <rect width="12" height="12" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </>
+                        ) : isEducationCompleted() ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "24px",
+                              height: "24px",
+                              padding: "6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "9999px",
+                              background: "#DCFAE6",
+                            }}
+                          >
+                            <svg
+                              style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 3L4.5 8.5L2 6"
+                                stroke="#079455"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        ) : null}
+                      </div>
+                    )}
+
+                    {/* Professional References Tab */}
+                    {packageCheckboxes["professional-references"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                          border: validationAttempted && !isProfessionalReferencesCompleted() ? "1px solid #D5D7DA" : isProfessionalReferencesCompleted() ? "1px solid #D5D7DA" : "none",
+                          background: validationAttempted && !isProfessionalReferencesCompleted() ? "#F9F9F9" : isProfessionalReferencesCompleted() ? "#F9F9F9" : "transparent",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          const el = document.querySelector('[data-section="professional-references"]') as HTMLElement;
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          References
+                        </div>
+                        {validationAttempted && !isProfessionalReferencesCompleted() ? (
+                          <>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                border: "1px solid #FECDCA",
+                                background: "#FEF3F2",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#B42318",
+                                  textAlign: "center",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                {(() => {
+                                  let missingCount = 0;
+                                  const qty = packageQuantities["professional-references"] || 0;
+                                  for (let i = 1; i <= qty; i++) {
+                                    if (!isProfessionalRefEntryCompleted(i)) missingCount++;
+                                  }
+                                  return missingCount;
+                                })()}
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "24px",
+                                height: "24px",
+                                padding: "6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                background: "#FEE4E2",
+                              }}
+                            >
+                              <svg
+                                style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clipPath="url(#clip0_19230_100)">
+                                  <path
+                                    d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                                    stroke="#D92D20"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_19230_100">
+                                    <rect width="12" height="12" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </>
+                        ) : isProfessionalReferencesCompleted() ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "24px",
+                              height: "24px",
+                              padding: "6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "9999px",
+                              background: "#DCFAE6",
+                            }}
+                          >
+                            <svg
+                              style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 3L4.5 8.5L2 6"
+                                stroke="#079455"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        ) : null}
+                      </div>
+                    )}
+
+                    {/* Credentials Tab */}
+                    {packageCheckboxes["credentials-professional-license"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                          border: validationAttempted && !isCredentialsCompleted() ? "1px solid #D5D7DA" : isCredentialsCompleted() ? "1px solid #D5D7DA" : "none",
+                          background: validationAttempted && !isCredentialsCompleted() ? "#F9F9F9" : isCredentialsCompleted() ? "#F9F9F9" : "transparent",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          const el = document.querySelector('[data-section="credentials-professional-license"]') as HTMLElement;
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Credentials
+                        </div>
+                        {validationAttempted && !isCredentialsCompleted() ? (
+                          <>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                border: "1px solid #FECDCA",
+                                background: "#FEF3F2",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#B42318",
+                                  textAlign: "center",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                {(() => {
+                                  let missingCount = 0;
+                                  const qty = packageQuantities["credentials-professional-license"] || 0;
+                                  for (let i = 1; i <= qty; i++) {
+                                    if (!isCredentialsEntryCompleted(i)) missingCount++;
+                                  }
+                                  return missingCount;
+                                })()}
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "24px",
+                                height: "24px",
+                                padding: "6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                background: "#FEE4E2",
+                              }}
+                            >
+                              <svg
+                                style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clipPath="url(#clip0_19230_100)">
+                                  <path
+                                    d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                                    stroke="#D92D20"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_19230_100">
+                                    <rect width="12" height="12" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </>
+                        ) : isCredentialsCompleted() ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "24px",
+                              height: "24px",
+                              padding: "6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "9999px",
+                              background: "#DCFAE6",
+                            }}
+                          >
+                            <svg
+                              style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 3L4.5 8.5L2 6"
+                                stroke="#079455"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        ) : null}
+                      </div>
+                    )}
+
+                    {/* MVR Tab */}
+                    {packageCheckboxes["motor-vehicle-driving"] && (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "8px 6px 8px 12px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          borderRadius: "6px",
+                          border: validationAttempted && !isMvrCompleted() ? "1px solid #D5D7DA" : isMvrCompleted() ? "1px solid #D5D7DA" : "none",
+                          background: validationAttempted && !isMvrCompleted() ? "#F9F9F9" : isMvrCompleted() ? "#F9F9F9" : "transparent",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          const el = document.querySelector('[data-section="motor-vehicle-driving"]') as HTMLElement;
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          MVR
+                        </div>
+                        {validationAttempted && !isMvrCompleted() ? (
+                          <>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                border: "1px solid #FECDCA",
+                                background: "#FEF3F2",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#B42318",
+                                  textAlign: "center",
+                                  fontFamily: "var(--Font-family-font-family-body, 'Public Sans')",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                }}
+                              >
+                                1
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                width: "24px",
+                                height: "24px",
+                                padding: "6px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                background: "#FEE4E2",
+                              }}
+                            >
+                              <svg
+                                style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g clipPath="url(#clip0_19230_100)">
+                                  <path
+                                    d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                                    stroke="#D92D20"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_19230_100">
+                                    <rect width="12" height="12" fill="white" />
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </div>
+                          </>
+                        ) : isMvrCompleted() ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "24px",
+                              height: "24px",
+                              padding: "6px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              borderRadius: "9999px",
+                              background: "#DCFAE6",
+                            }}
+                          >
+                            <svg
+                              style={{ width: "12px", height: "12px", flexShrink: 0 }}
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 3L4.5 8.5L2 6"
+                                stroke="#079455"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </div>
+                        ) : null}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
               {/* Authorization Section - Always show */}
               <div
                 data-section="authorization"
