@@ -83,10 +83,14 @@ const OnlineOrdering = () => {
   // Track specific required fields for Subject section
   const [subjectFields, setSubjectFields] = useState({
     firstName: "",
+    middleName: "",
     lastName: "",
     dob: "",
     zipCode: "",
     address: "",
+    country: "",
+    state: "",
+    city: "",
     phone: "",
     email: "",
     fcra: "",
