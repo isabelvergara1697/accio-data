@@ -261,40 +261,36 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
                 <div
                   style={{
                     display: 'flex',
+                    height: '36px',
                     padding: '8px 12px',
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     alignSelf: 'stretch',
                     borderRadius: '6px',
-                    background: section.completed ? '#F9F9F9' : 'transparent',
+                    background: 'transparent',
                     cursor: 'pointer',
                     transition: 'background-color 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    if (!section.completed) {
-                      e.currentTarget.style.background = '#F5F5F5';
-                    }
+                    e.currentTarget.style.background = '#F5F5F5';
                   }}
                   onMouseLeave={(e) => {
-                    if (!section.completed) {
-                      e.currentTarget.style.background = section.completed ? '#F9F9F9' : 'transparent';
-                    }
+                    e.currentTarget.style.background = 'transparent';
                   }}
                 >
-                  {/* Left side - label and indicators */}
+                  {/* Left side - label, badge, and status indicators */}
                   <div
                     onClick={() => handleSectionClick(section.id)}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
                       gap: '8px',
-                      flex: '1 0 0',
                       cursor: 'pointer'
                     }}
                   >
                     <div
                       style={{
-                        color: section.completed ? '#414651' : '#717680',
+                        color: '#414651',
                         fontFamily: "'Public Sans'",
                         fontSize: '14px',
                         fontStyle: 'normal',
@@ -334,76 +330,74 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
                     )}
 
                     {/* Status indicators */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      {section.hasErrors && (
-                        <div
-                          style={{
-                            display: 'flex',
-                            width: '24px',
-                            height: '24px',
-                            padding: '6px',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            borderRadius: '9999px',
-                            background: '#FEE4E2',
-                          }}
+                    {section.hasErrors && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          width: '24px',
+                          height: '24px',
+                          padding: '6px',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          borderRadius: '9999px',
+                          background: '#FEE4E2',
+                        }}
+                      >
+                        <svg
+                          style={{ width: '12px', height: '12px', flexShrink: 0 }}
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <svg
-                            style={{ width: '12px', height: '12px', flexShrink: 0 }}
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <g clipPath="url(#clip0_section_alert)">
-                              <path
-                                d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
-                                stroke="#D92D20"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </g>
-                            <defs>
-                              <clipPath id="clip0_section_alert">
-                                <rect width="12" height="12" fill="white" />
-                              </clipPath>
-                            </defs>
-                          </svg>
-                        </div>
-                      )}
-
-                      {section.completed && (
-                        <div
-                          style={{
-                            display: 'flex',
-                            width: '24px',
-                            height: '24px',
-                            padding: '6px',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            borderRadius: '9999px',
-                            background: '#DCFAE6',
-                          }}
-                        >
-                          <svg
-                            style={{ width: '12px', height: '12px', flexShrink: 0 }}
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
+                          <g clipPath="url(#clip0_section_alert)">
                             <path
-                              d="M10 3L4.5 8.5L2 6"
-                              stroke="#079455"
+                              d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6 1C3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                              stroke="#D92D20"
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             />
-                          </svg>
-                        </div>
-                      )}
-                    </div>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_section_alert">
+                              <rect width="12" height="12" fill="white" />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                    )}
+
+                    {section.completed && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          width: '24px',
+                          height: '24px',
+                          padding: '6px',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          borderRadius: '9999px',
+                          background: '#DCFAE6',
+                        }}
+                      >
+                        <svg
+                          style={{ width: '12px', height: '12px', flexShrink: 0 }}
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10 3L4.5 8.5L2 6"
+                            stroke="#079455"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                    )}
                   </div>
 
                   {/* Expand/Collapse button for sections with subsections */}
