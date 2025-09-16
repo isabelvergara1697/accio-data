@@ -6853,9 +6853,9 @@ const OnlineOrdering = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "505px",
                               alignItems: "flex-start",
                               gap: "8px",
+                              alignSelf: "stretch",
                             }}
                           >
                             <div
@@ -6936,9 +6936,9 @@ const OnlineOrdering = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "505px",
                               alignItems: "flex-start",
                               gap: "8px",
+                              alignSelf: "stretch",
                             }}
                           >
                             <div
