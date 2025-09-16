@@ -353,7 +353,7 @@ export const QuickNavigation: React.FC<QuickNavigationProps> = ({
                         >
                           <g clipPath="url(#clip0_section_alert)">
                             <path
-                              d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6 1C3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                              d="M6 4V6M6 8H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
                               stroke="#D92D20"
                               strokeLinecap="round"
                               strokeLinejoin="round"
