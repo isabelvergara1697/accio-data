@@ -562,13 +562,26 @@ const SubmitOrSaveOrder = () => {
                 </div>
 
                 {/* Divider */}
-                <div
+                <svg
                   style={{
-                    width: "100%",
-                    height: "1px",
-                    backgroundColor: "#E9EAEB",
+                    display: "flex",
+                    padding: "4px 0",
+                    alignItems: "center",
+                    alignSelf: "stretch",
                   }}
-                />
+                  width="632"
+                  height="9"
+                  viewBox="0 0 632 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M632 5H0V4H632V5Z"
+                    fill="#E9EAEB"
+                  />
+                </svg>
 
                 {/* Payment Options */}
                 <div
@@ -632,13 +645,26 @@ const SubmitOrSaveOrder = () => {
                 </div>
 
                 {/* Divider */}
-                <div
+                <svg
                   style={{
-                    width: "100%",
-                    height: "1px",
-                    backgroundColor: "#E9EAEB",
+                    display: "flex",
+                    padding: "4px 0",
+                    alignItems: "center",
+                    alignSelf: "stretch",
                   }}
-                />
+                  width="632"
+                  height="9"
+                  viewBox="0 0 632 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M632 5H0V4H632V5Z"
+                    fill="#E9EAEB"
+                  />
+                </svg>
 
                 {/* Background Screening Container */}
                 <div
@@ -872,13 +898,26 @@ const SubmitOrSaveOrder = () => {
                 </div>
 
                 {/* Divider */}
-                <div
+                <svg
                   style={{
-                    width: "100%",
-                    height: "1px",
-                    backgroundColor: "#E9EAEB",
+                    display: "flex",
+                    padding: "4px 0",
+                    alignItems: "center",
+                    alignSelf: "stretch",
                   }}
-                />
+                  width="632"
+                  height="9"
+                  viewBox="0 0 632 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M632 5H0V4H632V5Z"
+                    fill="#E9EAEB"
+                  />
+                </svg>
 
                 {/* Supporting Text */}
                 <div
@@ -1887,13 +1926,26 @@ const SubmitOrSaveOrder = () => {
                         </div>
 
                         {/* Divider */}
-                        <div
-                          style={{
-                            width: "100%",
-                            height: "1px",
-                            backgroundColor: "#E9EAEB",
-                          }}
-                        />
+                <svg
+                  style={{
+                    display: "flex",
+                    padding: "4px 0",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                  }}
+                  width="632"
+                  height="9"
+                  viewBox="0 0 632 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M632 5H0V4H632V5Z"
+                    fill="#E9EAEB"
+                  />
+                </svg>
 
                         {/* Products Section - shortened for brevity, includes all previous content */}
                         <div
@@ -2212,13 +2264,26 @@ const SubmitOrSaveOrder = () => {
                         </div>
 
                         {/* Divider */}
-                        <div
-                          style={{
-                            width: "100%",
-                            height: "1px",
-                            backgroundColor: "#E9EAEB",
-                          }}
-                        />
+                <svg
+                  style={{
+                    display: "flex",
+                    padding: "4px 0",
+                    alignItems: "center",
+                    alignSelf: "stretch",
+                  }}
+                  width="632"
+                  height="9"
+                  viewBox="0 0 632 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M632 5H0V4H632V5Z"
+                    fill="#E9EAEB"
+                  />
+                </svg>
 
                         {/* Requester Section */}
                         <div
