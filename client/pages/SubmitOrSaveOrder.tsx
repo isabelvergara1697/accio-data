@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
+import { Checkbox } from "../components/ui/checkbox";
 
 const SubmitOrSaveOrder = () => {
   const navigate = useNavigate();
@@ -23,14 +24,6 @@ const SubmitOrSaveOrder = () => {
     setScreeningItems(prev => prev.map((it, i) => (i === index ? { ...it, checked: !it.checked } : it)));
   };
 
-  // Reusable checkbox style (matches app)
-  const checkboxStyle: React.CSSProperties = {
-    width: "16px",
-    height: "16px",
-    borderRadius: "4px",
-    border: "1px solid #D5D7DA",
-    cursor: "pointer",
-  };
 
   // Accordion state management
   const [orderOverviewCollapsed, setOrderOverviewCollapsed] = useState(false);
@@ -467,11 +460,10 @@ const SubmitOrSaveOrder = () => {
                         alignItems: "center",
                       }}
                     >
-                      <input
-                        type="checkbox"
+                      <Checkbox
                         checked={requireApplicantPayment}
-                        onChange={(e) => setRequireApplicantPayment(e.target.checked)}
-                        style={checkboxStyle}
+                        onCheckedChange={(v) => setRequireApplicantPayment(!!v)}
+                        className="h-4 w-4 rounded-[4px] shrink-0 border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white"
                       />
                     </div>
                     <label
@@ -533,11 +525,10 @@ const SubmitOrSaveOrder = () => {
                             gap: "8px",
                           }}
                         >
-                          <input
-                            type="checkbox"
+                          <Checkbox
                             checked={item.checked}
-                            onChange={() => toggleScreeningItem(index)}
-                            style={checkboxStyle}
+                            onCheckedChange={() => toggleScreeningItem(index)}
+                            className="h-4 w-4 rounded-[4px] shrink-0 border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white"
                           />
                           <div
                             style={{
