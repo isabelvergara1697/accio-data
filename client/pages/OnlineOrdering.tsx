@@ -5149,11 +5149,9 @@ const OnlineOrdering = () => {
                       <div
                         style={{
                           display: "flex",
-                          width: isDesktop ? "324px" : "100%",
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "13px",
-                          minWidth: isDesktop ? "300px" : "100%",
                         }}
                       >
                         {/* Data Base Services Section */}
