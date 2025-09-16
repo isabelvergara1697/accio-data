@@ -9134,7 +9134,7 @@ const InvitesAndOrders: React.FC = () => {
                               <div
                                 style={{
                                   display: "flex",
-                                  width: "48px",
+                                  width: "88px",
                                   height: "36px",
                                   padding: "6px 12px",
                                   alignItems: "center",
@@ -9235,35 +9235,35 @@ const InvitesAndOrders: React.FC = () => {
                                 {/* Actions Cell */}
                                 <div
                                   style={{
-                                    display: "flex",
-                                    width: "48px",
-                                    height: "52px",
-                                    padding: "12px",
-                                    alignItems: "center",
-                                    gap: "12px",
-                                    borderBottom: "1px solid #E9EAEB",
-                                    position:
+                                  display: "flex",
+                                  width: "88px",
+                                  height: "52px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position:
                                       isMobile || isTablet
                                         ? "sticky"
                                         : "relative",
-                                    right: isMobile || isTablet ? "0" : "auto",
-                                    zIndex: isMobile || isTablet ? 5 : "auto",
-                                    background: selectedItems.includes(
+                                  right: isMobile || isTablet ? "0" : "auto",
+                                  zIndex: isMobile || isTablet ? 5 : "auto",
+                                  background: selectedItems.includes(
                                       invite.id,
                                     )
                                       ? "#F5F5F5"
                                       : hoveredRowId === invite.id
                                         ? "#F5F5F5"
                                         : "#FFF",
-                                    boxShadow:
+                                  boxShadow:
                                       isMobile || isTablet
                                         ? "-4px 0 8px rgba(0, 0, 0, 0.1)"
                                         : "none",
-                                    borderLeft:
+                                  borderLeft:
                                       isMobile || isTablet
                                         ? "1px solid #E9EAEB"
                                         : "none",
-                                  }}
+                                }}
                                 >
                                   <div
                                     style={{
