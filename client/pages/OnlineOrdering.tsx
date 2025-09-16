@@ -509,32 +509,81 @@ const OnlineOrdering = () => {
 
   // Quick Navigation helpers
   const handleNavigateToSection = (sectionId: string) => {
-    // Handle subsection navigation (e.g., "employment-1", "education-2")
-    if (sectionId.includes('-') && /\d+$/.test(sectionId)) {
-      const [sectionType, entryNumber] = sectionId.split('-');
-      let selector = '';
+    // Handle subsection navigation (supports keys like "employment-1", "professional-references-2", "credentials-professional-license-3")
+    const match = sectionId.match(/^(.*)-(\d+)$/);
+    if (match) {
+      const sectionKey = match[1];
+      const idx = parseInt(match[2], 10);
 
-      if (sectionType === 'employment') {
-        selector = `[data-section="employment"] [data-employment-entry="${entryNumber}"]`;
-      } else if (sectionType === 'education') {
-        selector = `[data-section="education"] [data-education-entry="${entryNumber}"]`;
-      } else if (sectionType === 'professional') {
-        selector = `[data-section="professional-references"] [data-professional-ref-entry="${entryNumber}"]`;
-      } else if (sectionType === 'credentials') {
-        selector = `[data-section="credentials-professional-license"] [data-credentials-entry="${entryNumber}"]`;
+      if (sectionKey === 'employment') {
+        setSectionsCollapsed((p) => ({ ...p, employment: false }));
+        setEmploymentCollapsedMap((p) => ({ ...p, [idx]: false }));
+        const el = document.querySelector(`[data-section="employment"] [data-employment-entry="${idx}"]`) as HTMLElement;
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
       }
-
-      const element = document.querySelector(selector) as HTMLElement;
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (sectionKey === 'education') {
+        setSectionsCollapsed((p) => ({ ...p, education: false }));
+        setEducationCollapsedMap((p) => ({ ...p, [idx]: false }));
+        const el = document.querySelector(`[data-section="education"] [data-education-entry="${idx}"]`) as HTMLElement;
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      if (sectionKey === 'professional-references') {
+        setSectionsCollapsed((p) => ({ ...p, professionalReferences: false }));
+        setProfessionalReferencesCollapsedMap((p) => ({ ...p, [idx]: false }));
+        const el = document.querySelector(`[data-section="professional-references"] [data-professional-ref-entry="${idx}"]`) as HTMLElement;
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      if (sectionKey === 'credentials-professional-license') {
+        setSectionsCollapsed((p) => ({ ...p, credentialsProfessionalLicense: false }));
+        setCredentialsProfessionalLicenseCollapsedMap((p) => ({ ...p, [idx]: false }));
+        const el = document.querySelector(`[data-section="credentials-professional-license"] [data-credentials-entry="${idx}"]`) as HTMLElement;
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         return;
       }
     }
 
-    // Handle main section navigation
-    const element = document.querySelector(`[data-section="${sectionId}"]`) as HTMLElement;
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Handle main section navigation (also expand target section)
+    const expandAndScroll = (key: keyof typeof sectionsCollapsed, selectorKey?: string) => {
+      setSectionsCollapsed((p) => ({ ...p, [key]: false }));
+      const domKey = selectorKey ?? (key === 'credentialsProfessionalLicense' ? 'credentials-professional-license' : key === 'professionalReferences' ? 'professional-references' : key);
+      const el = document.querySelector(`[data-section="${domKey}"]`) as HTMLElement;
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    switch (sectionId) {
+      case 'package-and-products':
+        expandAndScroll('packageAndProducts');
+        break;
+      case 'subject':
+        expandAndScroll('subject');
+        break;
+      case 'employment':
+        expandAndScroll('employment');
+        break;
+      case 'education':
+        expandAndScroll('education');
+        break;
+      case 'professional-references':
+        expandAndScroll('professionalReferences');
+        break;
+      case 'credentials-professional-license':
+        expandAndScroll('credentialsProfessionalLicense');
+        break;
+      case 'motor-vehicle-driving':
+        expandAndScroll('motorVehicleDriving');
+        break;
+      case 'authorization': {
+        const el = document.querySelector('[data-section="authorization"]') as HTMLElement;
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      }
+      default: {
+        const el = document.querySelector(`[data-section="${sectionId}"]`) as HTMLElement;
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
