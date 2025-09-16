@@ -1562,6 +1562,34 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Scroll indicator for mobile/tablet */}
+                {(isMobile || isTablet) && (
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "240px",
+                      transform: "rotate(90deg)",
+                      padding: "8px 6px 80px 6px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      position: "relative",
+                      left: "25px",
+                      bottom: "16px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "6px",
+                        flex: "1 0 0",
+                        borderRadius: "9999px",
+                        border: "1px solid #FFF",
+                        opacity: 0.15,
+                        background: "#000",
+                      }}
+                    />
+                  </div>
+                )}
               </div>
             </div>
 
