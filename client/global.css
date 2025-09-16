@@ -417,6 +417,7 @@
       grid-auto-rows: auto !important;
       column-gap: 0 !important;
       row-gap: 16px !important;
+      height: auto !important; /* override inline fixed heights */
     }
     .stack-mobile-row {
       flex-direction: column !important;
