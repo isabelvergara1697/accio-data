@@ -2102,20 +2102,22 @@ const SubmitOrSaveOrder = () => {
                                     </div>
                                   </div>
                                   <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      alignItems: "flex-start",
-                                    }}
-                                  >
-                                    <div
-                                      style={{
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
+                                }}
+                              >
+                                <div
+                                  style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
-                                    >
+                                >
                                       <div
                                         style={{
                                           color: "#717680",
@@ -2957,20 +2959,22 @@ const SubmitOrSaveOrder = () => {
                                     </div>
                                   </div>
                                   <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      alignItems: "flex-start",
-                                    }}
-                                  >
-                                    <div
-                                      style={{
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
+                                }}
+                              >
+                                <div
+                                  style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
-                                    >
+                                >
                                       <div
                                         style={{
                                           color: "#717680",
@@ -3061,20 +3065,22 @@ const SubmitOrSaveOrder = () => {
                                     />
                                   </div>
                                   <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      alignItems: "flex-start",
-                                    }}
-                                  >
-                                    <div
-                                      style={{
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
+                                }}
+                              >
+                                <div
+                                  style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
-                                    >
+                                >
                                       <div
                                         style={{
                                           color: "#414651",
@@ -3160,20 +3166,22 @@ const SubmitOrSaveOrder = () => {
                                     </div>
                                   </div>
                                   <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      alignItems: "flex-start",
-                                    }}
-                                  >
-                                    <div
-                                      style={{
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
+                                }}
+                              >
+                                <div
+                                  style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
-                                    >
+                                >
                                       <div
                                         style={{
                                           color: "#717680",
@@ -3293,20 +3301,22 @@ const SubmitOrSaveOrder = () => {
                                     </div>
                                   </div>
                                   <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      alignItems: "flex-start",
-                                    }}
-                                  >
-                                    <div
-                                      style={{
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
+                                }}
+                              >
+                                <div
+                                  style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
-                                    >
+                                >
                                       <div
                                         style={{
                                           color: "#717680",
@@ -3418,20 +3428,22 @@ const SubmitOrSaveOrder = () => {
                                     </div>
                                   </div>
                                   <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      alignItems: "flex-start",
-                                    }}
-                                  >
-                                    <div
-                                      style={{
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
+                                }}
+                              >
+                                <div
+                                  style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
-                                    >
+                                >
                                       <div
                                         style={{
                                           color: "#717680",
@@ -3518,20 +3530,22 @@ const SubmitOrSaveOrder = () => {
                                     </div>
                                   </div>
                                   <div
-                                    style={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      alignItems: "flex-start",
-                                    }}
-                                  >
-                                    <div
-                                      style={{
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
+                                }}
+                              >
+                                <div
+                                  style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
-                                    >
+                                >
                                       <div
                                         style={{
                                           color: "#717680",
@@ -3957,13 +3971,15 @@ const SubmitOrSaveOrder = () => {
                                   display: "flex",
                                   flexDirection: "column",
                                   alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
                                 }}
                               >
                                 <div
                                   style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
                                 >
@@ -4064,13 +4080,15 @@ const SubmitOrSaveOrder = () => {
                                   display: "flex",
                                   flexDirection: "column",
                                   alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
                                 }}
                               >
                                 <div
                                   style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
                                 >
@@ -4172,13 +4190,15 @@ const SubmitOrSaveOrder = () => {
                                   display: "flex",
                                   flexDirection: "column",
                                   alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
                                 }}
                               >
                                 <div
                                   style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
                                 >
@@ -4279,13 +4299,15 @@ const SubmitOrSaveOrder = () => {
                                   display: "flex",
                                   flexDirection: "column",
                                   alignItems: "flex-start",
+                                  flex: isMobile ? "1 0 0" : undefined,
                                 }}
                               >
                                 <div
                                   style={{
                                     display: "flex",
-                                    width: isMobile ? "280px" : "320px",
+                                    width: isMobile ? undefined : "320px",
                                     alignItems: "flex-end",
+                                    alignSelf: isMobile ? "stretch" : undefined,
                                     gap: "4px",
                                   }}
                                 >
