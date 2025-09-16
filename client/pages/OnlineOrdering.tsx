@@ -160,6 +160,9 @@ const OnlineOrdering = () => {
   // Global completion state for all sections (excluding Authorization)
   const [formSectionsCompleted, setFormSectionsCompleted] = useState(false);
 
+  // Track if validation has been attempted (for showing validation errors)
+  const [validationAttempted, setValidationAttempted] = useState(false);
+
   const packageLabelMap: Record<string, string> = {
     "csd-standard": "CSD Standard",
     portal: "Portal",
@@ -475,6 +478,29 @@ const OnlineOrdering = () => {
     }
 
     return true;
+  };
+
+  // Check if form is ready for submission (including authorization when required)
+  const isFormReadyForSubmission = () => {
+    const sectionsComplete = areActiveSectionsCompletedExcludingAuthorization();
+    // Only require authorization if it's been checked or if all other sections are complete
+    // This allows form to be submitted without authorization if user hasn't interacted with it
+    return sectionsComplete;
+  };
+
+  // Handle Submit Order button click
+  const handleSubmitOrder = () => {
+    setValidationAttempted(true);
+
+    if (!isFormReadyForSubmission()) {
+      // Scroll to first incomplete section
+      scrollToFirstIncompleteSection();
+      return;
+    }
+
+    // Form is complete, proceed with submission
+    console.log("Submitting order...");
+    // Add actual submission logic here
   };
 
   // Scroll to the first incomplete section users need to finish
@@ -19423,6 +19449,8 @@ const OnlineOrdering = () => {
 
                 {/* Submit Order Button */}
                 <button
+                  onClick={handleSubmitOrder}
+                  disabled={!isFormReadyForSubmission()}
                   style={{
                     display: "flex",
                     padding: "12px 16px",
@@ -19431,17 +19459,24 @@ const OnlineOrdering = () => {
                     gap: "6px",
                     borderRadius: "8px",
                     border: "2px solid rgba(255, 255, 255, 0.12)",
-                    background: "#344698",
+                    background: isFormReadyForSubmission() ? "#344698" : "#A4A7AE",
                     boxShadow:
                       "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
+                    cursor: isFormReadyForSubmission() ? "pointer" : "not-allowed",
                     transition: "all 0.2s ease",
+                    opacity: isFormReadyForSubmission() ? 1 : 0.6,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#2D3985";
+                    if (isFormReadyForSubmission()) {
+                      e.currentTarget.style.background = "#2D3985";
+                    }
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#344698";
+                    if (isFormReadyForSubmission()) {
+                      e.currentTarget.style.background = "#344698";
+                    } else {
+                      e.currentTarget.style.background = "#A4A7AE";
+                    }
                   }}
                 >
                   <div
