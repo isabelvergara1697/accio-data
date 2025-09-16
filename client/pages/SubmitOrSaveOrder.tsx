@@ -2119,14 +2119,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                 >
                                       <div
-                                        style={{
-                                          color: "#717680",
-                                          fontFamily: "'Public Sans'",
-                                          fontSize: "14px",
-                                          fontWeight: 500,
-                                          lineHeight: "20px",
-                                        }}
-                                      >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                         Social Security Trace
                                       </div>
                                       <div
@@ -2252,14 +2253,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                       >
                                         <div
-                                          style={{
-                                            color: "#717680",
-                                            fontFamily: "'Public Sans'",
-                                            fontSize: "14px",
-                                            fontWeight: 500,
-                                            lineHeight: "20px",
-                                          }}
-                                        >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                           Employment
                                         </div>
                                         <div
@@ -2427,14 +2429,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                       >
                                         <div
-                                          style={{
-                                            color: "#717680",
-                                            fontFamily: "'Public Sans'",
-                                            fontSize: "14px",
-                                            fontWeight: 500,
-                                            lineHeight: "20px",
-                                          }}
-                                        >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                           Education
                                         </div>
                                         <div
@@ -2602,14 +2605,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                       >
                                         <div
-                                          style={{
-                                            color: "#717680",
-                                            fontFamily: "'Public Sans'",
-                                            fontSize: "14px",
-                                            fontWeight: 500,
-                                            lineHeight: "20px",
-                                          }}
-                                        >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                           Professional References
                                         </div>
                                         <div
@@ -2777,14 +2781,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                       >
                                         <div
-                                          style={{
-                                            color: "#717680",
-                                            fontFamily: "'Public Sans'",
-                                            fontSize: "14px",
-                                            fontWeight: 500,
-                                            lineHeight: "20px",
-                                          }}
-                                        >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                           Credentials-Professional License
                                         </div>
                                         <div
@@ -2976,14 +2981,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                 >
                                       <div
-                                        style={{
-                                          color: "#717680",
-                                          fontFamily: "'Public Sans'",
-                                          fontSize: "14px",
-                                          fontWeight: 500,
-                                          lineHeight: "20px",
-                                        }}
-                                      >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                         MJD
                                       </div>
                                       <div
@@ -3183,14 +3189,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                 >
                                       <div
-                                        style={{
-                                          color: "#717680",
-                                          fontFamily: "'Public Sans'",
-                                          fontSize: "14px",
-                                          fontWeight: 500,
-                                          lineHeight: "20px",
-                                        }}
-                                      >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                         DOT Drug Test and Physical
                                       </div>
                                       <div
@@ -3318,14 +3325,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                 >
                                       <div
-                                        style={{
-                                          color: "#717680",
-                                          fontFamily: "'Public Sans'",
-                                          fontSize: "14px",
-                                          fontWeight: 500,
-                                          lineHeight: "20px",
-                                        }}
-                                      >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                         County/Statewide Criminal History 7yr
                                       </div>
                                       <div
@@ -3445,14 +3453,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                 >
                                       <div
-                                        style={{
-                                          color: "#717680",
-                                          fontFamily: "'Public Sans'",
-                                          fontSize: "14px",
-                                          fontWeight: 500,
-                                          lineHeight: "20px",
-                                        }}
-                                      >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                         Motor Vehicle Driving History
                                       </div>
                                       <div
@@ -3547,14 +3556,15 @@ const SubmitOrSaveOrder = () => {
                                   }}
                                 >
                                       <div
-                                        style={{
-                                          color: "#717680",
-                                          fontFamily: "'Public Sans'",
-                                          fontSize: "14px",
-                                          fontWeight: 500,
-                                          lineHeight: "20px",
-                                        }}
-                                      >
+                                    style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
+                                      color: "#717680",
+                                      fontFamily: "'Public Sans'",
+                                      fontSize: "14px",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                    }}
+                                  >
                                         Court Criminal Monitoring
                                       </div>
                                       <div
@@ -3985,6 +3995,7 @@ const SubmitOrSaveOrder = () => {
                                 >
                                   <div
                                     style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
                                       color: "#717680",
                                       fontFamily: "'Public Sans'",
                                       fontSize: "14px",
@@ -4094,6 +4105,7 @@ const SubmitOrSaveOrder = () => {
                                 >
                                   <div
                                     style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
                                       color: "#717680",
                                       fontFamily: "'Public Sans'",
                                       fontSize: "14px",
@@ -4204,6 +4216,7 @@ const SubmitOrSaveOrder = () => {
                                 >
                                   <div
                                     style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
                                       color: "#717680",
                                       fontFamily: "'Public Sans'",
                                       fontSize: "14px",
@@ -4313,6 +4326,7 @@ const SubmitOrSaveOrder = () => {
                                 >
                                   <div
                                     style={{
+                                      flex: isMobile ? "1 0 0" : undefined,
                                       color: "#717680",
                                       fontFamily: "'Public Sans'",
                                       fontSize: "14px",
