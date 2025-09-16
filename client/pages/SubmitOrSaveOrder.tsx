@@ -259,15 +259,17 @@ const SubmitOrSaveOrder = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "32px",
+            gap: isTablet ? "24px" : "32px",
             flex: 1,
-            padding: "0 32px 24px 32px",
+            padding: isTablet ? "0 32px 24px 32px" : "0 32px 24px 32px",
             paddingTop:
               showNotification && isDesktop
                 ? "136px"
                 : isDesktop
                   ? "104px"
-                  : "88px",
+                  : isTablet
+                    ? "88px"
+                    : "88px",
           }}
         >
           {/* Page Header */}
@@ -276,7 +278,7 @@ const SubmitOrSaveOrder = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              gap: "20px",
+              gap: isTablet ? "16px" : "20px",
               alignSelf: "stretch",
             }}
           >
@@ -313,9 +315,9 @@ const SubmitOrSaveOrder = () => {
                       alignSelf: "stretch",
                       color: "#181D27",
                       fontFamily: "'Public Sans'",
-                      fontSize: "24px",
+                      fontSize: isTablet ? "20px" : "24px",
                       fontWeight: 600,
-                      lineHeight: "32px",
+                      lineHeight: isTablet ? "30px" : "32px",
                       margin: 0,
                     }}
                   >
