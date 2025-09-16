@@ -61,34 +61,26 @@ const SubmitOrSaveOrder = () => {
 
   // Edit button handlers - navigate to form sections with pre-filled data
   const handleEditSection = (sectionType: string, sectionData?: any) => {
-    // Store current form data in session/local storage for pre-filling
-    if (sectionData) {
-      sessionStorage.setItem(`formData_${sectionType}`, JSON.stringify(sectionData));
-    }
+    // Normalize keys to OnlineOrdering section ids
+    const sectionKeyMap: Record<string, string> = {
+      subject: 'subject',
+      employment: 'employment',
+      education: 'education',
+      professionalReferences: 'professional-references',
+      credentials: 'credentials-professional-license',
+      motorVehicle: 'motor-vehicle-driving',
+      package: 'package-and-products',
+    };
+    const target = sectionKeyMap[sectionType] || sectionType;
 
-    // Navigate to the appropriate form section
-    switch (sectionType) {
-      case 'subject':
-        navigate('/form/subject', { state: { prefillData: sectionData, returnTo: '/submit-order' } });
-        break;
-      case 'employment':
-        navigate('/form/employment', { state: { prefillData: sectionData, returnTo: '/submit-order' } });
-        break;
-      case 'education':
-        navigate('/form/education', { state: { prefillData: sectionData, returnTo: '/submit-order' } });
-        break;
-      case 'professionalReferences':
-        navigate('/form/professional-references', { state: { prefillData: sectionData, returnTo: '/submit-order' } });
-        break;
-      case 'credentials':
-        navigate('/form/credentials', { state: { prefillData: sectionData, returnTo: '/submit-order' } });
-        break;
-      case 'motorVehicle':
-        navigate('/form/motor-vehicle', { state: { prefillData: sectionData, returnTo: '/submit-order' } });
-        break;
-      default:
-        console.log(`Edit handler for ${sectionType} not implemented`);
-    }
+    // Store data for pre-filling and deep-link intent
+    if (sectionData) sessionStorage.setItem(`formData_${sectionType}`, JSON.stringify(sectionData));
+    sessionStorage.setItem('go_to_section', target);
+    sessionStorage.setItem('prefillOnArrive', 'true');
+    sessionStorage.setItem('returnToAfterEdit', '/submit-order');
+
+    // Navigate back to main form
+    navigate('/online-ordering');
   };
 
   return (
