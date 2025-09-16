@@ -44,21 +44,50 @@ const SubmitOrSaveOrder = () => {
   }, [navigate]);
 
   // Background screening items interactive state
-  const [screeningItems, setScreeningItems] = useState(
-    [
-      { name: "Social Security Trace", eta: "26 Days, 10/22", nameToSearch: "[First Name, Last Name]", checked: true },
-      { name: "MJD", eta: "26 Days, 10/22", nameToSearch: "[First Name, Last Name]", checked: true },
-      { name: "County/Statewide Criminal History 7yr", eta: "Today, 09/16", nameToSearch: "[First Name, Last Name]", checked: true },
-      { name: "Court Criminal Monitoring", eta: "6 Days, 09/24", nameToSearch: "[First Name, Last Name]", checked: true },
-      { name: "Data Collection", eta: "", nameToSearch: "[First Name, Last Name]", checked: true },
-      { name: "DOT Drug Test and Physical", eta: "3 Days, 09/19", nameToSearch: "[First Name, Last Name]", checked: false },
-    ]
-  );
+  const [screeningItems, setScreeningItems] = useState([
+    {
+      name: "Social Security Trace",
+      eta: "26 Days, 10/22",
+      nameToSearch: "[First Name, Last Name]",
+      checked: true,
+    },
+    {
+      name: "MJD",
+      eta: "26 Days, 10/22",
+      nameToSearch: "[First Name, Last Name]",
+      checked: true,
+    },
+    {
+      name: "County/Statewide Criminal History 7yr",
+      eta: "Today, 09/16",
+      nameToSearch: "[First Name, Last Name]",
+      checked: true,
+    },
+    {
+      name: "Court Criminal Monitoring",
+      eta: "6 Days, 09/24",
+      nameToSearch: "[First Name, Last Name]",
+      checked: true,
+    },
+    {
+      name: "Data Collection",
+      eta: "",
+      nameToSearch: "[First Name, Last Name]",
+      checked: true,
+    },
+    {
+      name: "DOT Drug Test and Physical",
+      eta: "3 Days, 09/19",
+      nameToSearch: "[First Name, Last Name]",
+      checked: false,
+    },
+  ]);
 
   const toggleScreeningItem = (index: number) => {
-    setScreeningItems(prev => prev.map((it, i) => (i === index ? { ...it, checked: !it.checked } : it)));
+    setScreeningItems((prev) =>
+      prev.map((it, i) => (i === index ? { ...it, checked: !it.checked } : it)),
+    );
   };
-
 
   // Accordion state management
   const [orderOverviewCollapsed, setOrderOverviewCollapsed] = useState(false);
@@ -108,9 +137,9 @@ const SubmitOrSaveOrder = () => {
   };
 
   const toggleSection = (sectionName: string) => {
-    setSectionsState(prev => ({
+    setSectionsState((prev) => ({
       ...prev,
-      [sectionName]: !prev[sectionName as keyof typeof prev]
+      [sectionName]: !prev[sectionName as keyof typeof prev],
     }));
   };
 
@@ -118,24 +147,28 @@ const SubmitOrSaveOrder = () => {
   const handleEditSection = (sectionType: string, sectionData?: any) => {
     // Normalize keys to OnlineOrdering section ids
     const sectionKeyMap: Record<string, string> = {
-      subject: 'subject',
-      employment: 'employment',
-      education: 'education',
-      professionalReferences: 'professional-references',
-      credentials: 'credentials-professional-license',
-      motorVehicle: 'motor-vehicle-driving',
-      package: 'package-and-products',
+      subject: "subject",
+      employment: "employment",
+      education: "education",
+      professionalReferences: "professional-references",
+      credentials: "credentials-professional-license",
+      motorVehicle: "motor-vehicle-driving",
+      package: "package-and-products",
     };
     const target = sectionKeyMap[sectionType] || sectionType;
 
     // Store data for pre-filling and deep-link intent
-    if (sectionData) sessionStorage.setItem(`formData_${sectionType}`, JSON.stringify(sectionData));
-    sessionStorage.setItem('go_to_section', target);
-    sessionStorage.setItem('prefillOnArrive', 'true');
-    sessionStorage.setItem('returnToAfterEdit', '/submit-order');
+    if (sectionData)
+      sessionStorage.setItem(
+        `formData_${sectionType}`,
+        JSON.stringify(sectionData),
+      );
+    sessionStorage.setItem("go_to_section", target);
+    sessionStorage.setItem("prefillOnArrive", "true");
+    sessionStorage.setItem("returnToAfterEdit", "/submit-order");
 
     // Navigate back to main form
-    navigate('/online-ordering');
+    navigate("/online-ordering");
   };
 
   return (
@@ -187,7 +220,8 @@ const SubmitOrSaveOrder = () => {
           maxWidth: isDesktop
             ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})`
             : "100vw",
-          transition: "margin-left 0.3s ease, width 0.3s ease, max-width 0.3s ease",
+          transition:
+            "margin-left 0.3s ease, width 0.3s ease, max-width 0.3s ease",
         }}
       >
         {/* Top Bar */}
@@ -298,7 +332,9 @@ const SubmitOrSaveOrder = () => {
                       margin: 0,
                     }}
                   >
-                    Track pending invites and submitted orders in one place. Use filters and tools to sort, review, and manage activity easily.
+                    Track pending invites and submitted orders in one place. Use
+                    filters and tools to sort, review, and manage activity
+                    easily.
                   </p>
                 </div>
               </div>
@@ -420,7 +456,8 @@ const SubmitOrSaveOrder = () => {
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
                         backgroundColor: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
                         transition: "background-color 0.2s ease",
                       }}
@@ -455,7 +492,8 @@ const SubmitOrSaveOrder = () => {
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
                         backgroundColor: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
                         transition: "background-color 0.2s ease",
                       }}
@@ -490,7 +528,8 @@ const SubmitOrSaveOrder = () => {
                         borderRadius: "8px",
                         border: "2px solid rgba(255, 255, 255, 0.12)",
                         backgroundColor: "#344698",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
                         transition: "background-color 0.2s ease",
                       }}
@@ -577,7 +616,9 @@ const SubmitOrSaveOrder = () => {
                         lineHeight: "20px",
                         cursor: "pointer",
                       }}
-                      onClick={() => setRequireApplicantPayment(!requireApplicantPayment)}
+                      onClick={() =>
+                        setRequireApplicantPayment(!requireApplicantPayment)
+                      }
                     >
                       Require Applicant to pay for order
                     </label>
@@ -688,7 +729,12 @@ const SubmitOrSaveOrder = () => {
                                 alignItems: "center",
                               }}
                             >
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                              >
                                 <g clipPath="url(#clip0_help_icon)">
                                   <path
                                     d="M6.06016 6.00001C6.2169 5.55446 6.52626 5.17875 6.93347 4.93943C7.34067 4.70012 7.81943 4.61264 8.28495 4.69248C8.75047 4.77233 9.17271 5.01436 9.47688 5.3757C9.78106 5.73703 9.94753 6.19436 9.94683 6.66668C9.94683 8.00001 7.94683 8.66668 7.94683 8.66668M8.00016 11.3333H8.00683M14.6668 8.00001C14.6668 11.6819 11.6821 14.6667 8.00016 14.6667C4.31826 14.6667 1.3335 11.6819 1.3335 8.00001C1.3335 4.31811 4.31826 1.33334 8.00016 1.33334C11.6821 1.33334 14.6668 4.31811 14.6668 8.00001Z"
@@ -765,7 +811,25 @@ const SubmitOrSaveOrder = () => {
                     lineHeight: "20px",
                   }}
                 >
-                  The information provided is a consumer report as defined in the federal Fair Credit Reporting Act [15 U.S.C. 1681-1681u]. It contains confidential information on the individual named. It is submitted to the conditions contained in your Subscriber Agreement with Accio Data and may be used solely as a factor in evaluating the named individual for property renting/leasing, employment, promotion, reassignment or retention as an employee. Accio Data maintains strict procedures designed to ensure that the information is complete and up to date. While the information furnished is from reliable sources, its accuracy is not guaranteed. Proper use of this report and final verification of the named individual's identity is your sole responsibility. If any adverse action is taken based in whole or in part on this consumer report, a copy of this report and a summary of the consumer's rights must be provided to the consumer prior to taking adverse action. If you have any questions regarding the accuracy or completeness of this report, please contact Accio Data at 800-777-7777.
+                  The information provided is a consumer report as defined in
+                  the federal Fair Credit Reporting Act [15 U.S.C. 1681-1681u].
+                  It contains confidential information on the individual named.
+                  It is submitted to the conditions contained in your Subscriber
+                  Agreement with Accio Data and may be used solely as a factor
+                  in evaluating the named individual for property
+                  renting/leasing, employment, promotion, reassignment or
+                  retention as an employee. Accio Data maintains strict
+                  procedures designed to ensure that the information is complete
+                  and up to date. While the information furnished is from
+                  reliable sources, its accuracy is not guaranteed. Proper use
+                  of this report and final verification of the named
+                  individual's identity is your sole responsibility. If any
+                  adverse action is taken based in whole or in part on this
+                  consumer report, a copy of this report and a summary of the
+                  consumer's rights must be provided to the consumer prior to
+                  taking adverse action. If you have any questions regarding the
+                  accuracy or completeness of this report, please contact Accio
+                  Data at 800-777-7777.
                 </div>
               </div>
             </div>
@@ -1080,13 +1144,76 @@ const SubmitOrSaveOrder = () => {
 
                     {/* Data Rows */}
                     {[
-                      { included: "", searchType: "CSD Standard Package", location: "", price: "3.55", adjustment: "0.00", thirdParty: "0.00", taxes: "2.88", total: "37.88" },
-                      { included: "Y", searchType: "Social Security Trace", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
-                      { included: "Y", searchType: "MJD", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
-                      { included: "Y", searchType: "County/Statewide Criminal History 7yr", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
-                      { included: "Y", searchType: "Court Criminal Monitoring", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
-                      { included: "Y", searchType: "Data Collection", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
-                      { included: "Y", searchType: "DOT Drug Test and Physical", location: "Included", price: "0.00", adjustment: "0.00", thirdParty: "0.00", taxes: "0.00", total: "00.00" },
+                      {
+                        included: "",
+                        searchType: "CSD Standard Package",
+                        location: "",
+                        price: "3.55",
+                        adjustment: "0.00",
+                        thirdParty: "0.00",
+                        taxes: "2.88",
+                        total: "37.88",
+                      },
+                      {
+                        included: "Y",
+                        searchType: "Social Security Trace",
+                        location: "Included",
+                        price: "0.00",
+                        adjustment: "0.00",
+                        thirdParty: "0.00",
+                        taxes: "0.00",
+                        total: "00.00",
+                      },
+                      {
+                        included: "Y",
+                        searchType: "MJD",
+                        location: "Included",
+                        price: "0.00",
+                        adjustment: "0.00",
+                        thirdParty: "0.00",
+                        taxes: "0.00",
+                        total: "00.00",
+                      },
+                      {
+                        included: "Y",
+                        searchType: "County/Statewide Criminal History 7yr",
+                        location: "Included",
+                        price: "0.00",
+                        adjustment: "0.00",
+                        thirdParty: "0.00",
+                        taxes: "0.00",
+                        total: "00.00",
+                      },
+                      {
+                        included: "Y",
+                        searchType: "Court Criminal Monitoring",
+                        location: "Included",
+                        price: "0.00",
+                        adjustment: "0.00",
+                        thirdParty: "0.00",
+                        taxes: "0.00",
+                        total: "00.00",
+                      },
+                      {
+                        included: "Y",
+                        searchType: "Data Collection",
+                        location: "Included",
+                        price: "0.00",
+                        adjustment: "0.00",
+                        thirdParty: "0.00",
+                        taxes: "0.00",
+                        total: "00.00",
+                      },
+                      {
+                        included: "Y",
+                        searchType: "DOT Drug Test and Physical",
+                        location: "Included",
+                        price: "0.00",
+                        adjustment: "0.00",
+                        thirdParty: "0.00",
+                        taxes: "0.00",
+                        total: "00.00",
+                      },
                     ].map((row, index) => (
                       <React.Fragment key={index}>
                         <div
@@ -1270,7 +1397,14 @@ const SubmitOrSaveOrder = () => {
 
                     {/* Final Total Row */}
                     <div style={{ gridColumn: "1 / -1", height: "8px" }} />
-                    <div style={{ gridColumn: "8", textAlign: "right", padding: "8px 12px", borderTop: "1px solid #E9EAEB" }}>
+                    <div
+                      style={{
+                        gridColumn: "8",
+                        textAlign: "right",
+                        padding: "8px 12px",
+                        borderTop: "1px solid #E9EAEB",
+                      }}
+                    >
                       <div
                         style={{
                           color: "#181D27",
@@ -1407,7 +1541,12 @@ const SubmitOrSaveOrder = () => {
                         >
                           {allSectionsCollapsed ? "Expand All" : "Collapse All"}
                         </span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
                           <path
                             d="M4.66675 9.99999L8.00008 13.3333L11.3334 9.99999M4.66675 5.99999L8.00008 2.66666L11.3334 5.99999"
                             stroke="#A4A7AE"
@@ -1438,7 +1577,9 @@ const SubmitOrSaveOrder = () => {
                           viewBox="0 0 16 16"
                           fill="none"
                           style={{
-                            transform: orderOverviewCollapsed ? "rotate(180deg)" : "rotate(0deg)",
+                            transform: orderOverviewCollapsed
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
                             transition: "transform 0.2s ease",
                           }}
                         >
@@ -1513,7 +1654,7 @@ const SubmitOrSaveOrder = () => {
                         }}
                       >
                         <button
-                          onClick={() => handleEditSection('package')}
+                          onClick={() => handleEditSection("package")}
                           style={{
                             display: "flex",
                             height: "32px",
@@ -1524,7 +1665,8 @@ const SubmitOrSaveOrder = () => {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             backgroundColor: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                           }}
                         >
@@ -1539,7 +1681,12 @@ const SubmitOrSaveOrder = () => {
                           >
                             Edit
                           </span>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
                             <path
                               d="M1.91744 12.0771C1.94807 11.8015 1.96339 11.6636 2.00509 11.5348C2.04209 11.4205 2.09437 11.3117 2.16051 11.2114C2.23505 11.0984 2.33311 11.0003 2.52923 10.8042L11.3334 2.00004C12.0698 1.26366 13.2637 1.26366 14.0001 2.00004C14.7365 2.73642 14.7365 3.93033 14.0001 4.66671L5.1959 13.4709C4.99978 13.667 4.90172 13.7651 4.78867 13.8396C4.68838 13.9058 4.57961 13.958 4.46531 13.995C4.33648 14.0367 4.19865 14.0521 3.92299 14.0827L1.66675 14.3334L1.91744 12.0771Z"
                               stroke="#A4A7AE"
@@ -1550,7 +1697,7 @@ const SubmitOrSaveOrder = () => {
                           </svg>
                         </button>
                         <button
-                          onClick={() => toggleSection('package')}
+                          onClick={() => toggleSection("package")}
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -1559,11 +1706,17 @@ const SubmitOrSaveOrder = () => {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             backgroundColor: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             cursor: "pointer",
                           }}
                         >
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
                             <path
                               d="M4 6L8 10L12 6"
                               stroke="#A4A7AE"
@@ -1674,7 +1827,8 @@ const SubmitOrSaveOrder = () => {
                           <div
                             style={{
                               display: "grid",
-                              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+                              gridTemplateColumns:
+                                "repeat(auto-fit, minmax(320px, 1fr))",
                               gap: "16px",
                               alignSelf: "stretch",
                             }}
@@ -2114,7 +2268,7 @@ const SubmitOrSaveOrder = () => {
                   </div>
 
                   {/* All other sections follow the same pattern - I'll include abbreviated versions for brevity */}
-                  
+
                   {/* Subject Section */}
                   <div
                     style={{
@@ -2149,23 +2303,70 @@ const SubmitOrSaveOrder = () => {
                       >
                         Subject
                       </h3>
-                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <button onClick={() => handleEditSection('subject')} style={{
-                          display: "flex", height: "32px", padding: "6px", justifyContent: "center", alignItems: "center", gap: "4px",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <span style={{ color: "#414651", fontFamily: "'Public Sans'", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Edit</span>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <button
+                          onClick={() => handleEditSection("subject")}
+                          style={{
+                            display: "flex",
+                            height: "32px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Edit
+                          </span>
                         </button>
-                        <button onClick={() => toggleSection('subject')} style={{
-                          display: "flex", padding: "8px", justifyContent: "center", alignItems: "center",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        <button
+                          onClick={() => toggleSection("subject")}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -2174,7 +2375,13 @@ const SubmitOrSaveOrder = () => {
                     {!sectionsState.subject && (
                       <div style={{ width: "100%" }}>
                         {/* Subject content - abbreviated for space */}
-                        <div style={{ padding: "20px", textAlign: "center", color: "#717680" }}>
+                        <div
+                          style={{
+                            padding: "20px",
+                            textAlign: "center",
+                            color: "#717680",
+                          }}
+                        >
                           Subject details (content preserved from original)
                         </div>
                       </div>
@@ -2215,23 +2422,70 @@ const SubmitOrSaveOrder = () => {
                       >
                         Employment
                       </h3>
-                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <button onClick={() => handleEditSection('employment')} style={{
-                          display: "flex", height: "32px", padding: "6px", justifyContent: "center", alignItems: "center", gap: "4px",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <span style={{ color: "#414651", fontFamily: "'Public Sans'", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Edit</span>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <button
+                          onClick={() => handleEditSection("employment")}
+                          style={{
+                            display: "flex",
+                            height: "32px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Edit
+                          </span>
                         </button>
-                        <button onClick={() => toggleSection('employment')} style={{
-                          display: "flex", padding: "8px", justifyContent: "center", alignItems: "center",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        <button
+                          onClick={() => toggleSection("employment")}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -2239,7 +2493,13 @@ const SubmitOrSaveOrder = () => {
 
                     {!sectionsState.employment && (
                       <div style={{ width: "100%" }}>
-                        <div style={{ padding: "20px", textAlign: "center", color: "#717680" }}>
+                        <div
+                          style={{
+                            padding: "20px",
+                            textAlign: "center",
+                            color: "#717680",
+                          }}
+                        >
                           Employment details (content preserved from original)
                         </div>
                       </div>
@@ -2280,23 +2540,70 @@ const SubmitOrSaveOrder = () => {
                       >
                         Education
                       </h3>
-                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <button onClick={() => handleEditSection('education')} style={{
-                          display: "flex", height: "32px", padding: "6px", justifyContent: "center", alignItems: "center", gap: "4px",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <span style={{ color: "#414651", fontFamily: "'Public Sans'", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Edit</span>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <button
+                          onClick={() => handleEditSection("education")}
+                          style={{
+                            display: "flex",
+                            height: "32px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Edit
+                          </span>
                         </button>
-                        <button onClick={() => toggleSection('education')} style={{
-                          display: "flex", padding: "8px", justifyContent: "center", alignItems: "center",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        <button
+                          onClick={() => toggleSection("education")}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -2304,7 +2611,13 @@ const SubmitOrSaveOrder = () => {
 
                     {!sectionsState.education && (
                       <div style={{ width: "100%" }}>
-                        <div style={{ padding: "20px", textAlign: "center", color: "#717680" }}>
+                        <div
+                          style={{
+                            padding: "20px",
+                            textAlign: "center",
+                            color: "#717680",
+                          }}
+                        >
                           Education details (content preserved from original)
                         </div>
                       </div>
@@ -2345,23 +2658,74 @@ const SubmitOrSaveOrder = () => {
                       >
                         Professional References
                       </h3>
-                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <button onClick={() => handleEditSection('professionalReferences')} style={{
-                          display: "flex", height: "32px", padding: "6px", justifyContent: "center", alignItems: "center", gap: "4px",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <span style={{ color: "#414651", fontFamily: "'Public Sans'", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Edit</span>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <button
+                          onClick={() =>
+                            handleEditSection("professionalReferences")
+                          }
+                          style={{
+                            display: "flex",
+                            height: "32px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Edit
+                          </span>
                         </button>
-                        <button onClick={() => toggleSection('professionalReferences')} style={{
-                          display: "flex", padding: "8px", justifyContent: "center", alignItems: "center",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        <button
+                          onClick={() =>
+                            toggleSection("professionalReferences")
+                          }
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -2369,8 +2733,15 @@ const SubmitOrSaveOrder = () => {
 
                     {!sectionsState.professionalReferences && (
                       <div style={{ width: "100%" }}>
-                        <div style={{ padding: "20px", textAlign: "center", color: "#717680" }}>
-                          Professional References details (content preserved from original)
+                        <div
+                          style={{
+                            padding: "20px",
+                            textAlign: "center",
+                            color: "#717680",
+                          }}
+                        >
+                          Professional References details (content preserved
+                          from original)
                         </div>
                       </div>
                     )}
@@ -2410,23 +2781,70 @@ const SubmitOrSaveOrder = () => {
                       >
                         Credentials - Professional Licenses
                       </h3>
-                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <button onClick={() => handleEditSection('credentials')} style={{
-                          display: "flex", height: "32px", padding: "6px", justifyContent: "center", alignItems: "center", gap: "4px",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <span style={{ color: "#414651", fontFamily: "'Public Sans'", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Edit</span>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <button
+                          onClick={() => handleEditSection("credentials")}
+                          style={{
+                            display: "flex",
+                            height: "32px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Edit
+                          </span>
                         </button>
-                        <button onClick={() => toggleSection('credentials')} style={{
-                          display: "flex", padding: "8px", justifyContent: "center", alignItems: "center",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        <button
+                          onClick={() => toggleSection("credentials")}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -2434,7 +2852,13 @@ const SubmitOrSaveOrder = () => {
 
                     {!sectionsState.credentials && (
                       <div style={{ width: "100%" }}>
-                        <div style={{ padding: "20px", textAlign: "center", color: "#717680" }}>
+                        <div
+                          style={{
+                            padding: "20px",
+                            textAlign: "center",
+                            color: "#717680",
+                          }}
+                        >
                           Credentials details (content preserved from original)
                         </div>
                       </div>
@@ -2475,23 +2899,70 @@ const SubmitOrSaveOrder = () => {
                       >
                         Motor Vehicle Driving History
                       </h3>
-                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                        <button onClick={() => handleEditSection('motorVehicle')} style={{
-                          display: "flex", height: "32px", padding: "6px", justifyContent: "center", alignItems: "center", gap: "4px",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <span style={{ color: "#414651", fontFamily: "'Public Sans'", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>Edit</span>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
+                        <button
+                          onClick={() => handleEditSection("motorVehicle")}
+                          style={{
+                            display: "flex",
+                            height: "32px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Edit
+                          </span>
                         </button>
-                        <button onClick={() => toggleSection('motorVehicle')} style={{
-                          display: "flex", padding: "8px", justifyContent: "center", alignItems: "center",
-                          borderRadius: "8px", border: "1px solid #D5D7DA", backgroundColor: "#FFF",
-                          boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                          cursor: "pointer",
-                        }}>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        <button
+                          onClick={() => toggleSection("motorVehicle")}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -2499,15 +2970,22 @@ const SubmitOrSaveOrder = () => {
 
                     {!sectionsState.motorVehicle && (
                       <div style={{ width: "100%" }}>
-                        <div style={{ padding: "20px", textAlign: "center", color: "#717680" }}>
-                          Motor Vehicle details (content preserved from original)
+                        <div
+                          style={{
+                            padding: "20px",
+                            textAlign: "center",
+                            color: "#717680",
+                          }}
+                        >
+                          Motor Vehicle details (content preserved from
+                          original)
                         </div>
                       </div>
                     )}
                   </div>
                 </div>
               )}
-              
+
               {/* Add bottom padding when collapsed */}
               {orderOverviewCollapsed && (
                 <div style={{ padding: "0 0 20px 0" }} />
