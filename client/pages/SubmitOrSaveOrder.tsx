@@ -1645,6 +1645,7 @@ const SubmitOrSaveOrder = () => {
                             cursor: "pointer",
                           }}
                           aria-label="Edit Employment #1"
+                          onClick={() => handleEditSection('employment')}
                         >
                           <span
                             style={{
