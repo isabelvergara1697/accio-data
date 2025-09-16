@@ -11445,6 +11445,7 @@ const OnlineOrdering = () => {
                   >
                     {/* Education Entry */}
                     <div
+                      data-education-entry="1"
                       style={{
                         display: "flex",
                         padding: "12px",
