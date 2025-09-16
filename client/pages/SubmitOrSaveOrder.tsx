@@ -2960,6 +2960,7 @@ const SubmitOrSaveOrder = () => {
                           cursor: "pointer",
                         }}
                         aria-label="Toggle Motor Vehicle Driving History"
+                        onClick={() => toggleSection('motorVehicle')}
                       >
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                           <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
