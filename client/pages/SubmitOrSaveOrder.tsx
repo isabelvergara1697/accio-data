@@ -1,12 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
+import { MobileHeader } from "../components/MobileHeader";
 import { Checkbox } from "../components/ui/checkbox";
 
 const SubmitOrSaveOrder = () => {
   const navigate = useNavigate();
   const [requireApplicantPayment, setRequireApplicantPayment] = useState(false);
+
+  // Responsive layout + navigation state (match other pages)
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [userMenuHovered, setUserMenuHovered] = useState(false);
+  const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
+
+  const getUserMenuStyles = () => {
+    if (userMenuHovered || userMenuOpen) {
+      return { border: "1px solid #E9EAEB", background: "#F5F5F5" };
+    }
+    return {};
+  };
+
+  const handleSignOut = () => {
+    navigate("/activate-account");
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 1024);
+      setIsDesktop(width >= 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [navigate]);
 
   // Background screening items interactive state
   const [screeningItems, setScreeningItems] = useState(
@@ -104,25 +139,86 @@ const SubmitOrSaveOrder = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-        minHeight: "100vh",
-        backgroundColor: "#FAFAFA",
-      }}
-    >
-      <Sidebar />
+    <div style={{ display: "flex", minHeight: "100vh", background: "#FAFAFA" }}>
+      {/* Sidebar */}
+      <Sidebar
+        isDesktop={isDesktop}
+        isMobile={isMobile}
+        mobileMenuOpen={mobileMenuOpen}
+        currentPage="submit-order"
+        showMobileUserMenu={showMobileUserMenu}
+        setShowMobileUserMenu={setShowMobileUserMenu}
+        setMobileMenuOpen={setMobileMenuOpen}
+        userMenuOpen={userMenuOpen}
+        setUserMenuOpen={setUserMenuOpen}
+        userMenuHovered={userMenuHovered}
+        setUserMenuHovered={setUserMenuHovered}
+        handleSignOut={handleSignOut}
+        getUserMenuStyles={getUserMenuStyles}
+        showNotification={showNotification}
+        isCollapsed={sidebarCollapsed}
+        setIsCollapsed={setSidebarCollapsed}
+      />
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && !isDesktop && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            zIndex: 999,
+          }}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Main Content area */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           flex: 1,
           backgroundColor: "#FAFAFA",
+          marginLeft: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
+          width: isDesktop
+            ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})`
+            : "100vw",
+          maxWidth: isDesktop
+            ? `calc(100vw - ${sidebarCollapsed ? "80px" : "296px"})`
+            : "100vw",
+          transition: "margin-left 0.3s ease, width 0.3s ease, max-width 0.3s ease",
         }}
       >
-        <Header />
-        
+        {/* Top Bar */}
+        {isDesktop ? (
+          <Header
+            isDesktop={isDesktop}
+            userMenuOpen={userMenuOpen}
+            setUserMenuOpen={setUserMenuOpen}
+            userMenuHovered={userMenuHovered}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={handleSignOut}
+            getUserMenuStyles={getUserMenuStyles}
+            showMobileUserMenu={showMobileUserMenu}
+            showNotification={showNotification}
+            sidebarCollapsed={sidebarCollapsed}
+          />
+        ) : (
+          <MobileHeader
+            isDesktop={isDesktop}
+            isMobile={isMobile}
+            setMobileMenuOpen={setMobileMenuOpen}
+            userMenuOpen={userMenuOpen}
+            setUserMenuOpen={setUserMenuOpen}
+            userMenuHovered={userMenuHovered}
+            setUserMenuHovered={setUserMenuHovered}
+            handleSignOut={handleSignOut}
+            getUserMenuStyles={getUserMenuStyles}
+            showMobileUserMenu={showMobileUserMenu}
+          />
+        )}
+
         {/* Main Content */}
         <div
           style={{
@@ -132,6 +228,12 @@ const SubmitOrSaveOrder = () => {
             gap: "32px",
             flex: 1,
             padding: "0 32px 24px 32px",
+            paddingTop:
+              showNotification && isDesktop
+                ? "136px"
+                : isDesktop
+                  ? "104px"
+                  : "88px",
           }}
         >
           {/* Page Header */}
