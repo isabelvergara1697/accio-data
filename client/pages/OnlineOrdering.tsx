@@ -4312,20 +4312,18 @@ const OnlineOrdering = () => {
                   {/* Conditional CSD Standard Content */}
                   {selectedPackage === "csd-standard" && (
                     <div
+                      className="stack-mobile tablet-two"
                       style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "flex-start",
+                        display: "grid",
+                        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                        gap: "16px",
                         alignSelf: "stretch",
-                        flexWrap: "wrap",
-                        gap: "20px",
                       }}
                     >
                       {/* Left Column */}
                       <div
                         style={{
                           display: "flex",
-                          width: isDesktop ? "324px" : "100%",
                           flexDirection: "column",
                           alignItems: "flex-start",
                           gap: "16px",
