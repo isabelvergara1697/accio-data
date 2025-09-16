@@ -2383,6 +2383,7 @@ const SubmitOrSaveOrder = () => {
                           cursor: "pointer",
                         }}
                         aria-label="Edit Professional References"
+                        onClick={() => handleEditSection('professionalReferences')}
                       >
                         <span
                           style={{
