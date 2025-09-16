@@ -5993,7 +5993,6 @@ const OnlineOrdering = () => {
                           alignItems: "flex-start",
                           gap: "6px",
                           flex: "1 0 0",
-                          minWidth: isDesktop ? "auto" : "100%",
                         }}
                       >
                         <div
