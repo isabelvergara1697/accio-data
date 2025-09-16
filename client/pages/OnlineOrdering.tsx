@@ -540,38 +540,94 @@ const OnlineOrdering = () => {
 
     // Add sections based on selected packages
     if (packageCheckboxes["employment"]) {
+      const employmentQty = packageQuantities["employment"] || 1;
+      const employmentSubsections = [];
+
+      for (let i = 1; i <= employmentQty; i++) {
+        employmentSubsections.push({
+          id: `employment-${i}`,
+          label: `Employment No.${i}`,
+          completed: isEmploymentEntryCompleted(i),
+          hasErrors: validationAttempted && !isEmploymentEntryCompleted(i),
+        });
+      }
+
       sections.push({
         id: "employment",
         label: "Employment",
         completed: isEmploymentCompleted(),
         hasErrors: validationAttempted && !isEmploymentCompleted(),
+        count: employmentQty,
+        subsections: employmentQty > 1 ? employmentSubsections : undefined,
       });
     }
 
     if (packageCheckboxes["education"]) {
+      const educationQty = packageQuantities["education"] || 1;
+      const educationSubsections = [];
+
+      for (let i = 1; i <= educationQty; i++) {
+        educationSubsections.push({
+          id: `education-${i}`,
+          label: `Education No.${i}`,
+          completed: isEducationEntryCompleted(i),
+          hasErrors: validationAttempted && !isEducationEntryCompleted(i),
+        });
+      }
+
       sections.push({
         id: "education",
         label: "Education",
         completed: isEducationCompleted(),
         hasErrors: validationAttempted && !isEducationCompleted(),
+        count: educationQty,
+        subsections: educationQty > 1 ? educationSubsections : undefined,
       });
     }
 
     if (packageCheckboxes["professional-references"]) {
+      const professionalRefsQty = packageQuantities["professional-references"] || 1;
+      const professionalRefsSubsections = [];
+
+      for (let i = 1; i <= professionalRefsQty; i++) {
+        professionalRefsSubsections.push({
+          id: `professional-references-${i}`,
+          label: `Professional References No.${i}`,
+          completed: isProfessionalRefEntryCompleted(i),
+          hasErrors: validationAttempted && !isProfessionalRefEntryCompleted(i),
+        });
+      }
+
       sections.push({
         id: "professional-references",
-        label: "References",
+        label: "Professional References",
         completed: isProfessionalReferencesCompleted(),
         hasErrors: validationAttempted && !isProfessionalReferencesCompleted(),
+        count: professionalRefsQty,
+        subsections: professionalRefsQty > 1 ? professionalRefsSubsections : undefined,
       });
     }
 
     if (packageCheckboxes["credentials-professional-license"]) {
+      const credentialsQty = packageQuantities["credentials-professional-license"] || 1;
+      const credentialsSubsections = [];
+
+      for (let i = 1; i <= credentialsQty; i++) {
+        credentialsSubsections.push({
+          id: `credentials-professional-license-${i}`,
+          label: `Credentials No.${i}`,
+          completed: isCredentialsEntryCompleted(i),
+          hasErrors: validationAttempted && !isCredentialsEntryCompleted(i),
+        });
+      }
+
       sections.push({
         id: "credentials-professional-license",
-        label: "Credentials",
+        label: "Credentials - Professional License",
         completed: isCredentialsCompleted(),
         hasErrors: validationAttempted && !isCredentialsCompleted(),
+        count: credentialsQty,
+        subsections: credentialsQty > 1 ? credentialsSubsections : undefined,
       });
     }
 
