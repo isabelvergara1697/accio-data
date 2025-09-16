@@ -870,6 +870,7 @@ const SubmitOrSaveOrder = () => {
                             display: "flex",
                             alignItems: "center",
                             gap: "4px",
+                            flexWrap: isMobile ? "wrap" : "nowrap",
                           }}
                         >
                           <div
