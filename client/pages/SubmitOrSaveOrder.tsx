@@ -1107,6 +1107,213 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Subject Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "20px 16px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #E9EAEB",
+                    backgroundColor: "#FAFAFA",
+                  }}
+                >
+                  {/* Title Bar */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "18px",
+                        fontWeight: 500,
+                        lineHeight: "28px",
+                        margin: 0,
+                      }}
+                    >
+                      Subject
+                    </h3>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <button
+                        style={{
+                          display: "flex",
+                          height: "32px",
+                          padding: "6px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                        aria-label="Edit Subject"
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Edit
+                        </span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M1.917 12.077c.03-.276.046-.413.087-.542.037-.114.09-.223.156-.323.074-.113.172-.211.368-.407L11.333 2a1.667 1.667 0 0 1 2.357 2.357L5.196 13.471c-.196.196-.294.294-.408.368a1.003 1.003 0 0 1-.323.156c-.128.041-.266.057-.541.088L1.667 14.333l.25-2.256Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                      <button
+                        style={{
+                          display: "flex",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                        aria-label="Toggle Subject"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* General Setup */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignSelf: "stretch" }}>
+                    <h4
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#414651",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "16px",
+                        fontWeight: 600,
+                        lineHeight: "24px",
+                        margin: 0,
+                      }}
+                    >
+                      General Setup
+                    </h4>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", alignItems: "flex-start" }}>
+                      {[
+                        "Collect PII (SSN and/or DOB) from applicant?",
+                        "Send order to applicant to complete?",
+                        "Require applicant to electronically sign a release?",
+                        "Require applicant to pay for their order?",
+                      ].map((label, idx) => (
+                        <label key={idx} style={{ display: "flex", gap: "8px", alignItems: "center", width: "min(492px, 100%)" }}>
+                          <input type="checkbox" disabled defaultChecked style={{ width: 16, height: 16, borderRadius: 4, border: "1px solid #D5D7DA" }} />
+                          <span style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: 14, lineHeight: "20px", fontWeight: 500 }}>{label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Requester Information */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignSelf: "stretch" }}>
+                    <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: 16, fontWeight: 500, lineHeight: "24px" }}>Requester Information</div>
+
+                    {/* 3-col grid */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 8 }}>
+                      {[
+                        { label: "First Name", value: "Alexandra" },
+                        { label: "Middle Name", value: "Johnson" },
+                        { label: "Last Name", value: "Smith" },
+                      ].map((f, i) => (
+                        <div key={i} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                          <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.label}</div>
+                          <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.value}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* AKA's card */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: 12, padding: 16, borderRadius: 10, border: "1px solid #E9EAEB", background: "#F5F5F5" }}>
+                      <div style={{ color: "#414651", fontFamily: "'Public Sans'", fontSize: 16, fontWeight: 600, lineHeight: "24px" }}>AKA’s</div>
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 8 }}>
+                        {[
+                          { label: "Other First Name", value: "Alexander" },
+                          { label: "Other Middle Name", value: "J" },
+                          { label: "Other Last Name", value: "Smith T" },
+                        ].map((f, i) => (
+                          <div key={i} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                            <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.label}</div>
+                            <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.value}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Address and DOB info */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0,1fr))", gap: 16 }}>
+                      {[
+                        { label: "DOB (MM/DD/YYYY)", value: "18/12/1991" },
+                        { label: "Zip Code", value: "080102" },
+                        { label: "Address", value: "Street 123" },
+                        { label: "City", value: "City ABC" },
+                        { label: "State", value: "AL, Alabama" },
+                        { label: "Country", value: "USA" },
+                      ].map((f, i) => (
+                        <div key={i} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                          <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.label}</div>
+                          <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.value}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: "100%", height: 1, background: "#E9EAEB" }} />
+
+                    {/* FCRA Purpose and Criminal Records */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 16 }}>
+                      {[
+                        { label: "FCRA Purpose", value: "Employment by Hire or Contract" },
+                        { label: "Applicant has know Criminal Records?", value: "[Category]" },
+                      ].map((f, i) => (
+                        <div key={i} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                          <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.label}</div>
+                          <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.value}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: "100%", height: 1, background: "#E9EAEB" }} />
+
+                    {/* Contact */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0,1fr))", gap: 16 }}>
+                      {[
+                        { label: "Applicant Phone", value: "+1 (555) 000-0000" },
+                        { label: "Applicant Email", value: "alexjsmith@gmail.com" },
+                      ].map((f, i) => (
+                        <div key={i} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                          <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.label}</div>
+                          <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: 16, lineHeight: "24px" }}>{f.value}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
