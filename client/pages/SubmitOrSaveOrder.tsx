@@ -1709,6 +1709,427 @@ const SubmitOrSaveOrder = () => {
                   </div>
                 </div>
 
+                {/* Education Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "20px 16px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #E9EAEB",
+                    backgroundColor: "#FAFAFA",
+                  }}
+                >
+                  {/* Title Bar */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        color: "#181D27",
+                        fontFamily: "'Public Sans'",
+                        fontSize: "18px",
+                        fontWeight: 500,
+                        lineHeight: "28px",
+                        margin: 0,
+                      }}
+                    >
+                      Education
+                    </h3>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <button
+                        style={{
+                          display: "flex",
+                          height: "32px",
+                          padding: "6px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                        aria-label="Edit Education"
+                      >
+                        <span
+                          style={{
+                            color: "#414651",
+                            fontFamily: "'Public Sans'",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Edit
+                        </span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M1.917 12.077c.03-.276.046-.413.087-.542.037-.114.09-.223.156-.323.074-.113.172-.211.368-.407L11.333 2a1.667 1.667 0 0 1 2.357 2.357L5.196 13.471c-.196.196-.294.294-.408.368a1.003 1.003 0 0 1-.323.156c-.128.041-.266.057-.541.088L1.667 14.333l.25-2.256Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                      <button
+                        style={{
+                          display: "flex",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "8px",
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#FFF",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          cursor: "pointer",
+                        }}
+                        aria-label="Toggle Education"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Education #1 Card */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "16px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                      alignSelf: "stretch",
+                      borderRadius: "10px",
+                      border: "1px solid #E9EAEB",
+                      backgroundColor: "#F5F5F5",
+                    }}
+                  >
+                    {/* Education #1 Title Bar */}
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <h4
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "16px",
+                          fontWeight: 500,
+                          lineHeight: "24px",
+                          margin: 0,
+                        }}
+                      >
+                        Education #1
+                      </h4>
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                        <button
+                          style={{
+                            display: "flex",
+                            height: "32px",
+                            padding: "6px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                          aria-label="Edit Education #1"
+                        >
+                          <span
+                            style={{
+                              color: "#414651",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            Edit
+                          </span>
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M1.917 12.077c.03-.276.046-.413.087-.542.037-.114.09-.223.156-.323.074-.113.172-.211.368-.407L11.333 2a1.667 1.667 0 0 1 2.357 2.357L5.196 13.471c-.196.196-.294.294-.408.368a1.003 1.003 0 0 1-.323.156c-.128.041-.266.057-.541.088L1.667 14.333l.25-2.256Z" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                        <button
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            backgroundColor: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            cursor: "pointer",
+                          }}
+                          aria-label="Toggle Education #1"
+                        >
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Type of Education */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "4px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "12px",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                        }}
+                      >
+                        Type of Education
+                      </div>
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "16px",
+                          fontWeight: 400,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        University
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: "100%", height: "1px", backgroundColor: "#E9EAEB" }} />
+
+                    {/* Education Details Grid */}
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      {/* First Row */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>University</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Brown Community College</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Degree Type</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Bachelor</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Major</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Physiology</div>
+                      </div>
+
+                      {/* Second Row */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>Address</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Street 123</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>Address 2</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}></div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>Zip</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>1234</div>
+                      </div>
+
+                      {/* Third Row */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>Country</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>USA</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>State</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>TX, Texas</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>City</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>El Paso</div>
+                      </div>
+
+                      {/* Fourth Row */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>GPA Scale</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>4.0</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>Student ID</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>121512</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>Transcript Y/N</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Yes</div>
+                      </div>
+
+                      {/* Fifth Row */}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>Graduated Y/N</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Yes</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "12px", lineHeight: "20px" }}>Highest Achieved Y/N</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Yes</div>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: "100%", height: "1px", backgroundColor: "#E9EAEB" }} />
+
+                    {/* Names while attending */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 0 0" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>First Name while Attending</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Alex</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 0 0" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Last Name while Attending</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Smith</div>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: "100%", height: "1px", backgroundColor: "#E9EAEB" }} />
+
+                    {/* Contact Information */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 0 0" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Email</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>admision@browncommunitycollege.com</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 0 0" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Phone</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>+1 (555) 000-0000</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", flex: "1 0 0" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Fax</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>123456789</div>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: "100%", height: "1px", backgroundColor: "#E9EAEB" }} />
+
+                    {/* Education Dates */}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", alignSelf: "stretch" }}>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "312px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Attended From</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>18/12/2023</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "312px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Attended To</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>18/12/2023</div>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "312px" }}>
+                        <div style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>Degree Year</div>
+                        <div style={{ color: "#181D27", fontFamily: "'Public Sans'", fontSize: "16px", lineHeight: "24px" }}>18/12/2023</div>
+                      </div>
+                    </div>
+
+                    {/* Current enrolled checkbox */}
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px", width: "min(492px, 100%)" }}>
+                      <input
+                        type="checkbox"
+                        disabled
+                        defaultChecked
+                        style={{
+                          width: 16,
+                          height: 16,
+                          borderRadius: 4,
+                          border: "1px solid #D5D7DA",
+                          backgroundColor: "#F5F5F5"
+                        }}
+                      />
+                      <span style={{ color: "#717680", fontFamily: "'Public Sans'", fontSize: 14, lineHeight: "20px", fontWeight: 500 }}>
+                        Current enrolled
+                      </span>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: "4px" }}>
+                        <path d="M6.06 6c.157-.445.466-.822.873-1.061.407-.24.885-.327 1.351-.247.465.08.887.322 1.192.683.304.362.47.819.47 1.291 0 1.334-2 2-2 2m.06 3.334h.007M14.667 8A6.667 6.667 0 1 1 1.333 8a6.667 6.667 0 0 1 13.334 0Z" stroke="#A4A7AE" strokeWidth="1.333" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+
+                    {/* Divider */}
+                    <div style={{ width: "100%", height: "1px", backgroundColor: "#E9EAEB" }} />
+
+                    {/* Comments */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "4px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "#717680",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "16px",
+                          fontWeight: 400,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        Comments
+                      </div>
+                      <div
+                        style={{
+                          color: "#181D27",
+                          fontFamily: "'Public Sans'",
+                          fontSize: "16px",
+                          fontWeight: 400,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        Made a internship at Apple while studying here
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
