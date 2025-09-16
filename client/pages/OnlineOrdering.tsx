@@ -20620,7 +20620,7 @@ const OnlineOrdering = () => {
                           lineHeight: "var(--Line-height-text-sm, 20px)",
                         }}
                       >
-                        Complete Form - Demo Only
+                        Complete Form
                       </span>
                       {(ready || formSectionsCompleted) && (
                         <svg
