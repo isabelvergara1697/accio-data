@@ -506,9 +506,9 @@ const OnlineOrdering = () => {
       return;
     }
 
-    // Form is complete, proceed with submission
-    console.log("Submitting order...");
-    // Add actual submission logic here
+    // Form is complete, navigate to submit order page
+    console.log("Navigating to submit order page...");
+    navigate("/submit-order");
   };
 
   // Quick Navigation helpers
