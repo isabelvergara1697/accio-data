@@ -1986,8 +1986,9 @@ const SubmitOrSaveOrder = () => {
                           <div
                             style={{
                               display: "grid",
-                              gridTemplateColumns:
-                                "repeat(auto-fit, minmax(320px, 1fr))",
+                              gridTemplateColumns: isMobile
+                                ? "1fr"
+                                : "repeat(auto-fit, minmax(0, 1fr))",
                               gap: "16px",
                               alignSelf: "stretch",
                             }}
