@@ -259,9 +259,9 @@ const SubmitOrSaveOrder = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: isTablet ? "24px" : "32px",
+            gap: isMobile ? "20px" : isTablet ? "24px" : "32px",
             flex: 1,
-            padding: isTablet ? "0 32px 24px 32px" : "0 32px 24px 32px",
+            padding: isMobile ? "0 16px 24px 16px" : isTablet ? "0 32px 24px 32px" : "0 32px 24px 32px",
             paddingTop:
               showNotification && isDesktop
                 ? "136px"
@@ -315,9 +315,9 @@ const SubmitOrSaveOrder = () => {
                       alignSelf: "stretch",
                       color: "#181D27",
                       fontFamily: "'Public Sans'",
-                      fontSize: isTablet ? "20px" : "24px",
+                      fontSize: isMobile ? "20px" : isTablet ? "20px" : "24px",
                       fontWeight: 600,
-                      lineHeight: isTablet ? "30px" : "32px",
+                      lineHeight: isMobile ? "30px" : isTablet ? "30px" : "32px",
                       margin: 0,
                     }}
                   >
@@ -368,7 +368,7 @@ const SubmitOrSaveOrder = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                  padding: isMobile ? "20px 16px 0 16px" : isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "16px",
@@ -403,19 +403,19 @@ const SubmitOrSaveOrder = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: "12px 24px 16px 24px",
+                  padding: isMobile ? "12px 16px 16px 16px" : "12px 24px 16px 24px",
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "16px",
                   alignSelf: "stretch",
-                  borderRadius: isTablet ? "0px 0px 0 0" : "0px 0px 12px 12px",
+                  borderRadius: isTablet || isMobile ? "0px 0px 0 0" : "0px 0px 12px 12px",
                   backgroundColor: "#FFF",
-                  boxShadow: isTablet
+                  boxShadow: isTablet || isMobile
                     ? "0 1px 2px 0 rgba(10, 13, 18, 0.05)"
                     : "none",
-                  borderRight: isTablet ? "1px solid #E9EAEB" : "none",
-                  borderBottom: isTablet ? "1px solid #E9EAEB" : "none",
-                  borderLeft: isTablet ? "1px solid #E9EAEB" : "none",
+                  borderRight: isTablet || isMobile ? "1px solid #E9EAEB" : "none",
+                  borderBottom: isTablet || isMobile ? "1px solid #E9EAEB" : "none",
+                  borderLeft: isTablet || isMobile ? "1px solid #E9EAEB" : "none",
                 }}
               >
                 <div
@@ -445,9 +445,11 @@ const SubmitOrSaveOrder = () => {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
+                      flexDirection: isMobile ? "column" : "row",
+                      alignItems: isMobile ? "flex-start" : "center",
                       gap: "12px",
-                      flexWrap: "wrap",
+                      alignSelf: isMobile ? "stretch" : "auto",
+                      flexWrap: isMobile ? "nowrap" : "wrap",
                       justifyContent: "center",
                     }}
                   >
