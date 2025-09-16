@@ -10410,7 +10410,7 @@ const OnlineOrdering = () => {
                           <div
                             style={{
                               display: "flex",
-                              width: "84px",
+                              maxWidth: "100%",
                               height: "66px",
                               flexDirection: "column",
                               alignItems: "flex-start",
