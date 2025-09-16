@@ -1996,6 +1996,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
 
+                  <div style={{ display: sectionsState.education ? "none" : "block", width: "100%" }}>
                   {/* Education #1 Card */}
                   <div
                     style={{
@@ -2326,6 +2327,7 @@ const SubmitOrSaveOrder = () => {
                     </div>
                   </div>
                 </div>
+                  </div>
 
                 {/* Professional References Section */}
                 <div
