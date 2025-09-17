@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
-import { useMobile } from "../hooks/use-mobile";
+import { useIsMobile } from "../hooks/use-mobile";
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();
-  const { isMobile, isTablet, isDesktop } = useMobile();
+  const isMobile = useIsMobile();
+  const isTablet = !isMobile && typeof window !== "undefined" && window.innerWidth < 1024;
+  const isDesktop = !isMobile && !isTablet;
   const [showNotification, setShowNotification] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
