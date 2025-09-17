@@ -14244,16 +14244,17 @@ const OnlineOrdering = () => {
                                 alignItems: "center",
                               }}
                             >
-                              <input
-                                type="checkbox"
-                                style={{
-                                  width: "16px",
-                                  height: "16px",
-                                  borderRadius: "4px",
-                                  border: "1px solid #D5D7DA",
-                                }}
-                              />
-                            </div>
+                            <input
+                              id="does_not_apply_checkbox"
+                              type="checkbox"
+                              style={{
+                                width: "16px",
+                                height: "16px",
+                                borderRadius: "4px",
+                                border: "1px solid #D5D7DA",
+                              }}
+                            />
+                          </div>
                             <div
                               style={{
                                 display: "flex",
