@@ -7039,9 +7039,10 @@ const OnlineOrdering = () => {
                                   alignSelf: "stretch",
                                 }}
                               >
-                                <div
+                                <label htmlFor="general_pay_for_order"
                                   style={{
                                     color: "#414651",
+                                    cursor: "pointer",
                                     fontFamily:
                                       "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
@@ -7052,7 +7053,7 @@ const OnlineOrdering = () => {
                                   }}
                                 >
                                   Require applicant to pay for their order?
-                                </div>
+                                </label>
                                 <svg
                                   style={{
                                     width: "16px",
