@@ -6872,9 +6872,10 @@ const OnlineOrdering = () => {
                                   alignSelf: "stretch",
                                 }}
                               >
-                                <div
+                                <label htmlFor="general_send_to_applicant"
                                   style={{
                                     color: "#414651",
+                                    cursor: "pointer",
                                     fontFamily:
                                       "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
@@ -6885,7 +6886,7 @@ const OnlineOrdering = () => {
                                   }}
                                 >
                                   Send order to applicant to complete?
-                                </div>
+                                </label>
                                 <svg
                                   style={{
                                     width: "16px",
