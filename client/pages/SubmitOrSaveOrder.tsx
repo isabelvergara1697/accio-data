@@ -114,7 +114,7 @@ const SubmitOrSaveOrder = () => {
   const handleSubmitNow = () => {
     console.log("Submitting order...");
     // Add final submission logic here
-    // Could navigate to a confirmation page
+    navigate("/order-confirmation");
   };
 
   // Accordion handlers
