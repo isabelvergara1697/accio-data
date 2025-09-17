@@ -6855,7 +6855,7 @@ const OnlineOrdering = () => {
                                 alignItems: "center",
                               }}
                             >
-                              <Checkbox className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]" />
+                              <Checkbox id="general_send_to_applicant" className="h-4 w-4 rounded-[4px] border border-[#D5D7DA] data-[state=checked]:bg-[#34479A] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#34479A]" />
                             </div>
                             <div
                               style={{
