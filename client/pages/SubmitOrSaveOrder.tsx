@@ -9075,9 +9075,9 @@ const SubmitOrSaveOrder = () => {
                                   alignSelf: "stretch",
                                   color: "#717680",
                                   fontFamily: "'Public Sans'",
-                                  fontSize: "16px",
-                                  fontWeight: 400,
-                                  lineHeight: "24px",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
                                 }}
                               >
                                 License Status
