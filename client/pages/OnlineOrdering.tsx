@@ -6955,9 +6955,10 @@ const OnlineOrdering = () => {
                                   alignSelf: "stretch",
                                 }}
                               >
-                                <div
+                                <label htmlFor="general_electronic_release"
                                   style={{
                                     color: "#414651",
+                                    cursor: "pointer",
                                     fontFamily:
                                       "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
@@ -6969,7 +6970,7 @@ const OnlineOrdering = () => {
                                 >
                                   Require applicant to electronically sign a
                                   release?
-                                </div>
+                                </label>
                                 <svg
                                   style={{
                                     width: "16px",
