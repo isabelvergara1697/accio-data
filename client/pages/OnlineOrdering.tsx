@@ -14272,9 +14272,10 @@ const OnlineOrdering = () => {
                                   alignSelf: "stretch",
                                 }}
                               >
-                                <div
+                                <label htmlFor="current_enrolled_checkbox"
                                   style={{
                                     color: "#414651",
+                                    cursor: "pointer",
                                     fontFamily:
                                       "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "14px",
@@ -14284,7 +14285,7 @@ const OnlineOrdering = () => {
                                   }}
                                 >
                                   Current enrolled
-                                </div>
+                                </label>
                                 <svg
                                   style={{
                                     width: "16px",
