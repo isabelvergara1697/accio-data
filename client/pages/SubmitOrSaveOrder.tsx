@@ -8290,7 +8290,7 @@ const SubmitOrSaveOrder = () => {
                           <div
                             style={{
                               display: "grid",
-                              gridTemplateColumns: isMobile ? "1fr" : isTablet ? "repeat(2, 1fr)" : "repeat(3, 1fr)",
+                              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
                               rowGap: "16px",
                               columnGap: "16px",
                               alignSelf: "stretch",
