@@ -17,6 +17,7 @@ import I9OrderSubmission from "./pages/I9OrderSubmission";
 import I9OrderConfirmation from "./pages/I9OrderConfirmation";
 import OnlineOrdering from "./pages/OnlineOrdering";
 import SubmitOrSaveOrder from "./pages/SubmitOrSaveOrder";
+import OrderConfirmation from "./pages/OrderConfirmation";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
