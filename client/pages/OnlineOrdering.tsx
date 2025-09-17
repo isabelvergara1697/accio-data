@@ -11826,6 +11826,7 @@ const OnlineOrdering = () => {
                             }}
                           >
                             <input
+                              id="does_not_apply_checkbox"
                               type="checkbox"
                               style={{
                                 width: "16px",
