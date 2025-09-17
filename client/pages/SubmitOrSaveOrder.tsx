@@ -9164,8 +9164,10 @@ const SubmitOrSaveOrder = () => {
                           <div
                             style={{
                               display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
+                              flexDirection: isMobile ? "column" : "row",
+                              justifyContent: isMobile ? "flex-start" : "space-between",
+                              alignItems: isMobile ? "flex-start" : "center",
+                              gap: isMobile ? "16px" : "0",
                               alignSelf: "stretch",
                             }}
                           >
