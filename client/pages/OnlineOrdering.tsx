@@ -6789,9 +6789,10 @@ const OnlineOrdering = () => {
                                   alignSelf: "stretch",
                                 }}
                               >
-                                <div
+                                <label htmlFor="general_collect_pii"
                                   style={{
                                     color: "#414651",
+                                    cursor: "pointer",
                                     fontFamily:
                                       "var(--Font-family-font-family-body, 'Public Sans')",
                                     fontSize: "var(--Font-size-text-sm, 14px)",
@@ -6802,7 +6803,7 @@ const OnlineOrdering = () => {
                                   }}
                                 >
                                   Collect PII (SSN and/or DOB) from applicant?
-                                </div>
+                                </label>
                                 <svg
                                   style={{
                                     width: "16px",
