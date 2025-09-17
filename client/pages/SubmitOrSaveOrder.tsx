@@ -8932,11 +8932,14 @@ const SubmitOrSaveOrder = () => {
                           {/* Credentials Main Info Grid */}
                           <div
                             style={{
-                              display: "grid",
-                              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-                              gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
-                              rowGap: "16px",
-                              columnGap: "16px",
+                              display: isMobile ? "flex" : "grid",
+                              gridTemplateColumns: isMobile ? undefined : "repeat(3, 1fr)",
+                              gridTemplateRows: isMobile ? undefined : "fit-content(100%) minmax(0, 1fr)",
+                              flexDirection: isMobile ? "column" : undefined,
+                              gap: isMobile ? "8px" : "16px",
+                              rowGap: isMobile ? undefined : "16px",
+                              columnGap: isMobile ? undefined : "16px",
+                              alignItems: isMobile ? "flex-start" : undefined,
                               alignSelf: "stretch",
                             }}
                           >
