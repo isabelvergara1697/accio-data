@@ -9424,15 +9424,193 @@ const SubmitOrSaveOrder = () => {
 
                     {!sectionsState.motorVehicle && (
                       <div style={{ width: "100%" }}>
+                        {/* Motor Vehicle Main Info Grid */}
                         <div
                           style={{
-                            padding: "20px",
-                            textAlign: "center",
-                            color: "#717680",
+                            display: isMobile ? "flex" : "grid",
+                            gridTemplateColumns: isMobile ? undefined : "repeat(3, 1fr)",
+                            gridTemplateRows: isMobile ? undefined : "fit-content(100%)",
+                            flexDirection: isMobile ? "column" : undefined,
+                            gap: isMobile ? "8px" : "16px",
+                            rowGap: isMobile ? undefined : "16px",
+                            columnGap: isMobile ? undefined : "16px",
+                            alignItems: isMobile ? "flex-start" : undefined,
+                            alignSelf: "stretch",
                           }}
                         >
-                          Motor Vehicle details (content preserved from
-                          original)
+                          {/* Drives License Number */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
+                              gridRow: "1 / span 1",
+                              gridColumn: "1 / span 1",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              Drives License Number
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              1234567
+                            </div>
+                          </div>
+
+                          {/* Purpose for Order */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
+                              gridRow: "1 / span 1",
+                              gridColumn: "2 / span 1",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              Purpose for Order
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              CDL Employment Only
+                            </div>
+                          </div>
+
+                          {/* MVR Type */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
+                              gridRow: "1 / span 1",
+                              gridColumn: "3 / span 1",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              MVR Type
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "'Public Sans'",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              Standard
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <svg
+                          style={{
+                            display: "flex",
+                            padding: "4px 0",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                          }}
+                          width="100%"
+                          height="9"
+                          viewBox="0 0 1000 9"
+                          fill="none"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            clipRule="evenodd"
+                            d="M1000 5H0V4H1000V5Z"
+                            fill="#E9EAEB"
+                          />
+                        </svg>
+
+                        {/* Expiration Date */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: isMobile ? "100%" : "312px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#717680",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            Expiration Date
+                          </div>
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "'Public Sans'",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            18/12/2025
+                          </div>
                         </div>
                       </div>
                     )}
