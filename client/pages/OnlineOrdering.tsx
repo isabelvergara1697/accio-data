@@ -11851,9 +11851,10 @@ const OnlineOrdering = () => {
                                 gap: "4px",
                               }}
                             >
-                              <div
+                              <label htmlFor="does_not_apply_checkbox"
                                 style={{
                                   color: "#414651",
+                                  cursor: "pointer",
                                   fontFamily:
                                     "var(--Font-family-font-family-body, 'Public Sans')",
                                   fontSize: "14px",
@@ -11864,7 +11865,7 @@ const OnlineOrdering = () => {
                               >
                                 Does Not Apply - check if this item does not
                                 apply to you
-                              </div>
+                              </label>
                               <svg
                                 style={{
                                   width: "16px",
