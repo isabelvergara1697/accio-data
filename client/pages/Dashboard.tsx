@@ -1880,7 +1880,6 @@ export default function Dashboard() {
                         label={shortcut.label}
                         icon={shortcut.icon}
                         onClick={() => handleShortcutClick(shortcut)}
-                        onRemove={handleRemoveShortcut}
                       />
                     ))}
                   </div>
