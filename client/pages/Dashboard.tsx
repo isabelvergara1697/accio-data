@@ -1728,116 +1728,148 @@ export default function Dashboard() {
               <div
                 style={{
                   display: "flex",
-                  height: "98px",
                   alignItems: "center",
                   gap: "16px",
                   alignSelf: "stretch",
+                  ...(shortcuts.length === 0 ? { height: "98px" } : {}),
                 }}
               >
-                {/* Empty State */}
-                <div
-                  style={{
-                    display: "flex",
-                    padding: "12px 12px 12px 16px",
-                    justifyContent: "flex-end",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    flex: "1 0 0",
-                    borderRadius: "12px",
-                    border: "1px dashed #34479A",
-                    background: "#ECEEF9",
-                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
-                    transition: "background-color 0.2s ease",
-                  }}
-                  onClick={handleOpenAddShortcutModal}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#D9DEF2";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#ECEEF9";
-                  }}
-                >
-                  {/* Featured icon */}
+                {shortcuts.length === 0 ? (
+                  /* Empty State */
                   <div
                     style={{
                       display: "flex",
-                      width: "32px",
-                      height: "32px",
-                      padding: "8px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      aspectRatio: "1/1",
-                      borderRadius: "6px",
-                      border: "1px solid #34479A",
-                      background: "#ECEEF9",
-                      boxShadow:
-                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    }}
-                  >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      style={{
-                        flexShrink: 0,
-                      }}
-                    >
-                      <path
-                        d="M8.47203 12.2427L7.52922 13.1855C6.22748 14.4872 4.11693 14.4872 2.81518 13.1855C1.51343 11.8837 1.51343 9.77317 2.81518 8.47142L3.75799 7.52861M12.2433 8.47142L13.1861 7.52861C14.4878 6.22687 14.4878 4.11632 13.1861 2.81457C11.8843 1.51282 9.77378 1.51282 8.47203 2.81457L7.52922 3.75738M5.66729 10.3333L10.334 5.66667"
-                        stroke="#344698"
-                        strokeWidth="1.33333"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
+                      padding: "12px 12px 12px 16px",
+                      justifyContent: "flex-end",
                       alignItems: "flex-start",
-                      gap: "4px",
+                      gap: "12px",
                       flex: "1 0 0",
+                      borderRadius: "12px",
+                      border: "1px dashed #34479A",
+                      background: "#ECEEF9",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                      transition: "background-color 0.2s ease",
+                    }}
+                    onClick={handleOpenAddShortcutModal}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "#D9DEF2";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "#ECEEF9";
                     }}
                   >
+                    {/* Featured icon */}
                     <div
                       style={{
-                        color: "#273572",
-                        fontFamily: "Public Sans",
-                        fontSize: "18px",
-                        fontStyle: "normal",
-                        fontWeight: "500",
-                        lineHeight: "28px",
+                        display: "flex",
+                        width: "32px",
+                        height: "32px",
+                        padding: "8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        aspectRatio: "1/1",
+                        borderRadius: "6px",
+                        border: "1px solid #34479A",
+                        background: "#ECEEF9",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                       }}
                     >
-                      Get there faster
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{
+                          flexShrink: 0,
+                        }}
+                      >
+                        <path
+                          d="M8.47203 12.2427L7.52922 13.1855C6.22748 14.4872 4.11693 14.4872 2.81518 13.1855C1.51343 11.8837 1.51343 9.77317 2.81518 8.47142L3.75799 7.52861M12.2433 8.47142L13.1861 7.52861C14.4878 6.22687 14.4878 4.11632 13.1861 2.81457C11.8843 1.51282 9.77378 1.51282 8.47203 2.81457L7.52922 3.75738M5.66729 10.3333L10.334 5.66667"
+                          stroke="#344698"
+                          strokeWidth="1.33333"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </div>
                     <div
                       style={{
                         display: "flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        alignSelf: "stretch",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "4px",
+                        flex: "1 0 0",
                       }}
                     >
                       <div
                         style={{
                           color: "#273572",
                           fontFamily: "Public Sans",
-                          fontSize: "14px",
+                          fontSize: "18px",
                           fontStyle: "normal",
                           fontWeight: "500",
-                          lineHeight: "20px",
+                          lineHeight: "28px",
                         }}
                       >
-                        Add up to 4 shortcuts and personalize your experience
+                        Get there faster
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#273572",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: "500",
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Add up to 4 shortcuts and personalize your experience
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  /* Shortcuts Grid */
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: isMobile
+                        ? "1fr"
+                        : shortcuts.length === 1
+                          ? "1fr"
+                          : shortcuts.length === 2
+                            ? "1fr 1fr"
+                            : shortcuts.length === 3
+                              ? "1fr 1fr 1fr"
+                              : "1fr 1fr",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                      width: "100%",
+                    }}
+                  >
+                    {shortcuts.map((shortcut) => (
+                      <ShortcutCard
+                        key={shortcut.id}
+                        id={shortcut.id}
+                        label={shortcut.label}
+                        icon={shortcut.icon}
+                        onClick={() => handleShortcutClick(shortcut)}
+                        onRemove={handleRemoveShortcut}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -1954,7 +1986,7 @@ export default function Dashboard() {
                 }}
                 ref={(el) => {
                   if (el) {
-                    console.log("📊 Metric cards layout:", {
+                    console.log("���� Metric cards layout:", {
                       isMobile,
                       isDesktop,
                       windowWidth,
