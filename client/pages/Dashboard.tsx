@@ -2368,6 +2368,7 @@ export default function Dashboard() {
         selectedShortcuts={shortcuts}
         savedCustomShortcuts={savedCustomShortcuts}
       />
+      <Toaster />
 
       {/* Date Picker Calendar - Desktop uses DesktopCalendar, Mobile/Tablet uses DatePickerCalendar */}
       {isDesktop ? (
