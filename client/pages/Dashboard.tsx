@@ -1612,6 +1612,15 @@ export default function Dashboard() {
                     border: "1px dashed #34479A",
                     background: "#ECEEF9",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                    transition: "background-color 0.2s ease",
+                  }}
+                  onClick={handleOpenAddShortcutModal}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#D9DEF2";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#ECEEF9";
                   }}
                 >
                   {/* Featured icon */}
