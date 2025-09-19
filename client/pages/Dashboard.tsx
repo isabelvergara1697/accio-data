@@ -14,6 +14,8 @@ import { BasicWidget } from "../components/ui/basic-widget";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
+import { toast } from "../hooks/use-toast";
+import { Toaster } from "../components/ui/toaster";
 import DesktopCalendar from "../components/ui/desktop-calendar";
 import AddShortcutModal from "../components/ui/add-shortcut-modal";
 import ShortcutCard from "../components/ui/shortcut-card";
@@ -1037,7 +1039,7 @@ export default function Dashboard() {
           });
         }
       } else {
-        console.log("❌ customWidgetsRef not found");
+        console.log("��� customWidgetsRef not found");
       }
     }, 150); // Slightly longer delay to ensure DOM is updated
   };
