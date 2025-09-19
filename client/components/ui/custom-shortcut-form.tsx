@@ -375,6 +375,53 @@ export default function CustomShortcutForm({
           </div>
         </div>
       </div>
+
+      {/* Go Back Button */}
+      <div
+        style={{
+          display: "flex",
+          padding: "12px",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "4px",
+          alignSelf: "stretch",
+          borderRadius: "8px",
+          border: "1px solid #D5D7DA",
+          background: "#FFF",
+          boxShadow:
+            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+          cursor: "pointer",
+          transition: "background-color 0.2s ease",
+        }}
+        onClick={onGoBack}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = "#F5F5F5";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = "#FFF";
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            padding: "0 2px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              color: "#414651",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "600",
+              lineHeight: "20px",
+            }}
+          >
+            Go Back
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
