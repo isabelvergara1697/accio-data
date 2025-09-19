@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from "./button";
+import FormInput from "./form-input";
 
 interface CustomShortcutFormProps {
   formData: {
@@ -63,89 +65,26 @@ export default function CustomShortcutForm({
         alignSelf: "stretch",
       }}
     >
-      {/* Shortcut Name */}
-      <div
+      {/* Shortcut Name Input */}
+      <FormInput
+        label="Shortcut Name"
+        type="text"
+        value={formData.name}
+        onChange={(e) => {
+          onFormDataChange({ ...formData, name: e.target.value });
+          if (formErrors.name) {
+            onFormErrorsChange({ ...formErrors, name: undefined });
+          }
+        }}
+        placeholder="e.g Company Report"
+        error={formErrors.name}
+        required={true}
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          gap: "6px",
           alignSelf: "stretch",
         }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "2px",
-          }}
-        >
-          <div
-            style={{
-              color: "#414651",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: "500",
-              lineHeight: "20px",
-            }}
-          >
-            Shortcut Name
-          </div>
-          <div
-            style={{
-              color: "#344698",
-              fontFamily: "Public Sans",
-              fontSize: "14px",
-              fontWeight: "500",
-              lineHeight: "20px",
-            }}
-          >
-            *
-          </div>
-        </div>
-        <input
-          type="text"
-          placeholder="e.g Company Report"
-          value={formData.name}
-          onChange={(e) => onFormDataChange({ ...formData, name: e.target.value })}
-          style={{
-            display: "flex",
-            padding: "8px 12px",
-            alignItems: "center",
-            alignSelf: "stretch",
-            borderRadius: "8px",
-            border: `1px solid ${formErrors.name ? '#F04438' : '#D5D7DA'}`,
-            background: "#FFF",
-            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-            fontFamily: "Public Sans",
-            fontSize: "16px",
-            fontWeight: "400",
-            lineHeight: "24px",
-            color: "#181D27",
-            outline: "none",
-          }}
-          onFocus={() => {
-            if (formErrors.name) {
-              onFormErrorsChange({ ...formErrors, name: undefined });
-            }
-          }}
-        />
-        {formErrors.name && (
-          <div
-            style={{
-              color: "#F04438",
-              fontFamily: "Public Sans",
-              fontSize: "12px",
-              fontWeight: "400",
-              lineHeight: "18px",
-            }}
-          >
-            {formErrors.name}
-          </div>
-        )}
-      </div>
+      />
 
-      {/* Website URL */}
+      {/* Website URL Input */}
       <div
         style={{
           display: "flex",
@@ -215,7 +154,12 @@ export default function CustomShortcutForm({
             type="text"
             placeholder="www.website.com"
             value={formData.url}
-            onChange={(e) => onFormDataChange({ ...formData, url: e.target.value })}
+            onChange={(e) => {
+              onFormDataChange({ ...formData, url: e.target.value });
+              if (formErrors.url) {
+                onFormErrorsChange({ ...formErrors, url: undefined });
+              }
+            }}
             style={{
               display: "flex",
               height: "44px",
@@ -231,11 +175,6 @@ export default function CustomShortcutForm({
               lineHeight: "24px",
               color: "#181D27",
               outline: "none",
-            }}
-            onFocus={() => {
-              if (formErrors.url) {
-                onFormErrorsChange({ ...formErrors, url: undefined });
-              }
             }}
           />
         </div>
@@ -300,6 +239,16 @@ export default function CustomShortcutForm({
                 cursor: "pointer",
                 transition: "all 0.2s ease",
               }}
+              onMouseEnter={(e) => {
+                if (formData.selectedIcon !== icon.id) {
+                  e.currentTarget.style.background = "#F5F5F5";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (formData.selectedIcon !== icon.id) {
+                  e.currentTarget.style.background = "#FFF";
+                }
+              }}
             >
               {icon.svg}
             </div>
@@ -308,8 +257,9 @@ export default function CustomShortcutForm({
       </div>
 
       {/* Create Button */}
-      <button
+      <Button
         onClick={onSubmit}
+        className="w-full"
         style={{
           display: "flex",
           padding: "12px",
@@ -322,8 +272,12 @@ export default function CustomShortcutForm({
           background: "#344698",
           boxShadow:
             "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+          color: "#FFF",
+          fontFamily: "Public Sans",
+          fontSize: "14px",
+          fontWeight: "600",
+          lineHeight: "20px",
           cursor: "pointer",
-          outline: "none",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = "#273572";
@@ -332,18 +286,8 @@ export default function CustomShortcutForm({
           e.currentTarget.style.background = "#344698";
         }}
       >
-        <div
-          style={{
-            color: "#FFF",
-            fontFamily: "Public Sans",
-            fontSize: "14px",
-            fontWeight: "600",
-            lineHeight: "20px",
-          }}
-        >
-          Create Custom Shortcut
-        </div>
-      </button>
+        Create Custom Shortcut
+      </Button>
     </div>
   );
 }
