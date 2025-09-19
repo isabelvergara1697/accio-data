@@ -414,7 +414,7 @@ export default function Dashboard() {
     orderNumber?: string;
   } | null>(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1200);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
