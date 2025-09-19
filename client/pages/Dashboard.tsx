@@ -359,6 +359,22 @@ export default function Dashboard() {
     setNotificationModalOpen(true);
   };
 
+  const handleOpenAddShortcutModal = () => {
+    setMobileMenuOpen(false);
+    setAddShortcutModalOpen(true);
+  };
+
+  const handleCloseAddShortcutModal = () => {
+    setAddShortcutModalOpen(false);
+  };
+
+  const handleShortcutSelect = (shortcutType: string, shortcutLabel: string) => {
+    console.log("Shortcut selected:", shortcutType, shortcutLabel);
+    // Handle shortcut selection logic here
+    // For now, just close the modal
+    handleCloseAddShortcutModal();
+  };
+
   const handleOpenDatePicker = () => {
     setMobileMenuOpen(false);
     setDatePickerOpen(true);
