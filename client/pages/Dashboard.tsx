@@ -475,10 +475,39 @@ export default function Dashboard() {
   };
 
   const handleShortcutSelect = (shortcutType: string, shortcutLabel: string) => {
-    console.log("Shortcut selected:", shortcutType, shortcutLabel);
-    // Handle shortcut selection logic here
-    // For now, just close the modal
+    // Check if we already have 4 shortcuts (max limit)
+    if (shortcuts.length >= 4) {
+      console.log("Maximum shortcuts reached (4)");
+      return;
+    }
+
+    // Check if shortcut already exists
+    if (shortcuts.some(shortcut => shortcut.type === shortcutType)) {
+      console.log("Shortcut already exists");
+      return;
+    }
+
+    // Create new shortcut
+    const newShortcut: Shortcut = {
+      id: `shortcut-${Date.now()}`,
+      label: shortcutLabel,
+      type: shortcutType,
+      icon: shortcutIcons[shortcutType as keyof typeof shortcutIcons] || shortcutIcons["online-ordering"],
+    };
+
+    // Add shortcut to state
+    setShortcuts(prev => [...prev, newShortcut]);
     handleCloseAddShortcutModal();
+  };
+
+  const handleRemoveShortcut = (shortcutId: string) => {
+    setShortcuts(prev => prev.filter(shortcut => shortcut.id !== shortcutId));
+  };
+
+  const handleShortcutClick = (shortcut: Shortcut) => {
+    console.log("Shortcut clicked:", shortcut.label, shortcut.type);
+    // Handle navigation based on shortcut type
+    // For now, just log
   };
 
   const handleOpenDatePicker = () => {
