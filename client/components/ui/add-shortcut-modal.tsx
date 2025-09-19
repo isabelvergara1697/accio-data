@@ -196,12 +196,29 @@ export default function AddShortcutModal({
   };
 
   const handleShortcutClick = (shortcut: ShortcutOption) => {
-    if (onShortcutSelect) {
-      onShortcutSelect(shortcut.id, shortcut.label);
+    const isSelected = selectedShortcuts.some(s => s.type === shortcut.id);
+
+    if (isSelected) {
+      // Remove shortcut
+      const selectedShortcut = selectedShortcuts.find(s => s.type === shortcut.id);
+      if (selectedShortcut && onShortcutRemove) {
+        onShortcutRemove(selectedShortcut.id);
+      }
+    } else {
+      // Add shortcut
+      if (selectedShortcuts.length >= 4) {
+        console.log("Maximum shortcuts reached (4)");
+        return;
+      }
+      if (onShortcutSelect) {
+        onShortcutSelect(shortcut.id, shortcut.label);
+      }
     }
-    console.log("Shortcut selected:", shortcut.label);
-    // For now, just close the modal
-    // onClose();
+    console.log(isSelected ? "Shortcut removed:" : "Shortcut added:", shortcut.label);
+  };
+
+  const isShortcutSelected = (shortcutId: string) => {
+    return selectedShortcuts.some(s => s.type === shortcutId);
   };
 
   const handleCustomShortcutClick = () => {
