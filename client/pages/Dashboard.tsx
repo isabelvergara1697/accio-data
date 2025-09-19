@@ -992,7 +992,7 @@ export default function Dashboard() {
           const targetScrollTop =
             scrollTop + (widgetRect.top - containerRect.top) - 100; // 100px padding from top
 
-          console.log("����� Scrolling to position:", targetScrollTop);
+          console.log("������ Scrolling to position:", targetScrollTop);
           mainContent.scrollTo({
             top: Math.max(0, targetScrollTop),
             behavior: "smooth",
@@ -2332,6 +2332,7 @@ export default function Dashboard() {
         onClose={handleCloseAddShortcutModal}
         onShortcutSelect={handleShortcutSelect}
         onShortcutRemove={handleRemoveShortcut}
+        onCustomShortcutCreate={handleCustomShortcutCreate}
         selectedShortcuts={shortcuts}
       />
 
