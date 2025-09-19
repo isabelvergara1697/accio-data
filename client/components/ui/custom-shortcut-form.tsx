@@ -14,6 +14,7 @@ interface CustomShortcutFormProps {
   onFormDataChange: (data: { name: string; url: string; selectedIcon: string }) => void;
   onFormErrorsChange: (errors: { name?: string; url?: string }) => void;
   onSubmit: () => void;
+  onGoBack: () => void;
 }
 
 export default function CustomShortcutForm({
