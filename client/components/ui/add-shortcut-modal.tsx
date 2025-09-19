@@ -346,6 +346,31 @@ export default function AddShortcutModal({
     }
   };
 
+  const handleDeleteClick = (shortcut: ShortcutOption) => {
+    setShortcutToDelete(shortcut);
+    setDeleteModalOpen(true);
+  };
+
+  const handleCloseDeleteModal = () => {
+    setDeleteModalOpen(false);
+    setShortcutToDelete(null);
+  };
+
+  const handleConfirmDelete = () => {
+    if (shortcutToDelete) {
+      // Handle permanent deletion of custom shortcut
+      console.log("Permanently delete custom shortcut:", shortcutToDelete.label);
+
+      // Here you would call a function to remove from savedCustomShortcuts
+      // This would need to be implemented based on your custom shortcut management
+
+      toast({
+        title: "Shortcut deleted",
+        description: `${shortcutToDelete.label} has been permanently deleted.`,
+      });
+    }
+  };
+
   const iconOptions = [
     { id: 'folder', name: 'Folder', svg: (
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
