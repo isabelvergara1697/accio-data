@@ -213,6 +213,7 @@ export default function Dashboard() {
   const [ssnOrderDrawerOpen, setSSNOrderDrawerOpen] = useState(false);
   const [customizeDrawerOpen, setCustomizeDrawerOpen] = useState(false);
   const [notificationModalOpen, setNotificationModalOpen] = useState(false);
+  const [addShortcutModalOpen, setAddShortcutModalOpen] = useState(false);
   const [datePickerOpen, setDatePickerOpen] = useState(false);
   const [selectedStartDate, setSelectedStartDate] = useState(
     new Date(2025, 0, 10),
