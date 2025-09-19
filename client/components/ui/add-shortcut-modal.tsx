@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import CustomShortcutForm from "./custom-shortcut-form";
+import DeleteShortcutModal from "./delete-shortcut-modal";
 import { toast } from "@/hooks/use-toast";
 
 export interface AddShortcutModalProps {
