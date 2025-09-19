@@ -907,5 +907,15 @@ export default function AddShortcutModal({
     </>
   );
 
-  return <>{modalContent && createPortal(modalContent, document.body)}</>;
+  return (
+    <>
+      {modalContent && createPortal(modalContent, document.body)}
+      <DeleteShortcutModal
+        isOpen={deleteModalOpen}
+        onClose={handleCloseDeleteModal}
+        onConfirmDelete={handleConfirmDelete}
+        shortcutName={shortcutToDelete?.label}
+      />
+    </>
+  );
 }
