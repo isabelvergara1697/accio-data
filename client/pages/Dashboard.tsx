@@ -329,6 +329,14 @@ export default function Dashboard() {
     { id: "assigned-tasks", title: "Assigned Tasks", position: 3 },
   ];
   const [showNotification, setShowNotification] = useState(false);
+
+  // Saved custom shortcuts (persist in-memory for this session)
+  const [savedCustomShortcuts, setSavedCustomShortcuts] = useState<{
+    id: string;
+    label: string;
+    iconId: string;
+    url: string;
+  }[]>([]);
   const [orderNotification, setOrderNotification] = useState<{
     show: boolean;
     title: string;
@@ -519,7 +527,7 @@ export default function Dashboard() {
     setAddShortcutModalOpen(false);
   };
 
-  const handleShortcutSelect = (shortcutType: string, shortcutLabel: string) => {
+  const handleShortcutSelect = (shortcutType: string, shortcutLabel: string, options?: { url?: string; iconId?: string }) => {
     // Check if we already have 4 shortcuts (max limit)
     if (shortcuts.length >= 4) {
       console.log("Maximum shortcuts reached (4)");
@@ -533,12 +541,23 @@ export default function Dashboard() {
     }
 
     // Create new shortcut
-    const newShortcut: Shortcut = {
-      id: `shortcut-${Date.now()}`,
-      label: shortcutLabel,
-      type: shortcutType,
-      icon: shortcutIcons[shortcutType as keyof typeof shortcutIcons] || shortcutIcons["online-ordering"],
-    };
+    let newShortcut: Shortcut;
+    if (shortcutType === "custom" && options?.url) {
+      newShortcut = {
+        id: `shortcut-custom-${Date.now()}`,
+        label: shortcutLabel,
+        type: "custom",
+        icon: customShortcutIcons[options.iconId || "link"],
+        url: options.url,
+      };
+    } else {
+      newShortcut = {
+        id: `shortcut-${Date.now()}`,
+        label: shortcutLabel,
+        type: shortcutType,
+        icon: shortcutIcons[shortcutType as keyof typeof shortcutIcons] || shortcutIcons["online-ordering"],
+      };
+    }
 
     // Add shortcut to state
     setShortcuts(prev => [...prev, newShortcut]);
@@ -546,20 +565,22 @@ export default function Dashboard() {
   };
 
   const handleCustomShortcutCreate = (name: string, url: string, icon: string) => {
-    if (shortcuts.length >= 4) {
-      console.log("Maximum shortcuts reached (4)");
-      return;
+    // Always save to saved list
+    const saved = { id: `${Date.now()}`, label: name, iconId: icon, url };
+    setSavedCustomShortcuts((prev) => [...prev, saved]);
+
+    // Add to dashboard only if under limit
+    if (shortcuts.length < 4) {
+      const newShortcut: Shortcut = {
+        id: `shortcut-custom-${Date.now()}`,
+        label: name,
+        type: "custom",
+        icon: customShortcutIcons[icon] || customShortcutIcons["link"],
+        url,
+      };
+      setShortcuts((prev) => [...prev, newShortcut]);
     }
 
-    const newShortcut: Shortcut = {
-      id: `shortcut-custom-${Date.now()}`,
-      label: name,
-      type: "custom",
-      icon: customShortcutIcons[icon] || customShortcutIcons["link"],
-      url,
-    };
-
-    setShortcuts((prev) => [...prev, newShortcut]);
     handleCloseAddShortcutModal();
   };
 
@@ -2334,6 +2355,7 @@ export default function Dashboard() {
         onShortcutRemove={handleRemoveShortcut}
         onCustomShortcutCreate={handleCustomShortcutCreate}
         selectedShortcuts={shortcuts}
+        savedCustomShortcuts={savedCustomShortcuts}
       />
 
       {/* Date Picker Calendar - Desktop uses DesktopCalendar, Mobile/Tablet uses DatePickerCalendar */}
