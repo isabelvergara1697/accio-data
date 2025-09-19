@@ -10,6 +10,7 @@ export interface AddShortcutModalProps {
   onShortcutSelect?: (shortcutType: string, shortcutLabel: string, options?: { url?: string; iconId?: string }) => void;
   onShortcutRemove?: (shortcutId: string) => void;
   onCustomShortcutCreate?: (name: string, url: string, icon: string) => void;
+  onSavedCustomShortcutDelete?: (shortcutId: string) => void;
   selectedShortcuts?: Array<{ id: string; type: string; label: string }>;
   savedCustomShortcuts?: Array<{ id: string; label: string; iconId: string; url: string }>;
 }
