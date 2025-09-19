@@ -2052,18 +2052,25 @@ export default function Dashboard() {
                       display: "grid",
                       gridTemplateColumns: isMobile
                         ? "1fr"
-                        : shortcuts.length === 1
-                          ? "1.5fr 1fr 1fr 1fr"
-                          : shortcuts.length === 2
-                            ? "1fr 1fr"
-                            : shortcuts.length === 3
-                              ? "repeat(3, 1fr)"
-                              : "repeat(4, 1fr)",
-                      gridTemplateRows: "auto",
+                        : !isDesktop // Tablet view
+                          ? "repeat(2, minmax(0, 1fr))"
+                          : shortcuts.length === 1
+                            ? "1.5fr 1fr 1fr 1fr"
+                            : shortcuts.length === 2
+                              ? "1fr 1fr"
+                              : shortcuts.length === 3
+                                ? "repeat(3, 1fr)"
+                                : "repeat(4, 1fr)",
+                      gridTemplateRows: isMobile
+                        ? "auto"
+                        : !isDesktop // Tablet view
+                          ? "repeat(2, minmax(0, 1fr))"
+                          : "auto",
                       gap: "16px",
                       alignSelf: "stretch",
                       width: "100%",
                       minWidth: 0,
+                      ...((!isMobile && !isDesktop) ? { height: "161px" } : {}),
                     }}
                   >
                     {shortcuts.map((shortcut) => (
