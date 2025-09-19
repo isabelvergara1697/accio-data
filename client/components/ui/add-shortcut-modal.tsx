@@ -235,7 +235,11 @@ export default function AddShortcutModal({
     } else {
       // Add shortcut
       if (selectedShortcuts.length >= 4) {
-        console.log("Maximum shortcuts reached (4)");
+        toast({
+          title: "You can only have 4 shortcuts",
+          description: "Remove one to add a new shortcut.",
+          variant: "destructive",
+        });
         return;
       }
       if (onShortcutSelect) {
