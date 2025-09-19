@@ -359,17 +359,20 @@ export default function AddShortcutModal({
   };
 
   const handleConfirmDelete = () => {
-    if (shortcutToDelete) {
-      // Handle permanent deletion of custom shortcut
-      console.log("Permanently delete custom shortcut:", shortcutToDelete.label);
+    if (shortcutToDelete && (shortcutToDelete.type === "custom" || shortcutToDelete.id?.startsWith("saved-"))) {
+      // Extract the actual ID from saved-{id} format
+      const actualId = shortcutToDelete.id?.startsWith("saved-")
+        ? shortcutToDelete.id.replace("saved-", "")
+        : shortcutToDelete.id;
 
-      // Here you would call a function to remove from savedCustomShortcuts
-      // This would need to be implemented based on your custom shortcut management
+      if (actualId && onSavedCustomShortcutDelete) {
+        onSavedCustomShortcutDelete(actualId);
 
-      toast({
-        title: "Shortcut deleted",
-        description: `${shortcutToDelete.label} has been permanently deleted.`,
-      });
+        toast({
+          title: "Shortcut deleted",
+          description: `${shortcutToDelete.label} has been permanently deleted.`,
+        });
+      }
     }
   };
 
