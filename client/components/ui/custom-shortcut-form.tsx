@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./button";
-import FormInput from "./form-input";
+import { Input } from "./input";
+import { Label } from "./label";
 
 interface CustomShortcutFormProps {
   formData: {
