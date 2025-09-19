@@ -15,6 +15,7 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Sidebar } from "../components/Sidebar";
 import DesktopCalendar from "../components/ui/desktop-calendar";
+import AddShortcutModal from "../components/ui/add-shortcut-modal";
 import { DragDropProvider, WidgetInfo } from "../contexts/DragDropContext";
 import {
   useResponsiveSVGEnhanced,
