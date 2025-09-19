@@ -465,31 +465,31 @@ export default function AddShortcutModal({
               </div>
             </div>
             {/* Close/Back button */}
-            {showCustomForm ? (
-              <button
-                onClick={handleBackToList}
-                style={{
-                  display: "flex",
-                  width: "40px",
-                  height: "40px",
-                  padding: "8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  border: "none",
-                  background: "transparent",
-                  cursor: "pointer",
-                  borderRadius: "8px",
-                  position: "relative",
-                  right: "12px",
-                  top: "12px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#F5F5F5";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                }}
-              >
+            <button
+              onClick={showCustomForm ? handleBackToList : onClose}
+              style={{
+                display: "flex",
+                width: "40px",
+                height: "40px",
+                padding: "8px",
+                justifyContent: "center",
+                alignItems: "center",
+                border: "none",
+                background: "transparent",
+                cursor: "pointer",
+                borderRadius: "8px",
+                position: "relative",
+                right: "12px",
+                top: "12px",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#F5F5F5";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+              }}
+            >
+              {showCustomForm ? (
                 <svg
                   width="24"
                   height="24"
@@ -505,32 +505,7 @@ export default function AddShortcutModal({
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button>
-            ) : (
-              <button
-                onClick={onClose}
-                style={{
-                  display: "flex",
-                  width: "40px",
-                  height: "40px",
-                  padding: "8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  border: "none",
-                  background: "transparent",
-                  cursor: "pointer",
-                  borderRadius: "8px",
-                  position: "relative",
-                  right: "12px",
-                  top: "12px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#F5F5F5";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                }}
-              >
+              ) : (
                 <svg
                   width="24"
                   height="24"
@@ -546,8 +521,8 @@ export default function AddShortcutModal({
                     strokeLinejoin="round"
                   />
                 </svg>
-              </button>
-            )}
+              )}
+            </button>
           </div>
 
           {/* Content */}
