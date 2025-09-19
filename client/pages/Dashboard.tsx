@@ -1867,8 +1867,9 @@ export default function Dashboard() {
                           : shortcuts.length === 2
                             ? "1fr 1fr"
                             : shortcuts.length === 3
-                              ? "1fr 1fr 1fr"
-                              : "1fr 1fr",
+                              ? "repeat(3, 1fr)"
+                              : "repeat(2, 1fr)",
+                      gridTemplateRows: shortcuts.length === 4 ? "repeat(2, 1fr)" : "auto",
                       gap: "16px",
                       alignSelf: "stretch",
                       width: "100%",
