@@ -2039,7 +2039,7 @@ export default function Dashboard() {
                       gridTemplateColumns: isMobile
                         ? "1fr"
                         : shortcuts.length === 1
-                          ? "1fr"
+                          ? "1.5fr 1fr 1fr 1fr"
                           : shortcuts.length === 2
                             ? "1fr 1fr"
                             : shortcuts.length === 3
