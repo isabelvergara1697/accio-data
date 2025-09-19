@@ -568,6 +568,11 @@ export default function Dashboard() {
   };
 
   const handleShortcutClick = (shortcut: Shortcut) => {
+    if (shortcut.type === "custom" && shortcut.url) {
+      window.open(shortcut.url, "_blank", "noopener,noreferrer");
+      return;
+    }
+
     const routeMap: Record<string, string> = {
       "online-ordering": "/online-ordering",
       "i9-order": "/i9-order",
