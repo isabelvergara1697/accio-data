@@ -602,6 +602,8 @@ export default function AddShortcutModal({
                 })),
               ].map((shortcut) => {
                 const isSelected = isShortcutSelected(shortcut);
+                const isLimitReached = selectedShortcuts.length >= 4;
+                const isDisabled = isLimitReached && !isSelected;
 
                 return (
                   <div
@@ -613,20 +615,21 @@ export default function AddShortcutModal({
                       gap: "12px",
                       alignSelf: "stretch",
                       borderRadius: "12px",
-                      border: "1px solid #E9EAEB",
+                      border: isDisabled ? "1px solid #D5D7DA" : "1px solid #E9EAEB",
                       background: isSelected ? "#F5F5F5" : "#FFF",
                       boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      cursor: "pointer",
+                      cursor: isDisabled ? "not-allowed" : "pointer",
+                      opacity: isDisabled ? 0.7 : 1,
                       transition: "background-color 0.2s ease",
                     }}
-                    onClick={() => handleShortcutClick(shortcut)}
+                    onClick={() => !isDisabled && handleShortcutClick(shortcut)}
                     onMouseEnter={(e) => {
-                      if (!isSelected) {
+                      if (!isSelected && !isDisabled) {
                         e.currentTarget.style.background = "#F5F5F5";
                       }
                     }}
                     onMouseLeave={(e) => {
-                      if (!isSelected) {
+                      if (!isSelected && !isDisabled) {
                         e.currentTarget.style.background = "#FFF";
                       }
                     }}
@@ -662,7 +665,7 @@ export default function AddShortcutModal({
                       <div
                         style={{
                           alignSelf: "stretch",
-                          color: "#414651",
+                          color: isDisabled ? "#717680" : "#414651",
                           fontFamily: "Public Sans",
                           fontSize: "16px",
                           fontStyle: "normal",
@@ -713,7 +716,7 @@ export default function AddShortcutModal({
                         >
                           <path
                             d="M8.00065 3.33398V12.6673M3.33398 8.00065H12.6673"
-                            stroke="#A4A7AE"
+                            stroke={isDisabled ? "#A4A7AE" : "#A4A7AE"}
                             strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
