@@ -1585,15 +1585,14 @@ export default function Dashboard() {
                 <div
                   style={{
                     display: "flex",
-                    height: "98px",
-                    padding: "16px 12px 12px 16px",
+                    padding: "12px 12px 12px 16px",
                     justifyContent: "flex-end",
                     alignItems: "flex-start",
                     gap: "12px",
                     flex: "1 0 0",
                     borderRadius: "12px",
-                    border: "1px dashed #D5D7DA",
-                    background: "#FFF",
+                    border: "1px dashed #34479A",
+                    background: "#ECEEF9",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
@@ -1608,8 +1607,8 @@ export default function Dashboard() {
                       alignItems: "center",
                       aspectRatio: "1/1",
                       borderRadius: "6px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
+                      border: "1px solid #34479A",
+                      background: "#ECEEF9",
                       boxShadow:
                         "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     }}
@@ -1625,8 +1624,8 @@ export default function Dashboard() {
                       }}
                     >
                       <path
-                        d="M8.47203 12.2423L7.52922 13.1851C6.22748 14.4868 4.11693 14.4868 2.81518 13.1851C1.51343 11.8834 1.51343 9.7728 2.81518 8.47106L3.75799 7.52825M12.2433 8.47106L13.1861 7.52825C14.4878 6.2265 14.4878 4.11595 13.1861 2.8142C11.8843 1.51245 9.77378 1.51245 8.47203 2.8142L7.52922 3.75701M5.66729 10.333L10.334 5.6663"
-                        stroke="#414651"
+                        d="M8.47203 12.2427L7.52922 13.1855C6.22748 14.4872 4.11693 14.4872 2.81518 13.1855C1.51343 11.8837 1.51343 9.77317 2.81518 8.47142L3.75799 7.52861M12.2433 8.47142L13.1861 7.52861C14.4878 6.22687 14.4878 4.11632 13.1861 2.81457C11.8843 1.51282 9.77378 1.51282 8.47203 2.81457L7.52922 3.75738M5.66729 10.3333L10.334 5.66667"
+                        stroke="#344698"
                         strokeWidth="1.33333"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -1644,7 +1643,7 @@ export default function Dashboard() {
                   >
                     <div
                       style={{
-                        color: "#181D27",
+                        color: "#273572",
                         fontFamily: "Public Sans",
                         fontSize: "18px",
                         fontStyle: "normal",
@@ -1664,7 +1663,7 @@ export default function Dashboard() {
                     >
                       <div
                         style={{
-                          color: "#535862",
+                          color: "#273572",
                           fontFamily: "Public Sans",
                           fontSize: "14px",
                           fontStyle: "normal",
@@ -1672,49 +1671,8 @@ export default function Dashboard() {
                           lineHeight: "20px",
                         }}
                       >
-                        Add up to 4 shortcuts to internal pages or external links you use daily.
+                        Add up to 4 shortcuts and personalize your experience
                       </div>
-                      <button
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          gap: "4px",
-                          background: "none",
-                          border: "none",
-                          cursor: "pointer",
-                          padding: "0",
-                        }}
-                        onClick={() => console.log("Add shortcut clicked")}
-                      >
-                        <div
-                          style={{
-                            color: "#273572",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: "600",
-                            lineHeight: "20px",
-                          }}
-                        >
-                          Add Shortcut
-                        </div>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M10.0003 4.16602V15.8327M4.16699 9.99935H15.8337"
-                            stroke="#34479A"
-                            strokeWidth="1.66667"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </button>
                     </div>
                   </div>
                 </div>
