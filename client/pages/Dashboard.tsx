@@ -545,6 +545,24 @@ export default function Dashboard() {
     handleCloseAddShortcutModal();
   };
 
+  const handleCustomShortcutCreate = (name: string, url: string, icon: string) => {
+    if (shortcuts.length >= 4) {
+      console.log("Maximum shortcuts reached (4)");
+      return;
+    }
+
+    const newShortcut: Shortcut = {
+      id: `shortcut-custom-${Date.now()}`,
+      label: name,
+      type: "custom",
+      icon: customShortcutIcons[icon] || customShortcutIcons["link"],
+      url,
+    };
+
+    setShortcuts((prev) => [...prev, newShortcut]);
+    handleCloseAddShortcutModal();
+  };
+
   const handleRemoveShortcut = (shortcutId: string) => {
     setShortcuts(prev => prev.filter(shortcut => shortcut.id !== shortcutId));
   };
