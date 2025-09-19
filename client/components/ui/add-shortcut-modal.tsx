@@ -201,6 +201,15 @@ export default function AddShortcutModal({
     };
   }, [isOpen]);
 
+  // Reset form when modal closes
+  useEffect(() => {
+    if (!isOpen) {
+      setShowCustomForm(false);
+      setFormData({ name: '', url: '', selectedIcon: 'folder' });
+      setFormErrors({});
+    }
+  }, [isOpen]);
+
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       onClose();
