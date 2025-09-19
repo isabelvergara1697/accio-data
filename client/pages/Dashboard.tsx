@@ -1968,6 +1968,7 @@ export default function Dashboard() {
                       gap: "16px",
                       alignSelf: "stretch",
                       width: "100%",
+                      minWidth: 0,
                     }}
                   >
                     {shortcuts.map((shortcut) => (
