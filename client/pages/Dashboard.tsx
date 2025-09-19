@@ -364,6 +364,20 @@ export default function Dashboard() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Add a sample shortcut for demonstration (can be removed later)
+  useEffect(() => {
+    // Only add if no shortcuts exist
+    if (shortcuts.length === 0) {
+      const sampleShortcut: Shortcut = {
+        id: "shortcut-sample-online-ordering",
+        label: "Online Ordering",
+        type: "online-ordering",
+        icon: shortcutIcons["online-ordering"],
+      };
+      setShortcuts([sampleShortcut]);
+    }
+  }, []); // Empty dependency array means this runs only once on mount
+
   // Listen for widget reorder events
   useEffect(() => {
     const handleWidgetReorderEvent = (event: CustomEvent) => {
