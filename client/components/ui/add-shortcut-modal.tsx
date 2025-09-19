@@ -728,9 +728,7 @@ export default function AddShortcutModal({
                           }}
                           onClick={(e) => {
                             e.stopPropagation();
-                            // Handle permanent deletion of custom shortcut
-                            // This would need to be implemented based on your custom shortcut management
-                            console.log("Delete custom shortcut permanently:", shortcut.label);
+                            handleDeleteClick(shortcut);
                           }}
                         >
                           <svg
