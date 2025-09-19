@@ -253,8 +253,14 @@ export default function AddShortcutModal({
     console.log(isSelected ? "Shortcut removed:" : "Shortcut added:", shortcut.label);
   };
 
-  const isShortcutSelected = (shortcutId: string) => {
-    return selectedShortcuts.some(s => s.type === shortcutId);
+  const isShortcutSelected = (shortcut: ShortcutOption) => {
+    const targetType = shortcut.type || shortcut.id;
+    if (targetType !== "custom") {
+      return selectedShortcuts.some((s) => s.type === targetType);
+    }
+    return selectedShortcuts.some(
+      (s) => s.type === "custom" && s.label === shortcut.label,
+    );
   };
 
   const getCustomIconById = (id: string): React.ReactNode => {
@@ -595,7 +601,7 @@ export default function AddShortcutModal({
                   icon: getCustomIconById(s.iconId),
                 })),
               ].map((shortcut) => {
-                const isSelected = isShortcutSelected(shortcut.id);
+                const isSelected = isShortcutSelected(shortcut);
 
                 return (
                   <div
