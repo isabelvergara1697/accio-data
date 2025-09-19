@@ -173,6 +173,10 @@ export default function AddShortcutModal({
   });
   const [formErrors, setFormErrors] = React.useState<{name?: string; url?: string}>({});
 
+  // Delete modal state
+  const [deleteModalOpen, setDeleteModalOpen] = React.useState(false);
+  const [shortcutToDelete, setShortcutToDelete] = React.useState<ShortcutOption | null>(null);
+
   useEffect(() => {
     const checkViewport = () => {
       setIsDesktop(window.innerWidth >= 1024);
