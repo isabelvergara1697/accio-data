@@ -5,6 +5,8 @@ export interface AddShortcutModalProps {
   isOpen: boolean;
   onClose: () => void;
   onShortcutSelect?: (shortcutType: string, shortcutLabel: string) => void;
+  onShortcutRemove?: (shortcutId: string) => void;
+  selectedShortcuts?: Array<{ id: string; type: string; label: string }>;
 }
 
 interface ShortcutOption {
