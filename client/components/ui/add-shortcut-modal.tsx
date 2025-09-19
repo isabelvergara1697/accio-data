@@ -454,47 +454,90 @@ export default function AddShortcutModal({
                 </div>
               </div>
             </div>
-            {/* Close button */}
-            <button
-              onClick={onClose}
-              style={{
-                display: "flex",
-                width: "40px",
-                height: "40px",
-                padding: "8px",
-                justifyContent: "center",
-                alignItems: "center",
-                border: "none",
-                background: "transparent",
-                cursor: "pointer",
-                borderRadius: "8px",
-                position: "relative",
-                right: "12px",
-                top: "12px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#F5F5F5";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-              }}
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            {/* Close/Back button */}
+            {showCustomForm ? (
+              <button
+                onClick={handleBackToList}
+                style={{
+                  display: "flex",
+                  width: "40px",
+                  height: "40px",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  borderRadius: "8px",
+                  position: "relative",
+                  right: "12px",
+                  top: "12px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#F5F5F5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                }}
               >
-                <path
-                  d="M18 6L6 18M6 6L18 18"
-                  stroke="#A4A7AE"
-                  strokeWidth="1.66667"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 12H5M5 12L12 19M5 12L12 5"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            ) : (
+              <button
+                onClick={onClose}
+                style={{
+                  display: "flex",
+                  width: "40px",
+                  height: "40px",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  borderRadius: "8px",
+                  position: "relative",
+                  right: "12px",
+                  top: "12px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#F5F5F5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                }}
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 6L6 18M6 6L18 18"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            )}
           </div>
 
           {/* Content */}
