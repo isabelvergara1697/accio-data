@@ -148,6 +148,8 @@ export default function AddShortcutModal({
   isOpen,
   onClose,
   onShortcutSelect,
+  onShortcutRemove,
+  selectedShortcuts = [],
 }: AddShortcutModalProps) {
   // Responsive detection
   const [isDesktop, setIsDesktop] = React.useState(true);
