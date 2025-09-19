@@ -479,7 +479,7 @@ export default function Dashboard() {
     setNotificationModalOpen(true);
   };
 
-  const handleOpenAddShortcutModal = () => {
+  const handleOpenShortcutModal = () => {
     setMobileMenuOpen(false);
     setAddShortcutModalOpen(true);
   };
@@ -1687,57 +1687,55 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
-                {shortcuts.length < 4 && (
-                  <div
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "8px",
+                  }}
+                >
+                  <button
                     style={{
                       display: "flex",
-                      alignItems: "flex-start",
-                      gap: "8px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "6px",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: "0",
                     }}
+                    onClick={handleOpenShortcutModal}
                   >
-                    <button
+                    <div
                       style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "6px",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        padding: "0",
+                        color: "#273572",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        fontStyle: "normal",
+                        fontWeight: "600",
+                        lineHeight: "24px",
                       }}
-                      onClick={handleOpenAddShortcutModal}
                     >
-                      <div
-                        style={{
-                          color: "#273572",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontStyle: "normal",
-                          fontWeight: "600",
-                          lineHeight: "24px",
-                        }}
-                      >
-                        Add Shortcut
-                      </div>
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 5V19M5 12H19"
-                          stroke="#34479A"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                )}
+                      Edit Shortcut
+                    </div>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 5V19M5 12H19"
+                        stroke="#34479A"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
               {/* Container */}
@@ -1767,7 +1765,7 @@ export default function Dashboard() {
                       cursor: "pointer",
                       transition: "background-color 0.2s ease",
                     }}
-                    onClick={handleOpenAddShortcutModal}
+                    onClick={handleOpenShortcutModal}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.background = "#D9DEF2";
                     }}
@@ -1868,8 +1866,8 @@ export default function Dashboard() {
                             ? "1fr 1fr"
                             : shortcuts.length === 3
                               ? "repeat(3, 1fr)"
-                              : "repeat(2, 1fr)",
-                      gridTemplateRows: shortcuts.length === 4 ? "repeat(2, 1fr)" : "auto",
+                              : "repeat(4, 1fr)",
+                      gridTemplateRows: "auto",
                       gap: "16px",
                       alignSelf: "stretch",
                       width: "100%",
