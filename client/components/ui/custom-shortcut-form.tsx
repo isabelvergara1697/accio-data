@@ -23,6 +23,7 @@ export default function CustomShortcutForm({
   onFormDataChange,
   onFormErrorsChange,
   onSubmit,
+  onGoBack,
 }: CustomShortcutFormProps) {
   const iconOptions = [
     { id: 'folder', name: 'Folder', svg: (
