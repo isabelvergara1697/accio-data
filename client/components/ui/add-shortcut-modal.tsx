@@ -156,6 +156,15 @@ export default function AddShortcutModal({
   // Responsive detection
   const [isDesktop, setIsDesktop] = React.useState(true);
 
+  // Form state management
+  const [showCustomForm, setShowCustomForm] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    name: '',
+    url: '',
+    selectedIcon: 'folder'
+  });
+  const [formErrors, setFormErrors] = React.useState<{name?: string; url?: string}>({});
+
   useEffect(() => {
     const checkViewport = () => {
       setIsDesktop(window.innerWidth >= 1024);
