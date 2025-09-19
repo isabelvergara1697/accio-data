@@ -150,6 +150,7 @@ export default function AddShortcutModal({
   onClose,
   onShortcutSelect,
   onShortcutRemove,
+  onCustomShortcutCreate,
   selectedShortcuts = [],
 }: AddShortcutModalProps) {
   // Responsive detection
