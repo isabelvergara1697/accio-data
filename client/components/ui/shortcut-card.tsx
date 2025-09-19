@@ -21,9 +21,9 @@ export default function ShortcutCard({
     <div
       style={{
         display: "flex",
-        flex: "1 0 0",
-        minWidth: "250px",
-        maxWidth: "532px",
+        flex: "1 1 auto",
+        width: "100%",
+        minWidth: 0,
         padding: "16px 12px",
         alignItems: "flex-start",
         gap: "12px",
@@ -34,6 +34,7 @@ export default function ShortcutCard({
         cursor: onClick ? "pointer" : "default",
         transition: "background-color 0.2s ease",
         position: "relative",
+        boxSizing: "border-box",
       }}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
