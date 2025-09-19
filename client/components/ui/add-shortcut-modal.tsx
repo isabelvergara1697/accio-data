@@ -448,7 +448,9 @@ export default function AddShortcutModal({
                     lineHeight: "20px",
                   }}
                 >
-                  Add up to 4 shortcuts to internal pages or external links you use daily.
+                  {showCustomForm
+                    ? "Add quick links to internal, external links, whether they are websites, document, videos."
+                    : "Add up to 4 shortcuts to internal pages or external links you use daily."}
                 </div>
               </div>
             </div>
