@@ -676,53 +676,99 @@ export default function AddShortcutModal({
                         {shortcut.label}
                       </div>
                     </div>
-                    {/* Add/Remove button */}
+                    {/* Action buttons */}
                     <div
                       style={{
                         display: "flex",
-                        width: "32px",
-                        height: "32px",
-                        padding: "8px",
-                        justifyContent: "center",
                         alignItems: "center",
-                        borderRadius: "6px",
+                        gap: "6px",
                       }}
                     >
-                      {isSelected ? (
-                        // Trash icon for removal
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                      {/* Custom shortcuts show trash icon for permanent deletion */}
+                      {(shortcut.type === "custom" || shortcut.id?.startsWith("saved-")) && (
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "32px",
+                            height: "32px",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "6px",
+                          }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            // Handle permanent deletion of custom shortcut
+                            // This would need to be implemented based on your custom shortcut management
+                            console.log("Delete custom shortcut permanently:", shortcut.label);
+                          }}
                         >
-                          <path
-                            d="M10.6667 4.00065V3.46732C10.6667 2.72058 10.6667 2.34721 10.5213 2.062C10.3935 1.81111 10.1895 1.60714 9.93865 1.47931C9.65344 1.33398 9.28007 1.33398 8.53333 1.33398H7.46667C6.71993 1.33398 6.34656 1.33398 6.06135 1.47931C5.81046 1.60714 5.60649 1.81111 5.47866 2.062C5.33333 2.34721 5.33333 2.72058 5.33333 3.46732V4.00065M2 4.00065H14M12.6667 4.00065V11.4673C12.6667 12.5874 12.6667 13.1475 12.4487 13.5753C12.2569 13.9516 11.951 14.2576 11.5746 14.4493C11.1468 14.6673 10.5868 14.6673 9.46667 14.6673H6.53333C5.41323 14.6673 4.85318 14.6673 4.42535 14.4493C4.04903 14.2576 3.74307 13.9516 3.55132 13.5753C3.33333 13.1475 3.33333 12.5874 3.33333 11.4673V4.00065"
-                            stroke="#A4A7AE"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      ) : (
-                        // Plus icon for addition
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M8.00065 3.33398V12.6673M3.33398 8.00065H12.6673"
-                            stroke={isDisabled ? "#A4A7AE" : "#A4A7AE"}
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10.6667 4.00065V3.46732C10.6667 2.72058 10.6667 2.34721 10.5213 2.062C10.3935 1.81111 10.1895 1.60714 9.93865 1.47931C9.65344 1.33398 9.28007 1.33398 8.53333 1.33398H7.46667C6.71993 1.33398 6.34656 1.33398 6.06135 1.47931C5.81046 1.60714 5.60649 1.81111 5.47866 2.062C5.33333 2.34721 5.33333 2.72058 5.33333 3.46732V4.00065M2 4.00065H14M12.6667 4.00065V11.4673C12.6667 12.5874 12.6667 13.1475 12.4487 13.5753C12.2569 13.9516 11.951 14.2576 11.5746 14.4493C11.1468 14.6673 10.5868 14.6673 9.46667 14.6673H6.53333C5.41323 14.6673 4.85318 14.6673 4.42535 14.4493C4.04903 14.2576 3.74307 13.9516 3.55132 13.5753C3.33333 13.1475 3.33333 12.5874 3.33333 11.4673V4.00065"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </div>
                       )}
+
+                      {/* Add/Remove from dashboard button */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "32px",
+                          height: "32px",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: "6px",
+                        }}
+                      >
+                        {isSelected ? (
+                          // Minus icon for removal from dashboard
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3.33398 8H12.6673"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        ) : (
+                          // Plus icon for addition to dashboard
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.00065 3.33398V12.6673M3.33398 8.00065H12.6673"
+                              stroke={isDisabled ? "#A4A7AE" : "#A4A7AE"}
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </div>
                     </div>
                   </div>
                 );
