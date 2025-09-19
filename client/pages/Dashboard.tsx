@@ -532,7 +532,11 @@ export default function Dashboard() {
   const handleShortcutSelect = (shortcutType: string, shortcutLabel: string, options?: { url?: string; iconId?: string }) => {
     // Check if we already have 4 shortcuts (max limit)
     if (shortcuts.length >= 4) {
-      console.log("Maximum shortcuts reached (4)");
+      toast({
+        title: "You can only have 4 shortcuts",
+        description: "Remove one to add a new shortcut.",
+        variant: "destructive",
+      });
       return;
     }
 
@@ -1039,7 +1043,7 @@ export default function Dashboard() {
           });
         }
       } else {
-        console.log("��� customWidgetsRef not found");
+        console.log("❌ customWidgetsRef not found");
       }
     }, 150); // Slightly longer delay to ensure DOM is updated
   };
