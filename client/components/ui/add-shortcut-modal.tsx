@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
+import CustomShortcutForm from "./custom-shortcut-form";
 
 export interface AddShortcutModalProps {
   isOpen: boolean;
