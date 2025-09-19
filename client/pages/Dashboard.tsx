@@ -130,6 +130,7 @@ interface Shortcut {
   label: string;
   type: string;
   icon: React.ReactNode;
+  url?: string;
 }
 
 // Shortcut icon definitions
