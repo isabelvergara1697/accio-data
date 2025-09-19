@@ -2266,6 +2266,8 @@ export default function Dashboard() {
         isOpen={addShortcutModalOpen}
         onClose={handleCloseAddShortcutModal}
         onShortcutSelect={handleShortcutSelect}
+        onShortcutRemove={handleRemoveShortcut}
+        selectedShortcuts={shortcuts}
       />
 
       {/* Date Picker Calendar - Desktop uses DesktopCalendar, Mobile/Tablet uses DatePickerCalendar */}
