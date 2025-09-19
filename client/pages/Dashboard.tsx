@@ -680,6 +680,20 @@ export default function Dashboard() {
     );
   };
 
+  const handleSavedCustomShortcutDelete = (shortcutId: string) => {
+    // Remove from saved custom shortcuts list
+    setSavedCustomShortcuts((prev) =>
+      prev.filter((shortcut) => shortcut.id !== shortcutId),
+    );
+
+    // Also remove from active shortcuts if it's currently displayed
+    setShortcuts((prev) =>
+      prev.filter((shortcut) =>
+        !(shortcut.type === "custom" && shortcut.id.includes(shortcutId))
+      ),
+    );
+  };
+
   const handleShortcutClick = (shortcut: Shortcut) => {
     if (shortcut.type === "custom" && shortcut.url) {
       window.open(shortcut.url, "_blank", "noopener,noreferrer");
