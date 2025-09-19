@@ -516,6 +516,7 @@ export default function AddShortcutModal({
               onFormDataChange={setFormData}
               onFormErrorsChange={setFormErrors}
               onSubmit={handleFormSubmit}
+              onGoBack={handleBackToList}
             />
           ) : (
             <div
