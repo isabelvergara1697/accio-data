@@ -21,13 +21,15 @@ export default function ShortcutCard({
     <div
       style={{
         display: "flex",
-        width: "532px",
+        flex: "1 0 0",
+        minWidth: "250px",
+        maxWidth: "532px",
         padding: "16px 12px",
         alignItems: "flex-start",
         gap: "12px",
         borderRadius: "12px",
         border: "1px solid #E9EAEB",
-        background: "#FFF",
+        background: isHovered ? "#F5F5F5" : "#FFF",
         boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
         cursor: onClick ? "pointer" : "default",
         transition: "background-color 0.2s ease",
@@ -36,22 +38,6 @@ export default function ShortcutCard({
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{
-        ...{
-          display: "flex",
-          width: "532px",
-          padding: "16px 12px",
-          alignItems: "flex-start",
-          gap: "12px",
-          borderRadius: "12px",
-          border: "1px solid #E9EAEB",
-          background: isHovered ? "#F5F5F5" : "#FFF",
-          boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-          cursor: onClick ? "pointer" : "default",
-          transition: "background-color 0.2s ease",
-          position: "relative",
-        },
-      }}
     >
       {/* Featured icon */}
       <div
