@@ -233,12 +233,43 @@ export default function AddShortcutModal({
   };
 
   const handleCustomShortcutClick = () => {
-    if (onShortcutSelect) {
-      onShortcutSelect("custom", "Create Custom Shortcut");
+    setShowCustomForm(true);
+  };
+
+  const handleBackToList = () => {
+    setShowCustomForm(false);
+    setFormData({ name: '', url: '', selectedIcon: 'folder' });
+    setFormErrors({});
+  };
+
+  const handleFormSubmit = () => {
+    const errors: {name?: string; url?: string} = {};
+
+    if (!formData.name.trim()) {
+      errors.name = 'Shortcut name is required';
     }
-    console.log("Custom shortcut selected");
-    // For now, just close the modal
-    // onClose();
+
+    if (!formData.url.trim()) {
+      errors.url = 'Website URL is required';
+    } else {
+      // Basic URL validation
+      const urlPattern = /^[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\/.*)?$/;
+      if (!urlPattern.test(formData.url.trim())) {
+        errors.url = 'Please enter a valid website URL';
+      }
+    }
+
+    setFormErrors(errors);
+
+    if (Object.keys(errors).length === 0) {
+      // Form is valid, create the custom shortcut
+      if (onCustomShortcutCreate) {
+        onCustomShortcutCreate(formData.name.trim(), `http://${formData.url.trim()}`, formData.selectedIcon);
+      }
+      // Reset form and close modal
+      handleBackToList();
+      onClose();
+    }
   };
 
   const modalContent = !isOpen ? null : (
