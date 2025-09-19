@@ -464,9 +464,54 @@ export default function AddShortcutModal({
                 </div>
               </div>
             </div>
-            {/* Close/Back button */}
+            {/* Back button (only in custom form) */}
+            {showCustomForm && (
+              <button
+                onClick={handleBackToList}
+                style={{
+                  display: "flex",
+                  width: "40px",
+                  height: "40px",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  borderRadius: "8px",
+                  position: "relative",
+                  right: "8px",
+                  top: "12px",
+                  marginRight: "4px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#F5F5F5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                }}
+                aria-label="Go back"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 12H5M5 12L12 19M5 12L12 5"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            )}
+            {/* Close button (always visible) */}
             <button
-              onClick={showCustomForm ? handleBackToList : onClose}
+              onClick={onClose}
               style={{
                 display: "flex",
                 width: "40px",
@@ -488,40 +533,23 @@ export default function AddShortcutModal({
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
               }}
+              aria-label="Close"
             >
-              {showCustomForm ? (
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M19 12H5M5 12L12 19M5 12L12 5"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18 6L6 18M6 6L18 18"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              )}
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 6L6 18M6 6L18 18"
+                  stroke="#A4A7AE"
+                  strokeWidth="1.66667"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
           </div>
 
