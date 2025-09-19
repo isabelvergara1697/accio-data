@@ -1556,7 +1556,7 @@ export default function Dashboard() {
                       cursor: "pointer",
                       padding: "0",
                     }}
-                    onClick={() => console.log("Add shortcut clicked")}
+                    onClick={handleOpenAddShortcutModal}
                   >
                     <div
                       style={{
