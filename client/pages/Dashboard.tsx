@@ -585,6 +585,11 @@ export default function Dashboard() {
         url,
       };
       setShortcuts((prev) => [...prev, newShortcut]);
+    } else {
+      toast({
+        title: "Shortcut saved",
+        description: "You already have 4 shortcuts pinned. The new shortcut was saved in your list but not added to the dashboard.",
+      });
     }
 
     handleCloseAddShortcutModal();
