@@ -1,7 +1,5 @@
 import React from "react";
 import { Button } from "./button";
-import { Input } from "./input";
-import { Label } from "./label";
 
 interface CustomShortcutFormProps {
   formData: {
@@ -67,24 +65,93 @@ export default function CustomShortcutForm({
       }}
     >
       {/* Shortcut Name Input */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", alignSelf: "stretch" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-          <Label className="text-[14px] leading-5 font-medium" htmlFor="shortcut-name" style={{ color: "#414651" }}>Shortcut Name</Label>
-          <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
-        </div>
-        <Input
-          id="shortcut-name"
-          value={formData.name}
-          onChange={(e) => {
-            onFormDataChange({ ...formData, name: e.target.value });
-            if (formErrors.name) onFormErrorsChange({ ...formErrors, name: undefined });
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "6px",
+          alignSelf: "stretch",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "2px",
           }}
-          placeholder="e.g Company Report"
-          className="h-11 rounded-lg text-[16px] leading-6"
-          style={{ boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", borderColor: formErrors.name ? "#F04438" : "#D5D7DA" }}
-        />
+        >
+          <div
+            style={{
+              color: "#414651",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "500",
+              lineHeight: "20px",
+            }}
+          >
+            Shortcut Name
+          </div>
+          <div
+            style={{
+              color: "#344698",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "500",
+              lineHeight: "20px",
+            }}
+          >
+            *
+          </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            padding: "8px 12px",
+            alignItems: "center",
+            gap: "8px",
+            alignSelf: "stretch",
+            borderRadius: "8px",
+            border: `1px solid ${formErrors.name ? '#F04438' : '#D5D7DA'}`,
+            background: "#FFF",
+            boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+          }}
+        >
+          <input
+            type="text"
+            placeholder="e.g Company Report"
+            value={formData.name}
+            onChange={(e) => {
+              onFormDataChange({ ...formData, name: e.target.value });
+              if (formErrors.name) {
+                onFormErrorsChange({ ...formErrors, name: undefined });
+              }
+            }}
+            style={{
+              flex: "1 0 0",
+              border: "none",
+              outline: "none",
+              background: "transparent",
+              color: formData.name ? "#181D27" : "#717680",
+              fontFamily: "Public Sans",
+              fontSize: "16px",
+              fontWeight: "400",
+              lineHeight: "24px",
+            }}
+          />
+        </div>
         {formErrors.name && (
-          <div style={{ color: "#F04438", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 400, lineHeight: "18px" }}>{formErrors.name}</div>
+          <div
+            style={{
+              color: "#F04438",
+              fontFamily: "Public Sans",
+              fontSize: "12px",
+              fontWeight: "400",
+              lineHeight: "18px",
+            }}
+          >
+            {formErrors.name}
+          </div>
         )}
       </div>
 
@@ -177,7 +244,7 @@ export default function CustomShortcutForm({
               fontSize: "16px",
               fontWeight: "400",
               lineHeight: "24px",
-              color: "#181D27",
+              color: formData.url ? "#181D27" : "#717680",
               outline: "none",
             }}
           />
@@ -261,9 +328,7 @@ export default function CustomShortcutForm({
       </div>
 
       {/* Create Button */}
-      <Button
-        onClick={onSubmit}
-        className="w-full"
+      <div
         style={{
           display: "flex",
           padding: "12px",
@@ -276,13 +341,10 @@ export default function CustomShortcutForm({
           background: "#344698",
           boxShadow:
             "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-          color: "#FFF",
-          fontFamily: "Public Sans",
-          fontSize: "14px",
-          fontWeight: "600",
-          lineHeight: "20px",
           cursor: "pointer",
+          transition: "background-color 0.2s ease",
         }}
+        onClick={onSubmit}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = "#273572";
         }}
@@ -290,8 +352,27 @@ export default function CustomShortcutForm({
           e.currentTarget.style.background = "#344698";
         }}
       >
-        Create Custom Shortcut
-      </Button>
+        <div
+          style={{
+            display: "flex",
+            padding: "0 2px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              color: "#FFF",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: "600",
+              lineHeight: "20px",
+            }}
+          >
+            Create Custom Shortcut
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
