@@ -67,23 +67,26 @@ export default function CustomShortcutForm({
       }}
     >
       {/* Shortcut Name Input */}
-      <FormInput
-        label="Shortcut Name"
-        type="text"
-        value={formData.name}
-        onChange={(e) => {
-          onFormDataChange({ ...formData, name: e.target.value });
-          if (formErrors.name) {
-            onFormErrorsChange({ ...formErrors, name: undefined });
-          }
-        }}
-        placeholder="e.g Company Report"
-        error={formErrors.name}
-        required={true}
-        style={{
-          alignSelf: "stretch",
-        }}
-      />
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "6px", alignSelf: "stretch" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
+          <Label className="text-[14px] leading-5 font-medium" htmlFor="shortcut-name" style={{ color: "#414651" }}>Shortcut Name</Label>
+          <span style={{ color: "#344698", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>*</span>
+        </div>
+        <Input
+          id="shortcut-name"
+          value={formData.name}
+          onChange={(e) => {
+            onFormDataChange({ ...formData, name: e.target.value });
+            if (formErrors.name) onFormErrorsChange({ ...formErrors, name: undefined });
+          }}
+          placeholder="e.g Company Report"
+          className="h-11 rounded-lg text-[16px] leading-6"
+          style={{ boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)", borderColor: formErrors.name ? "#F04438" : "#D5D7DA" }}
+        />
+        {formErrors.name && (
+          <div style={{ color: "#F04438", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 400, lineHeight: "18px" }}>{formErrors.name}</div>
+        )}
+      </div>
 
       {/* Website URL Input */}
       <div
