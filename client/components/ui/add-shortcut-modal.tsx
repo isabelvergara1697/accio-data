@@ -542,242 +542,252 @@ export default function AddShortcutModal({
           </div>
 
           {/* Content */}
-          <div
-            style={{
-              display: "flex",
-              padding: "0",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "24px",
-              flex: "1 0 0",
-              alignSelf: "stretch",
-            }}
-          >
-            {/* Shortcut Options */}
-            {shortcutOptions.map((shortcut) => {
-              const isSelected = isShortcutSelected(shortcut.id);
+          {showCustomForm ? (
+            <CustomShortcutForm
+              formData={formData}
+              formErrors={formErrors}
+              onFormDataChange={setFormData}
+              onFormErrorsChange={setFormErrors}
+              onSubmit={handleFormSubmit}
+            />
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                padding: "0",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "24px",
+                flex: "1 0 0",
+                alignSelf: "stretch",
+              }}
+            >
+              {/* Shortcut Options */}
+              {shortcutOptions.map((shortcut) => {
+                const isSelected = isShortcutSelected(shortcut.id);
 
-              return (
-                <div
-                  key={shortcut.id}
-                  style={{
-                    display: "flex",
-                    padding: "16px 12px",
-                    alignItems: "flex-start",
-                    gap: "12px",
-                    alignSelf: "stretch",
-                    borderRadius: "12px",
-                    border: "1px solid #E9EAEB",
-                    background: isSelected ? "#F5F5F5" : "#FFF",
-                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    cursor: "pointer",
-                    transition: "background-color 0.2s ease",
-                  }}
-                  onClick={() => handleShortcutClick(shortcut)}
-                  onMouseEnter={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.background = "#F5F5F5";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.background = "#FFF";
-                    }
-                  }}
-                >
-                  {/* Icon */}
+                return (
                   <div
+                    key={shortcut.id}
                     style={{
                       display: "flex",
-                      padding: "10px",
-                      alignItems: "center",
-                      gap: "10px",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow:
-                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                    }}
-                  >
-                    {shortcut.icon}
-                  </div>
-                  {/* Label */}
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
+                      padding: "16px 12px",
                       alignItems: "flex-start",
-                      gap: "2px",
-                      flex: "1 0 0",
+                      gap: "12px",
                       alignSelf: "stretch",
+                      borderRadius: "12px",
+                      border: "1px solid #E9EAEB",
+                      background: isSelected ? "#F5F5F5" : "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      cursor: "pointer",
+                      transition: "background-color 0.2s ease",
+                    }}
+                    onClick={() => handleShortcutClick(shortcut)}
+                    onMouseEnter={(e) => {
+                      if (!isSelected) {
+                        e.currentTarget.style.background = "#F5F5F5";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isSelected) {
+                        e.currentTarget.style.background = "#FFF";
+                      }
                     }}
                   >
+                    {/* Icon */}
                     <div
                       style={{
-                        alignSelf: "stretch",
-                        color: "#414651",
-                        fontFamily: "Public Sans",
-                        fontSize: "16px",
-                        fontStyle: "normal",
-                        fontWeight: "600",
-                        lineHeight: "24px",
+                        display: "flex",
+                        padding: "10px",
+                        alignItems: "center",
+                        gap: "10px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                       }}
                     >
-                      {shortcut.label}
+                      {shortcut.icon}
+                    </div>
+                    {/* Label */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "flex-start",
+                        gap: "2px",
+                        flex: "1 0 0",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <div
+                        style={{
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontStyle: "normal",
+                          fontWeight: "600",
+                          lineHeight: "24px",
+                        }}
+                      >
+                        {shortcut.label}
+                      </div>
+                    </div>
+                    {/* Add/Remove button */}
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "32px",
+                        height: "32px",
+                        padding: "8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius: "6px",
+                      }}
+                    >
+                      {isSelected ? (
+                        // Trash icon for removal
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10.6667 4.00065V3.46732C10.6667 2.72058 10.6667 2.34721 10.5213 2.062C10.3935 1.81111 10.1895 1.60714 9.93865 1.47931C9.65344 1.33398 9.28007 1.33398 8.53333 1.33398H7.46667C6.71993 1.33398 6.34656 1.33398 6.06135 1.47931C5.81046 1.60714 5.60649 1.81111 5.47866 2.062C5.33333 2.34721 5.33333 2.72058 5.33333 3.46732V4.00065M2 4.00065H14M12.6667 4.00065V11.4673C12.6667 12.5874 12.6667 13.1475 12.4487 13.5753C12.2569 13.9516 11.951 14.2576 11.5746 14.4493C11.1468 14.6673 10.5868 14.6673 9.46667 14.6673H6.53333C5.41323 14.6673 4.85318 14.6673 4.42535 14.4493C4.04903 14.2576 3.74307 13.9516 3.55132 13.5753C3.33333 13.1475 3.33333 12.5874 3.33333 11.4673V4.00065"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      ) : (
+                        // Plus icon for addition
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8.00065 3.33398V12.6673M3.33398 8.00065H12.6673"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
                     </div>
                   </div>
-                  {/* Add/Remove button */}
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "32px",
-                      height: "32px",
-                      padding: "8px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      borderRadius: "6px",
-                    }}
-                  >
-                    {isSelected ? (
-                      // Trash icon for removal
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M10.6667 4.00065V3.46732C10.6667 2.72058 10.6667 2.34721 10.5213 2.062C10.3935 1.81111 10.1895 1.60714 9.93865 1.47931C9.65344 1.33398 9.28007 1.33398 8.53333 1.33398H7.46667C6.71993 1.33398 6.34656 1.33398 6.06135 1.47931C5.81046 1.60714 5.60649 1.81111 5.47866 2.062C5.33333 2.34721 5.33333 2.72058 5.33333 3.46732V4.00065M2 4.00065H14M12.6667 4.00065V11.4673C12.6667 12.5874 12.6667 13.1475 12.4487 13.5753C12.2569 13.9516 11.951 14.2576 11.5746 14.4493C11.1468 14.6673 10.5868 14.6673 9.46667 14.6673H6.53333C5.41323 14.6673 4.85318 14.6673 4.42535 14.4493C4.04903 14.2576 3.74307 13.9516 3.55132 13.5753C3.33333 13.1475 3.33333 12.5874 3.33333 11.4673V4.00065"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    ) : (
-                      // Plus icon for addition
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8.00065 3.33398V12.6673M3.33398 8.00065H12.6673"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
 
-            {/* Divider */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                alignSelf: "stretch",
-              }}
-            >
-              <div
-                style={{
-                  height: "1px",
-                  flex: "1 0 0",
-                  background: "#E9EAEB",
-                }}
-              />
-            </div>
-
-            {/* Create Custom Shortcut */}
-            <div
-              style={{
-                display: "flex",
-                padding: "16px 12px",
-                alignItems: "flex-start",
-                gap: "12px",
-                alignSelf: "stretch",
-                borderRadius: "12px",
-                border: "1px dashed #34479A",
-                background: "#ECEEF9",
-                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                cursor: "pointer",
-                transition: "background-color 0.2s ease",
-              }}
-              onClick={handleCustomShortcutClick}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#D9DEF2";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#ECEEF9";
-              }}
-            >
-              {/* Icon */}
+              {/* Divider */}
               <div
                 style={{
                   display: "flex",
-                  padding: "10px",
                   alignItems: "center",
-                  gap: "10px",
-                  borderRadius: "8px",
-                  border: "1px solid #34479A",
-                  background: "#D9DEF2",
-                  boxShadow:
-                    "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                }}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 6.66667V13.3333M6.66667 10H13.3333M6.5 17.5H13.5C14.9001 17.5 15.6002 17.5 16.135 17.2275C16.6054 16.9878 16.9878 16.6054 17.2275 16.135C17.5 15.6002 17.5 14.9001 17.5 13.5V6.5C17.5 5.09987 17.5 4.3998 17.2275 3.86502C16.9878 3.39462 16.6054 3.01217 16.135 2.77248C15.6002 2.5 14.9001 2.5 13.5 2.5H6.5C5.09987 2.5 4.3998 2.5 3.86502 2.77248C3.39462 3.01217 3.01217 3.39462 2.77248 3.86502C2.5 4.3998 2.5 5.09987 2.5 6.5V13.5C2.5 14.9001 2.5 15.6002 2.77248 16.135C3.01217 16.6054 3.39462 16.9878 3.86502 17.2275C4.3998 17.5 5.09987 17.5 6.5 17.5Z"
-                    stroke="#34479A"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              {/* Label */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "flex-start",
-                  gap: "2px",
-                  flex: "1 0 0",
+                  gap: "8px",
                   alignSelf: "stretch",
                 }}
               >
                 <div
                   style={{
-                    alignSelf: "stretch",
-                    color: "#273572",
-                    fontFamily: "Public Sans",
-                    fontSize: "16px",
-                    fontStyle: "normal",
-                    fontWeight: "600",
-                    lineHeight: "24px",
+                    height: "1px",
+                    flex: "1 0 0",
+                    background: "#E9EAEB",
+                  }}
+                />
+              </div>
+
+              {/* Create Custom Shortcut */}
+              <div
+                style={{
+                  display: "flex",
+                  padding: "16px 12px",
+                  alignItems: "flex-start",
+                  gap: "12px",
+                  alignSelf: "stretch",
+                  borderRadius: "12px",
+                  border: "1px dashed #34479A",
+                  background: "#ECEEF9",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s ease",
+                }}
+                onClick={handleCustomShortcutClick}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#D9DEF2";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#ECEEF9";
+                }}
+              >
+                {/* Icon */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "10px",
+                    alignItems: "center",
+                    gap: "10px",
+                    borderRadius: "8px",
+                    border: "1px solid #34479A",
+                    background: "#D9DEF2",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  Create Custom Shortcut
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 6.66667V13.3333M6.66667 10H13.3333M6.5 17.5H13.5C14.9001 17.5 15.6002 17.5 16.135 17.2275C16.6054 16.9878 16.9878 16.6054 17.2275 16.135C17.5 15.6002 17.5 14.9001 17.5 13.5V6.5C17.5 5.09987 17.5 4.3998 17.2275 3.86502C16.9878 3.39462 16.6054 3.01217 16.135 2.77248C15.6002 2.5 14.9001 2.5 13.5 2.5H6.5C5.09987 2.5 4.3998 2.5 3.86502 2.77248C3.39462 3.01217 3.01217 3.39462 2.77248 3.86502C2.5 4.3998 2.5 5.09987 2.5 6.5V13.5C2.5 14.9001 2.5 15.6002 2.77248 16.135C3.01217 16.6054 3.39462 16.9878 3.86502 17.2275C4.3998 17.5 5.09987 17.5 6.5 17.5Z"
+                      stroke="#34479A"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                {/* Label */}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "flex-start",
+                    gap: "2px",
+                    flex: "1 0 0",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#273572",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: "600",
+                      lineHeight: "24px",
+                    }}
+                  >
+                    Create Custom Shortcut
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </>
