@@ -2080,6 +2080,13 @@ export default function Dashboard() {
         customWidgetCount={customWidgets.length}
       />
 
+      {/* Add Shortcut Modal */}
+      <AddShortcutModal
+        isOpen={addShortcutModalOpen}
+        onClose={handleCloseAddShortcutModal}
+        onShortcutSelect={handleShortcutSelect}
+      />
+
       {/* Date Picker Calendar - Desktop uses DesktopCalendar, Mobile/Tablet uses DatePickerCalendar */}
       {isDesktop ? (
         <DesktopCalendar
