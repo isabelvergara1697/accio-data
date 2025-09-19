@@ -159,6 +159,7 @@ export default function AddShortcutModal({
   onShortcutSelect,
   onShortcutRemove,
   onCustomShortcutCreate,
+  onSavedCustomShortcutDelete,
   selectedShortcuts = [],
   savedCustomShortcuts = [],
 }: AddShortcutModalProps) {
