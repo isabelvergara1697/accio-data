@@ -58,7 +58,7 @@ export default function CustomShortcutForm({
     <div
       style={{
         display: "flex",
-        padding: "0 24px",
+        padding: 0,
         flexDirection: "column",
         alignItems: "center",
         gap: "24px",
