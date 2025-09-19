@@ -435,7 +435,7 @@ export default function AddShortcutModal({
                     lineHeight: "28px",
                   }}
                 >
-                  Add Quick Shortcut
+                  {showCustomForm ? "Custom Shortcut" : "Add Quick Shortcut"}
                 </div>
                 <div
                   style={{
