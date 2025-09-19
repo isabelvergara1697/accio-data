@@ -2461,6 +2461,7 @@ export default function Dashboard() {
         onShortcutSelect={handleShortcutSelect}
         onShortcutRemove={handleRemoveShortcut}
         onCustomShortcutCreate={handleCustomShortcutCreate}
+        onSavedCustomShortcutDelete={handleSavedCustomShortcutDelete}
         selectedShortcuts={shortcuts}
         savedCustomShortcuts={savedCustomShortcuts}
       />
