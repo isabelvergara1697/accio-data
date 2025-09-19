@@ -1673,55 +1673,57 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "8px",
-                  }}
-                >
-                  <button
+                {shortcuts.length < 4 && (
+                  <div
                     style={{
                       display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "6px",
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      padding: "0",
+                      alignItems: "flex-start",
+                      gap: "8px",
                     }}
-                    onClick={handleOpenAddShortcutModal}
                   >
-                    <div
+                    <button
                       style={{
-                        color: "#273572",
-                        fontFamily: "Public Sans",
-                        fontSize: "16px",
-                        fontStyle: "normal",
-                        fontWeight: "600",
-                        lineHeight: "24px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "6px",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: "0",
                       }}
+                      onClick={handleOpenAddShortcutModal}
                     >
-                      Add Shortcut
-                    </div>
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5V19M5 12H19"
-                        stroke="#34479A"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                </div>
+                      <div
+                        style={{
+                          color: "#273572",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontStyle: "normal",
+                          fontWeight: "600",
+                          lineHeight: "24px",
+                        }}
+                      >
+                        Add Shortcut
+                      </div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 5V19M5 12H19"
+                          stroke="#34479A"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Container */}
@@ -1986,7 +1988,7 @@ export default function Dashboard() {
                 }}
                 ref={(el) => {
                   if (el) {
-                    console.log("���� Metric cards layout:", {
+                    console.log("📊 Metric cards layout:", {
                       isMobile,
                       isDesktop,
                       windowWidth,
