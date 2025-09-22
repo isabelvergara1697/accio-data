@@ -68,9 +68,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
     ],
     screening: [
       "Invites & Orders",
-      "Auto-Screening",
-      "Adverse Letters",
-      "Bulk Report Export",
+      "ID Verification Status",
+      "Adjudication Statuses",
+      "Adverse Action Letters",
     ],
     reporting: ["CSV Reports", "Turn Around Time Reports", "Billing Reports"],
     support: ["Document Library", "Resources"],
@@ -78,9 +78,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
   // Define which menu items are disabled (don't have content yet)
   const disabledMenuItems = [
-    "Auto-Screening",
-    "Adverse Letters",
-    "Bulk Report Export",
+    "ID Verification Status",
+    "Adjudication Statuses",
+    "Adverse Action Letters",
     "CSV Reports",
     "Turn Around Time Reports",
     "Billing Reports",
