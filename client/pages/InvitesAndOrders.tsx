@@ -9229,6 +9229,7 @@ const InvitesAndOrders: React.FC = () => {
                               >
                                 {/* Checkbox Cell */}
                                 <div
+                                  onClick={(e) => e.stopPropagation()}
                                   style={{
                                     display: "flex",
                                     width: "40px",
