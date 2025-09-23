@@ -1,5 +1,6 @@
 import React from "react";
 import { WidgetContainer } from "./widget-container";
+import { useNavigate } from "react-router-dom";
 
 interface StatusBadgeProps {
   status:
