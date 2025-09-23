@@ -19,6 +19,79 @@ const OrderDetails: React.FC = () => {
   const [showNotification] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
+  // Notes state (persisted per order)
+  type Note = {
+    id: string;
+    author: string;
+    avatarUrl: string;
+    content: string;
+    createdAt: string; // ISO string
+  };
+
+  const storageKey = `order-notes-${orderId ?? 'default'}`;
+  const [notes, setNotes] = useState<Note[]>([]);
+  const [noteText, setNoteText] = useState("");
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(storageKey);
+      if (saved) {
+        setNotes(JSON.parse(saved));
+      } else {
+        setNotes([
+          {
+            id: String(Date.now()),
+            author: "Phoenix Baker",
+            avatarUrl:
+              "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800",
+            content:
+              "This report has been flagged due to the lack of documents.",
+            createdAt: new Date().toISOString(),
+          },
+        ]);
+      }
+    } catch (e) {
+      console.warn("Failed to read notes from storage", e);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storageKey]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(notes));
+    } catch (e) {
+      console.warn("Failed to save notes to storage", e);
+    }
+  }, [storageKey, notes]);
+
+  const addNote = () => {
+    const text = noteText.trim();
+    if (!text) return;
+    const newNote: Note = {
+      id: String(Date.now()),
+      author: "Alexandra Fitzwilliam",
+      avatarUrl:
+        "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800",
+      content: text,
+      createdAt: new Date().toISOString(),
+    };
+    setNotes((prev) => [newNote, ...prev]);
+    setNoteText("");
+  };
+
+  const formatTimestamp = (iso: string) => {
+    try {
+      const d = new Date(iso);
+      return d.toLocaleString(undefined, {
+        weekday: "long",
+        hour: "numeric",
+        minute: "2-digit",
+      });
+    } catch {
+      return "";
+    }
+  };
+
   // Window resize handler
   useEffect(() => {
     const handleResize = () => {
