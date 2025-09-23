@@ -1897,6 +1897,14 @@ const OrderDetails: React.FC = () => {
                           {/* Textarea Input */}
                           <textarea
                             placeholder="Enter a description..."
+                            value={noteText}
+                            onChange={(e) => setNoteText(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter" && !e.shiftKey) {
+                                e.preventDefault();
+                                addNote();
+                              }
+                            }}
                             style={{
                               display: "flex",
                               padding: "12px 14px",
@@ -1924,6 +1932,8 @@ const OrderDetails: React.FC = () => {
 
                       {/* Send Button */}
                       <button
+                        onClick={addNote}
+                        disabled={!noteText.trim()}
                         style={{
                           display: "flex",
                           minHeight: "36px",
@@ -1937,7 +1947,8 @@ const OrderDetails: React.FC = () => {
                           boxShadow:
                             "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                           position: "relative",
-                          cursor: "pointer",
+                          cursor: noteText.trim() ? "pointer" : "not-allowed",
+                          opacity: noteText.trim() ? 1 : 0.6,
                         }}
                       >
                         <div
@@ -1966,131 +1977,118 @@ const OrderDetails: React.FC = () => {
                       </button>
                     </div>
 
-                    {/* Message */}
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: "12px",
-                        alignSelf: "stretch",
-                        position: "relative",
-                      }}
-                    >
-                      {/* Avatar */}
-                      <div
-                        style={{
-                          width: "40px",
-                          height: "40px",
-                          aspectRatio: "1/1",
-                          borderRadius: "9999px",
-                          border: "1px solid rgba(0, 0, 0, 0.10)",
-                          background:
-                            "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
-                          position: "relative",
-                        }}
-                      >
-                        {/* Online indicator */}
+                    {/* Messages list */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignSelf: "stretch" }}>
+                      {notes.map((n) => (
                         <div
-                          style={{
-                            position: "absolute",
-                            bottom: "2px",
-                            right: "2px",
-                            width: "8px",
-                            height: "8px",
-                            backgroundColor: "#17B26A",
-                            borderRadius: "50%",
-                            border: "2px solid #FFF",
-                          }}
-                        />
-                      </div>
-
-                      {/* Content */}
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "flex-start",
-                          gap: "6px",
-                          flex: "1 0 0",
-                          position: "relative",
-                        }}
-                      >
-                        {/* Name and time */}
-                        <div
+                          key={n.id}
                           style={{
                             display: "flex",
-                            alignItems: "center",
-                            gap: "8px",
-                            alignSelf: "stretch",
-                            position: "relative",
-                          }}
-                        >
-                          <div
-                            style={{
-                              display: "-webkit-box",
-                              WebkitBoxOrient: "vertical",
-                              WebkitLineClamp: 1,
-                              flex: "1 0 0",
-                              overflow: "hidden",
-                              color: "#414651",
-                              textOverflow: "ellipsis",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontStyle: "normal",
-                              fontWeight: 500,
-                              lineHeight: "20px",
-                              position: "relative",
-                            }}
-                          >
-                            Phoenix Baker
-                          </div>
-                          <div
-                            style={{
-                              color: "#535862",
-                              fontFamily: "Roboto Mono, monospace",
-                              fontSize: "12px",
-                              fontStyle: "normal",
-                              fontWeight: 400,
-                              lineHeight: "18px",
-                              position: "relative",
-                            }}
-                          >
-                            Friday 2:20pm
-                          </div>
-                        </div>
-
-                        {/* Message bubble */}
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "8px 12px",
-                            flexDirection: "column",
                             alignItems: "flex-start",
-                            gap: "6px",
+                            gap: "12px",
                             alignSelf: "stretch",
-                            borderRadius: "0px 8px 8px 8px",
-                            border: "1px solid #E9EAEB",
-                            background: "#FAFAFA",
                             position: "relative",
                           }}
                         >
                           <div
                             style={{
-                              alignSelf: "stretch",
-                              color: "#181D27",
-                              fontFamily: "Public Sans",
-                              fontSize: "16px",
-                              fontStyle: "normal",
-                              fontWeight: 400,
-                              lineHeight: "24px",
+                              width: "40px",
+                              height: "40px",
+                              aspectRatio: "1/1",
+                              borderRadius: "9999px",
+                              border: "1px solid rgba(0, 0, 0, 0.10)",
+                              background: `url(${n.avatarUrl}) lightgray 50% / cover no-repeat`,
+                              position: "relative",
+                              flexShrink: 0,
+                            }}
+                          />
+
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "6px",
+                              flex: "1 0 0",
                               position: "relative",
                             }}
                           >
-                            This report has been flagged due to the lack of
-                            documents.
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "-webkit-box",
+                                  WebkitBoxOrient: "vertical",
+                                  WebkitLineClamp: 1,
+                                  flex: "1 0 0",
+                                  overflow: "hidden",
+                                  color: "#414651",
+                                  textOverflow: "ellipsis",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                {n.author}
+                              </div>
+                              <div
+                                style={{
+                                  color: "#535862",
+                                  fontFamily: "Roboto Mono, monospace",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                {formatTimestamp(n.createdAt)}
+                              </div>
+                            </div>
+
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "8px 12px",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "6px",
+                                alignSelf: "stretch",
+                                borderRadius: "0px 8px 8px 8px",
+                                border: "1px solid #E9EAEB",
+                                background: "#FAFAFA",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                  whiteSpace: "pre-wrap",
+                                }}
+                              >
+                                {n.content}
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
