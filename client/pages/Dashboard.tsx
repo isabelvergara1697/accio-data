@@ -473,19 +473,8 @@ export default function Dashboard() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Add a sample shortcut for demonstration (can be removed later)
-  useEffect(() => {
-    // Only add if no shortcuts exist
-    if (shortcuts.length === 0) {
-      const sampleShortcut: Shortcut = {
-        id: "shortcut-sample-online-ordering",
-        label: "Online Ordering",
-        type: "online-ordering",
-        icon: shortcutIcons["online-ordering"],
-      };
-      setShortcuts([sampleShortcut]);
-    }
-  }, []); // Empty dependency array means this runs only once on mount
+  // Do not auto-seed shortcuts; allow empty state to be handled in Customize Drawer
+  // If needed, shortcuts can be restored from persistence here.
 
   // Listen for widget reorder events
   useEffect(() => {
@@ -1794,6 +1783,7 @@ export default function Dashboard() {
             </div>
 
             {/* Shortcuts Section */}
+            {shortcuts.length > 0 && (
             <div
               style={{
                 display: "flex",
@@ -2086,6 +2076,7 @@ export default function Dashboard() {
                 )}
               </div>
             </div>
+            )}
 
             {/* Quick Overview Section */}
             <div
@@ -2458,6 +2449,8 @@ export default function Dashboard() {
         isOpen={customizeDrawerOpen}
         onClose={() => setCustomizeDrawerOpen(false)}
         onAddWidget={handleAddCustomWidget}
+        shortcutsCount={shortcuts.length}
+        onOpenShortcuts={handleOpenShortcutModal}
         customWidgetCount={customWidgets.length}
       />
 
