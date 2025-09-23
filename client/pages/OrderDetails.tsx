@@ -2324,6 +2324,537 @@ const OrderDetails: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Cycle Time Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    width: "320px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* Section Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 16px 0 16px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                Cycle Time
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "12px 16px 16px 16px",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                      borderRadius: "0px 0px 12px 12px",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Subject Cycle Time */}
+                      <div
+                        style={{
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "24px",
+                          position: "relative",
+                        }}
+                      >
+                        Subject Cycle Time
+                      </div>
+
+                      {/* Progress Bar */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            height: "8px",
+                            alignSelf: "stretch",
+                            borderRadius: "8px",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: "100%",
+                              height: "8px",
+                              borderRadius: "9999px",
+                              background: "#D5D7DA",
+                              position: "absolute",
+                              left: "0px",
+                              top: "0px",
+                            }}
+                          />
+                          <div
+                            style={{
+                              width: "90%",
+                              height: "8px",
+                              borderRadius: "9999px",
+                              background: "#344698",
+                              position: "absolute",
+                              left: "0px",
+                              top: "0px",
+                            }}
+                          />
+                        </div>
+                        <div
+                          style={{
+                            color: "#414651",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          Business Days: 75.65
+                        </div>
+                      </div>
+
+                      {/* Operating Hours */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-end",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            position: "relative",
+                          }}
+                        >
+                          Operating Hours
+                        </div>
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            position: "relative",
+                          }}
+                        >
+                          M-D 08:00-17:00
+                        </div>
+                      </div>
+
+                      {/* Holidays */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-end",
+                          gap: "8px",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            position: "relative",
+                          }}
+                        >
+                          Holidays
+                        </div>
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            position: "relative",
+                          }}
+                        >
+                          None
+                        </div>
+                      </div>
+
+                      {/* Disclaimer */}
+                      <div
+                        style={{
+                          alignSelf: "stretch",
+                          color: "#717680",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          position: "relative",
+                        }}
+                      >
+                        At the time the chart was generated, the following settings were in effect
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <svg
+                      style={{
+                        display: "flex",
+                        padding: "4px 0",
+                        alignItems: "center",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                      width="288"
+                      height="9"
+                      viewBox="0 0 288 9"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M288 5H0V4H288V5Z"
+                        fill="#E9EAEB"
+                      />
+                    </svg>
+
+                    {/* TAT Breakdown */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "24px",
+                          position: "relative",
+                        }}
+                      >
+                        TAT Breakdown
+                      </div>
+
+                      {/* Pie Chart with Legend */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          position: "relative",
+                        }}
+                      >
+                        {/* Pie Chart */}
+                        <svg
+                          style={{
+                            width: "120px",
+                            height: "120px",
+                            position: "relative",
+                          }}
+                          width="120"
+                          height="120"
+                          viewBox="0 0 120 120"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle cx="60" cy="60" r="60" fill="#34479A" />
+                          <path
+                            d="M60 0C72.6708 1.51097e-07 85.0163 4.0113 95.2671 11.459C105.518 18.9067 113.148 29.4084 117.063 41.459L60 60L60 0Z"
+                            fill="#3CCB7F"
+                          />
+                          <path
+                            d="M40.9617 3.10057C47.2324 1.00245 53.8067 -0.0447037 60.4189 0.00146239L60 60L40.9617 3.10057Z"
+                            fill="#A4A7AE"
+                          />
+                        </svg>
+
+                        {/* Legend */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            position: "relative",
+                          }}
+                        >
+                          {/* In Progress */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                display: "flex",
+                                paddingTop: "6px",
+                                alignItems: "flex-start",
+                                gap: "10px",
+                                position: "relative",
+                              }}
+                              width="8"
+                              height="14"
+                              viewBox="0 0 8 14"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle cx="4" cy="10" r="4" fill="#344698" />
+                              <circle
+                                cx="4"
+                                cy="10"
+                                r="3.75"
+                                stroke="black"
+                                strokeOpacity="0.1"
+                                strokeWidth="0.5"
+                              />
+                              <circle cx="4" cy="10" r="4" fill="#34479A" />
+                            </svg>
+                            <div
+                              style={{
+                                color: "#535862",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              In Progress
+                            </div>
+                          </div>
+
+                          {/* Waiting on Applicant */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                display: "flex",
+                                paddingTop: "6px",
+                                alignItems: "flex-start",
+                                gap: "10px",
+                                position: "relative",
+                              }}
+                              width="8"
+                              height="14"
+                              viewBox="0 0 8 14"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle cx="4" cy="10" r="4" fill="#3CCB7F" />
+                            </svg>
+                            <div
+                              style={{
+                                color: "#535862",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              Waiting on Applicant
+                            </div>
+                          </div>
+
+                          {/* Waiting on HR */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <svg
+                              style={{
+                                display: "flex",
+                                paddingTop: "6px",
+                                alignItems: "flex-start",
+                                gap: "10px",
+                                position: "relative",
+                              }}
+                              width="8"
+                              height="14"
+                              viewBox="0 0 8 14"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle cx="4" cy="10" r="4" fill="#A4A7AE" />
+                            </svg>
+                            <div
+                              style={{
+                                color: "#535862",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              Waiting on HR
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Footer Disclaimer */}
+                      <div
+                        style={{
+                          alignSelf: "stretch",
+                          color: "#717680",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 400,
+                          lineHeight: "20px",
+                          position: "relative",
+                        }}
+                      >
+                        The overall TAT ofr this search may have been affected by processes that are hidden from this repport
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Right Column - Report Summary */}
