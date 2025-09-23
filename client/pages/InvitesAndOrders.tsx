@@ -731,6 +731,7 @@ const TruncatedText: React.FC<{
 
 const InvitesAndOrders: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [userMenuHovered, setUserMenuHovered] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
