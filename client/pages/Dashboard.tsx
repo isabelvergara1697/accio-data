@@ -677,8 +677,9 @@ export default function Dashboard() {
 
     // Also remove from active shortcuts if it's currently displayed
     setShortcuts((prev) =>
-      prev.filter((shortcut) =>
-        !(shortcut.type === "custom" && shortcut.id.includes(shortcutId))
+      prev.filter(
+        (shortcut) =>
+          !(shortcut.type === "custom" && shortcut.id.includes(shortcutId)),
       ),
     );
   };
@@ -1784,298 +1785,299 @@ export default function Dashboard() {
 
             {/* Shortcuts Section */}
             {shortcuts.length > 0 && (
-            <div
-              style={{
-                display: "flex",
-                padding: isMobile ? "0px 16px" : "0px 32px",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "16px",
-                alignSelf: "stretch",
-              }}
-            >
-              {/* Section label */}
               <div
                 style={{
                   display: "flex",
+                  padding: isMobile ? "0px 16px" : "0px 32px",
+                  flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "12px",
-                  alignSelf: "stretch",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    flex: "1 0 0",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "4px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        color: "#414651",
-                        fontFamily: "Public Sans",
-                        fontSize: "16px",
-                        fontStyle: "normal",
-                        fontWeight: "600",
-                        lineHeight: "24px",
-                      }}
-                    >
-                      Shortcuts
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "16px",
-                        height: "16px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      <svg
-                        width={helpIconSize.width}
-                        height={helpIconSize.height}
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style={{
-                          ...helpIconSize.style,
-                          flexShrink: 0,
-                        }}
-                        className={helpIconSize.className}
-                      >
-                        <g clipPath="url(#clip0_help_circle_shortcuts)">
-                          <path
-                            d="M6.06016 6.00016C6.2169 5.55461 6.52626 5.1789 6.93347 4.93958C7.34067 4.70027 7.81943 4.61279 8.28495 4.69264C8.75047 4.77249 9.17271 5.01451 9.47688 5.37585C9.78106 5.73718 9.94753 6.19451 9.94683 6.66683C9.94683 8.00016 7.94683 8.66683 7.94683 8.66683M8.00016 11.3335H8.00683M14.6668 8.00016C14.6668 11.6821 11.6821 14.6668 8.00016 14.6668C4.31826 14.6668 1.3335 11.6821 1.3335 8.00016C1.3335 4.31826 4.31826 1.3335 8.00016 1.3335C11.6821 1.3335 14.6668 4.31826 14.6668 8.00016Z"
-                            stroke="#A4A7AE"
-                            strokeWidth="1.33333"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_help_circle_shortcuts">
-                            <rect width="16" height="16" fill="white" />
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "8px",
-                  }}
-                >
-                  <button
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "6px",
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      padding: "0",
-                    }}
-                    onClick={handleOpenShortcutModal}
-                  >
-                    <div
-                      style={{
-                        color: "#273572",
-                        fontFamily: "Public Sans",
-                        fontSize: "16px",
-                        fontStyle: "normal",
-                        fontWeight: "600",
-                        lineHeight: "24px",
-                      }}
-                    >
-                      Edit Shortcut
-                    </div>
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12 5V19M5 12H19"
-                        stroke="#34479A"
-                        strokeWidth="1.66667"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
-              {/* Container */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
                   gap: "16px",
                   alignSelf: "stretch",
-                  ...(shortcuts.length === 0 ? { height: "98px" } : {}),
                 }}
               >
-                {shortcuts.length === 0 ? (
-                  /* Empty State */
+                {/* Section label */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "12px",
+                    alignSelf: "stretch",
+                  }}
+                >
                   <div
                     style={{
                       display: "flex",
-                      padding: "12px 12px 12px 16px",
-                      justifyContent: "flex-end",
+                      flexDirection: "column",
                       alignItems: "flex-start",
-                      gap: "12px",
                       flex: "1 0 0",
-                      borderRadius: "12px",
-                      border: "1px dashed #34479A",
-                      background: "#ECEEF9",
-                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      cursor: "pointer",
-                      transition: "background-color 0.2s ease",
-                    }}
-                    onClick={handleOpenShortcutModal}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "#D9DEF2";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "#ECEEF9";
                     }}
                   >
-                    {/* Featured icon */}
                     <div
                       style={{
                         display: "flex",
-                        width: "32px",
-                        height: "32px",
-                        padding: "8px",
-                        justifyContent: "center",
                         alignItems: "center",
-                        aspectRatio: "1/1",
-                        borderRadius: "6px",
-                        border: "1px solid #34479A",
-                        background: "#ECEEF9",
-                        boxShadow:
-                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        gap: "4px",
                       }}
                     >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <div
                         style={{
-                          flexShrink: 0,
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontStyle: "normal",
+                          fontWeight: "600",
+                          lineHeight: "24px",
                         }}
                       >
-                        <path
-                          d="M8.47203 12.2427L7.52922 13.1855C6.22748 14.4872 4.11693 14.4872 2.81518 13.1855C1.51343 11.8837 1.51343 9.77317 2.81518 8.47142L3.75799 7.52861M12.2433 8.47142L13.1861 7.52861C14.4878 6.22687 14.4878 4.11632 13.1861 2.81457C11.8843 1.51282 9.77378 1.51282 8.47203 2.81457L7.52922 3.75738M5.66729 10.3333L10.334 5.66667"
-                          stroke="#344698"
-                          strokeWidth="1.33333"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                        Shortcuts
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "16px",
+                          height: "16px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <svg
+                          width={helpIconSize.width}
+                          height={helpIconSize.height}
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          style={{
+                            ...helpIconSize.style,
+                            flexShrink: 0,
+                          }}
+                          className={helpIconSize.className}
+                        >
+                          <g clipPath="url(#clip0_help_circle_shortcuts)">
+                            <path
+                              d="M6.06016 6.00016C6.2169 5.55461 6.52626 5.1789 6.93347 4.93958C7.34067 4.70027 7.81943 4.61279 8.28495 4.69264C8.75047 4.77249 9.17271 5.01451 9.47688 5.37585C9.78106 5.73718 9.94753 6.19451 9.94683 6.66683C9.94683 8.00016 7.94683 8.66683 7.94683 8.66683M8.00016 11.3335H8.00683M14.6668 8.00016C14.6668 11.6821 11.6821 14.6668 8.00016 14.6668C4.31826 14.6668 1.3335 11.6821 1.3335 8.00016C1.3335 4.31826 4.31826 1.3335 8.00016 1.3335C11.6821 1.3335 14.6668 4.31826 14.6668 8.00016Z"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.33333"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_help_circle_shortcuts">
+                              <rect width="16" height="16" fill="white" />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
                     </div>
-                    <div
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                    }}
+                  >
+                    <button
                       style={{
                         display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        gap: "4px",
-                        flex: "1 0 0",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "6px",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        padding: "0",
                       }}
+                      onClick={handleOpenShortcutModal}
                     >
                       <div
                         style={{
                           color: "#273572",
                           fontFamily: "Public Sans",
-                          fontSize: "18px",
+                          fontSize: "16px",
                           fontStyle: "normal",
-                          fontWeight: "500",
-                          lineHeight: "28px",
+                          fontWeight: "600",
+                          lineHeight: "24px",
                         }}
                       >
-                        Get there faster
+                        Edit Shortcut
+                      </div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 5V19M5 12H19"
+                          stroke="#34479A"
+                          strokeWidth="1.66667"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Container */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "16px",
+                    alignSelf: "stretch",
+                    ...(shortcuts.length === 0 ? { height: "98px" } : {}),
+                  }}
+                >
+                  {shortcuts.length === 0 ? (
+                    /* Empty State */
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "12px 12px 12px 16px",
+                        justifyContent: "flex-end",
+                        alignItems: "flex-start",
+                        gap: "12px",
+                        flex: "1 0 0",
+                        borderRadius: "12px",
+                        border: "1px dashed #34479A",
+                        background: "#ECEEF9",
+                        boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
+                        transition: "background-color 0.2s ease",
+                      }}
+                      onClick={handleOpenShortcutModal}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#D9DEF2";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "#ECEEF9";
+                      }}
+                    >
+                      {/* Featured icon */}
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "32px",
+                          height: "32px",
+                          padding: "8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          aspectRatio: "1/1",
+                          borderRadius: "6px",
+                          border: "1px solid #34479A",
+                          background: "#ECEEF9",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        }}
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          style={{
+                            flexShrink: 0,
+                          }}
+                        >
+                          <path
+                            d="M8.47203 12.2427L7.52922 13.1855C6.22748 14.4872 4.11693 14.4872 2.81518 13.1855C1.51343 11.8837 1.51343 9.77317 2.81518 8.47142L3.75799 7.52861M12.2433 8.47142L13.1861 7.52861C14.4878 6.22687 14.4878 4.11632 13.1861 2.81457C11.8843 1.51282 9.77378 1.51282 8.47203 2.81457L7.52922 3.75738M5.66729 10.3333L10.334 5.66667"
+                            stroke="#344698"
+                            strokeWidth="1.33333"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
                       </div>
                       <div
                         style={{
                           display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
                         }}
                       >
                         <div
                           style={{
                             color: "#273572",
                             fontFamily: "Public Sans",
-                            fontSize: "14px",
+                            fontSize: "18px",
                             fontStyle: "normal",
                             fontWeight: "500",
-                            lineHeight: "20px",
+                            lineHeight: "28px",
                           }}
                         >
-                          Add up to 4 shortcuts and personalize your experience
+                          Get there faster
+                        </div>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#273572",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: "500",
+                              lineHeight: "20px",
+                            }}
+                          >
+                            Add up to 4 shortcuts and personalize your
+                            experience
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ) : (
-                  /* Shortcuts Grid */
-                  <div
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: isMobile
-                        ? "1fr"
-                        : !isDesktop // Tablet view
-                          ? "repeat(2, minmax(0, 1fr))"
-                          : shortcuts.length === 1
-                            ? "1.5fr 1fr 1fr 1fr"
-                            : shortcuts.length === 2
-                              ? "1fr 1fr"
-                              : shortcuts.length === 3
-                                ? "repeat(3, 1fr)"
-                                : "repeat(4, 1fr)",
-                      gridTemplateRows: isMobile
-                        ? "auto"
-                        : !isDesktop // Tablet view
-                          ? "repeat(2, minmax(0, 1fr))"
-                          : "auto",
-                      gap: "16px",
-                      alignSelf: "stretch",
-                      width: "100%",
-                      minWidth: 0,
-                      ...((!isMobile && !isDesktop) ? { height: "161px" } : {}),
-                    }}
-                  >
-                    {shortcuts.map((shortcut) => (
-                      <ShortcutCard
-                        key={shortcut.id}
-                        id={shortcut.id}
-                        label={shortcut.label}
-                        icon={shortcut.icon}
-                        onClick={() => handleShortcutClick(shortcut)}
-                      />
-                    ))}
-                  </div>
-                )}
+                  ) : (
+                    /* Shortcuts Grid */
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: isMobile
+                          ? "1fr"
+                          : !isDesktop // Tablet view
+                            ? "repeat(2, minmax(0, 1fr))"
+                            : shortcuts.length === 1
+                              ? "1.5fr 1fr 1fr 1fr"
+                              : shortcuts.length === 2
+                                ? "1fr 1fr"
+                                : shortcuts.length === 3
+                                  ? "repeat(3, 1fr)"
+                                  : "repeat(4, 1fr)",
+                        gridTemplateRows: isMobile
+                          ? "auto"
+                          : !isDesktop // Tablet view
+                            ? "repeat(2, minmax(0, 1fr))"
+                            : "auto",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        width: "100%",
+                        minWidth: 0,
+                        ...(!isMobile && !isDesktop ? { height: "161px" } : {}),
+                      }}
+                    >
+                      {shortcuts.map((shortcut) => (
+                        <ShortcutCard
+                          key={shortcut.id}
+                          id={shortcut.id}
+                          label={shortcut.label}
+                          icon={shortcut.icon}
+                          onClick={() => handleShortcutClick(shortcut)}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
             )}
 
             {/* Quick Overview Section */}

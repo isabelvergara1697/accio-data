@@ -9,7 +9,9 @@ const OrderDetails: React.FC = () => {
   const navigate = useNavigate();
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [isTablet, setIsTablet] = useState(window.innerWidth >= 768 && window.innerWidth < 1024);
+  const [isTablet, setIsTablet] = useState(
+    window.innerWidth >= 768 && window.innerWidth < 1024,
+  );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showMobileUserMenu, setShowMobileUserMenu] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -124,7 +126,8 @@ const OrderDetails: React.FC = () => {
             flex: "1 1 auto",
             alignSelf: "stretch",
             borderRadius: "40px 0 0 0",
-            background: "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
+            background:
+              "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
             position: "relative",
             minWidth: 0,
             minHeight: "calc(100vh - 80px)",
@@ -145,7 +148,8 @@ const OrderDetails: React.FC = () => {
               flexDirection: "column",
               alignItems: "center",
               alignSelf: "stretch",
-              background: "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
+              background:
+                "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
               position: "relative",
             }}
           >
@@ -283,7 +287,8 @@ const OrderDetails: React.FC = () => {
                       borderRadius: "8px",
                       border: "2px solid rgba(255, 255, 255, 0.12)",
                       background: "#344698",
-                      boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      boxShadow:
+                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                       position: "relative",
                       cursor: "pointer",
                     }}
@@ -431,7 +436,8 @@ const OrderDetails: React.FC = () => {
                         aspectRatio: "1/1",
                         borderRadius: "9999px",
                         border: "1px solid rgba(0, 0, 0, 0.10)",
-                        background: "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                        background:
+                          "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
                         position: "relative",
                       }}
                     />
@@ -660,7 +666,8 @@ const OrderDetails: React.FC = () => {
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
                         background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         position: "relative",
                         cursor: "pointer",
                       }}
@@ -701,7 +708,8 @@ const OrderDetails: React.FC = () => {
                         borderRadius: "8px",
                         border: "1px solid #D5D7DA",
                         background: "#FFF",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         position: "relative",
                         cursor: "pointer",
                       }}
@@ -757,7 +765,8 @@ const OrderDetails: React.FC = () => {
                         borderRadius: "8px",
                         border: "2px solid rgba(255, 255, 255, 0.12)",
                         background: "#344698",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         position: "relative",
                         cursor: "pointer",
                       }}
@@ -1775,7 +1784,8 @@ const OrderDetails: React.FC = () => {
                             borderRadius: "8px",
                             border: "1px solid #D5D7DA",
                             background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                             position: "relative",
                             cursor: "pointer",
                           }}

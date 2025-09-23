@@ -697,10 +697,12 @@ export default function CustomizeDrawer({
                     transition: "background-color 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.background = "#D9DEF2";
+                    (e.currentTarget as HTMLDivElement).style.background =
+                      "#D9DEF2";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.background = "#ECEEF9";
+                    (e.currentTarget as HTMLDivElement).style.background =
+                      "#ECEEF9";
                   }}
                 >
                   <div

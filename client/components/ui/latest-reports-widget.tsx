@@ -331,7 +331,9 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
       position={position}
       size={size}
       helpTooltip="View recent activity and reports"
-      onSeeAllClick={() => navigate("/invites-orders", { state: { activeTab: "orders" } })}
+      onSeeAllClick={() =>
+        navigate("/invites-orders", { state: { activeTab: "orders" } })
+      }
       onDownloadChart={() => console.log("Download Chart clicked")}
       onRemoveWidget={() => console.log("Remove Widget clicked")}
       onResize={onResize}
