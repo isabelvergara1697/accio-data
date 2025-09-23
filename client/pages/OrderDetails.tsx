@@ -2114,24 +2114,208 @@ const OrderDetails: React.FC = () => {
                                   overflowX: "hidden",
                                 }}
                               >
-                                <div
-                                style={{
-                                  alignSelf: "stretch",
-                                  color: "#181D27",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "16px",
-                                  fontStyle: "normal",
-                                  fontWeight: 400,
-                                  lineHeight: "24px",
-                                  position: "relative",
-                                  whiteSpace: "pre-wrap",
-                                  overflowWrap: "anywhere",
-                                  wordBreak: "break-word",
-                                  hyphens: "auto",
-                                }}
-                              >
-                                  {n.content}
-                                </div>
+                                {editingNoteId === n.id ? (
+                                  <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignSelf: "stretch" }}>
+                                    <textarea
+                                      value={editText}
+                                      onChange={(e) => setEditText(e.target.value)}
+                                      style={{
+                                        alignSelf: "stretch",
+                                        color: "#181D27",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "16px",
+                                        fontStyle: "normal",
+                                        fontWeight: 400,
+                                        lineHeight: "24px",
+                                        border: "none",
+                                        outline: "none",
+                                        background: "transparent",
+                                        resize: "none",
+                                        minHeight: "24px",
+                                      }}
+                                    />
+                                    <div style={{ display: "flex", gap: "8px" }}>
+                                      <button
+                                        onClick={() => saveEdit(n.id)}
+                                        style={{
+                                          padding: "4px 8px",
+                                          borderRadius: "4px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#344698",
+                                          color: "#FFF",
+                                          fontSize: "12px",
+                                          cursor: "pointer",
+                                        }}
+                                      >
+                                        Save
+                                      </button>
+                                      <button
+                                        onClick={cancelEdit}
+                                        style={{
+                                          padding: "4px 8px",
+                                          borderRadius: "4px",
+                                          border: "1px solid #D5D7DA",
+                                          background: "#FFF",
+                                          color: "#414651",
+                                          fontSize: "12px",
+                                          cursor: "pointer",
+                                        }}
+                                      >
+                                        Cancel
+                                      </button>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <div
+                                    style={{
+                                      alignSelf: "stretch",
+                                      color: "#181D27",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "16px",
+                                      fontStyle: "normal",
+                                      fontWeight: 400,
+                                      lineHeight: "24px",
+                                      position: "relative",
+                                      whiteSpace: "pre-wrap",
+                                      overflowWrap: "anywhere",
+                                      wordBreak: "break-word",
+                                      hyphens: "auto",
+                                    }}
+                                  >
+                                    {n.content}
+                                  </div>
+                                )}
+
+                                {/* Action Panel - Only for current user's messages */}
+                                {isCurrentUser && hoveredNoteId === n.id && editingNoteId !== n.id && (
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "6px 8px",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      position: "absolute",
+                                      right: "-8px",
+                                      bottom: "-20px",
+                                      borderRadius: "8px",
+                                      border: "1px solid #7B61FF",
+                                      background: "#22262F",
+                                      boxShadow: "0 20px 24px -4px rgba(255, 255, 255, 0.00), 0 8px 8px -4px rgba(255, 255, 255, 0.00), 0 3px 3px -1.5px rgba(255, 255, 255, 0.00)",
+                                      zIndex: 10,
+                                    }}
+                                  >
+                                    {/* Edit Button */}
+                                    <button
+                                      onClick={() => editNote(n.id)}
+                                      style={{
+                                        display: "flex",
+                                        padding: "2px",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "none",
+                                        background: "transparent",
+                                        cursor: "pointer",
+                                        position: "relative",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.style.background = "transparent";
+                                      }}
+                                    >
+                                      <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M21 18L19.9999 19.094C19.4695 19.6741 18.7501 20 18.0001 20C17.2501 20 16.5308 19.6741 16.0004 19.094C15.4692 18.5151 14.75 18.1901 14.0002 18.1901C13.2504 18.1901 12.5311 18.5151 12 19.094M3 20H4.67454C5.16372 20 5.40832 20 5.63849 19.9447C5.84256 19.8957 6.03765 19.8149 6.2166 19.7053C6.41843 19.5816 6.59138 19.4086 6.93729 19.0627L19.5 6.49998C20.3285 5.67156 20.3285 4.32841 19.5 3.49998C18.6716 2.67156 17.3285 2.67156 16.5 3.49998L3.93726 16.0627C3.59136 16.4086 3.4184 16.5816 3.29472 16.7834C3.18506 16.9624 3.10425 17.1574 3.05526 17.3615C3 17.5917 3 17.8363 3 18.3255V20Z"
+                                          stroke="#85888E"
+                                          strokeWidth="1.33"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </button>
+
+                                    {/* Copy Button */}
+                                    <button
+                                      onClick={() => copyNote(n.content)}
+                                      style={{
+                                        display: "flex",
+                                        padding: "2px",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "none",
+                                        background: "transparent",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.style.background = "transparent";
+                                      }}
+                                    >
+                                      <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M5 15C4.06812 15 3.60218 15 3.23463 14.8478C2.74458 14.6448 2.35523 14.2554 2.15224 13.7654C2 13.3978 2 12.9319 2 12V5.2C2 4.0799 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2H12C12.9319 2 13.3978 2 13.7654 2.15224C14.2554 2.35523 14.6448 2.74458 14.8478 3.23463C15 3.60218 15 4.06812 15 5M12.2 22H18.8C19.9201 22 20.4802 22 20.908 21.782C21.2843 21.5903 21.5903 21.2843 21.782 20.908C22 20.4802 22 19.9201 22 18.8V12.2C22 11.0799 22 10.5198 21.782 10.092C21.5903 9.71569 21.2843 9.40973 20.908 9.21799C20.4802 9 19.9201 9 18.8 9H12.2C11.0799 9 10.5198 9 10.092 9.21799C9.71569 9.40973 9.40973 9.71569 9.21799 10.092C9 10.5198 9 11.0799 9 12.2V18.8C9 19.9201 9 20.4802 9.21799 20.908C9.40973 21.2843 9.71569 21.5903 10.092 21.782C10.5198 22 11.0799 22 12.2 22Z"
+                                          stroke="#61656C"
+                                          strokeWidth="1.33"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </button>
+
+                                    {/* Delete Button */}
+                                    <button
+                                      onClick={() => deleteNote(n.id)}
+                                      style={{
+                                        display: "flex",
+                                        width: "28px",
+                                        padding: "2px",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "none",
+                                        background: "transparent",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.style.background = "transparent";
+                                      }}
+                                    >
+                                      <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style={{ flexShrink: 0 }}
+                                      >
+                                        <path
+                                          d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
+                                          stroke="#61656C"
+                                          strokeWidth="1.33"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </button>
+                                  </div>
+                                )}
                               </div>
                             </div>
                           </div>
