@@ -927,7 +927,6 @@ const OrderDetails: React.FC = () => {
                       alignSelf: "stretch",
                       borderRadius: "0px 0px 12px 12px",
                       background: "#FFF",
-                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                       position: "relative",
                     }}
                   >
