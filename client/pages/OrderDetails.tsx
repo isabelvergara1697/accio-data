@@ -1981,116 +1981,123 @@ const OrderDetails: React.FC = () => {
 
                     {/* Messages list */}
                     <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignSelf: "stretch" }}>
-                      {notes.map((n) => (
-                        <div
-                          key={n.id}
-                          style={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            gap: "12px",
-                            alignSelf: "stretch",
-                            position: "relative",
-                          }}
-                        >
+                      {notes.map((n) => {
+                        const isCurrentUser = n.author === currentUser;
+                        return (
                           <div
-                            style={{
-                              width: "40px",
-                              height: "40px",
-                              aspectRatio: "1/1",
-                              borderRadius: "9999px",
-                              border: "1px solid rgba(0, 0, 0, 0.10)",
-                              background: `url(${n.avatarUrl}) lightgray 50% / cover no-repeat`,
-                              position: "relative",
-                              flexShrink: 0,
-                            }}
-                          />
-
-                          <div
+                            key={n.id}
                             style={{
                               display: "flex",
-                              flexDirection: "column",
+                              justifyContent: isCurrentUser ? "flex-end" : "flex-start",
                               alignItems: "flex-start",
-                              gap: "6px",
-                              flex: "1 0 0",
+                              gap: "12px",
+                              alignSelf: "stretch",
                               position: "relative",
                             }}
                           >
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "8px",
-                                alignSelf: "stretch",
-                                position: "relative",
-                              }}
-                            >
+                            {/* Avatar - only show for other users */}
+                            {!isCurrentUser && (
                               <div
                                 style={{
-                                  display: "-webkit-box",
-                                  WebkitBoxOrient: "vertical",
-                                  WebkitLineClamp: 1,
-                                  flex: "1 0 0",
-                                  overflow: "hidden",
-                                  color: "#414651",
-                                  textOverflow: "ellipsis",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 500,
-                                  lineHeight: "20px",
+                                  width: "40px",
+                                  height: "40px",
+                                  aspectRatio: "1/1",
+                                  borderRadius: "9999px",
+                                  border: "1px solid rgba(0, 0, 0, 0.10)",
+                                  background: `url(${n.avatarUrl}) lightgray 50% / cover no-repeat`,
                                   position: "relative",
+                                  flexShrink: 0,
                                 }}
-                              >
-                                {n.author}
-                              </div>
-                              <div
-                                style={{
-                                  color: "#535862",
-                                  fontFamily: "Roboto Mono, monospace",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 400,
-                                  lineHeight: "18px",
-                                  position: "relative",
-                                }}
-                              >
-                                {formatTimestamp(n.createdAt)}
-                              </div>
-                            </div>
+                              />
+                            )}
 
                             <div
                               style={{
                                 display: "flex",
-                                padding: "8px 12px",
                                 flexDirection: "column",
                                 alignItems: "flex-start",
                                 gap: "6px",
-                                alignSelf: "stretch",
-                                borderRadius: "0px 8px 8px 8px",
-                                border: "1px solid #E9EAEB",
-                                background: "#FAFAFA",
+                                flex: "1 0 0",
                                 position: "relative",
                               }}
                             >
                               <div
                                 style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
                                   alignSelf: "stretch",
-                                  color: "#181D27",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "16px",
-                                  fontStyle: "normal",
-                                  fontWeight: 400,
-                                  lineHeight: "24px",
                                   position: "relative",
-                                  whiteSpace: "pre-wrap",
                                 }}
                               >
-                                {n.content}
+                                <div
+                                  style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 1,
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
+                                    color: "#414651",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {isCurrentUser ? "You" : n.author}
+                                </div>
+                                <div
+                                  style={{
+                                    color: "#535862",
+                                    fontFamily: "Roboto Mono, monospace",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {formatTimestamp(n.createdAt)}
+                                </div>
+                              </div>
+
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "8px 12px",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "6px",
+                                  alignSelf: "stretch",
+                                  borderRadius: isCurrentUser ? "8px 0px 8px 8px" : "0px 8px 8px 8px",
+                                  border: "1px solid #E9EAEB",
+                                  background: isCurrentUser ? "#FFF" : "#FAFAFA",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                    whiteSpace: "pre-wrap",
+                                  }}
+                                >
+                                  {n.content}
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
