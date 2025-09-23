@@ -2111,7 +2111,7 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #E9EAEB",
                                   background: isCurrentUser ? "#FFF" : "#FAFAFA",
                                   position: "relative",
-                                  overflowX: "hidden",
+                                  overflow: isCurrentUser && hoveredNoteId === n.id ? "visible" : "hidden",
                                 }}
                               >
                                 {editingNoteId === n.id ? (
