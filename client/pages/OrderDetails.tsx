@@ -2072,10 +2072,12 @@ const OrderDetails: React.FC = () => {
                                   alignItems: "flex-start",
                                   gap: "6px",
                                   alignSelf: "stretch",
+                                  minWidth: 0,
                                   borderRadius: isCurrentUser ? "8px 0px 8px 8px" : "0px 8px 8px 8px",
                                   border: "1px solid #E9EAEB",
                                   background: isCurrentUser ? "#FFF" : "#FAFAFA",
                                   position: "relative",
+                                  overflowX: "hidden",
                                 }}
                               >
                                 <div
