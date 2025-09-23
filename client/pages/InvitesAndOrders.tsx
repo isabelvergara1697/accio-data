@@ -9206,6 +9206,10 @@ const InvitesAndOrders: React.FC = () => {
                                 key={invite.id}
                                 onMouseEnter={() => setHoveredRowId(invite.id)}
                                 onMouseLeave={() => setHoveredRowId(null)}
+                                onClick={() => {
+                                  // Navigate to order details page
+                                  navigate(`/order-details/${invite.id}`);
+                                }}
                                 style={{
                                   display: "flex",
                                   alignItems: "flex-start",
