@@ -144,7 +144,7 @@ const OrderDetails: React.FC = () => {
           {/* Header Section */}
           <div
             style={{
-              display: "flex",
+              display: "none",
               flexDirection: "column",
               alignItems: "center",
               alignSelf: "stretch",
