@@ -2079,18 +2079,21 @@ const OrderDetails: React.FC = () => {
                                 }}
                               >
                                 <div
-                                  style={{
-                                    alignSelf: "stretch",
-                                    color: "#181D27",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "16px",
-                                    fontStyle: "normal",
-                                    fontWeight: 400,
-                                    lineHeight: "24px",
-                                    position: "relative",
-                                    whiteSpace: "pre-wrap",
-                                  }}
-                                >
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                  whiteSpace: "pre-wrap",
+                                  overflowWrap: "anywhere",
+                                  wordBreak: "break-word",
+                                  hyphens: "auto",
+                                }}
+                              >
                                   {n.content}
                                 </div>
                               </div>
