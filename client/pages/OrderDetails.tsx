@@ -64,12 +64,14 @@ const OrderDetails: React.FC = () => {
     }
   }, [storageKey, notes]);
 
+  const currentUser = "Alexandra Fitzwilliam";
+
   const addNote = () => {
     const text = noteText.trim();
     if (!text) return;
     const newNote: Note = {
       id: String(Date.now()),
-      author: "Alexandra Fitzwilliam",
+      author: currentUser,
       avatarUrl:
         "https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800",
       content: text,
