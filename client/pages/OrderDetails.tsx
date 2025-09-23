@@ -1652,6 +1652,375 @@ const OrderDetails: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Notes Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    width: "320px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* Section Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 16px 0 16px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                Notes
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "12px 16px 16px 16px",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                      borderRadius: "0px 0px 12px 12px",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Add new note section */}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Textarea input field */}
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "180px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "6px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "6px",
+                            flex: "1 0 0",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Label */}
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "2px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#414651",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              Add new note
+                            </div>
+                          </div>
+
+                          {/* Textarea Input */}
+                          <textarea
+                            placeholder="Enter a description..."
+                            style={{
+                              display: "flex",
+                              padding: "12px 14px",
+                              alignItems: "flex-start",
+                              gap: "8px",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              position: "relative",
+                              resize: "none",
+                              outline: "none",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Send Button */}
+                      <button
+                        style={{
+                          display: "flex",
+                          minHeight: "36px",
+                          padding: "6px 8px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          borderRadius: "8px",
+                          border: "2px solid rgba(255, 255, 255, 0.12)",
+                          background: "#344698",
+                          boxShadow:
+                            "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                          position: "relative",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "0 2px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#FFF",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            Send
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+
+                    {/* Message */}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "12px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Avatar */}
+                      <div
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                          aspectRatio: "1/1",
+                          borderRadius: "9999px",
+                          border: "1px solid rgba(0, 0, 0, 0.10)",
+                          background:
+                            "url(https://cdn.builder.io/api/v1/image/assets%2F12e25815771d451cabe0d7bd4c9ecb10%2F754e82e5620a450f95d1173ecb4f8ae5?format=webp&width=800) lightgray 50% / cover no-repeat",
+                          position: "relative",
+                        }}
+                      >
+                        {/* Online indicator */}
+                        <div
+                          style={{
+                            position: "absolute",
+                            bottom: "2px",
+                            right: "2px",
+                            width: "8px",
+                            height: "8px",
+                            backgroundColor: "#17B26A",
+                            borderRadius: "50%",
+                            border: "2px solid #FFF",
+                          }}
+                        />
+                      </div>
+
+                      {/* Content */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "6px",
+                          flex: "1 0 0",
+                          position: "relative",
+                        }}
+                      >
+                        {/* Name and time */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "-webkit-box",
+                              WebkitBoxOrient: "vertical",
+                              WebkitLineClamp: 1,
+                              flex: "1 0 0",
+                              overflow: "hidden",
+                              color: "#414651",
+                              textOverflow: "ellipsis",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            Phoenix Baker
+                          </div>
+                          <div
+                            style={{
+                              color: "#535862",
+                              fontFamily: "Roboto Mono, monospace",
+                              fontSize: "12px",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "18px",
+                              position: "relative",
+                            }}
+                          >
+                            Friday 2:20pm
+                          </div>
+                        </div>
+
+                        {/* Message bubble */}
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "8px 12px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "6px",
+                            alignSelf: "stretch",
+                            borderRadius: "0px 8px 8px 8px",
+                            border: "1px solid #E9EAEB",
+                            background: "#FAFAFA",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            This report has been flagged due to the lack of
+                            documents.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Right Column - Report Summary */}
