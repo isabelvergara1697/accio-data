@@ -3611,6 +3611,7 @@ const InvitesAndOrders: React.FC = () => {
           >
             {/* Checkbox */}
             <div
+              onClick={(e) => e.stopPropagation()}
               style={{
                 display: "flex",
                 width: "18px",
