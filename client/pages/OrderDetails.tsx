@@ -28,6 +28,12 @@ const OrderDetails: React.FC = () => {
     createdAt: string; // ISO string
   };
 
+  type TatSegment = {
+    label: string;
+    value: number;
+    color: string;
+  };
+
   const storageKey = `order-notes-${orderId ?? 'default'}`;
   const [notes, setNotes] = useState<Note[]>([]);
   const [noteText, setNoteText] = useState("");
@@ -65,6 +71,14 @@ const OrderDetails: React.FC = () => {
   }, [storageKey, notes]);
 
   const currentUser = "Alexandra Fitzwilliam";
+
+  const tatData: TatSegment[] = [
+    { label: "In Progress", value: 60, color: "#34479A" },
+    { label: "Waiting on Applicant", value: 25, color: "#3CCB7F" },
+    { label: "Waiting on HR", value: 15, color: "#A4A7AE" },
+  ];
+  const [tatHoveredSegment, setTatHoveredSegment] = useState<TatSegment | null>(null);
+  const [tatHoveredIndex, setTatHoveredIndex] = useState<number | null>(null);
   const [hoveredNoteId, setHoveredNoteId] = useState<string | null>(null);
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
@@ -151,6 +165,56 @@ const OrderDetails: React.FC = () => {
       };
     }
     return {};
+  };
+
+  const tatChartSize = 120;
+  const tatCenterX = tatChartSize / 2;
+  const tatCenterY = tatChartSize / 2;
+  const createArcPath = (
+    startAngle: number,
+    endAngle: number,
+    outerR: number,
+    innerR: number,
+  ) => {
+    const startRad = (startAngle * Math.PI) / 180;
+    const endRad = (endAngle * Math.PI) / 180;
+    const largeArc = endAngle - startAngle <= 180 ? 0 : 1;
+
+    const x1 = tatCenterX + outerR * Math.cos(startRad);
+    const y1 = tatCenterY + outerR * Math.sin(startRad);
+    const x2 = tatCenterX + outerR * Math.cos(endRad);
+    const y2 = tatCenterY + outerR * Math.sin(endRad);
+
+    const x3 = tatCenterX + innerR * Math.cos(endRad);
+    const y3 = tatCenterY + innerR * Math.sin(endRad);
+    const x4 = tatCenterX + innerR * Math.cos(startRad);
+    const y4 = tatCenterY + innerR * Math.sin(startRad);
+
+    return [
+      "M",
+      x1,
+      y1,
+      "A",
+      outerR,
+      outerR,
+      0,
+      largeArc,
+      1,
+      x2,
+      y2,
+      "L",
+      x3,
+      y3,
+      "A",
+      innerR,
+      innerR,
+      0,
+      largeArc,
+      0,
+      x4,
+      y4,
+      "Z",
+    ].join(" ");
   };
 
   return (
@@ -2670,28 +2734,118 @@ const OrderDetails: React.FC = () => {
                         }}
                       >
                         {/* Pie Chart */}
-                        <svg
+                        <div
                           style={{
-                            width: "120px",
-                            height: "120px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
                             position: "relative",
                           }}
-                          width="120"
-                          height="120"
-                          viewBox="0 0 120 120"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <circle cx="60" cy="60" r="60" fill="#34479A" />
-                          <path
-                            d="M60 0C72.6708 1.51097e-07 85.0163 4.0113 95.2671 11.459C105.518 18.9067 113.148 29.4084 117.063 41.459L60 60L60 0Z"
-                            fill="#3CCB7F"
-                          />
-                          <path
-                            d="M40.9617 3.10057C47.2324 1.00245 53.8067 -0.0447037 60.4189 0.00146239L60 60L40.9617 3.10057Z"
-                            fill="#A4A7AE"
-                          />
-                        </svg>
+                          <svg
+                            width={tatChartSize}
+                            height={tatChartSize}
+                            viewBox={`0 0 ${tatChartSize} ${tatChartSize}`}
+                            style={{
+                              width: "120px",
+                              height: "120px",
+                              position: "relative",
+                            }}
+                          >
+                            {(() => {
+                              const total = tatData.reduce((sum, item) => sum + item.value, 0);
+                              const radius = (tatChartSize - 30) / 2;
+                              const innerRadius = radius * 0.6;
+                              let currentAngle = -90;
+                              return tatData.map((segment, index) => {
+                                const percentage = (segment.value / total) * 100;
+                                const angle = (percentage / 100) * 360;
+                                const d = createArcPath(
+                                  currentAngle,
+                                  currentAngle + angle,
+                                  radius,
+                                  innerRadius,
+                                );
+                                const isHovered = tatHoveredIndex === index;
+                                const element = (
+                                  <g key={index}>
+                                    <path
+                                      d={d}
+                                      fill={segment.color}
+                                      stroke="rgba(0, 0, 0, 0.1)"
+                                      strokeWidth="0.5"
+                                      style={{
+                                        cursor: "pointer",
+                                        transition: "all 0.2s ease-in-out",
+                                      }}
+                                      onMouseEnter={() => {
+                                        setTatHoveredSegment(segment);
+                                        setTatHoveredIndex(index);
+                                      }}
+                                      onMouseLeave={() => {
+                                        setTatHoveredSegment(null);
+                                        setTatHoveredIndex(null);
+                                      }}
+                                    />
+                                    {isHovered && (
+                                      <path
+                                        d={d}
+                                        fill="rgba(0, 0, 0, 0.4)"
+                                        stroke="rgba(0, 0, 0, 0.1)"
+                                        strokeWidth="0.5"
+                                        style={{
+                                          pointerEvents: "none",
+                                          transition: "opacity 0.2s ease-in-out",
+                                        }}
+                                      />
+                                    )}
+                                  </g>
+                                );
+                                currentAngle += angle;
+                                return element;
+                              });
+                            })()}
+                          </svg>
+
+                          {/* Tooltip - centered */}
+                          {tatHoveredSegment && (
+                            <div
+                              style={{
+                                position: "absolute",
+                                left: "50%",
+                                top: "50%",
+                                transform: "translate(-50%, -50%)",
+                                backgroundColor: "#0A0D12",
+                                color: "#FFF",
+                                padding: "8px 12px",
+                                borderRadius: "8px",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                boxShadow:
+                                  "0px 12px 16px -4px rgba(10, 13, 18, 0.08), 0px 4px 6px -2px rgba(10, 13, 18, 0.03), 0px 2px 2px -1px rgba(10, 13, 18, 0.04)",
+                                pointerEvents: "none",
+                                zIndex: 1000,
+                                whiteSpace: "nowrap",
+                                textAlign: "center",
+                              }}
+                            >
+                              <div style={{ fontFamily: "Public Sans" }}>
+                                {tatHoveredSegment.label} - {tatHoveredSegment.value}
+                              </div>
+                              <div
+                                style={{
+                                  color: "#D5D7DA",
+                                  fontSize: "12px",
+                                  fontWeight: 500,
+                                  marginTop: "2px",
+                                }}
+                              >
+                                See All
+                              </div>
+                            </div>
+                          )}
+                        </div>
 
                         {/* Legend */}
                         <div
@@ -2703,137 +2857,57 @@ const OrderDetails: React.FC = () => {
                             position: "relative",
                           }}
                         >
-                          {/* In Progress */}
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "flex-start",
-                              gap: "8px",
-                              alignSelf: "stretch",
-                              position: "relative",
-                            }}
-                          >
-                            <svg
-                              style={{
-                                display: "flex",
-                                paddingTop: "6px",
-                                alignItems: "flex-start",
-                                gap: "10px",
-                                position: "relative",
-                              }}
-                              width="8"
-                              height="14"
-                              viewBox="0 0 8 14"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle cx="4" cy="10" r="4" fill="#344698" />
-                              <circle
-                                cx="4"
-                                cy="10"
-                                r="3.75"
-                                stroke="black"
-                                strokeOpacity="0.1"
-                                strokeWidth="0.5"
-                              />
-                              <circle cx="4" cy="10" r="4" fill="#34479A" />
-                            </svg>
-                            <div
-                              style={{
-                                color: "#535862",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "20px",
-                                position: "relative",
-                              }}
-                            >
-                              In Progress
-                            </div>
-                          </div>
-
-                          {/* Waiting on Applicant */}
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "flex-start",
-                              gap: "8px",
-                              alignSelf: "stretch",
-                              position: "relative",
-                            }}
-                          >
-                            <svg
-                              style={{
-                                display: "flex",
-                                paddingTop: "6px",
-                                alignItems: "flex-start",
-                                gap: "10px",
-                                position: "relative",
-                              }}
-                              width="8"
-                              height="14"
-                              viewBox="0 0 8 14"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle cx="4" cy="10" r="4" fill="#3CCB7F" />
-                            </svg>
-                            <div
-                              style={{
-                                color: "#535862",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "20px",
-                                position: "relative",
-                              }}
-                            >
-                              Waiting on Applicant
-                            </div>
-                          </div>
-
-                          {/* Waiting on HR */}
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "flex-start",
-                              gap: "8px",
-                              alignSelf: "stretch",
-                              position: "relative",
-                            }}
-                          >
-                            <svg
-                              style={{
-                                display: "flex",
-                                paddingTop: "6px",
-                                alignItems: "flex-start",
-                                gap: "10px",
-                                position: "relative",
-                              }}
-                              width="8"
-                              height="14"
-                              viewBox="0 0 8 14"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle cx="4" cy="10" r="4" fill="#A4A7AE" />
-                            </svg>
-                            <div
-                              style={{
-                                color: "#535862",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "20px",
-                                position: "relative",
-                              }}
-                            >
-                              Waiting on HR
-                            </div>
-                          </div>
+                          {tatData.map((item, index) => {
+                            const isHovered = tatHoveredIndex === index;
+                            return (
+                              <div
+                                key={index}
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  cursor: "pointer",
+                                }}
+                                onMouseEnter={() => {
+                                  setTatHoveredSegment(item);
+                                  setTatHoveredIndex(index);
+                                }}
+                                onMouseLeave={() => {
+                                  setTatHoveredSegment(null);
+                                  setTatHoveredIndex(null);
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    width: "8px",
+                                    height: "8px",
+                                    borderRadius: "50%",
+                                    backgroundColor: isHovered ? "#181D27" : item.color,
+                                    border: "0.5px solid rgba(0, 0, 0, 0.1)",
+                                    flexShrink: 0,
+                                    transition: "background-color 0.2s ease-in-out",
+                                  }}
+                                />
+                                <div
+                                  style={{
+                                    color: isHovered ? "#181D27" : "#535862",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap",
+                                    transition: "color 0.2s ease-in-out",
+                                  }}
+                                >
+                                  {item.label}
+                                </div>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
 
