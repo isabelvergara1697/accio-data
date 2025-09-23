@@ -249,6 +249,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
   isTablet = false,
   windowWidth = 1024,
 }) => {
+  const navigate = useNavigate();
   // Determine which columns to show based on widget size instead of window width
   const getColumnsToShow = () => {
     if (isMobile) {
