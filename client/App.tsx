@@ -18,6 +18,7 @@ import I9OrderConfirmation from "./pages/I9OrderConfirmation";
 import OnlineOrdering from "./pages/OnlineOrdering";
 import SubmitOrSaveOrder from "./pages/SubmitOrSaveOrder";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import OrderDetails from "./pages/OrderDetails";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/document-library" element={<DocumentLibrary />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/invites-orders" element={<InvitesAndOrders />} />
+          <Route path="/order-details/:orderId" element={<OrderDetails />} />
           <Route path="/quick-court-order" element={<QuickCourtOrder />} />
           <Route path="/quick-order" element={<QuickOrder />} />
           <Route path="/batch-orders" element={<BatchOrders />} />
