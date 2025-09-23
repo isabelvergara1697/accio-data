@@ -97,6 +97,35 @@ const OrderDetails: React.FC = () => {
     }
   };
 
+  const editNote = (noteId: string) => {
+    const note = notes.find(n => n.id === noteId);
+    if (note) {
+      setEditingNoteId(noteId);
+      setEditText(note.content);
+    }
+  };
+
+  const saveEdit = (noteId: string) => {
+    setNotes(prev => prev.map(n =>
+      n.id === noteId ? { ...n, content: editText.trim() } : n
+    ));
+    setEditingNoteId(null);
+    setEditText("");
+  };
+
+  const cancelEdit = () => {
+    setEditingNoteId(null);
+    setEditText("");
+  };
+
+  const copyNote = (content: string) => {
+    navigator.clipboard.writeText(content).catch(console.error);
+  };
+
+  const deleteNote = (noteId: string) => {
+    setNotes(prev => prev.filter(n => n.id !== noteId));
+  };
+
   // Window resize handler
   useEffect(() => {
     const handleResize = () => {
