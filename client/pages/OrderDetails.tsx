@@ -65,6 +65,9 @@ const OrderDetails: React.FC = () => {
   }, [storageKey, notes]);
 
   const currentUser = "Alexandra Fitzwilliam";
+  const [hoveredNoteId, setHoveredNoteId] = useState<string | null>(null);
+  const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
+  const [editText, setEditText] = useState("");
 
   const addNote = () => {
     const text = noteText.trim();
