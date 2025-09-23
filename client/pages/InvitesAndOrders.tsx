@@ -3101,6 +3101,10 @@ const InvitesAndOrders: React.FC = () => {
 
     return (
       <div
+        onClick={() => {
+          // Navigate to order details page
+          navigate(`/order-details/${invite.id}`);
+        }}
         style={{
           display: "flex",
           padding: cardLayout === "mobile" ? "12px 4px" : "12px 8px",
