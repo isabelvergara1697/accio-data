@@ -3290,7 +3290,10 @@ const InvitesAndOrders: React.FC = () => {
                   }}
                 >
                   <button
-                    onClick={onToggleExpand}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onToggleExpand();
+                    }}
                     style={{
                       display: "flex",
                       padding: "8px",
