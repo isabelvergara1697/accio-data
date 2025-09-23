@@ -1796,6 +1796,19 @@ const OrderDetails: React.FC = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* Empty Content Area */}
+                  <div
+                    style={{
+                      display: "flex",
+                      height: "204px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      position: "relative",
+                    }}
+                  />
                 </div>
               </div>
             </div>
