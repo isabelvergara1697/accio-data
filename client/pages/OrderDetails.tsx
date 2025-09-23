@@ -118,27 +118,14 @@ const OrderDetails: React.FC = () => {
 
         <main
           style={{
-            marginTop: isDesktop ? "80px" : "64px",
             display: "flex",
+            paddingBottom: "24px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "32px",
-            flex: "1 1 auto",
-            alignSelf: "stretch",
+            flex: "1 0 0",
             borderRadius: "40px 0 0 0",
-            background:
-              "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
             position: "relative",
-            minWidth: 0,
-            minHeight: "calc(100vh - 80px)",
-            height: "auto",
-            paddingTop: "32px",
-            paddingBottom: isMobile ? "64px" : isTablet ? "72px" : "80px",
-            paddingLeft: isMobile ? "16px" : "32px",
-            paddingRight: isMobile ? "16px" : "32px",
-            marginBottom: isMobile ? "32px" : isTablet ? "40px" : "48px",
-            boxSizing: "border-box",
-            overflow: "visible",
           }}
         >
           {/* Header Section */}
