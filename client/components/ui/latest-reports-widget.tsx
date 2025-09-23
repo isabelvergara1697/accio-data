@@ -641,6 +641,7 @@ export const LatestReportsWidget: React.FC<LatestReportsWidgetProps> = ({
             {mockReportsData.map((report, index) => (
               <div
                 key={index}
+                onClick={() => navigate(`/order-details/${report.order}`)}
                 style={{
                   display: "flex",
                   height: "52px",
