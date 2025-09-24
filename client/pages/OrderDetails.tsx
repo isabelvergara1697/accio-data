@@ -2233,7 +2233,7 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #E9EAEB",
                                   background: isCurrentUser ? "#FFF" : "#FAFAFA",
                                   position: "relative",
-                                  overflow: isCurrentUser && hoveredNoteId === n.id ? "visible" : "hidden",
+                                  overflow: hoveredNoteId === n.id ? "visible" : "hidden",
                                 }}
                               >
                                 {editingNoteId === n.id ? (
@@ -2429,6 +2429,62 @@ const OrderDetails: React.FC = () => {
                                       >
                                         <path
                                           d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
+                                          stroke="#61656C"
+                                          strokeWidth="1.33"
+                                          strokeLinecap="round"
+                                          strokeLinejoin="round"
+                                        />
+                                      </svg>
+                                    </button>
+                                  </div>
+                                )}
+
+                                {/* Action Panel - Copy only for other users' messages */}
+                                {!isCurrentUser && hoveredNoteId === n.id && editingNoteId !== n.id && (
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      padding: "6px 8px",
+                                      alignItems: "flex-start",
+                                      gap: "6px",
+                                      position: "absolute",
+                                      right: "-8px",
+                                      bottom: "-20px",
+                                      borderRadius: "8px",
+                                      border: "1px solid #7B61FF",
+                                      background: "#22262F",
+                                      boxShadow:
+                                        "0 20px 24px -4px rgba(255, 255, 255, 0.00), 0 8px 8px -4px rgba(255, 255, 255, 0.00), 0 3px 3px -1.5px rgba(255, 255, 255, 0.00)",
+                                      zIndex: 10,
+                                    }}
+                                  >
+                                    <button
+                                      onClick={() => copyNote(n.content)}
+                                      style={{
+                                        display: "flex",
+                                        padding: "2px",
+                                        alignItems: "center",
+                                        borderRadius: "4px",
+                                        border: "none",
+                                        background: "transparent",
+                                        cursor: "pointer",
+                                      }}
+                                      onMouseEnter={(e) => {
+                                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
+                                      }}
+                                      onMouseLeave={(e) => {
+                                        e.currentTarget.style.background = "transparent";
+                                      }}
+                                    >
+                                      <svg
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <path
+                                          d="M5 15C4.06812 15 3.60218 15 3.23463 14.8478C2.74458 14.6448 2.35523 14.2554 2.15224 13.7654C2 13.3978 2 12.9319 2 12V5.2C2 4.0799 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2H12C12.9319 2 13.3978 2 13.7654 2.15224C14.2554 2.35523 14.6448 2.74458 14.8478 3.23463C15 3.60218 15 4.06812 15 5M12.2 22H18.8C19.9201 22 20.4802 22 20.908 21.782C21.2843 21.5903 21.5903 21.2843 21.782 20.908C22 20.4802 22 19.9201 22 18.8V12.2C22 11.0799 22 10.5198 21.782 10.092C21.5903 9.71569 21.2843 9.40973 20.908 9.21799C20.4802 9 19.9201 9 18.8 9H12.2C11.0799 9 10.5198 9 10.092 9.21799C9.71569 9.40973 9.40973 9.71569 9.21799 10.092C9 10.5198 9 11.0799 9 12.2V18.8C9 19.9201 9 20.4802 9.21799 20.908C9.40973 21.2843 9.71569 21.5903 10.092 21.782C10.5198 22 11.0799 22 12.2 22Z"
                                           stroke="#61656C"
                                           strokeWidth="1.33"
                                           strokeLinecap="round"
