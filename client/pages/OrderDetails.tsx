@@ -85,6 +85,7 @@ const OrderDetails: React.FC = () => {
   const [hoveredNoteId, setHoveredNoteId] = useState<string | null>(null);
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
+  const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
 
   const addNote = () => {
     const text = noteText.trim();
