@@ -4164,6 +4164,8 @@ const OrderDetails: React.FC = () => {
                           ].map((searchType, index) => (
                             <div
                               key={index}
+                              onMouseEnter={() => setHoveredRowIndex(index)}
+                              onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -4172,7 +4174,10 @@ const OrderDetails: React.FC = () => {
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
+                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
                                 position: "relative",
+                                cursor: "pointer",
+                                transition: "background-color 0.2s ease",
                               }}
                             >
                               <button
@@ -4187,6 +4192,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                   width: "100%",
                                   flex: "1 0 0",
+                                  textAlign: "left",
                                 }}
                               >
                                 <div
@@ -4196,7 +4202,7 @@ const OrderDetails: React.FC = () => {
                                     WebkitLineClamp: 1,
                                     flex: "1 0 0",
                                     overflow: "hidden",
-                                    color: "#273572",
+                                    color: hoveredRowIndex === index ? "#1A234C" : "#273572",
                                     textOverflow: "ellipsis",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
@@ -4205,6 +4211,7 @@ const OrderDetails: React.FC = () => {
                                     lineHeight: "20px",
                                     textDecoration: "underline",
                                     position: "relative",
+                                    textAlign: "left",
                                   }}
                                   title={searchType}
                                 >
