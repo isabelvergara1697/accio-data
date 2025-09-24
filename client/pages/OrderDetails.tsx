@@ -133,7 +133,65 @@ const OrderDetails: React.FC = () => {
   };
 
   const copyNote = (content: string) => {
-    navigator.clipboard.writeText(content).catch(console.error);
+    // Prefer async Clipboard API when available and permitted
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(content).catch((err) => {
+        console.warn("navigator.clipboard.writeText failed:", err);
+        // Fallback to legacy copy
+        try {
+          const textarea = document.createElement("textarea");
+          textarea.value = content;
+          // Avoid scrolling to bottom
+          textarea.style.position = "fixed";
+          textarea.style.top = "0";
+          textarea.style.left = "0";
+          textarea.style.width = "1px";
+          textarea.style.height = "1px";
+          textarea.style.padding = "0";
+          textarea.style.border = "none";
+          textarea.style.outline = "none";
+          textarea.style.boxShadow = "none";
+          textarea.style.background = "transparent";
+          document.body.appendChild(textarea);
+          textarea.focus();
+          textarea.select();
+          const successful = document.execCommand("copy");
+          if (!successful) {
+            console.warn("Fallback: copy command was unsuccessful");
+          }
+          document.body.removeChild(textarea);
+        } catch (e) {
+          console.warn("Fallback copy failed:", e);
+        }
+      });
+      return;
+    }
+
+    // If Clipboard API isn't present, use legacy approach
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = content;
+      textarea.style.position = "fixed";
+      textarea.style.top = "0";
+      textarea.style.left = "0";
+      textarea.style.width = "1px";
+      textarea.style.height = "1px";
+      textarea.style.padding = "0";
+      textarea.style.border = "none";
+      textarea.style.outline = "none";
+      textarea.style.boxShadow = "none";
+      textarea.style.background = "transparent";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      const successful = document.execCommand("copy");
+      if (!successful) {
+        console.warn("Fallback: copy command was unsuccessful");
+      }
+      document.body.removeChild(textarea);
+    } catch (e) {
+      console.warn("Copy failed:", e);
+    }
   };
 
   const deleteNote = (noteId: string) => {
