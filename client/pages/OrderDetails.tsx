@@ -2148,8 +2148,8 @@ const OrderDetails: React.FC = () => {
                               alignSelf: "stretch",
                               position: "relative",
                             }}
-                            onMouseEnter={() => isCurrentUser && setHoveredNoteId(n.id)}
-                            onMouseLeave={() => isCurrentUser && setHoveredNoteId(null)}
+                            onMouseEnter={() => setHoveredNoteId(n.id)}
+                            onMouseLeave={() => setHoveredNoteId(null)}
                           >
                             {/* Avatar - only show for other users */}
                             {!isCurrentUser && (
