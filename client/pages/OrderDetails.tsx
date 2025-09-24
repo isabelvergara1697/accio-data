@@ -102,6 +102,7 @@ const OrderDetails: React.FC = () => {
   const [professionalReferencesHoveredRowIndex, setProfessionalReferencesHoveredRowIndex] = useState<number | null>(null);
   const [additionalInfoExpanded, setAdditionalInfoExpanded] = useState(true);
   const [additionalInfoHoveredRowIndex, setAdditionalInfoHoveredRowIndex] = useState<number | null>(null);
+  const [motorVehicleExpanded, setMotorVehicleExpanded] = useState(true);
 
   const addNote = () => {
     const text = noteText.trim();
