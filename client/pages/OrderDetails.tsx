@@ -11567,6 +11567,581 @@ const OrderDetails: React.FC = () => {
                     </div>
                   )}
                 </div>
+
+                {/* Additional Professional References Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    paddingBottom: "20px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "0px",
+                    alignSelf: "stretch",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* Section Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 24px 0 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                Professional References #1, Hank Williams
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #ABEFC6",
+                                  background: "#ECFDF3",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#067647",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Completed - Verified
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Chevron Button */}
+                        <button
+                          onClick={() => setAdditionalInfoExpanded(!additionalInfoExpanded)}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            position: "relative",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              transform: additionalInfoExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transition: "transform 0.2s ease",
+                            }}
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Additional Professional References Content */}
+                  {additionalInfoExpanded && (
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "12px 24px 20px 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Table */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        {/* Field Labels Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "171px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Empty header cell */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          />
+
+                          {/* Field Labels */}
+                          {[
+                            "Contact Name",
+                            "Reference Type",
+                            "Contact Relationship",
+                            "Contact Phone",
+                            "Contact Email",
+                            "Contact address",
+                            "City",
+                            "State",
+                            "Zip"
+                          ].map((label, index) => (
+                            <div
+                              key={index}
+                              onMouseEnter={() => setAdditionalInfoHoveredRowIndex(index)}
+                              onMouseLeave={() => setAdditionalInfoHoveredRowIndex(null)}
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: additionalInfoHoveredRowIndex === index ? "#F5F5F5" : "#FFF",
+                                position: "relative",
+                                cursor: "pointer",
+                                transition: "background-color 0.2s ease",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                {label}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Provided by Subject Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              Provided by Subject
+                            </div>
+                          </div>
+
+                          {/* Data rows */}
+                          {[
+                            "Hank Williams",
+                            "",
+                            "",
+                            "444-444-444",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
+                          ].map((value, index) => (
+                            <div
+                              key={index}
+                              onMouseEnter={() => setAdditionalInfoHoveredRowIndex(index)}
+                              onMouseLeave={() => setAdditionalInfoHoveredRowIndex(null)}
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "12px",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: additionalInfoHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                position: "relative",
+                                cursor: "pointer",
+                                transition: "background-color 0.2s ease",
+                              }}
+                            >
+                              {value && (
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {value}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Provided by Source Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              Provided by Source
+                            </div>
+                          </div>
+
+                          {/* Data rows */}
+                          {[
+                            "Hank Williams",
+                            "Friend",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
+                          ].map((value, index) => (
+                            <div
+                              key={index}
+                              onMouseEnter={() => setAdditionalInfoHoveredRowIndex(index)}
+                              onMouseLeave={() => setAdditionalInfoHoveredRowIndex(null)}
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "12px",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: additionalInfoHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                position: "relative",
+                                cursor: "pointer",
+                                transition: "background-color 0.2s ease",
+                              }}
+                            >
+                              {value && (
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {value}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Research Results Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              Research Results
+                            </div>
+                          </div>
+
+                          {/* Data rows with verification badges */}
+                          {[
+                            "Verified", // Contact Name
+                            "", // Reference Type
+                            "", // Contact Relationship
+                            "", // Contact Phone
+                            "", // Contact Email
+                            "", // Contact address
+                            "", // City
+                            "", // State
+                            ""  // Zip
+                          ].map((status, index) => (
+                            <div
+                              key={index}
+                              onMouseEnter={() => setAdditionalInfoHoveredRowIndex(index)}
+                              onMouseLeave={() => setAdditionalInfoHoveredRowIndex(null)}
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "12px",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: additionalInfoHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                position: "relative",
+                                cursor: "pointer",
+                                transition: "background-color 0.2s ease",
+                              }}
+                            >
+                              {status && (
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: "1px solid #ABEFC6",
+                                    background: "#ECFDF3",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#067647",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {status}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Comments Section */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            alignSelf: "stretch",
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            position: "relative",
+                          }}
+                        >
+                          Comments
+                        </div>
+                        <div
+                          style={{
+                            alignSelf: "stretch",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            position: "relative",
+                          }}
+                        >
+                          They provided a great reference!!!!
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
