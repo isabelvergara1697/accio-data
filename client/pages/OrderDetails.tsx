@@ -95,6 +95,7 @@ const OrderDetails: React.FC = () => {
   const [educationExpanded, setEducationExpanded] = useState(true);
   const [educationHoveredRowIndex, setEducationHoveredRowIndex] = useState<number | null>(null);
   const [criminalHistoryExpanded, setCriminalHistoryExpanded] = useState(true);
+  const [adjudicationMatrixHoveredRowIndex, setAdjudicationMatrixHoveredRowIndex] = useState<number | null>(null);
   const [mjdExpanded, setMjdExpanded] = useState(true);
   const [federalCrimeExpanded, setFederalCrimeExpanded] = useState(true);
 
