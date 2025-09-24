@@ -4731,6 +4731,807 @@ const OrderDetails: React.FC = () => {
                     </div>
                   )}
                 </div>
+
+                {/* Documents Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    paddingBottom: "20px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "0px",
+                    alignSelf: "stretch",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* Section Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 24px 0 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                Documents
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #F9DBAF",
+                                  background: "#FEF6EE",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#B93815",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Pending Documents
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Chevron Button */}
+                        <button
+                          onClick={() => setDocumentsExpanded(!documentsExpanded)}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            position: "relative",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              transform: documentsExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transition: "transform 0.2s ease",
+                            }}
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Documents Content */}
+                  {documentsExpanded && (
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "12px 24px 20px 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "24px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Pending Documents Section */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            Pending Documents
+                          </div>
+                          <button
+                            style={{
+                              display: "flex",
+                              minHeight: "36px",
+                              padding: "6px 8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              position: "relative",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "0 2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                View all combined
+                              </div>
+                            </div>
+                          </button>
+                        </div>
+
+                        {/* Pending Documents Table */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Document Name Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Header */}
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Document Name
+                              </div>
+                            </div>
+                            {/* Data rows */}
+                            {["SSA-89", "Resume", "Resume"].map((docName, index) => (
+                              <div
+                                key={index}
+                                onMouseEnter={() => setDocumentsHoveredRowIndex(index)}
+                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: documentsHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                  position: "relative",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                              >
+                                <button
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    background: "transparent",
+                                    border: "none",
+                                    cursor: "pointer",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: index === 0 ? "#273572" : "#181D27",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: index === 0 ? 600 : 500,
+                                      lineHeight: "20px",
+                                      textDecoration: index === 0 ? "underline" : "none",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {docName}
+                                  </div>
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Documents Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Header */}
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Documents
+                              </div>
+                            </div>
+                            {/* Data rows */}
+                            {["Click to Upload", "Click to Upload", "Click to Upload"].map((action, index) => (
+                              <div
+                                key={index}
+                                onMouseEnter={() => setDocumentsHoveredRowIndex(index)}
+                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: documentsHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                  position: "relative",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                              >
+                                <button
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    background: "transparent",
+                                    border: "none",
+                                    cursor: "pointer",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#273572",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                      textDecoration: "underline",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {action}
+                                  </div>
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Attached Documents Section */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            Attached Documents
+                          </div>
+                          <button
+                            style={{
+                              display: "flex",
+                              minHeight: "36px",
+                              padding: "6px 8px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "4px",
+                              borderRadius: "8px",
+                              border: "1px solid #D5D7DA",
+                              background: "#FFF",
+                              boxShadow:
+                                "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                              position: "relative",
+                              cursor: "pointer",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "0 2px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                View all combined
+                              </div>
+                            </div>
+                          </button>
+                        </div>
+
+                        {/* Attached Documents Table */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Document Name Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Header */}
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Document Name
+                              </div>
+                            </div>
+                            {/* Data rows */}
+                            {[
+                              "Applicant Release All",
+                              "Background Check Disclosure All",
+                              "Complete the fillable Form All",
+                              "Download Sign and upload all",
+                              "Driver's License"
+                            ].map((docName, index) => (
+                              <div
+                                key={index + 100} // offset to avoid conflicts with pending docs
+                                onMouseEnter={() => setDocumentsHoveredRowIndex(index + 100)}
+                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: documentsHoveredRowIndex === index + 100 ? "#F5F5F5" : "transparent",
+                                  position: "relative",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                              >
+                                <button
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "flex-start",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    background: "transparent",
+                                    border: "none",
+                                    cursor: "pointer",
+                                    position: "relative",
+                                    width: "100%",
+                                    flex: "1 0 0",
+                                    textAlign: "left",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      display: "-webkit-box",
+                                      WebkitBoxOrient: "vertical",
+                                      WebkitLineClamp: 1,
+                                      flex: "1 0 0",
+                                      overflow: "hidden",
+                                      color: "#273572",
+                                      textOverflow: "ellipsis",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                      textDecoration: "underline",
+                                      position: "relative",
+                                      textAlign: "left",
+                                    }}
+                                    title={docName}
+                                  >
+                                    {docName}
+                                  </div>
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Date Uploaded Column */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Header */}
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Date Uploaded
+                              </div>
+                            </div>
+                            {/* Data rows */}
+                            {Array(5).fill("2025-04-30 11:12:39").map((date, index) => (
+                              <div
+                                key={index + 100}
+                                onMouseEnter={() => setDocumentsHoveredRowIndex(index + 100)}
+                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: documentsHoveredRowIndex === index + 100 ? "#F5F5F5" : "transparent",
+                                  position: "relative",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {date}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Documents Column (Actions) */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Header */}
+                            <div
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "6px 12px",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: "#FFF",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Documents
+                              </div>
+                            </div>
+                            {/* Data rows */}
+                            {Array(5).fill(["Edit", "Delete", "Fax Document"]).map((actions, index) => (
+                              <div
+                                key={index + 100}
+                                onMouseEnter={() => setDocumentsHoveredRowIndex(index + 100)}
+                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: documentsHoveredRowIndex === index + 100 ? "#F5F5F5" : "transparent",
+                                  position: "relative",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                              >
+                                {actions.map((action, actionIndex) => (
+                                  <button
+                                    key={actionIndex}
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      background: "transparent",
+                                      border: "none",
+                                      cursor: "pointer",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#273572",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 600,
+                                        lineHeight: "20px",
+                                        textDecoration: "underline",
+                                        position: "relative",
+                                      }}
+                                    >
+                                      {action}
+                                    </div>
+                                  </button>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
