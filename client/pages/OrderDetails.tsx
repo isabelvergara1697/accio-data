@@ -81,6 +81,7 @@ const OrderDetails: React.FC = () => {
   const [tatHoveredIndex, setTatHoveredIndex] = useState<number | null>(null);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [noteToDelete, setNoteToDelete] = useState<string | null>(null);
+  const [reportSummaryExpanded, setReportSummaryExpanded] = useState(true);
   const [hoveredNoteId, setHoveredNoteId] = useState<string | null>(null);
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
@@ -3718,6 +3719,7 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
+                          onClick={() => setReportSummaryExpanded(!reportSummaryExpanded)}
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -3738,6 +3740,10 @@ const OrderDetails: React.FC = () => {
                             viewBox="0 0 16 16"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              transform: reportSummaryExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transition: "transform 0.2s ease",
+                            }}
                           >
                             <path
                               d="M4 6L8 10L12 6"
@@ -3752,18 +3758,923 @@ const OrderDetails: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Empty Content Area */}
-                  <div
-                    style={{
-                      display: "flex",
-                      height: "204px",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "20px",
-                      alignSelf: "stretch",
-                      position: "relative",
-                    }}
-                  />
+                  {/* Report Summary Content */}
+                  {reportSummaryExpanded && (
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "12px 24px 20px 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Divider */}
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "1px",
+                          background: "#E9EAEB",
+                          margin: "4px 0",
+                        }}
+                      />
+
+                      {/* Order Information Grid */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "grid",
+                            height: "124px",
+                            gridTemplateRows: "repeat(2, minmax(0, 1fr))",
+                            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                            rowGap: "8px",
+                            columnGap: "8px",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Order Number */}
+                          <div
+                            style={{
+                              display: "inline-flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              gridRow: "1 / span 1",
+                              gridColumn: "1 / span 1",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Order Number
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              812008
+                            </div>
+                          </div>
+
+                          {/* Remote Order Number */}
+                          <div
+                            style={{
+                              display: "inline-flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              gridRow: "1 / span 1",
+                              gridColumn: "2 / span 1",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Remote Order Number
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              8120007
+                            </div>
+                          </div>
+
+                          {/* Package */}
+                          <div
+                            style={{
+                              display: "inline-flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              gridRow: "1 / span 1",
+                              gridColumn: "3 / span 1",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Package
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              CSD Standard
+                            </div>
+                          </div>
+
+                          {/* Order Date */}
+                          <div
+                            style={{
+                              display: "inline-flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              gridRow: "2 / span 1",
+                              gridColumn: "1 / span 1",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Order Date
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              4/30/25 11:13 AM Central
+                            </div>
+                          </div>
+
+                          {/* Time First Completed */}
+                          <div
+                            style={{
+                              display: "inline-flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              gridRow: "2 / span 1",
+                              gridColumn: "2 / span 1",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Time First Completed
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              4/30/25 11:13 AM Central
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Data Table */}
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        {/* Named Search Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              Named Search
+                            </div>
+                          </div>
+                          {/* Data rows */}
+                          {[
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue DD",
+                            "Sue DD",
+                            "Sue DD",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                          ].map((name, index) => (
+                            <div
+                              key={index}
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "12px",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                {name}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Search Type Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              Search Type
+                            </div>
+                          </div>
+                          {/* Data rows */}
+                          {[
+                            "Resume Validation",
+                            "Employment at Jerrys",
+                            "Employment at Hank",
+                            "Education at Brown Community College",
+                            "Professional References",
+                            "MJD",
+                            "Countywide Criminal History",
+                            "5 Panel",
+                            "CBSV",
+                            "Nationwide Federal Crime",
+                          ].map((searchType, index) => (
+                            <div
+                              key={index}
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "12px",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <button
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  background: "transparent",
+                                  border: "none",
+                                  cursor: "pointer",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#273572",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                    textDecoration: "underline",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {searchType}
+                                </div>
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* County Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              County
+                            </div>
+                          </div>
+                          {/* Data rows */}
+                          {[
+                            "Harris",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "Bossier",
+                            "Bossier",
+                            "Bossier",
+                            "Bossier",
+                          ].map((county, index) => (
+                            <div
+                              key={index}
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "12px",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              {county && (
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {county}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* State Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              State
+                            </div>
+                          </div>
+                          {/* Data rows */}
+                          {[
+                            "Texas",
+                            "Texas",
+                            "Texas",
+                            "Texas",
+                            "Texas",
+                            "Texas",
+                            "LA",
+                            "LA",
+                            "LA",
+                            "LA",
+                          ].map((state, index) => (
+                            <div
+                              key={index}
+                              style={{
+                                display: "flex",
+                                height: "36px",
+                                padding: "12px",
+                                alignItems: "center",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                {state}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Research Results Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              Research Results
+                            </div>
+                          </div>
+                          {/* Data rows */}
+                          {Array(10)
+                            .fill("Completed - Verified")
+                            .map((status, index) => (
+                              <div
+                                key={index}
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: "1px solid #ABEFC6",
+                                    background: "#ECFDF3",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#067647",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 400,
+                                      lineHeight: "18px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {status}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                        </div>
+
+                        {/* Search ID Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              Search ID
+                            </div>
+                          </div>
+                          {/* Data rows */}
+                          {Array(10)
+                            .fill("845841254/451254")
+                            .map((searchId, index) => (
+                              <div
+                                key={index}
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {searchId}
+                                </div>
+                              </div>
+                            ))}
+                        </div>
+
+                        {/* Documents Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontStyle: "normal",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                                position: "relative",
+                              }}
+                            >
+                              Documents
+                            </div>
+                          </div>
+                          {/* Data rows */}
+                          {Array(10)
+                            .fill("[File Name]")
+                            .map((fileName, index) => (
+                              <div
+                                key={index}
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <button
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    background: "transparent",
+                                    border: "none",
+                                    cursor: "pointer",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#273572",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 600,
+                                      lineHeight: "20px",
+                                      textDecoration: "underline",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {fileName}
+                                  </div>
+                                </button>
+                              </div>
+                            ))}
+                        </div>
+
+                        {/* View Column */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            position: "relative",
+                          }}
+                        >
+                          {/* Header */}
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "40px",
+                              height: "36px",
+                              padding: "6px 12px",
+                              alignItems: "center",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "relative",
+                            }}
+                          />
+                          {/* Data rows */}
+                          {Array(10)
+                            .fill(0)
+                            .map((_, index) => (
+                              <div
+                                key={index}
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  position: "relative",
+                                }}
+                              >
+                                <button
+                                  style={{
+                                    background: "transparent",
+                                    border: "none",
+                                    cursor: "pointer",
+                                    padding: 0,
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M1.61342 8.47546C1.52262 8.3317 1.47723 8.25982 1.45182 8.14895C1.43273 8.06568 1.43273 7.93434 1.45182 7.85107C1.47723 7.7402 1.52262 7.66832 1.61341 7.52456C2.36369 6.33657 4.59693 3.33334 8.00027 3.33334C11.4036 3.33334 13.6369 6.33657 14.3871 7.52456C14.4779 7.66832 14.5233 7.7402 14.5487 7.85107C14.5678 7.93434 14.5678 8.06568 14.5487 8.14895C14.5233 8.25982 14.4779 8.3317 14.3871 8.47546C13.6369 9.66345 11.4036 12.6667 8.00027 12.6667C4.59693 12.6667 2.36369 9.66345 1.61342 8.47546Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                    <path
+                                      d="M8.00027 10C9.10484 10 10.0003 9.10458 10.0003 8.00001C10.0003 6.89544 9.10484 6.00001 8.00027 6.00001C6.8957 6.00001 6.00027 6.89544 6.00027 8.00001C6.00027 9.10458 6.8957 10 8.00027 10Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </button>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
