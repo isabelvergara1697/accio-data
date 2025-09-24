@@ -10434,6 +10434,8 @@ const OrderDetails: React.FC = () => {
                             ].map((item, index) => (
                               <div
                                 key={index}
+                                onMouseEnter={() => setAdjudicationMatrixHoveredRowIndex(index)}
+                                onMouseLeave={() => setAdjudicationMatrixHoveredRowIndex(null)}
                                 style={{
                                   display: "flex",
                                   height: "36px",
@@ -10442,8 +10444,10 @@ const OrderDetails: React.FC = () => {
                                   gap: "12px",
                                   alignSelf: "stretch",
                                   borderBottom: "1px solid #E9EAEB",
-                                  background: "#FFF",
+                                  background: adjudicationMatrixHoveredRowIndex === index ? "#F5F5F5" : "#FFF",
                                   position: "relative",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
                                 }}
                               >
                                 <div
