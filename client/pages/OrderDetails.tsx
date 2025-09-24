@@ -98,6 +98,8 @@ const OrderDetails: React.FC = () => {
   const [adjudicationMatrixHoveredRowIndex, setAdjudicationMatrixHoveredRowIndex] = useState<number | null>(null);
   const [mjdExpanded, setMjdExpanded] = useState(true);
   const [federalCrimeExpanded, setFederalCrimeExpanded] = useState(true);
+  const [professionalReferencesExpanded, setProfessionalReferencesExpanded] = useState(true);
+  const [professionalReferencesHoveredRowIndex, setProfessionalReferencesHoveredRowIndex] = useState<number | null>(null);
 
   const addNote = () => {
     const text = noteText.trim();
