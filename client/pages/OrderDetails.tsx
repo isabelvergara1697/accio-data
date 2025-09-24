@@ -3637,6 +3637,7 @@ const OrderDetails: React.FC = () => {
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
+                    overflow: "hidden",
                   }}
                 >
                   {/* Section Header */}
@@ -4171,13 +4172,14 @@ const OrderDetails: React.FC = () => {
                               <button
                                 style={{
                                   display: "flex",
-                                  justifyContent: "center",
+                                  justifyContent: "flex-start",
                                   alignItems: "center",
                                   gap: "4px",
                                   background: "transparent",
                                   border: "none",
                                   cursor: "pointer",
                                   position: "relative",
+                                  width: "100%",
                                 }}
                               >
                                 <div
@@ -4190,7 +4192,11 @@ const OrderDetails: React.FC = () => {
                                     lineHeight: "20px",
                                     textDecoration: "underline",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
                                   }}
+                                  title={searchType}
                                 >
                                   {searchType}
                                 </div>
