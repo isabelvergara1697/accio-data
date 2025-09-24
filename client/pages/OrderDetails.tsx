@@ -104,6 +104,8 @@ const OrderDetails: React.FC = () => {
   const [credentialsExpanded, setCredentialsExpanded] = useState(true);
   const [credentialsHoveredRowIndex, setCredentialsHoveredRowIndex] = useState<number | null>(null);
   const [creditEmploymentExpanded, setCreditEmploymentExpanded] = useState(true);
+  const [eVerifyExpanded, setEVerifyExpanded] = useState(true);
+  const [eVerifyHoveredRowIndex, setEVerifyHoveredRowIndex] = useState<number | null>(null);
 
   const addNote = () => {
     const text = noteText.trim();
@@ -14715,6 +14717,1273 @@ const OrderDetails: React.FC = () => {
                             />
                           </svg>
                         </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* E-Verify Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    paddingBottom: "20px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "0px",
+                    alignSelf: "stretch",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  {/* Section Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 24px 0 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                E-Verify
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #F9DBAF",
+                                  background: "#FEF6EE",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#B93815",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Pending
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #E9EAEB",
+                                  background: "#FAFAFA",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  1
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Chevron Button */}
+                        <button
+                          onClick={() => setEVerifyExpanded(!eVerifyExpanded)}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            position: "relative",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              transform: eVerifyExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transition: "transform 0.2s ease",
+                            }}
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* E-Verify Content */}
+                  {eVerifyExpanded && (
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "12px 24px 20px 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Employment Info Container */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "16px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderRadius: "10px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FFF",
+                          position: "relative",
+                        }}
+                      >
+                        {/* E-verify Row */}
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "504.5px",
+                              alignItems: "center",
+                              gap: "8px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              E-verify
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                border: "1px solid #F9DBAF",
+                                background: "#FEF6EE",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#B93815",
+                                  textAlign: "center",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Pending
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "12px",
+                              position: "relative",
+                            }}
+                          >
+                            <button
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                position: "relative",
+                                cursor: "pointer",
+                              }}
+                            >
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 6L8 10L12 6"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* ETA Information Grid */}
+                        <div
+                          style={{
+                            display: "grid",
+                            height: "52px",
+                            rowGap: "8px",
+                            columnGap: "8px",
+                            alignSelf: "stretch",
+                            gridTemplateRows: "repeat(1, minmax(0, 1fr))",
+                            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
+                              gridRow: "1 / span 1",
+                              gridColumn: "1 / span 1",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "-webkit-box",
+                                WebkitBoxOrient: "vertical",
+                                WebkitLineClamp: 1,
+                                alignSelf: "stretch",
+                                overflow: "hidden",
+                                color: "#717680",
+                                textOverflow: "ellipsis",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Original ETA
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              05/15/2025
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
+                              gridRow: "1 / span 1",
+                              gridColumn: "2 / span 1",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Revised ETA
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              05/15/2025
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              flex: "1 0 0",
+                              alignSelf: "stretch",
+                              gridRow: "1 / span 1",
+                              gridColumn: "3 / span 1",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Revised ETA Reason
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              -
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "1px",
+                            background: "#E9EAEB",
+                          }}
+                        />
+
+                        {/* Employee Data Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            Employee Data
+                          </div>
+                          <div
+                            style={{
+                              display: "grid",
+                              height: "351.333px",
+                              rowGap: "8px",
+                              columnGap: "8px",
+                              alignSelf: "stretch",
+                              gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)",
+                              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Row 1 */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "1 / span 1",
+                                gridColumn: "1 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Hire Date
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                05/15/2025
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "1 / span 1",
+                                gridColumn: "2 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Citizenship Status
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                A citizen of the United States
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "1 / span 1",
+                                gridColumn: "3 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Overdue Reason
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#273572",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  Edit
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Row 2 */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "2 / span 1",
+                                gridColumn: "1 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Add'l Overdue Info
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#273572",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  Edit
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "2 / span 1",
+                                gridColumn: "2 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Document Type
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                List B and C Documents
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "2 / span 1",
+                                gridColumn: "3 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Document Expiration Date
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                02/02/2026
+                              </div>
+                            </div>
+
+                            {/* Additional rows continue with the pattern based on the Figma design... */}
+                            {/* Row 3 - I94, Alien, Card Number */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "3 / span 1",
+                                gridColumn: "1 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                I94 Number
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                -
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "3 / span 1",
+                                gridColumn: "2 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Alien Number
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                -
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "3 / span 1",
+                                gridColumn: "3 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Card Number
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                -
+                              </div>
+                            </div>
+
+                            {/* Row 4 - Visa, Passport, Country */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "4 / span 1",
+                                gridColumn: "1 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Visa Number
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                -
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "4 / span 1",
+                                gridColumn: "2 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Passport Number
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                -
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "4 / span 1",
+                                gridColumn: "3 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Country of Issue
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                -
+                              </div>
+                            </div>
+
+                            {/* Row 5 - List C, List B Supporting, List B Number */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "5 / span 1",
+                                gridColumn: "1 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                List C
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Social Security Card
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "5 / span 1",
+                                gridColumn: "2 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                List B Supporting
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Driver's license
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "5 / span 1",
+                                gridColumn: "3 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                List B Number
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                10119988
+                              </div>
+                            </div>
+
+                            {/* Row 6 - List B State, List B (spans 2 columns) */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "6 / span 1",
+                                gridColumn: "1 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                List B State
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                TX
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "6 / span 1",
+                                gridColumn: "2 / span 2",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                List B
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Driver's license or ID card issued by a U.S. state or outlying possession
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Additional sections from the Figma design would continue here... */}
+                        {/* I'll add the key sections: Initial Response, Case Details, etc. */}
                       </div>
                     </div>
                   )}
