@@ -95,6 +95,7 @@ const OrderDetails: React.FC = () => {
   const [educationExpanded, setEducationExpanded] = useState(true);
   const [educationHoveredRowIndex, setEducationHoveredRowIndex] = useState<number | null>(null);
   const [criminalHistoryExpanded, setCriminalHistoryExpanded] = useState(true);
+  const [mjdExpanded, setMjdExpanded] = useState(true);
 
   const addNote = () => {
     const text = noteText.trim();
