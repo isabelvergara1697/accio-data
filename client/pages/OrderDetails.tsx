@@ -100,8 +100,6 @@ const OrderDetails: React.FC = () => {
   const [federalCrimeExpanded, setFederalCrimeExpanded] = useState(true);
   const [professionalReferencesExpanded, setProfessionalReferencesExpanded] = useState(true);
   const [professionalReferencesHoveredRowIndex, setProfessionalReferencesHoveredRowIndex] = useState<number | null>(null);
-  const [additionalInfoExpanded, setAdditionalInfoExpanded] = useState(true);
-  const [additionalInfoHoveredRowIndex, setAdditionalInfoHoveredRowIndex] = useState<number | null>(null);
   const [motorVehicleExpanded, setMotorVehicleExpanded] = useState(true);
 
   const addNote = () => {
