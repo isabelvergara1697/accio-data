@@ -79,6 +79,8 @@ const OrderDetails: React.FC = () => {
   ];
   const [tatHoveredSegment, setTatHoveredSegment] = useState<TatSegment | null>(null);
   const [tatHoveredIndex, setTatHoveredIndex] = useState<number | null>(null);
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [noteToDelete, setNoteToDelete] = useState<string | null>(null);
   const [hoveredNoteId, setHoveredNoteId] = useState<string | null>(null);
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
@@ -194,8 +196,22 @@ const OrderDetails: React.FC = () => {
     }
   };
 
-  const deleteNote = (noteId: string) => {
-    setNotes(prev => prev.filter(n => n.id !== noteId));
+  const showDeleteModal = (noteId: string) => {
+    setNoteToDelete(noteId);
+    setDeleteModalOpen(true);
+  };
+
+  const confirmDeleteNote = () => {
+    if (noteToDelete) {
+      setNotes(prev => prev.filter(n => n.id !== noteToDelete));
+      setNoteToDelete(null);
+    }
+    setDeleteModalOpen(false);
+  };
+
+  const cancelDeleteNote = () => {
+    setNoteToDelete(null);
+    setDeleteModalOpen(false);
   };
 
   // Window resize handler
@@ -2401,7 +2417,7 @@ const OrderDetails: React.FC = () => {
 
                                     {/* Delete Button */}
                                     <button
-                                      onClick={() => deleteNote(n.id)}
+                                      onClick={() => showDeleteModal(n.id)}
                                       style={{
                                         display: "flex",
                                         width: "28px",
