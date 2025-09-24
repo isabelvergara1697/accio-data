@@ -4600,6 +4600,8 @@ const OrderDetails: React.FC = () => {
                             .map((fileName, index) => (
                               <div
                                 key={index}
+                                onMouseEnter={() => setHoveredRowIndex(index)}
+                                onMouseLeave={() => setHoveredRowIndex(null)}
                                 style={{
                                   display: "flex",
                                   height: "36px",
@@ -4608,7 +4610,10 @@ const OrderDetails: React.FC = () => {
                                   gap: "8px",
                                   alignSelf: "stretch",
                                   borderBottom: "1px solid #E9EAEB",
+                                  background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
                                   position: "relative",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
                                 }}
                               >
                                 <button
@@ -4625,7 +4630,7 @@ const OrderDetails: React.FC = () => {
                                 >
                                   <div
                                     style={{
-                                      color: "#273572",
+                                      color: hoveredRowIndex === index ? "#1A234C" : "#273572",
                                       fontFamily: "Public Sans",
                                       fontSize: "14px",
                                       fontStyle: "normal",
