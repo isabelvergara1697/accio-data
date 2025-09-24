@@ -3770,6 +3770,293 @@ const OrderDetails: React.FC = () => {
           </div>
         </main>
       </div>
+
+      {/* Delete Note Confirmation Modal */}
+      {deleteModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "32px",
+            backdropFilter: "blur(8px)",
+            zIndex: 1000,
+          }}
+        >
+          {/* Background Overlay */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "rgba(10, 13, 18, 0.7)",
+            }}
+            onClick={cancelDeleteNote}
+          />
+
+          {/* Modal */}
+          <div
+            style={{
+              display: "flex",
+              maxWidth: "400px",
+              flexDirection: "column",
+              alignItems: "center",
+              borderRadius: "16px",
+              background: "#FFF",
+              boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+              position: "relative",
+              zIndex: 1001,
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "24px 24px 0 24px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                {/* Featured Icon */}
+                <div
+                  style={{
+                    display: "flex",
+                    width: "48px",
+                    height: "48px",
+                    padding: "12px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "9999px",
+                    background: "#FEE4E2",
+                    position: "relative",
+                  }}
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <path
+                      d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 19.862C18.3854 20.4265 17.9265 20.8854 17.362 21.173C16.7202 21.5 15.8802 21.5 14.2 21.5H9.8C8.11984 21.5 7.27976 21.5 6.63803 21.173C6.07354 20.8854 5.6146 20.4265 5.32698 19.862C5 19.7202 5 18.8802 5 17.2V6"
+                      stroke="#D92D20"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "2px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "24px",
+                      position: "relative",
+                    }}
+                  >
+                    Delete Note
+                  </div>
+                  <div
+                    style={{
+                      alignSelf: "stretch",
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                      position: "relative",
+                    }}
+                  >
+                    Are you sure you want to delete this note? This action cannot be undone.
+                  </div>
+                </div>
+              </div>
+
+              {/* Close Button */}
+              <button
+                onClick={cancelDeleteNote}
+                style={{
+                  display: "flex",
+                  width: "44px",
+                  height: "44px",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  position: "absolute",
+                  right: "12px",
+                  top: "12px",
+                  borderRadius: "8px",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(0, 0, 0, 0.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                }}
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    flexShrink: 0,
+                  }}
+                >
+                  <path
+                    d="M18 6L6 18M6 6L18 18"
+                    stroke="#A4A7AE"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Modal Actions */}
+            <div
+              style={{
+                display: "flex",
+                paddingTop: "32px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                alignSelf: "stretch",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  padding: "0 24px 24px 24px",
+                  alignItems: "flex-start",
+                  gap: "12px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                {/* Cancel Button */}
+                <button
+                  onClick={cancelDeleteNote}
+                  style={{
+                    display: "flex",
+                    padding: "12px 16px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "6px",
+                    flex: "1 0 0",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#FFF";
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "24px",
+                    }}
+                  >
+                    Cancel
+                  </div>
+                </button>
+
+                {/* Delete Button */}
+                <button
+                  onClick={confirmDeleteNote}
+                  style={{
+                    display: "flex",
+                    padding: "12px 16px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "6px",
+                    flex: "1 0 0",
+                    borderRadius: "8px",
+                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                    background: "#D92D20",
+                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#B91C1C";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "#D92D20";
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#FFF",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "24px",
+                    }}
+                  >
+                    Delete
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
