@@ -88,6 +88,7 @@ const OrderDetails: React.FC = () => {
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
   const [documentsExpanded, setDocumentsExpanded] = useState(true);
   const [documentsHoveredRowIndex, setDocumentsHoveredRowIndex] = useState<number | null>(null);
+  const [subjectExpanded, setSubjectExpanded] = useState(true);
 
   const addNote = () => {
     const text = noteText.trim();
