@@ -4524,6 +4524,8 @@ const OrderDetails: React.FC = () => {
                             .map((searchId, index) => (
                               <div
                                 key={index}
+                                onMouseEnter={() => setHoveredRowIndex(index)}
+                                onMouseLeave={() => setHoveredRowIndex(null)}
                                 style={{
                                   display: "flex",
                                   height: "36px",
@@ -4531,7 +4533,10 @@ const OrderDetails: React.FC = () => {
                                   alignItems: "center",
                                   alignSelf: "stretch",
                                   borderBottom: "1px solid #E9EAEB",
+                                  background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
                                   position: "relative",
+                                  cursor: "pointer",
+                                  transition: "background-color 0.2s ease",
                                 }}
                               >
                                 <div
