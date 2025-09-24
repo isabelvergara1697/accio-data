@@ -4180,11 +4180,18 @@ const OrderDetails: React.FC = () => {
                                   cursor: "pointer",
                                   position: "relative",
                                   width: "100%",
+                                  flex: "1 0 0",
                                 }}
                               >
                                 <div
                                   style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 1,
+                                    flex: "1 0 0",
+                                    overflow: "hidden",
                                     color: "#273572",
+                                    textOverflow: "ellipsis",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
                                     fontStyle: "normal",
@@ -4192,9 +4199,6 @@ const OrderDetails: React.FC = () => {
                                     lineHeight: "20px",
                                     textDecoration: "underline",
                                     position: "relative",
-                                    whiteSpace: "nowrap",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
                                   }}
                                   title={searchType}
                                 >
