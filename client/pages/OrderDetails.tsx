@@ -15982,8 +15982,2126 @@ const OrderDetails: React.FC = () => {
                           </div>
                         </div>
 
-                        {/* Additional sections from the Figma design would continue here... */}
-                        {/* I'll add the key sections: Initial Response, Case Details, etc. */}
+                        {/* Divider */}
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "1px",
+                            background: "#E9EAEB",
+                          }}
+                        />
+
+                        {/* Initial Response Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            Initial Response
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              alignContent: "flex-start",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              flexWrap: "wrap",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Eligibility Text
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                -
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Eligibility Details
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                A citizen of the United States
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "1px",
+                            background: "#E9EAEB",
+                          }}
+                        />
+
+                        {/* Case Details Button */}
+                        <button
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            gap: "4px",
+                            position: "relative",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#273572",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontStyle: "normal",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                              position: "relative",
+                            }}
+                          >
+                            Case Details
+                          </div>
+                          <svg
+                            width="16"
+                            height="17"
+                            viewBox="0 0 16 17"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              width: "16px",
+                              height: "16px",
+                              position: "relative",
+                            }}
+                          >
+                            <path
+                              d="M12 10.333L8 6.33301L4 10.333"
+                              stroke="#34479A"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+
+                        {/* Case Details Expanded Content */}
+                        <div
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                            borderRadius: "4px",
+                            background: "#FAFAFA",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            Case Details
+                          </div>
+
+                          {/* Response Information */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Response Information
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <div
+                            style={{
+                              width: "100%",
+                              height: "1px",
+                              background: "#E9EAEB",
+                            }}
+                          />
+
+                          {/* Initial Verification */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Initial Verification
+                            </div>
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "172px",
+                                rowGap: "8px",
+                                columnGap: "8px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
+                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Row 1 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Case Number
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Code
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Secondary Verification
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  No
+                                </div>
+                              </div>
+
+                              {/* Row 2 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Last Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  No
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Last Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Text
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+
+                              {/* Row 3 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "3 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Details
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <div
+                            style={{
+                              width: "100%",
+                              height: "1px",
+                              background: "#E9EAEB",
+                            }}
+                          />
+
+                          {/* Additional Verification */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Additional Verification
+                            </div>
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "112px",
+                                rowGap: "8px",
+                                columnGap: "8px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
+                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Row 1 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Initiated Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Resolve Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Resolve Code
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+
+                              {/* Row 2 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Text
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Comments
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <div
+                            style={{
+                              width: "100%",
+                              height: "1px",
+                              background: "#E9EAEB",
+                            }}
+                          />
+
+                          {/* SSA Referral */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              SSA Referral
+                            </div>
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "112px",
+                                rowGap: "8px",
+                                columnGap: "8px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
+                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Row 1 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Initiated Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Contact By Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Due Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+
+                              {/* Row 2 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Code
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Resolve Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Text
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <div
+                            style={{
+                              width: "100%",
+                              height: "1px",
+                              background: "#E9EAEB",
+                            }}
+                          />
+
+                          {/* SSA Resubmittal */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              SSA Resubmittal
+                            </div>
+
+                            {/* First Grid */}
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "112px",
+                                rowGap: "8px",
+                                columnGap: "8px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
+                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Row 1 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Initiated Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Last Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Middle Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+
+                              {/* Row 2 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  First Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Other Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  DOB
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Second Grid */}
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "112px",
+                                rowGap: "8px",
+                                columnGap: "8px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
+                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Row 1 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Last Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  First Name
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Code
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+
+                              {/* Row 2 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Text
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Divider */}
+                          <div
+                            style={{
+                              width: "100%",
+                              height: "1px",
+                              background: "#E9EAEB",
+                            }}
+                          />
+
+                          {/* DHS Referral */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "16px",
+                              alignSelf: "stretch",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              DHS Referral
+                            </div>
+                            <div
+                              style={{
+                                display: "grid",
+                                height: "232px",
+                                rowGap: "8px",
+                                columnGap: "8px",
+                                alignSelf: "stretch",
+                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)",
+                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Row 1 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Primary Referral
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Additional Referral
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "1 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Contacted By Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+
+                              {/* Row 2 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Due Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Resolve Code
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "2 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Text
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+
+                              {/* Row 3 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "3 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Resolve Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "3 / span 1",
+                                  gridColumn: "2 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Initiated Date
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "3 / span 1",
+                                  gridColumn: "3 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Resolve Code
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+
+                              {/* Row 4 */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
+                                  gap: "4px",
+                                  flex: "1 0 0",
+                                  alignSelf: "stretch",
+                                  gridRow: "4 / span 1",
+                                  gridColumn: "1 / span 1",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Eligibility Text
+                                </div>
+                                <div
+                                  style={{
+                                    alignSelf: "stretch",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "16px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "24px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  -
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   )}
