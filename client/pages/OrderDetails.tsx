@@ -876,6 +876,7 @@ const OrderDetails: React.FC = () => {
                       position: "relative",
                     }}
                   >
+                    {/* More Actions - Tertiary Button */}
                     <button
                       style={{
                         display: "flex",
@@ -916,6 +917,7 @@ const OrderDetails: React.FC = () => {
                       </div>
                     </button>
 
+                    {/* Add I-9 - Secondary Button */}
                     <button
                       style={{
                         display: "flex",
@@ -956,8 +958,31 @@ const OrderDetails: React.FC = () => {
                           Add I-9
                         </div>
                       </div>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g clipPath="url(#clip0_add_i9)">
+                          <path
+                            d="M8.00065 5.33333V10.6667M5.33398 8H10.6673M14.6673 8C14.6673 11.6819 11.6826 14.6667 8.00065 14.6667C4.31875 14.6667 1.33398 11.6819 1.33398 8C1.33398 4.3181 4.31875 1.33333 8.00065 1.33333C11.6826 1.33333 14.6673 4.3181 14.6673 8Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_add_i9">
+                            <rect width="16" height="16" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
                     </button>
 
+                    {/* Add AKAs - Secondary Button */}
                     <button
                       style={{
                         display: "flex",
@@ -995,7 +1020,7 @@ const OrderDetails: React.FC = () => {
                             position: "relative",
                           }}
                         >
-                          Add to this report
+                          Add AKAs
                         </div>
                       </div>
                       <svg
@@ -1005,16 +1030,24 @@ const OrderDetails: React.FC = () => {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          d="M8.00065 5.33333V10.6667M5.33398 8H10.6673M14.6673 8C14.6673 11.6819 11.6826 14.6667 8.00065 14.6667C4.31875 14.6667 1.33398 11.6819 1.33398 8C1.33398 4.3181 4.31875 1.33333 8.00065 1.33333C11.6826 1.33333 14.6673 4.3181 14.6673 8Z"
-                          stroke="#A4A7AE"
-                          strokeWidth="1.66667"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
+                        <g clipPath="url(#clip0_add_akas)">
+                          <path
+                            d="M8.00065 5.33333V10.6667M5.33398 8H10.6673M14.6673 8C14.6673 11.6819 11.6826 14.6667 8.00065 14.6667C4.31875 14.6667 1.33398 11.6819 1.33398 8C1.33398 4.3181 4.31875 1.33333 8.00065 1.33333C11.6826 1.33333 14.6673 4.3181 14.6673 8Z"
+                            stroke="#A4A7AE"
+                            strokeWidth="1.66667"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_add_akas">
+                            <rect width="16" height="16" fill="white"/>
+                          </clipPath>
+                        </defs>
                       </svg>
                     </button>
 
+                    {/* Add to this Order - Primary Button */}
                     <button
                       style={{
                         display: "flex",
@@ -1052,7 +1085,7 @@ const OrderDetails: React.FC = () => {
                             position: "relative",
                           }}
                         >
-                          Main CTA
+                          Add to this Order
                         </div>
                       </div>
                     </button>
