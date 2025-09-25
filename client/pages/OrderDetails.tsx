@@ -1406,10 +1406,586 @@ const OrderDetails: React.FC = () => {
                     </div>
                   </div>
                 </button>
+
+                {/* MJD */}
+                <button
+                  onClick={() => {
+                    document.getElementById("mjd")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    MJD
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
+
+                {/* Nationwide Federal Crime */}
+                <button
+                  onClick={() => {
+                    document.getElementById("nationwide-federal-crime")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Nationwide Federal Crime
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
+
+                {/* Professional References */}
+                <button
+                  onClick={() => {
+                    document.getElementById("professional-references")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Professional References
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
+
+                {/* Credentials - Professional License */}
+                <button
+                  onClick={() => {
+                    document.getElementById("credentials-professional-license")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Credentials - Professional License #1
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
+
+                {/* Motor Vehicle Driving History */}
+                <button
+                  onClick={() => {
+                    document.getElementById("motor-vehicle-driving-history")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Motor Vehicle Driving History
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
+
+                {/* E-Verify */}
+                <button
+                  onClick={() => {
+                    document.getElementById("e-verify")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    E-Verify
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
+
+                {/* 5 Panel */}
+                <button
+                  onClick={() => {
+                    document.getElementById("five-panels-section")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    5 Panel
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
+
+                {/* CBSV */}
+                <button
+                  onClick={() => {
+                    document.getElementById("cbsv-section")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    CBSV
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
+
+                {/* Special Notice */}
+                <button
+                  onClick={() => {
+                    document.getElementById("special-notice-section")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Special Notice
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
+                  </div>
+                </button>
               </div>
             )}
           </div>
-        )}
+        )}]}￼}
 
         <main
           style={{
