@@ -663,6 +663,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Add I-9 - Secondary Button */}
                 <button
+                  onClick={() => navigate("/i9-order")}
                   style={{
                     display: "flex",
                     minHeight: "36px",
@@ -793,6 +794,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Add to this Order - Primary Button */}
                 <button
+                  onClick={() => navigate("/online-ordering")}
                   style={{
                     display: "flex",
                     minHeight: "36px",
@@ -2542,8 +2544,9 @@ const OrderDetails: React.FC = () => {
                     </button>
 
                     {/* Add I-9 - Secondary Button */}
-                    <button
-                      style={{
+                <button
+                  onClick={() => navigate("/i9-order")}
+                  style={{
                         display: "flex",
                         minHeight: "36px",
                         padding: "6px 8px",
@@ -2672,8 +2675,9 @@ const OrderDetails: React.FC = () => {
                     </button>
 
                     {/* Add to this Order - Primary Button */}
-                    <button
-                      style={{
+                <button
+                  onClick={() => navigate("/online-ordering")}
+                  style={{
                         display: "flex",
                         minHeight: "36px",
                         padding: "6px 8px",
