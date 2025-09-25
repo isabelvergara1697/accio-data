@@ -19810,6 +19810,554 @@ const OrderDetails: React.FC = () => {
                     </div>
                   )}
                 </div>
+
+                {/* CBSV Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "0px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "0px",
+                    alignSelf: "stretch",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                      borderRadius: "12px 12px 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 24px 0 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                CBSV
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #ABEFC6",
+                                  background: "#ECFDF3",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#067647",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Completed Clear
+                                </div>
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #E9EAEB",
+                                  background: "#FAFAFA",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#414651",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  1
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => setCbsvExpanded(!cbsvExpanded)}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            position: "relative",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              transform: cbsvExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transition: "transform 0.2s ease",
+                            }}
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CBSV Content */}
+                  {cbsvExpanded && (
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "12px 24px 20px 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Employment Info Container */}
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "16px",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderRadius: "10px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FFF",
+                          position: "relative",
+                        }}
+                      >
+                        {/* CBSV Row */}
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              width: "504.5px",
+                              alignItems: "center",
+                              gap: "8px",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              CBSV
+                            </div>
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontStyle: "normal",
+                                fontWeight: 500,
+                                lineHeight: "24px",
+                                position: "relative",
+                              }}
+                            >
+                              Sue Jane
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                padding: "2px 8px",
+                                alignItems: "center",
+                                borderRadius: "9999px",
+                                border: "1px solid #ABEFC6",
+                                background: "#ECFDF3",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#067647",
+                                  textAlign: "center",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "12px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "18px",
+                                  position: "relative",
+                                }}
+                              >
+                                Completed Clear
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "12px",
+                              position: "relative",
+                            }}
+                          >
+                            <button
+                              style={{
+                                display: "flex",
+                                padding: "8px",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "8px",
+                                border: "1px solid #D5D7DA",
+                                background: "#FFF",
+                                boxShadow:
+                                  "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                                position: "relative",
+                                cursor: "pointer",
+                              }}
+                            >
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M4 6L8 10L12 6"
+                                  stroke="#A4A7AE"
+                                  strokeWidth="1.66667"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Request Has Been Completed Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "16px",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 500,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            Request Has Been Completed
+                          </div>
+                          <div
+                            style={{
+                              display: "grid",
+                              height: "52px",
+                              rowGap: "8px",
+                              columnGap: "8px",
+                              alignSelf: "stretch",
+                              gridTemplateRows: "fit-content(100%)",
+                              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                              position: "relative",
+                            }}
+                          >
+                            {/* Row 1 */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "1 / span 1",
+                                gridColumn: "1 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Results from the SSA
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                -
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "1 / span 1",
+                                gridColumn: "2 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Response Code
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                0000
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "4px",
+                                flex: "1 0 0",
+                                alignSelf: "stretch",
+                                gridRow: "1 / span 1",
+                                gridColumn: "3 / span 1",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#717680",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Description
+                              </div>
+                              <div
+                                style={{
+                                  alignSelf: "stretch",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "16px",
+                                  fontStyle: "normal",
+                                  fontWeight: 400,
+                                  lineHeight: "24px",
+                                  position: "relative",
+                                }}
+                              >
+                                Verification Succesfull
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Divider */}
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "1px",
+                            background: "#E9EAEB",
+                          }}
+                        />
+
+                        {/* Note Section */}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            alignSelf: "stretch",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            Note
+                          </div>
+                          <div
+                            style={{
+                              alignSelf: "stretch",
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontStyle: "normal",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                              position: "relative",
+                            }}
+                          >
+                            SSA result code 0000 means that the name, date of birth, and social security number you supplied all match each other in the SSA's database. In addition, this person is not deceased.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
