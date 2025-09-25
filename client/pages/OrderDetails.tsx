@@ -275,6 +275,20 @@ const OrderDetails: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Measure sticky header height to offset content when active
+  useEffect(() => {
+    const updateHeight = () => {
+      if (stickyHeaderRef.current) {
+        setStickyHeight(stickyHeaderRef.current.offsetHeight);
+      }
+    };
+    if (showStickyHeader) {
+      updateHeight();
+      window.addEventListener("resize", updateHeight);
+    }
+    return () => window.removeEventListener("resize", updateHeight);
+  }, [showStickyHeader]);
+
   const handleSignOut = () => {
     console.log("Sign out");
   };
