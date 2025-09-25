@@ -762,7 +762,7 @@ const OrderDetails: React.FC = () => {
         <main
           style={{
             display: "flex",
-            marginTop: isDesktop ? "104px" : "96px",
+            marginTop: showStickyHeader ? `${stickyHeight}px` : (isDesktop ? "104px" : "96px"),
             paddingBottom: "24px",
             flexDirection: "column",
             alignItems: "flex-start",
