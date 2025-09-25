@@ -18135,6 +18135,7 @@ const OrderDetails: React.FC = () => {
                       gap: "20px",
                       alignSelf: "stretch",
                       background: "#FFF",
+                      borderRadius: "12px 12px 0 0",
                       position: "relative",
                     }}
                   >
