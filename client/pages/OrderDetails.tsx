@@ -407,6 +407,337 @@ const OrderDetails: React.FC = () => {
           showMobileUserMenu={showMobileUserMenu}
         />
 
+        {/* Sticky Header */}
+        {showStickyHeader && (
+          <div
+            style={{
+              position: "fixed",
+              top: isDesktop ? "80px" : "72px",
+              left: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
+              right: "0",
+              zIndex: 1000,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "16px",
+              padding: "16px 24px",
+              background: "#FFF",
+              borderBottom: "1px solid #E9EAEB",
+              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-end",
+                alignContent: "flex-end",
+                gap: "20px 16px",
+                alignSelf: "stretch",
+                flexWrap: "wrap",
+                position: "relative",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  minWidth: "320px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "4px",
+                  flex: "1 0 0",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    alignSelf: "stretch",
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "24px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "32px",
+                    position: "relative",
+                  }}
+                >
+                  Sue Janes Order #38138
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
+                    alignSelf: "stretch",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#535862",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      lineHeight: "24px",
+                      position: "relative",
+                    }}
+                  >
+                    Report Disposition
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "4px 12px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      Meets Hiring Requirements
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  position: "relative",
+                }}
+              >
+                {/* More Actions - Tertiary Button */}
+                <button
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    position: "relative",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      More Actions
+                    </div>
+                  </div>
+                </button>
+
+                {/* Add I-9 - Secondary Button */}
+                <button
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      Add I-9
+                    </div>
+                  </div>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clipPath="url(#clip0_sticky_i9)">
+                      <path
+                        d="M8.00065 5.33333V10.6667M5.33398 8H10.6673M14.6673 8C14.6673 11.6819 11.6826 14.6667 8.00065 14.6667C4.31875 14.6667 1.33398 11.6819 1.33398 8C1.33398 4.3181 4.31875 1.33333 8.00065 1.33333C11.6826 1.33333 14.6673 4.3181 14.6673 8Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_sticky_i9">
+                        <rect width="16" height="16" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+
+                {/* Add AKAs - Secondary Button */}
+                <button
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      Add AKAs
+                    </div>
+                  </div>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clipPath="url(#clip0_sticky_akas)">
+                      <path
+                        d="M8.00065 5.33333V10.6667M5.33398 8H10.6673M14.6673 8C14.6673 11.6819 11.6826 14.6667 8.00065 14.6667C4.31875 14.6667 1.33398 11.6819 1.33398 8C1.33398 4.3181 4.31875 1.33333 8.00065 1.33333C11.6826 1.33333 14.6673 4.3181 14.6673 8Z"
+                        stroke="#A4A7AE"
+                        strokeWidth="1.66667"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_sticky_akas">
+                        <rect width="16" height="16" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+
+                {/* Add to this Order - Primary Button */}
+                <button
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    borderRadius: "8px",
+                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                    background: "#344698",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#FFF",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                        position: "relative",
+                      }}
+                    >
+                      Add to this Order
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         <main
           style={{
             display: "flex",
