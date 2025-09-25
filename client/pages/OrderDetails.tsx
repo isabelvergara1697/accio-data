@@ -150,6 +150,17 @@ const OrderDetails: React.FC = () => {
   const stickyNavigationRef = useRef<HTMLDivElement | null>(null);
   const [stickyNavHeight, setStickyNavHeight] = useState<number>(0);
 
+  // Accurate in-page anchor scroll accounting for fixed headers
+  const scrollToSection = (targetId: string) => {
+    const el = typeof document !== "undefined" ? document.getElementById(targetId) : null;
+    if (!el) return;
+    const headerOffset = (showStickyHeader && stickyHeaderRef.current
+      ? stickyHeaderRef.current.offsetHeight
+      : (isDesktop ? 104 : 96));
+    const y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset - 8;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  };
+
   const addNote = () => {
     const text = noteText.trim();
     if (!text) return;
@@ -1073,7 +1084,7 @@ const OrderDetails: React.FC = () => {
                 {/* Subject */}
                 <button
                   onClick={() => {
-                    document.getElementById("subject")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("subject");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1138,7 +1149,7 @@ const OrderDetails: React.FC = () => {
                 {/* Resume Validation */}
                 <button
                   onClick={() => {
-                    document.getElementById("resume-validation")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("resume-validation");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1203,7 +1214,7 @@ const OrderDetails: React.FC = () => {
                 {/* Employment */}
                 <button
                   onClick={() => {
-                    document.getElementById("employment-at-jerrys-tx")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("employment-at-jerrys-tx");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1272,7 +1283,7 @@ const OrderDetails: React.FC = () => {
                 {/* Education */}
                 <button
                   onClick={() => {
-                    document.getElementById("education-at-brown-community-college")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("education-at-brown-community-college");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1341,7 +1352,7 @@ const OrderDetails: React.FC = () => {
                 {/* Criminal History */}
                 <button
                   onClick={() => {
-                    document.getElementById("countywide-criminal-history")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("countywide-criminal-history");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1410,7 +1421,7 @@ const OrderDetails: React.FC = () => {
                 {/* MJD */}
                 <button
                   onClick={() => {
-                    document.getElementById("mjd")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("mjd");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1474,7 +1485,7 @@ const OrderDetails: React.FC = () => {
                 {/* Nationwide Federal Crime */}
                 <button
                   onClick={() => {
-                    document.getElementById("nationwide-federal-crime")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("nationwide-federal-crime");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1538,7 +1549,7 @@ const OrderDetails: React.FC = () => {
                 {/* Professional References */}
                 <button
                   onClick={() => {
-                    document.getElementById("professional-references")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("professional-references");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1602,7 +1613,7 @@ const OrderDetails: React.FC = () => {
                 {/* Credentials - Professional License */}
                 <button
                   onClick={() => {
-                    document.getElementById("credentials-professional-license")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("credentials-professional-license");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1666,7 +1677,7 @@ const OrderDetails: React.FC = () => {
                 {/* Motor Vehicle Driving History */}
                 <button
                   onClick={() => {
-                    document.getElementById("motor-vehicle-driving-history")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("motor-vehicle-driving-history");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1730,7 +1741,7 @@ const OrderDetails: React.FC = () => {
                 {/* E-Verify */}
                 <button
                   onClick={() => {
-                    document.getElementById("e-verify")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("e-verify");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1794,7 +1805,7 @@ const OrderDetails: React.FC = () => {
                 {/* 5 Panel */}
                 <button
                   onClick={() => {
-                    document.getElementById("five-panels-section")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("five-panels-section");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1858,7 +1869,7 @@ const OrderDetails: React.FC = () => {
                 {/* CBSV */}
                 <button
                   onClick={() => {
-                    document.getElementById("cbsv-section")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("cbsv-section");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1922,7 +1933,7 @@ const OrderDetails: React.FC = () => {
                 {/* Special Notice */}
                 <button
                   onClick={() => {
-                    document.getElementById("special-notice-section")?.scrollIntoView({ behavior: "smooth" });
+                    scrollToSection("special-notice-section");
                     setStickyNavigationOpen(false);
                   }}
                   style={{
