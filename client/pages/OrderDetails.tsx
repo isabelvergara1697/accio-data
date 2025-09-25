@@ -106,6 +106,8 @@ const OrderDetails: React.FC = () => {
   const [creditEmploymentExpanded, setCreditEmploymentExpanded] = useState(true);
   const [eVerifyExpanded, setEVerifyExpanded] = useState(true);
   const [eVerifyHoveredRowIndex, setEVerifyHoveredRowIndex] = useState<number | null>(null);
+  const [fivePanelsExpanded, setFivePanelsExpanded] = useState(true);
+  const [fivePanelsHoveredRowIndex, setFivePanelsHoveredRowIndex] = useState<number | null>(null);
 
   const addNote = () => {
     const text = noteText.trim();
