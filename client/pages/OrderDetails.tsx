@@ -398,30 +398,34 @@ const OrderDetails: React.FC = () => {
           boxSizing: "border-box",
         }}
       >
-        <Header
-          isDesktop={isDesktop}
-          userMenuOpen={userMenuOpen}
-          setUserMenuOpen={setUserMenuOpen}
-          userMenuHovered={userMenuHovered}
-          setUserMenuHovered={setUserMenuHovered}
-          handleSignOut={handleSignOut}
-          getUserMenuStyles={getUserMenuStyles}
-          showMobileUserMenu={showMobileUserMenu}
-          sidebarCollapsed={sidebarCollapsed}
-        />
+        {!showStickyHeader && (
+          <>
+            <Header
+              isDesktop={isDesktop}
+              userMenuOpen={userMenuOpen}
+              setUserMenuOpen={setUserMenuOpen}
+              userMenuHovered={userMenuHovered}
+              setUserMenuHovered={setUserMenuHovered}
+              handleSignOut={handleSignOut}
+              getUserMenuStyles={getUserMenuStyles}
+              showMobileUserMenu={showMobileUserMenu}
+              sidebarCollapsed={sidebarCollapsed}
+            />
 
-        <MobileHeader
-          isDesktop={isDesktop}
-          isMobile={isMobile}
-          setMobileMenuOpen={setMobileMenuOpen}
-          userMenuOpen={userMenuOpen}
-          setUserMenuOpen={setUserMenuOpen}
-          userMenuHovered={userMenuHovered}
-          setUserMenuHovered={setUserMenuHovered}
-          handleSignOut={handleSignOut}
-          getUserMenuStyles={getUserMenuStyles}
-          showMobileUserMenu={showMobileUserMenu}
-        />
+            <MobileHeader
+              isDesktop={isDesktop}
+              isMobile={isMobile}
+              setMobileMenuOpen={setMobileMenuOpen}
+              userMenuOpen={userMenuOpen}
+              setUserMenuOpen={setUserMenuOpen}
+              userMenuHovered={userMenuHovered}
+              setUserMenuHovered={setUserMenuHovered}
+              handleSignOut={handleSignOut}
+              getUserMenuStyles={getUserMenuStyles}
+              showMobileUserMenu={showMobileUserMenu}
+            />
+          </>
+        )}
 
         {/* Sticky Header */}
         {showStickyHeader && (
