@@ -34,7 +34,7 @@ const OrderDetails: React.FC = () => {
     color: string;
   };
 
-  const storageKey = `order-notes-${orderId ?? 'default'}`;
+  const storageKey = `order-notes-${orderId ?? "default"}`;
   const [notes, setNotes] = useState<Note[]>([]);
   const [noteText, setNoteText] = useState("");
 
@@ -77,7 +77,9 @@ const OrderDetails: React.FC = () => {
     { label: "Waiting on Applicant", value: 25, color: "#3CCB7F" },
     { label: "Waiting on HR", value: 15, color: "#A4A7AE" },
   ];
-  const [tatHoveredSegment, setTatHoveredSegment] = useState<TatSegment | null>(null);
+  const [tatHoveredSegment, setTatHoveredSegment] = useState<TatSegment | null>(
+    null,
+  );
   const [tatHoveredIndex, setTatHoveredIndex] = useState<number | null>(null);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [noteToDelete, setNoteToDelete] = useState<string | null>(null);
@@ -87,31 +89,55 @@ const OrderDetails: React.FC = () => {
   const [editText, setEditText] = useState("");
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
   const [documentsExpanded, setDocumentsExpanded] = useState(true);
-  const [documentsHoveredRowIndex, setDocumentsHoveredRowIndex] = useState<number | null>(null);
+  const [documentsHoveredRowIndex, setDocumentsHoveredRowIndex] = useState<
+    number | null
+  >(null);
   const [subjectExpanded, setSubjectExpanded] = useState(true);
-  const [resumeValidationExpanded, setResumeValidationExpanded] = useState(true);
+  const [resumeValidationExpanded, setResumeValidationExpanded] =
+    useState(true);
   const [employmentExpanded, setEmploymentExpanded] = useState(true);
-  const [employmentHoveredRowIndex, setEmploymentHoveredRowIndex] = useState<number | null>(null);
+  const [employmentHoveredRowIndex, setEmploymentHoveredRowIndex] = useState<
+    number | null
+  >(null);
   const [educationExpanded, setEducationExpanded] = useState(true);
-  const [educationHoveredRowIndex, setEducationHoveredRowIndex] = useState<number | null>(null);
+  const [educationHoveredRowIndex, setEducationHoveredRowIndex] = useState<
+    number | null
+  >(null);
   const [criminalHistoryExpanded, setCriminalHistoryExpanded] = useState(true);
-  const [adjudicationMatrixHoveredRowIndex, setAdjudicationMatrixHoveredRowIndex] = useState<number | null>(null);
+  const [
+    adjudicationMatrixHoveredRowIndex,
+    setAdjudicationMatrixHoveredRowIndex,
+  ] = useState<number | null>(null);
   const [mjdExpanded, setMjdExpanded] = useState(true);
   const [federalCrimeExpanded, setFederalCrimeExpanded] = useState(true);
-  const [professionalReferencesExpanded, setProfessionalReferencesExpanded] = useState(true);
-  const [professionalReferencesHoveredRowIndex, setProfessionalReferencesHoveredRowIndex] = useState<number | null>(null);
+  const [professionalReferencesExpanded, setProfessionalReferencesExpanded] =
+    useState(true);
+  const [
+    professionalReferencesHoveredRowIndex,
+    setProfessionalReferencesHoveredRowIndex,
+  ] = useState<number | null>(null);
   const [motorVehicleExpanded, setMotorVehicleExpanded] = useState(true);
   const [credentialsExpanded, setCredentialsExpanded] = useState(true);
-  const [credentialsHoveredRowIndex, setCredentialsHoveredRowIndex] = useState<number | null>(null);
-  const [creditEmploymentExpanded, setCreditEmploymentExpanded] = useState(true);
+  const [credentialsHoveredRowIndex, setCredentialsHoveredRowIndex] = useState<
+    number | null
+  >(null);
+  const [creditEmploymentExpanded, setCreditEmploymentExpanded] =
+    useState(true);
   const [eVerifyExpanded, setEVerifyExpanded] = useState(true);
-  const [eVerifyHoveredRowIndex, setEVerifyHoveredRowIndex] = useState<number | null>(null);
+  const [eVerifyHoveredRowIndex, setEVerifyHoveredRowIndex] = useState<
+    number | null
+  >(null);
   const [fivePanelsExpanded, setFivePanelsExpanded] = useState(true);
-  const [fivePanelsHoveredRowIndex, setFivePanelsHoveredRowIndex] = useState<number | null>(null);
+  const [fivePanelsHoveredRowIndex, setFivePanelsHoveredRowIndex] = useState<
+    number | null
+  >(null);
   const [cbsvExpanded, setCbsvExpanded] = useState(true);
-  const [cbsvHoveredRowIndex, setCbsvHoveredRowIndex] = useState<number | null>(null);
+  const [cbsvHoveredRowIndex, setCbsvHoveredRowIndex] = useState<number | null>(
+    null,
+  );
   const [specialNoticeExpanded, setSpecialNoticeExpanded] = useState(true);
-  const [specialNoticeHoveredRowIndex, setSpecialNoticeHoveredRowIndex] = useState<number | null>(null);
+  const [specialNoticeHoveredRowIndex, setSpecialNoticeHoveredRowIndex] =
+    useState<number | null>(null);
 
   // Sticky header state
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -147,7 +173,7 @@ const OrderDetails: React.FC = () => {
   };
 
   const editNote = (noteId: string) => {
-    const note = notes.find(n => n.id === noteId);
+    const note = notes.find((n) => n.id === noteId);
     if (note) {
       setEditingNoteId(noteId);
       setEditText(note.content);
@@ -155,9 +181,11 @@ const OrderDetails: React.FC = () => {
   };
 
   const saveEdit = (noteId: string) => {
-    setNotes(prev => prev.map(n =>
-      n.id === noteId ? { ...n, content: editText.trim() } : n
-    ));
+    setNotes((prev) =>
+      prev.map((n) =>
+        n.id === noteId ? { ...n, content: editText.trim() } : n,
+      ),
+    );
     setEditingNoteId(null);
     setEditText("");
   };
@@ -169,7 +197,11 @@ const OrderDetails: React.FC = () => {
 
   const copyNote = (content: string) => {
     // Prefer async Clipboard API when available and permitted
-    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+    if (
+      typeof navigator !== "undefined" &&
+      navigator.clipboard &&
+      navigator.clipboard.writeText
+    ) {
       navigator.clipboard.writeText(content).catch((err) => {
         console.warn("navigator.clipboard.writeText failed:", err);
         // Fallback to legacy copy
@@ -236,7 +268,7 @@ const OrderDetails: React.FC = () => {
 
   const confirmDeleteNote = () => {
     if (noteToDelete) {
-      setNotes(prev => prev.filter(n => n.id !== noteToDelete));
+      setNotes((prev) => prev.filter((n) => n.id !== noteToDelete));
       setNoteToDelete(null);
     }
     setDeleteModalOpen(false);
@@ -641,7 +673,7 @@ const OrderDetails: React.FC = () => {
                     </g>
                     <defs>
                       <clipPath id="clip0_sticky_i9">
-                        <rect width="16" height="16" fill="white"/>
+                        <rect width="16" height="16" fill="white" />
                       </clipPath>
                     </defs>
                   </svg>
@@ -706,7 +738,7 @@ const OrderDetails: React.FC = () => {
                     </g>
                     <defs>
                       <clipPath id="clip0_sticky_akas">
-                        <rect width="16" height="16" fill="white"/>
+                        <rect width="16" height="16" fill="white" />
                       </clipPath>
                     </defs>
                   </svg>
@@ -762,7 +794,11 @@ const OrderDetails: React.FC = () => {
         <main
           style={{
             display: "flex",
-            marginTop: showStickyHeader ? `${stickyHeight}px` : (isDesktop ? "104px" : "96px"),
+            marginTop: showStickyHeader
+              ? `${stickyHeight}px`
+              : isDesktop
+                ? "104px"
+                : "96px",
             paddingBottom: "24px",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -1346,7 +1382,7 @@ const OrderDetails: React.FC = () => {
                         </g>
                         <defs>
                           <clipPath id="clip0_add_i9">
-                            <rect width="16" height="16" fill="white"/>
+                            <rect width="16" height="16" fill="white" />
                           </clipPath>
                         </defs>
                       </svg>
@@ -1411,7 +1447,7 @@ const OrderDetails: React.FC = () => {
                         </g>
                         <defs>
                           <clipPath id="clip0_add_akas">
-                            <rect width="16" height="16" fill="white"/>
+                            <rect width="16" height="16" fill="white" />
                           </clipPath>
                         </defs>
                       </svg>
@@ -2582,7 +2618,14 @@ const OrderDetails: React.FC = () => {
                     </div>
 
                     {/* Messages list */}
-                    <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignSelf: "stretch" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "12px",
+                        alignSelf: "stretch",
+                      }}
+                    >
                       {notes.map((n) => {
                         const isCurrentUser = n.author === currentUser;
                         return (
@@ -2590,7 +2633,9 @@ const OrderDetails: React.FC = () => {
                             key={n.id}
                             style={{
                               display: "flex",
-                              justifyContent: isCurrentUser ? "flex-end" : "flex-start",
+                              justifyContent: isCurrentUser
+                                ? "flex-end"
+                                : "flex-start",
                               alignItems: "flex-start",
                               gap: "12px",
                               alignSelf: "stretch",
@@ -2677,18 +2722,34 @@ const OrderDetails: React.FC = () => {
                                   gap: "6px",
                                   alignSelf: "stretch",
                                   minWidth: 0,
-                                  borderRadius: isCurrentUser ? "8px 0px 8px 8px" : "0px 8px 8px 8px",
+                                  borderRadius: isCurrentUser
+                                    ? "8px 0px 8px 8px"
+                                    : "0px 8px 8px 8px",
                                   border: "1px solid #E9EAEB",
-                                  background: isCurrentUser ? "#FFF" : "#FAFAFA",
+                                  background: isCurrentUser
+                                    ? "#FFF"
+                                    : "#FAFAFA",
                                   position: "relative",
-                                  overflow: hoveredNoteId === n.id ? "visible" : "hidden",
+                                  overflow:
+                                    hoveredNoteId === n.id
+                                      ? "visible"
+                                      : "hidden",
                                 }}
                               >
                                 {editingNoteId === n.id ? (
-                                  <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignSelf: "stretch" }}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "8px",
+                                      alignSelf: "stretch",
+                                    }}
+                                  >
                                     <textarea
                                       value={editText}
-                                      onChange={(e) => setEditText(e.target.value)}
+                                      onChange={(e) =>
+                                        setEditText(e.target.value)
+                                      }
                                       style={{
                                         alignSelf: "stretch",
                                         color: "#181D27",
@@ -2704,7 +2765,9 @@ const OrderDetails: React.FC = () => {
                                         minHeight: "24px",
                                       }}
                                     />
-                                    <div style={{ display: "flex", gap: "8px" }}>
+                                    <div
+                                      style={{ display: "flex", gap: "8px" }}
+                                    >
                                       <button
                                         onClick={() => saveEdit(n.id)}
                                         style={{
@@ -2757,191 +2820,204 @@ const OrderDetails: React.FC = () => {
                                 )}
 
                                 {/* Action Panel - Only for current user's messages */}
-                                {isCurrentUser && hoveredNoteId === n.id && editingNoteId !== n.id && (
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      padding: "6px 8px",
-                                      alignItems: "flex-start",
-                                      gap: "6px",
-                                      position: "absolute",
-                                      right: "-8px",
-                                      bottom: "-20px",
-                                      borderRadius: "8px",
-                                      border: "1px solid #7B61FF",
-                                      background: "#22262F",
-                                      boxShadow: "0 20px 24px -4px rgba(255, 255, 255, 0.00), 0 8px 8px -4px rgba(255, 255, 255, 0.00), 0 3px 3px -1.5px rgba(255, 255, 255, 0.00)",
-                                      zIndex: 10,
-                                    }}
-                                  >
-                                    {/* Edit Button */}
-                                    <button
-                                      onClick={() => editNote(n.id)}
+                                {isCurrentUser &&
+                                  hoveredNoteId === n.id &&
+                                  editingNoteId !== n.id && (
+                                    <div
                                       style={{
                                         display: "flex",
-                                        padding: "2px",
-                                        alignItems: "center",
-                                        borderRadius: "4px",
-                                        border: "none",
-                                        background: "transparent",
-                                        cursor: "pointer",
-                                        position: "relative",
-                                      }}
-                                      onMouseEnter={(e) => {
-                                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
-                                      }}
-                                      onMouseLeave={(e) => {
-                                        e.currentTarget.style.background = "transparent";
+                                        padding: "6px 8px",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        position: "absolute",
+                                        right: "-8px",
+                                        bottom: "-20px",
+                                        borderRadius: "8px",
+                                        border: "1px solid #7B61FF",
+                                        background: "#22262F",
+                                        boxShadow:
+                                          "0 20px 24px -4px rgba(255, 255, 255, 0.00), 0 8px 8px -4px rgba(255, 255, 255, 0.00), 0 3px 3px -1.5px rgba(255, 255, 255, 0.00)",
+                                        zIndex: 10,
                                       }}
                                     >
-                                      <svg
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
+                                      {/* Edit Button */}
+                                      <button
+                                        onClick={() => editNote(n.id)}
+                                        style={{
+                                          display: "flex",
+                                          padding: "2px",
+                                          alignItems: "center",
+                                          borderRadius: "4px",
+                                          border: "none",
+                                          background: "transparent",
+                                          cursor: "pointer",
+                                          position: "relative",
+                                        }}
+                                        onMouseEnter={(e) => {
+                                          e.currentTarget.style.background =
+                                            "rgba(255, 255, 255, 0.1)";
+                                        }}
+                                        onMouseLeave={(e) => {
+                                          e.currentTarget.style.background =
+                                            "transparent";
+                                        }}
                                       >
-                                        <path
-                                          d="M21 18L19.9999 19.094C19.4695 19.6741 18.7501 20 18.0001 20C17.2501 20 16.5308 19.6741 16.0004 19.094C15.4692 18.5151 14.75 18.1901 14.0002 18.1901C13.2504 18.1901 12.5311 18.5151 12 19.094M3 20H4.67454C5.16372 20 5.40832 20 5.63849 19.9447C5.84256 19.8957 6.03765 19.8149 6.2166 19.7053C6.41843 19.5816 6.59138 19.4086 6.93729 19.0627L19.5 6.49998C20.3285 5.67156 20.3285 4.32841 19.5 3.49998C18.6716 2.67156 17.3285 2.67156 16.5 3.49998L3.93726 16.0627C3.59136 16.4086 3.4184 16.5816 3.29472 16.7834C3.18506 16.9624 3.10425 17.1574 3.05526 17.3615C3 17.5917 3 17.8363 3 18.3255V20Z"
-                                          stroke="#85888E"
-                                          strokeWidth="1.33"
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                        />
-                                      </svg>
-                                    </button>
+                                        <svg
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M21 18L19.9999 19.094C19.4695 19.6741 18.7501 20 18.0001 20C17.2501 20 16.5308 19.6741 16.0004 19.094C15.4692 18.5151 14.75 18.1901 14.0002 18.1901C13.2504 18.1901 12.5311 18.5151 12 19.094M3 20H4.67454C5.16372 20 5.40832 20 5.63849 19.9447C5.84256 19.8957 6.03765 19.8149 6.2166 19.7053C6.41843 19.5816 6.59138 19.4086 6.93729 19.0627L19.5 6.49998C20.3285 5.67156 20.3285 4.32841 19.5 3.49998C18.6716 2.67156 17.3285 2.67156 16.5 3.49998L3.93726 16.0627C3.59136 16.4086 3.4184 16.5816 3.29472 16.7834C3.18506 16.9624 3.10425 17.1574 3.05526 17.3615C3 17.5917 3 17.8363 3 18.3255V20Z"
+                                            stroke="#85888E"
+                                            strokeWidth="1.33"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </button>
 
-                                    {/* Copy Button */}
-                                    <button
-                                      onClick={() => copyNote(n.content)}
-                                      style={{
-                                        display: "flex",
-                                        padding: "2px",
-                                        alignItems: "center",
-                                        borderRadius: "4px",
-                                        border: "none",
-                                        background: "transparent",
-                                        cursor: "pointer",
-                                      }}
-                                      onMouseEnter={(e) => {
-                                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
-                                      }}
-                                      onMouseLeave={(e) => {
-                                        e.currentTarget.style.background = "transparent";
-                                      }}
-                                    >
-                                      <svg
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
+                                      {/* Copy Button */}
+                                      <button
+                                        onClick={() => copyNote(n.content)}
+                                        style={{
+                                          display: "flex",
+                                          padding: "2px",
+                                          alignItems: "center",
+                                          borderRadius: "4px",
+                                          border: "none",
+                                          background: "transparent",
+                                          cursor: "pointer",
+                                        }}
+                                        onMouseEnter={(e) => {
+                                          e.currentTarget.style.background =
+                                            "rgba(255, 255, 255, 0.1)";
+                                        }}
+                                        onMouseLeave={(e) => {
+                                          e.currentTarget.style.background =
+                                            "transparent";
+                                        }}
                                       >
-                                        <path
-                                          d="M5 15C4.06812 15 3.60218 15 3.23463 14.8478C2.74458 14.6448 2.35523 14.2554 2.15224 13.7654C2 13.3978 2 12.9319 2 12V5.2C2 4.0799 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2H12C12.9319 2 13.3978 2 13.7654 2.15224C14.2554 2.35523 14.6448 2.74458 14.8478 3.23463C15 3.60218 15 4.06812 15 5M12.2 22H18.8C19.9201 22 20.4802 22 20.908 21.782C21.2843 21.5903 21.5903 21.2843 21.782 20.908C22 20.4802 22 19.9201 22 18.8V12.2C22 11.0799 22 10.5198 21.782 10.092C21.5903 9.71569 21.2843 9.40973 20.908 9.21799C20.4802 9 19.9201 9 18.8 9H12.2C11.0799 9 10.5198 9 10.092 9.21799C9.71569 9.40973 9.40973 9.71569 9.21799 10.092C9 10.5198 9 11.0799 9 12.2V18.8C9 19.9201 9 20.4802 9.21799 20.908C9.40973 21.2843 9.71569 21.5903 10.092 21.782C10.5198 22 11.0799 22 12.2 22Z"
-                                          stroke="#61656C"
-                                          strokeWidth="1.33"
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                        />
-                                      </svg>
-                                    </button>
+                                        <svg
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M5 15C4.06812 15 3.60218 15 3.23463 14.8478C2.74458 14.6448 2.35523 14.2554 2.15224 13.7654C2 13.3978 2 12.9319 2 12V5.2C2 4.0799 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2H12C12.9319 2 13.3978 2 13.7654 2.15224C14.2554 2.35523 14.6448 2.74458 14.8478 3.23463C15 3.60218 15 4.06812 15 5M12.2 22H18.8C19.9201 22 20.4802 22 20.908 21.782C21.2843 21.5903 21.5903 21.2843 21.782 20.908C22 20.4802 22 19.9201 22 18.8V12.2C22 11.0799 22 10.5198 21.782 10.092C21.5903 9.71569 21.2843 9.40973 20.908 9.21799C20.4802 9 19.9201 9 18.8 9H12.2C11.0799 9 10.5198 9 10.092 9.21799C9.71569 9.40973 9.40973 9.71569 9.21799 10.092C9 10.5198 9 11.0799 9 12.2V18.8C9 19.9201 9 20.4802 9.21799 20.908C9.40973 21.2843 9.71569 21.5903 10.092 21.782C10.5198 22 11.0799 22 12.2 22Z"
+                                            stroke="#61656C"
+                                            strokeWidth="1.33"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </button>
 
-                                    {/* Delete Button */}
-                                    <button
-                                      onClick={() => showDeleteModal(n.id)}
-                                      style={{
-                                        display: "flex",
-                                        width: "28px",
-                                        padding: "2px",
-                                        alignItems: "center",
-                                        borderRadius: "4px",
-                                        border: "none",
-                                        background: "transparent",
-                                        cursor: "pointer",
-                                      }}
-                                      onMouseEnter={(e) => {
-                                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
-                                      }}
-                                      onMouseLeave={(e) => {
-                                        e.currentTarget.style.background = "transparent";
-                                      }}
-                                    >
-                                      <svg
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        style={{ flexShrink: 0 }}
+                                      {/* Delete Button */}
+                                      <button
+                                        onClick={() => showDeleteModal(n.id)}
+                                        style={{
+                                          display: "flex",
+                                          width: "28px",
+                                          padding: "2px",
+                                          alignItems: "center",
+                                          borderRadius: "4px",
+                                          border: "none",
+                                          background: "transparent",
+                                          cursor: "pointer",
+                                        }}
+                                        onMouseEnter={(e) => {
+                                          e.currentTarget.style.background =
+                                            "rgba(255, 255, 255, 0.1)";
+                                        }}
+                                        onMouseLeave={(e) => {
+                                          e.currentTarget.style.background =
+                                            "transparent";
+                                        }}
                                       >
-                                        <path
-                                          d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
-                                          stroke="#61656C"
-                                          strokeWidth="1.33"
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                        />
-                                      </svg>
-                                    </button>
-                                  </div>
-                                )}
+                                        <svg
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          style={{ flexShrink: 0 }}
+                                        >
+                                          <path
+                                            d="M16 6V5.2C16 4.0799 16 3.51984 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.4802 2 13.9201 2 12.8 2H11.2C10.0799 2 9.51984 2 9.09202 2.21799C8.71569 2.40973 8.40973 2.71569 8.21799 3.09202C8 3.51984 8 4.0799 8 5.2V6M3 6H21M19 6V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6"
+                                            stroke="#61656C"
+                                            strokeWidth="1.33"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </button>
+                                    </div>
+                                  )}
 
                                 {/* Action Panel - Copy only for other users' messages */}
-                                {!isCurrentUser && hoveredNoteId === n.id && editingNoteId !== n.id && (
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      padding: "6px 8px",
-                                      alignItems: "flex-start",
-                                      gap: "6px",
-                                      position: "absolute",
-                                      right: "-8px",
-                                      bottom: "-20px",
-                                      borderRadius: "8px",
-                                      border: "1px solid #7B61FF",
-                                      background: "#22262F",
-                                      boxShadow:
-                                        "0 20px 24px -4px rgba(255, 255, 255, 0.00), 0 8px 8px -4px rgba(255, 255, 255, 0.00), 0 3px 3px -1.5px rgba(255, 255, 255, 0.00)",
-                                      zIndex: 10,
-                                    }}
-                                  >
-                                    <button
-                                      onClick={() => copyNote(n.content)}
+                                {!isCurrentUser &&
+                                  hoveredNoteId === n.id &&
+                                  editingNoteId !== n.id && (
+                                    <div
                                       style={{
                                         display: "flex",
-                                        padding: "2px",
-                                        alignItems: "center",
-                                        borderRadius: "4px",
-                                        border: "none",
-                                        background: "transparent",
-                                        cursor: "pointer",
-                                      }}
-                                      onMouseEnter={(e) => {
-                                        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)";
-                                      }}
-                                      onMouseLeave={(e) => {
-                                        e.currentTarget.style.background = "transparent";
+                                        padding: "6px 8px",
+                                        alignItems: "flex-start",
+                                        gap: "6px",
+                                        position: "absolute",
+                                        right: "-8px",
+                                        bottom: "-20px",
+                                        borderRadius: "8px",
+                                        border: "1px solid #7B61FF",
+                                        background: "#22262F",
+                                        boxShadow:
+                                          "0 20px 24px -4px rgba(255, 255, 255, 0.00), 0 8px 8px -4px rgba(255, 255, 255, 0.00), 0 3px 3px -1.5px rgba(255, 255, 255, 0.00)",
+                                        zIndex: 10,
                                       }}
                                     >
-                                      <svg
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
+                                      <button
+                                        onClick={() => copyNote(n.content)}
+                                        style={{
+                                          display: "flex",
+                                          padding: "2px",
+                                          alignItems: "center",
+                                          borderRadius: "4px",
+                                          border: "none",
+                                          background: "transparent",
+                                          cursor: "pointer",
+                                        }}
+                                        onMouseEnter={(e) => {
+                                          e.currentTarget.style.background =
+                                            "rgba(255, 255, 255, 0.1)";
+                                        }}
+                                        onMouseLeave={(e) => {
+                                          e.currentTarget.style.background =
+                                            "transparent";
+                                        }}
                                       >
-                                        <path
-                                          d="M5 15C4.06812 15 3.60218 15 3.23463 14.8478C2.74458 14.6448 2.35523 14.2554 2.15224 13.7654C2 13.3978 2 12.9319 2 12V5.2C2 4.0799 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2H12C12.9319 2 13.3978 2 13.7654 2.15224C14.2554 2.35523 14.6448 2.74458 14.8478 3.23463C15 3.60218 15 4.06812 15 5M12.2 22H18.8C19.9201 22 20.4802 22 20.908 21.782C21.2843 21.5903 21.5903 21.2843 21.782 20.908C22 20.4802 22 19.9201 22 18.8V12.2C22 11.0799 22 10.5198 21.782 10.092C21.5903 9.71569 21.2843 9.40973 20.908 9.21799C20.4802 9 19.9201 9 18.8 9H12.2C11.0799 9 10.5198 9 10.092 9.21799C9.71569 9.40973 9.40973 9.71569 9.21799 10.092C9 10.5198 9 11.0799 9 12.2V18.8C9 19.9201 9 20.4802 9.21799 20.908C9.40973 21.2843 9.71569 21.5903 10.092 21.782C10.5198 22 11.0799 22 12.2 22Z"
-                                          stroke="#61656C"
-                                          strokeWidth="1.33"
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                        />
-                                      </svg>
-                                    </button>
-                                  </div>
-                                )}
+                                        <svg
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            d="M5 15C4.06812 15 3.60218 15 3.23463 14.8478C2.74458 14.6448 2.35523 14.2554 2.15224 13.7654C2 13.3978 2 12.9319 2 12V5.2C2 4.0799 2 3.51984 2.21799 3.09202C2.40973 2.71569 2.71569 2.40973 3.09202 2.21799C3.51984 2 4.0799 2 5.2 2H12C12.9319 2 13.3978 2 13.7654 2.15224C14.2554 2.35523 14.6448 2.74458 14.8478 3.23463C15 3.60218 15 4.06812 15 5M12.2 22H18.8C19.9201 22 20.4802 22 20.908 21.782C21.2843 21.5903 21.5903 21.2843 21.782 20.908C22 20.4802 22 19.9201 22 18.8V12.2C22 11.0799 22 10.5198 21.782 10.092C21.5903 9.71569 21.2843 9.40973 20.908 9.21799C20.4802 9 19.9201 9 18.8 9H12.2C11.0799 9 10.5198 9 10.092 9.21799C9.71569 9.40973 9.40973 9.71569 9.21799 10.092C9 10.5198 9 11.0799 9 12.2V18.8C9 19.9201 9 20.4802 9.21799 20.908C9.40973 21.2843 9.71569 21.5903 10.092 21.782C10.5198 22 11.0799 22 12.2 22Z"
+                                            stroke="#61656C"
+                                            strokeWidth="1.33"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                          />
+                                        </svg>
+                                      </button>
+                                    </div>
+                                  )}
                               </div>
                             </div>
                           </div>
@@ -3233,7 +3309,8 @@ const OrderDetails: React.FC = () => {
                           position: "relative",
                         }}
                       >
-                        At the time the chart was generated, the following settings were in effect
+                        At the time the chart was generated, the following
+                        settings were in effect
                       </div>
                     </div>
 
@@ -3315,12 +3392,16 @@ const OrderDetails: React.FC = () => {
                             }}
                           >
                             {(() => {
-                              const total = tatData.reduce((sum, item) => sum + item.value, 0);
+                              const total = tatData.reduce(
+                                (sum, item) => sum + item.value,
+                                0,
+                              );
                               const radius = (tatChartSize - 30) / 2;
                               const innerRadius = radius * 0.6;
                               let currentAngle = -90;
                               return tatData.map((segment, index) => {
-                                const percentage = (segment.value / total) * 100;
+                                const percentage =
+                                  (segment.value / total) * 100;
                                 const angle = (percentage / 100) * 360;
                                 const d = createArcPath(
                                   currentAngle,
@@ -3357,7 +3438,8 @@ const OrderDetails: React.FC = () => {
                                         strokeWidth="0.5"
                                         style={{
                                           pointerEvents: "none",
-                                          transition: "opacity 0.2s ease-in-out",
+                                          transition:
+                                            "opacity 0.2s ease-in-out",
                                         }}
                                       />
                                     )}
@@ -3393,7 +3475,8 @@ const OrderDetails: React.FC = () => {
                               }}
                             >
                               <div style={{ fontFamily: "Public Sans" }}>
-                                {tatHoveredSegment.label} - {tatHoveredSegment.value}
+                                {tatHoveredSegment.label} -{" "}
+                                {tatHoveredSegment.value}
                               </div>
                               <div
                                 style={{
@@ -3445,10 +3528,13 @@ const OrderDetails: React.FC = () => {
                                     width: "8px",
                                     height: "8px",
                                     borderRadius: "50%",
-                                    backgroundColor: isHovered ? "#181D27" : item.color,
+                                    backgroundColor: isHovered
+                                      ? "#181D27"
+                                      : item.color,
                                     border: "0.5px solid rgba(0, 0, 0, 0.1)",
                                     flexShrink: 0,
-                                    transition: "background-color 0.2s ease-in-out",
+                                    transition:
+                                      "background-color 0.2s ease-in-out",
                                   }}
                                 />
                                 <div
@@ -3486,7 +3572,8 @@ const OrderDetails: React.FC = () => {
                           position: "relative",
                         }}
                       >
-                        The overall TAT ofr this search may have been affected by processes that are hidden from this repport
+                        The overall TAT ofr this search may have been affected
+                        by processes that are hidden from this repport
                       </div>
                     </div>
                   </div>
@@ -4151,7 +4238,9 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setReportSummaryExpanded(!reportSummaryExpanded)}
+                          onClick={() =>
+                            setReportSummaryExpanded(!reportSummaryExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -4173,7 +4262,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: reportSummaryExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: reportSummaryExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -4494,7 +4585,19 @@ const OrderDetails: React.FC = () => {
                             </div>
                           </div>
                           {[
-                            "Sue Jeans", "Sue Jeans", "Sue Jeans", "Sue Jeans", "Sue DD", "Sue DD", "Sue Jeans", "Sue DD", "Sue DD", "Sue Jeans", "Sue Jeans", "Sue Jeans", "Sue Jeans"
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue DD",
+                            "Sue DD",
+                            "Sue Jeans",
+                            "Sue DD",
+                            "Sue DD",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
                           ].map((name, index) => (
                             <div
                               key={index}
@@ -4507,7 +4610,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 transition: "background-color 0.2s ease",
                               }}
@@ -4568,18 +4674,42 @@ const OrderDetails: React.FC = () => {
                           </div>
                           {[
                             { name: "Subject", link: "#subject" },
-                            { name: "Resume Validation", link: "#resume-validation" },
-                            { name: "Employment at Jerrys", link: "#employment-at-jerrys-tx" },
-                            { name: "Education at Brown Community College", link: "#education-at-brown-community-college" },
-                            { name: "Countywide Criminal History", link: "#countywide-criminal-history" },
+                            {
+                              name: "Resume Validation",
+                              link: "#resume-validation",
+                            },
+                            {
+                              name: "Employment at Jerrys",
+                              link: "#employment-at-jerrys-tx",
+                            },
+                            {
+                              name: "Education at Brown Community College",
+                              link: "#education-at-brown-community-college",
+                            },
+                            {
+                              name: "Countywide Criminal History",
+                              link: "#countywide-criminal-history",
+                            },
                             { name: "MJD", link: "#mjd" },
-                            { name: "Nationwide Federal Crime", link: "#nationwide-federal-crime" },
-                            { name: "Professional References", link: "#professional-references" },
-                            { name: "Credentials-Professional License #1", link: "#credentials-professional-license" },
-                            { name: "Motor Vehicle Driving History", link: "#motor-vehicle-driving-history" },
+                            {
+                              name: "Nationwide Federal Crime",
+                              link: "#nationwide-federal-crime",
+                            },
+                            {
+                              name: "Professional References",
+                              link: "#professional-references",
+                            },
+                            {
+                              name: "Credentials-Professional License #1",
+                              link: "#credentials-professional-license",
+                            },
+                            {
+                              name: "Motor Vehicle Driving History",
+                              link: "#motor-vehicle-driving-history",
+                            },
                             { name: "E-Verify", link: "#e-verify" },
                             { name: "5 Panel", link: "#five-panels-section" },
-                            { name: "CBSV", link: "#cbsv-section" }
+                            { name: "CBSV", link: "#cbsv-section" },
                           ].map((item, index) => (
                             <div
                               key={index}
@@ -4593,7 +4723,10 @@ const OrderDetails: React.FC = () => {
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -4615,9 +4748,14 @@ const OrderDetails: React.FC = () => {
                                 }}
                                 onClick={(e) => {
                                   e.preventDefault();
-                                  const targetElement = document.querySelector(item.link);
+                                  const targetElement = document.querySelector(
+                                    item.link,
+                                  );
                                   if (targetElement) {
-                                    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    targetElement.scrollIntoView({
+                                      behavior: "smooth",
+                                      block: "start",
+                                    });
                                   }
                                 }}
                               >
@@ -4683,7 +4821,19 @@ const OrderDetails: React.FC = () => {
                             </div>
                           </div>
                           {[
-                            "Harris", "Harris", "", "", "Bossier", "", "Bossier", "", "", "Bossier", "Bossier", "Bossier", "Bossier"
+                            "Harris",
+                            "Harris",
+                            "",
+                            "",
+                            "Bossier",
+                            "",
+                            "Bossier",
+                            "",
+                            "",
+                            "Bossier",
+                            "Bossier",
+                            "Bossier",
+                            "Bossier",
                           ].map((county, index) => (
                             <div
                               key={index}
@@ -4696,7 +4846,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 transition: "background-color 0.2s ease",
                               }}
@@ -4755,7 +4908,19 @@ const OrderDetails: React.FC = () => {
                             </div>
                           </div>
                           {[
-                            "Texas", "Texas", "Texas", "Texas", "LA", "Texas", "LA", "Texas", "Texas", "LA", "LA", "LA", "LA"
+                            "Texas",
+                            "Texas",
+                            "Texas",
+                            "Texas",
+                            "LA",
+                            "Texas",
+                            "LA",
+                            "Texas",
+                            "Texas",
+                            "LA",
+                            "LA",
+                            "LA",
+                            "LA",
                           ].map((state, index) => (
                             <div
                               key={index}
@@ -4768,7 +4933,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 transition: "background-color 0.2s ease",
                               }}
@@ -4839,7 +5007,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 transition: "background-color 0.2s ease",
                               }}
@@ -4922,7 +5093,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 transition: "background-color 0.2s ease",
                               }}
@@ -4994,7 +5168,10 @@ const OrderDetails: React.FC = () => {
                                 gap: "8px",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -5067,7 +5244,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 gap: "4px",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  hoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -5226,7 +5406,9 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setDocumentsExpanded(!documentsExpanded)}
+                          onClick={() =>
+                            setDocumentsExpanded(!documentsExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -5248,7 +5430,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: documentsExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: documentsExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -5402,54 +5586,65 @@ const OrderDetails: React.FC = () => {
                               </div>
                             </div>
                             {/* Data rows */}
-                            {["SSA-89", "Resume", "Resume"].map((docName, index) => (
-                              <div
-                                key={index}
-                                onMouseEnter={() => setDocumentsHoveredRowIndex(index)}
-                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  gap: "8px",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background: documentsHoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <button
+                            {["SSA-89", "Resume", "Resume"].map(
+                              (docName, index) => (
+                                <div
+                                  key={index}
+                                  onMouseEnter={() =>
+                                    setDocumentsHoveredRowIndex(index)
+                                  }
+                                  onMouseLeave={() =>
+                                    setDocumentsHoveredRowIndex(null)
+                                  }
                                   style={{
                                     display: "flex",
-                                    justifyContent: "center",
+                                    height: "36px",
+                                    padding: "12px",
                                     alignItems: "center",
-                                    gap: "4px",
-                                    background: "transparent",
-                                    border: "none",
-                                    cursor: "pointer",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderBottom: "1px solid #E9EAEB",
+                                    background:
+                                      documentsHoveredRowIndex === index
+                                        ? "#F5F5F5"
+                                        : "transparent",
                                     position: "relative",
+                                    cursor: "pointer",
+                                    transition: "background-color 0.2s ease",
                                   }}
                                 >
-                                  <div
+                                  <button
                                     style={{
-                                      color: index === 0 ? "#273572" : "#181D27",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontStyle: "normal",
-                                      fontWeight: index === 0 ? 600 : 500,
-                                      lineHeight: "20px",
-                                      textDecoration: index === 0 ? "underline" : "none",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      background: "transparent",
+                                      border: "none",
+                                      cursor: "pointer",
                                       position: "relative",
                                     }}
                                   >
-                                    {docName}
-                                  </div>
-                                </button>
-                              </div>
-                            ))}
+                                    <div
+                                      style={{
+                                        color:
+                                          index === 0 ? "#273572" : "#181D27",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: index === 0 ? 600 : 500,
+                                        lineHeight: "20px",
+                                        textDecoration:
+                                          index === 0 ? "underline" : "none",
+                                        position: "relative",
+                                      }}
+                                    >
+                                      {docName}
+                                    </div>
+                                  </button>
+                                </div>
+                              ),
+                            )}
                           </div>
 
                           {/* Documents Column */}
@@ -5491,11 +5686,19 @@ const OrderDetails: React.FC = () => {
                               </div>
                             </div>
                             {/* Data rows */}
-                            {["Click to Upload", "Click to Upload", "Click to Upload"].map((action, index) => (
+                            {[
+                              "Click to Upload",
+                              "Click to Upload",
+                              "Click to Upload",
+                            ].map((action, index) => (
                               <div
                                 key={index}
-                                onMouseEnter={() => setDocumentsHoveredRowIndex(index)}
-                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
+                                onMouseEnter={() =>
+                                  setDocumentsHoveredRowIndex(index)
+                                }
+                                onMouseLeave={() =>
+                                  setDocumentsHoveredRowIndex(null)
+                                }
                                 style={{
                                   display: "flex",
                                   height: "36px",
@@ -5504,7 +5707,10 @@ const OrderDetails: React.FC = () => {
                                   gap: "8px",
                                   alignSelf: "stretch",
                                   borderBottom: "1px solid #E9EAEB",
-                                  background: documentsHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                  background:
+                                    documentsHoveredRowIndex === index
+                                      ? "#F5F5F5"
+                                      : "transparent",
                                   position: "relative",
                                   cursor: "pointer",
                                   transition: "background-color 0.2s ease",
@@ -5672,12 +5878,16 @@ const OrderDetails: React.FC = () => {
                               "Background Check Disclosure All",
                               "Complete the fillable Form All",
                               "Download Sign and upload all",
-                              "Driver's License"
+                              "Driver's License",
                             ].map((docName, index) => (
                               <div
                                 key={index + 100} // offset to avoid conflicts with pending docs
-                                onMouseEnter={() => setDocumentsHoveredRowIndex(index + 100)}
-                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
+                                onMouseEnter={() =>
+                                  setDocumentsHoveredRowIndex(index + 100)
+                                }
+                                onMouseLeave={() =>
+                                  setDocumentsHoveredRowIndex(null)
+                                }
                                 style={{
                                   display: "flex",
                                   height: "36px",
@@ -5686,7 +5896,10 @@ const OrderDetails: React.FC = () => {
                                   gap: "8px",
                                   alignSelf: "stretch",
                                   borderBottom: "1px solid #E9EAEB",
-                                  background: documentsHoveredRowIndex === index + 100 ? "#F5F5F5" : "transparent",
+                                  background:
+                                    documentsHoveredRowIndex === index + 100
+                                      ? "#F5F5F5"
+                                      : "transparent",
                                   position: "relative",
                                   cursor: "pointer",
                                   transition: "background-color 0.2s ease",
@@ -5772,39 +5985,48 @@ const OrderDetails: React.FC = () => {
                               </div>
                             </div>
                             {/* Data rows */}
-                            {Array(5).fill("2025-04-30 11:12:39").map((date, index) => (
-                              <div
-                                key={index + 100}
-                                onMouseEnter={() => setDocumentsHoveredRowIndex(index + 100)}
-                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background: documentsHoveredRowIndex === index + 100 ? "#F5F5F5" : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
+                            {Array(5)
+                              .fill("2025-04-30 11:12:39")
+                              .map((date, index) => (
                                 <div
+                                  key={index + 100}
+                                  onMouseEnter={() =>
+                                    setDocumentsHoveredRowIndex(index + 100)
+                                  }
+                                  onMouseLeave={() =>
+                                    setDocumentsHoveredRowIndex(null)
+                                  }
                                   style={{
-                                    color: "#181D27",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
+                                    display: "flex",
+                                    height: "36px",
+                                    padding: "12px",
+                                    alignItems: "center",
+                                    alignSelf: "stretch",
+                                    borderBottom: "1px solid #E9EAEB",
+                                    background:
+                                      documentsHoveredRowIndex === index + 100
+                                        ? "#F5F5F5"
+                                        : "transparent",
                                     position: "relative",
+                                    cursor: "pointer",
+                                    transition: "background-color 0.2s ease",
                                   }}
                                 >
-                                  {date}
+                                  <div
+                                    style={{
+                                      color: "#181D27",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {date}
+                                  </div>
                                 </div>
-                              </div>
-                            ))}
+                              ))}
                           </div>
 
                           {/* Documents Column (Actions) */}
@@ -5846,57 +6068,66 @@ const OrderDetails: React.FC = () => {
                               </div>
                             </div>
                             {/* Data rows */}
-                            {Array(5).fill(["Edit", "Delete", "Fax Document"]).map((actions, index) => (
-                              <div
-                                key={index + 100}
-                                onMouseEnter={() => setDocumentsHoveredRowIndex(index + 100)}
-                                onMouseLeave={() => setDocumentsHoveredRowIndex(null)}
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  gap: "8px",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background: documentsHoveredRowIndex === index + 100 ? "#F5F5F5" : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                {actions.map((action, actionIndex) => (
-                                  <button
-                                    key={actionIndex}
-                                    style={{
-                                      display: "flex",
-                                      justifyContent: "center",
-                                      alignItems: "center",
-                                      gap: "4px",
-                                      background: "transparent",
-                                      border: "none",
-                                      cursor: "pointer",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    <div
+                            {Array(5)
+                              .fill(["Edit", "Delete", "Fax Document"])
+                              .map((actions, index) => (
+                                <div
+                                  key={index + 100}
+                                  onMouseEnter={() =>
+                                    setDocumentsHoveredRowIndex(index + 100)
+                                  }
+                                  onMouseLeave={() =>
+                                    setDocumentsHoveredRowIndex(null)
+                                  }
+                                  style={{
+                                    display: "flex",
+                                    height: "36px",
+                                    padding: "12px",
+                                    alignItems: "center",
+                                    gap: "8px",
+                                    alignSelf: "stretch",
+                                    borderBottom: "1px solid #E9EAEB",
+                                    background:
+                                      documentsHoveredRowIndex === index + 100
+                                        ? "#F5F5F5"
+                                        : "transparent",
+                                    position: "relative",
+                                    cursor: "pointer",
+                                    transition: "background-color 0.2s ease",
+                                  }}
+                                >
+                                  {actions.map((action, actionIndex) => (
+                                    <button
+                                      key={actionIndex}
                                       style={{
-                                        color: "#273572",
-                                        fontFamily: "Public Sans",
-                                        fontSize: "14px",
-                                        fontStyle: "normal",
-                                        fontWeight: 600,
-                                        lineHeight: "20px",
-                                        textDecoration: "underline",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        background: "transparent",
+                                        border: "none",
+                                        cursor: "pointer",
                                         position: "relative",
                                       }}
                                     >
-                                      {action}
-                                    </div>
-                                  </button>
-                                ))}
-                              </div>
-                            ))}
+                                      <div
+                                        style={{
+                                          color: "#273572",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: 600,
+                                          lineHeight: "20px",
+                                          textDecoration: "underline",
+                                          position: "relative",
+                                        }}
+                                      >
+                                        {action}
+                                      </div>
+                                    </button>
+                                  ))}
+                                </div>
+                              ))}
                           </div>
                         </div>
                       </div>
@@ -6049,7 +6280,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: subjectExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: subjectExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -6296,7 +6529,8 @@ const OrderDetails: React.FC = () => {
                                 columnGap: "8px",
                                 alignSelf: "stretch",
                                 gridTemplateRows: "fit-content(100%)",
-                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                gridTemplateColumns:
+                                  "repeat(3, minmax(0, 1fr))",
                                 position: "relative",
                               }}
                             >
@@ -6439,7 +6673,8 @@ const OrderDetails: React.FC = () => {
                               rowGap: "16px",
                               columnGap: "16px",
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
+                              gridTemplateRows:
+                                "fit-content(100%) minmax(0, 1fr)",
                               gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                               position: "relative",
                             }}
@@ -7072,7 +7307,11 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setResumeValidationExpanded(!resumeValidationExpanded)}
+                          onClick={() =>
+                            setResumeValidationExpanded(
+                              !resumeValidationExpanded,
+                            )
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -7094,7 +7333,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: resumeValidationExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: resumeValidationExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -7197,7 +7438,8 @@ const OrderDetails: React.FC = () => {
                                 position: "relative",
                               }}
                             >
-                              This is the description text box for a custom product
+                              This is the description text box for a custom
+                              product
                             </div>
                           </div>
 
@@ -7467,14 +7709,15 @@ const OrderDetails: React.FC = () => {
                                   Completed - Verified
                                 </div>
                               </div>
-
                             </div>
                           </div>
                         </div>
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setEmploymentExpanded(!employmentExpanded)}
+                          onClick={() =>
+                            setEmploymentExpanded(!employmentExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -7496,7 +7739,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: employmentExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: employmentExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -7583,12 +7828,16 @@ const OrderDetails: React.FC = () => {
                             "Order Comments",
                             "Person Interviewed",
                             "Researched By",
-                            "Research Comments"
+                            "Research Comments",
                           ].map((label, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setEmploymentHoveredRowIndex(index)}
-                              onMouseLeave={() => setEmploymentHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setEmploymentHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setEmploymentHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -7597,7 +7846,10 @@ const OrderDetails: React.FC = () => {
                                 gap: "12px",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: employmentHoveredRowIndex === index ? "#F5F5F5" : "#FFF",
+                                background:
+                                  employmentHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "#FFF",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -7682,12 +7934,16 @@ const OrderDetails: React.FC = () => {
                             "",
                             "",
                             "",
-                            ""
+                            "",
                           ].map((value, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setEmploymentHoveredRowIndex(index)}
-                              onMouseLeave={() => setEmploymentHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setEmploymentHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setEmploymentHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -7695,7 +7951,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: employmentHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  employmentHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -7782,12 +8041,16 @@ const OrderDetails: React.FC = () => {
                             "",
                             "",
                             "",
-                            ""
+                            "",
                           ].map((value, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setEmploymentHoveredRowIndex(index)}
-                              onMouseLeave={() => setEmploymentHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setEmploymentHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setEmploymentHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -7795,7 +8058,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: employmentHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  employmentHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -7882,12 +8148,16 @@ const OrderDetails: React.FC = () => {
                             "", // Order Comments
                             "", // Person Interviewed
                             "", // Researched By
-                            ""  // Research Comments
+                            "", // Research Comments
                           ].map((status, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setEmploymentHoveredRowIndex(index)}
-                              onMouseLeave={() => setEmploymentHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setEmploymentHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setEmploymentHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -7895,7 +8165,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: employmentHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  employmentHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -8113,14 +8386,15 @@ const OrderDetails: React.FC = () => {
                                   Completed - Verified
                                 </div>
                               </div>
-
                             </div>
                           </div>
                         </div>
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setEducationExpanded(!educationExpanded)}
+                          onClick={() =>
+                            setEducationExpanded(!educationExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -8142,7 +8416,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: educationExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: educationExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -8319,12 +8595,16 @@ const OrderDetails: React.FC = () => {
                             "Person Interviewed",
                             "Interview Comments",
                             "Researched By",
-                            "Research Comments"
+                            "Research Comments",
                           ].map((label, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setEducationHoveredRowIndex(index)}
-                              onMouseLeave={() => setEducationHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setEducationHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setEducationHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -8333,7 +8613,10 @@ const OrderDetails: React.FC = () => {
                                 gap: "12px",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: educationHoveredRowIndex === index ? "#F5F5F5" : "#FFF",
+                                background:
+                                  educationHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "#FFF",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -8417,12 +8700,16 @@ const OrderDetails: React.FC = () => {
                             "",
                             "",
                             "",
-                            ""
+                            "",
                           ].map((value, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setEducationHoveredRowIndex(index)}
-                              onMouseLeave={() => setEducationHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setEducationHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setEducationHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -8430,7 +8717,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: educationHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  educationHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -8516,12 +8806,16 @@ const OrderDetails: React.FC = () => {
                             "",
                             "",
                             "",
-                            ""
+                            "",
                           ].map((value, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setEducationHoveredRowIndex(index)}
-                              onMouseLeave={() => setEducationHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setEducationHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setEducationHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -8529,7 +8823,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: educationHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  educationHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -8615,12 +8912,16 @@ const OrderDetails: React.FC = () => {
                             "",
                             "",
                             "",
-                            ""
+                            "",
                           ].map((status, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setEducationHoveredRowIndex(index)}
-                              onMouseLeave={() => setEducationHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setEducationHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setEducationHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -8628,7 +8929,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: educationHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  educationHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -8818,7 +9122,8 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                Countywide Criminal History Bossie, LA - Years: 10 - Sue Jeans
+                                Countywide Criminal History Bossie, LA - Years:
+                                10 - Sue Jeans
                               </div>
                               <div
                                 style={{
@@ -8852,7 +9157,9 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setCriminalHistoryExpanded(!criminalHistoryExpanded)}
+                          onClick={() =>
+                            setCriminalHistoryExpanded(!criminalHistoryExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -8874,7 +9181,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: criminalHistoryExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: criminalHistoryExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -9038,7 +9347,8 @@ const OrderDetails: React.FC = () => {
                             rowGap: "8px",
                             columnGap: "8px",
                             alignSelf: "stretch",
-                            gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
+                            gridTemplateRows:
+                              "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
                             gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                             position: "relative",
                           }}
@@ -9396,7 +9706,8 @@ const OrderDetails: React.FC = () => {
                             rowGap: "8px",
                             columnGap: "8px",
                             alignSelf: "stretch",
-                            gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
+                            gridTemplateRows:
+                              "fit-content(100%) minmax(0, 1fr)",
                             gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                             position: "relative",
                           }}
@@ -9733,7 +10044,8 @@ const OrderDetails: React.FC = () => {
                             rowGap: "8px",
                             columnGap: "8px",
                             alignSelf: "stretch",
-                            gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
+                            gridTemplateRows:
+                              "fit-content(100%) minmax(0, 1fr)",
                             gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                             position: "relative",
                           }}
@@ -10070,7 +10382,8 @@ const OrderDetails: React.FC = () => {
                             rowGap: "8px",
                             columnGap: "8px",
                             alignSelf: "stretch",
-                            gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
+                            gridTemplateRows:
+                              "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
                             gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                             position: "relative",
                           }}
@@ -10795,12 +11108,16 @@ const OrderDetails: React.FC = () => {
                               "Unlawful use of a Computer",
                               "Computer Fraud & Abuse",
                               "Crimes against a Person",
-                              "Intent to Distribute Drug / Controlled Substance"
+                              "Intent to Distribute Drug / Controlled Substance",
                             ].map((item, index) => (
                               <div
                                 key={index}
-                                onMouseEnter={() => setAdjudicationMatrixHoveredRowIndex(index)}
-                                onMouseLeave={() => setAdjudicationMatrixHoveredRowIndex(null)}
+                                onMouseEnter={() =>
+                                  setAdjudicationMatrixHoveredRowIndex(index)
+                                }
+                                onMouseLeave={() =>
+                                  setAdjudicationMatrixHoveredRowIndex(null)
+                                }
                                 style={{
                                   display: "flex",
                                   height: "36px",
@@ -10809,7 +11126,10 @@ const OrderDetails: React.FC = () => {
                                   gap: "12px",
                                   alignSelf: "stretch",
                                   borderBottom: "1px solid #E9EAEB",
-                                  background: adjudicationMatrixHoveredRowIndex === index ? "#F5F5F5" : "#FFF",
+                                  background:
+                                    adjudicationMatrixHoveredRowIndex === index
+                                      ? "#F5F5F5"
+                                      : "#FFF",
                                   position: "relative",
                                   cursor: "pointer",
                                   transition: "background-color 0.2s ease",
@@ -10870,39 +11190,49 @@ const OrderDetails: React.FC = () => {
                               </div>
                             </div>
 
-                            {Array(12).fill("0").map((count, index) => (
-                              <div
-                                key={index}
-                                onMouseEnter={() => setAdjudicationMatrixHoveredRowIndex(index)}
-                                onMouseLeave={() => setAdjudicationMatrixHoveredRowIndex(null)}
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background: adjudicationMatrixHoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
+                            {Array(12)
+                              .fill("0")
+                              .map((count, index) => (
                                 <div
+                                  key={index}
+                                  onMouseEnter={() =>
+                                    setAdjudicationMatrixHoveredRowIndex(index)
+                                  }
+                                  onMouseLeave={() =>
+                                    setAdjudicationMatrixHoveredRowIndex(null)
+                                  }
                                   style={{
-                                    color: "#181D27",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
+                                    display: "flex",
+                                    height: "36px",
+                                    padding: "12px",
+                                    alignItems: "center",
+                                    alignSelf: "stretch",
+                                    borderBottom: "1px solid #E9EAEB",
+                                    background:
+                                      adjudicationMatrixHoveredRowIndex ===
+                                      index
+                                        ? "#F5F5F5"
+                                        : "transparent",
                                     position: "relative",
+                                    cursor: "pointer",
+                                    transition: "background-color 0.2s ease",
                                   }}
                                 >
-                                  {count}
+                                  <div
+                                    style={{
+                                      color: "#181D27",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {count}
+                                  </div>
                                 </div>
-                              </div>
-                            ))}
+                              ))}
                           </div>
                         </div>
                       </div>
@@ -11114,7 +11444,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: mjdExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: mjdExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -11156,7 +11488,15 @@ const OrderDetails: React.FC = () => {
                           position: "relative",
                         }}
                       >
-                        We verify criminal matches found during our instant database search directly with the source before reporting them. A criminal record will be added to the order when we discover criminal records that are a possible match. Depending on the number of hits and the response time from each search this can take a few days. Our average turnaround time for a verified search that initially has hits, is 1-3 business days. Here is a CLEAR STATIC Disclaimer. 4/20/2011
+                        We verify criminal matches found during our instant
+                        database search directly with the source before
+                        reporting them. A criminal record will be added to the
+                        order when we discover criminal records that are a
+                        possible match. Depending on the number of hits and the
+                        response time from each search this can take a few days.
+                        Our average turnaround time for a verified search that
+                        initially has hits, is 1-3 business days. Here is a
+                        CLEAR STATIC Disclaimer. 4/20/2011
                       </div>
                     </div>
                   )}
@@ -11286,7 +11626,9 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setFederalCrimeExpanded(!federalCrimeExpanded)}
+                          onClick={() =>
+                            setFederalCrimeExpanded(!federalCrimeExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -11308,7 +11650,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: federalCrimeExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: federalCrimeExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -11480,7 +11824,11 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setProfessionalReferencesExpanded(!professionalReferencesExpanded)}
+                          onClick={() =>
+                            setProfessionalReferencesExpanded(
+                              !professionalReferencesExpanded,
+                            )
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -11502,7 +11850,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: professionalReferencesExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: professionalReferencesExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -11576,12 +11926,16 @@ const OrderDetails: React.FC = () => {
                             "Contact address",
                             "City",
                             "State",
-                            "Zip"
+                            "Zip",
                           ].map((label, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setProfessionalReferencesHoveredRowIndex(index)}
-                              onMouseLeave={() => setProfessionalReferencesHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setProfessionalReferencesHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setProfessionalReferencesHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -11590,7 +11944,11 @@ const OrderDetails: React.FC = () => {
                                 gap: "12px",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: professionalReferencesHoveredRowIndex === index ? "#F5F5F5" : "#FFF",
+                                background:
+                                  professionalReferencesHoveredRowIndex ===
+                                  index
+                                    ? "#F5F5F5"
+                                    : "#FFF",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -11662,12 +12020,16 @@ const OrderDetails: React.FC = () => {
                             "",
                             "",
                             "",
-                            ""
+                            "",
                           ].map((value, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setProfessionalReferencesHoveredRowIndex(index)}
-                              onMouseLeave={() => setProfessionalReferencesHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setProfessionalReferencesHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setProfessionalReferencesHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -11675,7 +12037,11 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: professionalReferencesHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  professionalReferencesHoveredRowIndex ===
+                                  index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -11749,12 +12115,16 @@ const OrderDetails: React.FC = () => {
                             "",
                             "",
                             "",
-                            ""
+                            "",
                           ].map((value, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setProfessionalReferencesHoveredRowIndex(index)}
-                              onMouseLeave={() => setProfessionalReferencesHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setProfessionalReferencesHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setProfessionalReferencesHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -11762,7 +12132,11 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: professionalReferencesHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  professionalReferencesHoveredRowIndex ===
+                                  index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -11836,12 +12210,16 @@ const OrderDetails: React.FC = () => {
                             "", // Contact address
                             "", // City
                             "", // State
-                            ""  // Zip
+                            "", // Zip
                           ].map((status, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setProfessionalReferencesHoveredRowIndex(index)}
-                              onMouseLeave={() => setProfessionalReferencesHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setProfessionalReferencesHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setProfessionalReferencesHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -11849,7 +12227,11 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: professionalReferencesHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  professionalReferencesHoveredRowIndex ===
+                                  index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -12082,7 +12464,9 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setCredentialsExpanded(!credentialsExpanded)}
+                          onClick={() =>
+                            setCredentialsExpanded(!credentialsExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -12104,7 +12488,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: credentialsExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: credentialsExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -12180,12 +12566,16 @@ const OrderDetails: React.FC = () => {
                             "Order Comments",
                             "Person Interviewed",
                             "Researched By",
-                            "Research Comments"
+                            "Research Comments",
                           ].map((label, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setCredentialsHoveredRowIndex(index)}
-                              onMouseLeave={() => setCredentialsHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setCredentialsHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setCredentialsHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -12194,7 +12584,10 @@ const OrderDetails: React.FC = () => {
                                 gap: "12px",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: credentialsHoveredRowIndex === index ? "#F5F5F5" : "#FFF",
+                                background:
+                                  credentialsHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "#FFF",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -12268,12 +12661,16 @@ const OrderDetails: React.FC = () => {
                             "Active",
                             "",
                             "",
-                            ""
+                            "",
                           ].map((value, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setCredentialsHoveredRowIndex(index)}
-                              onMouseLeave={() => setCredentialsHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setCredentialsHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setCredentialsHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -12281,7 +12678,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: credentialsHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  credentialsHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -12357,12 +12757,16 @@ const OrderDetails: React.FC = () => {
                             "Active",
                             "",
                             "",
-                            ""
+                            "",
                           ].map((value, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setCredentialsHoveredRowIndex(index)}
-                              onMouseLeave={() => setCredentialsHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setCredentialsHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setCredentialsHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -12370,7 +12774,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: credentialsHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  credentialsHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -12446,12 +12853,16 @@ const OrderDetails: React.FC = () => {
                             "", // Order Comments
                             "", // Person Interviewed
                             "", // Researched By
-                            ""  // Research Comments
+                            "", // Research Comments
                           ].map((status, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setCredentialsHoveredRowIndex(index)}
-                              onMouseLeave={() => setCredentialsHoveredRowIndex(null)}
+                              onMouseEnter={() =>
+                                setCredentialsHoveredRowIndex(index)
+                              }
+                              onMouseLeave={() =>
+                                setCredentialsHoveredRowIndex(null)
+                              }
                               style={{
                                 display: "flex",
                                 height: "36px",
@@ -12459,7 +12870,10 @@ const OrderDetails: React.FC = () => {
                                 alignItems: "center",
                                 alignSelf: "stretch",
                                 borderBottom: "1px solid #E9EAEB",
-                                background: credentialsHoveredRowIndex === index ? "#F5F5F5" : "transparent",
+                                background:
+                                  credentialsHoveredRowIndex === index
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                 position: "relative",
                                 cursor: "pointer",
                                 transition: "background-color 0.2s ease",
@@ -12651,7 +13065,9 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setMotorVehicleExpanded(!motorVehicleExpanded)}
+                          onClick={() =>
+                            setMotorVehicleExpanded(!motorVehicleExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -12673,7 +13089,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: motorVehicleExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: motorVehicleExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -13727,7 +14145,8 @@ const OrderDetails: React.FC = () => {
                                 position: "relative",
                               }}
                             >
-                              Violations/Convictions And Failures to Appear And Accidents
+                              Violations/Convictions And Failures to Appear And
+                              Accidents
                             </div>
                             <div
                               style={{
@@ -14097,9 +14516,11 @@ const OrderDetails: React.FC = () => {
                                 position: "relative",
                               }}
                             >
-                              EXPIRATION DATES IN THIS DOCUMENT MAY HAVE BEEN EXTENDED PURSUANT TO EXECUTIVE
-                              OR LEGISLATIVE ACTION OF THE ISSUING JURISDICTION RELATED TO COVID-19.
-                              PLEASE CONSULT WITH THE JURISDICTION FOR FURTHER DETAILS.
+                              EXPIRATION DATES IN THIS DOCUMENT MAY HAVE BEEN
+                              EXTENDED PURSUANT TO EXECUTIVE OR LEGISLATIVE
+                              ACTION OF THE ISSUING JURISDICTION RELATED TO
+                              COVID-19. PLEASE CONSULT WITH THE JURISDICTION FOR
+                              FURTHER DETAILS.
                             </div>
                           </div>
                         </div>
@@ -14257,7 +14678,11 @@ const OrderDetails: React.FC = () => {
 
                         {/* Chevron Button */}
                         <button
-                          onClick={() => setCreditEmploymentExpanded(!creditEmploymentExpanded)}
+                          onClick={() =>
+                            setCreditEmploymentExpanded(
+                              !creditEmploymentExpanded,
+                            )
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -14279,7 +14704,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: creditEmploymentExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: creditEmploymentExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -14777,7 +15204,8 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            ****Address Alert: Current Input Address Does Not Match File Address(Es)
+                            ****Address Alert: Current Input Address Does Not
+                            Match File Address(Es)
                           </div>
                         </div>
 
@@ -14812,7 +15240,8 @@ const OrderDetails: React.FC = () => {
                             position: "relative",
                           }}
                         >
-                          The Following Companies Have Requested A Copy Of The Subject's File For
+                          The Following Companies Have Requested A Copy Of The
+                          Subject's File For
                         </div>
 
                         {/* Companies Table */}
@@ -15256,7 +15685,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: eVerifyExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: eVerifyExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -15589,7 +16020,8 @@ const OrderDetails: React.FC = () => {
                               rowGap: "8px",
                               columnGap: "8px",
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)",
+                              gridTemplateRows:
+                                "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)",
                               gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                               position: "relative",
                             }}
@@ -16339,7 +16771,8 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                Driver's license or ID card issued by a U.S. state or outlying possession
+                                Driver's license or ID card issued by a U.S.
+                                state or outlying possession
                               </div>
                             </div>
                           </div>
@@ -16624,8 +17057,10 @@ const OrderDetails: React.FC = () => {
                                 rowGap: "8px",
                                 columnGap: "8px",
                                 alignSelf: "stretch",
-                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
-                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                gridTemplateRows:
+                                  "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
+                                gridTemplateColumns:
+                                  "repeat(3, minmax(0, 1fr))",
                                 position: "relative",
                               }}
                             >
@@ -16972,8 +17407,10 @@ const OrderDetails: React.FC = () => {
                                 rowGap: "8px",
                                 columnGap: "8px",
                                 alignSelf: "stretch",
-                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
-                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                gridTemplateRows:
+                                  "fit-content(100%) minmax(0, 1fr)",
+                                gridTemplateColumns:
+                                  "repeat(3, minmax(0, 1fr))",
                                 position: "relative",
                               }}
                             >
@@ -17234,8 +17671,10 @@ const OrderDetails: React.FC = () => {
                                 rowGap: "8px",
                                 columnGap: "8px",
                                 alignSelf: "stretch",
-                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
-                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                gridTemplateRows:
+                                  "fit-content(100%) minmax(0, 1fr)",
+                                gridTemplateColumns:
+                                  "repeat(3, minmax(0, 1fr))",
                                 position: "relative",
                               }}
                             >
@@ -17540,8 +17979,10 @@ const OrderDetails: React.FC = () => {
                                 rowGap: "8px",
                                 columnGap: "8px",
                                 alignSelf: "stretch",
-                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
-                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                gridTemplateRows:
+                                  "fit-content(100%) minmax(0, 1fr)",
+                                gridTemplateColumns:
+                                  "repeat(3, minmax(0, 1fr))",
                                 position: "relative",
                               }}
                             >
@@ -17810,8 +18251,10 @@ const OrderDetails: React.FC = () => {
                                 rowGap: "8px",
                                 columnGap: "8px",
                                 alignSelf: "stretch",
-                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr)",
-                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                gridTemplateRows:
+                                  "fit-content(100%) minmax(0, 1fr)",
+                                gridTemplateColumns:
+                                  "repeat(3, minmax(0, 1fr))",
                                 position: "relative",
                               }}
                             >
@@ -18030,8 +18473,10 @@ const OrderDetails: React.FC = () => {
                                 rowGap: "8px",
                                 columnGap: "8px",
                                 alignSelf: "stretch",
-                                gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)",
-                                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                                gridTemplateRows:
+                                  "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)",
+                                gridTemplateColumns:
+                                  "repeat(3, minmax(0, 1fr))",
                                 position: "relative",
                               }}
                             >
@@ -18617,7 +19062,9 @@ const OrderDetails: React.FC = () => {
                           </div>
                         </div>
                         <button
-                          onClick={() => setFivePanelsExpanded(!fivePanelsExpanded)}
+                          onClick={() =>
+                            setFivePanelsExpanded(!fivePanelsExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -18639,7 +19086,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: fivePanelsExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: fivePanelsExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -18830,7 +19279,8 @@ const OrderDetails: React.FC = () => {
                               rowGap: "8px",
                               columnGap: "8px",
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
+                              gridTemplateRows:
+                                "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
                               gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                               position: "relative",
                             }}
@@ -19228,7 +19678,8 @@ const OrderDetails: React.FC = () => {
                               rowGap: "8px",
                               columnGap: "8px",
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
+                              gridTemplateRows:
+                                "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr)",
                               gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                               position: "relative",
                             }}
@@ -19685,7 +20136,8 @@ const OrderDetails: React.FC = () => {
                               rowGap: "8px",
                               columnGap: "8px",
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)",
+                              gridTemplateRows:
+                                "fit-content(100%) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)",
                               gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                               position: "relative",
                             }}
@@ -19735,7 +20187,8 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                Point Of Care Test performed at the collection site
+                                Point Of Care Test performed at the collection
+                                site
                               </div>
                             </div>
                             <div
@@ -20340,7 +20793,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: cbsvExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: cbsvExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -20712,7 +21167,10 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           >
-                            SSA result code 0000 means that the name, date of birth, and social security number you supplied all match each other in the SSA's database. In addition, this person is not deceased.
+                            SSA result code 0000 means that the name, date of
+                            birth, and social security number you supplied all
+                            match each other in the SSA's database. In addition,
+                            this person is not deceased.
                           </div>
                         </div>
                       </div>
@@ -20815,7 +21273,9 @@ const OrderDetails: React.FC = () => {
                           </div>
                         </div>
                         <button
-                          onClick={() => setSpecialNoticeExpanded(!specialNoticeExpanded)}
+                          onClick={() =>
+                            setSpecialNoticeExpanded(!specialNoticeExpanded)
+                          }
                           style={{
                             display: "flex",
                             padding: "8px",
@@ -20837,7 +21297,9 @@ const OrderDetails: React.FC = () => {
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                             style={{
-                              transform: specialNoticeExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transform: specialNoticeExpanded
+                                ? "rotate(180deg)"
+                                : "rotate(0deg)",
                               transition: "transform 0.2s ease",
                             }}
                           >
@@ -20904,7 +21366,25 @@ const OrderDetails: React.FC = () => {
                             position: "relative",
                           }}
                         >
-                          The information provided is a consumer report as defined in the federal Fair Credit Reporting Act [15 U.S.C. 1681- 1681u]. It contains confidential information on the individual named. It is submitted to the conditions contained in your Subscriber Agreement with us and may be used solely as a factor in evaluating the named individual for property renting/leasing, employment, promotion, reassignment or retention as an employee. We maintain strict procedures designed to ensure that the information is complete and up to date. While the information furnished is from reliable sources, its accuracy is not guaranteed. Proper use of this report and final verification of the named individual's identity is your sole responsibility. If any adverse action is taken based in whole or in part on this consumer report, a copy of this report and a summary of the consumer's rights must be provided to the consumer prior to taking adverse action.
+                          The information provided is a consumer report as
+                          defined in the federal Fair Credit Reporting Act [15
+                          U.S.C. 1681- 1681u]. It contains confidential
+                          information on the individual named. It is submitted
+                          to the conditions contained in your Subscriber
+                          Agreement with us and may be used solely as a factor
+                          in evaluating the named individual for property
+                          renting/leasing, employment, promotion, reassignment
+                          or retention as an employee. We maintain strict
+                          procedures designed to ensure that the information is
+                          complete and up to date. While the information
+                          furnished is from reliable sources, its accuracy is
+                          not guaranteed. Proper use of this report and final
+                          verification of the named individual's identity is
+                          your sole responsibility. If any adverse action is
+                          taken based in whole or in part on this consumer
+                          report, a copy of this report and a summary of the
+                          consumer's rights must be provided to the consumer
+                          prior to taking adverse action.
                         </div>
                       </div>
 
@@ -20933,10 +21413,10 @@ const OrderDetails: React.FC = () => {
                             position: "relative",
                           }}
                         >
-                          A Summary of Your Rights Under the Fair Credit Reporting Act
+                          A Summary of Your Rights Under the Fair Credit
+                          Reporting Act
                         </div>
                       </button>
-
                     </div>
                   )}
                 </div>
@@ -20979,7 +21459,8 @@ const OrderDetails: React.FC = () => {
               alignItems: "center",
               borderRadius: "16px",
               background: "#FFF",
-              boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+              boxShadow:
+                "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
               position: "relative",
               zIndex: 1001,
             }}
@@ -21078,7 +21559,8 @@ const OrderDetails: React.FC = () => {
                       position: "relative",
                     }}
                   >
-                    Are you sure you want to delete this note? This action cannot be undone.
+                    Are you sure you want to delete this note? This action
+                    cannot be undone.
                   </div>
                 </div>
               </div>
@@ -21165,7 +21647,8 @@ const OrderDetails: React.FC = () => {
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
-                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
                   }}
@@ -21203,7 +21686,8 @@ const OrderDetails: React.FC = () => {
                     borderRadius: "8px",
                     border: "2px solid rgba(255, 255, 255, 0.12)",
                     background: "#D92D20",
-                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
                   }}
