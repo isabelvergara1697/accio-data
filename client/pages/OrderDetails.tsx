@@ -20360,6 +20360,235 @@ const OrderDetails: React.FC = () => {
                     </div>
                   )}
                 </div>
+
+                {/* Special Notice Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "0px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "0px",
+                    alignSelf: "stretch",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                      borderRadius: "12px 12px 0 0",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 24px 0 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                Special Notice
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => setSpecialNoticeExpanded(!specialNoticeExpanded)}
+                          style={{
+                            display: "flex",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "8px",
+                            border: "1px solid #D5D7DA",
+                            background: "#FFF",
+                            boxShadow:
+                              "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            position: "relative",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              transform: specialNoticeExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                              transition: "transform 0.2s ease",
+                            }}
+                          >
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.66667"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Special Notice Content */}
+                  {specialNoticeExpanded && (
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "12px 24px 20px 24px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "10px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      {/* Notice Information */}
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            alignSelf: "stretch",
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            position: "relative",
+                          }}
+                        >
+                          Noticy
+                        </div>
+                        <div
+                          style={{
+                            alignSelf: "stretch",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontStyle: "normal",
+                            fontWeight: 400,
+                            lineHeight: "24px",
+                            position: "relative",
+                          }}
+                        >
+                          The information provided is a consumer report as defined in the federal Fair Credit Reporting Act [15 U.S.C. 1681- 1681u]. It contains confidential information on the individual named. It is submitted to the conditions contained in your Subscriber Agreement with us and may be used solely as a factor in evaluating the named individual for property renting/leasing, employment, promotion, reassignment or retention as an employee. We maintain strict procedures designed to ensure that the information is complete and up to date. While the information furnished is from reliable sources, its accuracy is not guaranteed. Proper use of this report and final verification of the named individual's identity is your sole responsibility. If any adverse action is taken based in whole or in part on this consumer report, a copy of this report and a summary of the consumer's rights must be provided to the consumer prior to taking adverse action.
+                        </div>
+                      </div>
+
+                      {/* Fair Credit Reporting Act Link */}
+                      <button
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          gap: "4px",
+                          position: "relative",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          padding: "0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#273572",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          A Summary of Your Rights Under the Fair Credit Reporting Act
+                        </div>
+                      </button>
+
+                      {/* Divider */}
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "1px",
+                          background: "#E9EAEB",
+                          marginTop: "6px",
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
