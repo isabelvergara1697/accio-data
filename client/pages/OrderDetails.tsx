@@ -1985,7 +1985,7 @@ const OrderDetails: React.FC = () => {
               </div>
             )}
           </div>
-        )}]}￼}
+        )}
 
         <main
           style={{
