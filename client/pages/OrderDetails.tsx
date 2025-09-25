@@ -4053,7 +4053,7 @@ const OrderDetails: React.FC = () => {
                           position: "relative",
                         }}
                       >
-                        {/* Search Type Column */}
+                        {/* Search Type Column (Single Column with Links) */}
                         <div
                           style={{
                             display: "flex",
@@ -4093,13 +4093,13 @@ const OrderDetails: React.FC = () => {
                           </div>
                           {/* Data rows */}
                           {[
-                            { name: "Subject", link: null },
-                            { name: "Resume Validation", link: null },
-                            { name: "Employment at Jerrys", link: null },
-                            { name: "Education at Brown Community College", link: null },
-                            { name: "Credentials-Professional License", link: null },
-                            { name: "Motor Vehicle Driving History", link: null },
-                            { name: "E-Verify", link: null },
+                            { name: "Subject", link: "#subject" },
+                            { name: "Resume Validation", link: "#resume-validation" },
+                            { name: "Employment at Jerrys", link: "#employment-at-jerrys-tx" },
+                            { name: "Education at Brown Community College", link: "#education-at-brown-community-college" },
+                            { name: "Credentials-Professional License", link: "#credentials-professional-license" },
+                            { name: "Motor Vehicle Driving History", link: "#motor-vehicle-driving-history" },
+                            { name: "E-Verify", link: "#e-verify" },
                             { name: "5 Panel", link: "#five-panels-section" },
                             { name: "CBSV", link: "#cbsv-section" },
                             { name: "Special Notice", link: "#special-notice-section" },
@@ -4122,147 +4122,44 @@ const OrderDetails: React.FC = () => {
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <div
+                              <a
+                                href={item.link}
                                 style={{
-                                  color: "#181D27",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 400,
-                                  lineHeight: "20px",
+                                  display: "flex",
+                                  justifyContent: "flex-start",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  background: "transparent",
+                                  border: "none",
+                                  cursor: "pointer",
                                   position: "relative",
                                   width: "100%",
+                                  textDecoration: "none",
+                                  textAlign: "left",
+                                }}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  const targetElement = document.querySelector(item.link);
+                                  if (targetElement) {
+                                    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                                  }
                                 }}
                               >
-                                {item.name}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Links Column */}
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            flex: "1 0 0",
-                            position: "relative",
-                          }}
-                        >
-                          {/* Header */}
-                          <div
-                            style={{
-                              display: "flex",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              alignSelf: "stretch",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              position: "relative",
-                            }}
-                          >
-                            <div
-                              style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontStyle: "normal",
-                                fontWeight: 600,
-                                lineHeight: "18px",
-                                position: "relative",
-                              }}
-                            >
-                              Links
-                            </div>
-                          </div>
-                          {/* Data rows */}
-                          {[
-                            { name: "Subject", link: null },
-                            { name: "Resume Validation", link: null },
-                            { name: "Employment at Jerrys", link: null },
-                            { name: "Education at Brown Community College", link: null },
-                            { name: "Credentials-Professional License", link: null },
-                            { name: "Motor Vehicle Driving History", link: null },
-                            { name: "E-Verify", link: null },
-                            { name: "5 Panel", link: "#five-panels-section" },
-                            { name: "CBSV", link: "#cbsv-section" },
-                            { name: "Special Notice", link: "#special-notice-section" },
-                          ].map((item, index) => (
-                            <div
-                              key={index}
-                              onMouseEnter={() => setHoveredRowIndex(index)}
-                              onMouseLeave={() => setHoveredRowIndex(null)}
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                gap: "8px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                position: "relative",
-                                cursor: item.link ? "pointer" : "default",
-                                transition: "background-color 0.2s ease",
-                              }}
-                            >
-                              {item.link ? (
-                                <a
-                                  href={item.link}
-                                  style={{
-                                    display: "flex",
-                                    justifyContent: "flex-start",
-                                    alignItems: "center",
-                                    gap: "4px",
-                                    background: "transparent",
-                                    border: "none",
-                                    cursor: "pointer",
-                                    position: "relative",
-                                    width: "100%",
-                                    textDecoration: "none",
-                                    textAlign: "left",
-                                  }}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    const targetElement = document.querySelector(item.link);
-                                    if (targetElement) {
-                                      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-                                    }
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      color: hoveredRowIndex === index ? "#1A234C" : "#273572",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontStyle: "normal",
-                                      fontWeight: 600,
-                                      lineHeight: "20px",
-                                      textDecoration: "underline",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    {item.name}
-                                  </div>
-                                </a>
-                              ) : (
                                 <div
                                   style={{
-                                    color: "#A4A7AE",
+                                    color: hoveredRowIndex === index ? "#1A234C" : "#273572",
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
                                     fontStyle: "normal",
-                                    fontWeight: 400,
+                                    fontWeight: 600,
                                     lineHeight: "20px",
+                                    textDecoration: "underline",
                                     position: "relative",
                                   }}
                                 >
-                                  -
+                                  {item.name}
                                 </div>
-                              )}
+                              </a>
                             </div>
                           ))}
                         </div>
