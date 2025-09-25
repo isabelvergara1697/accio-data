@@ -8327,6 +8327,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Criminal History Section */}
                 <div
+                  id="countywide-criminal-history"
                   style={{
                     display: "flex",
                     paddingBottom: "20px",
@@ -10566,6 +10567,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* MJD Sue Jeans Section */}
                 <div
+                  id="mjd"
                   style={{
                     display: "flex",
                     paddingBottom: "20px",
@@ -10759,6 +10761,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Nationwide Federal Crime Sue Jeans Section */}
                 <div
+                  id="nationwide-federal-crime"
                   style={{
                     display: "flex",
                     paddingBottom: "20px",
@@ -10952,6 +10955,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Professional References Section */}
                 <div
+                  id="professional-references"
                   style={{
                     display: "flex",
                     paddingBottom: "20px",
