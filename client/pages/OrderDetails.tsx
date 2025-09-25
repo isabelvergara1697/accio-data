@@ -4044,7 +4044,7 @@ const OrderDetails: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* Data Table */}
+                      {/* Report Summary Links Table */}
                       <div
                         style={{
                           display: "flex",
@@ -4053,90 +4053,6 @@ const OrderDetails: React.FC = () => {
                           position: "relative",
                         }}
                       >
-                        {/* Named Search Column */}
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            position: "relative",
-                          }}
-                        >
-                          {/* Header */}
-                          <div
-                            style={{
-                              display: "flex",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              alignSelf: "stretch",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              position: "relative",
-                            }}
-                          >
-                            <div
-                              style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontStyle: "normal",
-                                fontWeight: 600,
-                                lineHeight: "18px",
-                                position: "relative",
-                              }}
-                            >
-                              Named Search
-                            </div>
-                          </div>
-                          {/* Data rows */}
-                          {[
-                            "Sue Jeans",
-                            "Sue Jeans",
-                            "Sue Jeans",
-                            "Sue Jeans",
-                            "Sue DD",
-                            "Sue DD",
-                            "Sue DD",
-                            "Sue Jeans",
-                            "Sue Jeans",
-                            "Sue Jeans",
-                          ].map((name, index) => (
-                            <div
-                              key={index}
-                              onMouseEnter={() => setHoveredRowIndex(index)}
-                              onMouseLeave={() => setHoveredRowIndex(null)}
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                position: "relative",
-                                cursor: "pointer",
-                                transition: "background-color 0.2s ease",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#181D27",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 400,
-                                  lineHeight: "20px",
-                                  position: "relative",
-                                }}
-                              >
-                                {name}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-
                         {/* Search Type Column */}
                         <div
                           style={{
@@ -4177,17 +4093,17 @@ const OrderDetails: React.FC = () => {
                           </div>
                           {/* Data rows */}
                           {[
-                            "Resume Validation",
-                            "Employment at Jerrys",
-                            "Employment at Hank",
-                            "Education at Brown Community College",
-                            "Professional References",
-                            "MJD",
-                            "Countywide Criminal History",
-                            "5 Panel",
-                            "CBSV",
-                            "Nationwide Federal Crime",
-                          ].map((searchType, index) => (
+                            { name: "Subject", link: null },
+                            { name: "Resume Validation", link: null },
+                            { name: "Employment at Jerrys", link: null },
+                            { name: "Education at Brown Community College", link: null },
+                            { name: "Credentials-Professional License", link: null },
+                            { name: "Motor Vehicle Driving History", link: null },
+                            { name: "E-Verify", link: null },
+                            { name: "5 Panel", link: "#five-panels-section" },
+                            { name: "CBSV", link: "#cbsv-section" },
+                            { name: "Special Notice", link: "#special-notice-section" },
+                          ].map((item, index) => (
                             <div
                               key={index}
                               onMouseEnter={() => setHoveredRowIndex(index)}
@@ -4206,201 +4122,6 @@ const OrderDetails: React.FC = () => {
                                 transition: "background-color 0.2s ease",
                               }}
                             >
-                              <button
-                                style={{
-                                  display: "flex",
-                                  justifyContent: "flex-start",
-                                  alignItems: "center",
-                                  gap: "4px",
-                                  background: "transparent",
-                                  border: "none",
-                                  cursor: "pointer",
-                                  position: "relative",
-                                  width: "100%",
-                                  flex: "1 0 0",
-                                  textAlign: "left",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    display: "-webkit-box",
-                                    WebkitBoxOrient: "vertical",
-                                    WebkitLineClamp: 1,
-                                    flex: "1 0 0",
-                                    overflow: "hidden",
-                                    color: hoveredRowIndex === index ? "#1A234C" : "#273572",
-                                    textOverflow: "ellipsis",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 600,
-                                    lineHeight: "20px",
-                                    textDecoration: "underline",
-                                    position: "relative",
-                                    textAlign: "left",
-                                  }}
-                                  title={searchType}
-                                >
-                                  {searchType}
-                                </div>
-                              </button>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* County Column */}
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            position: "relative",
-                          }}
-                        >
-                          {/* Header */}
-                          <div
-                            style={{
-                              display: "flex",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              alignSelf: "stretch",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              position: "relative",
-                            }}
-                          >
-                            <div
-                              style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontStyle: "normal",
-                                fontWeight: 600,
-                                lineHeight: "18px",
-                                position: "relative",
-                              }}
-                            >
-                              County
-                            </div>
-                          </div>
-                          {/* Data rows */}
-                          {[
-                            "Harris",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "Bossier",
-                            "Bossier",
-                            "Bossier",
-                            "Bossier",
-                          ].map((county, index) => (
-                            <div
-                              key={index}
-                              onMouseEnter={() => setHoveredRowIndex(index)}
-                              onMouseLeave={() => setHoveredRowIndex(null)}
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                position: "relative",
-                                cursor: "pointer",
-                                transition: "background-color 0.2s ease",
-                              }}
-                            >
-                              {county && (
-                                <div
-                                  style={{
-                                    color: "#181D27",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 400,
-                                    lineHeight: "20px",
-                                    position: "relative",
-                                  }}
-                                >
-                                  {county}
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* State Column */}
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            position: "relative",
-                          }}
-                        >
-                          {/* Header */}
-                          <div
-                            style={{
-                              display: "flex",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              alignSelf: "stretch",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              position: "relative",
-                            }}
-                          >
-                            <div
-                              style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontStyle: "normal",
-                                fontWeight: 600,
-                                lineHeight: "18px",
-                                position: "relative",
-                              }}
-                            >
-                              State
-                            </div>
-                          </div>
-                          {/* Data rows */}
-                          {[
-                            "Texas",
-                            "Texas",
-                            "Texas",
-                            "Texas",
-                            "Texas",
-                            "Texas",
-                            "LA",
-                            "LA",
-                            "LA",
-                            "LA",
-                          ].map((state, index) => (
-                            <div
-                              key={index}
-                              onMouseEnter={() => setHoveredRowIndex(index)}
-                              onMouseLeave={() => setHoveredRowIndex(null)}
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                position: "relative",
-                                cursor: "pointer",
-                                transition: "background-color 0.2s ease",
-                              }}
-                            >
                               <div
                                 style={{
                                   color: "#181D27",
@@ -4410,15 +4131,16 @@ const OrderDetails: React.FC = () => {
                                   fontWeight: 400,
                                   lineHeight: "20px",
                                   position: "relative",
+                                  width: "100%",
                                 }}
                               >
-                                {state}
+                                {item.name}
                               </div>
                             </div>
                           ))}
                         </div>
 
-                        {/* Research Results Column */}
+                        {/* Links Column */}
                         <div
                           style={{
                             display: "flex",
@@ -4453,205 +4175,62 @@ const OrderDetails: React.FC = () => {
                                 position: "relative",
                               }}
                             >
-                              Research Results
+                              Links
                             </div>
                           </div>
                           {/* Data rows */}
-                          {Array(10)
-                            .fill("Completed - Verified")
-                            .map((status, index) => (
-                              <div
-                                key={index}
-                                onMouseEnter={() => setHoveredRowIndex(index)}
-                                onMouseLeave={() => setHoveredRowIndex(null)}
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    padding: "2px 8px",
-                                    alignItems: "center",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #ABEFC6",
-                                    background: "#ECFDF3",
-                                    position: "relative",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      color: "#067647",
-                                      textAlign: "center",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "12px",
-                                      fontStyle: "normal",
-                                      fontWeight: 400,
-                                      lineHeight: "18px",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    {status}
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                        </div>
-
-                        {/* Search ID Column */}
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            position: "relative",
-                          }}
-                        >
-                          {/* Header */}
-                          <div
-                            style={{
-                              display: "flex",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              alignSelf: "stretch",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              position: "relative",
-                            }}
-                          >
+                          {[
+                            { name: "Subject", link: null },
+                            { name: "Resume Validation", link: null },
+                            { name: "Employment at Jerrys", link: null },
+                            { name: "Education at Brown Community College", link: null },
+                            { name: "Credentials-Professional License", link: null },
+                            { name: "Motor Vehicle Driving History", link: null },
+                            { name: "E-Verify", link: null },
+                            { name: "5 Panel", link: "#five-panels-section" },
+                            { name: "CBSV", link: "#cbsv-section" },
+                            { name: "Special Notice", link: "#special-notice-section" },
+                          ].map((item, index) => (
                             <div
+                              key={index}
+                              onMouseEnter={() => setHoveredRowIndex(index)}
+                              onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontStyle: "normal",
-                                fontWeight: 600,
-                                lineHeight: "18px",
+                                display: "flex",
+                                height: "36px",
+                                padding: "12px",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                borderBottom: "1px solid #E9EAEB",
+                                background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
                                 position: "relative",
+                                cursor: item.link ? "pointer" : "default",
+                                transition: "background-color 0.2s ease",
                               }}
                             >
-                              Search ID
-                            </div>
-                          </div>
-                          {/* Data rows */}
-                          {Array(10)
-                            .fill("845841254/451254")
-                            .map((searchId, index) => (
-                              <div
-                                key={index}
-                                onMouseEnter={() => setHoveredRowIndex(index)}
-                                onMouseLeave={() => setHoveredRowIndex(null)}
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    color: "#181D27",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 400,
-                                    lineHeight: "20px",
-                                    position: "relative",
-                                  }}
-                                >
-                                  {searchId}
-                                </div>
-                              </div>
-                            ))}
-                        </div>
-
-                        {/* Documents Column */}
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            flex: "1 0 0",
-                            position: "relative",
-                          }}
-                        >
-                          {/* Header */}
-                          <div
-                            style={{
-                              display: "flex",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              alignSelf: "stretch",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              position: "relative",
-                            }}
-                          >
-                            <div
-                              style={{
-                                color: "#717680",
-                                fontFamily: "Public Sans",
-                                fontSize: "12px",
-                                fontStyle: "normal",
-                                fontWeight: 600,
-                                lineHeight: "18px",
-                                position: "relative",
-                              }}
-                            >
-                              Documents
-                            </div>
-                          </div>
-                          {/* Data rows */}
-                          {Array(10)
-                            .fill("[File Name]")
-                            .map((fileName, index) => (
-                              <div
-                                key={index}
-                                onMouseEnter={() => setHoveredRowIndex(index)}
-                                onMouseLeave={() => setHoveredRowIndex(null)}
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  gap: "8px",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <button
+                              {item.link ? (
+                                <a
+                                  href={item.link}
                                   style={{
                                     display: "flex",
-                                    justifyContent: "center",
+                                    justifyContent: "flex-start",
                                     alignItems: "center",
                                     gap: "4px",
                                     background: "transparent",
                                     border: "none",
                                     cursor: "pointer",
                                     position: "relative",
+                                    width: "100%",
+                                    textDecoration: "none",
+                                    textAlign: "left",
+                                  }}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    const targetElement = document.querySelector(item.link);
+                                    if (targetElement) {
+                                      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    }
                                   }}
                                 >
                                   <div
@@ -4666,90 +4245,26 @@ const OrderDetails: React.FC = () => {
                                       position: "relative",
                                     }}
                                   >
-                                    {fileName}
+                                    {item.name}
                                   </div>
-                                </button>
-                              </div>
-                            ))}
-                        </div>
-
-                        {/* View Column */}
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-start",
-                            position: "relative",
-                          }}
-                        >
-                          {/* Header */}
-                          <div
-                            style={{
-                              display: "flex",
-                              width: "40px",
-                              height: "36px",
-                              padding: "6px 12px",
-                              alignItems: "center",
-                              gap: "12px",
-                              borderBottom: "1px solid #E9EAEB",
-                              background: "#FFF",
-                              position: "relative",
-                            }}
-                          />
-                          {/* Data rows */}
-                          {Array(10)
-                            .fill(0)
-                            .map((_, index) => (
-                              <div
-                                key={index}
-                                onMouseEnter={() => setHoveredRowIndex(index)}
-                                onMouseLeave={() => setHoveredRowIndex(null)}
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  gap: "4px",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background: hoveredRowIndex === index ? "#F5F5F5" : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <button
+                                </a>
+                              ) : (
+                                <div
                                   style={{
-                                    background: "transparent",
-                                    border: "none",
-                                    cursor: "pointer",
-                                    padding: 0,
+                                    color: "#A4A7AE",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
                                   }}
                                 >
-                                  <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M1.61342 8.47546C1.52262 8.3317 1.47723 8.25982 1.45182 8.14895C1.43273 8.06568 1.43273 7.93434 1.45182 7.85107C1.47723 7.7402 1.52262 7.66832 1.61341 7.52456C2.36369 6.33657 4.59693 3.33334 8.00027 3.33334C11.4036 3.33334 13.6369 6.33657 14.3871 7.52456C14.4779 7.66832 14.5233 7.7402 14.5487 7.85107C14.5678 7.93434 14.5678 8.06568 14.5487 8.14895C14.5233 8.25982 14.4779 8.3317 14.3871 8.47546C13.6369 9.66345 11.4036 12.6667 8.00027 12.6667C4.59693 12.6667 2.36369 9.66345 1.61342 8.47546Z"
-                                      stroke="#A4A7AE"
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                    <path
-                                      d="M8.00027 10C9.10484 10 10.0003 9.10458 10.0003 8.00001C10.0003 6.89544 9.10484 6.00001 8.00027 6.00001C6.8957 6.00001 6.00027 6.89544 6.00027 8.00001C6.00027 9.10458 6.8957 10 8.00027 10Z"
-                                      stroke="#A4A7AE"
-                                      strokeWidth="1.5"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    />
-                                  </svg>
-                                </button>
-                              </div>
-                            ))}
+                                  -
+                                </div>
+                              )}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -18115,6 +17630,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* 5 Panels Section */}
                 <div
+                  id="five-panels-section"
                   style={{
                     display: "flex",
                     padding: "0px",
@@ -19815,6 +19331,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* CBSV Section */}
                 <div
+                  id="cbsv-section"
                   style={{
                     display: "flex",
                     padding: "0px",
@@ -20363,6 +19880,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Special Notice Section */}
                 <div
+                  id="special-notice-section"
                   style={{
                     display: "flex",
                     padding: "0px",
