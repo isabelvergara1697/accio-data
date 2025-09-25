@@ -152,12 +152,19 @@ const OrderDetails: React.FC = () => {
 
   // Accurate in-page anchor scroll accounting for fixed headers
   const scrollToSection = (targetId: string) => {
-    const el = typeof document !== "undefined" ? document.getElementById(targetId) : null;
+    const el =
+      typeof document !== "undefined"
+        ? document.getElementById(targetId)
+        : null;
     if (!el) return;
-    const headerOffset = (showStickyHeader && stickyHeaderRef.current
-      ? stickyHeaderRef.current.offsetHeight
-      : (isDesktop ? 104 : 96));
-    const y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset - 8;
+    const headerOffset =
+      showStickyHeader && stickyHeaderRef.current
+        ? stickyHeaderRef.current.offsetHeight
+        : isDesktop
+          ? 104
+          : 96;
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset - headerOffset - 8;
     window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
   };
 
@@ -319,7 +326,9 @@ const OrderDetails: React.FC = () => {
         setShowStickyHeader(rect.top < 0);
       }
 
-      const billingIdentifiersElement = document.getElementById("billing-identifiers");
+      const billingIdentifiersElement = document.getElementById(
+        "billing-identifiers",
+      );
       if (billingIdentifiersElement) {
         const rect = billingIdentifiersElement.getBoundingClientRect();
         // Show sticky navigation when billing identifiers section is scrolled past
@@ -847,7 +856,8 @@ const OrderDetails: React.FC = () => {
               borderRadius: "10px",
               border: "1px solid #E9EAEB",
               background: "#FFF",
-              boxShadow: "0 4px 6px -1px rgba(10, 13, 18, 0.10), 0 2px 4px -2px rgba(10, 13, 18, 0.06)",
+              boxShadow:
+                "0 4px 6px -1px rgba(10, 13, 18, 0.10), 0 2px 4px -2px rgba(10, 13, 18, 0.06)",
             }}
           >
             {/* Header with hamburger menu, title and close button */}
@@ -1390,7 +1400,8 @@ const OrderDetails: React.FC = () => {
                       lineHeight: "20px",
                     }}
                   >
-                    Countywide Criminal History Bossie, LA - Years: 10 - Sue Jeans
+                    Countywide Criminal History Bossie, LA - Years: 10 - Sue
+                    Jeans
                   </div>
                   <div
                     style={{
