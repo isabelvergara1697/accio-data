@@ -430,9 +430,10 @@ const OrderDetails: React.FC = () => {
         {/* Sticky Header */}
         {showStickyHeader && (
           <div
+            ref={stickyHeaderRef}
             style={{
               position: "fixed",
-              top: isDesktop ? "80px" : "72px",
+              top: "0",
               left: isDesktop ? (sidebarCollapsed ? "80px" : "296px") : "0",
               right: "0",
               zIndex: 1000,
