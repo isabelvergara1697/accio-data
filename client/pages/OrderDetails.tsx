@@ -818,6 +818,340 @@ const OrderDetails: React.FC = () => {
           </div>
         )}
 
+        {/* Sticky Quick Navigation */}
+        {showStickyNavigation && (
+          <div
+            ref={stickyNavigationRef}
+            style={{
+              position: "fixed",
+              bottom: "24px",
+              left: "32px",
+              zIndex: 999,
+              display: "flex",
+              width: "320px",
+              padding: "12px",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "12px",
+              borderRadius: "10px",
+              border: "1px solid #E9EAEB",
+              background: "#FFF",
+              boxShadow: "0 4px 6px -1px rgba(10, 13, 18, 0.10), 0 2px 4px -2px rgba(10, 13, 18, 0.06)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                height: "36px",
+                padding: "8px 0",
+                justifyContent: "space-between",
+                alignItems: "center",
+                alignSelf: "stretch",
+                borderRadius: "6px",
+                position: "relative",
+              }}
+            >
+              <button
+                onClick={() => setStickyNavigationOpen(!stickyNavigationOpen)}
+                style={{
+                  display: "flex",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "8px",
+                  position: "relative",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 8H14M2 4H14M2 12H14"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  flex: "1 0 0",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                    position: "relative",
+                  }}
+                >
+                  Quick Navigation
+                </div>
+              </div>
+              <button
+                onClick={() => setShowStickyNavigation(false)}
+                style={{
+                  display: "flex",
+                  padding: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRadius: "8px",
+                  position: "relative",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.3327 4.66669L4.66602 11.3334M4.66602 4.66669L11.3327 11.3334"
+                    stroke="#A4A7AE"
+                    strokeWidth="1.66667"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Navigation Links - Show when expanded */}
+            {stickyNavigationOpen && (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "8px",
+                  alignSelf: "stretch",
+                  position: "relative",
+                }}
+              >
+                {/* Subject */}
+                <button
+                  onClick={() => {
+                    document.getElementById("subject")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#273572",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Subject
+                  </div>
+                </button>
+
+                {/* Resume Validation */}
+                <button
+                  onClick={() => {
+                    document.getElementById("resume-validation")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#273572",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Resume Validation
+                  </div>
+                </button>
+
+                {/* Employment */}
+                <button
+                  onClick={() => {
+                    document.getElementById("employment")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#273572",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Employment
+                  </div>
+                </button>
+
+                {/* Education */}
+                <button
+                  onClick={() => {
+                    document.getElementById("education")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#273572",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Education
+                  </div>
+                </button>
+
+                {/* Criminal History */}
+                <button
+                  onClick={() => {
+                    document.getElementById("criminal-history")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#273572",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Criminal History
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+
         <main
           style={{
             display: "flex",
