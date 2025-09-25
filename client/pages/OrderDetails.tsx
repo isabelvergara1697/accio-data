@@ -6944,6 +6944,11 @@ const OrderDetails: React.FC = () => {
                                 }}
                               >
                                 <button
+                                  onClick={() => {
+                                    const fileNames = ["SSA-89", "Resume", "Resume"];
+                                    setUploadFileName(fileNames[index] || "Document");
+                                    setUploadModalOpen(true);
+                                  }}
                                   style={{
                                     display: "flex",
                                     justifyContent: "center",
