@@ -115,6 +115,8 @@ const OrderDetails: React.FC = () => {
 
   // Sticky header state
   const [showStickyHeader, setShowStickyHeader] = useState(false);
+  const stickyHeaderRef = useRef<HTMLDivElement | null>(null);
+  const [stickyHeight, setStickyHeight] = useState<number>(0);
 
   const addNote = () => {
     const text = noteText.trim();
