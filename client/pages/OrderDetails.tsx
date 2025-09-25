@@ -1095,6 +1095,7 @@ const OrderDetails: React.FC = () => {
                 }}
               >
                 <div
+                  id="subject"
                   style={{
                     display: "flex",
                     width: "320px",
