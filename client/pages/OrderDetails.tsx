@@ -258,6 +258,21 @@ const OrderDetails: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Scroll listener for sticky header
+  useEffect(() => {
+    const handleScroll = () => {
+      const subjectElement = document.getElementById("subject");
+      if (subjectElement) {
+        const rect = subjectElement.getBoundingClientRect();
+        // Show sticky header when subject section is scrolled past (top of element is above viewport)
+        setShowStickyHeader(rect.top < 0);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleSignOut = () => {
     console.log("Sign out");
   };
