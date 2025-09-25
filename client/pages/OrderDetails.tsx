@@ -6016,6 +6016,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Resume Validation Section */}
                 <div
+                  id="resume-validation"
                   style={{
                     display: "flex",
                     paddingBottom: "20px",
