@@ -1031,7 +1031,7 @@ const OrderDetails: React.FC = () => {
                 {/* Employment */}
                 <button
                   onClick={() => {
-                    document.getElementById("employment")?.scrollIntoView({ behavior: "smooth" });
+                    document.getElementById("employment-at-jerrys-tx")?.scrollIntoView({ behavior: "smooth" });
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1071,7 +1071,7 @@ const OrderDetails: React.FC = () => {
                 {/* Education */}
                 <button
                   onClick={() => {
-                    document.getElementById("education")?.scrollIntoView({ behavior: "smooth" });
+                    document.getElementById("education-at-brown-community-college")?.scrollIntoView({ behavior: "smooth" });
                     setStickyNavigationOpen(false);
                   }}
                   style={{
@@ -1111,7 +1111,7 @@ const OrderDetails: React.FC = () => {
                 {/* Criminal History */}
                 <button
                   onClick={() => {
-                    document.getElementById("criminal-history")?.scrollIntoView({ behavior: "smooth" });
+                    document.getElementById("countywide-criminal-history")?.scrollIntoView({ behavior: "smooth" });
                     setStickyNavigationOpen(false);
                   }}
                   style={{
