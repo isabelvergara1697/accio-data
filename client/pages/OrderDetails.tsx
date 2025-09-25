@@ -4115,7 +4115,7 @@ const OrderDetails: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "14px",
                                   fontStyle: "normal",
-                                  fontWeight: 700,
+                                  fontWeight: 500,
                                   lineHeight: "20px",
                                   position: "relative",
                                 }}
@@ -4224,7 +4224,7 @@ const OrderDetails: React.FC = () => {
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
                                     fontStyle: "normal",
-                                    fontWeight: 600,
+                                    fontWeight: 500,
                                     lineHeight: "20px",
                                     textDecoration: "underline",
                                     position: "relative",
@@ -4304,7 +4304,7 @@ const OrderDetails: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "14px",
                                   fontStyle: "normal",
-                                  fontWeight: 700,
+                                  fontWeight: 500,
                                   lineHeight: "20px",
                                   position: "relative",
                                 }}
@@ -4376,7 +4376,7 @@ const OrderDetails: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "14px",
                                   fontStyle: "normal",
-                                  fontWeight: 700,
+                                  fontWeight: 500,
                                   lineHeight: "20px",
                                   position: "relative",
                                 }}
@@ -4459,7 +4459,7 @@ const OrderDetails: React.FC = () => {
                                     fontFamily: "Public Sans",
                                     fontSize: "12px",
                                     fontStyle: "normal",
-                                    fontWeight: 700,
+                                    fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
                                   }}
@@ -4530,7 +4530,7 @@ const OrderDetails: React.FC = () => {
                                   fontFamily: "Public Sans",
                                   fontSize: "14px",
                                   fontStyle: "normal",
-                                  fontWeight: 700,
+                                  fontWeight: 500,
                                   lineHeight: "20px",
                                   position: "relative",
                                 }}
@@ -4617,7 +4617,7 @@ const OrderDetails: React.FC = () => {
                                     fontFamily: "Public Sans",
                                     fontSize: "14px",
                                     fontStyle: "normal",
-                                    fontWeight: 600,
+                                    fontWeight: 500,
                                     lineHeight: "20px",
                                     textDecoration: "underline",
                                     position: "relative",
