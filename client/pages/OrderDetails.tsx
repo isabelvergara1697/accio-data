@@ -20577,15 +20577,6 @@ const OrderDetails: React.FC = () => {
                         </div>
                       </button>
 
-                      {/* Divider */}
-                      <div
-                        style={{
-                          width: "100%",
-                          height: "1px",
-                          background: "#E9EAEB",
-                          marginTop: "6px",
-                        }}
-                      />
                     </div>
                   )}
                 </div>
