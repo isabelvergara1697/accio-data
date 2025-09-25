@@ -298,7 +298,7 @@ const OrderDetails: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Scroll listener for sticky header
+  // Scroll listener for sticky header and billing identifiers navigation
   useEffect(() => {
     const handleScroll = () => {
       const subjectElement = document.getElementById("subject");
@@ -306,6 +306,13 @@ const OrderDetails: React.FC = () => {
         const rect = subjectElement.getBoundingClientRect();
         // Show sticky header when subject section is scrolled past (top of element is above viewport)
         setShowStickyHeader(rect.top < 0);
+      }
+
+      const billingIdentifiersElement = document.getElementById("billing-identifiers");
+      if (billingIdentifiersElement) {
+        const rect = billingIdentifiersElement.getBoundingClientRect();
+        // Show sticky navigation when billing identifiers section is scrolled past
+        setShowStickyNavigation(rect.top < 0);
       }
     };
 
