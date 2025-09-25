@@ -113,6 +113,9 @@ const OrderDetails: React.FC = () => {
   const [specialNoticeExpanded, setSpecialNoticeExpanded] = useState(true);
   const [specialNoticeHoveredRowIndex, setSpecialNoticeHoveredRowIndex] = useState<number | null>(null);
 
+  // Sticky header state
+  const [showStickyHeader, setShowStickyHeader] = useState(false);
+
   const addNote = () => {
     const text = noteText.trim();
     if (!text) return;
