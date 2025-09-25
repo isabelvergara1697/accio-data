@@ -144,6 +144,12 @@ const OrderDetails: React.FC = () => {
   const stickyHeaderRef = useRef<HTMLDivElement | null>(null);
   const [stickyHeight, setStickyHeight] = useState<number>(0);
 
+  // Sticky navigation state for billing identifiers section
+  const [showStickyNavigation, setShowStickyNavigation] = useState(false);
+  const [stickyNavigationOpen, setStickyNavigationOpen] = useState(false);
+  const stickyNavigationRef = useRef<HTMLDivElement | null>(null);
+  const [stickyNavHeight, setStickyNavHeight] = useState<number>(0);
+
   const addNote = () => {
     const text = noteText.trim();
     if (!text) return;
