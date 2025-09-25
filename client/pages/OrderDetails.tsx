@@ -108,6 +108,8 @@ const OrderDetails: React.FC = () => {
   const [eVerifyHoveredRowIndex, setEVerifyHoveredRowIndex] = useState<number | null>(null);
   const [fivePanelsExpanded, setFivePanelsExpanded] = useState(true);
   const [fivePanelsHoveredRowIndex, setFivePanelsHoveredRowIndex] = useState<number | null>(null);
+  const [cbsvExpanded, setCbsvExpanded] = useState(true);
+  const [cbsvHoveredRowIndex, setCbsvHoveredRowIndex] = useState<number | null>(null);
 
   const addNote = () => {
     const text = noteText.trim();
