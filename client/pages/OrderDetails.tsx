@@ -825,7 +825,7 @@ const OrderDetails: React.FC = () => {
             style={{
               position: "fixed",
               bottom: "24px",
-              left: "32px",
+              left: isDesktop ? "112px" : "24px", // Align with left column content
               zIndex: 999,
               display: "flex",
               width: "320px",
@@ -839,6 +839,7 @@ const OrderDetails: React.FC = () => {
               boxShadow: "0 4px 6px -1px rgba(10, 13, 18, 0.10), 0 2px 4px -2px rgba(10, 13, 18, 0.06)",
             }}
           >
+            {/* Header with hamburger menu, title and close button */}
             <div
               style={{
                 display: "flex",
@@ -863,6 +864,12 @@ const OrderDetails: React.FC = () => {
                   background: "transparent",
                   border: "none",
                   cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(0, 0, 0, 0.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
                 }}
               >
                 <svg
@@ -917,6 +924,12 @@ const OrderDetails: React.FC = () => {
                   border: "none",
                   cursor: "pointer",
                 }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(0, 0, 0, 0.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                }}
               >
                 <svg
                   width="16"
@@ -943,19 +956,22 @@ const OrderDetails: React.FC = () => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "flex-start",
-                  gap: "8px",
+                  gap: "0px",
                   alignSelf: "stretch",
                   position: "relative",
+                  maxHeight: "300px",
+                  overflowY: "auto",
                 }}
               >
-                {/* Subject */}
+                {/* Report Summary */}
                 <button
                   onClick={() => {
-                    document.getElementById("subject")?.scrollIntoView({ behavior: "smooth" });
+                    window.scrollTo({ top: 0, behavior: "smooth" });
                     setStickyNavigationOpen(false);
                   }}
                   style={{
                     display: "flex",
+                    height: "36px",
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -975,16 +991,147 @@ const OrderDetails: React.FC = () => {
                 >
                   <div
                     style={{
-                      color: "#273572",
+                      flex: "1 0 0",
+                      color: "#414651",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
                       lineHeight: "20px",
-                      textDecoration: "underline",
+                    }}
+                  >
+                    Report Summary
+                  </div>
+                </button>
+
+                {/* Documents */}
+                <button
+                  onClick={() => {
+                    // Scroll to documents section if it exists
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    height: "36px",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Documents
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #F9DBAF",
+                      background: "#FEF6EE",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#B93815",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Pending Documents
+                    </div>
+                  </div>
+                </button>
+
+                {/* Subject */}
+                <button
+                  onClick={() => {
+                    document.getElementById("subject")?.scrollIntoView({ behavior: "smooth" });
+                    setStickyNavigationOpen(false);
+                  }}
+                  style={{
+                    display: "flex",
+                    height: "36px",
+                    padding: "8px 12px",
+                    alignItems: "center",
+                    gap: "8px",
+                    alignSelf: "stretch",
+                    borderRadius: "6px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "#F9FAFB";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  <div
+                    style={{
+                      flex: "1 0 0",
+                      color: "#414651",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontStyle: "normal",
+                      fontWeight: 600,
+                      lineHeight: "20px",
                     }}
                   >
                     Subject
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
                   </div>
                 </button>
 
@@ -996,6 +1143,7 @@ const OrderDetails: React.FC = () => {
                   }}
                   style={{
                     display: "flex",
+                    height: "36px",
                     padding: "8px 12px",
                     alignItems: "center",
                     gap: "8px",
@@ -1015,16 +1163,40 @@ const OrderDetails: React.FC = () => {
                 >
                   <div
                     style={{
-                      color: "#273572",
+                      flex: "1 0 0",
+                      color: "#414651",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
                       lineHeight: "20px",
-                      textDecoration: "underline",
                     }}
                   >
                     Resume Validation
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
                   </div>
                 </button>
 
@@ -1055,16 +1227,45 @@ const OrderDetails: React.FC = () => {
                 >
                   <div
                     style={{
-                      color: "#273572",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 1,
+                      flex: "1 0 0",
+                      overflow: "hidden",
+                      color: "#414651",
+                      textOverflow: "ellipsis",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
                       lineHeight: "20px",
-                      textDecoration: "underline",
                     }}
                   >
-                    Employment
+                    Employment #1, Jerrys, TX
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
                   </div>
                 </button>
 
@@ -1095,16 +1296,45 @@ const OrderDetails: React.FC = () => {
                 >
                   <div
                     style={{
-                      color: "#273572",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 1,
+                      flex: "1 0 0",
+                      overflow: "hidden",
+                      color: "#414651",
+                      textOverflow: "ellipsis",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
                       lineHeight: "20px",
-                      textDecoration: "underline",
                     }}
                   >
-                    Education
+                    Education #1, Major, Brown Community College
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
                   </div>
                 </button>
 
@@ -1135,16 +1365,45 @@ const OrderDetails: React.FC = () => {
                 >
                   <div
                     style={{
-                      color: "#273572",
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 1,
+                      flex: "1 0 0",
+                      overflow: "hidden",
+                      color: "#414651",
+                      textOverflow: "ellipsis",
                       fontFamily: "Public Sans",
                       fontSize: "14px",
                       fontStyle: "normal",
                       fontWeight: 600,
                       lineHeight: "20px",
-                      textDecoration: "underline",
                     }}
                   >
-                    Criminal History
+                    Countywide Criminal History Bossie, LA - Years: 10 - Sue Jeans
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "2px 8px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "12px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "18px",
+                      }}
+                    >
+                      Completed - Verified
+                    </div>
                   </div>
                 </button>
               </div>
