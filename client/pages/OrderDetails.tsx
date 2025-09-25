@@ -7063,6 +7063,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Education Section */}
                 <div
+                  id="education-at-brown-community-college"
                   style={{
                     display: "flex",
                     paddingBottom: "20px",
