@@ -334,6 +334,20 @@ const OrderDetails: React.FC = () => {
     return () => window.removeEventListener("resize", updateHeight);
   }, [showStickyHeader]);
 
+  // Measure sticky navigation height
+  useEffect(() => {
+    const updateNavHeight = () => {
+      if (stickyNavigationRef.current) {
+        setStickyNavHeight(stickyNavigationRef.current.offsetHeight);
+      }
+    };
+    if (showStickyNavigation) {
+      updateNavHeight();
+      window.addEventListener("resize", updateNavHeight);
+    }
+    return () => window.removeEventListener("resize", updateNavHeight);
+  }, [showStickyNavigation]);
+
   const handleSignOut = () => {
     console.log("Sign out");
   };
