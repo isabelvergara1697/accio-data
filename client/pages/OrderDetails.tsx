@@ -139,6 +139,10 @@ const OrderDetails: React.FC = () => {
   const [specialNoticeHoveredRowIndex, setSpecialNoticeHoveredRowIndex] =
     useState<number | null>(null);
 
+  // Upload modal state
+  const [uploadModalOpen, setUploadModalOpen] = useState(false);
+  const [uploadFileName, setUploadFileName] = useState("");
+
   // Sticky header state
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   const stickyHeaderRef = useRef<HTMLDivElement | null>(null);
