@@ -597,6 +597,8 @@ const OrderDetails: React.FC = () => {
                       border: "1px solid #ABEFC6",
                       background: "#ECFDF3",
                       position: "relative",
+                      maxWidth: "100%",
+                      minWidth: 0,
                     }}
                   >
                     <div
@@ -609,6 +611,10 @@ const OrderDetails: React.FC = () => {
                         fontWeight: 500,
                         lineHeight: "20px",
                         position: "relative",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        maxWidth: "100%",
                       }}
                     >
                       Meets Hiring Requirements
@@ -2470,26 +2476,32 @@ const OrderDetails: React.FC = () => {
                       </div>
                       <div
                         style={{
-                          display: "flex",
-                          padding: "4px 12px",
-                          alignItems: "center",
-                          borderRadius: "9999px",
-                          border: "1px solid #ABEFC6",
-                          background: "#ECFDF3",
-                          position: "relative",
-                        }}
+                      display: "flex",
+                      padding: "4px 12px",
+                      alignItems: "center",
+                      borderRadius: "9999px",
+                      border: "1px solid #ABEFC6",
+                      background: "#ECFDF3",
+                      position: "relative",
+                      maxWidth: "100%",
+                      minWidth: 0,
+                    }}
                       >
                         <div
                           style={{
-                            color: "#067647",
-                            textAlign: "center",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                            position: "relative",
-                          }}
+                        color: "#067647",
+                        textAlign: "center",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                        position: "relative",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        maxWidth: "100%",
+                      }}
                         >
                           Meets Hiring Requirements
                         </div>
@@ -6251,6 +6263,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -6263,6 +6277,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -6610,6 +6628,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #F9DBAF",
                                   background: "#FEF6EE",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -6622,6 +6642,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Pending Documents
@@ -7467,6 +7491,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -7479,6 +7505,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -8516,6 +8546,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -8528,6 +8560,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -8924,6 +8960,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -8936,6 +8974,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -9409,26 +9451,32 @@ const OrderDetails: React.FC = () => {
                               {status && (
                                 <div
                                   style={{
-                                    display: "flex",
-                                    padding: "2px 8px",
-                                    alignItems: "center",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #ABEFC6",
-                                    background: "#ECFDF3",
-                                    position: "relative",
-                                  }}
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #ABEFC6",
+                                  background: "#ECFDF3",
+                                  position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
+                                }}
                                 >
                                   <div
                                     style={{
-                                      color: "#067647",
-                                      textAlign: "center",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "12px",
-                                      fontStyle: "normal",
-                                      fontWeight: 500,
-                                      lineHeight: "18px",
-                                      position: "relative",
-                                    }}
+                                    color: "#067647",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
+                                  }}
                                   >
                                     {status}
                                   </div>
@@ -9601,6 +9649,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -9613,6 +9663,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -10173,26 +10227,32 @@ const OrderDetails: React.FC = () => {
                               {status && (
                                 <div
                                   style={{
-                                    display: "flex",
-                                    padding: "2px 8px",
-                                    alignItems: "center",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #ABEFC6",
-                                    background: "#ECFDF3",
-                                    position: "relative",
-                                  }}
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #ABEFC6",
+                                  background: "#ECFDF3",
+                                  position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
+                                }}
                                 >
                                   <div
                                     style={{
-                                      color: "#067647",
-                                      textAlign: "center",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "12px",
-                                      fontStyle: "normal",
-                                      fontWeight: 500,
-                                      lineHeight: "18px",
-                                      position: "relative",
-                                    }}
+                                    color: "#067647",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
+                                  }}
                                   >
                                     {status}
                                   </div>
@@ -10366,6 +10426,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -10378,6 +10440,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Clear
@@ -12631,6 +12697,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -12643,6 +12711,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -12835,6 +12907,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -12847,6 +12921,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -13033,6 +13111,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -13045,6 +13125,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -13472,26 +13556,32 @@ const OrderDetails: React.FC = () => {
                               {status && (
                                 <div
                                   style={{
-                                    display: "flex",
-                                    padding: "2px 8px",
-                                    alignItems: "center",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #ABEFC6",
-                                    background: "#ECFDF3",
-                                    position: "relative",
-                                  }}
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #ABEFC6",
+                                  background: "#ECFDF3",
+                                  position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
+                                }}
                                 >
                                   <div
                                     style={{
-                                      color: "#067647",
-                                      textAlign: "center",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "12px",
-                                      fontStyle: "normal",
-                                      fontWeight: 500,
-                                      lineHeight: "18px",
-                                      position: "relative",
-                                    }}
+                                    color: "#067647",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
+                                  }}
                                   >
                                     {status}
                                   </div>
@@ -13647,6 +13737,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -13659,6 +13751,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -14114,26 +14210,32 @@ const OrderDetails: React.FC = () => {
                               {status && (
                                 <div
                                   style={{
-                                    display: "flex",
-                                    padding: "2px 8px",
-                                    alignItems: "center",
-                                    borderRadius: "9999px",
-                                    border: "1px solid #ABEFC6",
-                                    background: "#ECFDF3",
-                                    position: "relative",
-                                  }}
+                                  display: "flex",
+                                  padding: "2px 8px",
+                                  alignItems: "center",
+                                  borderRadius: "9999px",
+                                  border: "1px solid #ABEFC6",
+                                  background: "#ECFDF3",
+                                  position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
+                                }}
                                 >
                                   <div
                                     style={{
-                                      color: "#067647",
-                                      textAlign: "center",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "12px",
-                                      fontStyle: "normal",
-                                      fontWeight: 500,
-                                      lineHeight: "18px",
-                                      position: "relative",
-                                    }}
+                                    color: "#067647",
+                                    textAlign: "center",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
+                                  }}
                                   >
                                     {status}
                                   </div>
@@ -14248,6 +14350,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -14260,6 +14364,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -15861,6 +15969,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -15873,6 +15983,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed - Verified
@@ -16846,6 +16960,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #F9DBAF",
                                   background: "#FEF6EE",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -16858,6 +16974,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Pending
@@ -20247,6 +20367,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #F9DBAF",
                                   background: "#FEF6EE",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -20259,6 +20381,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Pending
@@ -21956,6 +22082,8 @@ const OrderDetails: React.FC = () => {
                                   border: "1px solid #ABEFC6",
                                   background: "#ECFDF3",
                                   position: "relative",
+                                  maxWidth: "100%",
+                                  minWidth: 0,
                                 }}
                               >
                                 <div
@@ -21968,6 +22096,10 @@ const OrderDetails: React.FC = () => {
                                     fontWeight: 500,
                                     lineHeight: "18px",
                                     position: "relative",
+                                    whiteSpace: "nowrap",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    maxWidth: "100%",
                                   }}
                                 >
                                   Completed Clear
