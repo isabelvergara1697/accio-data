@@ -6212,7 +6212,7 @@ const OrderDetails: React.FC = () => {
                           </div>
                           {reportSummaryRows.map((row, index) => {
                             const targetId = row.searchType?.targetId;
-                            const label = row.searchType?.label ?? "";
+                            const label = row.searchType?.label ?? "N/A";
                             const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
                               if (!targetId) {
                                 return;
