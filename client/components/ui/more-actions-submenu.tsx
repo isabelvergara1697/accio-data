@@ -67,6 +67,8 @@ const menuSections: MenuSection[] = [
   },
 ];
 
+const MENU_MAX_HEIGHT = 520;
+
 export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
   isOpen,
   onClose,
@@ -88,7 +90,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
   const viewportWidth = typeof window !== "undefined" ? window.innerWidth : 0;
   const viewportHeight = typeof window !== "undefined" ? window.innerHeight : 0;
   const menuWidth = viewportWidth ? Math.min(350, viewportWidth - 32) : 350;
-  const maxHeight = viewportHeight ? viewportHeight - 32 : undefined;
+  const maxHeight = viewportHeight ? Math.min(MENU_MAX_HEIGHT, viewportHeight - 32) : MENU_MAX_HEIGHT;
 
   const handleAction = (action: string) => {
     onAction(action);
@@ -141,11 +143,12 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
           border: "1px solid #E9EAEB",
           background: "#FFF",
           boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
-          overflowY: maxHeight ? "auto" : undefined,
+          overflowY: "auto",
         }}
       >
-        {menuSections.map((section, sectionIndex) => (
-          <div key={section.title} style={{ display: "flex", flexDirection: "column", alignItems: "stretch" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", padding: "6px 0" }}>
+          {menuSections.map((section, sectionIndex) => (
+            <div key={section.title} style={{ display: "flex", flexDirection: "column", alignItems: "stretch" }}>
             <div
               style={{
                 display: "flex",
@@ -238,7 +241,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
               />
             )}
           </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
