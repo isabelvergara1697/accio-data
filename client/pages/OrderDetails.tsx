@@ -7309,12 +7309,20 @@ const OrderDetails: React.FC = () => {
                         {/* Attached Documents Table */}
                         <div
                           style={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            alignSelf: "stretch",
-                            position: "relative",
+                            width: "100%",
+                            overflowX: "auto",
                           }}
                         >
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "flex-start",
+                              alignSelf: "stretch",
+                              position: "relative",
+                              minWidth: documentsTableMinWidth,
+                              width: "max-content",
+                            }}
+                          >
                           {/* Document Name Column */}
                           <div
                             style={{
