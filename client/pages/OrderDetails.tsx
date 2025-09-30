@@ -13,6 +13,7 @@ import {
   SelectValue
 } from "../components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
+import { MoreActionsSubmenu } from "../components/ui/more-actions-submenu";
 import { User, X, HelpCircle, ChevronDown } from "lucide-react";
 
 type Note = {
