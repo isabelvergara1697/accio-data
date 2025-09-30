@@ -351,8 +351,8 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           </div>
         )}
 
-        {/* User Profile Menu - Hide on mobile */}
-        {!isMobile && (
+        {/* User Profile Menu disabled for tablet layout */}
+        {false && (
           <div
             style={{
               position: "relative",
