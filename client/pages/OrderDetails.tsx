@@ -7228,6 +7228,7 @@ const OrderDetails: React.FC = () => {
                           </div>
                         </div>
                       </div>
+                    </div>
 
                       {/* Attached Documents Section */}
                       <div
