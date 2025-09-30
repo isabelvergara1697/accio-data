@@ -5,6 +5,15 @@ import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import AddAkasModal, { AkaEntry } from "../components/ui/add-akas-modal";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "../components/ui/select";
+import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
+import { User, X, HelpCircle, ChevronDown } from "lucide-react";
 
 type Note = {
   id: string;
