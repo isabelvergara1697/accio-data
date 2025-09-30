@@ -50,7 +50,6 @@ export default function ForgotPassword() {
       style={{
         display: "flex",
         width: "100%",
-        minHeight: "100vh",
         minHeight: "100dvh",
         flexDirection: "column",
         alignItems: "center",
