@@ -379,6 +379,12 @@ const OrderDetails: React.FC = () => {
   // Collapse/Expand all state
   const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
 
+  // More Actions submenu state
+  const [moreActionsOpen, setMoreActionsOpen] = useState(false);
+  const [moreActionsPosition, setMoreActionsPosition] = useState({ x: 0, y: 0 });
+  const moreActionsRef = useRef<HTMLButtonElement | null>(null);
+  const stickyMoreActionsRef = useRef<HTMLButtonElement | null>(null);
+
   // Sticky header state
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   const stickyHeaderRef = useRef<HTMLDivElement | null>(null);
