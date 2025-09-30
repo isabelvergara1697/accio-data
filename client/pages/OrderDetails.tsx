@@ -5991,7 +5991,7 @@ const OrderDetails: React.FC = () => {
                             alignItems: "flex-start",
                             alignSelf: "stretch",
                             position: "relative",
-                            minWidth: reportSummaryTableMinWidth,
+                            minWidth: "1040px",
                             width: "max-content",
                           }}
                         >
