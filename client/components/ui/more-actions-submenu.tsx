@@ -192,7 +192,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     fontWeight: 600,
                     lineHeight: "20px",
                     position: "relative",
-                    textAlign: "left",
+                    textAlign: "right",
                   }}
                 >
                   Pre-Adverse General
@@ -259,7 +259,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     fontWeight: 600,
                     lineHeight: "20px",
                     position: "relative",
-                    textAlign: "left",
+                    textAlign: "right",
                   }}
                 >
                   Adverse Action Letter
