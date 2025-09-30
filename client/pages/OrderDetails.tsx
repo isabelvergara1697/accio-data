@@ -2952,6 +2952,7 @@ const OrderDetails: React.FC = () => {
                 gap: "20px",
                 alignSelf: "stretch",
                 position: "relative",
+                minWidth: "0",
               }}
             >
               {/* Left Column - Subject Overview */}
