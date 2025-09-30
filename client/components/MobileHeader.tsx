@@ -153,11 +153,12 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             className="quick-create-button"
             style={{
               display: "flex",
-              padding: "12px",
+              width: isTablet ? "44px" : "40px",
+              height: isTablet ? "44px" : "40px",
               justifyContent: "center",
               alignItems: "center",
-              gap: isMobile ? "0px" : "4px",
-              borderRadius: "8px",
+              padding: "0",
+              borderRadius: "12px",
               border: "2px solid rgba(255, 255, 255, 0.12)",
               background: quickCreateOpen ? "#273572" : "#344698",
               boxShadow:
