@@ -344,6 +344,9 @@ const OrderDetails: React.FC = () => {
   const [akasModalOpen, setAkasModalOpen] = useState(false);
   const [savedAkas, setSavedAkas] = useState<AkaEntry[]>([]);
 
+  // Manual rescreening state
+  const [manualRescreening, setManualRescreening] = useState<string>("");
+
   // Collapse/Expand all state
   const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
 
