@@ -218,6 +218,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                         fontStyle: "normal",
                         fontWeight: 600,
                         lineHeight: "20px",
+                        textAlign: "left",
                       }}
                     >
                       {item.label}
