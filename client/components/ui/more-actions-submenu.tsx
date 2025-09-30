@@ -178,7 +178,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -191,6 +192,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     fontWeight: 600,
                     lineHeight: "20px",
                     position: "relative",
+                    textAlign: "left",
                   }}
                 >
                   Pre-Adverse General
@@ -243,7 +245,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -256,6 +259,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     fontWeight: 600,
                     lineHeight: "20px",
                     position: "relative",
+                    textAlign: "left",
                   }}
                 >
                   Adverse Action Letter
@@ -355,7 +359,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -420,7 +425,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -485,7 +491,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -550,7 +557,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -661,7 +669,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -726,7 +735,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -791,7 +801,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -856,7 +867,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -921,7 +933,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -1032,7 +1045,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -1097,7 +1111,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -1162,7 +1177,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -1227,7 +1243,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
@@ -1292,7 +1309,8 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                   style={{
                     width: "16px",
                     height: "16px",
-                    color: "#A4A7AE",
+                    color: "#717680",
+                    minWidth: "16px",
                   }}
                 />
                 <div
