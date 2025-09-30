@@ -2935,6 +2935,7 @@ const OrderDetails: React.FC = () => {
                         lineHeight: "32px",
                         position: "relative",
                       }}
+                      className="order-title"
                     >
                       Sue Janes Order #{orderId || "38138"}
                     </div>
