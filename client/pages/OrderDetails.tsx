@@ -157,15 +157,6 @@ const OrderDetails: React.FC = () => {
   const stickyNavigationRef = useRef<HTMLDivElement | null>(null);
   const [stickyNavHeight, setStickyNavHeight] = useState<number>(0);
 
-  const sidebarOffset = isDesktop ? (sidebarCollapsed ? 80 : 296) : 0;
-  const rightColumnMaxWidth = isDesktop
-    ? `calc(100vw - ${sidebarOffset + 404}px)`
-    : "100%";
-
-  const reportSummaryTableMinWidth = "1040px";
-  const documentsTableMinWidth = "960px";
-  const standardTableMinWidth = "960px";
-
   // Accurate in-page anchor scroll accounting for fixed headers
   const scrollToSection = (targetId: string) => {
     const el =
