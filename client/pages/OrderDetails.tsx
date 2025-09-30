@@ -339,6 +339,10 @@ const OrderDetails: React.FC = () => {
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const [uploadFileName, setUploadFileName] = useState("");
 
+  // AKAs modal state
+  const [akasModalOpen, setAkasModalOpen] = useState(false);
+  const [savedAkas, setSavedAkas] = useState<AkaEntry[]>([]);
+
   // Collapse/Expand all state
   const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
 
