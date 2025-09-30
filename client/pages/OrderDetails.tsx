@@ -933,6 +933,7 @@ const OrderDetails: React.FC = () => {
               borderBottom: "1px solid #E9EAEB",
               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
             }}
+            className="sticky-header"
           >
             <div
               style={{
