@@ -6687,9 +6687,9 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           ></div>
-                          {reportSummaryRows.map((row, index) => (
+                          {Array.from({ length: 13 }, (_, index) => (
                             <div
-                              key={`action-${index}`}
+                              key={index}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
