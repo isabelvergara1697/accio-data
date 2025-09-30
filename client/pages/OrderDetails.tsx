@@ -5575,7 +5575,9 @@ const OrderDetails: React.FC = () => {
                   flex: "1 1 0",
                   position: "relative",
                   minWidth: "0",
-                  maxWidth: rightColumnMaxWidth,
+                  maxWidth: isDesktop
+                    ? `calc(100vw - ${(sidebarCollapsed ? 80 : 296) + 404}px)`
+                    : "100%",
                 }}
               >
                 <div
