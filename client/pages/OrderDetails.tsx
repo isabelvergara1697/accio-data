@@ -6354,9 +6354,23 @@ const OrderDetails: React.FC = () => {
                               State
                             </div>
                           </div>
-                          {reportSummaryRows.map((row, index) => (
+                          {[
+                            "Texas",
+                            "Texas",
+                            "Texas",
+                            "Texas",
+                            "LA",
+                            "Texas",
+                            "LA",
+                            "Texas",
+                            "Texas",
+                            "LA",
+                            "LA",
+                            "LA",
+                            "LA",
+                          ].map((state, index) => (
                             <div
-                              key={`state-${index}`}
+                              key={index}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6385,7 +6399,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                {row.state}
+                                {state}
                               </div>
                             </div>
                           ))}
