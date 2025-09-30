@@ -2639,7 +2639,7 @@ const OrderDetails: React.FC = () => {
                       position: "relative",
                     }}
                   >
-                    {/* More Actions - Tertiary Button */}
+                    {/* More Actions - Ghost Button */}
                     <button
                       style={{
                         display: "flex",
@@ -2681,9 +2681,9 @@ const OrderDetails: React.FC = () => {
                     </button>
 
                     {/* Add I-9 - Secondary Button */}
-                <button
-                  onClick={() => navigate("/i9-order")}
-                  style={{
+                    <button
+                      onClick={() => navigate("/i9-order")}
+                      style={{
                         display: "flex",
                         minHeight: "36px",
                         padding: "6px 8px",
@@ -2811,7 +2811,60 @@ const OrderDetails: React.FC = () => {
                       </svg>
                     </button>
 
-                    {/* Collapse All - Secondary Button */}
+                    {/* Add to this Order - Primary Button */}
+                    <button
+                      onClick={() => navigate("/online-ordering")}
+                      style={{
+                        display: "flex",
+                        minHeight: "36px",
+                        padding: "6px 8px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "2px solid rgba(255, 255, 255, 0.12)",
+                        background: "#344698",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        position: "relative",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          padding: "0 2px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#FFF",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            position: "relative",
+                          }}
+                        >
+                          Add to this Order
+                        </div>
+                      </div>
+                    </button>
+
+                    {/* Divider */}
+                    <div
+                      style={{
+                        width: "1px",
+                        height: "24px",
+                        background: "#E9EAEB",
+                      }}
+                    />
+
+                    {/* Collapse/Expand All - Secondary Button */}
                     <button
                       onClick={handleCollapseExpandAll}
                       style={{
@@ -2868,50 +2921,6 @@ const OrderDetails: React.FC = () => {
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </button>
-
-                    {/* Add to this Order - Primary Button */}
-                <button
-                  onClick={() => navigate("/online-ordering")}
-                  style={{
-                        display: "flex",
-                        minHeight: "36px",
-                        padding: "6px 8px",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "4px",
-                        borderRadius: "8px",
-                        border: "2px solid rgba(255, 255, 255, 0.12)",
-                        background: "#344698",
-                        boxShadow:
-                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                        position: "relative",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          padding: "0 2px",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          position: "relative",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: "#FFF",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: 600,
-                            lineHeight: "20px",
-                            position: "relative",
-                          }}
-                        >
-                          Add to this Order
-                        </div>
-                      </div>
                     </button>
                   </div>
                 </div>
