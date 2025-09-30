@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { User, X } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "./dialog";
-import { Input } from "./input";
+
 import { Checkbox } from "./checkbox";
+import { Input } from "./input";
 import {
   Select,
   SelectContent,
@@ -35,7 +30,7 @@ export interface AddAkasModalProps {
   initialAkas?: AkaEntry[];
 }
 
-const DEFAULT_AKA: Omit<AkaEntry, 'id'> = {
+const DEFAULT_AKA_FIELDS: Omit<AkaEntry, "id"> = {
   first: "",
   middle: "",
   noMiddleName: false,
@@ -53,207 +48,326 @@ const NAME_TYPE_OPTIONS = [
 ];
 
 const OTHER_IDENTIFIED_AKAS = [
-  { name: "John Bod", lastSeen: "06/01/2001" },
-  { name: "Johnny B", lastSeen: "06/01/2001" },
-  { name: "Johnny B Bird Sr.", lastSeen: "06/01/2001" },
+  { id: "john-bod", name: "John Bod", lastSeen: "06/01/2001" },
+  { id: "johnny-b", name: "Johnny B", lastSeen: "06/01/2001" },
+  { id: "johnny-b-sr", name: "Johnny B Bad Sr.", lastSeen: "06/01/2001" },
 ];
 
-export function AddAkasModal({ isOpen, onClose, onSave, initialAkas }: AddAkasModalProps) {
-  const [akas, setAkas] = useState<AkaEntry[]>(() => {
-    if (initialAkas && initialAkas.length > 0) {
-      return initialAkas;
-    }
-    // Initialize with 10 empty rows
-    return Array.from({ length: 10 }, (_, index) => ({
-      id: `aka-${index + 1}`,
-      ...DEFAULT_AKA,
-    }));
-  });
+const REQUIRED_ROW_COUNT = 10;
+let uniqueIdCounter = 0;
 
-  const handleAkaChange = (id: string, field: keyof AkaEntry, value: any) => {
-    setAkas(prev => prev.map(aka => 
-      aka.id === id ? { ...aka, [field]: value } : aka
-    ));
+const generateAkaId = () => {
+  uniqueIdCounter += 1;
+  return `aka-${Date.now()}-${uniqueIdCounter}`;
+};
+
+const ensureRowStructure = (rows: AkaEntry[]): AkaEntry[] => {
+  const filled = [...rows];
+  while (filled.length < REQUIRED_ROW_COUNT) {
+    filled.push({ id: generateAkaId(), ...DEFAULT_AKA_FIELDS });
+  }
+  return filled;
+};
+
+const panelColumns = [
+  { key: "first", label: "First" },
+  { key: "middle", label: "Middle" },
+  { key: "noMiddleName", label: "No Middle Name" },
+  { key: "last", label: "Last" },
+  { key: "suffix", label: "Suffix" },
+  { key: "nameType", label: "Name Type" },
+] as const;
+
+type PanelColumnKey = (typeof panelColumns)[number]["key"];
+
+export default function AddAkasModal({
+  isOpen,
+  onClose,
+  onSave,
+  initialAkas = [],
+}: AddAkasModalProps) {
+  const [akas, setAkas] = useState<AkaEntry[]>(() =>
+    ensureRowStructure(initialAkas.length ? initialAkas : []),
+  );
+  const [selectedOtherAkas, setSelectedOtherAkas] = useState<
+    Record<string, boolean>
+  >({});
+
+  // Reset panel content when it opens or initial data changes
+  useEffect(() => {
+    if (isOpen) {
+      setAkas(ensureRowStructure(initialAkas.length ? initialAkas : []));
+      const resetSelected: Record<string, boolean> = {};
+      OTHER_IDENTIFIED_AKAS.forEach((aka) => {
+        resetSelected[aka.id] = false;
+      });
+      setSelectedOtherAkas(resetSelected);
+    }
+  }, [initialAkas, isOpen]);
+
+  // Close on escape
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
+  // Prevent background scroll when panel is open
+  useEffect(() => {
+    if (isOpen) {
+      const previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = previousOverflow;
+      };
+    }
+    return undefined;
+  }, [isOpen]);
+
+  const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
+  const handleAkaFieldChange = (
+    id: string,
+    field: Exclude<PanelColumnKey, "noMiddleName">,
+    value: string,
+  ) => {
+    setAkas((prev) =>
+      prev.map((aka) => (aka.id === id ? { ...aka, [field]: value } : aka)),
+    );
+  };
+
+  const handleNoMiddleNameToggle = (id: string, checked: boolean) => {
+    setAkas((prev) =>
+      prev.map((aka) =>
+        aka.id === id
+          ? {
+              ...aka,
+              noMiddleName: checked,
+              middle: checked ? "" : aka.middle,
+            }
+          : aka,
+      ),
+    );
   };
 
   const handleSave = () => {
-    // Filter out empty rows before saving
-    const validAkas = akas.filter(aka => 
-      aka.first.trim() !== "" || aka.last.trim() !== ""
+    const sanitized = akas.filter(
+      (aka) => aka.first.trim() !== "" || aka.last.trim() !== "",
     );
-    onSave(validAkas);
+    onSave(sanitized);
     onClose();
   };
 
-  return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-[870px] h-[90vh] p-0 overflow-hidden">
-        {/* Header */}
-        <div className="flex items-start gap-4 p-6 border-b border-gray-200">
-          <div className="flex w-11 h-11 p-3 justify-center items-center rounded-full bg-blue-100">
-            <User className="w-5 h-5 text-blue-600" />
+  const renderTableHeader = useMemo(
+    () => (
+      <div
+        className="grid items-center border-b border-[#E9EAEB] bg-white px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.04em] text-[#717680]"
+        style={{
+          gridTemplateColumns: "minmax(110px, 1fr) minmax(110px, 1fr) 130px minmax(120px, 1fr) minmax(100px, 1fr) minmax(130px, 1fr)",
+        }}
+      >
+        {panelColumns.map((column) => (
+          <span key={column.key} className="truncate">
+            {column.label}
+          </span>
+        ))}
+      </div>
+    ),
+    [],
+  );
+
+  const renderTableRows = useMemo(
+    () => (
+      <div className="divide-y divide-[#E9EAEB]">
+        {akas.map((aka) => (
+          <div
+            key={aka.id}
+            className="grid items-center px-4 py-3 transition-colors hover:bg-[#F5F7FB]"
+            style={{
+              gridTemplateColumns:
+                "minmax(110px, 1fr) minmax(110px, 1fr) 130px minmax(120px, 1fr) minmax(100px, 1fr) minmax(130px, 1fr)",
+            }}
+          >
+            <div className="pr-3">
+              <Input
+                value={aka.first}
+                onChange={(event) =>
+                  handleAkaFieldChange(aka.id, "first", event.target.value)
+                }
+                className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698]"
+              />
+            </div>
+            <div className="pr-3">
+              <Input
+                value={aka.middle}
+                onChange={(event) =>
+                  handleAkaFieldChange(aka.id, "middle", event.target.value)
+                }
+                disabled={aka.noMiddleName}
+                className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698] disabled:cursor-not-allowed disabled:bg-[#F6F6F7]"
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Checkbox
+                checked={aka.noMiddleName}
+                onCheckedChange={(checked) =>
+                  handleNoMiddleNameToggle(aka.id, checked === true)
+                }
+                className="h-4 w-4 border-[#D5D7DA]"
+              />
+            </div>
+            <div className="pr-3">
+              <Input
+                value={aka.last}
+                onChange={(event) =>
+                  handleAkaFieldChange(aka.id, "last", event.target.value)
+                }
+                className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698]"
+              />
+            </div>
+            <div className="pr-3">
+              <Input
+                value={aka.suffix}
+                onChange={(event) =>
+                  handleAkaFieldChange(aka.id, "suffix", event.target.value)
+                }
+                className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698]"
+              />
+            </div>
+            <div className="pr-3">
+              <Select
+                value={aka.nameType}
+                onValueChange={(value) =>
+                  handleAkaFieldChange(aka.id, "nameType", value)
+                }
+              >
+                <SelectTrigger className="h-9 w-full rounded-lg border border-[#D5D7DA] px-3 text-sm text-[#181D27] focus:border-[#344698] focus:ring-[#344698]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {NAME_TYPE_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
-          <div className="flex-1">
-            <DialogTitle className="text-lg font-semibold text-gray-900 mb-1">
-              Add AKAs
-            </DialogTitle>
-            <DialogDescription className="text-sm text-gray-600">
+        ))}
+      </div>
+    ),
+    [akas],
+  );
+
+  const panel = (
+    <div
+      className="fixed inset-0 z-[11000] flex justify-end bg-[#0A0D12]/60 backdrop-blur-sm"
+      onClick={handleBackdropClick}
+    >
+      <div
+        className="relative flex h-full w-full max-w-[720px] flex-col border-l border-[rgba(0,0,0,0.08)] bg-white shadow-[0_20px_24px_-4px_rgba(10,13,18,0.08),0_8px_8px_-4px_rgba(10,13,18,0.03),0_3px_3px_-1.5px_rgba(10,13,18,0.04)]"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <header className="flex items-start gap-4 border-b border-[#E9EAEB] px-6 py-6">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#D9DEF2]">
+            <User className="h-5 w-5 text-[#344698]" />
+          </div>
+          <div className="flex flex-1 flex-col gap-1">
+            <h2 className="text-lg font-semibold text-[#181D27]">Add AKAs</h2>
+            <p className="text-sm text-[#535862]">
               Manage and add known aliases for this individual.
-            </DialogDescription>
+            </p>
           </div>
           <button
+            type="button"
             onClick={onClose}
-            className="flex w-10 h-10 p-2 justify-center items-center rounded-lg hover:bg-gray-100 transition-colors"
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-[#A4A7AE] transition-colors hover:bg-[#F5F6F7]"
+            aria-label="Close panel"
           >
-            <X className="w-6 h-6 text-gray-400" />
+            <X className="h-5 w-5" />
           </button>
-        </div>
+        </header>
 
-        {/* Content */}
-        <div className="flex-1 p-6 overflow-auto">
-          {/* Table Container */}
-          <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
-            {/* Table Header */}
-            <div className="grid grid-cols-6 bg-white border-b border-gray-200">
-              <div className="p-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                First
-              </div>
-              <div className="p-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Middle
-              </div>
-              <div className="p-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                No Middle Name
-              </div>
-              <div className="p-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Last
-              </div>
-              <div className="p-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Suffix
-              </div>
-              <div className="p-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Name Type
-              </div>
+        <div className="flex flex-1 flex-col overflow-hidden">
+          <div className="flex-1 overflow-y-auto px-6 pb-6">
+            <div className="rounded-xl border border-[#E9EAEB] bg-white shadow-[0_1px_2px_rgba(10,13,18,0.05)]">
+              {renderTableHeader}
+              {renderTableRows}
             </div>
 
-            {/* Table Rows */}
-            <div className="max-h-96 overflow-y-auto">
-              {akas.map((aka, index) => (
-                <div 
-                  key={aka.id}
-                  className={`grid grid-cols-6 hover:bg-gray-50 transition-colors ${
-                    index < akas.length - 1 ? 'border-b border-gray-200' : ''
-                  }`}
-                >
-                  {/* First Name */}
-                  <div className="p-3">
-                    <Input
-                      value={aka.first}
-                      onChange={(e) => handleAkaChange(aka.id, 'first', e.target.value)}
-                      className="h-8 text-sm border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                      placeholder=""
-                    />
-                  </div>
-
-                  {/* Middle Name */}
-                  <div className="p-3">
-                    <Input
-                      value={aka.middle}
-                      onChange={(e) => handleAkaChange(aka.id, 'middle', e.target.value)}
-                      className="h-8 text-sm border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                      placeholder=""
-                      disabled={aka.noMiddleName}
-                    />
-                  </div>
-
-                  {/* No Middle Name Checkbox */}
-                  <div className="p-3 flex justify-center items-center">
-                    <Checkbox
-                      checked={aka.noMiddleName}
-                      onCheckedChange={(checked) => {
-                        handleAkaChange(aka.id, 'noMiddleName', checked);
-                        if (checked) {
-                          handleAkaChange(aka.id, 'middle', '');
+            <section className="mt-8">
+              <h3 className="text-base font-semibold text-[#181D27]">
+                Other Identified AKA's
+              </h3>
+              <div className="mt-3 space-y-3">
+                {OTHER_IDENTIFIED_AKAS.map((otherAka) => (
+                  <label
+                    key={otherAka.id}
+                    className="flex cursor-pointer items-start justify-between rounded-lg border border-transparent px-3 py-2 transition-colors hover:border-[#D5D7DA] hover:bg-[#F8F9FD]"
+                  >
+                    <div className="flex items-start gap-3">
+                      <Checkbox
+                        checked={selectedOtherAkas[otherAka.id] ?? false}
+                        onCheckedChange={(checked) =>
+                          setSelectedOtherAkas((prev) => ({
+                            ...prev,
+                            [otherAka.id]: checked === true,
+                          }))
                         }
-                      }}
-                      className="w-4 h-4"
-                    />
-                  </div>
-
-                  {/* Last Name */}
-                  <div className="p-3">
-                    <Input
-                      value={aka.last}
-                      onChange={(e) => handleAkaChange(aka.id, 'last', e.target.value)}
-                      className="h-8 text-sm border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                      placeholder=""
-                    />
-                  </div>
-
-                  {/* Suffix */}
-                  <div className="p-3">
-                    <Input
-                      value={aka.suffix}
-                      onChange={(e) => handleAkaChange(aka.id, 'suffix', e.target.value)}
-                      className="h-8 text-sm border-gray-300 focus:border-blue-500 focus:ring-blue-500"
-                      placeholder=""
-                    />
-                  </div>
-
-                  {/* Name Type */}
-                  <div className="p-3">
-                    <Select
-                      value={aka.nameType}
-                      onValueChange={(value) => handleAkaChange(aka.id, 'nameType', value)}
-                    >
-                      <SelectTrigger className="h-8 text-sm border-gray-300 focus:border-blue-500 focus:ring-blue-500">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {NAME_TYPE_OPTIONS.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-              ))}
-            </div>
+                        className="mt-1 h-4 w-4 border-[#D5D7DA]"
+                      />
+                      <div className="flex flex-col">
+                        <span className="text-sm font-medium text-[#181D27]">
+                          {otherAka.name}
+                        </span>
+                        <span className="text-sm text-[#535862]">
+                          Last Seen: {otherAka.lastSeen}
+                        </span>
+                      </div>
+                    </div>
+                  </label>
+                ))}
+              </div>
+            </section>
           </div>
 
-          {/* Other Identified AKAs Section */}
-          <div className="mt-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Other Identified AKA's
-            </h3>
-            <div className="space-y-2">
-              {OTHER_IDENTIFIED_AKAS.map((item, index) => (
-                <div key={index} className="flex justify-between items-center py-2">
-                  <span className="text-sm text-gray-900 font-medium">
-                    {item.name}
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    Last Seen: {item.lastSeen}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <footer className="flex items-center justify-end gap-3 border-t border-[#E9EAEB] px-6 py-5">
+            <Button
+              type="button"
+              variant="outline"
+              className="h-10 rounded-lg border-[#D5D7DA] px-5 text-sm font-semibold text-[#414651] hover:bg-[#F5F6F7]"
+              onClick={onClose}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="button"
+              className="h-10 rounded-lg bg-[#344698] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#273572]"
+              onClick={handleSave}
+            >
+              Add AKAs
+            </Button>
+          </footer>
         </div>
-
-        {/* Footer */}
-        <div className="flex justify-end gap-3 p-6 border-t border-gray-200">
-          <Button variant="outline" onClick={onClose}>
-            Cancel
-          </Button>
-          <Button onClick={handleSave} className="bg-blue-600 hover:bg-blue-700">
-            Add AKAs
-          </Button>
-        </div>
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   );
-}
 
-export default AddAkasModal;
+  if (!isOpen) {
+    return null;
+  }
+
+  return createPortal(panel, document.body);
+}
