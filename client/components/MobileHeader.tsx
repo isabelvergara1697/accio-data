@@ -233,16 +233,17 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
                 if (onOpenNotificationModal) onOpenNotificationModal();
               }}
               style={{
-                display: "flex",
-                width: "40px",
-                padding: "8px",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: "6px",
-                background: "transparent",
-                border: "none",
-                cursor: "pointer",
-              }}
+              display: "flex",
+              width: isTablet ? "44px" : "40px",
+              height: isTablet ? "44px" : "40px",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "12px",
+              background: "transparent",
+              border: isTablet ? "1px solid #E9EAEB" : "none",
+              padding: "0",
+              cursor: "pointer",
+            }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#F5F5F5";
               }}
