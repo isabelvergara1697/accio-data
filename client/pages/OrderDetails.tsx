@@ -5998,6 +5998,264 @@ const OrderDetails: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Report Visibility Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    width: "320px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                  }}
+                >
+                  {/* Section Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 16px 0 16px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                Report Visibility
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                alignSelf: "stretch",
+                                color: "#535862",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontStyle: "normal",
+                                fontWeight: 400,
+                                lineHeight: "20px",
+                                position: "relative",
+                              }}
+                            >
+                              Allow others access this report
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "12px 16px 16px 16px",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                      borderRadius: "0px 0px 12px 12px",
+                      border: "1px solid #E9EAEB",
+                      borderTop: "none",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Add New User Section */}
+                    <div className="flex w-full flex-col gap-1.5">
+                      <div className="flex items-center gap-0.5">
+                        <label
+                          htmlFor="add-user-select"
+                          className="text-sm font-medium text-[#414651]"
+                          style={{
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Add New user
+                        </label>
+                        <span className="text-sm text-[#344698]">*</span>
+                        <div className="ml-0.5 flex h-4 w-4 items-center justify-center">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g clipPath="url(#clip0_help_circle)">
+                              <path
+                                d="M6.05967 5.99992C6.21641 5.55436 6.52578 5.17866 6.93298 4.93934C7.34018 4.70002 7.81894 4.61254 8.28446 4.69239C8.74998 4.77224 9.17222 5.01427 9.47639 5.3756C9.78057 5.73694 9.94705 6.19427 9.94634 6.66659C9.94634 7.99992 7.94634 8.66659 7.94634 8.66659M7.99967 11.3333H8.00634M14.6663 7.99992C14.6663 11.6818 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6818 1.33301 7.99992C1.33301 4.31802 4.31778 1.33325 7.99967 1.33325C11.6816 1.33325 14.6663 4.31802 14.6663 7.99992Z"
+                                stroke="#A4A7AE"
+                                strokeWidth="1.33333"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </g>
+                            <defs>
+                              <clipPath id="clip0_help_circle">
+                                <rect width="16" height="16" fill="white" />
+                              </clipPath>
+                            </defs>
+                          </svg>
+                        </div>
+                      </div>
+
+                      <Select
+                        value={selectedUser}
+                        onValueChange={handleAddUser}
+                      >
+                        <SelectTrigger className="flex h-[44px] w-full items-center gap-2 rounded-lg border border-[#D5D7DA] bg-white px-[14px] py-[10px] shadow-[0_1px_2px_rgba(10,13,18,0.05)]">
+                          <User className="h-6 w-6 text-[#A4A7AE]" />
+                          <SelectValue
+                            placeholder="Select team member"
+                            className="flex-1 text-base text-[#717680]"
+                            style={{
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          />
+                          <ChevronDown className="h-6 w-6 text-[#A4A7AE]" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {teamMembers
+                            .filter(member => !reportVisibleTo.find(existing => existing.id === member.id))
+                            .map((member) => (
+                              <SelectItem key={member.id} value={member.id}>
+                                <div className="flex items-center gap-2">
+                                  <Avatar className="h-4 w-4">
+                                    <AvatarImage src={member.avatar} />
+                                    <AvatarFallback className="text-xs">
+                                      {member.name.split(' ').map(n => n[0]).join('')}
+                                    </AvatarFallback>
+                                  </Avatar>
+                                  {member.name}
+                                </div>
+                              </SelectItem>
+                            ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    {/* Report Visible To Section */}
+                    <div className="flex w-full flex-col gap-1">
+                      <div
+                        className="text-base text-[#717680]"
+                        style={{
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontWeight: 400,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        Report Visible to:
+                      </div>
+
+                      <div className="flex w-full flex-col gap-2">
+                        {reportVisibleTo.map((user) => (
+                          <div
+                            key={user.id}
+                            className="flex items-center gap-[3px] rounded-md border border-[#D5D7DA] bg-white px-1 py-0.5"
+                          >
+                            <div className="flex flex-1 items-center gap-[5px] pl-1">
+                              <Avatar className="h-4 w-4 border border-[rgba(0,0,0,0.1)]">
+                                <AvatarImage src={user.avatar} />
+                                <AvatarFallback className="text-xs">
+                                  {user.name.split(' ').map(n => n[0]).join('')}
+                                </AvatarFallback>
+                              </Avatar>
+                              <span
+                                className="flex-1 text-sm font-medium text-[#414651]"
+                                style={{
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {user.name}
+                              </span>
+                            </div>
+                            <button
+                              onClick={() => handleRemoveUser(user.id)}
+                              className="flex items-center justify-center rounded-sm p-0.5 text-[#A4A7AE] transition-colors hover:bg-[#F5F6F7]"
+                            >
+                              <X className="h-6 w-6" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Right Column - Report Summary */}
