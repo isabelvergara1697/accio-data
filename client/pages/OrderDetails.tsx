@@ -23606,6 +23606,14 @@ const OrderDetails: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Add AKAs Modal */}
+      <AddAkasModal
+        isOpen={akasModalOpen}
+        onClose={handleCloseAkasModal}
+        onSave={handleSaveAkas}
+        initialAkas={savedAkas}
+      />
     </div>
   );
 };
