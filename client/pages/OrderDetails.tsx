@@ -356,6 +356,25 @@ const OrderDetails: React.FC = () => {
   // Manual rescreening state
   const [manualRescreening, setManualRescreening] = useState<string>("");
 
+  // Report Visibility state
+  const [selectedUser, setSelectedUser] = useState<string>("");
+  const [reportVisibleTo, setReportVisibleTo] = useState<Array<{
+    id: string;
+    name: string;
+    avatar?: string;
+  }>>([
+    { id: "1", name: "John Doe", avatar: "/placeholder-avatar-1.jpg" },
+    { id: "2", name: "Jane Smith", avatar: "/placeholder-avatar-2.jpg" },
+  ]);
+
+  // Mock team members data
+  const teamMembers = [
+    { id: "3", name: "Alex Johnson", avatar: "/placeholder-avatar-3.jpg" },
+    { id: "4", name: "Sarah Wilson", avatar: "/placeholder-avatar-4.jpg" },
+    { id: "5", name: "Michael Brown", avatar: "/placeholder-avatar-5.jpg" },
+    { id: "6", name: "Emily Davis", avatar: "/placeholder-avatar-6.jpg" },
+  ];
+
   // Collapse/Expand all state
   const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
 
