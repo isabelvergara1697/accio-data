@@ -175,6 +175,56 @@ const OrderDetails: React.FC = () => {
     window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
   };
 
+  const collapseAllSections = () => {
+    setReportSummaryExpanded(false);
+    setDocumentsExpanded(false);
+    setSubjectExpanded(false);
+    setResumeValidationExpanded(false);
+    setEmploymentExpanded(false);
+    setEducationExpanded(false);
+    setCriminalHistoryExpanded(false);
+    setMjdExpanded(false);
+    setFederalCrimeExpanded(false);
+    setProfessionalReferencesExpanded(false);
+    setMotorVehicleExpanded(false);
+    setCredentialsExpanded(false);
+    setCreditEmploymentExpanded(false);
+    setEVerifyExpanded(false);
+    setFivePanelsExpanded(false);
+    setCbsvExpanded(false);
+    setSpecialNoticeExpanded(false);
+    setAllSectionsCollapsed(true);
+  };
+
+  const expandAllSections = () => {
+    setReportSummaryExpanded(true);
+    setDocumentsExpanded(true);
+    setSubjectExpanded(true);
+    setResumeValidationExpanded(true);
+    setEmploymentExpanded(true);
+    setEducationExpanded(true);
+    setCriminalHistoryExpanded(true);
+    setMjdExpanded(true);
+    setFederalCrimeExpanded(true);
+    setProfessionalReferencesExpanded(true);
+    setMotorVehicleExpanded(true);
+    setCredentialsExpanded(true);
+    setCreditEmploymentExpanded(true);
+    setEVerifyExpanded(true);
+    setFivePanelsExpanded(true);
+    setCbsvExpanded(true);
+    setSpecialNoticeExpanded(true);
+    setAllSectionsCollapsed(false);
+  };
+
+  const handleCollapseExpandAll = () => {
+    if (allSectionsCollapsed) {
+      expandAllSections();
+    } else {
+      collapseAllSections();
+    }
+  };
+
   const addNote = () => {
     const text = noteText.trim();
     if (!text) return;
