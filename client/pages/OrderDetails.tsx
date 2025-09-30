@@ -88,6 +88,94 @@ const OrderDetails: React.FC = () => {
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
+
+  const reportSummaryNamedSearches = [
+    "Sue Jeans",
+    "Sue Jeans",
+    "Sue Jeans",
+    "Sue Jeans",
+    "Sue DD",
+    "Sue DD",
+    "Sue Jeans",
+    "Sue DD",
+    "Sue DD",
+    "Sue Jeans",
+    "Sue Jeans",
+    "Sue Jeans",
+    "Sue Jeans",
+  ];
+
+  const reportSummarySearchTypes = [
+    { label: "Subject", targetId: "subject" },
+    { label: "Resume Validation", targetId: "resume-validation" },
+    { label: "Employment at Jerrys", targetId: "employment-at-jerrys-tx" },
+    {
+      label: "Education at Brown Community College",
+      targetId: "education-at-brown-community-college",
+    },
+    { label: "Countywide Criminal History", targetId: "countywide-criminal-history" },
+    { label: "MJD", targetId: "mjd" },
+    { label: "Nationwide Federal Crime", targetId: "nationwide-federal-crime" },
+    { label: "Professional References", targetId: "professional-references" },
+    {
+      label: "Credentials-Professional License #1",
+      targetId: "credentials-professional-license",
+    },
+    { label: "Motor Vehicle Driving History", targetId: "motor-vehicle-driving-history" },
+    { label: "E-Verify", targetId: "e-verify" },
+    { label: "5 Panel", targetId: "five-panels-section" },
+    { label: "CBSV", targetId: "cbsv-section" },
+  ];
+
+  const reportSummaryCounties = [
+    "Harris",
+    "Harris",
+    "",
+    "",
+    "Bossier",
+    "",
+    "Bossier",
+    "",
+    "",
+    "Bossier",
+    "Bossier",
+    "Bossier",
+    "Bossier",
+  ];
+
+  const reportSummaryStates = [
+    "Texas",
+    "Texas",
+    "Texas",
+    "Texas",
+    "LA",
+    "Texas",
+    "LA",
+    "Texas",
+    "Texas",
+    "LA",
+    "LA",
+    "LA",
+    "LA",
+  ];
+
+  const reportSummaryDocumentNames = Array(reportSummaryNamedSearches.length).fill(
+    "[File Name]",
+  );
+  const reportSummarySearchIds = Array(reportSummaryNamedSearches.length).fill(
+    "845841254/451254",
+  );
+
+  const reportSummaryRows = reportSummaryNamedSearches.map((name, index) => ({
+    namedSearch: name,
+    searchType: reportSummarySearchTypes[index] ?? null,
+    county: reportSummaryCounties[index] ?? "",
+    state: reportSummaryStates[index] ?? "",
+    searchId: reportSummarySearchIds[index] ?? "",
+    documentName: reportSummaryDocumentNames[index] ?? "[File Name]",
+    researchResult: "Completed - Verified",
+  }));
+
   const [documentsExpanded, setDocumentsExpanded] = useState(true);
   const [documentsHoveredRowIndex, setDocumentsHoveredRowIndex] = useState<
     number | null
