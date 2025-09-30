@@ -6534,41 +6534,43 @@ const OrderDetails: React.FC = () => {
                               Search ID
                             </div>
                           </div>
-                          {reportSummaryRows.map((row, index) => (
-                            <div
-                              key={`search-id-${index}`}
-                              onMouseEnter={() => setHoveredRowIndex(index)}
-                              onMouseLeave={() => setHoveredRowIndex(null)}
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background:
-                                  hoveredRowIndex === index
-                                    ? "#F5F5F5"
-                                    : "transparent",
-                                position: "relative",
-                                transition: "background-color 0.2s ease",
-                              }}
-                            >
+                          {Array(13)
+                            .fill("845841254/451254")
+                            .map((searchId, index) => (
                               <div
+                                key={index}
+                                onMouseEnter={() => setHoveredRowIndex(index)}
+                                onMouseLeave={() => setHoveredRowIndex(null)}
                                 style={{
-                                  color: "#181D27",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 500,
-                                  lineHeight: "20px",
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "12px",
+                                  alignItems: "center",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background:
+                                    hoveredRowIndex === index
+                                      ? "#F5F5F5"
+                                      : "transparent",
                                   position: "relative",
+                                  transition: "background-color 0.2s ease",
                                 }}
                               >
-                                {row.searchId}
+                                <div
+                                  style={{
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  {searchId}
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
                         </div>
 
                         {/* Documents Column */}
