@@ -67,6 +67,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   onOpenNotificationModal,
 }) => {
   const [quickCreateOpen, setQuickCreateOpen] = React.useState(false);
+  const isTablet = !isDesktop && !isMobile;
 
   // Enhanced responsive icon sizes for mobile header
   const plusIconSize = useIconSizeEnhanced(isMobile ? 20 : 20, {
