@@ -289,6 +289,45 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           </div>
         </div>
 
+        <button
+          onClick={() => setMobileMenuOpen(true)}
+          aria-label="Open navigation menu"
+          style={{
+            display: "flex",
+            width: isTablet ? "44px" : "40px",
+            height: isTablet ? "44px" : "40px",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "12px",
+            background: "transparent",
+            border: isTablet ? "1px solid #E9EAEB" : "none",
+            padding: "0",
+            cursor: "pointer",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#F5F5F5";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
+          }}
+        >
+          <svg
+            width={isTablet ? 22 : 20}
+            height={isTablet ? 22 : 20}
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 7H20M4 12H20M4 17H20"
+              stroke="#414651"
+              strokeWidth="1.66667"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
         {/* Divider - Hide on mobile */}
         {!isMobile && (
           <div
