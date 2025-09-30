@@ -169,106 +169,101 @@ export default function AddAkasModal({
     onClose();
   };
 
-  const renderTableHeader = useMemo(
-    () => (
-      <div
-        className="grid items-center border-b border-[#E9EAEB] bg-white px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.04em] text-[#717680]"
-        style={{
-          gridTemplateColumns: "minmax(110px, 1fr) minmax(110px, 1fr) 130px minmax(120px, 1fr) minmax(100px, 1fr) minmax(130px, 1fr)",
-        }}
-      >
-        {panelColumns.map((column) => (
-          <span key={column.key} className="truncate">
-            {column.label}
-          </span>
-        ))}
-      </div>
-    ),
-    [],
+  const tableHeader = (
+    <div
+      className="grid items-center border-b border-[#E9EAEB] bg-white px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.04em] text-[#717680]"
+      style={{
+        gridTemplateColumns:
+          "minmax(110px, 1fr) minmax(110px, 1fr) 130px minmax(120px, 1fr) minmax(100px, 1fr) minmax(130px, 1fr)",
+      }}
+    >
+      {panelColumns.map((column) => (
+        <span key={column.key} className="truncate">
+          {column.label}
+        </span>
+      ))}
+    </div>
   );
 
-  const renderTableRows = useMemo(
-    () => (
-      <div className="divide-y divide-[#E9EAEB]">
-        {akas.map((aka) => (
-          <div
-            key={aka.id}
-            className="grid items-center px-4 py-3 transition-colors hover:bg-[#F5F7FB]"
-            style={{
-              gridTemplateColumns:
-                "minmax(110px, 1fr) minmax(110px, 1fr) 130px minmax(120px, 1fr) minmax(100px, 1fr) minmax(130px, 1fr)",
-            }}
-          >
-            <div className="pr-3">
-              <Input
-                value={aka.first}
-                onChange={(event) =>
-                  handleAkaFieldChange(aka.id, "first", event.target.value)
-                }
-                className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698]"
-              />
-            </div>
-            <div className="pr-3">
-              <Input
-                value={aka.middle}
-                onChange={(event) =>
-                  handleAkaFieldChange(aka.id, "middle", event.target.value)
-                }
-                disabled={aka.noMiddleName}
-                className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698] disabled:cursor-not-allowed disabled:bg-[#F6F6F7]"
-              />
-            </div>
-            <div className="flex items-center justify-center">
-              <Checkbox
-                checked={aka.noMiddleName}
-                onCheckedChange={(checked) =>
-                  handleNoMiddleNameToggle(aka.id, checked === true)
-                }
-                className="h-4 w-4 border-[#D5D7DA]"
-              />
-            </div>
-            <div className="pr-3">
-              <Input
-                value={aka.last}
-                onChange={(event) =>
-                  handleAkaFieldChange(aka.id, "last", event.target.value)
-                }
-                className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698]"
-              />
-            </div>
-            <div className="pr-3">
-              <Input
-                value={aka.suffix}
-                onChange={(event) =>
-                  handleAkaFieldChange(aka.id, "suffix", event.target.value)
-                }
-                className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698]"
-              />
-            </div>
-            <div className="pr-3">
-              <Select
-                value={aka.nameType}
-                onValueChange={(value) =>
-                  handleAkaFieldChange(aka.id, "nameType", value)
-                }
-              >
-                <SelectTrigger className="h-9 w-full rounded-lg border border-[#D5D7DA] px-3 text-sm text-[#181D27] focus:border-[#344698] focus:ring-[#344698]">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {NAME_TYPE_OPTIONS.map((option) => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+  const tableRows = (
+    <div className="divide-y divide-[#E9EAEB]">
+      {akas.map((aka) => (
+        <div
+          key={aka.id}
+          className="grid items-center px-4 py-3 transition-colors hover:bg-[#F5F7FB]"
+          style={{
+            gridTemplateColumns:
+              "minmax(110px, 1fr) minmax(110px, 1fr) 130px minmax(120px, 1fr) minmax(100px, 1fr) minmax(130px, 1fr)",
+          }}
+        >
+          <div className="pr-3">
+            <Input
+              value={aka.first}
+              onChange={(event) =>
+                handleAkaFieldChange(aka.id, "first", event.target.value)
+              }
+              className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698]"
+            />
           </div>
-        ))}
-      </div>
-    ),
-    [akas],
+          <div className="pr-3">
+            <Input
+              value={aka.middle}
+              onChange={(event) =>
+                handleAkaFieldChange(aka.id, "middle", event.target.value)
+              }
+              disabled={aka.noMiddleName}
+              className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698] disabled:cursor-not-allowed disabled:bg-[#F6F6F7]"
+            />
+          </div>
+          <div className="flex items-center justify-center">
+            <Checkbox
+              checked={aka.noMiddleName}
+              onCheckedChange={(checked) =>
+                handleNoMiddleNameToggle(aka.id, checked === true)
+              }
+              className="h-4 w-4 border-[#D5D7DA]"
+            />
+          </div>
+          <div className="pr-3">
+            <Input
+              value={aka.last}
+              onChange={(event) =>
+                handleAkaFieldChange(aka.id, "last", event.target.value)
+              }
+              className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698]"
+            />
+          </div>
+          <div className="pr-3">
+            <Input
+              value={aka.suffix}
+              onChange={(event) =>
+                handleAkaFieldChange(aka.id, "suffix", event.target.value)
+              }
+              className="h-9 rounded-lg border border-[#D5D7DA] bg-white px-3 text-sm text-[#181D27] placeholder:text-[#B5B8BE] focus:border-[#344698] focus:ring-[#344698]"
+            />
+          </div>
+          <div className="pr-3">
+            <Select
+              value={aka.nameType}
+              onValueChange={(value) =>
+                handleAkaFieldChange(aka.id, "nameType", value)
+              }
+            >
+              <SelectTrigger className="h-9 w-full rounded-lg border border-[#D5D7DA] px-3 text-sm text-[#181D27] focus:border-[#344698] focus:ring-[#344698]">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {NAME_TYPE_OPTIONS.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 
   const panel = (
