@@ -23106,9 +23106,9 @@ const OrderDetails: React.FC = () => {
           <div
             style={{
               display: "flex",
-              width: "1144px",
+              width: "min(1144px, 100vw)",
               height: "100vh",
-              paddingLeft: "40px",
+              paddingLeft: isDesktop ? "40px" : "0px",
               alignItems: "flex-start",
               position: "relative",
             }}
@@ -23120,7 +23120,7 @@ const OrderDetails: React.FC = () => {
                 alignItems: "center",
                 flex: "1 0 0",
                 alignSelf: "stretch",
-                borderLeft: "1px solid rgba(0, 0, 0, 0.08)",
+                borderLeft: isDesktop ? "1px solid rgba(0, 0, 0, 0.08)" : "none",
                 background: "#FFF",
                 boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
                 position: "relative",
@@ -23130,7 +23130,7 @@ const OrderDetails: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: "24px",
+                  padding: isMobile ? "16px" : "24px",
                   alignItems: "flex-start",
                   gap: "8px",
                   alignSelf: "stretch",
@@ -23159,6 +23159,7 @@ const OrderDetails: React.FC = () => {
                       borderRadius: "9999px",
                       background: "#D9DEF2",
                       position: "relative",
+                      flexShrink: 0,
                     }}
                   >
                     <svg
@@ -23185,6 +23186,7 @@ const OrderDetails: React.FC = () => {
                       gap: "2px",
                       flex: "1 0 0",
                       position: "relative",
+                      minWidth: 0,
                     }}
                   >
                     <div
@@ -23197,6 +23199,7 @@ const OrderDetails: React.FC = () => {
                         fontWeight: 600,
                         lineHeight: "28px",
                         position: "relative",
+                        wordWrap: "break-word",
                       }}
                     >
                       Upload {uploadFileName}
@@ -23211,6 +23214,7 @@ const OrderDetails: React.FC = () => {
                         fontWeight: 400,
                         lineHeight: "20px",
                         position: "relative",
+                        wordWrap: "break-word",
                       }}
                     >
                       Upload a clear copy of {uploadFileName}. Make sure all information is visible and the file is not blurry.
@@ -23232,6 +23236,7 @@ const OrderDetails: React.FC = () => {
                     border: "none",
                     cursor: "pointer",
                     position: "relative",
+                    flexShrink: 0,
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = "rgba(0, 0, 0, 0.05)";
@@ -23262,7 +23267,7 @@ const OrderDetails: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  padding: "24px",
+                  padding: isMobile ? "16px" : "24px",
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "12px",
@@ -23287,52 +23292,321 @@ const OrderDetails: React.FC = () => {
                     position: "relative",
                   }}
                 >
+                  {/* File Upload */}
                   <div
                     style={{
                       display: "flex",
-                      width: "512px",
+                      width: "100%",
+                      maxWidth: "512px",
                       flexDirection: "column",
                       alignItems: "flex-start",
                       gap: "16px",
                       position: "relative",
+                      padding: isMobile ? "16px" : "24px",
                     }}
                   >
+                    {/* File Queue */}
                     <div
                       style={{
                         display: "flex",
-                        padding: "16px 24px",
                         flexDirection: "column",
-                        alignItems: "center",
-                        gap: "4px",
+                        alignItems: "flex-start",
+                        gap: "12px",
                         alignSelf: "stretch",
-                        borderRadius: "12px",
-                        border: "1px solid #E9EAEB",
-                        background: "#FFF",
                         position: "relative",
                       }}
                     >
+                      {/* File Upload Item */}
                       <div
                         style={{
                           display: "flex",
-                          justifyContent: "center",
+                          padding: "16px",
                           alignItems: "flex-start",
-                          gap: "12px",
                           alignSelf: "stretch",
+                          borderRadius: "12px",
+                          border: "1px solid #E9EAEB",
+                          background: "#FFF",
                           position: "relative",
                         }}
                       >
-                        {/* Upload Icon */}
                         <div
                           style={{
                             display: "flex",
-                            padding: "10px",
-                            alignItems: "center",
-                            gap: "10px",
-                            borderRadius: "8px",
-                            border: "1px solid #D5D7DA",
-                            background: "#FFF",
-                            boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                            alignItems: "flex-start",
+                            gap: "12px",
+                            flex: "1 0 0",
                             position: "relative",
+                          }}
+                        >
+                          {/* File Type Icon */}
+                          <div
+                            style={{
+                              width: "40px",
+                              height: "40px",
+                              position: "relative",
+                              flexShrink: 0,
+                            }}
+                          >
+                            <svg
+                              width="32"
+                              height="40"
+                              viewBox="0 0 32 41"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                              style={{
+                                position: "absolute",
+                                left: "4px",
+                                top: "0px",
+                              }}
+                            >
+                              <path
+                                d="M4 1.25H20C20.1212 1.25 20.2375 1.29809 20.3232 1.38379L31.1162 12.1768C31.2019 12.2625 31.25 12.3788 31.25 12.5V36.5C31.25 38.2949 29.7949 39.75 28 39.75H4C2.20507 39.75 0.75 38.2949 0.75 36.5V4.5C0.750001 2.70507 2.20508 1.25 4 1.25Z"
+                                stroke="#D5D7DA"
+                                strokeWidth="1.5"
+                              />
+                              <path
+                                d="M20 1V8.5C20 10.7091 21.7909 12.5 24 12.5H31.5"
+                                stroke="#D5D7DA"
+                                strokeWidth="1.5"
+                              />
+                            </svg>
+                            <div
+                              style={{
+                                display: "inline-flex",
+                                padding: "2px 3px",
+                                alignItems: "flex-start",
+                                gap: "8px",
+                                borderRadius: "2px",
+                                background: "#D92D20",
+                                position: "absolute",
+                                left: "1px",
+                                top: "18px",
+                                width: "26px",
+                                height: "16px",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#FFF",
+                                  textAlign: "center",
+                                  fontFamily: "Inter",
+                                  fontSize: "10px",
+                                  fontStyle: "normal",
+                                  fontWeight: 700,
+                                  lineHeight: "normal",
+                                  position: "relative",
+                                }}
+                              >
+                                PDF
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Content */}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                              flex: "1 0 0",
+                              position: "relative",
+                              minWidth: 0,
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                gap: "2px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  display: "-webkit-box",
+                                  WebkitBoxOrient: "vertical",
+                                  WebkitLineClamp: 1,
+                                  alignSelf: "stretch",
+                                  overflow: "hidden",
+                                  color: "#414651",
+                                  textOverflow: "ellipsis",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                Tech design requirements.pdf
+                              </div>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  position: "relative",
+                                  flexWrap: "wrap",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "-webkit-box",
+                                    WebkitBoxOrient: "vertical",
+                                    WebkitLineClamp: 1,
+                                    overflow: "hidden",
+                                    color: "#535862",
+                                    textOverflow: "ellipsis",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontStyle: "normal",
+                                    fontWeight: 400,
+                                    lineHeight: "20px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  200 KB of 200 KB
+                                </div>
+                                <svg
+                                  width="2"
+                                  height="13"
+                                  viewBox="0 0 2 13"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  style={{
+                                    height: "12px",
+                                    flexShrink: 0,
+                                  }}
+                                >
+                                  <path
+                                    d="M1 0.5V12.5"
+                                    stroke="#D5D7DA"
+                                    strokeLinecap="round"
+                                  />
+                                </svg>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "4px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="17"
+                                    viewBox="0 0 16 17"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M4.9987 8.49998L6.9987 10.5L10.9987 6.49998M14.6654 8.49998C14.6654 12.1819 11.6806 15.1666 7.9987 15.1666C4.3168 15.1666 1.33203 12.1819 1.33203 8.49998C1.33203 4.81808 4.3168 1.83331 7.9987 1.83331C11.6806 1.83331 14.6654 4.81808 14.6654 8.49998Z"
+                                      stroke="#079455"
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                  <div
+                                    style={{
+                                      color: "#079455",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    Complete
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Progress Bar */}
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "12px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  height: "8px",
+                                  flex: "1 0 0",
+                                  borderRadius: "8px",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    width: "100%",
+                                    height: "8px",
+                                    borderRadius: "9999px",
+                                    background: "#D5D7DA",
+                                    position: "absolute",
+                                    left: "0px",
+                                    top: "0px",
+                                  }}
+                                />
+                                <div
+                                  style={{
+                                    width: "100%",
+                                    height: "8px",
+                                    borderRadius: "9999px",
+                                    background: "#344698",
+                                    position: "absolute",
+                                    left: "0px",
+                                    top: "0px",
+                                  }}
+                                />
+                              </div>
+                              <div
+                                style={{
+                                  color: "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontStyle: "normal",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                  position: "relative",
+                                }}
+                              >
+                                100%
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Delete Button */}
+                        <button
+                          style={{
+                            display: "flex",
+                            width: "32px",
+                            height: "32px",
+                            padding: "8px",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            borderRadius: "6px",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            position: "relative",
+                            flexShrink: 0,
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.background = "rgba(0, 0, 0, 0.05)";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.background = "transparent";
                           }}
                         >
                           <svg
@@ -23343,92 +23617,14 @@ const OrderDetails: React.FC = () => {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              d="M8 16.5L12 12.5M12 12.5L16 16.5M12 12.5V21.5M20 17.2428C21.2215 16.234 22 14.7079 22 13C22 9.96243 19.5376 7.5 16.5 7.5C16.2815 7.5 16.0771 7.386 15.9661 7.19774C14.6621 4.98484 12.2544 3.5 9.5 3.5C5.35786 3.5 2 6.85786 2 11C2 13.0661 2.83545 14.9371 4.18695 16.2935"
-                              stroke="#414651"
-                              strokeWidth="1.66667"
+                              d="M16 6.5V5.7C16 4.5799 16 4.01984 15.782 3.59202C15.5903 3.21569 15.2843 2.90973 14.908 2.71799C14.4802 2.5 13.9201 2.5 12.8 2.5H11.2C10.0799 2.5 9.51984 2.5 9.09202 2.71799C8.71569 2.90973 8.40973 3.21569 8.21799 3.59202C8 4.01984 8 4.5799 8 5.7V6.5M10 12V17M14 12V17M3 6.5H21M19 6.5V17.7C19 19.3802 19 20.2202 18.673 20.862C18.3854 21.4265 17.9265 21.8854 17.362 22.173C16.7202 22.5 15.8802 22.5 14.2 22.5H9.8C8.11984 22.5 7.27976 22.5 6.63803 22.173C6.07354 21.8854 5.6146 21.4265 5.32698 20.862C5 20.2202 5 19.3802 5 17.7V6.5"
+                              stroke="#A4A7AE"
+                              strokeWidth="1.5"
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             />
                           </svg>
-                        </div>
-
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            gap: "4px",
-                            flex: "1 0 0",
-                            position: "relative",
-                          }}
-                        >
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "flex-start",
-                              gap: "4px",
-                              alignSelf: "stretch",
-                              position: "relative",
-                            }}
-                          >
-                            <button
-                              style={{
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                gap: "4px",
-                                background: "transparent",
-                                border: "none",
-                                cursor: "pointer",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#273572",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "14px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "20px",
-                                  textDecoration: "underline",
-                                  position: "relative",
-                                }}
-                              >
-                                Click to upload
-                              </div>
-                            </button>
-                            <div
-                              style={{
-                                color: "#535862",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontStyle: "normal",
-                                fontWeight: 400,
-                                lineHeight: "20px",
-                                position: "relative",
-                              }}
-                            >
-                              or drag and drop
-                            </div>
-                          </div>
-                          <div
-                            style={{
-                              alignSelf: "stretch",
-                              color: "#535862",
-                              textAlign: "center",
-                              fontFamily: "Roboto Mono",
-                              fontSize: "12px",
-                              fontStyle: "normal",
-                              fontWeight: 400,
-                              lineHeight: "18px",
-                              position: "relative",
-                            }}
-                          >
-                            SVG, PNG, JPG or GIF (max. 800x400px)
-                          </div>
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
