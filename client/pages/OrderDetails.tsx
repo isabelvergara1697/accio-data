@@ -18,6 +18,21 @@ type TatSegment = {
   color: string;
 };
 
+type ReportSummarySearchType = {
+  label: string;
+  targetId: string;
+};
+
+type ReportSummaryRow = {
+  namedSearch: string;
+  searchType: ReportSummarySearchType | null;
+  county: string;
+  state: string;
+  searchId: string;
+  documentName: string;
+  researchResult: string;
+};
+
 const OrderDetails: React.FC = () => {
   const { orderId } = useParams<{ orderId: string }>();
   const navigate = useNavigate();
