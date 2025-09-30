@@ -31,7 +31,26 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
     onClose();
   };
 
-  return (
+  // Calculate positioning to prevent overflow
+  const menuWidth = 350;
+  const menuHeight = 800; // Approximate height
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  let adjustedX = position.x;
+  let adjustedY = position.y + 8;
+
+  // Adjust horizontal position if menu would overflow right edge
+  if (adjustedX + menuWidth > viewportWidth - 20) {
+    adjustedX = position.x - menuWidth + 100; // Align to right edge of button
+  }
+
+  // Adjust vertical position if menu would overflow bottom edge
+  if (adjustedY + menuHeight > viewportHeight - 20) {
+    adjustedY = position.y - menuHeight - 8; // Show above button
+  }
+
+  const menuContent = (
     <>
       {/* Backdrop */}
       <div
@@ -45,13 +64,13 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
         }}
         onClick={onClose}
       />
-      
+
       {/* Menu */}
       <div
         style={{
-          position: "absolute",
-          top: position.y + 8,
-          left: position.x,
+          position: "fixed",
+          top: adjustedY,
+          left: adjustedX,
           zIndex: 1000,
           display: "flex",
           width: "350px",
