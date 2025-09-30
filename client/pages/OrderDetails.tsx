@@ -20453,6 +20453,8 @@ const OrderDetails: React.FC = () => {
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
+                    paddingBottom: fivePanelsExpanded ? "0px" : "20px",
+                    overflow: "hidden",
                   }}
                 >
                   <div
@@ -22168,6 +22170,8 @@ const OrderDetails: React.FC = () => {
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
+                    paddingBottom: cbsvExpanded ? "0px" : "20px",
+                    overflow: "hidden",
                   }}
                 >
                   <div
@@ -22728,6 +22732,8 @@ const OrderDetails: React.FC = () => {
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
+                    paddingBottom: specialNoticeExpanded ? "0px" : "20px",
+                    overflow: "hidden",
                   }}
                 >
                   <div
