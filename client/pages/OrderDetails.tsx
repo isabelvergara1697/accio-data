@@ -5572,8 +5572,10 @@ const OrderDetails: React.FC = () => {
                   justifyContent: "center",
                   alignItems: "flex-start",
                   gap: "24px",
-                  flex: "1 0 0",
+                  flex: "1 1 0",
                   position: "relative",
+                  minWidth: "0",
+                  maxWidth: rightColumnMaxWidth,
                 }}
               >
                 <div
