@@ -696,6 +696,80 @@ const OrderDetails: React.FC = () => {
     setReportVisibleTo(prev => prev.filter(user => user.id !== userId));
   };
 
+  // More Actions handlers
+  const handleMoreActionsClick = (isSticky: boolean = false) => {
+    const buttonRef = isSticky ? stickyMoreActionsRef : moreActionsRef;
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setMoreActionsPosition({
+        x: rect.left,
+        y: rect.bottom
+      });
+      setMoreActionsOpen(true);
+    }
+  };
+
+  const handleMoreActionsClose = () => {
+    setMoreActionsOpen(false);
+  };
+
+  const handleMoreAction = (action: string) => {
+    console.log(`More action: ${action}`);
+    // Handle different actions here
+    switch (action) {
+      case "pre-adverse-general":
+        // Handle pre-adverse general action
+        break;
+      case "adverse-action-letter":
+        // Handle adverse action letter
+        break;
+      case "order-additional-searches":
+        navigate("/online-ordering");
+        break;
+      case "order-criminal-records":
+        // Handle order criminal records
+        break;
+      case "archive-order":
+        // Handle archive order
+        break;
+      case "adverse-action-process":
+        // Handle adverse action process
+        break;
+      case "upload-applicant-release":
+        // Handle upload applicant release
+        break;
+      case "download-fax-release":
+        // Handle download and fax release
+        break;
+      case "upload-supporting-docs":
+        // Handle upload supporting docs
+        break;
+      case "view-attached-docs":
+        // Handle view attached docs
+        break;
+      case "request-doc-upload":
+        // Handle request document upload
+        break;
+      case "email-requester":
+        // Handle email requester
+        break;
+      case "email-ordering-user":
+        // Handle email ordering user
+        break;
+      case "send-report-copy":
+        // Handle send report copy
+        break;
+      case "email-completion-notification":
+        // Handle email completion notification
+        break;
+      case "customer-service":
+        // Handle customer service inquiry
+        break;
+      default:
+        console.log(`Unhandled action: ${action}`);
+    }
+  };
+
   const getUserMenuStyles = () => {
     if (userMenuHovered || userMenuOpen) {
       return {
