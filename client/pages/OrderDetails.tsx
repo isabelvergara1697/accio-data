@@ -945,6 +945,7 @@ const OrderDetails: React.FC = () => {
                 flexWrap: "wrap",
                 position: "relative",
               }}
+              className="header-content"
             >
               <div
                 style={{
