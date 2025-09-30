@@ -629,6 +629,21 @@ const OrderDetails: React.FC = () => {
     console.log("Sign out");
   };
 
+  // AKAs modal handlers
+  const handleOpenAkasModal = () => {
+    setAkasModalOpen(true);
+  };
+
+  const handleCloseAkasModal = () => {
+    setAkasModalOpen(false);
+  };
+
+  const handleSaveAkas = (akas: AkaEntry[]) => {
+    setSavedAkas(akas);
+    console.log("Saved AKAs:", akas);
+    // Here you would typically send the data to your backend
+  };
+
   const getUserMenuStyles = () => {
     if (userMenuHovered || userMenuOpen) {
       return {
