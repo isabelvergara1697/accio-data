@@ -104,7 +104,7 @@ const OrderDetails: React.FC = () => {
   const [editText, setEditText] = useState("");
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
 
-  const reportSummaryNamedSearches = [
+  const reportSummaryNamedSearches: string[] = [
     "Sue Jeans",
     "Sue Jeans",
     "Sue Jeans",
@@ -120,7 +120,7 @@ const OrderDetails: React.FC = () => {
     "Sue Jeans",
   ];
 
-  const reportSummarySearchTypes = [
+  const reportSummarySearchTypes: ReportSummarySearchType[] = [
     { label: "Subject", targetId: "subject" },
     { label: "Resume Validation", targetId: "resume-validation" },
     { label: "Employment at Jerrys", targetId: "employment-at-jerrys-tx" },
@@ -142,7 +142,7 @@ const OrderDetails: React.FC = () => {
     { label: "CBSV", targetId: "cbsv-section" },
   ];
 
-  const reportSummaryCounties = [
+  const reportSummaryCounties: string[] = [
     "Harris",
     "Harris",
     "",
@@ -158,7 +158,7 @@ const OrderDetails: React.FC = () => {
     "Bossier",
   ];
 
-  const reportSummaryStates = [
+  const reportSummaryStates: string[] = [
     "Texas",
     "Texas",
     "Texas",
@@ -174,22 +174,24 @@ const OrderDetails: React.FC = () => {
     "LA",
   ];
 
-  const reportSummaryDocumentNames = Array(reportSummaryNamedSearches.length).fill(
-    "[File Name]",
+  const reportSummaryDocumentNames: string[] = reportSummaryNamedSearches.map(
+    () => "[File Name]",
   );
-  const reportSummarySearchIds = Array(reportSummaryNamedSearches.length).fill(
-    "845841254/451254",
+  const reportSummarySearchIds: string[] = reportSummaryNamedSearches.map(
+    () => "845841254/451254",
   );
 
-  const reportSummaryRows = reportSummaryNamedSearches.map((name, index) => ({
-    namedSearch: name,
-    searchType: reportSummarySearchTypes[index] ?? null,
-    county: reportSummaryCounties[index] ?? "",
-    state: reportSummaryStates[index] ?? "",
-    searchId: reportSummarySearchIds[index] ?? "",
-    documentName: reportSummaryDocumentNames[index] ?? "[File Name]",
-    researchResult: "Completed - Verified",
-  }));
+  const reportSummaryRows: ReportSummaryRow[] = reportSummaryNamedSearches.map(
+    (name, index) => ({
+      namedSearch: name,
+      searchType: reportSummarySearchTypes[index] ?? null,
+      county: reportSummaryCounties[index] ?? "",
+      state: reportSummaryStates[index] ?? "",
+      searchId: reportSummarySearchIds[index] ?? "",
+      documentName: reportSummaryDocumentNames[index] ?? "[File Name]",
+      researchResult: "Completed - Verified",
+    }),
+  );
 
   const [documentsExpanded, setDocumentsExpanded] = useState(true);
   const [documentsHoveredRowIndex, setDocumentsHoveredRowIndex] = useState<
