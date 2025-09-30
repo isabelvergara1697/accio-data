@@ -5735,11 +5735,9 @@ const OrderDetails: React.FC = () => {
                         padding: "12px 24px 20px 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
-                        gap: "10px",
+                        gap: "16px",
                         alignSelf: "stretch",
                         position: "relative",
-                        overflowX: "auto",
-                        maxWidth: "100%",
                       }}
                     >
                       {/* Divider */}
