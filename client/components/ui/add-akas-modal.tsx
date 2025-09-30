@@ -298,8 +298,8 @@ export default function AddAkasModal({
         <div className="flex flex-1 flex-col overflow-hidden">
           <div className="flex-1 overflow-y-auto px-6 pb-6">
             <div className="rounded-xl border border-[#E9EAEB] bg-white shadow-[0_1px_2px_rgba(10,13,18,0.05)]">
-              {renderTableHeader}
-              {renderTableRows}
+              {tableHeader}
+              {tableRows}
             </div>
 
             <section className="mt-8">
