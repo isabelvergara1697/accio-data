@@ -17,6 +17,56 @@ interface MoreActionsSubmenuProps {
   position?: { x: number; y: number };
 }
 
+type MenuItem = {
+  label: string;
+  action: string;
+  icon: React.ElementType;
+};
+
+type MenuSection = {
+  title: string;
+  items: MenuItem[];
+};
+
+const menuSections: MenuSection[] = [
+  {
+    title: "Create Subject Specific Documents",
+    items: [
+      { label: "Pre-Adverse General", action: "pre-adverse-general", icon: FileDown },
+      { label: "Adverse Action Letter", action: "adverse-action-letter", icon: FileDown },
+    ],
+  },
+  {
+    title: "Manage Order",
+    items: [
+      { label: "Order Additional Searches (As a New Order)", action: "order-additional-searches", icon: FileSearch },
+      { label: "Order Criminal Records", action: "order-criminal-records", icon: FileSearch },
+      { label: "Archive Order", action: "archive-order", icon: Archive },
+      { label: "Adverse Action Process", action: "adverse-action-process", icon: FileQuestion },
+    ],
+  },
+  {
+    title: "Documents",
+    items: [
+      { label: "Upload Applicant Release Form", action: "upload-applicant-release", icon: UploadCloud },
+      { label: "Download and Fax Applicant Release Form", action: "download-fax-release", icon: FileDown },
+      { label: "Upload Supporting Documents", action: "upload-supporting-docs", icon: UploadCloud },
+      { label: "View all Attached Documents", action: "view-attached-docs", icon: FileDown },
+      { label: "Request Document Upload from Applicant", action: "request-doc-upload", icon: FileDown },
+    ],
+  },
+  {
+    title: "Other Actions",
+    items: [
+      { label: "Email this Report's Requester", action: "email-requester", icon: Mail },
+      { label: "Email this Report's Ordering User", action: "email-ordering-user", icon: Mail },
+      { label: "Send copy of Report to Applicant", action: "send-report-copy", icon: Mail },
+      { label: "Email me when Background Check is complete", action: "email-completion-notification", icon: Bell },
+      { label: "Customer Service Inquiry", action: "customer-service", icon: FileDown },
+    ],
+  },
+];
+
 export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
   isOpen,
   onClose,
@@ -63,7 +113,6 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
 
   const menuContent = (
     <>
-      {/* Backdrop */}
       <div
         style={{
           position: "fixed",
@@ -76,7 +125,6 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
         onClick={onClose}
       />
 
-      {/* Menu */}
       <div
         ref={menuRef}
         style={{
@@ -88,7 +136,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
           width: menuWidth,
           maxHeight,
           flexDirection: "column",
-          alignItems: "flex-start",
+          alignItems: "stretch",
           borderRadius: "12px 12px 16px 16px",
           border: "1px solid #E9EAEB",
           background: "#FFF",
@@ -96,1259 +144,100 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
           overflowY: maxHeight ? "auto" : undefined,
         }}
       >
-        {/* Menu Items */}
-        <div
-          style={{
-            display: "flex",
-            padding: "6px 0",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "2px",
-            alignSelf: "stretch",
-            position: "relative",
-          }}
-        >
-          {/* Create Subject Specific Documents */}
-          <div
-            style={{
-              display: "flex",
-              padding: "6px 12px 4px 12px",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
+        {menuSections.map((section, sectionIndex) => (
+          <div key={section.title} style={{ display: "flex", flexDirection: "column", alignItems: "stretch" }}>
             <div
               style={{
-                flex: "1 0 0",
+                display: "flex",
+                padding: "6px 12px 4px 12px",
+                alignItems: "center",
                 color: "#535862",
                 fontFamily: "Public Sans",
                 fontSize: "14px",
                 fontStyle: "normal",
                 fontWeight: 600,
                 lineHeight: "20px",
-                position: "relative",
               }}
             >
-              Create Subject Specific Documents
+              {section.title}
             </div>
+
+            {section.items.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.action}
+                  type="button"
+                  onClick={() => handleAction(item.action)}
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: 0,
+                  }}
+                  onMouseEnter={(e) => {
+                    const content = e.currentTarget.firstElementChild as HTMLElement | null;
+                    if (content) {
+                      content.style.background = "#F9FAFB";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    const content = e.currentTarget.firstElementChild as HTMLElement | null;
+                    if (content) {
+                      content.style.background = "transparent";
+                    }
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "100%",
+                      padding: "8px 12px",
+                      alignItems: "center",
+                      gap: "12px",
+                      borderRadius: "6px",
+                      transition: "background 0.2s ease",
+                    }}
+                  >
+                    <Icon
+                      style={{
+                        width: "16px",
+                        height: "16px",
+                        color: "#717680",
+                        flexShrink: 0,
+                      }}
+                    />
+                    <span
+                      style={{
+                        flex: 1,
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontStyle: "normal",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      {item.label}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
+
+            {sectionIndex !== menuSections.length - 1 && (
+              <div
+                style={{
+                  height: "1px",
+                  background: "#E9EAEB",
+                  margin: "4px 0",
+                }}
+              />
+            )}
           </div>
-
-          {/* Pre-Adverse General */}
-          <button
-            onClick={() => handleAction("pre-adverse-general")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <FileDown
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                    textAlign: "right",
-                    marginLeft: "auto",
-                  }}
-                >
-                  Pre-Adverse General
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Adverse Action Letter */}
-          <button
-            onClick={() => handleAction("adverse-action-letter")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <FileDown
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                    textAlign: "right",
-                    marginLeft: "auto",
-                  }}
-                >
-                  Adverse Action Letter
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Divider */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                height: "1px",
-                flex: "1 0 0",
-                background: "#E9EAEB",
-                position: "relative",
-              }}
-            />
-          </div>
-
-          {/* Manage Order */}
-          <div
-            style={{
-              display: "flex",
-              padding: "6px 12px 4px 12px",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                flex: "1 0 0",
-                color: "#535862",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 600,
-                lineHeight: "20px",
-                position: "relative",
-              }}
-            >
-              Manage Order
-            </div>
-          </div>
-
-          {/* Order Additional Searches */}
-          <button
-            type="button"
-            onClick={() => handleAction("order-additional-searches")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <FileSearch
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Order Additional Searches (As a New Order)
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Order Criminal Records */}
-          <button
-            onClick={() => handleAction("order-criminal-records")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <FileSearch
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Order Criminal Records
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Archive Order */}
-          <button
-            onClick={() => handleAction("archive-order")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <Archive
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Archive Order
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Adverse Action Process */}
-          <button
-            onClick={() => handleAction("adverse-action-process")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <FileQuestion
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Adverse Action Process
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Divider */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                height: "1px",
-                flex: "1 0 0",
-                background: "#E9EAEB",
-                position: "relative",
-              }}
-            />
-          </div>
-
-          {/* Documents */}
-          <div
-            style={{
-              display: "flex",
-              padding: "6px 12px 4px 12px",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                flex: "1 0 0",
-                color: "#535862",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 600,
-                lineHeight: "20px",
-                position: "relative",
-              }}
-            >
-              Documents
-            </div>
-          </div>
-
-          {/* Upload Applicant Release Form */}
-          <button
-            onClick={() => handleAction("upload-applicant-release")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <UploadCloud
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Upload Applicant Release Form
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Download and Fax Applicant Release Form */}
-          <button
-            onClick={() => handleAction("download-fax-release")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <FileDown
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Download and Fax Applicant Release Form
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Upload Supporting Documents */}
-          <button
-            onClick={() => handleAction("upload-supporting-docs")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <UploadCloud
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Upload Supporting Documents
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* View all Attached Documents */}
-          <button
-            onClick={() => handleAction("view-attached-docs")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <FileDown
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  View all Attached Documents
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Request Document Upload from Applicant */}
-          <button
-            onClick={() => handleAction("request-doc-upload")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <FileDown
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Request Document Upload from Applicant
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Divider */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                height: "1px",
-                flex: "1 0 0",
-                background: "#E9EAEB",
-                position: "relative",
-              }}
-            />
-          </div>
-
-          {/* Other Actions */}
-          <div
-            style={{
-              display: "flex",
-              padding: "6px 12px 4px 12px",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                flex: "1 0 0",
-                color: "#535862",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 600,
-                lineHeight: "20px",
-                position: "relative",
-              }}
-            >
-              Other Actions
-            </div>
-          </div>
-
-          {/* Email this Report's Requester */}
-          <button
-            onClick={() => handleAction("email-requester")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <Mail
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Email this Report's Requester
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Email this Report's Ordering User */}
-          <button
-            onClick={() => handleAction("email-ordering-user")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <Mail
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Email this Report's Ordering User
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Send copy of Report to Applicant */}
-          <button
-            onClick={() => handleAction("send-report-copy")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <Mail
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Send copy of Report to Applicant
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Email me when Background Check is complete */}
-          <button
-            onClick={() => handleAction("email-completion-notification")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <Bell
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Email me when Background Check is complete
-                </div>
-              </div>
-            </div>
-          </button>
-
-          {/* Customer Service Inquiry */}
-          <button
-            onClick={() => handleAction("customer-service")}
-            style={{
-              display: "flex",
-              padding: "0 6px",
-              alignItems: "center",
-              alignSelf: "stretch",
-              position: "relative",
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#F9FAFB";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                padding: "8px 12px",
-                alignItems: "center",
-                gap: "12px",
-                flex: "1 0 0",
-                borderRadius: "6px",
-                position: "relative",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12px",
-                  width: "100%",
-                  position: "relative",
-                }}
-              >
-                <FileDown
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "#717680",
-                    flexShrink: 0,
-                  }}
-                />
-                <div
-                  style={{
-                    flex: "1 0 0",
-                    color: "#414651",
-                    fontFamily: "Public Sans",
-                    fontSize: "14px",
-                    fontStyle: "normal",
-                    fontWeight: 600,
-                    lineHeight: "20px",
-                    position: "relative",
-                  }}
-                >
-                  Customer Service Inquiry
-                </div>
-              </div>
-            </div>
-          </button>
-        </div>
+        ))}
       </div>
     </>
   );
