@@ -5734,6 +5734,8 @@ const OrderDetails: React.FC = () => {
                         gap: "10px",
                         alignSelf: "stretch",
                         position: "relative",
+                        overflowX: "auto",
+                        maxWidth: "100%",
                       }}
                     >
                       {/* Divider */}
