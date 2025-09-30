@@ -6267,9 +6267,23 @@ const OrderDetails: React.FC = () => {
                               County
                             </div>
                           </div>
-                          {reportSummaryRows.map((row, index) => (
+                          {[
+                            "Harris",
+                            "Harris",
+                            "",
+                            "",
+                            "Bossier",
+                            "",
+                            "Bossier",
+                            "",
+                            "",
+                            "Bossier",
+                            "Bossier",
+                            "Bossier",
+                            "Bossier",
+                          ].map((county, index) => (
                             <div
-                              key={`county-${index}`}
+                              key={index}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6298,7 +6312,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                {row.county}
+                                {county}
                               </div>
                             </div>
                           ))}
