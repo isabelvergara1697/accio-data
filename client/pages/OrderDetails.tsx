@@ -143,6 +143,9 @@ const OrderDetails: React.FC = () => {
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
   const [uploadFileName, setUploadFileName] = useState("");
 
+  // Collapse/Expand all state
+  const [allSectionsCollapsed, setAllSectionsCollapsed] = useState(false);
+
   // Sticky header state
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   const stickyHeaderRef = useRef<HTMLDivElement | null>(null);
