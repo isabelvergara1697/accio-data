@@ -62,11 +62,19 @@ const generateAkaId = () => {
 };
 
 const ensureRowStructure = (rows: AkaEntry[]): AkaEntry[] => {
-  const filled = [...rows];
+  const normalized = rows.map((row) => ({
+    id: row.id ?? generateAkaId(),
+    ...DEFAULT_AKA_FIELDS,
+    ...row,
+    noMiddleName: Boolean(row.noMiddleName),
+  }));
+
+  const filled = [...normalized];
   while (filled.length < REQUIRED_ROW_COUNT) {
     filled.push({ id: generateAkaId(), ...DEFAULT_AKA_FIELDS });
   }
-  return filled;
+
+  return filled.slice(0, REQUIRED_ROW_COUNT);
 };
 
 const panelColumns = [
