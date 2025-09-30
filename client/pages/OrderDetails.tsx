@@ -5988,13 +5988,20 @@ const OrderDetails: React.FC = () => {
                       {/* Report Summary Links Table */}
                       <div
                         style={{
-                          display: "flex",
-                          alignItems: "flex-start",
-                          alignSelf: "stretch",
-                          position: "relative",
-                          minWidth: isDesktop ? "720px" : "100%",
+                          width: "100%",
+                          overflowX: "auto",
                         }}
                       >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            alignSelf: "stretch",
+                            position: "relative",
+                            minWidth: reportSummaryTableMinWidth,
+                            width: "max-content",
+                          }}
+                        >
                         {/* Named Search Column */}
                         <div
                           style={{
