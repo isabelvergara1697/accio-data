@@ -1301,4 +1301,6 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
       </div>
     </>
   );
+
+  return createPortal(menuContent, document.body);
 };
