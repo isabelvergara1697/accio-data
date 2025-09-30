@@ -630,4 +630,124 @@
     font-weight: 400;
     line-height: 20px;
   }
+
+  /* Order Details Header Responsive Styles */
+  .order-title {
+    font-family: "Public Sans", -apple-system, Roboto, Helvetica, sans-serif !important;
+    color: #181D27 !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+
+    /* Desktop styles (default) */
+    font-size: 24px !important;
+    line-height: 32px !important;
+  }
+
+  /* Tablet responsive styles for order title - matches Figma design */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .order-title {
+      font-size: 20px !important;
+      line-height: 30px !important;
+      font-weight: 600 !important;
+    }
+  }
+
+  /* Mobile responsive styles for order title */
+  @media (max-width: 767px) {
+    .order-title {
+      font-size: 18px !important;
+      line-height: 26px !important;
+    }
+  }
+
+  /* Header content responsive layout */
+  .header-content {
+    display: flex !important;
+    align-items: flex-end !important;
+    align-content: flex-end !important;
+    align-self: stretch !important;
+    flex-wrap: wrap !important;
+    position: relative !important;
+
+    /* Desktop gap */
+    gap: 20px 16px !important;
+  }
+
+  /* Tablet responsive header content */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .header-content {
+      gap: 20px 16px !important;
+    }
+  }
+
+  /* Mobile responsive header content */
+  @media (max-width: 767px) {
+    .header-content {
+      gap: 16px 12px !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+  }
+
+  /* Sticky header responsive styling */
+  .sticky-header {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    background: #FFF !important;
+    border-bottom: 1px solid #E9EAEB !important;
+    box-shadow: 0 1px 2px 0 rgba(10, 13, 18, 0.05) !important;
+
+    /* Desktop padding and gap */
+    gap: 16px !important;
+    padding: 16px 24px !important;
+  }
+
+  /* Tablet responsive sticky header */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .sticky-header {
+      padding: 8px 32px !important;
+      gap: 16px !important;
+    }
+  }
+
+  /* Mobile responsive sticky header */
+  @media (max-width: 767px) {
+    .sticky-header {
+      padding: 8px 16px !important;
+      gap: 12px !important;
+    }
+  }
+
+  /* Page header container responsive */
+  .page-header-container-order {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    align-self: stretch !important;
+    position: relative !important;
+
+    /* Desktop padding */
+    padding: 0 32px !important;
+    gap: 20px !important;
+  }
+
+  /* Tablet responsive page header container */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .page-header-container-order {
+      padding: 8px 32px !important;
+      gap: 16px !important;
+    }
+  }
+
+  /* Mobile responsive page header container */
+  @media (max-width: 767px) {
+    .page-header-container-order {
+      padding: 8px 16px !important;
+      gap: 16px !important;
+    }
+  }
 }
