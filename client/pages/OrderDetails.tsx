@@ -5990,6 +5990,7 @@ const OrderDetails: React.FC = () => {
                           alignItems: "flex-start",
                           alignSelf: "stretch",
                           position: "relative",
+                          minWidth: isDesktop ? "720px" : "100%",
                         }}
                       >
                         {/* Named Search Column */}
