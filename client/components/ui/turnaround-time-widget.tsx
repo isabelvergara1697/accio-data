@@ -242,7 +242,6 @@ const BarChart: React.FC<BarChartProps> = ({
         overflow: dimensions.overflow,
         height: "100%", // Ensure full height usage
         minHeight: "400px", // Consistent minimum height across all breakpoints
-        height: "100%", // Use full container height
         maxHeight: "400px", // Prevent height expansion
         scrollbarWidth: isMobile ? "thin" : "auto",
         scrollbarColor: isMobile ? "#D5D7DA #F8F9FA" : "auto",
