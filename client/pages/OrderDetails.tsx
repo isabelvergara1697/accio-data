@@ -701,8 +701,19 @@ const OrderDetails: React.FC = () => {
     const buttonRef = isSticky ? stickyMoreActionsRef : moreActionsRef;
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
+      const menuWidth = 350;
+
+      // For better alignment, position menu to the right of the button
+      // but ensure it doesn't overflow the viewport
+      let xPosition = rect.right - menuWidth;
+
+      // If that would position it off-screen to the left, align to button's left edge
+      if (xPosition < 16) {
+        xPosition = rect.left;
+      }
+
       setMoreActionsPosition({
-        x: rect.left,
+        x: xPosition,
         y: rect.bottom
       });
       setMoreActionsOpen(true);
