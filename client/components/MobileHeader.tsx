@@ -328,8 +328,8 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
           </svg>
         </button>
 
-        {/* Divider - Hide on mobile */}
-        {!isMobile && (
+        {/* Divider removed for tablet design */}
+        {false && (
           <div
             style={{
               display: "flex",
