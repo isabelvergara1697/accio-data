@@ -4016,6 +4016,180 @@ const OrderDetails: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Manual Rescreening Section */}
+                <div
+                  style={{
+                    display: "flex",
+                    width: "320px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    borderRadius: "12px",
+                    border: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    position: "relative",
+                  }}
+                >
+                  {/* Section Header */}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      alignSelf: "stretch",
+                      background: "#FFF",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "20px 16px 0 16px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "16px",
+                          alignSelf: "stretch",
+                          position: "relative",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                            flex: "1 0 0",
+                            position: "relative",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
+                              alignItems: "flex-start",
+                              gap: "2px",
+                              flex: "1 0 0",
+                              position: "relative",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                                alignSelf: "stretch",
+                                position: "relative",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "18px",
+                                  fontStyle: "normal",
+                                  fontWeight: 600,
+                                  lineHeight: "28px",
+                                  position: "relative",
+                                }}
+                              >
+                                Manual Rescreening
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "12px 16px 16px 16px",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                      borderRadius: "0px 0px 12px 12px",
+                      border: "1px solid #E9EAEB",
+                      borderTop: "none",
+                      background: "#FFF",
+                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      position: "relative",
+                    }}
+                  >
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#717680",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        fontStyle: "normal",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                        position: "relative",
+                      }}
+                    >
+                      Is this order on manual rescreening schedule?
+                    </div>
+
+                    <RadioGroup
+                      value={manualRescreening}
+                      onValueChange={setManualRescreening}
+                      className="flex flex-col gap-3 self-stretch"
+                    >
+                      <div className="flex items-start gap-2">
+                        <RadioGroupItem
+                          value="yes"
+                          id="manual-rescreening-yes"
+                          className="mt-1 h-4 w-4 border-[#D5D7DA] text-[#344698]"
+                        />
+                        <label
+                          htmlFor="manual-rescreening-yes"
+                          className="flex-1 cursor-pointer text-sm font-medium text-[#414651]"
+                          style={{
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Yes
+                        </label>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <RadioGroupItem
+                          value="no"
+                          id="manual-rescreening-no"
+                          className="mt-1 h-4 w-4 border-[#D5D7DA] text-[#344698]"
+                        />
+                        <label
+                          htmlFor="manual-rescreening-no"
+                          className="flex-1 cursor-pointer text-sm font-medium text-[#414651]"
+                          style={{
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          No
+                        </label>
+                      </div>
+                    </RadioGroup>
+                  </div>
+                </div>
+
                 {/* Notes Section */}
                 <div
                   style={{
