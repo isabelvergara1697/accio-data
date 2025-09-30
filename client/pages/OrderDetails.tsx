@@ -1007,6 +1007,7 @@ const OrderDetails: React.FC = () => {
 
                 {/* Add AKAs - Secondary Button */}
                 <button
+                  onClick={handleOpenAkasModal}
                   style={{
                     display: "flex",
                     minHeight: "36px",
