@@ -7242,6 +7242,7 @@ const OrderDetails: React.FC = () => {
                         </div>
                       </div>
                     </div>
+                  </div>
                   )}
                 </div>
 
