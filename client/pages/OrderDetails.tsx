@@ -2979,6 +2979,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -3812,6 +3813,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -4473,6 +4475,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -5025,6 +5028,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -5339,6 +5343,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -5592,6 +5597,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -6740,6 +6746,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -7603,6 +7610,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -8658,6 +8666,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -9072,6 +9081,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -9761,6 +9771,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -10537,6 +10548,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -12809,6 +12821,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -13019,6 +13032,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -13223,6 +13237,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -13849,6 +13864,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -14462,6 +14478,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -16081,6 +16098,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -17072,6 +17090,7 @@ const OrderDetails: React.FC = () => {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   {/* Section Header */}
@@ -20481,6 +20500,7 @@ const OrderDetails: React.FC = () => {
                     position: "relative",
                     paddingBottom: fivePanelsExpanded ? "0px" : "20px",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   <div
@@ -22198,6 +22218,7 @@ const OrderDetails: React.FC = () => {
                     position: "relative",
                     paddingBottom: cbsvExpanded ? "0px" : "20px",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   <div
@@ -22760,6 +22781,7 @@ const OrderDetails: React.FC = () => {
                     position: "relative",
                     paddingBottom: specialNoticeExpanded ? "0px" : "20px",
                     overflow: "hidden",
+                    minWidth: "0",
                   }}
                 >
                   <div
