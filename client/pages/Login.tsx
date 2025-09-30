@@ -83,7 +83,6 @@ export default function Login() {
       style={{
         display: "flex",
         width: "100%",
-        minHeight: "100vh",
         minHeight: "100dvh", // Dynamic viewport height for mobile
         flexDirection: "column",
         alignItems: "center",
