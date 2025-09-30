@@ -2991,6 +2991,8 @@ const OrderDetails: React.FC = () => {
                   >
                     {/* More Actions - Ghost Button */}
                     <button
+                      ref={moreActionsRef}
+                      onClick={() => handleMoreActionsClick(false)}
                       style={{
                         display: "flex",
                         minHeight: "36px",
@@ -3003,6 +3005,12 @@ const OrderDetails: React.FC = () => {
                         background: "transparent",
                         border: "none",
                         cursor: "pointer",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "#F5F5F5";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
                       }}
                     >
                       <div
