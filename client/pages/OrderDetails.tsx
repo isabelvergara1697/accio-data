@@ -7011,7 +7011,7 @@ const OrderDetails: React.FC = () => {
                               alignItems: "flex-start",
                               alignSelf: "stretch",
                               position: "relative",
-                              minWidth: documentsTableMinWidth,
+                              minWidth: "960px",
                               width: "max-content",
                             }}
                           >
