@@ -4,6 +4,20 @@ import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 
+type Note = {
+  id: string;
+  author: string;
+  avatarUrl: string;
+  content: string;
+  createdAt: string;
+};
+
+type TatSegment = {
+  label: string;
+  value: number;
+  color: string;
+};
+
 const OrderDetails: React.FC = () => {
   const { orderId } = useParams<{ orderId: string }>();
   const navigate = useNavigate();
@@ -20,20 +34,6 @@ const OrderDetails: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
   // Notes state (persisted per order)
-  type Note = {
-    id: string;
-    author: string;
-    avatarUrl: string;
-    content: string;
-    createdAt: string; // ISO string
-  };
-
-  type TatSegment = {
-    label: string;
-    value: number;
-    color: string;
-  };
-
   const storageKey = `order-notes-${orderId ?? "default"}`;
   const [notes, setNotes] = useState<Note[]>([]);
   const [noteText, setNoteText] = useState("");
