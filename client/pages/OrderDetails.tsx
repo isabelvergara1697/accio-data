@@ -6183,13 +6183,183 @@ const OrderDetails: React.FC = () => {
                         <div
                           style={{
                             display: "flex",
-                            alignItems: "flex-start",
+                            flexDirection: "column",
+                            alignItems: "stretch",
                             alignSelf: "stretch",
                             position: "relative",
-                            minWidth: "1040px",
+                            minWidth: "1200px",
                             width: "max-content",
                           }}
                         >
+                          <div
+                            style={{
+                              display: "grid",
+                              gridTemplateColumns: REPORT_SUMMARY_GRID_TEMPLATE,
+                              alignItems: "center",
+                              padding: "6px 12px",
+                              gap: "12px",
+                              borderBottom: "1px solid #E9EAEB",
+                              background: "#FFF",
+                              position: "sticky",
+                              top: 0,
+                              zIndex: 1,
+                            }}
+                          >
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>
+                              Named Search
+                            </div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>
+                              Search Type
+                            </div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>County</div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>State</div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>
+                              Research Results
+                            </div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>Search ID</div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>Documents</div>
+                            <div
+                              style={{
+                                ...REPORT_SUMMARY_HEADER_STYLE,
+                                textAlign: "center",
+                              }}
+                            >
+                              Actions
+                            </div>
+                          </div>
+
+                          {REPORT_SUMMARY_ROWS.map((row, index) => {
+                            const isHovered = hoveredRowIndex === index;
+                            const isLastRow = index === REPORT_SUMMARY_ROWS.length - 1;
+
+                            return (
+                              <div
+                                key={row.searchId + "-" + index}
+                                onMouseEnter={() => setHoveredRowIndex(index)}
+                                onMouseLeave={() => setHoveredRowIndex(null)}
+                                style={{
+                                  display: "grid",
+                                  gridTemplateColumns: REPORT_SUMMARY_GRID_TEMPLATE,
+                                  alignItems: "center",
+                                  padding: "12px",
+                                  gap: "12px",
+                                  borderBottom: isLastRow
+                                    ? "none"
+                                    : "1px solid #E9EAEB",
+                                  background: isHovered ? "#F5F5F5" : "transparent",
+                                  transition: "background-color 0.2s ease",
+                                }}
+                              >
+                                <div style={REPORT_SUMMARY_TEXT_STYLE}>
+                                  {row.namedSearch}
+                                </div>
+
+                                {row.searchType ? (
+                                  <a
+                                    href={"#" + row.searchType.targetId}
+                                    style={REPORT_SUMMARY_LINK_STYLE}
+                                    onClick={(event) => {
+                                      event.preventDefault();
+                                      scrollToSection(row.searchType.targetId);
+                                    }}
+                                  >
+                                    {row.searchType.label}
+                                  </a>
+                                ) : (
+                                  <div style={REPORT_SUMMARY_TEXT_STYLE}>—</div>
+                                )}
+
+                                <div style={REPORT_SUMMARY_TEXT_STYLE}>
+                                  {row.county && row.county.trim().length > 0
+                                    ? row.county
+                                    : "—"}
+                                </div>
+
+                                <div style={REPORT_SUMMARY_TEXT_STYLE}>
+                                  {row.state && row.state.trim().length > 0
+                                    ? row.state
+                                    : "—"}
+                                </div>
+
+                                <div
+                                  style={{
+                                    display: "inline-flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: "1px solid #ABEFC6",
+                                    background: "#ECFDF3",
+                                    position: "relative",
+                                    maxWidth: "100%",
+                                    justifySelf: "flex-start",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      color: "#067647",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                      position: "relative",
+                                    }}
+                                  >
+                                    {row.researchResult}
+                                  </div>
+                                </div>
+
+                                <div style={REPORT_SUMMARY_TEXT_STYLE}>
+                                  {row.searchId}
+                                </div>
+
+                                <a
+                                  href="#"
+                                  style={{
+                                    ...REPORT_SUMMARY_LINK_STYLE,
+                                    fontWeight: 600,
+                                  }}
+                                  onClick={(event) => event.preventDefault()}
+                                >
+                                  {row.documentLabel}
+                                </a>
+
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M1.61342 8.47543C1.52262 8.33167 1.47723 8.25979 1.45182 8.14892C1.43273 8.06565 1.43273 7.93431 1.45182 7.85104C1.47723 7.74017 1.52262 7.66829 1.61341 7.52453C2.36369 6.33654 4.59693 3.33331 8.00027 3.33331C11.4036 3.33331 13.6369 6.33654 14.3871 7.52453C14.4779 7.66829 14.5233 7.74017 14.5487 7.85104C14.5678 7.93431 14.5678 8.06565 14.5487 8.14892C14.5233 8.25979 14.4779 8.33167 14.3871 8.47543C13.6369 9.66342 11.4036 12.6666 8.00027 12.6666C4.59693 12.6666 2.36369 9.66342 1.61342 8.47543Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                    <path
+                                      d="M8.00027 9.99998C9.10484 9.99998 10.0003 9.10455 10.0003 7.99998C10.0003 6.89541 9.10484 5.99998 8.00027 5.99998C6.8957 5.99998 6.00027 6.89541 6.00027 7.99998C6.00027 9.10455 6.8957 9.99998 8.00027 9.99998Z"
+                                      stroke="#A4A7AE"
+                                      strokeWidth="1.5"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
                         {/* Named Search Column */}
                         <div
                           style={{
