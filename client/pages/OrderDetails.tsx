@@ -6442,9 +6442,9 @@ const OrderDetails: React.FC = () => {
                               Research Results
                             </div>
                           </div>
-                          {reportSummaryRows.map((row, index) => (
+                          {Array.from({ length: 13 }, (_, index) => (
                             <div
-                              key={`result-${index}`}
+                              key={index}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6491,7 +6491,7 @@ const OrderDetails: React.FC = () => {
                                     maxWidth: "100%",
                                   }}
                                 >
-                                  {row.researchResult}
+                                  Completed - Verified
                                 </div>
                               </div>
                             </div>
