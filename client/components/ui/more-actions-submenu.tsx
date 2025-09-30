@@ -163,14 +163,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -180,12 +180,12 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
                   style={{
-                    flex: "1 0 0",
+                    flex: "1",
                     color: "#414651",
                     fontFamily: "Public Sans",
                     fontSize: "14px",
@@ -194,6 +194,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     lineHeight: "20px",
                     position: "relative",
                     textAlign: "right",
+                    marginLeft: "auto",
                   }}
                 >
                   Pre-Adverse General
@@ -231,14 +232,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -248,12 +249,12 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
                   style={{
-                    flex: "1 0 0",
+                    flex: "1",
                     color: "#414651",
                     fontFamily: "Public Sans",
                     fontSize: "14px",
@@ -262,6 +263,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     lineHeight: "20px",
                     position: "relative",
                     textAlign: "right",
+                    marginLeft: "auto",
                   }}
                 >
                   Adverse Action Letter
@@ -346,14 +348,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -363,7 +365,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -413,14 +415,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -430,7 +432,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -480,14 +482,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -497,7 +499,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -547,14 +549,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -564,7 +566,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -660,14 +662,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -677,7 +679,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -727,14 +729,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -744,7 +746,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -794,14 +796,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -811,7 +813,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -861,14 +863,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -878,7 +880,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -928,14 +930,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -945,7 +947,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -1041,14 +1043,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -1058,7 +1060,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -1108,14 +1110,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -1125,7 +1127,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -1175,14 +1177,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -1192,7 +1194,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -1242,14 +1244,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -1259,7 +1261,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
@@ -1309,14 +1311,14 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                 flex: "1 0 0",
                 borderRadius: "6px",
                 position: "relative",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "20px 1fr",
+                  display: "flex",
                   alignItems: "center",
-                  columnGap: "12px",
+                  gap: "12px",
                   width: "100%",
                   position: "relative",
                 }}
@@ -1326,7 +1328,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     width: "16px",
                     height: "16px",
                     color: "#717680",
-                    minWidth: "16px",
+                    flexShrink: 0,
                   }}
                 />
                 <div
