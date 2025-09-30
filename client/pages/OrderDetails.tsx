@@ -24188,6 +24188,14 @@ const OrderDetails: React.FC = () => {
         onSave={handleSaveAkas}
         initialAkas={savedAkas}
       />
+
+      {/* More Actions Submenu */}
+      <MoreActionsSubmenu
+        isOpen={moreActionsOpen}
+        onClose={handleMoreActionsClose}
+        onAction={handleMoreAction}
+        position={moreActionsPosition}
+      />
     </div>
   );
 };
