@@ -149,98 +149,98 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
         <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", padding: "6px 0" }}>
           {menuSections.map((section, sectionIndex) => (
             <div key={section.title} style={{ display: "flex", flexDirection: "column", alignItems: "stretch" }}>
-            <div
-              style={{
-                display: "flex",
-                padding: "6px 12px 4px 12px",
-                alignItems: "center",
-                color: "#535862",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontStyle: "normal",
-                fontWeight: 600,
-                lineHeight: "20px",
-              }}
-            >
-              {section.title}
-            </div>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "6px 12px 4px 12px",
+                  alignItems: "center",
+                  color: "#535862",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontStyle: "normal",
+                  fontWeight: 600,
+                  lineHeight: "20px",
+                }}
+              >
+                {section.title}
+              </div>
 
-            {section.items.map((item) => {
-              const Icon = item.icon;
-              return (
-                <button
-                  key={item.action}
-                  type="button"
-                  onClick={() => handleAction(item.action)}
-                  style={{
-                    display: "flex",
-                    width: "100%",
-                    background: "transparent",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: 0,
-                  }}
-                  onMouseEnter={(e) => {
-                    const content = e.currentTarget.firstElementChild as HTMLElement | null;
-                    if (content) {
-                      content.style.background = "#F9FAFB";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    const content = e.currentTarget.firstElementChild as HTMLElement | null;
-                    if (content) {
-                      content.style.background = "transparent";
-                    }
-                  }}
-                >
-                  <div
+              {section.items.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.action}
+                    type="button"
+                    onClick={() => handleAction(item.action)}
                     style={{
                       display: "flex",
                       width: "100%",
-                      padding: "8px 12px",
-                      alignItems: "center",
-                      gap: "12px",
-                      borderRadius: "6px",
-                      transition: "background 0.2s ease",
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
+                    onMouseEnter={(e) => {
+                      const content = e.currentTarget.firstElementChild as HTMLElement | null;
+                      if (content) {
+                        content.style.background = "#F9FAFB";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      const content = e.currentTarget.firstElementChild as HTMLElement | null;
+                      if (content) {
+                        content.style.background = "transparent";
+                      }
                     }}
                   >
-                    <Icon
+                    <div
                       style={{
-                        width: "16px",
-                        height: "16px",
-                        color: "#717680",
-                        flexShrink: 0,
-                      }}
-                    />
-                    <span
-                      style={{
-                        flex: 1,
-                        color: "#414651",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
-                        lineHeight: "20px",
-                        textAlign: "left",
+                        display: "flex",
+                        width: "100%",
+                        padding: "8px 12px",
+                        alignItems: "center",
+                        gap: "12px",
+                        borderRadius: "6px",
+                        transition: "background 0.2s ease",
                       }}
                     >
-                      {item.label}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
+                      <Icon
+                        style={{
+                          width: "16px",
+                          height: "16px",
+                          color: "#717680",
+                          flexShrink: 0,
+                        }}
+                      />
+                      <span
+                        style={{
+                          flex: 1,
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "14px",
+                          fontStyle: "normal",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          textAlign: "left",
+                        }}
+                      >
+                        {item.label}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
 
-            {sectionIndex !== menuSections.length - 1 && (
-              <div
-                style={{
-                  height: "1px",
-                  background: "#E9EAEB",
-                  margin: "4px 0",
-                }}
-              />
-            )}
-          </div>
+              {sectionIndex !== menuSections.length - 1 && (
+                <div
+                  style={{
+                    height: "1px",
+                    background: "#E9EAEB",
+                    margin: "4px 0",
+                  }}
+                />
+              )}
+            </div>
           ))}
         </div>
       </div>
