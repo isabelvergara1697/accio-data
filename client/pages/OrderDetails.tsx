@@ -6031,9 +6031,23 @@ const OrderDetails: React.FC = () => {
                               Named Search
                             </div>
                           </div>
-                          {reportSummaryRows.map((row, index) => (
+                          {[
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue DD",
+                            "Sue DD",
+                            "Sue Jeans",
+                            "Sue DD",
+                            "Sue DD",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                            "Sue Jeans",
+                          ].map((name, index) => (
                             <div
-                              key={`${row.namedSearch}-${index}`}
+                              key={index}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6062,7 +6076,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                {row.namedSearch}
+                                {name}
                               </div>
                             </div>
                           ))}
