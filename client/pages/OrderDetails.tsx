@@ -701,9 +701,18 @@ const OrderDetails: React.FC = () => {
     const buttonRef = isSticky ? stickyMoreActionsRef : moreActionsRef;
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
+      const viewportWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+      const menuWidth = viewportWidth ? Math.min(350, viewportWidth - 32) : 350;
+      const minX = 16;
+      const maxX = viewportWidth ? viewportWidth - menuWidth - 16 : rect.left;
+
+      let xPosition = rect.right - menuWidth;
+      if (viewportWidth) {
+        xPosition = Math.max(minX, Math.min(xPosition, maxX));
+      }
 
       setMoreActionsPosition({
-        x: rect.left,
+        x: xPosition,
         y: rect.bottom
       });
       setMoreActionsOpen(true);
