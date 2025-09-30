@@ -6119,23 +6119,9 @@ const OrderDetails: React.FC = () => {
                               Named Search
                             </div>
                           </div>
-                          {[
-                            "Sue Jeans",
-                            "Sue Jeans",
-                            "Sue Jeans",
-                            "Sue Jeans",
-                            "Sue DD",
-                            "Sue DD",
-                            "Sue Jeans",
-                            "Sue DD",
-                            "Sue DD",
-                            "Sue Jeans",
-                            "Sue Jeans",
-                            "Sue Jeans",
-                            "Sue Jeans",
-                          ].map((name, index) => (
+                          {reportSummaryRows.map((row, index) => (
                             <div
-                              key={index}
+                              key={`${row.namedSearch}-${index}`}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6164,7 +6150,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                {name}
+                                {row.namedSearch}
                               </div>
                             </div>
                           ))}
@@ -6207,116 +6193,106 @@ const OrderDetails: React.FC = () => {
                               Search Type
                             </div>
                           </div>
-                          {[
-                            { name: "Subject", link: "#subject" },
-                            {
-                              name: "Resume Validation",
-                              link: "#resume-validation",
-                            },
-                            {
-                              name: "Employment at Jerrys",
-                              link: "#employment-at-jerrys-tx",
-                            },
-                            {
-                              name: "Education at Brown Community College",
-                              link: "#education-at-brown-community-college",
-                            },
-                            {
-                              name: "Countywide Criminal History",
-                              link: "#countywide-criminal-history",
-                            },
-                            { name: "MJD", link: "#mjd" },
-                            {
-                              name: "Nationwide Federal Crime",
-                              link: "#nationwide-federal-crime",
-                            },
-                            {
-                              name: "Professional References",
-                              link: "#professional-references",
-                            },
-                            {
-                              name: "Credentials-Professional License #1",
-                              link: "#credentials-professional-license",
-                            },
-                            {
-                              name: "Motor Vehicle Driving History",
-                              link: "#motor-vehicle-driving-history",
-                            },
-                            { name: "E-Verify", link: "#e-verify" },
-                            { name: "5 Panel", link: "#five-panels-section" },
-                            { name: "CBSV", link: "#cbsv-section" },
-                          ].map((item, index) => (
-                            <div
-                              key={index}
-                              onMouseEnter={() => setHoveredRowIndex(index)}
-                              onMouseLeave={() => setHoveredRowIndex(null)}
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "12px",
-                                alignItems: "center",
-                                gap: "8px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background:
-                                  hoveredRowIndex === index
-                                    ? "#F5F5F5"
-                                    : "transparent",
-                                position: "relative",
-                                cursor: "pointer",
-                                transition: "background-color 0.2s ease",
-                              }}
-                            >
-                              <a
-                                href={item.link}
+                          {reportSummaryRows.map((row, index) => {
+                            const targetId = row.searchType?.targetId;
+                            const label = row.searchType?.label ?? "";
+                            const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                              if (!targetId) {
+                                return;
+                              }
+                              e.preventDefault();
+                              const targetElement = document.querySelector(`#${targetId}`);
+                              if (targetElement) {
+                                targetElement.scrollIntoView({
+                                  behavior: "smooth",
+                                  block: "start",
+                                });
+                              }
+                            };
+                            return (
+                              <div
+                                key={`${label}-${index}`}
+                                onMouseEnter={() => setHoveredRowIndex(index)}
+                                onMouseLeave={() => setHoveredRowIndex(null)}
                                 style={{
                                   display: "flex",
-                                  justifyContent: "center",
+                                  height: "36px",
+                                  padding: "12px",
                                   alignItems: "center",
-                                  gap: "4px",
-                                  background: "transparent",
-                                  border: "none",
-                                  cursor: "pointer",
+                                  gap: "8px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background:
+                                    hoveredRowIndex === index
+                                      ? "#F5F5F5"
+                                      : "transparent",
                                   position: "relative",
-                                  textDecoration: "none",
-                                  flex: "1 0 0",
-                                }}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  const targetElement = document.querySelector(
-                                    item.link,
-                                  );
-                                  if (targetElement) {
-                                    targetElement.scrollIntoView({
-                                      behavior: "smooth",
-                                      block: "start",
-                                    });
-                                  }
+                                  cursor: targetId ? "pointer" : "default",
+                                  transition: "background-color 0.2s ease",
                                 }}
                               >
-                                <div
-                                  style={{
-                                    color: "#273572",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "14px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "20px",
-                                    textDecoration: "underline",
-                                    position: "relative",
-                                    flex: "1 0 0",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    display: "-webkit-box",
-                                    WebkitBoxOrient: "vertical",
-                                    WebkitLineClamp: 1,
-                                  }}
-                                >
-                                  {item.name}
-                                </div>
-                              </a>
-                            </div>
-                          ))}
+                                {targetId ? (
+                                  <a
+                                    href={`#${targetId}`}
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      background: "transparent",
+                                      border: "none",
+                                      cursor: "pointer",
+                                      position: "relative",
+                                      textDecoration: "none",
+                                      flex: "1 0 0",
+                                    }}
+                                    onClick={handleClick}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#273572",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
+                                        textDecoration: "underline",
+                                        position: "relative",
+                                        flex: "1 0 0",
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                        display: "-webkit-box",
+                                        WebkitBoxOrient: "vertical",
+                                        WebkitLineClamp: 1,
+                                      }}
+                                    >
+                                      {label}
+                                    </div>
+                                  </a>
+                                ) : (
+                                  <div
+                                    style={{
+                                      color: "#535862",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "14px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "20px",
+                                      position: "relative",
+                                      flex: "1 0 0",
+                                      overflow: "hidden",
+                                      textOverflow: "ellipsis",
+                                      display: "-webkit-box",
+                                      WebkitBoxOrient: "vertical",
+                                      WebkitLineClamp: 1,
+                                    }}
+                                  >
+                                    {label}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
                         </div>
 
                         {/* County Column */}
@@ -6355,23 +6331,9 @@ const OrderDetails: React.FC = () => {
                               County
                             </div>
                           </div>
-                          {[
-                            "Harris",
-                            "Harris",
-                            "",
-                            "",
-                            "Bossier",
-                            "",
-                            "Bossier",
-                            "",
-                            "",
-                            "Bossier",
-                            "Bossier",
-                            "Bossier",
-                            "Bossier",
-                          ].map((county, index) => (
+                          {reportSummaryRows.map((row, index) => (
                             <div
-                              key={index}
+                              key={`county-${index}`}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6400,7 +6362,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                {county}
+                                {row.county}
                               </div>
                             </div>
                           ))}
@@ -6442,23 +6404,9 @@ const OrderDetails: React.FC = () => {
                               State
                             </div>
                           </div>
-                          {[
-                            "Texas",
-                            "Texas",
-                            "Texas",
-                            "Texas",
-                            "LA",
-                            "Texas",
-                            "LA",
-                            "Texas",
-                            "Texas",
-                            "LA",
-                            "LA",
-                            "LA",
-                            "LA",
-                          ].map((state, index) => (
+                          {reportSummaryRows.map((row, index) => (
                             <div
-                              key={index}
+                              key={`state-${index}`}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6487,7 +6435,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                {state}
+                                {row.state}
                               </div>
                             </div>
                           ))}
@@ -6530,9 +6478,9 @@ const OrderDetails: React.FC = () => {
                               Research Results
                             </div>
                           </div>
-                          {Array.from({ length: 13 }, (_, index) => (
+                          {reportSummaryRows.map((row, index) => (
                             <div
-                              key={index}
+                              key={`result-${index}`}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6579,7 +6527,7 @@ const OrderDetails: React.FC = () => {
                                     maxWidth: "100%",
                                   }}
                                 >
-                                  Completed - Verified
+                                  {row.researchResult}
                                 </div>
                               </div>
                             </div>
@@ -6622,9 +6570,9 @@ const OrderDetails: React.FC = () => {
                               Search ID
                             </div>
                           </div>
-                          {Array.from({ length: 13 }, (_, index) => (
+                          {reportSummaryRows.map((row, index) => (
                             <div
-                              key={index}
+                              key={`search-id-${index}`}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6653,7 +6601,7 @@ const OrderDetails: React.FC = () => {
                                   position: "relative",
                                 }}
                               >
-                                845841254/451254
+                                {row.searchId}
                               </div>
                             </div>
                           ))}
@@ -6696,9 +6644,9 @@ const OrderDetails: React.FC = () => {
                               Documents
                             </div>
                           </div>
-                          {Array.from({ length: 13 }, (_, index) => (
+                          {reportSummaryRows.map((row, index) => (
                             <div
-                              key={index}
+                              key={`document-${index}`}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6744,7 +6692,7 @@ const OrderDetails: React.FC = () => {
                                     position: "relative",
                                   }}
                                 >
-                                  [File Name]
+                                  {row.documentName}
                                 </div>
                               </a>
                             </div>
@@ -6773,9 +6721,9 @@ const OrderDetails: React.FC = () => {
                               position: "relative",
                             }}
                           ></div>
-                          {Array.from({ length: 13 }, (_, index) => (
+                          {reportSummaryRows.map((row, index) => (
                             <div
-                              key={index}
+                              key={`action-${index}`}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
