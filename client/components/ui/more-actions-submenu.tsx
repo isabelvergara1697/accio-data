@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   FileDown,
@@ -7,8 +7,7 @@ import {
   FileQuestion,
   UploadCloud,
   Mail,
-  Bell,
-  Phone
+  Bell
 } from "lucide-react";
 
 interface MoreActionsSubmenuProps {
@@ -24,33 +23,42 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
   onAction,
   position = { x: 0, y: 0 }
 }) => {
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const [menuHeight, setMenuHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    if (isOpen && menuRef.current) {
+      const rect = menuRef.current.getBoundingClientRect();
+      setMenuHeight(rect.height);
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
+
+  const viewportWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+  const viewportHeight = typeof window !== "undefined" ? window.innerHeight : 0;
+  const menuWidth = viewportWidth ? Math.min(350, viewportWidth - 32) : 350;
+  const maxHeight = viewportHeight ? viewportHeight - 32 : undefined;
 
   const handleAction = (action: string) => {
     onAction(action);
     onClose();
   };
 
-  // Calculate positioning to prevent overflow
-  const menuWidth = 350;
-  const menuHeight = 700; // Approximate height
-  const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
-
   let adjustedX = position.x;
+  if (viewportWidth) {
+    const maxLeft = viewportWidth - menuWidth - 16;
+    adjustedX = Math.min(adjustedX, Math.max(16, maxLeft));
+    adjustedX = Math.max(16, adjustedX);
+  }
+
   let adjustedY = position.y + 8;
-
-  // Ensure menu doesn't overflow viewport edges
-  if (adjustedX + menuWidth > viewportWidth - 20) {
-    adjustedX = viewportWidth - menuWidth - 20;
-  }
-  if (adjustedX < 20) {
-    adjustedX = 20;
-  }
-
-  // Adjust vertical position if menu would overflow bottom edge
-  if (adjustedY + menuHeight > viewportHeight - 20) {
-    adjustedY = position.y - menuHeight - 8; // Show above button
+  if (viewportHeight && menuHeight) {
+    const maxTop = viewportHeight - menuHeight - 16;
+    adjustedY = Math.min(adjustedY, Math.max(16, maxTop));
+    adjustedY = Math.max(16, adjustedY);
+  } else if (viewportHeight) {
+    adjustedY = Math.max(16, Math.min(adjustedY, viewportHeight - 400));
   }
 
   const menuContent = (
@@ -70,19 +78,22 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
 
       {/* Menu */}
       <div
+        ref={menuRef}
         style={{
           position: "fixed",
           top: adjustedY,
           left: adjustedX,
           zIndex: 1000,
           display: "flex",
-          width: "350px",
+          width: menuWidth,
+          maxHeight,
           flexDirection: "column",
           alignItems: "flex-start",
           borderRadius: "12px 12px 16px 16px",
           border: "1px solid #E9EAEB",
           background: "#FFF",
           boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+          overflowY: maxHeight ? "auto" : undefined,
         }}
       >
         {/* Menu Items */}
@@ -301,6 +312,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
 
           {/* Order Additional Searches */}
           <button
+            type="button"
             onClick={() => handleAction("order-additional-searches")}
             style={{
               display: "flex",
