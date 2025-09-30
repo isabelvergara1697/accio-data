@@ -6610,9 +6610,9 @@ const OrderDetails: React.FC = () => {
                               Documents
                             </div>
                           </div>
-                          {reportSummaryRows.map((row, index) => (
+                          {Array.from({ length: 13 }, (_, index) => (
                             <div
-                              key={`document-${index}`}
+                              key={index}
                               onMouseEnter={() => setHoveredRowIndex(index)}
                               onMouseLeave={() => setHoveredRowIndex(null)}
                               style={{
@@ -6658,7 +6658,7 @@ const OrderDetails: React.FC = () => {
                                     position: "relative",
                                   }}
                                 >
-                                  {row.documentName}
+                                  [File Name]
                                 </div>
                               </a>
                             </div>
