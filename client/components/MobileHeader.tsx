@@ -178,28 +178,6 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
               }
             }}
           >
-            {!isMobile && (
-              <div
-                style={{
-                  display: "flex",
-                  padding: "0px 2px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily:
-                      "Public Sans, -apple-system, Roboto, Helvetica, sans-serif",
-                    fontWeight: 600,
-                    fontSize: "14px",
-                    color: "rgba(255,255,255,1)",
-                  }}
-                >
-                  Quick Create
-                </span>
-              </div>
-            )}
             <svg
               style={plusIconSize.style}
               width={plusIconSize.width}
