@@ -33,16 +33,19 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
 
   // Calculate positioning to prevent overflow
   const menuWidth = 350;
-  const menuHeight = 800; // Approximate height
+  const menuHeight = 700; // Approximate height
   const viewportWidth = window.innerWidth;
   const viewportHeight = window.innerHeight;
 
   let adjustedX = position.x;
   let adjustedY = position.y + 8;
 
-  // Adjust horizontal position if menu would overflow right edge
+  // Ensure menu doesn't overflow viewport edges
   if (adjustedX + menuWidth > viewportWidth - 20) {
-    adjustedX = position.x - menuWidth + 100; // Align to right edge of button
+    adjustedX = viewportWidth - menuWidth - 20;
+  }
+  if (adjustedX < 20) {
+    adjustedX = 20;
   }
 
   // Adjust vertical position if menu would overflow bottom edge
