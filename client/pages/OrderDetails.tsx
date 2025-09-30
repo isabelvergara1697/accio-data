@@ -18,21 +18,6 @@ type TatSegment = {
   color: string;
 };
 
-type ReportSummarySearchType = {
-  label: string;
-  targetId: string;
-};
-
-type ReportSummaryRow = {
-  namedSearch: string;
-  searchType: ReportSummarySearchType | null;
-  county: string;
-  state: string;
-  searchId: string;
-  documentName: string;
-  researchResult: string;
-};
-
 const OrderDetails: React.FC = () => {
   const { orderId } = useParams<{ orderId: string }>();
   const navigate = useNavigate();
@@ -103,96 +88,6 @@ const OrderDetails: React.FC = () => {
   const [editingNoteId, setEditingNoteId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
   const [hoveredRowIndex, setHoveredRowIndex] = useState<number | null>(null);
-
-  const reportSummaryNamedSearches: string[] = [
-    "Sue Jeans",
-    "Sue Jeans",
-    "Sue Jeans",
-    "Sue Jeans",
-    "Sue DD",
-    "Sue DD",
-    "Sue Jeans",
-    "Sue DD",
-    "Sue DD",
-    "Sue Jeans",
-    "Sue Jeans",
-    "Sue Jeans",
-    "Sue Jeans",
-  ];
-
-  const reportSummarySearchTypes: ReportSummarySearchType[] = [
-    { label: "Subject", targetId: "subject" },
-    { label: "Resume Validation", targetId: "resume-validation" },
-    { label: "Employment at Jerrys", targetId: "employment-at-jerrys-tx" },
-    {
-      label: "Education at Brown Community College",
-      targetId: "education-at-brown-community-college",
-    },
-    { label: "Countywide Criminal History", targetId: "countywide-criminal-history" },
-    { label: "MJD", targetId: "mjd" },
-    { label: "Nationwide Federal Crime", targetId: "nationwide-federal-crime" },
-    { label: "Professional References", targetId: "professional-references" },
-    {
-      label: "Credentials-Professional License #1",
-      targetId: "credentials-professional-license",
-    },
-    { label: "Motor Vehicle Driving History", targetId: "motor-vehicle-driving-history" },
-    { label: "E-Verify", targetId: "e-verify" },
-    { label: "5 Panel", targetId: "five-panels-section" },
-    { label: "CBSV", targetId: "cbsv-section" },
-  ];
-
-  const reportSummaryCounties: string[] = [
-    "Harris",
-    "Harris",
-    "",
-    "",
-    "Bossier",
-    "",
-    "Bossier",
-    "",
-    "",
-    "Bossier",
-    "Bossier",
-    "Bossier",
-    "Bossier",
-  ];
-
-  const reportSummaryStates: string[] = [
-    "Texas",
-    "Texas",
-    "Texas",
-    "Texas",
-    "LA",
-    "Texas",
-    "LA",
-    "Texas",
-    "Texas",
-    "LA",
-    "LA",
-    "LA",
-    "LA",
-  ];
-
-  const reportSummaryDocumentNames: string[] = reportSummaryNamedSearches.map(
-    () => "[File Name]",
-  );
-  const reportSummarySearchIds: string[] = reportSummaryNamedSearches.map(
-    () => "845841254/451254",
-  );
-
-  const reportSummaryRows: ReportSummaryRow[] = reportSummaryNamedSearches.map(
-    (name, index) => ({
-      namedSearch: name,
-      searchType: reportSummarySearchTypes[index] ?? null,
-      county: reportSummaryCounties[index] ?? "",
-      state: reportSummaryStates[index] ?? "",
-      searchId: reportSummarySearchIds[index] ?? "",
-      documentName: reportSummaryDocumentNames[index] ?? "[File Name]",
-      researchResult: "Completed - Verified",
-    }),
-  );
-
   const [documentsExpanded, setDocumentsExpanded] = useState(true);
   const [documentsHoveredRowIndex, setDocumentsHoveredRowIndex] = useState<
     number | null
