@@ -676,6 +676,19 @@ const OrderDetails: React.FC = () => {
     // Here you would typically send the data to your backend
   };
 
+  // Report Visibility handlers
+  const handleAddUser = (userId: string) => {
+    const user = teamMembers.find(member => member.id === userId);
+    if (user && !reportVisibleTo.find(existing => existing.id === userId)) {
+      setReportVisibleTo(prev => [...prev, user]);
+      setSelectedUser("");
+    }
+  };
+
+  const handleRemoveUser = (userId: string) => {
+    setReportVisibleTo(prev => prev.filter(user => user.id !== userId));
+  };
+
   const getUserMenuStyles = () => {
     if (userMenuHovered || userMenuOpen) {
       return {
