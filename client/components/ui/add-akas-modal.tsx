@@ -182,7 +182,7 @@ export default function AddAkasModal({
       className="grid items-center border-b border-[#E9EAEB] bg-white px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.04em] text-[#717680]"
       style={{
         gridTemplateColumns:
-          "minmax(110px, 1fr) minmax(110px, 1fr) 130px minmax(120px, 1fr) minmax(100px, 1fr) minmax(130px, 1fr)",
+          "1.15fr 1.1fr 0.9fr 1.2fr 0.8fr 1fr",
       }}
     >
       {panelColumns.map((column) => (
@@ -200,8 +200,7 @@ export default function AddAkasModal({
           key={aka.id}
           className="grid items-center px-4 py-3 transition-colors hover:bg-[#F5F7FB]"
           style={{
-            gridTemplateColumns:
-              "minmax(110px, 1fr) minmax(110px, 1fr) 130px minmax(120px, 1fr) minmax(100px, 1fr) minmax(130px, 1fr)",
+            gridTemplateColumns: "1.15fr 1.1fr 0.9fr 1.2fr 0.8fr 1fr",
           }}
         >
           <div className="pr-3">
@@ -280,7 +279,7 @@ export default function AddAkasModal({
       onClick={handleBackdropClick}
     >
       <div
-        className="relative flex h-full w-full max-w-[720px] flex-col border-l border-[rgba(0,0,0,0.08)] bg-white shadow-[0_20px_24px_-4px_rgba(10,13,18,0.08),0_8px_8px_-4px_rgba(10,13,18,0.03),0_3px_3px_-1.5px_rgba(10,13,18,0.04)]"
+        className="relative flex h-full w-full max-w-[860px] flex-col border-l border-[rgba(0,0,0,0.08)] bg-white shadow-[0_20px_24px_-4px_rgba(10,13,18,0.08),0_8px_8px_-4px_rgba(10,13,18,0.03),0_3px_3px_-1.5px_rgba(10,13,18,0.04)]"
         onClick={(event) => event.stopPropagation()}
       >
         <header className="flex items-start gap-4 border-b border-[#E9EAEB] px-6 py-6">
