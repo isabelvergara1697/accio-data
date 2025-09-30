@@ -18,6 +18,201 @@ type TatSegment = {
   color: string;
 };
 
+type ReportSummarySearchLink = {
+  label: string;
+  targetId: string;
+};
+
+type ReportSummaryRow = {
+  namedSearch: string;
+  searchType?: ReportSummarySearchLink;
+  county?: string;
+  state?: string;
+  researchResult: string;
+  searchId: string;
+  documentLabel: string;
+};
+
+const REPORT_SUMMARY_GRID_TEMPLATE =
+  "160px 240px 140px 110px 220px 200px 220px 60px";
+
+const REPORT_SUMMARY_HEADER_STYLE: React.CSSProperties = {
+  color: "#717680",
+  fontFamily: "Public Sans",
+  fontSize: "12px",
+  fontStyle: "normal",
+  fontWeight: 600,
+  lineHeight: "18px",
+  position: "relative",
+  whiteSpace: "nowrap",
+};
+
+const REPORT_SUMMARY_TEXT_STYLE: React.CSSProperties = {
+  color: "#181D27",
+  fontFamily: "Public Sans",
+  fontSize: "14px",
+  fontStyle: "normal",
+  fontWeight: 500,
+  lineHeight: "20px",
+  position: "relative",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  whiteSpace: "nowrap",
+};
+
+const REPORT_SUMMARY_LINK_STYLE: React.CSSProperties = {
+  ...REPORT_SUMMARY_TEXT_STYLE,
+  color: "#273572",
+  textDecoration: "underline",
+  display: "flex",
+  alignItems: "center",
+  gap: "4px",
+};
+
+const REPORT_SUMMARY_ROWS: ReportSummaryRow[] = [
+  {
+    namedSearch: "Sue Jeans",
+    searchType: { label: "Subject", targetId: "subject" },
+    county: "Harris",
+    state: "Texas",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451254",
+    documentLabel: "Subject_Profile.pdf",
+  },
+  {
+    namedSearch: "Sue Jeans",
+    searchType: {
+      label: "Resume Validation",
+      targetId: "resume-validation",
+    },
+    county: "Harris",
+    state: "Texas",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451255",
+    documentLabel: "Resume_Submission.pdf",
+  },
+  {
+    namedSearch: "Sue Jeans",
+    searchType: {
+      label: "Employment at Jerrys",
+      targetId: "employment-at-jerrys-tx",
+    },
+    county: "",
+    state: "Texas",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451256",
+    documentLabel: "Employment_Verification.pdf",
+  },
+  {
+    namedSearch: "Sue Jeans",
+    searchType: {
+      label: "Education at Brown Community College",
+      targetId: "education-at-brown-community-college",
+    },
+    county: "",
+    state: "Texas",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451257",
+    documentLabel: "Education_Transcript.pdf",
+  },
+  {
+    namedSearch: "Sue DD",
+    searchType: {
+      label: "Countywide Criminal History",
+      targetId: "countywide-criminal-history",
+    },
+    county: "Bossier",
+    state: "LA",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451258",
+    documentLabel: "Criminal_History_Report.pdf",
+  },
+  {
+    namedSearch: "Sue DD",
+    searchType: { label: "MJD", targetId: "mjd" },
+    county: "",
+    state: "Texas",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451259",
+    documentLabel: "MJD_Process_Record.pdf",
+  },
+  {
+    namedSearch: "Sue Jeans",
+    searchType: {
+      label: "Nationwide Federal Crime",
+      targetId: "nationwide-federal-crime",
+    },
+    county: "Bossier",
+    state: "LA",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451260",
+    documentLabel: "Federal_Crime_Check.pdf",
+  },
+  {
+    namedSearch: "Sue DD",
+    searchType: {
+      label: "Professional References",
+      targetId: "professional-references",
+    },
+    county: "",
+    state: "Texas",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451261",
+    documentLabel: "Professional_References.docx",
+  },
+  {
+    namedSearch: "Sue DD",
+    searchType: {
+      label: "Credentials-Professional License #1",
+      targetId: "credentials-professional-license",
+    },
+    county: "",
+    state: "Texas",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451262",
+    documentLabel: "License_Credential.pdf",
+  },
+  {
+    namedSearch: "Sue Jeans",
+    searchType: {
+      label: "Motor Vehicle Driving History",
+      targetId: "motor-vehicle-driving-history",
+    },
+    county: "Bossier",
+    state: "LA",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451263",
+    documentLabel: "Motor_Vehicle_Record.pdf",
+  },
+  {
+    namedSearch: "Sue Jeans",
+    searchType: { label: "E-Verify", targetId: "e-verify" },
+    county: "Bossier",
+    state: "LA",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451264",
+    documentLabel: "E-Verify_Confirmation.pdf",
+  },
+  {
+    namedSearch: "Sue Jeans",
+    searchType: { label: "5 Panel", targetId: "five-panels-section" },
+    county: "Bossier",
+    state: "LA",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451265",
+    documentLabel: "Drug_Screen_Result.pdf",
+  },
+  {
+    namedSearch: "Sue Jeans",
+    searchType: { label: "CBSV", targetId: "cbsv-section" },
+    county: "Bossier",
+    state: "LA",
+    researchResult: "Completed - Verified",
+    searchId: "845841254/451266",
+    documentLabel: "CBSV_Response.pdf",
+  },
+];
+
 const OrderDetails: React.FC = () => {
   const { orderId } = useParams<{ orderId: string }>();
   const navigate = useNavigate();
@@ -2281,7 +2476,7 @@ const OrderDetails: React.FC = () => {
                           position: "relative",
                         }}
                       >
-                        ⌘K
+                        ���K
                       </div>
                     </div>
                   </div>
