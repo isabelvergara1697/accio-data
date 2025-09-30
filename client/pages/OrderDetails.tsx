@@ -2889,6 +2889,7 @@ const OrderDetails: React.FC = () => {
                 alignSelf: "stretch",
                 position: "relative",
               }}
+              className="page-header-container-order"
             >
               <div
                 style={{
