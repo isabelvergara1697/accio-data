@@ -735,7 +735,9 @@ const OrderDetails: React.FC = () => {
       const maxX = viewportWidth ? viewportWidth - menuWidth - 16 : rect.left;
 
       let xPosition = rect.right - menuWidth;
-      if (viewportWidth) {
+      if (isSticky && viewportWidth) {
+        xPosition = 16;
+      } else if (viewportWidth) {
         xPosition = Math.max(minX, Math.min(xPosition, maxX));
       }
 
