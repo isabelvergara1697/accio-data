@@ -132,9 +132,13 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
 
   let adjustedX = position.x;
   if (viewportWidth) {
-    const maxLeft = viewportWidth - menuWidth - 16;
-    adjustedX = Math.min(adjustedX, Math.max(16, maxLeft));
-    adjustedX = Math.max(16, adjustedX);
+    if (showMobileStickyButtons) {
+      adjustedX = 16;
+    } else {
+      const maxLeft = viewportWidth - menuWidth - 16;
+      adjustedX = Math.min(adjustedX, Math.max(16, maxLeft));
+      adjustedX = Math.max(16, adjustedX);
+    }
   }
 
   let adjustedY = position.y + 8;
