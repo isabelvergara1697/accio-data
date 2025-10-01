@@ -10,7 +10,7 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue
+  SelectValue,
 } from "../components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { MoreActionsSubmenu } from "../components/ui/more-actions-submenu";
@@ -359,11 +359,13 @@ const OrderDetails: React.FC = () => {
 
   // Report Visibility state
   const [selectedUser, setSelectedUser] = useState<string>("");
-  const [reportVisibleTo, setReportVisibleTo] = useState<Array<{
-    id: string;
-    name: string;
-    avatar?: string;
-  }>>([
+  const [reportVisibleTo, setReportVisibleTo] = useState<
+    Array<{
+      id: string;
+      name: string;
+      avatar?: string;
+    }>
+  >([
     { id: "1", name: "John Doe", avatar: "/placeholder-avatar-1.jpg" },
     { id: "2", name: "Jane Smith", avatar: "/placeholder-avatar-2.jpg" },
   ]);
@@ -381,7 +383,10 @@ const OrderDetails: React.FC = () => {
 
   // More Actions submenu state
   const [moreActionsOpen, setMoreActionsOpen] = useState(false);
-  const [moreActionsPosition, setMoreActionsPosition] = useState({ x: 0, y: 0 });
+  const [moreActionsPosition, setMoreActionsPosition] = useState({
+    x: 0,
+    y: 0,
+  });
   const moreActionsRef = useRef<HTMLButtonElement | null>(null);
   const stickyMoreActionsRef = useRef<HTMLButtonElement | null>(null);
 
@@ -642,36 +647,37 @@ const OrderDetails: React.FC = () => {
   }, []);
 
   // Measure sticky header height to offset content when active
-useEffect(() => {
-  const updateHeight = () => {
-    if (stickyHeaderRef.current) {
-      setStickyHeight(stickyHeaderRef.current.offsetHeight);
+  useEffect(() => {
+    const updateHeight = () => {
+      if (stickyHeaderRef.current) {
+        setStickyHeight(stickyHeaderRef.current.offsetHeight);
+      }
+    };
+    if (showStickyHeader) {
+      updateHeight();
+      window.addEventListener("resize", updateHeight);
     }
-  };
-  if (showStickyHeader) {
-    updateHeight();
-    window.addEventListener("resize", updateHeight);
-  }
-  return () => window.removeEventListener("resize", updateHeight);
-}, [showStickyHeader]);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, [showStickyHeader]);
 
-// Measure mobile/tablet header height for layout offsets
-useLayoutEffect(() => {
-  const updateMobileHeaderHeight = () => {
-    if (mobileHeaderRef.current) {
-      const nextHeight = mobileHeaderRef.current.getBoundingClientRect().height;
-      setMobileHeaderHeight((prev) =>
-        Math.abs(prev - nextHeight) > 0.5 ? nextHeight : prev,
-      );
-    }
-  };
-  updateMobileHeaderHeight();
-  window.addEventListener("resize", updateMobileHeaderHeight);
-  return () => window.removeEventListener("resize", updateMobileHeaderHeight);
-}, [isDesktop, isMobile, showMobileUserMenu]);
+  // Measure mobile/tablet header height for layout offsets
+  useLayoutEffect(() => {
+    const updateMobileHeaderHeight = () => {
+      if (mobileHeaderRef.current) {
+        const nextHeight =
+          mobileHeaderRef.current.getBoundingClientRect().height;
+        setMobileHeaderHeight((prev) =>
+          Math.abs(prev - nextHeight) > 0.5 ? nextHeight : prev,
+        );
+      }
+    };
+    updateMobileHeaderHeight();
+    window.addEventListener("resize", updateMobileHeaderHeight);
+    return () => window.removeEventListener("resize", updateMobileHeaderHeight);
+  }, [isDesktop, isMobile, showMobileUserMenu]);
 
-// Measure sticky navigation height
-useEffect(() => {
+  // Measure sticky navigation height
+  useEffect(() => {
     const updateNavHeight = () => {
       if (stickyNavigationRef.current) {
         setStickyNavHeight(stickyNavigationRef.current.offsetHeight);
@@ -705,15 +711,15 @@ useEffect(() => {
 
   // Report Visibility handlers
   const handleAddUser = (userId: string) => {
-    const user = teamMembers.find(member => member.id === userId);
-    if (user && !reportVisibleTo.find(existing => existing.id === userId)) {
-      setReportVisibleTo(prev => [...prev, user]);
+    const user = teamMembers.find((member) => member.id === userId);
+    if (user && !reportVisibleTo.find((existing) => existing.id === userId)) {
+      setReportVisibleTo((prev) => [...prev, user]);
       setSelectedUser("");
     }
   };
 
   const handleRemoveUser = (userId: string) => {
-    setReportVisibleTo(prev => prev.filter(user => user.id !== userId));
+    setReportVisibleTo((prev) => prev.filter((user) => user.id !== userId));
   };
 
   // More Actions handlers
@@ -721,7 +727,8 @@ useEffect(() => {
     const buttonRef = isSticky ? stickyMoreActionsRef : moreActionsRef;
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
-      const viewportWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+      const viewportWidth =
+        typeof window !== "undefined" ? window.innerWidth : 0;
       const menuWidth = viewportWidth ? Math.min(350, viewportWidth - 32) : 350;
       const minX = 16;
       const maxX = viewportWidth ? viewportWidth - menuWidth - 16 : rect.left;
@@ -733,7 +740,7 @@ useEffect(() => {
 
       setMoreActionsPosition({
         x: xPosition,
-        y: rect.bottom
+        y: rect.bottom,
       });
       setMoreActionsOpen(true);
     }
@@ -2982,32 +2989,32 @@ useEffect(() => {
                       </div>
                       <div
                         style={{
-                      display: "flex",
-                      padding: "4px 12px",
-                      alignItems: "center",
-                      borderRadius: "9999px",
-                      border: "1px solid #ABEFC6",
-                      background: "#ECFDF3",
-                      position: "relative",
-                      maxWidth: "100%",
-                      minWidth: 0,
-                    }}
+                          display: "flex",
+                          padding: "4px 12px",
+                          alignItems: "center",
+                          borderRadius: "9999px",
+                          border: "1px solid #ABEFC6",
+                          background: "#ECFDF3",
+                          position: "relative",
+                          maxWidth: "100%",
+                          minWidth: 0,
+                        }}
                       >
                         <div
                           style={{
-                        color: "#067647",
-                        textAlign: "center",
-                        fontFamily: "Public Sans",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 500,
-                        lineHeight: "20px",
-                        position: "relative",
-                        whiteSpace: "nowrap",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        maxWidth: "100%",
-                      }}
+                            color: "#067647",
+                            textAlign: "center",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontStyle: "normal",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                            position: "relative",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            maxWidth: "100%",
+                          }}
                         >
                           Meets Hiring Requirements
                         </div>
@@ -6319,14 +6326,22 @@ useEffect(() => {
                         </SelectTrigger>
                         <SelectContent>
                           {teamMembers
-                            .filter(member => !reportVisibleTo.find(existing => existing.id === member.id))
+                            .filter(
+                              (member) =>
+                                !reportVisibleTo.find(
+                                  (existing) => existing.id === member.id,
+                                ),
+                            )
                             .map((member) => (
                               <SelectItem key={member.id} value={member.id}>
                                 <div className="flex items-center gap-2">
                                   <Avatar className="h-4 w-4">
                                     <AvatarImage src={member.avatar} />
                                     <AvatarFallback className="text-xs">
-                                      {member.name.split(' ').map(n => n[0]).join('')}
+                                      {member.name
+                                        .split(" ")
+                                        .map((n) => n[0])
+                                        .join("")}
                                     </AvatarFallback>
                                   </Avatar>
                                   {member.name}
@@ -6361,7 +6376,10 @@ useEffect(() => {
                               <Avatar className="h-4 w-4 border border-[rgba(0,0,0,0.1)]">
                                 <AvatarImage src={user.avatar} />
                                 <AvatarFallback className="text-xs">
-                                  {user.name.split(' ').map(n => n[0]).join('')}
+                                  {user.name
+                                    .split(" ")
+                                    .map((n) => n[0])
+                                    .join("")}
                                 </AvatarFallback>
                               </Avatar>
                               <span
@@ -6842,13 +6860,19 @@ useEffect(() => {
                             <div style={REPORT_SUMMARY_HEADER_STYLE}>
                               Search Type
                             </div>
-                            <div style={REPORT_SUMMARY_HEADER_STYLE}>County</div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>
+                              County
+                            </div>
                             <div style={REPORT_SUMMARY_HEADER_STYLE}>State</div>
                             <div style={REPORT_SUMMARY_HEADER_STYLE}>
                               Research Results
                             </div>
-                            <div style={REPORT_SUMMARY_HEADER_STYLE}>Search ID</div>
-                            <div style={REPORT_SUMMARY_HEADER_STYLE}>Documents</div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>
+                              Search ID
+                            </div>
+                            <div style={REPORT_SUMMARY_HEADER_STYLE}>
+                              Documents
+                            </div>
                             <div
                               style={{
                                 ...REPORT_SUMMARY_HEADER_STYLE,
@@ -6861,7 +6885,8 @@ useEffect(() => {
 
                           {REPORT_SUMMARY_ROWS.map((row, index) => {
                             const isHovered = hoveredRowIndex === index;
-                            const isLastRow = index === REPORT_SUMMARY_ROWS.length - 1;
+                            const isLastRow =
+                              index === REPORT_SUMMARY_ROWS.length - 1;
 
                             return (
                               <div
@@ -6870,14 +6895,17 @@ useEffect(() => {
                                 onMouseLeave={() => setHoveredRowIndex(null)}
                                 style={{
                                   display: "grid",
-                                  gridTemplateColumns: REPORT_SUMMARY_GRID_TEMPLATE,
+                                  gridTemplateColumns:
+                                    REPORT_SUMMARY_GRID_TEMPLATE,
                                   alignItems: "center",
                                   padding: "12px",
                                   gap: "12px",
                                   borderBottom: isLastRow
                                     ? "none"
                                     : "1px solid #E9EAEB",
-                                  background: isHovered ? "#F5F5F5" : "transparent",
+                                  background: isHovered
+                                    ? "#F5F5F5"
+                                    : "transparent",
                                   transition: "background-color 0.2s ease",
                                 }}
                               >
@@ -7274,47 +7302,150 @@ useEffect(() => {
                               width: "max-content",
                             }}
                           >
-                          {/* Document Name Column */}
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              flex: "1 0 0",
-                              position: "relative",
-                            }}
-                          >
-                            {/* Header */}
+                            {/* Document Name Column */}
                             <div
                               style={{
                                 display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
                                 position: "relative",
                               }}
                             >
+                              {/* Header */}
                               <div
                                 style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "6px 12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
                                   position: "relative",
                                 }}
                               >
-                                Document Name
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Document Name
+                                </div>
                               </div>
+                              {/* Data rows */}
+                              {["SSA-89", "Resume", "Resume"].map(
+                                (docName, index) => (
+                                  <div
+                                    key={index}
+                                    onMouseEnter={() =>
+                                      setDocumentsHoveredRowIndex(index)
+                                    }
+                                    onMouseLeave={() =>
+                                      setDocumentsHoveredRowIndex(null)
+                                    }
+                                    style={{
+                                      display: "flex",
+                                      height: "36px",
+                                      padding: "12px",
+                                      alignItems: "center",
+                                      gap: "8px",
+                                      alignSelf: "stretch",
+                                      borderBottom: "1px solid #E9EAEB",
+                                      background:
+                                        documentsHoveredRowIndex === index
+                                          ? "#F5F5F5"
+                                          : "transparent",
+                                      position: "relative",
+                                      cursor: "pointer",
+                                      transition: "background-color 0.2s ease",
+                                    }}
+                                  >
+                                    <button
+                                      style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        background: "transparent",
+                                        border: "none",
+                                        cursor: "pointer",
+                                        position: "relative",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          color:
+                                            index === 0 ? "#273572" : "#181D27",
+                                          fontFamily: "Public Sans",
+                                          fontSize: "14px",
+                                          fontStyle: "normal",
+                                          fontWeight: index === 0 ? 600 : 500,
+                                          lineHeight: "20px",
+                                          textDecoration:
+                                            index === 0 ? "underline" : "none",
+                                          position: "relative",
+                                        }}
+                                      >
+                                        {docName}
+                                      </div>
+                                    </button>
+                                  </div>
+                                ),
+                              )}
                             </div>
-                            {/* Data rows */}
-                            {["SSA-89", "Resume", "Resume"].map(
-                              (docName, index) => (
+
+                            {/* Documents Column */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Header */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "6px 12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Documents
+                                </div>
+                              </div>
+                              {/* Data rows */}
+                              {[
+                                "Click to Upload",
+                                "Click to Upload",
+                                "Click to Upload",
+                              ].map((action, index) => (
                                 <div
                                   key={index}
                                   onMouseEnter={() =>
@@ -7341,6 +7472,17 @@ useEffect(() => {
                                   }}
                                 >
                                   <button
+                                    onClick={() => {
+                                      const fileNames = [
+                                        "SSA-89",
+                                        "Resume",
+                                        "Resume",
+                                      ];
+                                      setUploadFileName(
+                                        fileNames[index] || "Document",
+                                      );
+                                      setUploadModalOpen(true);
+                                    }}
                                     style={{
                                       display: "flex",
                                       justifyContent: "center",
@@ -7354,133 +7496,25 @@ useEffect(() => {
                                   >
                                     <div
                                       style={{
-                                        color:
-                                          index === 0 ? "#273572" : "#181D27",
+                                        color: "#273572",
                                         fontFamily: "Public Sans",
                                         fontSize: "14px",
                                         fontStyle: "normal",
-                                        fontWeight: index === 0 ? 600 : 500,
+                                        fontWeight: 600,
                                         lineHeight: "20px",
-                                        textDecoration:
-                                          index === 0 ? "underline" : "none",
+                                        textDecoration: "underline",
                                         position: "relative",
                                       }}
                                     >
-                                      {docName}
+                                      {action}
                                     </div>
                                   </button>
                                 </div>
-                              ),
-                            )}
-                          </div>
-
-                          {/* Documents Column */}
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              flex: "1 0 0",
-                              position: "relative",
-                            }}
-                          >
-                            {/* Header */}
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
-                                  position: "relative",
-                                }}
-                              >
-                                Documents
-                              </div>
+                              ))}
                             </div>
-                            {/* Data rows */}
-                            {[
-                              "Click to Upload",
-                              "Click to Upload",
-                              "Click to Upload",
-                            ].map((action, index) => (
-                              <div
-                                key={index}
-                                onMouseEnter={() =>
-                                  setDocumentsHoveredRowIndex(index)
-                                }
-                                onMouseLeave={() =>
-                                  setDocumentsHoveredRowIndex(null)
-                                }
-                                style={{
-                                  display: "flex",
-                                  height: "36px",
-                                  padding: "12px",
-                                  alignItems: "center",
-                                  gap: "8px",
-                                  alignSelf: "stretch",
-                                  borderBottom: "1px solid #E9EAEB",
-                                  background:
-                                    documentsHoveredRowIndex === index
-                                      ? "#F5F5F5"
-                                      : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <button
-                                  onClick={() => {
-                                    const fileNames = ["SSA-89", "Resume", "Resume"];
-                                    setUploadFileName(fileNames[index] || "Document");
-                                    setUploadModalOpen(true);
-                                  }}
-                                  style={{
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    gap: "4px",
-                                    background: "transparent",
-                                    border: "none",
-                                    cursor: "pointer",
-                                    position: "relative",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      color: "#273572",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontStyle: "normal",
-                                      fontWeight: 600,
-                                      lineHeight: "20px",
-                                      textDecoration: "underline",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    {action}
-                                  </div>
-                                </button>
-                              </div>
-                            ))}
                           </div>
                         </div>
                       </div>
-                    </div>
 
                       {/* Attached Documents Section */}
                       <div
@@ -7575,245 +7609,54 @@ useEffect(() => {
                               width: "max-content",
                             }}
                           >
-                          {/* Document Name Column */}
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              flex: "1 0 0",
-                              position: "relative",
-                            }}
-                          >
-                            {/* Header */}
+                            {/* Document Name Column */}
                             <div
                               style={{
                                 display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
                                 position: "relative",
                               }}
                             >
+                              {/* Header */}
                               <div
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
-                                  position: "relative",
-                                }}
-                              >
-                                Document Name
-                              </div>
-                            </div>
-                            {/* Data rows */}
-                            {[
-                              "Applicant Release All",
-                              "Background Check Disclosure All",
-                              "Complete the fillable Form All",
-                              "Download Sign and upload all",
-                              "Driver's License",
-                            ].map((docName, index) => (
-                              <div
-                                key={index + 100} // offset to avoid conflicts with pending docs
-                                onMouseEnter={() =>
-                                  setDocumentsHoveredRowIndex(index + 100)
-                                }
-                                onMouseLeave={() =>
-                                  setDocumentsHoveredRowIndex(null)
-                                }
                                 style={{
                                   display: "flex",
                                   height: "36px",
-                                  padding: "12px",
+                                  padding: "6px 12px",
                                   alignItems: "center",
-                                  gap: "8px",
+                                  gap: "12px",
                                   alignSelf: "stretch",
                                   borderBottom: "1px solid #E9EAEB",
-                                  background:
-                                    documentsHoveredRowIndex === index + 100
-                                      ? "#F5F5F5"
-                                      : "transparent",
-                                  position: "relative",
-                                  cursor: "pointer",
-                                  transition: "background-color 0.2s ease",
-                                }}
-                              >
-                                <button
-                                  style={{
-                                    display: "flex",
-                                    justifyContent: "flex-start",
-                                    alignItems: "center",
-                                    gap: "4px",
-                                    background: "transparent",
-                                    border: "none",
-                                    cursor: "pointer",
-                                    position: "relative",
-                                    width: "100%",
-                                    flex: "1 0 0",
-                                    textAlign: "left",
-                                  }}
-                                >
-                                  <div
-                                    style={{
-                                      display: "-webkit-box",
-                                      WebkitBoxOrient: "vertical",
-                                      WebkitLineClamp: 1,
-                                      flex: "1 0 0",
-                                      overflow: "hidden",
-                                      color: "#273572",
-                                      textOverflow: "ellipsis",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontStyle: "normal",
-                                      fontWeight: 600,
-                                      lineHeight: "20px",
-                                      textDecoration: "underline",
-                                      position: "relative",
-                                      textAlign: "left",
-                                    }}
-                                    title={docName}
-                                  >
-                                    {docName}
-                                  </div>
-                                </button>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Date Uploaded Column */}
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              position: "relative",
-                            }}
-                          >
-                            {/* Header */}
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
+                                  background: "#FFF",
                                   position: "relative",
                                 }}
                               >
-                                Date Uploaded
-                              </div>
-                            </div>
-                            {/* Data rows */}
-                            {Array(5)
-                              .fill("2025-04-30 11:12:39")
-                              .map((date, index) => (
                                 <div
-                                  key={index + 100}
-                                  onMouseEnter={() =>
-                                    setDocumentsHoveredRowIndex(index + 100)
-                                  }
-                                  onMouseLeave={() =>
-                                    setDocumentsHoveredRowIndex(null)
-                                  }
                                   style={{
-                                    display: "flex",
-                                    height: "36px",
-                                    padding: "12px",
-                                    alignItems: "center",
-                                    alignSelf: "stretch",
-                                    borderBottom: "1px solid #E9EAEB",
-                                    background:
-                                      documentsHoveredRowIndex === index + 100
-                                        ? "#F5F5F5"
-                                        : "transparent",
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
                                     position: "relative",
-                                    cursor: "pointer",
-                                    transition: "background-color 0.2s ease",
                                   }}
                                 >
-                                  <div
-                                    style={{
-                                      color: "#181D27",
-                                      fontFamily: "Public Sans",
-                                      fontSize: "14px",
-                                      fontStyle: "normal",
-                                      fontWeight: 500,
-                                      lineHeight: "20px",
-                                      position: "relative",
-                                    }}
-                                  >
-                                    {date}
-                                  </div>
+                                  Document Name
                                 </div>
-                              ))}
-                          </div>
-
-                          {/* Documents Column (Actions) */}
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "flex-start",
-                              flex: "1 0 0",
-                              position: "relative",
-                            }}
-                          >
-                            {/* Header */}
-                            <div
-                              style={{
-                                display: "flex",
-                                height: "36px",
-                                padding: "6px 12px",
-                                alignItems: "center",
-                                gap: "12px",
-                                alignSelf: "stretch",
-                                borderBottom: "1px solid #E9EAEB",
-                                background: "#FFF",
-                                position: "relative",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  color: "#717680",
-                                  fontFamily: "Public Sans",
-                                  fontSize: "12px",
-                                  fontStyle: "normal",
-                                  fontWeight: 600,
-                                  lineHeight: "18px",
-                                  position: "relative",
-                                }}
-                              >
-                                Documents
                               </div>
-                            </div>
-                            {/* Data rows */}
-                            {Array(5)
-                              .fill(["Edit", "Delete", "Fax Document"])
-                              .map((actions, index) => (
+                              {/* Data rows */}
+                              {[
+                                "Applicant Release All",
+                                "Background Check Disclosure All",
+                                "Complete the fillable Form All",
+                                "Download Sign and upload all",
+                                "Driver's License",
+                              ].map((docName, index) => (
                                 <div
-                                  key={index + 100}
+                                  key={index + 100} // offset to avoid conflicts with pending docs
                                   onMouseEnter={() =>
                                     setDocumentsHoveredRowIndex(index + 100)
                                   }
@@ -7837,43 +7680,234 @@ useEffect(() => {
                                     transition: "background-color 0.2s ease",
                                   }}
                                 >
-                                  {actions.map((action, actionIndex) => (
-                                    <button
-                                      key={actionIndex}
+                                  <button
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "flex-start",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      background: "transparent",
+                                      border: "none",
+                                      cursor: "pointer",
+                                      position: "relative",
+                                      width: "100%",
+                                      flex: "1 0 0",
+                                      textAlign: "left",
+                                    }}
+                                  >
+                                    <div
                                       style={{
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        gap: "4px",
-                                        background: "transparent",
-                                        border: "none",
-                                        cursor: "pointer",
+                                        display: "-webkit-box",
+                                        WebkitBoxOrient: "vertical",
+                                        WebkitLineClamp: 1,
+                                        flex: "1 0 0",
+                                        overflow: "hidden",
+                                        color: "#273572",
+                                        textOverflow: "ellipsis",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 600,
+                                        lineHeight: "20px",
+                                        textDecoration: "underline",
+                                        position: "relative",
+                                        textAlign: "left",
+                                      }}
+                                      title={docName}
+                                    >
+                                      {docName}
+                                    </div>
+                                  </button>
+                                </div>
+                              ))}
+                            </div>
+
+                            {/* Date Uploaded Column */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Header */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "6px 12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Date Uploaded
+                                </div>
+                              </div>
+                              {/* Data rows */}
+                              {Array(5)
+                                .fill("2025-04-30 11:12:39")
+                                .map((date, index) => (
+                                  <div
+                                    key={index + 100}
+                                    onMouseEnter={() =>
+                                      setDocumentsHoveredRowIndex(index + 100)
+                                    }
+                                    onMouseLeave={() =>
+                                      setDocumentsHoveredRowIndex(null)
+                                    }
+                                    style={{
+                                      display: "flex",
+                                      height: "36px",
+                                      padding: "12px",
+                                      alignItems: "center",
+                                      alignSelf: "stretch",
+                                      borderBottom: "1px solid #E9EAEB",
+                                      background:
+                                        documentsHoveredRowIndex === index + 100
+                                          ? "#F5F5F5"
+                                          : "transparent",
+                                      position: "relative",
+                                      cursor: "pointer",
+                                      transition: "background-color 0.2s ease",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        color: "#181D27",
+                                        fontFamily: "Public Sans",
+                                        fontSize: "14px",
+                                        fontStyle: "normal",
+                                        fontWeight: 500,
+                                        lineHeight: "20px",
                                         position: "relative",
                                       }}
                                     >
-                                      <div
+                                      {date}
+                                    </div>
+                                  </div>
+                                ))}
+                            </div>
+
+                            {/* Documents Column (Actions) */}
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                                position: "relative",
+                              }}
+                            >
+                              {/* Header */}
+                              <div
+                                style={{
+                                  display: "flex",
+                                  height: "36px",
+                                  padding: "6px 12px",
+                                  alignItems: "center",
+                                  gap: "12px",
+                                  alignSelf: "stretch",
+                                  borderBottom: "1px solid #E9EAEB",
+                                  background: "#FFF",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    color: "#717680",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "12px",
+                                    fontStyle: "normal",
+                                    fontWeight: 600,
+                                    lineHeight: "18px",
+                                    position: "relative",
+                                  }}
+                                >
+                                  Documents
+                                </div>
+                              </div>
+                              {/* Data rows */}
+                              {Array(5)
+                                .fill(["Edit", "Delete", "Fax Document"])
+                                .map((actions, index) => (
+                                  <div
+                                    key={index + 100}
+                                    onMouseEnter={() =>
+                                      setDocumentsHoveredRowIndex(index + 100)
+                                    }
+                                    onMouseLeave={() =>
+                                      setDocumentsHoveredRowIndex(null)
+                                    }
+                                    style={{
+                                      display: "flex",
+                                      height: "36px",
+                                      padding: "12px",
+                                      alignItems: "center",
+                                      gap: "8px",
+                                      alignSelf: "stretch",
+                                      borderBottom: "1px solid #E9EAEB",
+                                      background:
+                                        documentsHoveredRowIndex === index + 100
+                                          ? "#F5F5F5"
+                                          : "transparent",
+                                      position: "relative",
+                                      cursor: "pointer",
+                                      transition: "background-color 0.2s ease",
+                                    }}
+                                  >
+                                    {actions.map((action, actionIndex) => (
+                                      <button
+                                        key={actionIndex}
                                         style={{
-                                          color: "#273572",
-                                          fontFamily: "Public Sans",
-                                          fontSize: "14px",
-                                          fontStyle: "normal",
-                                          fontWeight: 600,
-                                          lineHeight: "20px",
-                                          textDecoration: "underline",
+                                          display: "flex",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          gap: "4px",
+                                          background: "transparent",
+                                          border: "none",
+                                          cursor: "pointer",
                                           position: "relative",
                                         }}
                                       >
-                                        {action}
-                                      </div>
-                                    </button>
-                                  ))}
-                                </div>
-                              ))}
+                                        <div
+                                          style={{
+                                            color: "#273572",
+                                            fontFamily: "Public Sans",
+                                            fontSize: "14px",
+                                            fontStyle: "normal",
+                                            fontWeight: 600,
+                                            lineHeight: "20px",
+                                            textDecoration: "underline",
+                                            position: "relative",
+                                          }}
+                                        >
+                                          {action}
+                                        </div>
+                                      </button>
+                                    ))}
+                                  </div>
+                                ))}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   )}
                 </div>
 
@@ -9940,32 +9974,32 @@ useEffect(() => {
                               {status && (
                                 <div
                                   style={{
-                                  display: "flex",
-                                  padding: "2px 8px",
-                                  alignItems: "center",
-                                  borderRadius: "9999px",
-                                  border: "1px solid #ABEFC6",
-                                  background: "#ECFDF3",
-                                  position: "relative",
-                                  maxWidth: "100%",
-                                  minWidth: 0,
-                                }}
+                                    display: "flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: "1px solid #ABEFC6",
+                                    background: "#ECFDF3",
+                                    position: "relative",
+                                    maxWidth: "100%",
+                                    minWidth: 0,
+                                  }}
                                 >
                                   <div
                                     style={{
-                                    color: "#067647",
-                                    textAlign: "center",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "12px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "18px",
-                                    position: "relative",
-                                    whiteSpace: "nowrap",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    maxWidth: "100%",
-                                  }}
+                                      color: "#067647",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                      position: "relative",
+                                      whiteSpace: "nowrap",
+                                      overflow: "hidden",
+                                      textOverflow: "ellipsis",
+                                      maxWidth: "100%",
+                                    }}
                                   >
                                     {status}
                                   </div>
@@ -10717,32 +10751,32 @@ useEffect(() => {
                               {status && (
                                 <div
                                   style={{
-                                  display: "flex",
-                                  padding: "2px 8px",
-                                  alignItems: "center",
-                                  borderRadius: "9999px",
-                                  border: "1px solid #ABEFC6",
-                                  background: "#ECFDF3",
-                                  position: "relative",
-                                  maxWidth: "100%",
-                                  minWidth: 0,
-                                }}
+                                    display: "flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: "1px solid #ABEFC6",
+                                    background: "#ECFDF3",
+                                    position: "relative",
+                                    maxWidth: "100%",
+                                    minWidth: 0,
+                                  }}
                                 >
                                   <div
                                     style={{
-                                    color: "#067647",
-                                    textAlign: "center",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "12px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "18px",
-                                    position: "relative",
-                                    whiteSpace: "nowrap",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    maxWidth: "100%",
-                                  }}
+                                      color: "#067647",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                      position: "relative",
+                                      whiteSpace: "nowrap",
+                                      overflow: "hidden",
+                                      textOverflow: "ellipsis",
+                                      maxWidth: "100%",
+                                    }}
                                   >
                                     {status}
                                   </div>
@@ -14050,32 +14084,32 @@ useEffect(() => {
                               {status && (
                                 <div
                                   style={{
-                                  display: "flex",
-                                  padding: "2px 8px",
-                                  alignItems: "center",
-                                  borderRadius: "9999px",
-                                  border: "1px solid #ABEFC6",
-                                  background: "#ECFDF3",
-                                  position: "relative",
-                                  maxWidth: "100%",
-                                  minWidth: 0,
-                                }}
+                                    display: "flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: "1px solid #ABEFC6",
+                                    background: "#ECFDF3",
+                                    position: "relative",
+                                    maxWidth: "100%",
+                                    minWidth: 0,
+                                  }}
                                 >
                                   <div
                                     style={{
-                                    color: "#067647",
-                                    textAlign: "center",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "12px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "18px",
-                                    position: "relative",
-                                    whiteSpace: "nowrap",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    maxWidth: "100%",
-                                  }}
+                                      color: "#067647",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                      position: "relative",
+                                      whiteSpace: "nowrap",
+                                      overflow: "hidden",
+                                      textOverflow: "ellipsis",
+                                      maxWidth: "100%",
+                                    }}
                                   >
                                     {status}
                                   </div>
@@ -14705,32 +14739,32 @@ useEffect(() => {
                               {status && (
                                 <div
                                   style={{
-                                  display: "flex",
-                                  padding: "2px 8px",
-                                  alignItems: "center",
-                                  borderRadius: "9999px",
-                                  border: "1px solid #ABEFC6",
-                                  background: "#ECFDF3",
-                                  position: "relative",
-                                  maxWidth: "100%",
-                                  minWidth: 0,
-                                }}
+                                    display: "flex",
+                                    padding: "2px 8px",
+                                    alignItems: "center",
+                                    borderRadius: "9999px",
+                                    border: "1px solid #ABEFC6",
+                                    background: "#ECFDF3",
+                                    position: "relative",
+                                    maxWidth: "100%",
+                                    minWidth: 0,
+                                  }}
                                 >
                                   <div
                                     style={{
-                                    color: "#067647",
-                                    textAlign: "center",
-                                    fontFamily: "Public Sans",
-                                    fontSize: "12px",
-                                    fontStyle: "normal",
-                                    fontWeight: 500,
-                                    lineHeight: "18px",
-                                    position: "relative",
-                                    whiteSpace: "nowrap",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    maxWidth: "100%",
-                                  }}
+                                      color: "#067647",
+                                      textAlign: "center",
+                                      fontFamily: "Public Sans",
+                                      fontSize: "12px",
+                                      fontStyle: "normal",
+                                      fontWeight: 500,
+                                      lineHeight: "18px",
+                                      position: "relative",
+                                      whiteSpace: "nowrap",
+                                      overflow: "hidden",
+                                      textOverflow: "ellipsis",
+                                      maxWidth: "100%",
+                                    }}
                                   >
                                     {status}
                                   </div>
@@ -23627,9 +23661,12 @@ useEffect(() => {
                 alignItems: "center",
                 flex: "1 0 0",
                 alignSelf: "stretch",
-                borderLeft: isDesktop ? "1px solid rgba(0, 0, 0, 0.08)" : "none",
+                borderLeft: isDesktop
+                  ? "1px solid rgba(0, 0, 0, 0.08)"
+                  : "none",
                 background: "#FFF",
-                boxShadow: "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
+                boxShadow:
+                  "0 20px 24px -4px rgba(10, 13, 18, 0.08), 0 8px 8px -4px rgba(10, 13, 18, 0.03), 0 3px 3px -1.5px rgba(10, 13, 18, 0.04)",
                 position: "relative",
               }}
             >
@@ -23724,7 +23761,8 @@ useEffect(() => {
                         wordWrap: "break-word",
                       }}
                     >
-                      Upload a clear copy of {uploadFileName}. Make sure all information is visible and the file is not blurry.
+                      Upload a clear copy of {uploadFileName}. Make sure all
+                      information is visible and the file is not blurry.
                     </div>
                   </div>
                 </div>
@@ -24110,7 +24148,8 @@ useEffect(() => {
                             flexShrink: 0,
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.background = "rgba(0, 0, 0, 0.05)";
+                            e.currentTarget.style.background =
+                              "rgba(0, 0, 0, 0.05)";
                           }}
                           onMouseLeave={(e) => {
                             e.currentTarget.style.background = "transparent";
@@ -24173,7 +24212,8 @@ useEffect(() => {
                         borderRadius: "8px",
                         border: "2px solid rgba(255, 255, 255, 0.12)",
                         background: "#344698",
-                        boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                         cursor: "pointer",
                         position: "relative",
                       }}

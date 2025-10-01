@@ -452,12 +452,24 @@
     }
 
     /* Explicit mobile grid row ordering helpers */
-    .mobile-grid-row-1 { grid-row: 1 !important; }
-    .mobile-grid-row-2 { grid-row: 2 !important; }
-    .mobile-grid-row-3 { grid-row: 3 !important; }
-    .mobile-grid-row-4 { grid-row: 4 !important; }
-    .mobile-grid-row-5 { grid-row: 5 !important; }
-    .mobile-grid-row-6 { grid-row: 6 !important; }
+    .mobile-grid-row-1 {
+      grid-row: 1 !important;
+    }
+    .mobile-grid-row-2 {
+      grid-row: 2 !important;
+    }
+    .mobile-grid-row-3 {
+      grid-row: 3 !important;
+    }
+    .mobile-grid-row-4 {
+      grid-row: 4 !important;
+    }
+    .mobile-grid-row-5 {
+      grid-row: 5 !important;
+    }
+    .mobile-grid-row-6 {
+      grid-row: 6 !important;
+    }
   }
 
   /* Global page title responsive styling */
@@ -639,8 +651,13 @@
 
   /* Order Details Header Responsive Styles */
   .order-title {
-    font-family: "Public Sans", -apple-system, Roboto, Helvetica, sans-serif !important;
-    color: #181D27 !important;
+    font-family:
+      "Public Sans",
+      -apple-system,
+      Roboto,
+      Helvetica,
+      sans-serif !important;
+    color: #181d27 !important;
     font-style: normal !important;
     font-weight: 600 !important;
 
@@ -703,8 +720,8 @@
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    background: #FFF !important;
-    border-bottom: 1px solid #E9EAEB !important;
+    background: #fff !important;
+    border-bottom: 1px solid #e9eaeb !important;
     box-shadow: 0 1px 2px 0 rgba(10, 13, 18, 0.05) !important;
 
     /* Desktop padding and gap */
