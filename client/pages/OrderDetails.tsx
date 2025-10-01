@@ -930,6 +930,7 @@ useEffect(() => {
               handleSignOut={handleSignOut}
               getUserMenuStyles={getUserMenuStyles}
               showMobileUserMenu={showMobileUserMenu}
+              headerRef={mobileHeaderRef}
             />
           </>
         )}
