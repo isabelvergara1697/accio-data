@@ -640,21 +640,36 @@ const OrderDetails: React.FC = () => {
   }, []);
 
   // Measure sticky header height to offset content when active
-  useEffect(() => {
-    const updateHeight = () => {
-      if (stickyHeaderRef.current) {
-        setStickyHeight(stickyHeaderRef.current.offsetHeight);
-      }
-    };
-    if (showStickyHeader) {
-      updateHeight();
-      window.addEventListener("resize", updateHeight);
+useEffect(() => {
+  const updateHeight = () => {
+    if (stickyHeaderRef.current) {
+      setStickyHeight(stickyHeaderRef.current.offsetHeight);
     }
-    return () => window.removeEventListener("resize", updateHeight);
-  }, [showStickyHeader]);
+  };
+  if (showStickyHeader) {
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+  }
+  return () => window.removeEventListener("resize", updateHeight);
+}, [showStickyHeader]);
 
-  // Measure sticky navigation height
-  useEffect(() => {
+// Measure mobile/tablet header height for layout offsets
+useLayoutEffect(() => {
+  const updateMobileHeaderHeight = () => {
+    if (mobileHeaderRef.current) {
+      const nextHeight = mobileHeaderRef.current.getBoundingClientRect().height;
+      setMobileHeaderHeight((prev) =>
+        Math.abs(prev - nextHeight) > 0.5 ? nextHeight : prev,
+      );
+    }
+  };
+  updateMobileHeaderHeight();
+  window.addEventListener("resize", updateMobileHeaderHeight);
+  return () => window.removeEventListener("resize", updateMobileHeaderHeight);
+}, [isDesktop, isMobile, showMobileUserMenu]);
+
+// Measure sticky navigation height
+useEffect(() => {
     const updateNavHeight = () => {
       if (stickyNavigationRef.current) {
         setStickyNavHeight(stickyNavigationRef.current.offsetHeight);
