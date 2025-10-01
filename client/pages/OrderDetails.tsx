@@ -1070,6 +1070,7 @@ const OrderDetails: React.FC = () => {
                   gap: "12px",
                   position: "relative",
                 }}
+                className="sticky-header-actions-desktop"
               >
                 {/* More Actions - Ghost Button */}
                 <button
