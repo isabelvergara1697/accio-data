@@ -95,7 +95,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
       style={{
         display: "flex",
         height: "64px",
-        padding: isTablet ? "12px 24px" : "12px 8px 12px 16px",
+        padding: isTablet ? "12px 32px" : "12px 8px 12px 16px",
         justifyContent: "space-between",
         alignItems: "center",
         background: "#FFF", // White background for mobile/tablet
