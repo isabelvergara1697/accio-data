@@ -793,5 +793,14 @@
       height: 1px !important;
       margin: -4px 0 !important;
     }
+
+    /* Sticky Header Mobile Simplified Layout */
+    .sticky-header-actions-desktop {
+      display: none !important;
+    }
+
+    .sticky-header-actions-mobile {
+      display: flex !important;
+    }
   }
 }
