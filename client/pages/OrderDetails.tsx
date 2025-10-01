@@ -2920,6 +2920,9 @@ const OrderDetails: React.FC = () => {
                 gap: "20px",
                 alignSelf: "stretch",
                 position: "relative",
+                width: "100%",
+                maxWidth: "100%",
+                boxSizing: "border-box",
               }}
               className="page-header-container-order"
             >
