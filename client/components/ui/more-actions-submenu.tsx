@@ -7,7 +7,8 @@ import {
   FileQuestion,
   UploadCloud,
   Mail,
-  Bell
+  Bell,
+  PlusCircle
 } from "lucide-react";
 
 interface MoreActionsSubmenuProps {
@@ -15,6 +16,11 @@ interface MoreActionsSubmenuProps {
   onClose: () => void;
   onAction: (action: string) => void;
   position?: { x: number; y: number };
+  isMobile?: boolean;
+  isSticky?: boolean;
+  onAddI9Click?: () => void;
+  onAddAkasClick?: () => void;
+  onAddToOrderClick?: () => void;
 }
 
 type MenuItem = {
