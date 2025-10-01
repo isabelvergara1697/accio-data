@@ -637,15 +637,20 @@ const OrderDetails: React.FC = () => {
         "billing-identifiers",
       );
       if (billingIdentifiersElement) {
-        const rect = billingIdentifiersElement.getBoundingClientRect();
-        // Show sticky navigation when billing identifiers section is scrolled past
-        setShowStickyNavigation(rect.top < 0);
+        if (isDesktop) {
+          const rect = billingIdentifiersElement.getBoundingClientRect();
+          // Show sticky navigation when billing identifiers section is scrolled past
+          setShowStickyNavigation(rect.top < 0);
+        } else {
+          setShowStickyNavigation(true);
+        }
       }
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isDesktop]);
 
   // Measure sticky header height to offset content when active
   useEffect(() => {
@@ -676,6 +681,13 @@ const OrderDetails: React.FC = () => {
     window.addEventListener("resize", updateMobileHeaderHeight);
     return () => window.removeEventListener("resize", updateMobileHeaderHeight);
   }, [isDesktop, isMobile, showMobileUserMenu]);
+
+  useEffect(() => {
+    if (!isDesktop) {
+      setShowStickyNavigation(true);
+      setStickyNavigationOpen(true);
+    }
+  }, [isDesktop]);
 
   // Measure sticky navigation height
   useEffect(() => {
@@ -1504,16 +1516,18 @@ const OrderDetails: React.FC = () => {
         )}
 
         {/* Sticky Quick Navigation */}
-        {showStickyNavigation && (
+        {(isDesktop ? showStickyNavigation : true) && (
           <div
             ref={stickyNavigationRef}
             style={{
               position: "fixed",
-              bottom: "24px",
-              left: isDesktop ? "112px" : "24px", // Align with left column content
+              bottom: isMobile ? "16px" : "24px",
+              left: isDesktop ? "112px" : "16px",
+              right: isDesktop ? "auto" : "16px",
               zIndex: 999,
               display: "flex",
-              width: "320px",
+              width: isDesktop ? "320px" : "auto",
+              maxWidth: isDesktop ? "320px" : "520px",
               padding: "12px",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -1523,6 +1537,7 @@ const OrderDetails: React.FC = () => {
               background: "#FFF",
               boxShadow:
                 "0 4px 6px -1px rgba(10, 13, 18, 0.10), 0 2px 4px -2px rgba(10, 13, 18, 0.06)",
+              boxSizing: "border-box",
             }}
           >
             {/* Header with hamburger menu, title and close button */}
@@ -1597,42 +1612,44 @@ const OrderDetails: React.FC = () => {
                   Quick Navigation
                 </div>
               </div>
-              <button
-                onClick={() => setShowStickyNavigation(false)}
-                style={{
-                  display: "flex",
-                  padding: "8px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "8px",
-                  position: "relative",
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(0, 0, 0, 0.05)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "transparent";
-                }}
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              {isDesktop && (
+                <button
+                  onClick={() => setShowStickyNavigation(false)}
+                  style={{
+                    display: "flex",
+                    padding: "8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "8px",
+                    position: "relative",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "rgba(0, 0, 0, 0.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                  }}
                 >
-                  <path
-                    d="M11.3327 4.66669L4.66602 11.3334M4.66602 4.66669L11.3327 11.3334"
-                    stroke="#A4A7AE"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.3327 4.66669L4.66602 11.3334M4.66602 4.66669L11.3327 11.3334"
+                      stroke="#A4A7AE"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              )}
             </div>
 
             {/* Navigation Links - Show when expanded */}
