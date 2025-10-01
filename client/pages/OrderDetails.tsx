@@ -2530,9 +2530,7 @@ useEffect(() => {
             display: "flex",
             marginTop: showStickyHeader
               ? `${stickyHeight}px`
-              : isDesktop
-                ? "104px"
-                : "96px",
+              : `${baseHeaderOffset}px`,
             paddingBottom: "24px",
             flexDirection: "column",
             alignItems: "flex-start",
