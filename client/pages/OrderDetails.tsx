@@ -2882,7 +2882,7 @@ const OrderDetails: React.FC = () => {
             <div
               style={{
                 display: "flex",
-                padding: "0 32px",
+                padding: "8px 32px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "20px",
