@@ -1523,7 +1523,7 @@ const OrderDetails: React.FC = () => {
               position: "fixed",
               bottom: isMobile ? "16px" : "24px",
               left: isDesktop ? "112px" : "16px",
-              right: (isDesktop || isTablet) ? "auto" : "16px",
+              right: isDesktop || isTablet ? "auto" : "16px",
               zIndex: 999,
               display: "flex",
               width: isDesktop ? "320px" : isTablet ? "296px" : "auto",
@@ -3107,17 +3107,17 @@ const OrderDetails: React.FC = () => {
                   className="header-content"
                 >
                   <div
-                style={{
-                  display: "flex",
-                  minWidth: isMobile ? "0" : "320px",
-                  width: "100%",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "4px",
-                  flex: isMobile ? "1 1 auto" : "1 0 0",
-                  position: "relative",
-                }}
-              >
+                    style={{
+                      display: "flex",
+                      minWidth: isMobile ? "0" : "320px",
+                      width: "100%",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "4px",
+                      flex: isMobile ? "1 1 auto" : "1 0 0",
+                      position: "relative",
+                    }}
+                  >
                     <div
                       style={{
                         alignSelf: "stretch",

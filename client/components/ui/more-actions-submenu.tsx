@@ -8,7 +8,7 @@ import {
   UploadCloud,
   Mail,
   Bell,
-  PlusCircle
+  PlusCircle,
 } from "lucide-react";
 
 interface MoreActionsSubmenuProps {
@@ -38,37 +38,97 @@ const menuSections: MenuSection[] = [
   {
     title: "Create Subject Specific Documents",
     items: [
-      { label: "Pre-Adverse General", action: "pre-adverse-general", icon: FileDown },
-      { label: "Adverse Action Letter", action: "adverse-action-letter", icon: FileDown },
+      {
+        label: "Pre-Adverse General",
+        action: "pre-adverse-general",
+        icon: FileDown,
+      },
+      {
+        label: "Adverse Action Letter",
+        action: "adverse-action-letter",
+        icon: FileDown,
+      },
     ],
   },
   {
     title: "Manage Order",
     items: [
-      { label: "Order Additional Searches (As a New Order)", action: "order-additional-searches", icon: FileSearch },
-      { label: "Order Criminal Records", action: "order-criminal-records", icon: FileSearch },
+      {
+        label: "Order Additional Searches (As a New Order)",
+        action: "order-additional-searches",
+        icon: FileSearch,
+      },
+      {
+        label: "Order Criminal Records",
+        action: "order-criminal-records",
+        icon: FileSearch,
+      },
       { label: "Archive Order", action: "archive-order", icon: Archive },
-      { label: "Adverse Action Process", action: "adverse-action-process", icon: FileQuestion },
+      {
+        label: "Adverse Action Process",
+        action: "adverse-action-process",
+        icon: FileQuestion,
+      },
     ],
   },
   {
     title: "Documents",
     items: [
-      { label: "Upload Applicant Release Form", action: "upload-applicant-release", icon: UploadCloud },
-      { label: "Download and Fax Applicant Release Form", action: "download-fax-release", icon: FileDown },
-      { label: "Upload Supporting Documents", action: "upload-supporting-docs", icon: UploadCloud },
-      { label: "View all Attached Documents", action: "view-attached-docs", icon: FileDown },
-      { label: "Request Document Upload from Applicant", action: "request-doc-upload", icon: FileDown },
+      {
+        label: "Upload Applicant Release Form",
+        action: "upload-applicant-release",
+        icon: UploadCloud,
+      },
+      {
+        label: "Download and Fax Applicant Release Form",
+        action: "download-fax-release",
+        icon: FileDown,
+      },
+      {
+        label: "Upload Supporting Documents",
+        action: "upload-supporting-docs",
+        icon: UploadCloud,
+      },
+      {
+        label: "View all Attached Documents",
+        action: "view-attached-docs",
+        icon: FileDown,
+      },
+      {
+        label: "Request Document Upload from Applicant",
+        action: "request-doc-upload",
+        icon: FileDown,
+      },
     ],
   },
   {
     title: "Other Actions",
     items: [
-      { label: "Email this Report's Requester", action: "email-requester", icon: Mail },
-      { label: "Email this Report's Ordering User", action: "email-ordering-user", icon: Mail },
-      { label: "Send copy of Report to Applicant", action: "send-report-copy", icon: Mail },
-      { label: "Email me when Background Check is complete", action: "email-completion-notification", icon: Bell },
-      { label: "Customer Service Inquiry", action: "customer-service", icon: FileDown },
+      {
+        label: "Email this Report's Requester",
+        action: "email-requester",
+        icon: Mail,
+      },
+      {
+        label: "Email this Report's Ordering User",
+        action: "email-ordering-user",
+        icon: Mail,
+      },
+      {
+        label: "Send copy of Report to Applicant",
+        action: "send-report-copy",
+        icon: Mail,
+      },
+      {
+        label: "Email me when Background Check is complete",
+        action: "email-completion-notification",
+        icon: Bell,
+      },
+      {
+        label: "Customer Service Inquiry",
+        action: "customer-service",
+        icon: FileDown,
+      },
     ],
   },
 ];
@@ -84,7 +144,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
   isSticky = false,
   onAddI9Click,
   onAddAkasClick,
-  onAddToOrderClick
+  onAddToOrderClick,
 }) => {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [menuHeight, setMenuHeight] = useState(0);
@@ -107,8 +167,9 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
       ? Math.max(0, viewportWidth - 32)
       : Math.min(350, viewportWidth - 32)
     : 350;
-  const maxHeight = viewportHeight ? Math.min(MENU_MAX_HEIGHT, viewportHeight - 32) : MENU_MAX_HEIGHT;
-
+  const maxHeight = viewportHeight
+    ? Math.min(MENU_MAX_HEIGHT, viewportHeight - 32)
+    : MENU_MAX_HEIGHT;
 
   const handleAction = (action: string) => {
     onAction(action);
@@ -179,15 +240,31 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
           borderRadius: "12px 12px 16px 16px",
           border: "1px solid #E9EAEB",
           background: "#FFF",
-          boxShadow: "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
+          boxShadow:
+            "0 12px 16px -4px rgba(10, 13, 18, 0.08), 0 4px 6px -2px rgba(10, 13, 18, 0.03), 0 2px 2px -1px rgba(10, 13, 18, 0.04)",
           overflowY: "auto",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", padding: "6px 0" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "stretch",
+            padding: "6px 0",
+          }}
+        >
           {showMobileStickyButtons && (
             <>
               {/* Top Action Buttons - Mobile Sticky Only */}
-              <div style={{ display: "flex", padding: "6px 12px", flexDirection: "column", alignItems: "stretch", gap: "8px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "6px 12px",
+                  flexDirection: "column",
+                  alignItems: "stretch",
+                  gap: "8px",
+                }}
+              >
                 {/* Add I-9 Button */}
                 <button
                   type="button"
@@ -203,16 +280,34 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
-                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                   }}
                 >
-                  <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                    <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
                       Add I-9
                     </div>
                   </div>
-                  <PlusCircle style={{ width: "16px", height: "16px", color: "#A4A7AE" }} />
+                  <PlusCircle
+                    style={{ width: "16px", height: "16px", color: "#A4A7AE" }}
+                  />
                 </button>
 
                 {/* Add AKAs Button */}
@@ -230,16 +325,34 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
-                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                   }}
                 >
-                  <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                    <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
                       Add AKAs
                     </div>
                   </div>
-                  <PlusCircle style={{ width: "16px", height: "16px", color: "#A4A7AE" }} />
+                  <PlusCircle
+                    style={{ width: "16px", height: "16px", color: "#A4A7AE" }}
+                  />
                 </button>
 
                 {/* Add to this Order Button */}
@@ -257,12 +370,28 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                     borderRadius: "8px",
                     border: "2px solid rgba(255, 255, 255, 0.12)",
                     background: "#344698",
-                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    boxShadow:
+                      "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     cursor: "pointer",
                   }}
                 >
-                  <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
-                    <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      padding: "0 2px",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        color: "#FFF",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 600,
+                        lineHeight: "20px",
+                      }}
+                    >
                       Add to this Order
                     </div>
                   </div>
@@ -270,12 +399,25 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
               </div>
 
               {/* Divider */}
-              <div style={{ height: "1px", background: "#E9EAEB", margin: "4px 0" }} />
+              <div
+                style={{
+                  height: "1px",
+                  background: "#E9EAEB",
+                  margin: "4px 0",
+                }}
+              />
             </>
           )}
 
           {menuSections.map((section, sectionIndex) => (
-            <div key={section.title} style={{ display: "flex", flexDirection: "column", alignItems: "stretch" }}>
+            <div
+              key={section.title}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "stretch",
+              }}
+            >
               <div
                 style={{
                   display: "flex",
@@ -308,13 +450,15 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                       padding: 0,
                     }}
                     onMouseEnter={(e) => {
-                      const content = e.currentTarget.firstElementChild as HTMLElement | null;
+                      const content = e.currentTarget
+                        .firstElementChild as HTMLElement | null;
                       if (content) {
                         content.style.background = "#F9FAFB";
                       }
                     }}
                     onMouseLeave={(e) => {
-                      const content = e.currentTarget.firstElementChild as HTMLElement | null;
+                      const content = e.currentTarget
+                        .firstElementChild as HTMLElement | null;
                       if (content) {
                         content.style.background = "transparent";
                       }
