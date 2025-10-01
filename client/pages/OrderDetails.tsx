@@ -975,6 +975,9 @@ const OrderDetails: React.FC = () => {
                 alignSelf: "stretch",
                 flexWrap: "wrap",
                 position: "relative",
+                width: "100%",
+                maxWidth: "100%",
+                boxSizing: "border-box",
               }}
               className="header-content"
             >
