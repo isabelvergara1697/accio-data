@@ -79,7 +79,12 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
   isOpen,
   onClose,
   onAction,
-  position = { x: 0, y: 0 }
+  position = { x: 0, y: 0 },
+  isMobile = false,
+  isSticky = false,
+  onAddI9Click,
+  onAddAkasClick,
+  onAddToOrderClick
 }) => {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [menuHeight, setMenuHeight] = useState(0);
@@ -98,8 +103,25 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
   const menuWidth = viewportWidth ? Math.min(350, viewportWidth - 32) : 350;
   const maxHeight = viewportHeight ? Math.min(MENU_MAX_HEIGHT, viewportHeight - 32) : MENU_MAX_HEIGHT;
 
+  const showMobileStickyButtons = isMobile && isSticky;
+
   const handleAction = (action: string) => {
     onAction(action);
+    onClose();
+  };
+
+  const handleAddI9 = () => {
+    onAddI9Click?.();
+    onClose();
+  };
+
+  const handleAddAkas = () => {
+    onAddAkasClick?.();
+    onClose();
+  };
+
+  const handleAddToOrder = () => {
+    onAddToOrderClick?.();
     onClose();
   };
 
