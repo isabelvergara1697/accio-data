@@ -175,6 +175,96 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", padding: "6px 0" }}>
+          {showMobileStickyButtons && (
+            <>
+              {/* Top Action Buttons - Mobile Sticky Only */}
+              <div style={{ display: "flex", padding: "6px 12px", flexDirection: "column", alignItems: "stretch", gap: "8px" }}>
+                {/* Add I-9 Button */}
+                <button
+                  type="button"
+                  onClick={handleAddI9}
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                    <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>
+                      Add I-9
+                    </div>
+                  </div>
+                  <PlusCircle style={{ width: "16px", height: "16px", color: "#A4A7AE" }} />
+                </button>
+
+                {/* Add AKAs Button */}
+                <button
+                  type="button"
+                  onClick={handleAddAkas}
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "1px solid #D5D7DA",
+                    background: "#FFF",
+                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                    <div style={{ color: "#414651", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>
+                      Add AKAs
+                    </div>
+                  </div>
+                  <PlusCircle style={{ width: "16px", height: "16px", color: "#A4A7AE" }} />
+                </button>
+
+                {/* Add to this Order Button */}
+                <button
+                  type="button"
+                  onClick={handleAddToOrder}
+                  style={{
+                    display: "flex",
+                    minHeight: "36px",
+                    padding: "6px 8px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "4px",
+                    alignSelf: "stretch",
+                    borderRadius: "8px",
+                    border: "2px solid rgba(255, 255, 255, 0.12)",
+                    background: "#344698",
+                    boxShadow: "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    cursor: "pointer",
+                  }}
+                >
+                  <div style={{ display: "flex", padding: "0 2px", justifyContent: "center", alignItems: "center" }}>
+                    <div style={{ color: "#FFF", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 600, lineHeight: "20px" }}>
+                      Add to this Order
+                    </div>
+                  </div>
+                </button>
+              </div>
+
+              {/* Divider */}
+              <div style={{ height: "1px", background: "#E9EAEB", margin: "4px 0" }} />
+            </>
+          )}
+
           {menuSections.map((section, sectionIndex) => (
             <div key={section.title} style={{ display: "flex", flexDirection: "column", alignItems: "stretch" }}>
               <div
