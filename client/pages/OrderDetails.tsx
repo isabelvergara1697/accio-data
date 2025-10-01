@@ -743,6 +743,7 @@ const OrderDetails: React.FC = () => {
         x: xPosition,
         y: rect.bottom,
       });
+      setMoreActionsIsSticky(isSticky);
       setMoreActionsOpen(true);
     }
   };
