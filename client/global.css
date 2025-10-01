@@ -744,7 +744,7 @@
   /* Tablet responsive page header container */
   @media (min-width: 768px) and (max-width: 1023px) {
     .page-header-container-order {
-      padding: 8px 24px !important;
+      padding: 8px 32px !important;
       gap: 16px !important;
     }
   }
