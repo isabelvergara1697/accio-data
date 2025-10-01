@@ -429,15 +429,25 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         {/* Hamburger Menu - On mobile and tablet */}
         <button
           onClick={() => setMobileMenuOpen(true)}
+          aria-label="Open navigation menu"
           style={{
             display: "flex",
-            padding: "8px",
+            width: isTablet ? "44px" : "40px",
+            height: isTablet ? "44px" : "40px",
+            padding: "0",
             justifyContent: "center",
             alignItems: "center",
-            borderRadius: "8px",
+            borderRadius: isTablet ? "12px" : "8px",
             background: "transparent",
-            border: "none",
+            border: isTablet ? "1px solid #E9EAEB" : "none",
             cursor: "pointer",
+            transition: "background 0.2s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#F5F5F5";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
           }}
         >
           <svg
