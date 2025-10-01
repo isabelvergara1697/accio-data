@@ -24426,6 +24426,11 @@ const OrderDetails: React.FC = () => {
         onClose={handleMoreActionsClose}
         onAction={handleMoreAction}
         position={moreActionsPosition}
+        isMobile={isMobile}
+        isSticky={moreActionsIsSticky}
+        onAddI9Click={() => navigate("/i9-order")}
+        onAddAkasClick={handleOpenAkasModal}
+        onAddToOrderClick={() => navigate("/online-ordering")}
       />
     </div>
   );
