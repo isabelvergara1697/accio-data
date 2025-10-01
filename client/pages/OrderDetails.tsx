@@ -2906,6 +2906,9 @@ const OrderDetails: React.FC = () => {
               gap: "24px",
               alignSelf: "stretch",
               position: "relative",
+              width: "100%",
+              maxWidth: "100%",
+              boxSizing: "border-box",
             }}
           >
             <div
