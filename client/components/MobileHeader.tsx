@@ -103,6 +103,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         alignItems: "center",
         background: "#FFF", // White background for mobile/tablet
         borderBottom: "1px solid #E9EAEB",
+        boxSizing: "border-box",
       }}
     >
       {/* Logo */}
