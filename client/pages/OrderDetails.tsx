@@ -2948,6 +2948,9 @@ const OrderDetails: React.FC = () => {
                     alignSelf: "stretch",
                     flexWrap: "wrap",
                     position: "relative",
+                    width: "100%",
+                    maxWidth: "100%",
+                    boxSizing: "border-box",
                   }}
                   className="header-content"
                 >
@@ -6943,7 +6946,7 @@ const OrderDetails: React.FC = () => {
                                 <div style={REPORT_SUMMARY_TEXT_STYLE}>
                                   {row.county && row.county.trim().length > 0
                                     ? row.county
-                                    : "—"}
+                                    : "��"}
                                 </div>
 
                                 <div style={REPORT_SUMMARY_TEXT_STYLE}>
