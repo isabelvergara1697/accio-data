@@ -715,7 +715,7 @@
   /* Tablet responsive sticky header */
   @media (min-width: 768px) and (max-width: 1023px) {
     .sticky-header {
-      padding: 8px 24px !important;
+      padding: 8px 32px !important;
       gap: 16px !important;
     }
   }
