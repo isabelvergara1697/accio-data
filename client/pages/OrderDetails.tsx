@@ -3045,6 +3045,7 @@ const OrderDetails: React.FC = () => {
                       gap: "12px",
                       position: "relative",
                     }}
+                    className="order-actions-container"
                   >
                     {/* More Actions - Ghost Button */}
                     <button
@@ -3063,6 +3064,7 @@ const OrderDetails: React.FC = () => {
                         border: "none",
                         cursor: "pointer",
                       }}
+                      className="order-action-btn"
                       onMouseEnter={(e) => {
                         e.currentTarget.style.background = "#F5F5F5";
                       }}
@@ -3113,6 +3115,7 @@ const OrderDetails: React.FC = () => {
                         position: "relative",
                         cursor: "pointer",
                       }}
+                      className="order-action-btn"
                     >
                       <div
                         style={{
@@ -3179,6 +3182,7 @@ const OrderDetails: React.FC = () => {
                         position: "relative",
                         cursor: "pointer",
                       }}
+                      className="order-action-btn"
                     >
                       <div
                         style={{
@@ -3245,6 +3249,7 @@ const OrderDetails: React.FC = () => {
                         position: "relative",
                         cursor: "pointer",
                       }}
+                      className="order-action-btn"
                     >
                       <div
                         style={{
@@ -3278,6 +3283,7 @@ const OrderDetails: React.FC = () => {
                         height: "24px",
                         background: "#E9EAEB",
                       }}
+                      className="order-actions-divider"
                     />
 
                     {/* Collapse/Expand All - Secondary Button */}
@@ -3298,6 +3304,7 @@ const OrderDetails: React.FC = () => {
                         position: "relative",
                         cursor: "pointer",
                       }}
+                      className="order-action-btn"
                     >
                       <div
                         style={{
