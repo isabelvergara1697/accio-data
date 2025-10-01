@@ -19,13 +19,14 @@ interface MobileHeaderProps {
   userMenuHovered: boolean;
   setUserMenuHovered: (hovered: boolean) => void;
   handleSignOut: () => void;
-  getUserMenuStyles: () => object;
+  getUserMenuStyles: () => React.CSSProperties;
   showMobileUserMenu?: boolean;
   onOrderNotification?: (notification: {
     title: string;
     description: string;
     orderNumber?: string;
   }) => void;
+  headerRef?: React.Ref<HTMLDivElement>;
   // Drawer control props
   quickOrderDrawerOpen?: boolean;
   setQuickOrderDrawerOpen?: (open: boolean) => void;
@@ -53,6 +54,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
   getUserMenuStyles,
   showMobileUserMenu = false,
   onOrderNotification,
+  headerRef,
   quickOrderDrawerOpen = false,
   setQuickOrderDrawerOpen,
   ssnOrderDrawerOpen = false,
