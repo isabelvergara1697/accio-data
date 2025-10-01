@@ -706,7 +706,7 @@
   /* Mobile responsive header content */
   @media (max-width: 767px) {
     .header-content {
-      gap: 16px 12px !important;
+      gap: 20px !important;
       flex-direction: column !important;
       align-items: flex-start !important;
     }
