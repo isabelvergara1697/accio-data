@@ -100,10 +100,15 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
 
   const viewportWidth = typeof window !== "undefined" ? window.innerWidth : 0;
   const viewportHeight = typeof window !== "undefined" ? window.innerHeight : 0;
-  const menuWidth = viewportWidth ? Math.min(350, viewportWidth - 32) : 350;
+  const showMobileStickyButtons = isMobile && isSticky;
+
+  const menuWidth = viewportWidth
+    ? showMobileStickyButtons
+      ? Math.max(0, viewportWidth - 32)
+      : Math.min(350, viewportWidth - 32)
+    : 350;
   const maxHeight = viewportHeight ? Math.min(MENU_MAX_HEIGHT, viewportHeight - 32) : MENU_MAX_HEIGHT;
 
-  const showMobileStickyButtons = isMobile && isSticky;
 
   const handleAction = (action: string) => {
     onAction(action);
