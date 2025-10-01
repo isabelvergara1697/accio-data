@@ -387,6 +387,7 @@ const OrderDetails: React.FC = () => {
     x: 0,
     y: 0,
   });
+  const [moreActionsIsSticky, setMoreActionsIsSticky] = useState(false);
   const moreActionsRef = useRef<HTMLButtonElement | null>(null);
   const stickyMoreActionsRef = useRef<HTMLButtonElement | null>(null);
 
