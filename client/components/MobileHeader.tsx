@@ -97,6 +97,7 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
       className="w-full fixed top-0 left-0 right-0 z-50"
       style={{
         display: "flex",
+        width: "100%",
         height: "64px",
         padding: isTablet ? "8px 32px" : "12px 8px 12px 16px",
         justifyContent: "space-between",
