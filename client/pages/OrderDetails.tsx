@@ -391,6 +391,11 @@ const OrderDetails: React.FC = () => {
   const [stickyHeight, setStickyHeight] = useState<number>(0);
   const mobileHeaderRef = useRef<HTMLDivElement | null>(null);
   const [mobileHeaderHeight, setMobileHeaderHeight] = useState<number>(96);
+  const nonDesktopHeaderOffsetValue = Math.max(
+    Math.round(mobileHeaderHeight + 16),
+    80,
+  );
+  const baseHeaderOffset = isDesktop ? 104 : nonDesktopHeaderOffsetValue;
 
   // Sticky navigation state for billing identifiers section
   const [showStickyNavigation, setShowStickyNavigation] = useState(false);
@@ -405,13 +410,10 @@ const OrderDetails: React.FC = () => {
         ? document.getElementById(targetId)
         : null;
     if (!el) return;
-    const nonDesktopHeaderOffset = Math.max(Math.round(mobileHeaderHeight + 16), 80);
     const headerOffset =
       showStickyHeader && stickyHeaderRef.current
         ? stickyHeaderRef.current.offsetHeight
-        : isDesktop
-          ? 104
-          : nonDesktopHeaderOffset;
+        : baseHeaderOffset;
     const y =
       el.getBoundingClientRect().top + window.pageYOffset - headerOffset - 8;
     window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
