@@ -955,8 +955,12 @@ const OrderDetails: React.FC = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              gap: "16px",
-              padding: "8px 32px",
+              gap: isMobile ? "12px" : "16px",
+              padding: isMobile
+                ? "12px 16px"
+                : isTablet
+                  ? "8px 32px"
+                  : "16px 24px",
               background: "#FFF",
               borderBottom: "1px solid #E9EAEB",
               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
@@ -969,11 +973,12 @@ const OrderDetails: React.FC = () => {
             <div
               style={{
                 display: "flex",
-                alignItems: "flex-end",
-                alignContent: "flex-end",
-                gap: "20px 16px",
+                flexDirection: isMobile ? "column" : "row",
+                alignItems: isMobile ? "stretch" : "flex-end",
+                alignContent: isMobile ? "stretch" : "flex-end",
+                gap: isMobile ? "12px" : "20px 16px",
                 alignSelf: "stretch",
-                flexWrap: "wrap",
+                flexWrap: isMobile ? "nowrap" : "wrap",
                 position: "relative",
                 width: "100%",
                 maxWidth: "100%",
@@ -984,11 +989,12 @@ const OrderDetails: React.FC = () => {
               <div
                 style={{
                   display: "flex",
-                  minWidth: "320px",
+                  minWidth: isMobile ? "0" : "320px",
+                  width: "100%",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "4px",
-                  flex: "1 0 0",
+                  flex: isMobile ? "1 1 auto" : "1 0 0",
                   position: "relative",
                 }}
               >
@@ -1374,6 +1380,8 @@ const OrderDetails: React.FC = () => {
                   gap: "12px",
                   alignSelf: "stretch",
                   position: "relative",
+                  width: "100%",
+                  boxSizing: "border-box",
                 }}
                 className="sticky-header-actions-mobile"
               >
@@ -1388,7 +1396,9 @@ const OrderDetails: React.FC = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     gap: "4px",
-                    flex: "1 0 0",
+                    flex: "1 1 0%",
+                    minWidth: 0,
+                    width: "100%",
                     borderRadius: "8px",
                     border: "2px solid rgba(255, 255, 255, 0.12)",
                     background: "#344698",
@@ -1433,7 +1443,9 @@ const OrderDetails: React.FC = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     gap: "4px",
-                    flex: "1 0 0",
+                    flex: "1 1 0%",
+                    minWidth: 0,
+                    width: "100%",
                     borderRadius: "8px",
                     border: "1px solid #D5D7DA",
                     background: "#FFF",
@@ -3074,16 +3086,17 @@ const OrderDetails: React.FC = () => {
                   className="header-content"
                 >
                   <div
-                    style={{
-                      display: "flex",
-                      minWidth: "320px",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                      gap: "4px",
-                      flex: "1 0 0",
-                      position: "relative",
-                    }}
-                  >
+                style={{
+                  display: "flex",
+                  minWidth: isMobile ? "0" : "320px",
+                  width: "100%",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "4px",
+                  flex: isMobile ? "1 1 auto" : "1 0 0",
+                  position: "relative",
+                }}
+              >
                     <div
                       style={{
                         alignSelf: "stretch",
