@@ -928,7 +928,7 @@ const OrderDetails: React.FC = () => {
               flexDirection: "column",
               alignItems: "flex-start",
               gap: "16px",
-              padding: "16px 24px",
+              padding: "12px 32px",
               background: "#FFF",
               borderBottom: "1px solid #E9EAEB",
               boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
