@@ -19,6 +19,7 @@ import OnlineOrdering from "./pages/OnlineOrdering";
 import SubmitOrSaveOrder from "./pages/SubmitOrSaveOrder";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import OrderDetails from "./pages/OrderDetails";
+import Quickscreen from "./pages/Quickscreen";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import EmailSent from "./pages/EmailSent";
