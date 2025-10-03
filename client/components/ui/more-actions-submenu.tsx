@@ -15,6 +15,7 @@ interface MoreActionsSubmenuProps {
   isOpen: boolean;
   onClose: () => void;
   onAction: (action: string) => void;
+  enabledActions?: readonly string[];
   position?: { x: number; y: number };
   isMobile?: boolean;
   isSticky?: boolean;
@@ -139,6 +140,7 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
   isOpen,
   onClose,
   onAction,
+  enabledActions,
   position = { x: 0, y: 0 },
   isMobile = false,
   isSticky = false,
@@ -172,6 +174,9 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
     : MENU_MAX_HEIGHT;
 
   const handleAction = (action: string) => {
+    if (enabledActions && !enabledActions.includes(action)) {
+      return;
+    }
     onAction(action);
     onClose();
   };
@@ -436,20 +441,25 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
 
               {section.items.map((item) => {
                 const Icon = item.icon;
+                const isEnabled = !enabledActions || enabledActions.includes(item.action);
                 return (
                   <button
                     key={item.action}
                     type="button"
+                    disabled={!isEnabled}
                     onClick={() => handleAction(item.action)}
                     style={{
                       display: "flex",
                       width: "100%",
                       background: "transparent",
                       border: "none",
-                      cursor: "pointer",
+                      cursor: isEnabled ? "pointer" : "not-allowed",
                       padding: 0,
                     }}
                     onMouseEnter={(e) => {
+                      if (!isEnabled) {
+                        return;
+                      }
                       const content = e.currentTarget
                         .firstElementChild as HTMLElement | null;
                       if (content) {
@@ -457,6 +467,9 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                       }
                     }}
                     onMouseLeave={(e) => {
+                      if (!isEnabled) {
+                        return;
+                      }
                       const content = e.currentTarget
                         .firstElementChild as HTMLElement | null;
                       if (content) {
@@ -473,20 +486,21 @@ export const MoreActionsSubmenu: React.FC<MoreActionsSubmenuProps> = ({
                         gap: "12px",
                         borderRadius: "6px",
                         transition: "background 0.2s ease",
+                        opacity: isEnabled ? 1 : 0.6,
                       }}
                     >
                       <Icon
                         style={{
                           width: "16px",
                           height: "16px",
-                          color: "#717680",
+                          color: isEnabled ? "#717680" : "#CACDD5",
                           flexShrink: 0,
                         }}
                       />
                       <span
                         style={{
                           flex: 1,
-                          color: "#414651",
+                          color: isEnabled ? "#414651" : "#A4A7AE",
                           fontFamily: "Public Sans",
                           fontSize: "14px",
                           fontStyle: "normal",
