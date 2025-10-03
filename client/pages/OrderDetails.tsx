@@ -1089,8 +1089,13 @@ const OrderDetails: React.FC = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "flex-end",
                   gap: "12px",
                   position: "relative",
+                  flexWrap: "wrap",
+                  maxWidth: "100%",
+                  flex: "1 1 auto",
+                  alignSelf: "stretch",
                 }}
                 className="sticky-header-actions-desktop"
               >
