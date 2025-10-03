@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useLayoutEffect,
+  useMemo,
+} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
@@ -390,6 +396,10 @@ const OrderDetails: React.FC = () => {
   const [moreActionsIsSticky, setMoreActionsIsSticky] = useState(false);
   const moreActionsRef = useRef<HTMLButtonElement | null>(null);
   const stickyMoreActionsRef = useRef<HTMLButtonElement | null>(null);
+  const enabledMoreActionIds = useMemo(
+    () => ["order-additional-searches", "order-criminal-records"],
+    [],
+  );
 
   // Sticky header state
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -24446,6 +24456,7 @@ const OrderDetails: React.FC = () => {
         isOpen={moreActionsOpen}
         onClose={handleMoreActionsClose}
         onAction={handleMoreAction}
+        enabledActions={enabledMoreActionIds}
         position={moreActionsPosition}
         isMobile={isMobile}
         isSticky={moreActionsIsSticky}
