@@ -6438,7 +6438,6 @@ const OrderDetails: React.FC = () => {
                       gap: "16px",
                       alignSelf: "stretch",
                       background: "#FFF",
-                      borderTop: "1px solid #E9EAEB",
                       position: "relative",
                     }}
                   >
