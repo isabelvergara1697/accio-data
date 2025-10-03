@@ -6330,6 +6330,7 @@ const OrderDetails: React.FC = () => {
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     position: "relative",
+                    overflow: "hidden",
                   }}
                 >
                   {/* Section Header */}
