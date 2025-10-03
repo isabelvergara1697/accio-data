@@ -780,7 +780,7 @@ const OrderDetails: React.FC = () => {
         navigate("/online-ordering");
         break;
       case "order-criminal-records":
-        // Handle order criminal records
+        navigate(`/quickscreen/${orderId}`);
         break;
       case "archive-order":
         // Handle archive order
