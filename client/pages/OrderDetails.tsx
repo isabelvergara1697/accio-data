@@ -6437,11 +6437,8 @@ const OrderDetails: React.FC = () => {
                       alignItems: "center",
                       gap: "16px",
                       alignSelf: "stretch",
-                      borderRadius: "0px 0px 12px 12px",
-                      border: "1px solid #E9EAEB",
-                      borderTop: "none",
                       background: "#FFF",
-                      boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                      borderTop: "1px solid #E9EAEB",
                       position: "relative",
                     }}
                   >
