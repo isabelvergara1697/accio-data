@@ -54,6 +54,7 @@ const App = () => (
           <Route path="/invites-orders" element={<InvitesAndOrders />} />
           <Route path="/order-details/:orderId" element={<OrderDetails />} />
           <Route path="/orders-details/:orderId" element={<OrderDetails />} />
+          <Route path="/quickscreen/:orderId" element={<Quickscreen />} />
           <Route path="/quick-court-order" element={<QuickCourtOrder />} />
           <Route path="/quick-order" element={<QuickOrder />} />
           <Route path="/batch-orders" element={<BatchOrders />} />
