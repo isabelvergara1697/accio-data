@@ -789,6 +789,17 @@ const OrderDetails: React.FC = () => {
     alert(`Document request sent to ${data.to}!`);
   };
 
+  const handleCloseSendReportModal = () => {
+    setSendReportModalOpen(false);
+  };
+
+  const handleSendReport = (email: string) => {
+    console.log("Sending report to:", email);
+    // Here you would typically send the request to your backend
+    // For now, just log it and show a success message
+    alert(`Report will be sent to ${email}!`);
+  };
+
   // Report Visibility handlers
   const handleAddUser = (userId: string) => {
     const user = teamMembers.find((member) => member.id === userId);
