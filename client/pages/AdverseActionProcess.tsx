@@ -806,153 +806,63 @@ export default function AdverseActionProcess() {
                   <div
                     style={{
                       display: "flex",
+                      flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
+                      width: "100%",
                     }}
                   >
                     <div
                       style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        flex: "1 0 0",
+                        display: "grid",
+                        gridTemplateColumns: "2fr 2fr 2fr 1.5fr",
+                        alignItems: "center",
+                        padding: "6px 12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        background: "#FFF",
                       }}
                     >
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
-                          alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                          background: "#FFF",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: "#717680",
-                            fontFamily: "Public Sans",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                          }}
-                        >
-                          Letter Description
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "12px",
-                          alignItems: "center",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          Letter Description
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "12px",
-                          alignItems: "center",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          Test
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "12px",
-                          alignItems: "center",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          Pre-adverse General
-                        </div>
-                      </div>
+                      {["Letter Description", "Jurisdiction Type", "Applicant's Location", "Actions"].map(
+                        (header) => (
+                          <div
+                            key={header}
+                            style={{
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              lineHeight: "18px",
+                            }}
+                          >
+                            {header}
+                          </div>
+                        ),
+                      )}
                     </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        flex: "1 0 0",
-                      }}
-                    >
+                    {preAdverseRows.map((row, index) => (
                       <div
+                        key={`${row.letterDescription}-${index}`}
                         style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
+                          display: "grid",
+                          gridTemplateColumns: "2fr 2fr 2fr 1.5fr",
                           alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
+                          borderBottom:
+                            index === preAdverseRows.length - 1
+                              ? "none"
+                              : "1px solid #E9EAEB",
                           background: "#FFF",
+                          transition: "background-color 0.2s ease",
+                        }}
+                        onMouseEnter={(event) => {
+                          event.currentTarget.style.backgroundColor = "#F8F9FC";
+                        }}
+                        onMouseLeave={(event) => {
+                          event.currentTarget.style.backgroundColor = "#FFF";
                         }}
                       >
                         <div
                           style={{
-                            color: "#717680",
-                            fontFamily: "Public Sans",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                          }}
-                        >
-                          Jurisdiction Type
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "12px",
-                          alignItems: "center",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                        }}
-                      >
-                        <div
-                          style={{
+                            padding: "12px",
                             color: "#181D27",
                             fontFamily: "Public Sans",
                             fontSize: "14px",
@@ -960,21 +870,11 @@ export default function AdverseActionProcess() {
                             lineHeight: "20px",
                           }}
                         >
-                          Jurisdiction Type
+                          {row.letterDescription}
                         </div>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "12px",
-                          alignItems: "center",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                        }}
-                      >
                         <div
                           style={{
+                            padding: "12px",
                             color: "#181D27",
                             fontFamily: "Public Sans",
                             fontSize: "14px",
@@ -982,21 +882,11 @@ export default function AdverseActionProcess() {
                             lineHeight: "20px",
                           }}
                         >
-                          Applicant's Location
+                          {row.jurisdictionType}
                         </div>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "12px",
-                          alignItems: "center",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                        }}
-                      >
                         <div
                           style={{
+                            padding: "12px",
                             color: "#181D27",
                             fontFamily: "Public Sans",
                             fontSize: "14px",
@@ -1004,127 +894,34 @@ export default function AdverseActionProcess() {
                             lineHeight: "20px",
                           }}
                         >
-                          Applicant's Location
+                          {row.applicantLocation}
                         </div>
-                      </div>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        flex: "1 0 0",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
-                          alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                          background: "#FFF",
-                        }}
-                      >
                         <div
                           style={{
-                            color: "#717680",
-                            fontFamily: "Public Sans",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
+                            padding: "12px",
+                            display: "flex",
+                            alignItems: "center",
                           }}
                         >
-                          Actions
+                          <button
+                            style={{
+                              color: "#273572",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                              textDecoration: "underline",
+                              background: "transparent",
+                              border: "none",
+                              cursor: "pointer",
+                              padding: 0,
+                            }}
+                          >
+                            {row.actionLabel}
+                          </button>
                         </div>
                       </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "12px",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                        }}
-                      >
-                        <button
-                          style={{
-                            color: "#273572",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 600,
-                            lineHeight: "20px",
-                            textDecoration: "underline",
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                            padding: 0,
-                          }}
-                        >
-                          Attention Required
-                        </button>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "12px",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                        }}
-                      >
-                        <button
-                          style={{
-                            color: "#273572",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 600,
-                            lineHeight: "20px",
-                            textDecoration: "underline",
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                            padding: 0,
-                          }}
-                        >
-                          Preview Letter
-                        </button>
-                      </div>
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "12px",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                        }}
-                      >
-                        <button
-                          style={{
-                            color: "#273572",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 600,
-                            lineHeight: "20px",
-                            textDecoration: "underline",
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                            padding: 0,
-                          }}
-                        >
-                          Click to Upload
-                        </button>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               )}
