@@ -869,68 +869,80 @@ export default function Quickscreen() {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  {addressOptions.map((group, groupIndex) => (
-                    <div
-                      key={groupIndex}
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        gap: "12px",
-                      }}
-                    >
+                  <RadioGroup
+                    value={selectedAddress}
+                    onValueChange={(value) => setSelectedAddress(value)}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "20px",
+                      width: "100%",
+                    }}
+                  >
+                    {addressOptions.map((group, groupIndex) => (
                       <div
+                        key={groupIndex}
                         style={{
-                          color: "#181D27",
-                          fontFamily: "Public Sans",
-                          fontSize: "16px",
-                          fontWeight: 500,
-                          lineHeight: "24px",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          gap: "12px",
                         }}
                       >
-                        {group.group}
-                      </div>
-                      {group.addresses.map((address, index) => (
                         <div
-                          key={index}
                           style={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            gap: "8px",
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "16px",
+                            fontWeight: 500,
+                            lineHeight: "24px",
                           }}
                         >
-                          <input
-                            type="radio"
-                            name="address"
-                            value={address}
-                            checked={selectedAddress === address}
-                            onChange={(e) => setSelectedAddress(e.target.value)}
-                            style={{ marginTop: "2px", width: "16px", height: "16px", cursor: "pointer" }}
-                          />
+                          {group.group}
+                        </div>
+                        {group.addresses.map((address, index) => (
                           <div
+                            key={index}
                             style={{
                               display: "flex",
-                              flexDirection: "column",
                               alignItems: "flex-start",
-                              flex: "1 0 0",
+                              gap: "8px",
                             }}
                           >
-                            <div
+                            <RadioGroupItem
+                              value={address}
+                              id={`address-${groupIndex}-${index}`}
+                              aria-label={`Select address ${address}`}
+                              className="mt-1 h-4 w-4 border-[#D5D7DA] text-[#344698] focus-visible:ring-2 focus-visible:ring-[#344698]"
+                            />
+                            <label
+                              htmlFor={`address-${groupIndex}-${index}`}
                               style={{
-                                color: "#414651",
-                                fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 500,
-                                lineHeight: "20px",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "flex-start",
+                                flex: "1 0 0",
+                                cursor: "pointer",
                               }}
                             >
-                              {address}
-                            </div>
+                              <div
+                                style={{
+                                  color: "#414651",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {address}
+                              </div>
+                            </label>
                           </div>
-                        </div>
-                      ))}
-                    </div>
-                  ))}
+                        ))}
+                      </div>
+                    ))}
+                  </RadioGroup>
                 </div>
               </div>
 
