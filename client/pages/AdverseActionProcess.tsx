@@ -78,6 +78,42 @@ export default function AdverseActionProcess() {
     navigate(`/order-details/${orderId}`);
   };
 
+  const preAdverseRows = [
+    {
+      letterDescription: "Letter Description",
+      jurisdictionType: "Jurisdiction Type",
+      applicantLocation: "Applicant's Location",
+      actionLabel: "Attention Required",
+    },
+    {
+      letterDescription: "Test",
+      jurisdictionType: "Applicant's Location",
+      applicantLocation: "Applicant's Location",
+      actionLabel: "Preview Letter",
+    },
+    {
+      letterDescription: "Pre-adverse General",
+      jurisdictionType: "Applicant's Location",
+      applicantLocation: "Applicant's Location",
+      actionLabel: "Click to Upload",
+    },
+  ];
+
+  const pendingDocumentRows = [
+    {
+      documentName: { label: "SSA-89", isLink: true },
+      documentsLabel: "Click to Upload",
+    },
+    {
+      documentName: { label: "Resume", isLink: false },
+      documentsLabel: "Click to Upload",
+    },
+    {
+      documentName: { label: "Resume", isLink: false },
+      documentsLabel: "Click to Upload",
+    },
+  ];
+
   return (
     <div
       style={{
