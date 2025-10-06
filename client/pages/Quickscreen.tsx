@@ -1301,6 +1301,17 @@ export default function Quickscreen() {
                       </tbody>
                     </table>
                   </div>
+                  {isMobile && (
+                    <div
+                      style={{
+                        alignSelf: "center",
+                        width: "64px",
+                        height: "4px",
+                        borderRadius: "9999px",
+                        background: "#D5D7DA",
+                      }}
+                    />
+                  )}
                 </div>
               </div>
 
