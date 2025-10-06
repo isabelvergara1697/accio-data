@@ -631,7 +631,13 @@ export default function Quickscreen() {
                       }
                       style={{ width: "100%" }}
                     >
-                      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                      <table
+                        style={{
+                          width: "100%",
+                          minWidth: isMobile ? "500px" : "auto",
+                          borderCollapse: "collapse",
+                        }}
+                      >
                         <thead>
                           <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
                             <th
