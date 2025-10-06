@@ -1079,14 +1079,19 @@ export default function Quickscreen() {
                       display: "flex",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
+                      width: "100%",
+                      minWidth: 0,
                       overflowX: "auto",
                       WebkitOverflowScrolling: "touch",
+                      paddingBottom: "8px",
+                      scrollbarWidth: "thin",
+                      scrollbarColor: "#D5D7DA transparent",
                     }}
                   >
                     <table
                       style={{
                         width: "100%",
-                        minWidth: isMobile ? "600px" : "auto",
+                        minWidth: isMobile ? "760px" : "auto",
                         borderCollapse: "collapse",
                       }}
                     >
@@ -1094,9 +1099,8 @@ export default function Quickscreen() {
                         <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
                           <th
                             style={{
-                              padding: "6px",
+                              padding: "8px 12px",
                               textAlign: "left",
-                              width: isMobile ? "153px" : "auto",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1108,9 +1112,9 @@ export default function Quickscreen() {
                           </th>
                           <th
                             style={{
-                              padding: "6px",
-                              textAlign: "left",
-                              width: isMobile ? "94px" : "141px",
+                              padding: "8px 12px",
+                              textAlign: "center",
+                              width: isMobile ? "120px" : "160px",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1122,9 +1126,9 @@ export default function Quickscreen() {
                           </th>
                           <th
                             style={{
-                              padding: "6px",
-                              textAlign: "left",
-                              width: isMobile ? "94px" : "141px",
+                              padding: "8px 12px",
+                              textAlign: "center",
+                              width: isMobile ? "120px" : "160px",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1136,9 +1140,9 @@ export default function Quickscreen() {
                           </th>
                           <th
                             style={{
-                              padding: "6px",
-                              textAlign: "left",
-                              width: isMobile ? "161px" : "auto",
+                              padding: "8px 12px",
+                              textAlign: "center",
+                              width: isMobile ? "184px" : "220px",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1150,9 +1154,8 @@ export default function Quickscreen() {
                           </th>
                           <th
                             style={{
-                              padding: "6px",
+                              padding: "8px 12px",
                               textAlign: "left",
-                              width: isMobile ? "auto" : "auto",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1169,7 +1172,7 @@ export default function Quickscreen() {
                           <tr key={index} style={{ borderBottom: "1px solid #E9EAEB" }}>
                             <td
                               style={{
-                                padding: isMobile ? "8px" : "12px",
+                                padding: isMobile ? "8px 12px" : "12px 16px",
                                 color: "#181D27",
                                 fontFamily: "Public Sans",
                                 fontSize: "14px",
@@ -1180,84 +1183,105 @@ export default function Quickscreen() {
                             >
                               {search.location}
                             </td>
-                            <td style={{ padding: isMobile ? "8px" : "12px" }}>
-                              <Checkbox
-                                checked={selectedSearches.county.includes(search.location)}
-                                onCheckedChange={(checked) =>
-                                  setSelectedSearches((prev) => {
-                                    const isChecked = checked === true;
-                                    if (isChecked) {
-                                      if (prev.county.includes(search.location)) {
-                                        return prev;
+                            <td style={{ padding: isMobile ? "8px 12px" : "12px 16px" }}>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                <Checkbox
+                                  checked={selectedSearches.county.includes(search.location)}
+                                  onCheckedChange={(checked) =>
+                                    setSelectedSearches((prev) => {
+                                      const isChecked = checked === true;
+                                      if (isChecked) {
+                                        if (prev.county.includes(search.location)) {
+                                          return prev;
+                                        }
+                                        return {
+                                          ...prev,
+                                          county: [...prev.county, search.location],
+                                        };
                                       }
                                       return {
                                         ...prev,
-                                        county: [...prev.county, search.location],
+                                        county: prev.county.filter((l) => l !== search.location),
                                       };
-                                    }
-                                    return {
-                                      ...prev,
-                                      county: prev.county.filter((l) => l !== search.location),
-                                    };
-                                  })
-                                }
-                                aria-label={`Include county criminal search for ${search.location}`}
-                                className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
-                              />
+                                    })
+                                  }
+                                  aria-label={`Include county criminal search for ${search.location}`}
+                                  className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
+                                />
+                              </div>
                             </td>
-                            <td style={{ padding: isMobile ? "8px" : "12px" }}>
-                              <Checkbox
-                                checked={selectedSearches.federal.includes(search.location)}
-                                onCheckedChange={(checked) =>
-                                  setSelectedSearches((prev) => {
-                                    const isChecked = checked === true;
-                                    if (isChecked) {
-                                      if (prev.federal.includes(search.location)) {
-                                        return prev;
+                            <td style={{ padding: isMobile ? "8px 12px" : "12px 16px" }}>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                <Checkbox
+                                  checked={selectedSearches.federal.includes(search.location)}
+                                  onCheckedChange={(checked) =>
+                                    setSelectedSearches((prev) => {
+                                      const isChecked = checked === true;
+                                      if (isChecked) {
+                                        if (prev.federal.includes(search.location)) {
+                                          return prev;
+                                        }
+                                        return {
+                                          ...prev,
+                                          federal: [...prev.federal, search.location],
+                                        };
                                       }
                                       return {
                                         ...prev,
-                                        federal: [...prev.federal, search.location],
+                                        federal: prev.federal.filter((l) => l !== search.location),
                                       };
-                                    }
-                                    return {
-                                      ...prev,
-                                      federal: prev.federal.filter((l) => l !== search.location),
-                                    };
-                                  })
-                                }
-                                aria-label={`Include federal criminal search for ${search.location}`}
-                                className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
-                              />
+                                    })
+                                  }
+                                  aria-label={`Include federal criminal search for ${search.location}`}
+                                  className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
+                                />
+                              </div>
                             </td>
-                            <td style={{ padding: isMobile ? "8px" : "12px" }}>
-                              <Checkbox
-                                checked={selectedSearches.statewide.includes(search.location)}
-                                onCheckedChange={(checked) =>
-                                  setSelectedSearches((prev) => {
-                                    const isChecked = checked === true;
-                                    if (isChecked) {
-                                      if (prev.statewide.includes(search.location)) {
-                                        return prev;
+                            <td style={{ padding: isMobile ? "8px 12px" : "12px 16px" }}>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "center",
+                                }}
+                              >
+                                <Checkbox
+                                  checked={selectedSearches.statewide.includes(search.location)}
+                                  onCheckedChange={(checked) =>
+                                    setSelectedSearches((prev) => {
+                                      const isChecked = checked === true;
+                                      if (isChecked) {
+                                        if (prev.statewide.includes(search.location)) {
+                                          return prev;
+                                        }
+                                        return {
+                                          ...prev,
+                                          statewide: [...prev.statewide, search.location],
+                                        };
                                       }
                                       return {
                                         ...prev,
-                                        statewide: [...prev.statewide, search.location],
+                                        statewide: prev.statewide.filter((l) => l !== search.location),
                                       };
-                                    }
-                                    return {
-                                      ...prev,
-                                      statewide: prev.statewide.filter((l) => l !== search.location),
-                                    };
-                                  })
-                                }
-                                aria-label={`Include statewide criminal search for ${search.location}`}
-                                className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
-                              />
+                                    })
+                                  }
+                                  aria-label={`Include statewide criminal search for ${search.location}`}
+                                  className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
+                                />
+                              </div>
                             </td>
                             <td
                               style={{
-                                padding: isMobile ? "8px" : "12px",
+                                padding: isMobile ? "8px 12px" : "12px 16px",
                                 color: "#181D27",
                                 fontFamily: "Public Sans",
                                 fontSize: "14px",
