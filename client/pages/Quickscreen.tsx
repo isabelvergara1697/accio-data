@@ -635,7 +635,8 @@ export default function Quickscreen() {
                           primary: value,
                         }))
                       }
-                      style={{ width: "100%", minWidth: 0 }}
+                      className=""
+                      style={{ width: "100%", minWidth: 0, display: "block" }}
                     >
                       <table
                         style={{
