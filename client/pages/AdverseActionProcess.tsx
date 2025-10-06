@@ -1071,7 +1071,7 @@ export default function AdverseActionProcess() {
                 <div
                   style={{
                     display: "flex",
-                    padding: isTablet ? "12px 16px 20px 16px" : "12px 24px 20px 24px",
+                    padding: isMobile ? "12px 16px 20px 16px" : isTablet ? "12px 16px 20px 16px" : "12px 24px 20px 24px",
                     flexDirection: "column",
                     alignItems: "flex-start",
                     gap: "10px",
@@ -1084,8 +1084,18 @@ export default function AdverseActionProcess() {
                       alignItems: "flex-start",
                       alignSelf: "stretch",
                       position: "relative",
+                      overflowX: isMobile ? "auto" : "visible",
+                      WebkitOverflowScrolling: "touch",
                     }}
                   >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        minWidth: isMobile ? "500px" : "auto",
+                        flex: isMobile ? "0 0 auto" : "1 1 auto",
+                      }}
+                    >
                     <div
                       style={{
                         display: "flex",
@@ -1291,6 +1301,7 @@ export default function AdverseActionProcess() {
                         )
                         .join("")}
                     </style>
+                    </div>
                   </div>
                 </div>
               )}
