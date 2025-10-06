@@ -795,6 +795,17 @@ export default function Quickscreen() {
                       </table>
                     </div>
                   </RadioGroupPrimitive.Root>
+                  {isMobile && (
+                    <div
+                      style={{
+                        alignSelf: "center",
+                        width: "64px",
+                        height: "4px",
+                        borderRadius: "9999px",
+                        background: "#D5D7DA",
+                      }}
+                    />
+                  )}
                 </div>
               </div>
 
