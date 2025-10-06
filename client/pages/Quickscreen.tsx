@@ -613,30 +613,28 @@ export default function Quickscreen() {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      alignSelf: "stretch",
-                      width: "100%",
-                      minWidth: 0,
-                      overflowX: "auto",
-                      WebkitOverflowScrolling: "touch",
-                      paddingBottom: "8px",
-                      scrollbarWidth: "thin",
-                      scrollbarColor: "#D5D7DA transparent",
-                    }}
+                  <RadioGroup
+                    value={selectedNames.primary}
+                    onValueChange={(value) =>
+                      setSelectedNames((prev) => ({
+                        ...prev,
+                        primary: value,
+                      }))
+                    }
                   >
-                    <RadioGroup
-                      value={selectedNames.primary}
-                      onValueChange={(value) =>
-                        setSelectedNames((prev) => ({
-                          ...prev,
-                          primary: value,
-                        }))
-                      }
-                      className=""
-                      style={{ width: "100%", minWidth: 0, display: "block" }}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        alignSelf: "stretch",
+                        width: "100%",
+                        minWidth: 0,
+                        overflowX: "auto",
+                        WebkitOverflowScrolling: "touch",
+                        paddingBottom: "8px",
+                        scrollbarWidth: "thin",
+                        scrollbarColor: "#D5D7DA transparent",
+                      }}
                     >
                       <table
                         style={{
@@ -803,8 +801,8 @@ export default function Quickscreen() {
                           ))}
                         </tbody>
                       </table>
-                    </RadioGroup>
-                  </div>
+                    </div>
+                  </RadioGroup>
                 </div>
               </div>
 
