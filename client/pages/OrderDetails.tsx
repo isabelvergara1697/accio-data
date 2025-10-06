@@ -24520,6 +24520,13 @@ const OrderDetails: React.FC = () => {
         onUpload={handleUploadFile}
       />
 
+      {/* Request Document Upload Modal */}
+      <RequestDocumentUploadModal
+        isOpen={requestDocumentModalOpen}
+        onClose={handleCloseRequestDocumentModal}
+        onSend={handleSendDocumentRequest}
+      />
+
       {/* More Actions Submenu */}
       <MoreActionsSubmenu
         isOpen={moreActionsOpen}
