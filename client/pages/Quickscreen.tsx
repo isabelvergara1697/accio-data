@@ -778,7 +778,12 @@ export default function Quickscreen() {
                                     />
                                   </div>
                                 </td>
-                                <td style={{ padding: "8px 12px" }}>
+                                <td
+                                  style={{
+                                    padding: "8px 12px",
+                                    width: "20%",
+                                  }}
+                                >
                                   <div style={{ display: "flex", justifyContent: "center" }}>
                                     <Checkbox
                                       checked={selectedNames.doNotUse.includes(option.name)}
