@@ -69,23 +69,32 @@ export default function Quickscreen() {
   ];
 
   const addressOptions = [
-    { group: "Johnny B Bad Sr   DOB 02/23/1958", addresses: [
-      "444 No Place Dr. Anytown, WA    99214",
-      "100 Main St. Catskill, NY    12414",
-      "111 No Place Dr. Anytown, TX    78749",
-      "333 All Place Dr. Anytown, AZ    85285",
-      "1234 West 5th. Auburn, NY    1302",
-      "222 All Place Dr. Anytown, TX    78029",
-      "222 All Place Dr. Anytown, TX    78029",
-    ]},
-    { group: "Johnny Bad   DOB 02/23/1958", addresses: [
-      "222 All Place Dr. Anytown, TX    78728",
-      "111 No Place Dr. Anytown, TX    78749",
-    ]},
-    { group: "John Bad   DOB", addresses: [
-      "1234 West 5th. Auburn, NY    1302",
-      "222 All Place Dr. Anytown, TX    78029",
-    ]},
+    {
+      group: "Johnny B Bad Sr   DOB 02/23/1958",
+      addresses: [
+        "444 No Place Dr. Anytown, WA    99214",
+        "100 Main St. Catskill, NY    12414",
+        "111 No Place Dr. Anytown, TX    78749",
+        "333 All Place Dr. Anytown, AZ    85285",
+        "1234 West 5th. Auburn, NY    1302",
+        "222 All Place Dr. Anytown, TX    78029",
+        "222 All Place Dr. Anytown, TX    78029",
+      ],
+    },
+    {
+      group: "Johnny Bad   DOB 02/23/1958",
+      addresses: [
+        "222 All Place Dr. Anytown, TX    78728",
+        "111 No Place Dr. Anytown, TX    78749",
+      ],
+    },
+    {
+      group: "John Bad   DOB",
+      addresses: [
+        "1234 West 5th. Auburn, NY    1302",
+        "222 All Place Dr. Anytown, TX    78029",
+      ],
+    },
   ];
 
   const criminalSearches = [
@@ -143,7 +152,8 @@ export default function Quickscreen() {
               flexDirection: "column",
               alignItems: "center",
               alignSelf: "stretch",
-              background: "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
+              background:
+                "linear-gradient(180deg, #FAFAFA 43.75%, rgba(255, 255, 255, 0.00) 100%)",
             }}
           >
             <div
@@ -156,7 +166,14 @@ export default function Quickscreen() {
                 alignSelf: "stretch",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: "16px", flex: "1 0 0" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px",
+                  flex: "1 0 0",
+                }}
+              >
                 <div
                   style={{
                     display: "flex",
@@ -179,7 +196,13 @@ export default function Quickscreen() {
                       boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                     }}
                   >
-                    <Search style={{ width: "24px", height: "24px", color: "#A4A7AE" }} />
+                    <Search
+                      style={{
+                        width: "24px",
+                        height: "24px",
+                        color: "#A4A7AE",
+                      }}
+                    />
                     <div
                       style={{
                         flex: "1 0 0",
@@ -256,7 +279,9 @@ export default function Quickscreen() {
               }}
             >
               {/* Breadcrumbs */}
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "8px" }}
+              >
                 <button
                   onClick={() => handleBreadcrumbClick("dashboard")}
                   style={{
@@ -268,9 +293,13 @@ export default function Quickscreen() {
                     padding: 0,
                   }}
                 >
-                  <Home style={{ width: "24px", height: "24px", color: "#A4A7AE" }} />
+                  <Home
+                    style={{ width: "24px", height: "24px", color: "#A4A7AE" }}
+                  />
                 </button>
-                <ChevronRight style={{ width: "24px", height: "24px", color: "#A4A7AE" }} />
+                <ChevronRight
+                  style={{ width: "24px", height: "24px", color: "#A4A7AE" }}
+                />
                 <button
                   onClick={() => handleBreadcrumbClick("invites-orders")}
                   style={{
@@ -290,7 +319,9 @@ export default function Quickscreen() {
                 >
                   Checked Individuals
                 </button>
-                <ChevronRight style={{ width: "24px", height: "24px", color: "#A4A7AE" }} />
+                <ChevronRight
+                  style={{ width: "24px", height: "24px", color: "#A4A7AE" }}
+                />
                 <button
                   onClick={() => handleBreadcrumbClick("order-details")}
                   style={{
@@ -310,7 +341,9 @@ export default function Quickscreen() {
                 >
                   Order #{orderId || "38138"}
                 </button>
-                <ChevronRight style={{ width: "24px", height: "24px", color: "#A4A7AE" }} />
+                <ChevronRight
+                  style={{ width: "24px", height: "24px", color: "#A4A7AE" }}
+                />
                 <div
                   style={{
                     display: "flex",
@@ -445,7 +478,14 @@ export default function Quickscreen() {
                         alignSelf: "stretch",
                       }}
                     >
-                      <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
                         <div
                           style={{
                             display: "flex",
@@ -500,7 +540,13 @@ export default function Quickscreen() {
                       alignSelf: "stretch",
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                      }}
+                    >
                       <div
                         style={{
                           display: "flex",
@@ -513,7 +559,13 @@ export default function Quickscreen() {
                           background: "#DCFAE6",
                         }}
                       >
-                        <CheckCircle2 style={{ width: "14px", height: "14px", color: "#079455" }} />
+                        <CheckCircle2
+                          style={{
+                            width: "14px",
+                            height: "14px",
+                            color: "#079455",
+                          }}
+                        />
                       </div>
                       <div
                         style={{
@@ -570,7 +622,14 @@ export default function Quickscreen() {
                         alignSelf: "stretch",
                       }}
                     >
-                      <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
                         <div
                           style={{
                             display: "flex",
@@ -602,7 +661,8 @@ export default function Quickscreen() {
                               lineHeight: "20px",
                             }}
                           >
-                            Select a name from the list below. If none are correct, just choose the one that's closest.
+                            Select a name from the list below. If none are
+                            correct, just choose the one that's closest.
                           </div>
                         </div>
                       </div>
@@ -724,7 +784,10 @@ export default function Quickscreen() {
                           {nameOptions.map((option, index) => {
                             const optionId = `name-option-${index}`;
                             return (
-                              <tr key={optionId} style={{ borderBottom: "1px solid #E9EAEB" }}>
+                              <tr
+                                key={optionId}
+                                style={{ borderBottom: "1px solid #E9EAEB" }}
+                              >
                                 <td
                                   style={{
                                     padding: "12px 16px",
@@ -745,7 +808,12 @@ export default function Quickscreen() {
                                     width: "20%",
                                   }}
                                 >
-                                  <div style={{ display: "flex", justifyContent: "center" }}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "center",
+                                    }}
+                                  >
                                     <RadioGroupItem
                                       value={option.name}
                                       id={`primary-name-${index}`}
@@ -760,24 +828,38 @@ export default function Quickscreen() {
                                     width: "20%",
                                   }}
                                 >
-                                  <div style={{ display: "flex", justifyContent: "center" }}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "center",
+                                    }}
+                                  >
                                     <Checkbox
-                                      checked={selectedNames.alias.includes(option.name)}
+                                      checked={selectedNames.alias.includes(
+                                        option.name,
+                                      )}
                                       onCheckedChange={(checked) =>
                                         setSelectedNames((prev) => {
                                           const isChecked = checked === true;
                                           if (isChecked) {
-                                            if (prev.alias.includes(option.name)) {
+                                            if (
+                                              prev.alias.includes(option.name)
+                                            ) {
                                               return prev;
                                             }
                                             return {
                                               ...prev,
-                                              alias: [...prev.alias, option.name],
+                                              alias: [
+                                                ...prev.alias,
+                                                option.name,
+                                              ],
                                             };
                                           }
                                           return {
                                             ...prev,
-                                            alias: prev.alias.filter((n) => n !== option.name),
+                                            alias: prev.alias.filter(
+                                              (n) => n !== option.name,
+                                            ),
                                           };
                                         })
                                       }
@@ -793,24 +875,40 @@ export default function Quickscreen() {
                                     width: "20%",
                                   }}
                                 >
-                                  <div style={{ display: "flex", justifyContent: "center" }}>
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      justifyContent: "center",
+                                    }}
+                                  >
                                     <Checkbox
-                                      checked={selectedNames.doNotUse.includes(option.name)}
+                                      checked={selectedNames.doNotUse.includes(
+                                        option.name,
+                                      )}
                                       onCheckedChange={(checked) =>
                                         setSelectedNames((prev) => {
                                           const isChecked = checked === true;
                                           if (isChecked) {
-                                            if (prev.doNotUse.includes(option.name)) {
+                                            if (
+                                              prev.doNotUse.includes(
+                                                option.name,
+                                              )
+                                            ) {
                                               return prev;
                                             }
                                             return {
                                               ...prev,
-                                              doNotUse: [...prev.doNotUse, option.name],
+                                              doNotUse: [
+                                                ...prev.doNotUse,
+                                                option.name,
+                                              ],
                                             };
                                           }
                                           return {
                                             ...prev,
-                                            doNotUse: prev.doNotUse.filter((n) => n !== option.name),
+                                            doNotUse: prev.doNotUse.filter(
+                                              (n) => n !== option.name,
+                                            ),
                                           };
                                         })
                                       }
@@ -880,7 +978,14 @@ export default function Quickscreen() {
                         alignSelf: "stretch",
                       }}
                     >
-                      <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
                         <div
                           style={{
                             display: "flex",
@@ -912,7 +1017,9 @@ export default function Quickscreen() {
                               lineHeight: "20px",
                             }}
                           >
-                            Select the subject's primary (current) address from the list below. If none are correct, don't select anything, you can type it in later.
+                            Select the subject's primary (current) address from
+                            the list below. If none are correct, don't select
+                            anything, you can type it in later.
                           </div>
                         </div>
                       </div>
@@ -1052,7 +1159,14 @@ export default function Quickscreen() {
                         alignSelf: "stretch",
                       }}
                     >
-                      <div style={{ display: "flex", alignItems: "flex-start", gap: "4px", flex: "1 0 0" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "4px",
+                          flex: "1 0 0",
+                        }}
+                      >
                         <div
                           style={{
                             display: "flex",
@@ -1084,7 +1198,10 @@ export default function Quickscreen() {
                               lineHeight: "20px",
                             }}
                           >
-                            Select the searches you wish to run from the list below. subject information will not auto-populate, if you do not see the proper name then click submit and manually enter the name
+                            Select the searches you wish to run from the list
+                            below. subject information will not auto-populate,
+                            if you do not see the proper name then click submit
+                            and manually enter the name
                           </div>
                         </div>
                       </div>
@@ -1208,7 +1325,10 @@ export default function Quickscreen() {
                       </thead>
                       <tbody>
                         {criminalSearches.map((search, index) => (
-                          <tr key={index} style={{ borderBottom: "1px solid #E9EAEB" }}>
+                          <tr
+                            key={index}
+                            style={{ borderBottom: "1px solid #E9EAEB" }}
+                          >
                             <td
                               style={{
                                 padding: isMobile ? "8px 12px" : "12px 16px",
@@ -1236,22 +1356,31 @@ export default function Quickscreen() {
                                 }}
                               >
                                 <Checkbox
-                                  checked={selectedSearches.county.includes(search.location)}
+                                  checked={selectedSearches.county.includes(
+                                    search.location,
+                                  )}
                                   onCheckedChange={(checked) =>
                                     setSelectedSearches((prev) => {
                                       const isChecked = checked === true;
                                       if (isChecked) {
-                                        if (prev.county.includes(search.location)) {
+                                        if (
+                                          prev.county.includes(search.location)
+                                        ) {
                                           return prev;
                                         }
                                         return {
                                           ...prev,
-                                          county: [...prev.county, search.location],
+                                          county: [
+                                            ...prev.county,
+                                            search.location,
+                                          ],
                                         };
                                       }
                                       return {
                                         ...prev,
-                                        county: prev.county.filter((l) => l !== search.location),
+                                        county: prev.county.filter(
+                                          (l) => l !== search.location,
+                                        ),
                                       };
                                     })
                                   }
@@ -1273,22 +1402,31 @@ export default function Quickscreen() {
                                 }}
                               >
                                 <Checkbox
-                                  checked={selectedSearches.federal.includes(search.location)}
+                                  checked={selectedSearches.federal.includes(
+                                    search.location,
+                                  )}
                                   onCheckedChange={(checked) =>
                                     setSelectedSearches((prev) => {
                                       const isChecked = checked === true;
                                       if (isChecked) {
-                                        if (prev.federal.includes(search.location)) {
+                                        if (
+                                          prev.federal.includes(search.location)
+                                        ) {
                                           return prev;
                                         }
                                         return {
                                           ...prev,
-                                          federal: [...prev.federal, search.location],
+                                          federal: [
+                                            ...prev.federal,
+                                            search.location,
+                                          ],
                                         };
                                       }
                                       return {
                                         ...prev,
-                                        federal: prev.federal.filter((l) => l !== search.location),
+                                        federal: prev.federal.filter(
+                                          (l) => l !== search.location,
+                                        ),
                                       };
                                     })
                                   }
@@ -1310,22 +1448,33 @@ export default function Quickscreen() {
                                 }}
                               >
                                 <Checkbox
-                                  checked={selectedSearches.statewide.includes(search.location)}
+                                  checked={selectedSearches.statewide.includes(
+                                    search.location,
+                                  )}
                                   onCheckedChange={(checked) =>
                                     setSelectedSearches((prev) => {
                                       const isChecked = checked === true;
                                       if (isChecked) {
-                                        if (prev.statewide.includes(search.location)) {
+                                        if (
+                                          prev.statewide.includes(
+                                            search.location,
+                                          )
+                                        ) {
                                           return prev;
                                         }
                                         return {
                                           ...prev,
-                                          statewide: [...prev.statewide, search.location],
+                                          statewide: [
+                                            ...prev.statewide,
+                                            search.location,
+                                          ],
                                         };
                                       }
                                       return {
                                         ...prev,
-                                        statewide: prev.statewide.filter((l) => l !== search.location),
+                                        statewide: prev.statewide.filter(
+                                          (l) => l !== search.location,
+                                        ),
                                       };
                                     })
                                   }
