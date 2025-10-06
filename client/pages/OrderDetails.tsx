@@ -24567,6 +24567,13 @@ const OrderDetails: React.FC = () => {
         isOrderComplete={false}
       />
 
+      {/* Customer Service Modal */}
+      <CustomerServiceModal
+        isOpen={customerServiceModalOpen}
+        onClose={handleCloseCustomerServiceModal}
+        onSubmit={handleSubmitCustomerService}
+      />
+
       {/* More Actions Submenu */}
       <MoreActionsSubmenu
         isOpen={moreActionsOpen}
