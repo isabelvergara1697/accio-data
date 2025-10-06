@@ -443,7 +443,7 @@ export default function AdverseActionProcess() {
               <div
                 style={{
                   display: "flex",
-                  padding: "12px 24px 16px 24px",
+                  padding: isTablet ? "12px 16px 16px 16px" : "12px 24px 16px 24px",
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "16px",
