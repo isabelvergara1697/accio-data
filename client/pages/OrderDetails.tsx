@@ -377,6 +377,9 @@ const OrderDetails: React.FC = () => {
   // Send Report modal state
   const [sendReportModalOpen, setSendReportModalOpen] = useState(false);
 
+  // Customer Service modal state
+  const [customerServiceModalOpen, setCustomerServiceModalOpen] = useState(false);
+
   // Manual rescreening state
   const [manualRescreening, setManualRescreening] = useState<string>("");
 
