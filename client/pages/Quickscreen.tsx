@@ -4,6 +4,7 @@ import { Sidebar } from "../components/Sidebar";
 import { MobileHeader } from "../components/MobileHeader";
 import { Checkbox } from "../components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Search, ChevronRight, Home, CheckCircle2 } from "lucide-react";
 
 export default function Quickscreen() {
