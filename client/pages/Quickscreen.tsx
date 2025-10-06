@@ -1062,12 +1062,14 @@ export default function Quickscreen() {
                 <div
                   style={{
                     display: "flex",
-                    padding: "12px 16px 40px 16px",
+                    padding: "12px 16px 24px 16px",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "flex-start",
                     gap: "20px",
                     alignSelf: "stretch",
+                    width: "100%",
+                    boxSizing: "border-box",
                     borderRadius: "0 0 12px 12px",
                     borderRight: "1px solid #E9EAEB",
                     borderBottom: "1px solid #E9EAEB",
