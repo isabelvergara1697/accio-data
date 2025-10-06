@@ -613,259 +613,184 @@ export default function Quickscreen() {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  <div
-                    role="radiogroup"
-                    aria-label="Select preferred name options"
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      alignSelf: "stretch",
-                      width: "100%",
-                      overflowX: "auto",
-                      WebkitOverflowScrolling: "touch",
-                      paddingBottom: "8px",
-                    }}
+                  <RadioGroupPrimitive.Root
+                    value={selectedNames.primary}
+                    onValueChange={(value) =>
+                      setSelectedNames((prev) => ({
+                        ...prev,
+                        primary: value,
+                      }))
+                    }
+                    aria-label="Select primary name"
+                    style={{ width: "100%" }}
                   >
-                    {/* Name Column */}
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: "column",
                         alignItems: "flex-start",
-                        minWidth: "180px",
-                        flex: "0 0 auto",
+                        alignSelf: "stretch",
+                        width: "100%",
+                        overflowX: "auto",
+                        WebkitOverflowScrolling: "touch",
+                        paddingBottom: "8px",
+                        scrollbarWidth: "thin",
+                        scrollbarColor: "#D5D7DA transparent",
                       }}
                     >
-                      <div
+                      <table
                         style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
-                          alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                          background: "#FFF",
+                          width: "100%",
+                          minWidth: "640px",
+                          borderCollapse: "collapse",
                         }}
                       >
-                        <div style={{ color: "#717680", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>
-                          Name
-                        </div>
-                      </div>
-                      {nameOptions.map((option, index) => (
-                        <div
-                          key={index}
-                          style={{
-                            display: "flex",
-                            height: "52px",
-                            padding: "12px",
-                            alignItems: "center",
-                            alignSelf: "stretch",
-                            borderBottom: "1px solid #E9EAEB",
-                          }}
-                        >
-                          <div style={{ color: "#181D27", fontFamily: "Public Sans", fontSize: "14px", fontWeight: 500, lineHeight: "20px" }}>
-                            {option.name}
-                          </div>
-                        </div>
-                      ))}
+                        <thead>
+                          <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
+                            <th
+                              style={{
+                                padding: "8px 12px",
+                                textAlign: "left",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Name
+                            </th>
+                            <th
+                              style={{
+                                padding: "8px 12px",
+                                textAlign: "center",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Primary
+                            </th>
+                            <th
+                              style={{
+                                padding: "8px 12px",
+                                textAlign: "center",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Alias
+                            </th>
+                            <th
+                              style={{
+                                padding: "8px 12px",
+                                textAlign: "center",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Do not Use
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {nameOptions.map((option, index) => {
+                            const optionId = `name-option-${index}`;
+                            return (
+                              <tr key={optionId} style={{ borderBottom: "1px solid #E9EAEB" }}>
+                                <td
+                                  style={{
+                                    padding: "12px 16px",
+                                    color: "#181D27",
+                                    fontFamily: "Public Sans",
+                                    fontSize: "14px",
+                                    fontWeight: 500,
+                                    lineHeight: "20px",
+                                    whiteSpace: "nowrap",
+                                  }}
+                                >
+                                  <span id={optionId}>{option.name}</span>
+                                </td>
+                                <td style={{ padding: "8px 12px" }}>
+                                  <div style={{ display: "flex", justifyContent: "center" }}>
+                                    <RadioGroupItem
+                                      value={option.name}
+                                      id={`primary-name-${index}`}
+                                      aria-labelledby={optionId}
+                                      className="h-4 w-4 border-[#D5D7DA] text-[#344698] focus-visible:ring-2 focus-visible:ring-[#344698]"
+                                    />
+                                  </div>
+                                </td>
+                                <td style={{ padding: "8px 12px" }}>
+                                  <div style={{ display: "flex", justifyContent: "center" }}>
+                                    <Checkbox
+                                      checked={selectedNames.alias.includes(option.name)}
+                                      onCheckedChange={(checked) =>
+                                        setSelectedNames((prev) => {
+                                          const isChecked = checked === true;
+                                          if (isChecked) {
+                                            if (prev.alias.includes(option.name)) {
+                                              return prev;
+                                            }
+                                            return {
+                                              ...prev,
+                                              alias: [...prev.alias, option.name],
+                                            };
+                                          }
+                                          return {
+                                            ...prev,
+                                            alias: prev.alias.filter((n) => n !== option.name),
+                                          };
+                                        })
+                                      }
+                                      aria-labelledby={optionId}
+                                      aria-label={`Mark ${option.name} as alias`}
+                                      className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
+                                    />
+                                  </div>
+                                </td>
+                                <td style={{ padding: "8px 12px" }}>
+                                  <div style={{ display: "flex", justifyContent: "center" }}>
+                                    <Checkbox
+                                      checked={selectedNames.doNotUse.includes(option.name)}
+                                      onCheckedChange={(checked) =>
+                                        setSelectedNames((prev) => {
+                                          const isChecked = checked === true;
+                                          if (isChecked) {
+                                            if (prev.doNotUse.includes(option.name)) {
+                                              return prev;
+                                            }
+                                            return {
+                                              ...prev,
+                                              doNotUse: [...prev.doNotUse, option.name],
+                                            };
+                                          }
+                                          return {
+                                            ...prev,
+                                            doNotUse: prev.doNotUse.filter((n) => n !== option.name),
+                                          };
+                                        })
+                                      }
+                                      aria-labelledby={optionId}
+                                      aria-label={`Mark ${option.name} as do not use`}
+                                      className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
+                                    />
+                                  </div>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
                     </div>
-
-                    {/* Primary Column */}
-                    <div
-                      style={{
-                        display: "flex",
-                        width: isMobile ? "96px" : "141px",
-                        minWidth: isMobile ? "96px" : "141px",
-                        flex: "0 0 auto",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
-                          alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                          background: "#FFF",
-                        }}
-                      >
-                        <div style={{ color: "#717680", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>
-                          Primary
-                        </div>
-                      </div>
-                      {nameOptions.map((option, index) => (
-                        <div
-                          key={index}
-                          style={{
-                            display: "flex",
-                            height: "52px",
-                            padding: "12px",
-                            alignItems: "center",
-                            gap: "12px",
-                            alignSelf: "stretch",
-                            borderBottom: "1px solid #E9EAEB",
-                            justifyContent: "center",
-                          }}
-                        >
-                          <button
-                            type="button"
-                            role="radio"
-                            aria-checked={selectedNames.primary === option.name}
-                            onClick={() => setSelectedNames(prev => ({ ...prev, primary: option.name }))}
-                            className="h-4 w-4 rounded-full border border-[#D5D7DA] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-[#344698] focus-visible:outline-none"
-                            style={{
-                              backgroundColor: selectedNames.primary === option.name ? "#344698" : "transparent",
-                            }}
-                          >
-                            {selectedNames.primary === option.name && (
-                              <div className="h-2 w-2 rounded-full bg-white" />
-                            )}
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Alias Column */}
-                    <div
-                      style={{
-                        display: "flex",
-                        width: isMobile ? "96px" : "141px",
-                        minWidth: isMobile ? "96px" : "141px",
-                        flex: "0 0 auto",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
-                          alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                          background: "#FFF",
-                        }}
-                      >
-                        <div style={{ color: "#717680", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>
-                          Alias
-                        </div>
-                      </div>
-                      {nameOptions.map((option, index) => (
-                        <div
-                          key={index}
-                          style={{
-                            display: "flex",
-                            height: "52px",
-                            padding: "12px",
-                            alignItems: "center",
-                            gap: "12px",
-                            alignSelf: "stretch",
-                            borderBottom: "1px solid #E9EAEB",
-                            justifyContent: "center",
-                          }}
-                        >
-                          <Checkbox
-                            checked={selectedNames.alias.includes(option.name)}
-                            onCheckedChange={(checked) =>
-                              setSelectedNames((prev) => {
-                                const isChecked = checked === true;
-                                if (isChecked) {
-                                  if (prev.alias.includes(option.name)) {
-                                    return prev;
-                                  }
-                                  return {
-                                    ...prev,
-                                    alias: [...prev.alias, option.name],
-                                  };
-                                }
-                                return {
-                                  ...prev,
-                                  alias: prev.alias.filter((n) => n !== option.name),
-                                };
-                              })
-                            }
-                            aria-label={`Mark ${option.name} as alias`}
-                            className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
-                          />
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Do not Use Column */}
-                    <div
-                      style={{
-                        display: "flex",
-                        width: isMobile ? "112px" : "141px",
-                        minWidth: isMobile ? "112px" : "141px",
-                        flex: "0 0 auto",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
-                          alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                          background: "#FFF",
-                        }}
-                      >
-                        <div style={{ color: "#717680", fontFamily: "Public Sans", fontSize: "12px", fontWeight: 600, lineHeight: "18px" }}>
-                          Do not Use
-                        </div>
-                      </div>
-                      {nameOptions.map((option, index) => (
-                        <div
-                          key={index}
-                          style={{
-                            display: "flex",
-                            height: "52px",
-                            padding: "12px",
-                            alignItems: "center",
-                            gap: "12px",
-                            alignSelf: "stretch",
-                            borderBottom: "1px solid #E9EAEB",
-                            justifyContent: "center",
-                          }}
-                        >
-                          <Checkbox
-                            checked={selectedNames.doNotUse.includes(option.name)}
-                            onCheckedChange={(checked) =>
-                              setSelectedNames((prev) => {
-                                const isChecked = checked === true;
-                                if (isChecked) {
-                                  if (prev.doNotUse.includes(option.name)) {
-                                    return prev;
-                                  }
-                                  return {
-                                    ...prev,
-                                    doNotUse: [...prev.doNotUse, option.name],
-                                  };
-                                }
-                                return {
-                                  ...prev,
-                                  doNotUse: prev.doNotUse.filter((n) => n !== option.name),
-                                };
-                              })
-                            }
-                            aria-label={`Mark ${option.name} as do not use`}
-                            className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  </RadioGroupPrimitive.Root>
                 </div>
               </div>
 
