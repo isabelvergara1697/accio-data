@@ -902,7 +902,7 @@ const OrderDetails: React.FC = () => {
         // Handle email completion notification
         break;
       case "customer-service":
-        // Handle customer service inquiry
+        setCustomerServiceModalOpen(true);
         break;
       default:
         console.log(`Unhandled action: ${action}`);
