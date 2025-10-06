@@ -420,6 +420,7 @@ const OrderDetails: React.FC = () => {
       "adverse-action-process",
       "upload-applicant-release",
       "request-doc-upload",
+      "send-report-copy",
     ],
     [],
   );
