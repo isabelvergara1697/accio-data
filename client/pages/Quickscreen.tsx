@@ -1062,7 +1062,7 @@ export default function Quickscreen() {
                             style={{
                               padding: "6px",
                               textAlign: "left",
-                              width: "141px",
+                              width: isMobile ? "94px" : "141px",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1076,7 +1076,7 @@ export default function Quickscreen() {
                             style={{
                               padding: "6px",
                               textAlign: "left",
-                              width: "141px",
+                              width: isMobile ? "94px" : "141px",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1090,6 +1090,7 @@ export default function Quickscreen() {
                             style={{
                               padding: "6px",
                               textAlign: "left",
+                              width: isMobile ? "161px" : "auto",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1103,6 +1104,7 @@ export default function Quickscreen() {
                             style={{
                               padding: "6px",
                               textAlign: "left",
+                              width: isMobile ? "auto" : "auto",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
@@ -1119,17 +1121,18 @@ export default function Quickscreen() {
                           <tr key={index} style={{ borderBottom: "1px solid #E9EAEB" }}>
                             <td
                               style={{
-                                padding: "12px",
+                                padding: isMobile ? "8px" : "12px",
                                 color: "#181D27",
                                 fontFamily: "Public Sans",
                                 fontSize: "14px",
                                 fontWeight: 500,
                                 lineHeight: "20px",
+                                whiteSpace: isMobile ? "nowrap" : "normal",
                               }}
                             >
                               {search.location}
                             </td>
-                            <td style={{ padding: "12px" }}>
+                            <td style={{ padding: isMobile ? "8px" : "12px" }}>
                               <Checkbox
                                 checked={selectedSearches.county.includes(search.location)}
                                 onCheckedChange={(checked) =>
