@@ -73,7 +73,7 @@ export const ArchiveOrderModal: React.FC<ArchiveOrderModalProps> = ({
           overflow: "hidden",
         }}
       >
-        {/* Decorative background pattern */}
+        {/* Decorative background pattern - simplified */}
         <div
           style={{
             width: "336px",
@@ -82,106 +82,59 @@ export const ArchiveOrderModal: React.FC<ArchiveOrderModalProps> = ({
             left: "-120px",
             top: "-120px",
             pointerEvents: "none",
+            opacity: 0.5,
           }}
         >
-          {/* Mask */}
-          <div
+          <svg
+            width="336"
+            height="336"
+            viewBox="0 0 336 336"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
             style={{
-              display: "flex",
-              width: "336px",
-              height: "336px",
-              justifyContent: "center",
-              alignItems: "center",
               position: "absolute",
               left: 0,
               top: 0,
             }}
           >
-            <div
-              style={{
-                width: "336px",
-                height: "336px",
-                background:
-                  "radial-gradient(50% 50% at 50% 50%, #000 0%, rgba(0, 0, 0, 0.00) 100%)",
-                position: "absolute",
-                left: 0,
-                top: 0,
-              }}
-            />
-          </div>
-
-          {/* Grid Lines Content */}
-          <div
-            style={{
-              display: "inline-flex",
-              justifyContent: "center",
-              alignItems: "center",
-              position: "absolute",
-              left: 0,
-              top: 0,
-              width: "336px",
-              height: "336px",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                position: "absolute",
-                left: 0,
-                top: 0,
-                width: "336px",
-                height: "336px",
-              }}
-            >
-              {/* Vertical lines */}
-              <div
-                style={{
-                  display: "flex",
-                  height: "336px",
-                  alignItems: "flex-start",
-                  gap: "24px",
-                  border: "1px solid #E9EAEB",
-                }}
+            <defs>
+              <radialGradient
+                id="grid-mask"
+                cx="50%"
+                cy="50%"
+                r="50%"
+                fx="50%"
+                fy="50%"
               >
-                {Array.from({ length: 15 }).map((_, i) => (
-                  <div
-                    key={`v-${i}`}
-                    style={{
-                      width: "1px",
-                      height: "336px",
-                      background: "#E9EAEB",
-                    }}
-                  />
-                ))}
-              </div>
-
-              {/* Horizontal lines */}
-              <div
-                style={{
-                  display: "flex",
-                  width: "336px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "24px",
-                  position: "absolute",
-                  border: "1px solid #E9EAEB",
-                }}
-              >
-                {Array.from({ length: 15 }).map((_, i) => (
-                  <div
-                    key={`h-${i}`}
-                    style={{
-                      width: "336px",
-                      height: "1px",
-                      background: "#E9EAEB",
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+                <stop offset="0%" stopColor="#E9EAEB" stopOpacity="1" />
+                <stop offset="100%" stopColor="#E9EAEB" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            {/* Vertical lines */}
+            {Array.from({ length: 14 }).map((_, i) => (
+              <line
+                key={`v-${i}`}
+                x1={i * 24}
+                y1="0"
+                x2={i * 24}
+                y2="336"
+                stroke="url(#grid-mask)"
+                strokeWidth="1"
+              />
+            ))}
+            {/* Horizontal lines */}
+            {Array.from({ length: 14 }).map((_, i) => (
+              <line
+                key={`h-${i}`}
+                x1="0"
+                y1={i * 24}
+                x2="336"
+                y2={i * 24}
+                stroke="url(#grid-mask)"
+                strokeWidth="1"
+              />
+            ))}
+          </svg>
         </div>
 
         {/* Modal header */}
