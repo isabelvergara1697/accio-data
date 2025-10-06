@@ -219,12 +219,12 @@ export default function Quickscreen() {
             alignItems: "flex-start",
             gap: "32px",
             flex: "1 0 0",
-            paddingTop: 0,
-            paddingBottom: "clamp(24px, 4vw, 32px)",
-            paddingLeft: "clamp(16px, 4vw, 32px)",
-            paddingRight: "clamp(16px, 4vw, 32px)",
             boxSizing: "border-box",
             width: "100%",
+            maxWidth: "min(1200px, 100%)",
+            margin: "0 auto",
+            padding: isDesktop ? "0 32px 32px" : "0 16px 24px",
+            transition: "padding 0.2s ease",
           }}
         >
           {/* Header Section */}
