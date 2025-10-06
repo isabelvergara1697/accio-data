@@ -365,6 +365,9 @@ const OrderDetails: React.FC = () => {
   // Archive Order modal state
   const [archiveModalOpen, setArchiveModalOpen] = useState(false);
 
+  // Upload Applicant Release modal state
+  const [uploadReleaseModalOpen, setUploadReleaseModalOpen] = useState(false);
+
   // Manual rescreening state
   const [manualRescreening, setManualRescreening] = useState<string>("");
 
