@@ -81,6 +81,8 @@ export const UploadApplicantReleaseModal: React.FC<
 
   const isUploadDisabled = !fileName.trim() || !selectedFile;
 
+  const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
+
   return (
     <div
       style={{
@@ -94,6 +96,7 @@ export const UploadApplicantReleaseModal: React.FC<
         justifyContent: "flex-end",
         alignItems: "flex-start",
         backdropFilter: "blur(4px)",
+        paddingLeft: isDesktop ? "40px" : "0",
       }}
       onClick={handleBackdropClick}
     >
