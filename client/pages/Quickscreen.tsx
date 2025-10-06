@@ -789,7 +789,16 @@ export default function Quickscreen() {
                     </div>
 
                     {/* Do not Use Column */}
-                    <div style={{ display: "flex", width: isMobile ? "112px" : "141px", flexDirection: "column", alignItems: "flex-start" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: isMobile ? "112px" : "141px",
+                        minWidth: isMobile ? "112px" : "141px",
+                        flex: "0 0 auto",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                      }}
+                    >
                       <div
                         style={{
                           display: "flex",
