@@ -625,7 +625,15 @@ export default function Quickscreen() {
                     }}
                   >
                     {/* Name Column */}
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", minWidth: isMobile ? "160px" : "auto", flex: isMobile ? "0 0 auto" : "1 0 auto" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        minWidth: "180px",
+                        flex: "0 0 auto",
+                      }}
+                    >
                       <div
                         style={{
                           display: "flex",
