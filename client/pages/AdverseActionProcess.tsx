@@ -685,8 +685,8 @@ export default function AdverseActionProcess() {
                 style={{
                   display: "flex",
                   padding: preAdverseExpanded
-                    ? (isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px")
-                    : (isTablet ? "20px 16px 20px 16px" : "20px 24px 20px 24px"),
+                    ? (isMobile || isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px")
+                    : (isMobile || isTablet ? "20px 16px 20px 16px" : "20px 24px 20px 24px"),
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "16px",
@@ -956,8 +956,8 @@ export default function AdverseActionProcess() {
                 style={{
                   display: "flex",
                   padding: pendingDocsExpanded
-                    ? (isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px")
-                    : (isTablet ? "20px 16px 20px 16px" : "20px 24px 20px 24px"),
+                    ? (isMobile || isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px")
+                    : (isMobile || isTablet ? "20px 16px 20px 16px" : "20px 24px 20px 24px"),
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "16px",
@@ -1324,7 +1324,7 @@ export default function AdverseActionProcess() {
               <div
                 style={{
                   display: "flex",
-                  padding: isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px",
+                  padding: isMobile || isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "16px",
@@ -1466,8 +1466,8 @@ export default function AdverseActionProcess() {
                 style={{
                   display: "flex",
                   padding: subjectInfoExpanded
-                    ? (isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px")
-                    : (isTablet ? "20px 16px 20px 16px" : "20px 24px 20px 24px"),
+                    ? (isMobile || isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px")
+                    : (isMobile || isTablet ? "20px 16px 20px 16px" : "20px 24px 20px 24px"),
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "16px",
@@ -1533,7 +1533,7 @@ export default function AdverseActionProcess() {
                 <div
                   style={{
                     display: "flex",
-                    padding: isTablet ? "20px 16px 16px 16px" : "20px 24px 16px 24px",
+                    padding: isMobile || isTablet ? "20px 16px 16px 16px" : "20px 24px 16px 24px",
                     flexDirection: "column",
                     alignItems: "center",
                     gap: "20px",
