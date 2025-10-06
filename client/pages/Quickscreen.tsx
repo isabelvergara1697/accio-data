@@ -1049,6 +1049,7 @@ export default function Quickscreen() {
                             style={{
                               padding: "6px",
                               textAlign: "left",
+                              width: isMobile ? "153px" : "auto",
                               color: "#717680",
                               fontFamily: "Public Sans",
                               fontSize: "12px",
