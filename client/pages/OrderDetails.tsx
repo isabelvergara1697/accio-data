@@ -24543,6 +24543,14 @@ const OrderDetails: React.FC = () => {
         onSend={handleSendDocumentRequest}
       />
 
+      {/* Send Report Modal */}
+      <SendReportModal
+        isOpen={sendReportModalOpen}
+        onClose={handleCloseSendReportModal}
+        onSend={handleSendReport}
+        isOrderComplete={false}
+      />
+
       {/* More Actions Submenu */}
       <MoreActionsSubmenu
         isOpen={moreActionsOpen}
