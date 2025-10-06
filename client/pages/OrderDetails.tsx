@@ -736,6 +736,18 @@ const OrderDetails: React.FC = () => {
     // Here you would typically send the data to your backend
   };
 
+  // Archive Order modal handlers
+  const handleArchiveOrder = () => {
+    console.log("Archiving order:", orderId);
+    // Here you would typically send the archive request to your backend
+    // Then navigate to the invites-orders page on the orders tab
+    navigate("/invites-orders");
+  };
+
+  const handleCloseArchiveModal = () => {
+    setArchiveModalOpen(false);
+  };
+
   // Report Visibility handlers
   const handleAddUser = (userId: string) => {
     const user = teamMembers.find((member) => member.id === userId);
@@ -24453,6 +24465,13 @@ const OrderDetails: React.FC = () => {
         onClose={handleCloseAkasModal}
         onSave={handleSaveAkas}
         initialAkas={savedAkas}
+      />
+
+      {/* Archive Order Modal */}
+      <ArchiveOrderModal
+        isOpen={archiveModalOpen}
+        onClose={handleCloseArchiveModal}
+        onConfirm={handleArchiveOrder}
       />
 
       {/* More Actions Submenu */}
