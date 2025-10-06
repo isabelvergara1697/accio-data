@@ -1048,7 +1048,15 @@ export default function Quickscreen() {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "flex-start", alignSelf: "stretch", overflowX: "auto" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      alignSelf: "stretch",
+                      overflowX: "auto",
+                      WebkitOverflowScrolling: "touch",
+                    }}
+                  >
                     <table
                       style={{
                         width: "100%",
