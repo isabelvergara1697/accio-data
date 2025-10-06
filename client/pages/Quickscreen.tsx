@@ -221,6 +221,8 @@ export default function Quickscreen() {
             flex: "1 0 0",
             boxSizing: "border-box",
             width: "100%",
+            maxWidth: "1200px",
+            margin: "0 auto",
             padding: isMobile ? "0 16px 24px" : "0 32px 32px",
             transition: "padding 0.2s ease",
           }}
