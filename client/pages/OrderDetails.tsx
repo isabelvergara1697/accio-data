@@ -24494,6 +24494,13 @@ const OrderDetails: React.FC = () => {
         onConfirm={handleArchiveOrder}
       />
 
+      {/* Upload Applicant Release Modal */}
+      <UploadApplicantReleaseModal
+        isOpen={uploadReleaseModalOpen}
+        onClose={handleCloseUploadModal}
+        onUpload={handleUploadFile}
+      />
+
       {/* More Actions Submenu */}
       <MoreActionsSubmenu
         isOpen={moreActionsOpen}
