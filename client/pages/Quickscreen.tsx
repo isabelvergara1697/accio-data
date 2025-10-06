@@ -619,6 +619,7 @@ export default function Quickscreen() {
                       alignItems: "flex-start",
                       alignSelf: "stretch",
                       overflowX: "auto",
+                      WebkitOverflowScrolling: "touch",
                     }}
                   >
                     <RadioGroup
