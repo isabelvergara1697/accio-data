@@ -1182,6 +1182,7 @@ export default function Quickscreen() {
                             <td
                               style={{
                                 padding: isMobile ? "8px 12px" : "12px 16px",
+                                width: "32%",
                                 color: "#181D27",
                                 fontFamily: "Public Sans",
                                 fontSize: "14px",
