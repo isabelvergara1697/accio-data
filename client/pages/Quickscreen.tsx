@@ -1267,7 +1267,12 @@ export default function Quickscreen() {
                                 />
                               </div>
                             </td>
-                            <td style={{ padding: isMobile ? "8px 12px" : "12px 16px" }}>
+                            <td
+                              style={{
+                                padding: isMobile ? "8px 12px" : "12px 16px",
+                                width: "20%",
+                              }}
+                            >
                               <div
                                 style={{
                                   display: "flex",
