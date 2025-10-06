@@ -651,7 +651,7 @@ export default function Quickscreen() {
                               style={{
                                 padding: "6px",
                                 textAlign: "left",
-                                width: "141px",
+                                width: isMobile ? "70px" : "141px",
                                 color: "#717680",
                                 fontFamily: "Public Sans",
                                 fontSize: "12px",
@@ -665,7 +665,7 @@ export default function Quickscreen() {
                               style={{
                                 padding: "6px",
                                 textAlign: "left",
-                                width: "141px",
+                                width: isMobile ? "70px" : "141px",
                                 color: "#717680",
                                 fontFamily: "Public Sans",
                                 fontSize: "12px",
@@ -679,7 +679,7 @@ export default function Quickscreen() {
                               style={{
                                 padding: "6px",
                                 textAlign: "left",
-                                width: "141px",
+                                width: isMobile ? "90px" : "141px",
                                 color: "#717680",
                                 fontFamily: "Public Sans",
                                 fontSize: "12px",
@@ -696,17 +696,18 @@ export default function Quickscreen() {
                             <tr key={index} style={{ borderBottom: "1px solid #E9EAEB" }}>
                               <td
                                 style={{
-                                  padding: "12px",
+                                  padding: isMobile ? "8px" : "12px",
                                   color: "#181D27",
                                   fontFamily: "Public Sans",
                                   fontSize: "14px",
                                   fontWeight: 500,
                                   lineHeight: "20px",
+                                  whiteSpace: isMobile ? "nowrap" : "normal",
                                 }}
                               >
                                 {option.name}
                               </td>
-                              <td style={{ padding: "12px" }}>
+                              <td style={{ padding: isMobile ? "8px" : "12px" }}>
                                 <RadioGroupItem
                                   value={option.name}
                                   id={`primary-name-${index}`}
@@ -714,7 +715,7 @@ export default function Quickscreen() {
                                   className="h-4 w-4 border-[#D5D7DA] text-[#344698] focus-visible:ring-2 focus-visible:ring-[#344698]"
                                 />
                               </td>
-                              <td style={{ padding: "12px" }}>
+                              <td style={{ padding: isMobile ? "8px" : "12px" }}>
                                 <Checkbox
                                   checked={selectedNames.alias.includes(option.name)}
                                   onCheckedChange={(checked) =>
@@ -739,7 +740,7 @@ export default function Quickscreen() {
                                   className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
                                 />
                               </td>
-                              <td style={{ padding: "12px" }}>
+                              <td style={{ padding: isMobile ? "8px" : "12px" }}>
                                 <Checkbox
                                   checked={selectedNames.doNotUse.includes(option.name)}
                                   onCheckedChange={(checked) =>
