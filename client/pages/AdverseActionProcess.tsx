@@ -684,7 +684,7 @@ export default function AdverseActionProcess() {
               <div
                 style={{
                   display: "flex",
-                  padding: "20px 24px 0 24px",
+                  padding: preAdverseExpanded ? "20px 24px 0 24px" : "20px 24px 20px 24px",
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "16px",
