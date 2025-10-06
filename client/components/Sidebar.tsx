@@ -685,6 +685,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     }
   };
 
+  const isOffCanvas = !isDesktop && !mobileMenuOpen;
+
   return (
     <aside
       className={`transition-all duration-300 ${
@@ -702,19 +704,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
             : "296px"
           : mobileMenuOpen
             ? "75vw"
-            : "296px",
+            : "0px",
         height: "100vh",
         padding: isDesktop
           ? "8px 0px 24px 8px"
           : mobileMenuOpen
             ? "0px"
-            : "8px 0px 24px 8px",
+            : "0px",
         alignItems: "flex-start",
         flexShrink: 0,
         position: "fixed",
         left: 0,
         top: showNotification && isDesktop ? "60px" : 0,
         zIndex: mobileMenuOpen && !isDesktop ? 1001 : 1000,
+        visibility: isOffCanvas ? "hidden" : "visible",
+        pointerEvents: isOffCanvas ? "none" : "auto",
+        overflow: "hidden",
       }}
     >
       <div
