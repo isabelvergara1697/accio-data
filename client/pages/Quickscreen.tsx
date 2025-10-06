@@ -215,11 +215,13 @@ export default function Quickscreen() {
         <div
           style={{
             display: "flex",
-            paddingBottom: "24px",
             flexDirection: "column",
             alignItems: "flex-start",
             gap: "32px",
             flex: "1 0 0",
+            padding: isMobile ? "0 16px 24px" : "0 32px 32px",
+            boxSizing: "border-box",
+            width: "100%",
           }}
         >
           {/* Header Section */}
