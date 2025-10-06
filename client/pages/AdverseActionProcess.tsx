@@ -1348,7 +1348,7 @@ export default function AdverseActionProcess() {
               <div
                 style={{
                   display: "flex",
-                  padding: isTablet ? "12px 16px 16px 16px" : "12px 24px 16px 24px",
+                  padding: isMobile ? "12px 16px 16px 16px" : isTablet ? "12px 16px 16px 16px" : "12px 24px 16px 24px",
                   flexDirection: "column",
                   alignItems: "center",
                   gap: "16px",
@@ -1362,8 +1362,18 @@ export default function AdverseActionProcess() {
                     alignItems: "flex-start",
                     alignSelf: "stretch",
                     fontSize: "12px",
+                    overflowX: isMobile ? "auto" : "visible",
+                    WebkitOverflowScrolling: "touch",
                   }}
                 >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      minWidth: isMobile ? "900px" : "auto",
+                      flex: isMobile ? "0 0 auto" : "1 1 auto",
+                    }}
+                  >
                   {[
                     { header: "Included", values: ["", "N"] },
                     { header: "Search Type", values: ["I-9 Package", "I-9 Form Creation"] },
@@ -1434,6 +1444,7 @@ export default function AdverseActionProcess() {
                       ))}
                     </div>
                   ))}
+                  </div>
                 </div>
               </div>
             </div>
