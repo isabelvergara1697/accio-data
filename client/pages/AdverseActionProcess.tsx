@@ -208,7 +208,7 @@ export default function AdverseActionProcess() {
             <div
               style={{
                 display: "flex",
-                padding: "0 32px",
+                padding: isMobile || isTablet ? "0 16px" : "0 32px",
                 flexDirection: "column",
                 alignItems: "flex-start",
                 gap: "20px",
