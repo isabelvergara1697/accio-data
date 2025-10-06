@@ -880,7 +880,7 @@ const OrderDetails: React.FC = () => {
         // Handle email ordering user
         break;
       case "send-report-copy":
-        // Handle send report copy
+        setSendReportModalOpen(true);
         break;
       case "email-completion-notification":
         // Handle email completion notification
