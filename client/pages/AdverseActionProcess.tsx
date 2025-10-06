@@ -1481,6 +1481,8 @@ export default function AdverseActionProcess() {
                   alignItems: "flex-start",
                   gap: "16px",
                   alignSelf: "stretch",
+                  borderBottom: "1px solid #E9EAEB",
+                  background: "#FFF",
                 }}
               >
                 <div
