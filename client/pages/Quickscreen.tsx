@@ -1130,63 +1130,78 @@ export default function Quickscreen() {
                               {search.location}
                             </td>
                             <td style={{ padding: "12px" }}>
-                              <input
-                                type="checkbox"
+                              <Checkbox
                                 checked={selectedSearches.county.includes(search.location)}
-                                onChange={(e) => {
-                                  if (e.target.checked) {
-                                    setSelectedSearches({
-                                      ...selectedSearches,
-                                      county: [...selectedSearches.county, search.location],
-                                    });
-                                  } else {
-                                    setSelectedSearches({
-                                      ...selectedSearches,
-                                      county: selectedSearches.county.filter((l) => l !== search.location),
-                                    });
-                                  }
-                                }}
-                                style={{ width: "16px", height: "16px", cursor: "pointer" }}
+                                onCheckedChange={(checked) =>
+                                  setSelectedSearches((prev) => {
+                                    const isChecked = checked === true;
+                                    if (isChecked) {
+                                      if (prev.county.includes(search.location)) {
+                                        return prev;
+                                      }
+                                      return {
+                                        ...prev,
+                                        county: [...prev.county, search.location],
+                                      };
+                                    }
+                                    return {
+                                      ...prev,
+                                      county: prev.county.filter((l) => l !== search.location),
+                                    };
+                                  })
+                                }
+                                aria-label={`Include county criminal search for ${search.location}`}
+                                className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
                               />
                             </td>
                             <td style={{ padding: "12px" }}>
-                              <input
-                                type="checkbox"
+                              <Checkbox
                                 checked={selectedSearches.federal.includes(search.location)}
-                                onChange={(e) => {
-                                  if (e.target.checked) {
-                                    setSelectedSearches({
-                                      ...selectedSearches,
-                                      federal: [...selectedSearches.federal, search.location],
-                                    });
-                                  } else {
-                                    setSelectedSearches({
-                                      ...selectedSearches,
-                                      federal: selectedSearches.federal.filter((l) => l !== search.location),
-                                    });
-                                  }
-                                }}
-                                style={{ width: "16px", height: "16px", cursor: "pointer" }}
+                                onCheckedChange={(checked) =>
+                                  setSelectedSearches((prev) => {
+                                    const isChecked = checked === true;
+                                    if (isChecked) {
+                                      if (prev.federal.includes(search.location)) {
+                                        return prev;
+                                      }
+                                      return {
+                                        ...prev,
+                                        federal: [...prev.federal, search.location],
+                                      };
+                                    }
+                                    return {
+                                      ...prev,
+                                      federal: prev.federal.filter((l) => l !== search.location),
+                                    };
+                                  })
+                                }
+                                aria-label={`Include federal criminal search for ${search.location}`}
+                                className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
                               />
                             </td>
                             <td style={{ padding: "12px" }}>
-                              <input
-                                type="checkbox"
+                              <Checkbox
                                 checked={selectedSearches.statewide.includes(search.location)}
-                                onChange={(e) => {
-                                  if (e.target.checked) {
-                                    setSelectedSearches({
-                                      ...selectedSearches,
-                                      statewide: [...selectedSearches.statewide, search.location],
-                                    });
-                                  } else {
-                                    setSelectedSearches({
-                                      ...selectedSearches,
-                                      statewide: selectedSearches.statewide.filter((l) => l !== search.location),
-                                    });
-                                  }
-                                }}
-                                style={{ width: "16px", height: "16px", cursor: "pointer" }}
+                                onCheckedChange={(checked) =>
+                                  setSelectedSearches((prev) => {
+                                    const isChecked = checked === true;
+                                    if (isChecked) {
+                                      if (prev.statewide.includes(search.location)) {
+                                        return prev;
+                                      }
+                                      return {
+                                        ...prev,
+                                        statewide: [...prev.statewide, search.location],
+                                      };
+                                    }
+                                    return {
+                                      ...prev,
+                                      statewide: prev.statewide.filter((l) => l !== search.location),
+                                    };
+                                  })
+                                }
+                                aria-label={`Include statewide criminal search for ${search.location}`}
+                                className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
                               />
                             </td>
                             <td
