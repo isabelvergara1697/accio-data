@@ -636,7 +636,7 @@ export default function Quickscreen() {
                         alignItems: "flex-start",
                         alignSelf: "stretch",
                         width: "100%",
-                        overflowX: isMobile ? "auto" : "visible",
+                        overflowX: isDesktop ? "visible" : "auto",
                         WebkitOverflowScrolling: "touch",
                         paddingBottom: "8px",
                         scrollbarWidth: "thin",
