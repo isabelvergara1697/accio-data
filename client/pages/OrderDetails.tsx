@@ -13,6 +13,7 @@ import AddAkasModal, { AkaEntry } from "../components/ui/add-akas-modal";
 import { ArchiveOrderModal } from "../components/ui/archive-order-modal";
 import { UploadApplicantReleaseModal } from "../components/ui/upload-applicant-release-modal";
 import { RequestDocumentUploadModal, RequestDocumentData } from "../components/ui/request-document-upload-modal";
+import { SendReportModal } from "../components/ui/send-report-modal";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 import {
   Select,
