@@ -1066,25 +1066,32 @@ export default function AdverseActionProcess() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
-                      width: "100%",
+                      position: "relative",
                     }}
                   >
                     <div
                       style={{
-                        display: "grid",
-                        gridTemplateColumns: "2fr 2fr 1fr",
-                        alignItems: "center",
-                        padding: "6px 12px",
-                        borderBottom: "1px solid #E9EAEB",
-                        background: "#FFF",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        flex: "1 0 0",
                       }}
                     >
-                      {["Document Name", "Documents", "Request From Applicant"].map((header) => (
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
                         <div
-                          key={header}
                           style={{
                             color: "#717680",
                             fontFamily: "Public Sans",
@@ -1093,36 +1100,21 @@ export default function AdverseActionProcess() {
                             lineHeight: "18px",
                           }}
                         >
-                          {header}
+                          Document Name
                         </div>
-                      ))}
-                    </div>
-                    {pendingDocumentRows.map((row, index) => (
-                      <div
-                        key={`${row.documentName.label}-${index}`}
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns: "2fr 2fr 1fr",
-                          alignItems: "center",
-                          borderBottom:
-                            index === pendingDocumentRows.length - 1
-                              ? "none"
-                              : "1px solid #E9EAEB",
-                          background: "#FFF",
-                          transition: "background-color 0.2s ease",
-                        }}
-                        onMouseEnter={(event) => {
-                          event.currentTarget.style.backgroundColor = "#F8F9FC";
-                        }}
-                        onMouseLeave={(event) => {
-                          event.currentTarget.style.backgroundColor = "#FFF";
-                        }}
-                      >
+                      </div>
+                      {pendingDocumentRows.map((row, idx) => (
                         <div
+                          key={idx}
+                          className={`pending-row-${idx}`}
                           style={{
-                            padding: "12px",
                             display: "flex",
+                            height: "36px",
+                            padding: "12px",
                             alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
                           }}
                         >
                           {row.documentName.isLink ? (
@@ -1143,7 +1135,7 @@ export default function AdverseActionProcess() {
                               {row.documentName.label}
                             </button>
                           ) : (
-                            <span
+                            <div
                               style={{
                                 color: "#181D27",
                                 fontFamily: "Public Sans",
@@ -1153,14 +1145,55 @@ export default function AdverseActionProcess() {
                               }}
                             >
                               {row.documentName.label}
-                            </span>
+                            </div>
                           )}
                         </div>
+                      ))}
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
                         <div
                           style={{
-                            padding: "12px",
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Documents
+                        </div>
+                      </div>
+                      {pendingDocumentRows.map((row, idx) => (
+                        <div
+                          key={idx}
+                          className={`pending-row-${idx}`}
+                          style={{
                             display: "flex",
+                            height: "36px",
+                            padding: "12px",
                             alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
                           }}
                         >
                           <button
@@ -1180,17 +1213,69 @@ export default function AdverseActionProcess() {
                             {row.documentsLabel}
                           </button>
                         </div>
+                      ))}
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
                         <div
                           style={{
-                            padding: "12px",
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Request From Applicant
+                        </div>
+                      </div>
+                      {pendingDocumentRows.map((_, idx) => (
+                        <div
+                          key={idx}
+                          className={`pending-row-${idx}`}
+                          style={{
                             display: "flex",
+                            height: "36px",
+                            padding: "12px",
                             alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
                           }}
                         >
                           <Checkbox />
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                    <style>
+                      {pendingDocumentRows
+                        .map(
+                          (_, idx) => `
+                        .pending-row-${idx}:hover {
+                          background-color: #F8F9FC !important;
+                        }
+                      `,
+                        )
+                        .join("")}
+                    </style>
                   </div>
                 </div>
               )}
