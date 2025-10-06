@@ -812,7 +812,7 @@ const OrderDetails: React.FC = () => {
         setArchiveModalOpen(true);
         break;
       case "adverse-action-process":
-        // Handle adverse action process
+        navigate(`/adverse-action-process/${orderId}`);
         break;
       case "upload-applicant-release":
         // Handle upload applicant release
@@ -7134,7 +7134,7 @@ const OrderDetails: React.FC = () => {
                                 <div style={REPORT_SUMMARY_TEXT_STYLE}>
                                   {row.county && row.county.trim().length > 0
                                     ? row.county
-                                    : "��"}
+                                    : "����"}
                                 </div>
 
                                 <div style={REPORT_SUMMARY_TEXT_STYLE}>
