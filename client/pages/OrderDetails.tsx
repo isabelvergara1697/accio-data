@@ -410,6 +410,7 @@ const OrderDetails: React.FC = () => {
       "order-criminal-records",
       "archive-order",
       "adverse-action-process",
+      "upload-applicant-release",
     ],
     [],
   );
