@@ -219,7 +219,10 @@ export default function Quickscreen() {
             alignItems: "flex-start",
             gap: "32px",
             flex: "1 0 0",
-            padding: isMobile ? "0 16px 24px" : "0 32px 32px",
+            paddingTop: 0,
+            paddingBottom: "clamp(24px, 5vw, 32px)",
+            paddingLeft: "clamp(16px, 5vw, 32px)",
+            paddingRight: "clamp(16px, 5vw, 32px)",
             boxSizing: "border-box",
             width: "100%",
           }}
