@@ -824,7 +824,7 @@ const OrderDetails: React.FC = () => {
         navigate(`/adverse-action-process/${orderId}`);
         break;
       case "upload-applicant-release":
-        // Handle upload applicant release
+        setUploadReleaseModalOpen(true);
         break;
       case "download-fax-release":
         // Handle download and fax release
