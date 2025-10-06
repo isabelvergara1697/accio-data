@@ -842,6 +842,9 @@ const OrderDetails: React.FC = () => {
       case "upload-applicant-release":
         setUploadReleaseModalOpen(true);
         break;
+      case "request-doc-upload":
+        setRequestDocumentModalOpen(true);
+        break;
       case "download-fax-release":
         // Handle download and fax release
         break;
