@@ -614,134 +614,162 @@ export default function Quickscreen() {
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "flex-start", alignSelf: "stretch", overflowX: "auto" }}>
-                    <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                      <thead>
-                        <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
-                          <th
-                            style={{
-                              padding: "6px",
-                              textAlign: "left",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            Name
-                          </th>
-                          <th
-                            style={{
-                              padding: "6px",
-                              textAlign: "left",
-                              width: "141px",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            Primary
-                          </th>
-                          <th
-                            style={{
-                              padding: "6px",
-                              textAlign: "left",
-                              width: "141px",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            Alias
-                          </th>
-                          <th
-                            style={{
-                              padding: "6px",
-                              textAlign: "left",
-                              width: "141px",
-                              color: "#717680",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 600,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            Do not Use
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {nameOptions.map((option, index) => (
-                          <tr key={index} style={{ borderBottom: "1px solid #E9EAEB" }}>
-                            <td
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      alignSelf: "stretch",
+                      overflowX: "auto",
+                    }}
+                  >
+                    <RadioGroup
+                      value={selectedNames.primary}
+                      onValueChange={(value) =>
+                        setSelectedNames((prev) => ({
+                          ...prev,
+                          primary: value,
+                        }))
+                      }
+                      style={{ width: "100%" }}
+                    >
+                      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                        <thead>
+                          <tr style={{ borderBottom: "1px solid #E9EAEB" }}>
+                            <th
                               style={{
-                                padding: "12px",
-                                color: "#181D27",
+                                padding: "6px",
+                                textAlign: "left",
+                                color: "#717680",
                                 fontFamily: "Public Sans",
-                                fontSize: "14px",
-                                fontWeight: 500,
-                                lineHeight: "20px",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
                               }}
                             >
-                              {option.name}
-                            </td>
-                            <td style={{ padding: "12px" }}>
-                              <input
-                                type="checkbox"
-                                checked={selectedNames.primary === option.name}
-                                onChange={() => setSelectedNames({ ...selectedNames, primary: option.name })}
-                                style={{ width: "16px", height: "16px", cursor: "pointer" }}
-                              />
-                            </td>
-                            <td style={{ padding: "12px" }}>
-                              <input
-                                type="checkbox"
-                                checked={selectedNames.alias.includes(option.name)}
-                                onChange={(e) => {
-                                  if (e.target.checked) {
-                                    setSelectedNames({
-                                      ...selectedNames,
-                                      alias: [...selectedNames.alias, option.name],
-                                    });
-                                  } else {
-                                    setSelectedNames({
-                                      ...selectedNames,
-                                      alias: selectedNames.alias.filter((n) => n !== option.name),
-                                    });
-                                  }
-                                }}
-                                style={{ width: "16px", height: "16px", cursor: "pointer" }}
-                              />
-                            </td>
-                            <td style={{ padding: "12px" }}>
-                              <input
-                                type="checkbox"
-                                checked={selectedNames.doNotUse.includes(option.name)}
-                                onChange={(e) => {
-                                  if (e.target.checked) {
-                                    setSelectedNames({
-                                      ...selectedNames,
-                                      doNotUse: [...selectedNames.doNotUse, option.name],
-                                    });
-                                  } else {
-                                    setSelectedNames({
-                                      ...selectedNames,
-                                      doNotUse: selectedNames.doNotUse.filter((n) => n !== option.name),
-                                    });
-                                  }
-                                }}
-                                style={{ width: "16px", height: "16px", cursor: "pointer" }}
-                              />
-                            </td>
+                              Name
+                            </th>
+                            <th
+                              style={{
+                                padding: "6px",
+                                textAlign: "left",
+                                width: "141px",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Primary
+                            </th>
+                            <th
+                              style={{
+                                padding: "6px",
+                                textAlign: "left",
+                                width: "141px",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Alias
+                            </th>
+                            <th
+                              style={{
+                                padding: "6px",
+                                textAlign: "left",
+                                width: "141px",
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "12px",
+                                fontWeight: 600,
+                                lineHeight: "18px",
+                              }}
+                            >
+                              Do not Use
+                            </th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                        </thead>
+                        <tbody>
+                          {nameOptions.map((option, index) => (
+                            <tr key={index} style={{ borderBottom: "1px solid #E9EAEB" }}>
+                              <td
+                                style={{
+                                  padding: "12px",
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {option.name}
+                              </td>
+                              <td style={{ padding: "12px" }}>
+                                <RadioGroupItem
+                                  value={option.name}
+                                  id={`primary-name-${index}`}
+                                  aria-label={`Select ${option.name} as primary name`}
+                                  className="h-4 w-4 border-[#D5D7DA] text-[#344698] focus-visible:ring-2 focus-visible:ring-[#344698]"
+                                />
+                              </td>
+                              <td style={{ padding: "12px" }}>
+                                <Checkbox
+                                  checked={selectedNames.alias.includes(option.name)}
+                                  onCheckedChange={(checked) =>
+                                    setSelectedNames((prev) => {
+                                      const isChecked = checked === true;
+                                      if (isChecked) {
+                                        if (prev.alias.includes(option.name)) {
+                                          return prev;
+                                        }
+                                        return {
+                                          ...prev,
+                                          alias: [...prev.alias, option.name],
+                                        };
+                                      }
+                                      return {
+                                        ...prev,
+                                        alias: prev.alias.filter((n) => n !== option.name),
+                                      };
+                                    })
+                                  }
+                                  aria-label={`Mark ${option.name} as alias`}
+                                  className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
+                                />
+                              </td>
+                              <td style={{ padding: "12px" }}>
+                                <Checkbox
+                                  checked={selectedNames.doNotUse.includes(option.name)}
+                                  onCheckedChange={(checked) =>
+                                    setSelectedNames((prev) => {
+                                      const isChecked = checked === true;
+                                      if (isChecked) {
+                                        if (prev.doNotUse.includes(option.name)) {
+                                          return prev;
+                                        }
+                                        return {
+                                          ...prev,
+                                          doNotUse: [...prev.doNotUse, option.name],
+                                        };
+                                      }
+                                      return {
+                                        ...prev,
+                                        doNotUse: prev.doNotUse.filter((n) => n !== option.name),
+                                      };
+                                    })
+                                  }
+                                  aria-label={`Mark ${option.name} as do not use`}
+                                  className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
+                                />
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </RadioGroup>
                   </div>
                 </div>
               </div>
