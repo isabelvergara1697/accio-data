@@ -944,7 +944,9 @@ export default function AdverseActionProcess() {
               <div
                 style={{
                   display: "flex",
-                  padding: pendingDocsExpanded ? "20px 24px 0 24px" : "20px 24px 20px 24px",
+                  padding: pendingDocsExpanded
+                    ? (isTablet ? "20px 16px 0 16px" : "20px 24px 0 24px")
+                    : (isTablet ? "20px 16px 20px 16px" : "20px 24px 20px 24px"),
                   flexDirection: "column",
                   alignItems: "flex-start",
                   gap: "16px",
