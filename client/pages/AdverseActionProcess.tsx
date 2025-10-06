@@ -4,7 +4,7 @@ import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import { Checkbox } from "../components/ui/checkbox";
-import { Home, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
+import { Home, ChevronRight, ChevronDown } from "lucide-react";
 
 export default function AdverseActionProcess() {
   const navigate = useNavigate();
@@ -21,10 +21,10 @@ export default function AdverseActionProcess() {
     window.innerWidth >= 640 && window.innerWidth < 1024,
   );
 
-  // Section expansion state
-  const [preAdverseExpanded, setPreAdverseExpanded] = useState(false);
-  const [pendingDocsExpanded, setPendingDocsExpanded] = useState(false);
-  const [subjectInfoExpanded, setSubjectInfoExpanded] = useState(false);
+  // Section expansion state - start with sections expanded to show content
+  const [preAdverseExpanded, setPreAdverseExpanded] = useState(true);
+  const [pendingDocsExpanded, setPendingDocsExpanded] = useState(true);
+  const [subjectInfoExpanded, setSubjectInfoExpanded] = useState(true);
 
   // Form state
   const [requireApplicantPay, setRequireApplicantPay] = useState(false);
@@ -71,12 +71,10 @@ export default function AdverseActionProcess() {
 
   const handleSaveDraft = () => {
     console.log("Save as draft");
-    // Handle save as draft logic
   };
 
   const handleSubmit = () => {
     console.log("Submit order");
-    // Handle submit logic
     navigate(`/order-details/${orderId}`);
   };
 
@@ -150,16 +148,201 @@ export default function AdverseActionProcess() {
           showMobileUserMenu={showMobileUserMenu}
         />
 
-        {/* Header Section with Breadcrumbs and Title */}
+        {/* Main Content with proper spacing */}
         <div
           style={{
+            paddingTop: "32px",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            gap: "24px",
-            alignSelf: "stretch",
+            gap: "32px",
+            flex: "1 0 0",
           }}
         >
+          {/* Header Section with Breadcrumbs and Title */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "24px",
+              alignSelf: "stretch",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                padding: "0 32px",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                gap: "20px",
+                alignSelf: "stretch",
+              }}
+            >
+              {/* Breadcrumbs */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+              >
+                <button
+                  onClick={() => handleBreadcrumbClick("dashboard")}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    borderRadius: "0px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: 0,
+                  }}
+                >
+                  <Home style={{ width: "24px", height: "24px", color: "#A4A7AE" }} />
+                </button>
+                <ChevronRight
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    color: "#A4A7AE",
+                    strokeWidth: "1.33333",
+                  }}
+                />
+                <button
+                  onClick={() => handleBreadcrumbClick("invites-orders")}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "0px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    color: "#717680",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    padding: 0,
+                  }}
+                >
+                  Checked Invidividuals
+                </button>
+                <ChevronRight
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    color: "#A4A7AE",
+                    strokeWidth: "1.33333",
+                  }}
+                />
+                <button
+                  onClick={() => handleBreadcrumbClick("order-details")}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "0px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    color: "#717680",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                    padding: 0,
+                  }}
+                >
+                  Order #{orderId || "38138"}
+                </button>
+                <ChevronRight
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    color: "#A4A7AE",
+                    strokeWidth: "1.33333",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: "0px",
+                    color: "#273572",
+                    fontFamily: "Public Sans",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    lineHeight: "20px",
+                  }}
+                >
+                  Create Adverse Action Process
+                </div>
+              </div>
+
+              {/* Page Header */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    alignContent: "flex-end",
+                    gap: "20px 16px",
+                    alignSelf: "stretch",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      minWidth: "320px",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "4px",
+                      flex: "1 0 0",
+                    }}
+                  >
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "24px",
+                        fontWeight: 600,
+                        lineHeight: "32px",
+                      }}
+                    >
+                      Create Adverse Action Process: Submit or Save Order.
+                    </div>
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        fontWeight: 400,
+                        lineHeight: "24px",
+                      }}
+                    >
+                      Please review the details of your order below.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Form Sections */}
           <div
             style={{
               display: "flex",
@@ -168,282 +351,18 @@ export default function AdverseActionProcess() {
               alignItems: "flex-start",
               gap: "20px",
               alignSelf: "stretch",
+              paddingBottom: "40px",
             }}
           >
-            {/* Breadcrumbs */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              <button
-                onClick={() => handleBreadcrumbClick("dashboard")}
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  borderRadius: "0px",
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: 0,
-                }}
-              >
-                <Home style={{ width: "24px", height: "24px", color: "#A4A7AE" }} />
-              </button>
-              <ChevronRight
-                style={{
-                  width: "24px",
-                  height: "24px",
-                  color: "#A4A7AE",
-                  strokeWidth: "1.33333",
-                }}
-              />
-              <button
-                onClick={() => handleBreadcrumbClick("invites-orders")}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "0px",
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                  color: "#717680",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                  padding: 0,
-                }}
-              >
-                Checked Invidividuals
-              </button>
-              <ChevronRight
-                style={{
-                  width: "24px",
-                  height: "24px",
-                  color: "#A4A7AE",
-                  strokeWidth: "1.33333",
-                }}
-              />
-              <button
-                onClick={() => handleBreadcrumbClick("order-details")}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "0px",
-                  background: "transparent",
-                  border: "none",
-                  cursor: "pointer",
-                  color: "#717680",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                  padding: 0,
-                }}
-              >
-                Order #{orderId || "38138"}
-              </button>
-              <ChevronRight
-                style={{
-                  width: "24px",
-                  height: "24px",
-                  color: "#A4A7AE",
-                  strokeWidth: "1.33333",
-                }}
-              />
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "0px",
-                  color: "#273572",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  lineHeight: "20px",
-                }}
-              >
-                Create Adverse Action Process
-              </div>
-            </div>
-
-            {/* Page Header */}
+            {/* Authorize and Continue Section */}
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "16px",
                 alignSelf: "stretch",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-end",
-                  alignContent: "flex-end",
-                  gap: "20px 16px",
-                  alignSelf: "stretch",
-                  flexWrap: "wrap",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    minWidth: "320px",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "4px",
-                    flex: "1 0 0",
-                  }}
-                >
-                  <div
-                    style={{
-                      alignSelf: "stretch",
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "24px",
-                      fontWeight: 600,
-                      lineHeight: "32px",
-                    }}
-                  >
-                    Create Adverse Action Process: Submit or Save Order.
-                  </div>
-                  <div
-                    style={{
-                      alignSelf: "stretch",
-                      color: "#535862",
-                      fontFamily: "Public Sans",
-                      fontSize: "16px",
-                      fontWeight: 400,
-                      lineHeight: "24px",
-                    }}
-                  >
-                    Please review the details of your order below.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Main Form Content */}
-        <div
-          style={{
-            display: "flex",
-            padding: "0 32px",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "20px",
-            alignSelf: "stretch",
-            paddingBottom: "40px",
-          }}
-        >
-          {/* Authorize and Continue Section */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-              borderRadius: "12px",
-              border: "1px solid #E9EAEB",
-              background: "#FFF",
-              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-            }}
-          >
-            {/* Section Header */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "20px",
-                alignSelf: "stretch",
-                background: "#FFF",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  padding: "20px 24px 0 24px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "16px",
-                  alignSelf: "stretch",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "16px",
-                    alignSelf: "stretch",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "4px",
-                      flex: "1 0 0",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "flex-start",
-                        gap: "2px",
-                        flex: "1 0 0",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "18px",
-                            fontWeight: 600,
-                            lineHeight: "28px",
-                          }}
-                        >
-                          Authorize and Continue
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div
-              style={{
-                display: "flex",
-                padding: "12px 24px 16px 24px",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "16px",
-                alignSelf: "stretch",
-                borderRadius: "0px 0px 0 0",
-                borderRight: "1px solid #E9EAEB",
-                borderBottom: "1px solid #E9EAEB",
-                borderLeft: "1px solid #E9EAEB",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
                 background: "#FFF",
                 boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
               }}
@@ -452,55 +371,96 @@ export default function AdverseActionProcess() {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
-                  gap: "16px",
+                  alignItems: "flex-start",
+                  gap: "20px",
                   alignSelf: "stretch",
+                  background: "#FFF",
                 }}
               >
                 <div
                   style={{
+                    display: "flex",
+                    padding: "20px 24px 0 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "16px",
                     alignSelf: "stretch",
-                    color: "#181D27",
-                    textAlign: "center",
-                    fontFamily: "Public Sans",
-                    fontSize: "16px",
-                    fontWeight: 600,
-                    lineHeight: "24px",
                   }}
                 >
-                  Order Total $37.88
+                  <div
+                    style={{
+                      color: "#181D27",
+                      fontFamily: "Public Sans",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      lineHeight: "28px",
+                    }}
+                  >
+                    Authorize and Continue
+                  </div>
                 </div>
+              </div>
 
-                {/* Action Buttons */}
+              <div
+                style={{
+                  display: "flex",
+                  padding: "12px 24px 16px 24px",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  borderRadius: "0px 0px 0 0",
+                  borderRight: "1px solid #E9EAEB",
+                  borderBottom: "1px solid #E9EAEB",
+                  borderLeft: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                }}
+              >
                 <div
                   style={{
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
-                    gap: "12px",
+                    gap: "16px",
+                    alignSelf: "stretch",
                   }}
                 >
-                  <button
-                    onClick={handleGoBack}
+                  <div
                     style={{
-                      display: "flex",
-                      padding: "12px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow:
-                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      cursor: "pointer",
+                      alignSelf: "stretch",
+                      color: "#181D27",
+                      textAlign: "center",
+                      fontFamily: "Public Sans",
+                      fontSize: "16px",
+                      fontWeight: 600,
+                      lineHeight: "24px",
                     }}
                   >
-                    <div
+                    Order Total $37.88
+                  </div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "12px",
+                    }}
+                  >
+                    <button
+                      onClick={handleGoBack}
                       style={{
                         display: "flex",
-                        padding: "0 2px",
+                        padding: "12px",
                         justifyContent: "center",
                         alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
                       }}
                     >
                       <div
@@ -514,30 +474,21 @@ export default function AdverseActionProcess() {
                       >
                         Go Back
                       </div>
-                    </div>
-                  </button>
-                  <button
-                    onClick={handleSaveDraft}
-                    style={{
-                      display: "flex",
-                      padding: "12px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: "1px solid #D5D7DA",
-                      background: "#FFF",
-                      boxShadow:
-                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <div
+                    </button>
+                    <button
+                      onClick={handleSaveDraft}
                       style={{
                         display: "flex",
-                        padding: "0 2px",
+                        padding: "12px",
                         justifyContent: "center",
                         alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "1px solid #D5D7DA",
+                        background: "#FFF",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
                       }}
                     >
                       <div
@@ -551,30 +502,21 @@ export default function AdverseActionProcess() {
                       >
                         Save as a Draft
                       </div>
-                    </div>
-                  </button>
-                  <button
-                    onClick={handleSubmit}
-                    style={{
-                      display: "flex",
-                      padding: "12px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      gap: "4px",
-                      borderRadius: "8px",
-                      border: "2px solid rgba(255, 255, 255, 0.12)",
-                      background: "#344698",
-                      boxShadow:
-                        "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <div
+                    </button>
+                    <button
+                      onClick={handleSubmit}
                       style={{
                         display: "flex",
-                        padding: "0 2px",
+                        padding: "12px",
                         justifyContent: "center",
                         alignItems: "center",
+                        gap: "4px",
+                        borderRadius: "8px",
+                        border: "2px solid rgba(255, 255, 255, 0.12)",
+                        background: "#344698",
+                        boxShadow:
+                          "0 0 0 1px rgba(10, 13, 18, 0.18) inset, 0 -2px 0 0 rgba(10, 13, 18, 0.05) inset, 0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                        cursor: "pointer",
                       }}
                     >
                       <div
@@ -588,154 +530,120 @@ export default function AdverseActionProcess() {
                       >
                         Submit Now
                       </div>
-                    </div>
-                  </button>
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              {/* Applicant Payment Info */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "8px",
-                }}
-              >
                 <div
                   style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "8px",
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#535862",
+                      textAlign: "center",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      lineHeight: "20px",
+                    }}
+                  >
+                    Applicant is not paying for this order
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "8px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        paddingTop: "2px",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Checkbox
+                        checked={requireApplicantPay}
+                        onCheckedChange={(checked) => setRequireApplicantPay(!!checked)}
+                      />
+                    </div>
+                    <div
+                      style={{
+                        color: "#414651",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Require Applicant to pay for order
+                    </div>
+                  </div>
+                </div>
+
+                <svg
+                  width="1032"
+                  height="9"
+                  viewBox="0 0 1032 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    alignSelf: "stretch",
+                  }}
+                >
+                  <path fillRule="evenodd" clipRule="evenodd" d="M1032 5H0V4H1032V5Z" fill="#E9EAEB" />
+                </svg>
+
+                <div
+                  style={{
+                    alignSelf: "stretch",
                     color: "#535862",
-                    textAlign: "center",
                     fontFamily: "Public Sans",
                     fontSize: "14px",
                     fontWeight: 400,
                     lineHeight: "20px",
                   }}
                 >
-                  Applicant is not paying for this order
+                  The information provided is a consumer report as defined in the federal Fair
+                  Credit Reporting Act [15 U.S.C. 1681-1681u]. It contains confidential information
+                  on the individual named. It is submitted to the conditions contained in your
+                  Subscriber Agreement with Acme inc. and may be used solely as a factor in
+                  evaluating the named individual for property renting/leasing, employment,
+                  promotion, reassignment or retention as an employee. Acme inc. maintains strict
+                  procedures designed to ensure that the information is complete and up to date.
+                  While the information furnished is from reliable sources, its accuracy is not
+                  guaranteed. Proper use of this report and final verification of the named
+                  individual's identity is your sole responsibility. If any adverse action is taken
+                  based in whole or in part on this consumer report, a copy of this report and a
+                  summary of the consumer's rights must be provided to the consumer prior to taking
+                  adverse action. If you have any questions regarding the accuracy or completeness
+                  of this report, please contact Acme inc. at{" "}
+                  <span style={{ textDecoration: "underline" }}>800-777-7777</span>. The summary of
+                  consumer's rights is available in the help section of the website.
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "8px",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      paddingTop: "2px",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Checkbox
-                      checked={requireApplicantPay}
-                      onCheckedChange={(checked) => setRequireApplicantPay(!!checked)}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-end",
-                        gap: "4px",
-                      }}
-                    >
-                      <div
-                        style={{
-                          color: "#414651",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 500,
-                          lineHeight: "20px",
-                        }}
-                      >
-                        Require Applicant to pay for order
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Divider */}
-              <svg
-                width="1032"
-                height="9"
-                viewBox="0 0 1032 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  display: "flex",
-                  padding: "4px 0",
-                  alignItems: "center",
-                  alignSelf: "stretch",
-                }}
-              >
-                <path fillRule="evenodd" clipRule="evenodd" d="M1032 5H0V4H1032V5Z" fill="#E9EAEB" />
-              </svg>
-
-              {/* Disclaimer Text */}
-              <div
-                style={{
-                  alignSelf: "stretch",
-                  color: "#535862",
-                  fontFamily: "Public Sans",
-                  fontSize: "14px",
-                  fontWeight: 400,
-                  lineHeight: "20px",
-                }}
-              >
-                The information provided is a consumer report as defined in the federal Fair
-                Credit Reporting Act [15 U.S.C. 1681-1681u]. It contains confidential information
-                on the individual named. It is submitted to the conditions contained in your
-                Subscriber Agreement with Acme inc. and may be used solely as a factor in
-                evaluating the named individual for property renting/leasing, employment,
-                promotion, reassignment or retention as an employee. Acme inc. maintains strict
-                procedures designed to ensure that the information is complete and up to date.
-                While the information furnished is from reliable sources, its accuracy is not
-                guaranteed. Proper use of this report and final verification of the named
-                individual's identity is your sole responsibility. If any adverse action is taken
-                based in whole or in part on this consumer report, a copy of this report and a
-                summary of the consumer's rights must be provided to the consumer prior to taking
-                adverse action. If you have any questions regarding the accuracy or completeness
-                of this report, please contact Acme inc. at{" "}
-                <span style={{ textDecoration: "underline" }}>800-777-7777</span>. The summary of
-                consumer's rights is available in the help section of the website.
               </div>
             </div>
-          </div>
 
-          {/* Pre Adverse Action Letter Section */}
-          <div
-            style={{
-              display: "flex",
-              padding: "0px",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "0px",
-              alignSelf: "stretch",
-              borderRadius: "12px",
-              border: "1px solid #E9EAEB",
-              background: "#FFF",
-              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-            }}
-          >
-            {/* Section Header */}
+            {/* Pre Adverse Action Letter Section */}
             <div
               style={{
                 display: "flex",
+                padding: "0px",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "20px",
+                gap: "0px",
                 alignSelf: "stretch",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
                 background: "#FFF",
+                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
               }}
             >
               <div
@@ -759,77 +667,65 @@ export default function AdverseActionProcess() {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "flex-start",
-                      gap: "4px",
                       flex: "1 0 0",
+                      flexDirection: "column",
+                      gap: "2px",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "flex-start",
-                        gap: "2px",
-                        flex: "1 0 0",
+                        alignItems: "center",
+                        gap: "8px",
                       }}
                     >
                       <div
                         style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "18px",
+                          fontWeight: 600,
+                          lineHeight: "28px",
                         }}
                       >
-                        <div
-                          style={{
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "18px",
-                            fontWeight: 600,
-                            lineHeight: "28px",
-                          }}
-                        >
-                          Pre Adverse Action Letter
-                        </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "2px 8px",
-                            alignItems: "center",
-                            borderRadius: "9999px",
-                            border: "1px solid #F9DBAF",
-                            background: "#FEF6EE",
-                          }}
-                        >
-                          <div
-                            style={{
-                              color: "#B93815",
-                              textAlign: "center",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 500,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            Attention Required
-                          </div>
-                        </div>
+                        Pre Adverse Action Letter
                       </div>
                       <div
                         style={{
-                          alignSelf: "stretch",
-                          color: "#535862",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 400,
-                          lineHeight: "20px",
+                          display: "flex",
+                          padding: "2px 8px",
+                          alignItems: "center",
+                          borderRadius: "9999px",
+                          border: "1px solid #F9DBAF",
+                          background: "#FEF6EE",
                         }}
                       >
-                        Days before sending adverse letter will be determined when waiting for a
-                        pre-adverse response
+                        <div
+                          style={{
+                            color: "#B93815",
+                            textAlign: "center",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 500,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Attention Required
+                        </div>
                       </div>
+                    </div>
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Days before sending adverse letter will be determined when waiting for a
+                      pre-adverse response
                     </div>
                   </div>
                   <button
@@ -853,54 +749,365 @@ export default function AdverseActionProcess() {
                         height: "16px",
                         color: "#A4A7AE",
                         strokeWidth: "1.66667",
+                        transform: preAdverseExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.2s",
                       }}
                     />
                   </button>
                 </div>
               </div>
+
+              {preAdverseExpanded && (
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "12px 24px 20px 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "10px",
+                    alignSelf: "stretch",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Letter Description
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "12px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Letter Description
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "12px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Test
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "12px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Pre-adverse General
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Jurisdiction Type
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "12px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Jurisdiction Type
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "12px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Applicant's Location
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "12px",
+                          alignItems: "center",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#181D27",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 500,
+                            lineHeight: "20px",
+                          }}
+                        >
+                          Applicant's Location
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Actions
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "12px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <button
+                          style={{
+                            color: "#273572",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            textDecoration: "underline",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            padding: 0,
+                          }}
+                        >
+                          Attention Required
+                        </button>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "12px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <button
+                          style={{
+                            color: "#273572",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            textDecoration: "underline",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            padding: 0,
+                          }}
+                        >
+                          Preview Letter
+                        </button>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "12px",
+                          alignItems: "center",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                        }}
+                      >
+                        <button
+                          style={{
+                            color: "#273572",
+                            fontFamily: "Public Sans",
+                            fontSize: "14px",
+                            fontWeight: 600,
+                            lineHeight: "20px",
+                            textDecoration: "underline",
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            padding: 0,
+                          }}
+                        >
+                          Click to Upload
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Main Content - Only shown when expanded */}
-            {preAdverseExpanded && (
-              <div
-                style={{
-                  display: "flex",
-                  padding: "12px 24px 20px 24px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "10px",
-                  alignSelf: "stretch",
-                }}
-              >
-                {/* Table content would go here */}
-              </div>
-            )}
-          </div>
-
-          {/* Pending Documents Section */}
-          <div
-            style={{
-              display: "flex",
-              padding: "0px",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              gap: "0px",
-              alignSelf: "stretch",
-              borderRadius: "12px",
-              border: "1px solid #E9EAEB",
-              background: "#FFF",
-              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-            }}
-          >
-            {/* Section Header */}
+            {/* Pending Documents Section */}
             <div
               style={{
                 display: "flex",
+                padding: "0px",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "20px",
+                gap: "0px",
                 alignSelf: "stretch",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
                 background: "#FFF",
+                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
               }}
             >
               <div
@@ -924,79 +1131,67 @@ export default function AdverseActionProcess() {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "flex-start",
-                      gap: "4px",
                       flex: "1 0 0",
+                      flexDirection: "column",
+                      gap: "2px",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "flex-start",
-                        gap: "2px",
-                        flex: "1 0 0",
+                        alignItems: "center",
+                        gap: "8px",
                       }}
                     >
                       <div
                         style={{
+                          color: "#181D27",
+                          fontFamily: "Public Sans",
+                          fontSize: "18px",
+                          fontWeight: 600,
+                          lineHeight: "28px",
+                        }}
+                      >
+                        Pending Documents
+                      </div>
+                      <div
+                        style={{
                           display: "flex",
+                          padding: "2px 8px",
                           alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
+                          borderRadius: "9999px",
+                          border: "1px solid #F9DBAF",
+                          background: "#FEF6EE",
                         }}
                       >
                         <div
                           style={{
-                            color: "#181D27",
+                            color: "#B93815",
+                            textAlign: "center",
                             fontFamily: "Public Sans",
-                            fontSize: "18px",
-                            fontWeight: 600,
-                            lineHeight: "28px",
+                            fontSize: "12px",
+                            fontWeight: 500,
+                            lineHeight: "18px",
                           }}
                         >
                           Pending Documents
                         </div>
-                        <div
-                          style={{
-                            display: "flex",
-                            padding: "2px 8px",
-                            alignItems: "center",
-                            borderRadius: "9999px",
-                            border: "1px solid #F9DBAF",
-                            background: "#FEF6EE",
-                          }}
-                        >
-                          <div
-                            style={{
-                              color: "#B93815",
-                              textAlign: "center",
-                              fontFamily: "Public Sans",
-                              fontSize: "12px",
-                              fontWeight: 500,
-                              lineHeight: "18px",
-                            }}
-                          >
-                            Pending Documents
-                          </div>
-                        </div>
                       </div>
-                      <div
-                        style={{
-                          alignSelf: "stretch",
-                          color: "#535862",
-                          fontFamily: "Public Sans",
-                          fontSize: "14px",
-                          fontWeight: 400,
-                          lineHeight: "20px",
-                        }}
-                      >
-                        You have requested one or more searches with this order and any associated
-                        orders that will require special forms. These forms must be sent in before
-                        we begin researching this subject. A reminder will appear in the HTML
-                        report for this subject.
-                      </div>
+                    </div>
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#535862",
+                        fontFamily: "Public Sans",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        lineHeight: "20px",
+                      }}
+                    >
+                      You have requested one or more searches with this order and any associated
+                      orders that will require special forms. These forms must be sent in before we
+                      begin researching this subject. A reminder will appear in the HTML report for
+                      this subject.
                     </div>
                   </div>
                   <button
@@ -1020,68 +1215,22 @@ export default function AdverseActionProcess() {
                         height: "16px",
                         color: "#A4A7AE",
                         strokeWidth: "1.66667",
+                        transform: pendingDocsExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.2s",
                       }}
                     />
                   </button>
                 </div>
               </div>
-            </div>
 
-            {/* Main Content - Only shown when expanded */}
-            {pendingDocsExpanded && (
-              <div
-                style={{
-                  display: "flex",
-                  padding: "12px 24px 20px 24px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "10px",
-                  alignSelf: "stretch",
-                }}
-              >
-                {/* Table content would go here */}
-              </div>
-            )}
-          </div>
-
-          {/* Billing Information Section */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-              borderRadius: "12px",
-              border: "1px solid #E9EAEB",
-              background: "#FFF",
-              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: "20px",
-                alignSelf: "stretch",
-                background: "#FFF",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  padding: "20px 24px 0 24px",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "16px",
-                  alignSelf: "stretch",
-                }}
-              >
+              {pendingDocsExpanded && (
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "center",
-                    gap: "16px",
+                    padding: "12px 24px 20px 24px",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    gap: "10px",
                     alignSelf: "stretch",
                   }}
                 >
@@ -1089,87 +1238,335 @@ export default function AdverseActionProcess() {
                     style={{
                       display: "flex",
                       alignItems: "flex-start",
-                      gap: "4px",
-                      flex: "1 0 0",
+                      alignSelf: "stretch",
                     }}
                   >
                     <div
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "center",
                         alignItems: "flex-start",
-                        gap: "2px",
                         flex: "1 0 0",
                       }}
                     >
                       <div
                         style={{
                           display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
                           alignItems: "center",
-                          gap: "8px",
+                          gap: "12px",
                           alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
                         }}
                       >
                         <div
                           style={{
-                            color: "#181D27",
+                            color: "#717680",
                             fontFamily: "Public Sans",
-                            fontSize: "18px",
+                            fontSize: "12px",
                             fontWeight: 600,
-                            lineHeight: "28px",
+                            lineHeight: "18px",
                           }}
                         >
-                          Billing Information
+                          Document Name
                         </div>
                       </div>
+                      {["SSA-89", "Resume", "Resume"].map((doc, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <button
+                            style={{
+                              color: idx === 0 ? "#273572" : "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: idx === 0 ? 600 : 500,
+                              lineHeight: "20px",
+                              textDecoration: idx === 0 ? "underline" : "none",
+                              background: "transparent",
+                              border: "none",
+                              cursor: idx === 0 ? "pointer" : "default",
+                              padding: 0,
+                            }}
+                          >
+                            {doc}
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Documents
+                        </div>
+                      </div>
+                      {[0, 1, 2].map((idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            gap: "8px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <button
+                            style={{
+                              color: "#273572",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 600,
+                              lineHeight: "20px",
+                              textDecoration: "underline",
+                              background: "transparent",
+                              border: "none",
+                              cursor: "pointer",
+                              padding: 0,
+                            }}
+                          >
+                            Click to Upload
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          Request From Applicant
+                        </div>
+                      </div>
+                      {[0, 1, 2].map((idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <Checkbox />
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
+
+            {/* Billing Information Section */}
             <div
               style={{
                 display: "flex",
-                padding: "12px 24px 16px 24px",
                 flexDirection: "column",
-                alignItems: "center",
-                gap: "16px",
+                alignItems: "flex-start",
                 alignSelf: "stretch",
-                borderRadius: "0px 0px 0 0",
-                borderRight: "1px solid #E9EAEB",
-                borderBottom: "1px solid #E9EAEB",
-                borderLeft: "1px solid #E9EAEB",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
                 background: "#FFF",
                 boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
               }}
             >
-              {/* Billing table content would go here */}
+              <div
+                style={{
+                  display: "flex",
+                  padding: "20px 24px 0 24px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                }}
+              >
+                <div
+                  style={{
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "28px",
+                  }}
+                >
+                  Billing Information
+                </div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  padding: "12px 24px 16px 24px",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  borderRadius: "0px 0px 0 0",
+                  borderRight: "1px solid #E9EAEB",
+                  borderBottom: "1px solid #E9EAEB",
+                  borderLeft: "1px solid #E9EAEB",
+                  background: "#FFF",
+                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    alignSelf: "stretch",
+                    fontSize: "12px",
+                  }}
+                >
+                  {[
+                    { header: "Included", values: ["", "N"] },
+                    { header: "Search Type", values: ["I-9 Package", "I-9 Form Creation"] },
+                    { header: "Location / Adjustment", values: ["[Value]", "[Value]"] },
+                    { header: "Price", values: ["0.00", "0.00"] },
+                    { header: "Adjustment", values: ["0.00", "0.00"] },
+                    { header: "3rd Party Fees", values: ["0.00", "0.00"] },
+                    { header: "Taxes", values: ["0.41", "0.00"] },
+                    { header: "Total", values: ["0.41", "5.00", "5.41"] },
+                  ].map((col, colIdx) => (
+                    <div
+                      key={colIdx}
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        flex: "1 0 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          height: "36px",
+                          padding: "6px 12px",
+                          alignItems: "center",
+                          gap: "12px",
+                          alignSelf: "stretch",
+                          borderBottom: "1px solid #E9EAEB",
+                          background: "#FFF",
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: "#717680",
+                            fontFamily: "Public Sans",
+                            fontSize: "12px",
+                            fontWeight: 600,
+                            lineHeight: "18px",
+                          }}
+                        >
+                          {col.header}
+                        </div>
+                      </div>
+                      {col.values.map((value, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "12px",
+                            alignItems: "center",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "14px",
+                              fontWeight: 500,
+                              lineHeight: "20px",
+                            }}
+                          >
+                            {value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Subject Information Section */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              alignSelf: "stretch",
-              borderRadius: "12px",
-              border: "1px solid #E9EAEB",
-              background: "#FFF",
-              boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-            }}
-          >
-            {/* Section Header */}
+            {/* Subject Information Section */}
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "flex-start",
-                gap: "20px",
                 alignSelf: "stretch",
+                borderRadius: "12px",
+                border: "1px solid #E9EAEB",
                 background: "#FFF",
+                boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
               }}
             >
               <div
@@ -1193,41 +1590,19 @@ export default function AdverseActionProcess() {
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "flex-start",
-                      gap: "4px",
                       flex: "1 0 0",
                     }}
                   >
                     <div
                       style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "flex-start",
-                        gap: "2px",
-                        flex: "1 0 0",
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "18px",
+                        fontWeight: 600,
+                        lineHeight: "28px",
                       }}
                     >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                          alignSelf: "stretch",
-                        }}
-                      >
-                        <div
-                          style={{
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "18px",
-                            fontWeight: 600,
-                            lineHeight: "28px",
-                          }}
-                        >
-                          Subject Information
-                        </div>
-                      </div>
+                      Subject Information
                     </div>
                   </div>
                   <button
@@ -1251,34 +1626,358 @@ export default function AdverseActionProcess() {
                         height: "16px",
                         color: "#A4A7AE",
                         strokeWidth: "1.66667",
+                        transform: subjectInfoExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.2s",
                       }}
                     />
                   </button>
                 </div>
               </div>
-            </div>
 
-            {/* Main Content - Only shown when expanded */}
-            {subjectInfoExpanded && (
-              <div
-                style={{
-                  display: "flex",
-                  padding: "20px 24px 16px 24px",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "20px",
-                  alignSelf: "stretch",
-                  borderRadius: "0px 0px 0 0",
-                  borderRight: "1px solid #E9EAEB",
-                  borderBottom: "1px solid #E9EAEB",
-                  borderLeft: "1px solid #E9EAEB",
-                  background: "#FFF",
-                  boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
-                }}
-              >
-                {/* Subject info content would go here */}
-              </div>
-            )}
+              {subjectInfoExpanded && (
+                <div
+                  style={{
+                    display: "flex",
+                    padding: "20px 24px 16px 24px",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "20px",
+                    alignSelf: "stretch",
+                    borderRadius: "0px 0px 0 0",
+                    borderRight: "1px solid #E9EAEB",
+                    borderBottom: "1px solid #E9EAEB",
+                    borderLeft: "1px solid #E9EAEB",
+                    background: "#FFF",
+                    boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      gap: "16px",
+                      alignSelf: "stretch",
+                    }}
+                  >
+                    <div
+                      style={{
+                        alignSelf: "stretch",
+                        color: "#181D27",
+                        fontFamily: "Public Sans",
+                        fontSize: "16px",
+                        fontWeight: 500,
+                        lineHeight: "24px",
+                      }}
+                    >
+                      Requester Information
+                    </div>
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(3, 1fr)",
+                        gap: "8px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      {[
+                        { label: "First Name", value: "Alexandra" },
+                        { label: "Middle Name", value: "Johnson" },
+                        { label: "Last Name", value: "Smith" },
+                      ].map((field, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            {field.label}
+                          </div>
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            {field.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        padding: "16px",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        gap: "12px",
+                        alignSelf: "stretch",
+                        borderRadius: "10px",
+                        border: "1px solid #E9EAEB",
+                        background: "#F5F5F5",
+                      }}
+                    >
+                      <div
+                        style={{
+                          alignSelf: "stretch",
+                          color: "#414651",
+                          fontFamily: "Public Sans",
+                          fontSize: "16px",
+                          fontWeight: 600,
+                          lineHeight: "24px",
+                        }}
+                      >
+                        AKA's
+                      </div>
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "repeat(3, 1fr)",
+                          gap: "8px",
+                          alignSelf: "stretch",
+                        }}
+                      >
+                        {[
+                          { label: "Other First Name", value: "Alexander" },
+                          { label: "Other Middle Name", value: "J" },
+                          { label: "Other Last Name", value: "Smith T" },
+                        ].map((field, idx) => (
+                          <div
+                            key={idx}
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-start",
+                              gap: "4px",
+                            }}
+                          >
+                            <div
+                              style={{
+                                color: "#717680",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              {field.label}
+                            </div>
+                            <div
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "16px",
+                                fontWeight: 400,
+                                lineHeight: "24px",
+                              }}
+                            >
+                              {field.value}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(3, 1fr)",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      {[
+                        { label: "DOB (MM/DD/YYYY)", value: "18/12/1991" },
+                        { label: "Zip Code", value: "080102" },
+                        { label: "Address", value: "Street 123" },
+                        { label: "City", value: "City ABC" },
+                        { label: "State", value: "AL, Alabama" },
+                        { label: "Country", value: "USA" },
+                      ].map((field, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            {field.label}
+                          </div>
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            {field.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <svg
+                      width="1032"
+                      height="9"
+                      viewBox="0 0 1032 9"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M1032 5H0V4H1032V5Z"
+                        fill="#E9EAEB"
+                      />
+                    </svg>
+
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(2, 1fr)",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      {[
+                        { label: "FCRA Purpose", value: "Employment by Hire or Contract" },
+                        { label: "Applicant has know Criminal Records?", value: "[Category]" },
+                      ].map((field, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            {field.label}
+                          </div>
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            {field.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <svg
+                      width="1032"
+                      height="9"
+                      viewBox="0 0 1032 9"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M1032 5H0V4H1032V5Z"
+                        fill="#E9EAEB"
+                      />
+                    </svg>
+
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(2, 1fr)",
+                        gap: "16px",
+                        alignSelf: "stretch",
+                      }}
+                    >
+                      {[
+                        { label: "Applicant Phone", value: "+1 (555) 000-0000" },
+                        { label: "Applicant Email", value: "alexjsmith@gmail.com" },
+                      ].map((field, idx) => (
+                        <div
+                          key={idx}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "4px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              color: "#717680",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            {field.label}
+                          </div>
+                          <div
+                            style={{
+                              color: "#181D27",
+                              fontFamily: "Public Sans",
+                              fontSize: "16px",
+                              fontWeight: 400,
+                              lineHeight: "24px",
+                            }}
+                          >
+                            {field.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
