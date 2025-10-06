@@ -415,6 +415,7 @@ const OrderDetails: React.FC = () => {
       "archive-order",
       "adverse-action-process",
       "upload-applicant-release",
+      "request-doc-upload",
     ],
     [],
   );
