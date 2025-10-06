@@ -401,7 +401,12 @@ const OrderDetails: React.FC = () => {
   const moreActionsRef = useRef<HTMLButtonElement | null>(null);
   const stickyMoreActionsRef = useRef<HTMLButtonElement | null>(null);
   const enabledMoreActionIds = useMemo(
-    () => ["order-additional-searches", "order-criminal-records", "archive-order"],
+    () => [
+      "order-additional-searches",
+      "order-criminal-records",
+      "archive-order",
+      "adverse-action-process",
+    ],
     [],
   );
 
