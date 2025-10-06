@@ -646,7 +646,7 @@ export default function Quickscreen() {
                       <table
                         style={{
                           width: "100%",
-                          minWidth: isMobile ? "640px" : "auto",
+                          minWidth: isDesktop ? "auto" : "640px",
                           borderCollapse: "collapse",
                           tableLayout: "fixed",
                         }}
