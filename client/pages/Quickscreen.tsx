@@ -220,9 +220,9 @@ export default function Quickscreen() {
             gap: "32px",
             flex: "1 0 0",
             paddingTop: 0,
-            paddingBottom: "clamp(24px, 5vw, 32px)",
-            paddingLeft: "clamp(16px, 5vw, 32px)",
-            paddingRight: "clamp(16px, 5vw, 32px)",
+            paddingBottom: "clamp(24px, 4vw, 32px)",
+            paddingLeft: "clamp(16px, 4vw, 32px)",
+            paddingRight: "clamp(16px, 4vw, 32px)",
             boxSizing: "border-box",
             width: "100%",
           }}
