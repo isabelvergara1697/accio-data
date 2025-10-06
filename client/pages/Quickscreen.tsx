@@ -95,7 +95,15 @@ export default function Quickscreen() {
   ];
 
   return (
-    <div style={{ display: "flex", width: "100%", minHeight: "100vh", background: "#FAFAFA" }}>
+    <div
+      style={{
+        display: "flex",
+        width: "100%",
+        minHeight: "100vh",
+        background: "#FAFAFA",
+        overflowX: "hidden",
+      }}
+    >
       <Sidebar
         isCollapsed={sidebarCollapsed}
         onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
@@ -124,6 +132,7 @@ export default function Quickscreen() {
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
+          width: "100%",
         }}
       >
         {/* Header Navigation */}
@@ -201,7 +210,7 @@ export default function Quickscreen() {
                           lineHeight: "18px",
                         }}
                       >
-                        ⌘K
+                        ���K
                       </div>
                     </div>
                   </div>
