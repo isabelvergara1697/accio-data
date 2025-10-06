@@ -618,8 +618,10 @@ export default function Quickscreen() {
                       display: "flex",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
+                      width: "100%",
                       overflowX: "auto",
                       WebkitOverflowScrolling: "touch",
+                      paddingBottom: "8px",
                     }}
                   >
                     {/* Name Column */}
