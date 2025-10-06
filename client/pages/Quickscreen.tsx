@@ -617,7 +617,7 @@ export default function Quickscreen() {
                     gap: "12px",
                   }}
                 >
-                  <RadioGroupPrimitive.Root
+                  <RadioGroup
                     value={selectedNames.primary}
                     onValueChange={(value) =>
                       setSelectedNames((prev) => ({
@@ -626,7 +626,7 @@ export default function Quickscreen() {
                       }))
                     }
                     aria-label="Select primary name"
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", display: "block" }}
                   >
                     <div
                       style={{
@@ -794,7 +794,7 @@ export default function Quickscreen() {
                         </tbody>
                       </table>
                     </div>
-                  </RadioGroupPrimitive.Root>
+                  </RadioGroup>
                   {isMobile && (
                     <div
                       style={{
