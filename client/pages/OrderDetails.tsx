@@ -10,6 +10,7 @@ import { Sidebar } from "../components/Sidebar";
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
 import AddAkasModal, { AkaEntry } from "../components/ui/add-akas-modal";
+import { ArchiveOrderModal } from "../components/ui/archive-order-modal";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 import {
   Select,
@@ -359,6 +360,9 @@ const OrderDetails: React.FC = () => {
   // AKAs modal state
   const [akasModalOpen, setAkasModalOpen] = useState(false);
   const [savedAkas, setSavedAkas] = useState<AkaEntry[]>([]);
+
+  // Archive Order modal state
+  const [archiveModalOpen, setArchiveModalOpen] = useState(false);
 
   // Manual rescreening state
   const [manualRescreening, setManualRescreening] = useState<string>("");
@@ -793,7 +797,7 @@ const OrderDetails: React.FC = () => {
         navigate(`/quickscreen/${orderId}`);
         break;
       case "archive-order":
-        // Handle archive order
+        setArchiveModalOpen(true);
         break;
       case "adverse-action-process":
         // Handle adverse action process
