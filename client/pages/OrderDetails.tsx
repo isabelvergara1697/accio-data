@@ -373,6 +373,9 @@ const OrderDetails: React.FC = () => {
   // Request Document Upload modal state
   const [requestDocumentModalOpen, setRequestDocumentModalOpen] = useState(false);
 
+  // Send Report modal state
+  const [sendReportModalOpen, setSendReportModalOpen] = useState(false);
+
   // Manual rescreening state
   const [manualRescreening, setManualRescreening] = useState<string>("");
 
