@@ -805,6 +805,17 @@ const OrderDetails: React.FC = () => {
     alert(`Report will be sent to ${email}!`);
   };
 
+  const handleCloseCustomerServiceModal = () => {
+    setCustomerServiceModalOpen(false);
+  };
+
+  const handleSubmitCustomerService = (inquiry: string) => {
+    console.log("Submitting customer service inquiry:", inquiry);
+    // Here you would typically send the inquiry to your backend
+    // For now, just log it and show a success message
+    alert("Your inquiry has been submitted. Our support team will get back to you shortly!");
+  };
+
   // Report Visibility handlers
   const handleAddUser = (userId: string) => {
     const user = teamMembers.find((member) => member.id === userId);
