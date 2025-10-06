@@ -601,17 +601,20 @@ export default function Quickscreen() {
                 <div
                   style={{
                     display: "flex",
-                    padding: "12px 16px 40px 16px",
+                    padding: "12px 16px 24px 16px",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "flex-start",
                     alignSelf: "stretch",
+                    width: "100%",
+                    boxSizing: "border-box",
                     borderRadius: "0 0 12px 12px",
                     borderRight: "1px solid #E9EAEB",
                     borderBottom: "1px solid #E9EAEB",
                     borderLeft: "1px solid #E9EAEB",
                     background: "#FFF",
                     boxShadow: "0 1px 2px 0 rgba(10, 13, 18, 0.05)",
+                    gap: "12px",
                   }}
                 >
                   <RadioGroupPrimitive.Root
