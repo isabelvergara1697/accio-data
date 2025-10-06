@@ -757,6 +757,17 @@ const OrderDetails: React.FC = () => {
     setArchiveModalOpen(false);
   };
 
+  const handleCloseUploadModal = () => {
+    setUploadReleaseModalOpen(false);
+  };
+
+  const handleUploadFile = (fileName: string, file: File) => {
+    console.log("Uploading file:", fileName, file);
+    // Here you would typically send the file to your backend
+    // For now, just log it and show a success message
+    alert(`File "${fileName}" uploaded successfully!`);
+  };
+
   // Report Visibility handlers
   const handleAddUser = (userId: string) => {
     const user = teamMembers.find((member) => member.id === userId);
