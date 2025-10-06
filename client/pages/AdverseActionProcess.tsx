@@ -806,26 +806,48 @@ export default function AdverseActionProcess() {
                   <div
                     style={{
                       display: "flex",
-                      flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
-                      width: "100%",
+                      position: "relative",
                     }}
                   >
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "2fr 2fr 2fr 1.5fr",
-                        alignItems: "center",
-                        padding: "6px 12px",
-                        borderBottom: "1px solid #E9EAEB",
-                        background: "#FFF",
-                      }}
-                    >
-                      {["Letter Description", "Jurisdiction Type", "Applicant's Location", "Actions"].map(
-                        (header) => (
+                    {[
+                      {
+                        header: "Letter Description",
+                        values: preAdverseRows.map((r) => r.letterDescription),
+                      },
+                      {
+                        header: "Jurisdiction Type",
+                        values: preAdverseRows.map((r) => r.jurisdictionType),
+                      },
+                      {
+                        header: "Applicant's Location",
+                        values: preAdverseRows.map((r) => r.applicantLocation),
+                      },
+                      { header: "Actions", values: preAdverseRows.map((r) => r.actionLabel) },
+                    ].map((col, colIdx) => (
+                      <div
+                        key={colIdx}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "flex-start",
+                          flex: "1 0 0",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            height: "36px",
+                            padding: "6px 12px",
+                            alignItems: "center",
+                            gap: "12px",
+                            alignSelf: "stretch",
+                            borderBottom: "1px solid #E9EAEB",
+                            background: "#FFF",
+                          }}
+                        >
                           <div
-                            key={header}
                             style={{
                               color: "#717680",
                               fontFamily: "Public Sans",
@@ -834,94 +856,68 @@ export default function AdverseActionProcess() {
                               lineHeight: "18px",
                             }}
                           >
-                            {header}
+                            {col.header}
                           </div>
-                        ),
-                      )}
-                    </div>
-                    {preAdverseRows.map((row, index) => (
-                      <div
-                        key={`${row.letterDescription}-${index}`}
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns: "2fr 2fr 2fr 1.5fr",
-                          alignItems: "center",
-                          borderBottom:
-                            index === preAdverseRows.length - 1
-                              ? "none"
-                              : "1px solid #E9EAEB",
-                          background: "#FFF",
-                          transition: "background-color 0.2s ease",
-                        }}
-                        onMouseEnter={(event) => {
-                          event.currentTarget.style.backgroundColor = "#F8F9FC";
-                        }}
-                        onMouseLeave={(event) => {
-                          event.currentTarget.style.backgroundColor = "#FFF";
-                        }}
-                      >
-                        <div
-                          style={{
-                            padding: "12px",
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          {row.letterDescription}
                         </div>
-                        <div
-                          style={{
-                            padding: "12px",
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          {row.jurisdictionType}
-                        </div>
-                        <div
-                          style={{
-                            padding: "12px",
-                            color: "#181D27",
-                            fontFamily: "Public Sans",
-                            fontSize: "14px",
-                            fontWeight: 500,
-                            lineHeight: "20px",
-                          }}
-                        >
-                          {row.applicantLocation}
-                        </div>
-                        <div
-                          style={{
-                            padding: "12px",
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          <button
+                        {col.values.map((value, idx) => (
+                          <div
+                            key={idx}
+                            className={`table-row-${idx}`}
                             style={{
-                              color: "#273572",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: 600,
-                              lineHeight: "20px",
-                              textDecoration: "underline",
-                              background: "transparent",
-                              border: "none",
-                              cursor: "pointer",
-                              padding: 0,
+                              display: "flex",
+                              height: "36px",
+                              padding: "12px",
+                              alignItems: "center",
+                              gap: "8px",
+                              alignSelf: "stretch",
+                              borderBottom: "1px solid #E9EAEB",
                             }}
                           >
-                            {row.actionLabel}
-                          </button>
-                        </div>
+                            {colIdx === 3 ? (
+                              <button
+                                style={{
+                                  color: "#273572",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 600,
+                                  lineHeight: "20px",
+                                  textDecoration: "underline",
+                                  background: "transparent",
+                                  border: "none",
+                                  cursor: "pointer",
+                                  padding: 0,
+                                }}
+                              >
+                                {value}
+                              </button>
+                            ) : (
+                              <div
+                                style={{
+                                  color: "#181D27",
+                                  fontFamily: "Public Sans",
+                                  fontSize: "14px",
+                                  fontWeight: 500,
+                                  lineHeight: "20px",
+                                }}
+                              >
+                                {value}
+                              </div>
+                            )}
+                          </div>
+                        ))}
                       </div>
                     ))}
+                    <style>
+                      {preAdverseRows
+                        .map(
+                          (_, idx) => `
+                        .table-row-${idx}:hover {
+                          background-color: #F8F9FC !important;
+                        }
+                      `,
+                        )
+                        .join("")}
+                    </style>
                   </div>
                 </div>
               )}
