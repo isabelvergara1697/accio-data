@@ -1193,7 +1193,12 @@ export default function Quickscreen() {
                             >
                               {search.location}
                             </td>
-                            <td style={{ padding: isMobile ? "8px 12px" : "12px 16px" }}>
+                            <td
+                              style={{
+                                padding: isMobile ? "8px 12px" : "12px 16px",
+                                width: "14%",
+                              }}
+                            >
                               <div
                                 style={{
                                   display: "flex",
