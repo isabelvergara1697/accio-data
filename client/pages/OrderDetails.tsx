@@ -425,6 +425,7 @@ const OrderDetails: React.FC = () => {
       "upload-applicant-release",
       "request-doc-upload",
       "send-report-copy",
+      "customer-service",
     ],
     [],
   );
