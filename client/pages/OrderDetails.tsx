@@ -369,6 +369,9 @@ const OrderDetails: React.FC = () => {
   // Upload Applicant Release modal state
   const [uploadReleaseModalOpen, setUploadReleaseModalOpen] = useState(false);
 
+  // Request Document Upload modal state
+  const [requestDocumentModalOpen, setRequestDocumentModalOpen] = useState(false);
+
   // Manual rescreening state
   const [manualRescreening, setManualRescreening] = useState<string>("");
 
