@@ -1070,31 +1070,25 @@ export default function AdverseActionProcess() {
                   <div
                     style={{
                       display: "flex",
+                      flexDirection: "column",
                       alignItems: "flex-start",
                       alignSelf: "stretch",
+                      width: "100%",
                     }}
                   >
                     <div
                       style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        flex: "1 0 0",
+                        display: "grid",
+                        gridTemplateColumns: "2fr 2fr 1fr",
+                        alignItems: "center",
+                        padding: "6px 12px",
+                        borderBottom: "1px solid #E9EAEB",
+                        background: "#FFF",
                       }}
                     >
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
-                          alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                          background: "#FFF",
-                        }}
-                      >
+                      {["Document Name", "Documents", "Request From Applicant"].map((header) => (
                         <div
+                          key={header}
                           style={{
                             color: "#717680",
                             fontFamily: "Public Sans",
@@ -1103,84 +1097,74 @@ export default function AdverseActionProcess() {
                             lineHeight: "18px",
                           }}
                         >
-                          Document Name
-                        </div>
-                      </div>
-                      {["SSA-89", "Resume", "Resume"].map((doc, idx) => (
-                        <div
-                          key={idx}
-                          style={{
-                            display: "flex",
-                            height: "36px",
-                            padding: "12px",
-                            alignItems: "center",
-                            gap: "8px",
-                            alignSelf: "stretch",
-                            borderBottom: "1px solid #E9EAEB",
-                          }}
-                        >
-                          <button
-                            style={{
-                              color: idx === 0 ? "#273572" : "#181D27",
-                              fontFamily: "Public Sans",
-                              fontSize: "14px",
-                              fontWeight: idx === 0 ? 600 : 500,
-                              lineHeight: "20px",
-                              textDecoration: idx === 0 ? "underline" : "none",
-                              background: "transparent",
-                              border: "none",
-                              cursor: idx === 0 ? "pointer" : "default",
-                              padding: 0,
-                            }}
-                          >
-                            {doc}
-                          </button>
+                          {header}
                         </div>
                       ))}
                     </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        flex: "1 0 0",
-                      }}
-                    >
+                    {pendingDocumentRows.map((row, index) => (
                       <div
+                        key={`${row.documentName.label}-${index}`}
                         style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
+                          display: "grid",
+                          gridTemplateColumns: "2fr 2fr 1fr",
                           alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
+                          borderBottom:
+                            index === pendingDocumentRows.length - 1
+                              ? "none"
+                              : "1px solid #E9EAEB",
                           background: "#FFF",
+                          transition: "background-color 0.2s ease",
+                        }}
+                        onMouseEnter={(event) => {
+                          event.currentTarget.style.backgroundColor = "#F8F9FC";
+                        }}
+                        onMouseLeave={(event) => {
+                          event.currentTarget.style.backgroundColor = "#FFF";
                         }}
                       >
                         <div
                           style={{
-                            color: "#717680",
-                            fontFamily: "Public Sans",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
+                            padding: "12px",
+                            display: "flex",
+                            alignItems: "center",
                           }}
                         >
-                          Documents
+                          {row.documentName.isLink ? (
+                            <button
+                              style={{
+                                color: "#273572",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 600,
+                                lineHeight: "20px",
+                                textDecoration: "underline",
+                                background: "transparent",
+                                border: "none",
+                                cursor: "pointer",
+                                padding: 0,
+                              }}
+                            >
+                              {row.documentName.label}
+                            </button>
+                          ) : (
+                            <span
+                              style={{
+                                color: "#181D27",
+                                fontFamily: "Public Sans",
+                                fontSize: "14px",
+                                fontWeight: 500,
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {row.documentName.label}
+                            </span>
+                          )}
                         </div>
-                      </div>
-                      {[0, 1, 2].map((idx) => (
                         <div
-                          key={idx}
                           style={{
-                            display: "flex",
-                            height: "36px",
                             padding: "12px",
+                            display: "flex",
                             alignItems: "center",
-                            gap: "8px",
-                            alignSelf: "stretch",
-                            borderBottom: "1px solid #E9EAEB",
                           }}
                         >
                           <button
@@ -1197,60 +1181,20 @@ export default function AdverseActionProcess() {
                               padding: 0,
                             }}
                           >
-                            Click to Upload
+                            {row.documentsLabel}
                           </button>
                         </div>
-                      ))}
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "flex-start",
-                        flex: "1 0 0",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          height: "36px",
-                          padding: "6px 12px",
-                          alignItems: "center",
-                          gap: "12px",
-                          alignSelf: "stretch",
-                          borderBottom: "1px solid #E9EAEB",
-                          background: "#FFF",
-                        }}
-                      >
                         <div
                           style={{
-                            color: "#717680",
-                            fontFamily: "Public Sans",
-                            fontSize: "12px",
-                            fontWeight: 600,
-                            lineHeight: "18px",
-                          }}
-                        >
-                          Request From Applicant
-                        </div>
-                      </div>
-                      {[0, 1, 2].map((idx) => (
-                        <div
-                          key={idx}
-                          style={{
-                            display: "flex",
-                            height: "36px",
                             padding: "12px",
+                            display: "flex",
                             alignItems: "center",
-                            gap: "12px",
-                            alignSelf: "stretch",
-                            borderBottom: "1px solid #E9EAEB",
                           }}
                         >
                           <Checkbox />
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
