@@ -1157,7 +1157,7 @@ export default function Quickscreen() {
                                 className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
                               />
                             </td>
-                            <td style={{ padding: "12px" }}>
+                            <td style={{ padding: isMobile ? "8px" : "12px" }}>
                               <Checkbox
                                 checked={selectedSearches.federal.includes(search.location)}
                                 onCheckedChange={(checked) =>
@@ -1182,7 +1182,7 @@ export default function Quickscreen() {
                                 className="h-4 w-4 shrink-0 rounded-[4px] border-[#D5D7DA] data-[state=checked]:bg-[#344698] data-[state=checked]:border-transparent data-[state=checked]:text-white focus-visible:ring-2 focus-visible:ring-[#344698]"
                               />
                             </td>
-                            <td style={{ padding: "12px" }}>
+                            <td style={{ padding: isMobile ? "8px" : "12px" }}>
                               <Checkbox
                                 checked={selectedSearches.statewide.includes(search.location)}
                                 onCheckedChange={(checked) =>
@@ -1209,12 +1209,13 @@ export default function Quickscreen() {
                             </td>
                             <td
                               style={{
-                                padding: "12px",
+                                padding: isMobile ? "8px" : "12px",
                                 color: "#181D27",
                                 fontFamily: "Public Sans",
                                 fontSize: "14px",
                                 fontWeight: 500,
                                 lineHeight: "20px",
+                                whiteSpace: isMobile ? "nowrap" : "normal",
                               }}
                             >
                               {search.name}
