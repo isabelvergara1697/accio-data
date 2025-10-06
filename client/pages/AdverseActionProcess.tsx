@@ -415,27 +415,29 @@ export default function AdverseActionProcess() {
                 }}
               >
                 <div
+                style={{
+                  display: "flex",
+                  padding: "20px 24px 0 24px",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  alignSelf: "stretch",
+                  borderBottom: "1px solid #E9EAEB",
+                  background: "#FFF",
+                }}
+              >
+                <div
                   style={{
-                    display: "flex",
-                    padding: "20px 24px 0 24px",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    gap: "16px",
-                    alignSelf: "stretch",
+                    color: "#181D27",
+                    fontFamily: "Public Sans",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    lineHeight: "28px",
                   }}
                 >
-                  <div
-                    style={{
-                      color: "#181D27",
-                      fontFamily: "Public Sans",
-                      fontSize: "18px",
-                      fontWeight: 600,
-                      lineHeight: "28px",
-                    }}
-                  >
-                    Authorize and Continue
-                  </div>
+                  Authorize and Continue
                 </div>
+              </div>
               </div>
 
               <div
