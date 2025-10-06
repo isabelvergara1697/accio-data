@@ -614,6 +614,8 @@ export default function Quickscreen() {
                   }}
                 >
                   <div
+                    role="radiogroup"
+                    aria-label="Select preferred name options"
                     style={{
                       display: "flex",
                       alignItems: "flex-start",
