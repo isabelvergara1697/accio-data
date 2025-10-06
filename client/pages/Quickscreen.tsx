@@ -636,7 +636,7 @@ export default function Quickscreen() {
                         alignItems: "flex-start",
                         alignSelf: "stretch",
                         width: "100%",
-                        overflowX: "auto",
+                        overflowX: isMobile ? "auto" : "visible",
                         WebkitOverflowScrolling: "touch",
                         paddingBottom: "8px",
                         scrollbarWidth: "thin",
@@ -646,8 +646,9 @@ export default function Quickscreen() {
                       <table
                         style={{
                           width: "100%",
-                          minWidth: "640px",
+                          minWidth: isMobile ? "640px" : "auto",
                           borderCollapse: "collapse",
+                          tableLayout: "fixed",
                         }}
                       >
                         <thead>
