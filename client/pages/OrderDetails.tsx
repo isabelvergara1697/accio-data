@@ -9055,13 +9055,19 @@ const OrderDetails: React.FC = () => {
                           {/* FCRA Purpose and Criminal Records */}
                           <div
                             style={{
-                              display: "grid",
-                              height: "52px",
-                              rowGap: "16px",
+                              display: isMobile ? "flex" : "grid",
+                              flexDirection: isMobile ? "column" : undefined,
+                              height: isMobile ? "auto" : "52px",
+                              rowGap: isMobile ? "8px" : "16px",
                               columnGap: "16px",
+                              gap: isMobile ? "8px" : undefined,
                               alignSelf: "stretch",
-                              gridTemplateRows: "fit-content(100%)",
-                              gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                              gridTemplateRows: isMobile
+                                ? undefined
+                                : "fit-content(100%)",
+                              gridTemplateColumns: isMobile
+                                ? undefined
+                                : "repeat(2, minmax(0, 1fr))",
                               position: "relative",
                             }}
                           >
@@ -9073,8 +9079,8 @@ const OrderDetails: React.FC = () => {
                                 gap: "4px",
                                 flex: "1 0 0",
                                 alignSelf: "stretch",
-                                gridRow: "1 / span 1",
-                                gridColumn: "1 / span 1",
+                                gridRow: isMobile ? undefined : "1 / span 1",
+                                gridColumn: isMobile ? undefined : "1 / span 1",
                                 position: "relative",
                               }}
                             >
@@ -9116,8 +9122,8 @@ const OrderDetails: React.FC = () => {
                                 gap: "4px",
                                 flex: "1 0 0",
                                 alignSelf: "stretch",
-                                gridRow: "1 / span 1",
-                                gridColumn: "2 / span 1",
+                                gridRow: isMobile ? undefined : "1 / span 1",
+                                gridColumn: isMobile ? undefined : "2 / span 1",
                                 position: "relative",
                               }}
                             >
