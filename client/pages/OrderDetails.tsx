@@ -18008,7 +18008,9 @@ const OrderDetails: React.FC = () => {
                     <div
                       style={{
                         display: "flex",
-                        padding: "12px 24px 20px 24px",
+                        padding: isMobile
+                          ? "12px 16px 20px 16px"
+                          : "12px 24px 20px 24px",
                         flexDirection: "column",
                         alignItems: "flex-start",
                         gap: "10px",
